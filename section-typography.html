@@ -46,7 +46,7 @@
         </li>
         <li class="kss-nav__menu-item">
           <a href="section-colors.html">
-            Color Palette
+            Colors
           </a>
         </li>
         <li class="kss-nav__menu-item">
@@ -54,6 +54,11 @@
             Typography
           </a>
           <ul class="kss-nav__menu-child">
+                <li class="kss-nav__menu-item">
+                  <a href="section-typography.html#kssref-typography-detail-field">
+                    Detail Field
+                  </a>
+                </li>
                 <li class="kss-nav__menu-item">
                   <a href="section-typography.html#kssref-typography-fonts">
                     Font Families
@@ -170,6 +175,102 @@
 
 
             </div>
+            <section id="kssref-typography-detail-field" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-typography-detail-field"> -->
+                Detail Field
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Field with a label.</p>
+
+            </div>
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="detail-field [modifier class]">
+  <span class="detail-field__label">Movies</span>
+  <div class="detail-field__items">
+    <div class="detail-field__item">
+      ConAir
+    </div>
+    <div class="detail-field__item">
+      Honeymoon Las Vegas
+    </div>
+    <div class="detail-field__item">
+      Face/Off
+    </div>
+  </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+             
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Secondary &quot;sidebar&quot; field.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.detail-field--secondary</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="detail-field detail-field--secondary">
+  <span class="detail-field__label">Movies</span>
+  <div class="detail-field__items">
+    <div class="detail-field__item">
+      ConAir
+    </div>
+    <div class="detail-field__item">
+      Honeymoon Las Vegas
+    </div>
+    <div class="detail-field__item">
+      Face/Off
+    </div>
+  </div>
+</div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;detail-field [modifier class]&quot;&gt;
+  &lt;span class=&quot;detail-field__label&quot;&gt;Movies&lt;/span&gt;
+  &lt;div class=&quot;detail-field__items&quot;&gt;
+    &lt;div class=&quot;detail-field__item&quot;&gt;
+      ConAir
+    &lt;/div&gt;
+    &lt;div class=&quot;detail-field__item&quot;&gt;
+      Honeymoon Las Vegas
+    &lt;/div&gt;
+    &lt;div class=&quot;detail-field__item&quot;&gt;
+      Face/Off
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
             <section id="kssref-typography-fonts" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -181,8 +282,8 @@
 
 
             <div class="kss-description">
-              <p>All text on tableau.com is set in either Benton Sans or Merriweather. This
-includes body copy as well as page and section headers.</p>
+              <p>All text is set in either Benton Sans or Merriweather. This includes body copy
+as well as page and section headers.</p>
 <p><strong>BentonSans</strong> is primarily used for section headers and titling in its Thin
 case, but it is also used in its Book case in buttons and other scenarios.
 Occasionally BentonSans Medium is used in article templates.</p>
@@ -206,7 +307,7 @@ Stories and Articles sections.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <p class="text--benton-thin text--big">
+                      <p class="text--benton-thin text--body-medium">
   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
   abcdefghijklmnopqrstuvwxyz<br>
   1234567890!@#$%^&*()
@@ -226,7 +327,7 @@ Stories and Articles sections.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <p class="text--benton-light text--big">
+                      <p class="text--benton-light text--body-medium">
   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
   abcdefghijklmnopqrstuvwxyz<br>
   1234567890!@#$%^&*()
@@ -246,7 +347,7 @@ Stories and Articles sections.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <p class="text--benton-book text--big">
+                      <p class="text--benton-book text--body-medium">
   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
   abcdefghijklmnopqrstuvwxyz<br>
   1234567890!@#$%^&*()
@@ -266,7 +367,7 @@ Stories and Articles sections.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <p class="text--benton-medium text--big">
+                      <p class="text--benton-medium text--body-medium">
   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
   abcdefghijklmnopqrstuvwxyz<br>
   1234567890!@#$%^&*()
@@ -286,7 +387,7 @@ Stories and Articles sections.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <p class="text--merriweather-light text--big">
+                      <p class="text--merriweather-light text--body-medium">
   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
   abcdefghijklmnopqrstuvwxyz<br>
   1234567890!@#$%^&*()
@@ -310,7 +411,8 @@ Stories and Articles sections.</p>
 
 
             <div class="kss-description">
-              <p>Main body copy for longer chunks of content in the body of a page.</p>
+              <p>Default copy formatting for body copy and other areas with longer chunks of
+copy.</p>
 
             </div>
           </div>
@@ -458,7 +560,7 @@ Stories and Articles sections.</p>
 
 
             <div class="kss-description">
-              <p>These heading classes are used for specific contexts.</p>
+              <p>These heading classes are used for specific cases and in specific contexts.</p>
 
             </div>
           </div>
@@ -702,96 +804,6 @@ Stories and Articles sections.</p>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--justified">
-  This sentence is an example of formatted text.
-</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>Huge text (36px)</p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.text--huge</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="text--huge">
-  This sentence is an example of formatted text.
-</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>Big text (24px)</p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.text--big</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="text--big">
-  This sentence is an example of formatted text.
-</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>Base size text (14px)</p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.text--base-size</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="text--base-size">
-  This sentence is an example of formatted text.
-</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>Small text (12px)</p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.text--small</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="text--small">
-  This sentence is an example of formatted text.
-</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>Tiny text - 10px</p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.text--tiny</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="text--tiny">
   This sentence is an example of formatted text.
 </p>
 
