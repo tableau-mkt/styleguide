@@ -172,6 +172,9 @@
             <div class="kss-description">
               <p>The global navigation bar that sits at the top of each page. Contains primary,
 secondary, and sub navigation as well as the global search bar.</p>
+<p><strong>NOTE: The global nav and footer are not yet ready for consumption. We will be
+updating interactions and providing more details on how to implement these
+components very soon in an upcoming release</strong></p>
 
             </div>
           </div>
@@ -194,32 +197,32 @@ secondary, and sub navigation as well as the global search bar.</p>
         <nav class="global-nav__primary-menu">
             <ul>
                 <li>
-                    <a href="#"  class=" expandable  data-drawer-id="products"">
+                    <a href="#"  class=" expandable"  data-drawer-id="products">
                       Products
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable  data-drawer-id="stories"">
+                    <a href="#"  class=" expandable"  data-drawer-id="stories">
                       Stories
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable  data-drawer-id="learning"">
+                    <a href="#"  class=" expandable"  data-drawer-id="learning">
                       Learning
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable  data-drawer-id="community"">
+                    <a href="#"  class=" expandable"  data-drawer-id="community">
                       Community
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable  data-drawer-id="support"">
+                    <a href="#"  class=" expandable"  data-drawer-id="support">
                       Support
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable  data-drawer-id="about"">
+                    <a href="#"  class=" expandable"  data-drawer-id="about">
                       About
                     </a>
                 </li>
@@ -276,7 +279,7 @@ secondary, and sub navigation as well as the global search bar.</p>
         <div class="global-nav__drawer__inner content-container content-container--wide">
           <div class="global-nav__drawer__primary grid--8">
               <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small heading-highlight--desktop text--desktop">
+                  <h3 class="sub-nav__item__title heading-highlight heading--small">
                     <a href="#" class="text--desktop">Tableau Desktop</a>
                   </h3>
                 
@@ -287,7 +290,7 @@ secondary, and sub navigation as well as the global search bar.</p>
                 </p>
               </div>
               <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small heading-highlight--server text--server">
+                  <h3 class="sub-nav__item__title heading-highlight heading--small">
                     <a href="#" class="text--server">Tableau Server</a>
                   </h3>
                 
@@ -298,7 +301,7 @@ secondary, and sub navigation as well as the global search bar.</p>
                 </p>
               </div>
               <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small heading-highlight--online text--online">
+                  <h3 class="sub-nav__item__title heading-highlight heading--small">
                     <a href="#" class="text--online">Tableau Online</a>
                   </h3>
                 
@@ -712,32 +715,32 @@ secondary, and sub navigation as well as the global search bar.</p>
         &lt;nav class=&quot;global-nav__primary-menu&quot;&gt;
             &lt;ul&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable  data-drawer-id=&quot;products&quot;&quot;&gt;
+                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;products&quot;&gt;
                       Products
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable  data-drawer-id=&quot;stories&quot;&quot;&gt;
+                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;stories&quot;&gt;
                       Stories
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable  data-drawer-id=&quot;learning&quot;&quot;&gt;
+                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;learning&quot;&gt;
                       Learning
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable  data-drawer-id=&quot;community&quot;&quot;&gt;
+                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;community&quot;&gt;
                       Community
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable  data-drawer-id=&quot;support&quot;&quot;&gt;
+                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;support&quot;&gt;
                       Support
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable  data-drawer-id=&quot;about&quot;&quot;&gt;
+                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;about&quot;&gt;
                       About
                     &lt;/a&gt;
                 &lt;/li&gt;
@@ -794,7 +797,7 @@ secondary, and sub navigation as well as the global search bar.</p>
         &lt;div class=&quot;global-nav__drawer__inner content-container content-container--wide&quot;&gt;
           &lt;div class=&quot;global-nav__drawer__primary grid--8&quot;&gt;
               &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small heading-highlight--desktop text--desktop&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
                     &lt;a href=&quot;#&quot; class=&quot;text--desktop&quot;&gt;Tableau Desktop&lt;/a&gt;
                   &lt;/h3&gt;
                 
@@ -805,7 +808,7 @@ secondary, and sub navigation as well as the global search bar.</p>
                 &lt;/p&gt;
               &lt;/div&gt;
               &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small heading-highlight--server text--server&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
                     &lt;a href=&quot;#&quot; class=&quot;text--server&quot;&gt;Tableau Server&lt;/a&gt;
                   &lt;/h3&gt;
                 
@@ -816,7 +819,7 @@ secondary, and sub navigation as well as the global search bar.</p>
                 &lt;/p&gt;
               &lt;/div&gt;
               &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small heading-highlight--online text--online&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
                     &lt;a href=&quot;#&quot; class=&quot;text--online&quot;&gt;Tableau Online&lt;/a&gt;
                   &lt;/h3&gt;
                 
@@ -1336,8 +1339,9 @@ secondary, and sub navigation as well as the global search bar.</p>
 
 
             <div class="kss-description">
-              <p>Each Product page on TableauSoftware.com uses a simplified navigation. It is has
-main categories throughout the page as jump links.</p>
+              <p>A secondary navigation which sticks to the top of the page when scrolling and is
+used to navigate to anchors on the same page. Useful when a page is rather long
+and broken up into distinct sections.</p>
 
             </div>
           </div>
@@ -1354,7 +1358,7 @@ main categories throughout the page as jump links.</p>
       <div class="subnav__links bg--dark-gray-1 sticky--mobile">
         <div class="subnav__links__wrapper">
           <ul class="link-list link-list--inline ">
-              <li>
+              <li class="active">
                   <a href="#overview"  class="">Overview</a>
               </li>
               <li>
@@ -1392,7 +1396,7 @@ main categories throughout the page as jump links.</p>
       &lt;div class=&quot;subnav__links bg--dark-gray-1 sticky--mobile&quot;&gt;
         &lt;div class=&quot;subnav__links__wrapper&quot;&gt;
           &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
-              &lt;li&gt;
+              &lt;li class=&quot;active&quot;&gt;
                   &lt;a href=&quot;#overview&quot;  class=&quot;&quot;&gt;Overview&lt;/a&gt;
               &lt;/li&gt;
               &lt;li&gt;
@@ -1610,7 +1614,10 @@ main categories throughout the page as jump links.</p>
 
             <div class="kss-description">
               <p>The global footer that is displayed at the bottom of each page. Contains several
-navigation links, the language selector, social buttons, and a copyright line</p>
+navigation links, the language selector, social buttons, and a copyright line.</p>
+<p><strong>NOTE: The global nav and footer are not yet ready for consumption. We will be
+updating interactions and providing more details on how to implement these
+components very soon in an upcoming release</strong></p>
 
             </div>
           </div>
@@ -1765,6 +1772,7 @@ navigation links, the language selector, social buttons, and a copyright line</p
 <script src="build/vendor/jquery/dist/jquery.min.js"></script>
 <script src="build/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="build/js/vendor.js"></script>
+<script src="build/js/styleguide.js"></script>
 <script src="build/js/scripts.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
