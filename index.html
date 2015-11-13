@@ -120,7 +120,14 @@ added, and possibly even removed. </p>
 <p><img src="https://media.giphy.com/media/xTiTnHMbep19cuNnoY/giphy.gif" alt=""></p>
 <h2 id="installation">Installation</h2>
 <h4 id="download-the-assets">Download the Assets</h4>
-<p>Download a zip of the assets <a href="tableau-components.zip">here</a>.</p>
+<p>All assets including styles, javascript, and other files are packaged up in a 
+ZIP file. The ZIP will decompress into a <code>build</code> folder. If you rename this when
+adding it to your environment, make sure to update all paths below to be 
+relative to the renamed folder rather than <code>/build/</code>.</p>
+<p class="kss-example-preview">
+  <a href="tableau-components.zip" class="cta">Download</a>
+</p>
+
 <h4 id="include-css-in-lt-head-gt-">Include CSS in &lt;head&gt;</h4>
 <div class="kss-markup">
 <pre class="prettyprint lang-html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/build/vendor/slick.js/slick/slick.css&quot; media=&quot;all&quot; /&gt;
@@ -168,10 +175,21 @@ classes where needed or doesn&#39;t allow for manipulation of HTML output, there
 some more involved options that involve customizing the component library. For
 more information on this, see the Development section below and the linked 
 developemnt documentation.</p>
+<h2 id="release-notes-bug-reports">Release Notes &amp; Bug Reports</h2>
+<p>When we release new features, bug fixes, or any other changes to this project,
+we provide notes detailing all changes made. Use these to inform your testing
+as you update to the latest version.  Release notes live in the [Release Notes]
+(<a href="https://github.com/tableau-mkt/components/releases">https://github.com/tableau-mkt/components/releases</a>) section on GitHub.</p>
+<p>All bug reports, feature requests, and issue tracking are handled through the 
+<a href="https://github.com/tableau-mkt/components/issues">Issue Queue</a> on GitHub. 
+Please feel free to submit anything you find to the issue queue; we will 
+monitor and provide fixes where needed.</p>
+<p>If you don&#39;t have access to the GitHub repo yet, request it from 
+<a href="mailto:marketing-webteam@tableau.com?subject=COmponent%20Library%20Access">marketing-webteam@tableau.com</a>.</p>
 <h2 id="development">Development</h2>
 <p>See the project <a href="https://github.com/tableau-mkt/components#tableau-components">README</a>
 for development guidelines for working with the style guide. If you don&#39;t have 
-access, please request it from <a href="mailto:marketing-webteam@tableau.com">marketing-webteam@tableau.com</a>.</p>
+access, please request it from <a href="mailto:marketing-webteam@tableau.com?subject=COmponent%20Library%20Access">marketing-webteam@tableau.com</a>.</p>
 
       </div>
     </article>
@@ -196,6 +214,7 @@ access, please request it from <a href="mailto:marketing-webteam@tableau.com">ma
 <script src="build/js/vendor.js"></script>
 <script src="build/js/styleguide.js"></script>
 <script src="build/js/scripts.js"></script>
+<script src="//localhost:1234/livereload.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
 </body>

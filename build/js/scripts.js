@@ -794,7 +794,7 @@ function dataSourcesSearch() {
   $(document).ready(function(){
     var $heroSlideShow = $('.hero-slideshow');
 
-    if($heroSlideShow) {
+    if($heroSlideShow.length) {
       $heroSlideShow.slick({
         dots: true,
         arrows: true,
@@ -835,7 +835,7 @@ function dataSourcesSearch() {
  * Searches through a list of items and highlights items that match the term.
  */
 (function($){
-  var $searches = $('.search-highlight');
+  var $searches = $('.search-highlight input[type="search"]');
   
   $(document).ready(function(){
     if ($searches.length) {
@@ -866,7 +866,7 @@ function dataSourcesSearch() {
  *
  * This is a simple hover based reveal for the social share display.
  */
-(function ($, window) {
+(function ($) {
   $(document).ready(function () {
     var $socialShare = $('.social-share__wrapper');
 
@@ -885,7 +885,7 @@ function dataSourcesSearch() {
             easing: "easeInOutQuart"
           };
 
-      $this.hover(
+      $this.hoverIntent(
         function socialHoverOn() {
           $widgets.slideHeight('down', animation);
         },
@@ -896,7 +896,7 @@ function dataSourcesSearch() {
     });
 
   });
-})(jQuery, window);
+})(jQuery);
 ;
 (function($){
   $(document).ready(function(){
