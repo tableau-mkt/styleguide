@@ -76,12 +76,17 @@
         </li>
         <li class="kss-nav__menu-item">
           <a href="section-lists.html">
-            Content Lists
+            Lists
           </a>
         </li>
         <li class="kss-nav__menu-item">
           <a href="section-teasers.html">
-            Content Teasers
+            Teasers
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-compound.html">
+            Compound
           </a>
         </li>
         <li class="kss-nav__menu-item">
@@ -115,8 +120,8 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
-                  <a href="section-forms.html#kssref-forms-section-search">
-                    Section Search
+                  <a href="section-forms.html#kssref-forms-contextual-search">
+                    Contextual Search
                   </a>
                 </li>
           </ul>
@@ -128,7 +133,7 @@
         </li>
         <li class="kss-nav__menu-item">
           <a href="section-interactive.html">
-            Interactive Components
+            Interactive
           </a>
         </li>
         <li class="kss-nav__menu-item">
@@ -288,19 +293,20 @@ user can submit information through. Here&#39;s an example form:</p>
             </div>
           </div>
 
-            <h4>Examples</h4>
+            <h4>Example</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
-                <div class="kss-example-details">
-                  <div class="kss-example-desc">
-                    <h6>Default styling</h6>
-                  </div>
-                </div>
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
                     <div class="form-field__wrapper has-float-label">
   <label class="form-field__label" for="text-field">Text Field:</label>
   <input type="text" name="text-field" id="text-field" placeholder="text">
+</div>
+
+<div class="form-field__wrapper">
+  <label class="form-field__label" for="text-field-2">Text Field (No Placeholder)</label>
+  <br>
+  <input type="text" name="text-field-2" id="text-field-2">
 </div>
 
 <div class="form-field__wrapper has-float-label">
@@ -313,19 +319,41 @@ user can submit information through. Here&#39;s an example form:</p>
   <input type="password" name="password-field" id="password-field" placeholder="password">
 </div>
 
-<div class="form-field__wrapper  has-float-label">
+<div class="form-field__wrapper has-float-label">
   <label class="form-field__label" for="sample-textarea">Long text</label>
   <textarea rows="5" name="sample-textarea" placeholder="Long text here..."></textarea>
 </div>
 
+<div class="form-field__wrapper">
+  <label class="form-field__label" for="sample-textarea">Long text (No Placeholder)</label>
+  <br>
+  <textarea rows="5" name="sample-textarea"></textarea>
+</div>
+
 <div class="form-field__wrapper has-float-label">
-  <label class="form-field__label" for="sample-select">Industries</label>
+  <label class="form-field__label" for="sample-select">Select List</label>
 
   <div class="form__select">
     <select name="sample-select">
-      <option class="select-placeholder" value="_none" disabled selected>Industries</option>
-      <option value="bar">Other Choices</option>
-      <option value="bars">Other Choices</option>
+      <option class="select-placeholder" value="_none" disabled selected>Select List</option>
+      <option value="one">Choice One</option>
+      <option value="two">Choice Two</option>
+      <option value="three">Choice Three</option>
+      <option value="four">Choice Four</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-field__wrapper">
+  <label class="form-field__label" for="sample-select">Select List (No Placeholder)</label>
+  <br>
+  <div class="form__select">
+    <select name="sample-select">
+      <option selected>--</option>
+      <option value="one">Choice One</option>
+      <option value="two">Choice Two</option>
+      <option value="three">Choice Three</option>
+      <option value="four">Choice Four</option>
     </select>
   </div>
 </div>
@@ -339,57 +367,6 @@ user can submit information through. Here&#39;s an example form:</p>
                 </div>
               </div>
              
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>A full-width input field.</p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.input--full-width</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <div class="form-field__wrapper has-float-label">
-  <label class="form-field__label" for="text-field">Text Field:</label>
-  <input type="text" name="text-field" id="text-field" placeholder="text">
-</div>
-
-<div class="form-field__wrapper has-float-label">
-  <label class="form-field__label" for="email-field">Email Field:</label>
-  <input type="email" name="email-field" id="email-field" placeholder="email">
-</div>
-
-<div class="form-field__wrapper has-float-label">
-  <label class="form-field__label" for="password-field">Password Field:</label>
-  <input type="password" name="password-field" id="password-field" placeholder="password">
-</div>
-
-<div class="form-field__wrapper  has-float-label">
-  <label class="form-field__label" for="sample-textarea">Long text</label>
-  <textarea rows="5" name="sample-textarea" placeholder="Long text here..."></textarea>
-</div>
-
-<div class="form-field__wrapper has-float-label">
-  <label class="form-field__label" for="sample-select">Industries</label>
-
-  <div class="form__select">
-    <select name="sample-select">
-      <option class="select-placeholder" value="_none" disabled selected>Industries</option>
-      <option value="bar">Other Choices</option>
-      <option value="bars">Other Choices</option>
-    </select>
-  </div>
-</div>
-
-<div class="form-field__wrapper">
-  <input type="checkbox" name="example-checkbox" id="example-checkbox">
-  <label class="form-field__label" for="example-checkbox">A Great Checkbox</label>
-</div>
-
-                    </div>
-                  </div>
-                </div>
             </div>
             
 
@@ -506,22 +483,25 @@ user can submit information through. Here&#39;s an example form:</p>
               </div>
 
             </section>
-            <section id="kssref-forms-section-search" class="kss-section kss-section--depth-2">
+            <section id="kssref-forms-contextual-search" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
             <h3 class="kss-title kss-title--level-2">
-              <!-- <a class="kss-title__permalink" href="#kssref-forms-section-search"> -->
-                Section Search
+              <!-- <a class="kss-title__permalink" href="#kssref-forms-contextual-search"> -->
+                Contextual Search
               <!-- </a> -->
             </h3>
 
 
             <div class="kss-description">
-              <p>Section-level search form used within a specific section to search only content
-of that section. Displays autocomplete list and submits to global search results
-page filtered down to the corresponding section.</p>
-<p>@TODO add dropdonw autocomplete handling/styles as well as the clear &quot;X&quot; in
-place of magnifying glass icon when text is in the field.</p>
+              <p>Contextual search form for section-specific searches.</p>
+<p>Upon submitting (e.g., pressing ENTER or clicking the search submit icon) an
+intermediate search results list is shown in the context of the page (provided
+via AJAX).</p>
+<p>More results text, at the bottom of the intermediate search results list, allows
+you to continue to the full results page.</p>
+<p>Down/up arrow keys allow you to select a results row, and clicking outside the
+search component will close the search results.</p>
 
             </div>
           </div>
@@ -531,10 +511,37 @@ place of magnifying glass icon when text is in the field.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="section-search">
-  <input type="search" name="exampleSearch" placeholder="Search this section">
-  <input type="submit" name="exampleSearchSubmit" value="Search">
+                    <div class="contextual-search">
+  <div class="contextual-search__ui">
+    <form class="contextual-search__form" autocomplete="off">
+      <input class="contextual-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+      <button class="contextual-search__button contextual-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+      <button class="contextual-search__button contextual-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--nic-cage"></i></button>
+    </form>
+    <div class="contextual-search__results">
+      <a href="#row0" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Analytics</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row1" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Sheets API</div>
+        <div class="contextual-search__meta">2 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row2" class="contextual-search__results-row">
+        <div class="contextual-search__title">Good Storytelling with Data</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; DASHBOARDS &amp; STORIES</div>
+      </a>
+      <a href="#more" class="contextual-search__results-row contextual-search__more">
+        65 results for &quot;goo&quot; sitewide
+      </a>
+    </div>
+  </div>
 </div>
+
+<img src="https://cloud.githubusercontent.com/assets/153132/11155558/2140d822-89fb-11e5-9cef-5eaed5798b77.jpeg" alt="Optional image of Nicolas Cage">
 
                   </div>
                 </div>
@@ -544,10 +551,37 @@ place of magnifying glass icon when text is in the field.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;section-search&quot;&gt;
-  &lt;input type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
-  &lt;input type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot; value=&quot;Search&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;contextual-search&quot;&gt;
+  &lt;div class=&quot;contextual-search__ui&quot;&gt;
+    &lt;form class=&quot;contextual-search__form&quot; autocomplete=&quot;off&quot;&gt;
+      &lt;input class=&quot;contextual-search__input&quot; type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
+      &lt;button class=&quot;contextual-search__button contextual-search__submit&quot; type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button class=&quot;contextual-search__button contextual-search__reset&quot; type=&quot;reset&quot; name=&quot;exampleSearchReset&quot;&gt;&lt;i class=&quot;icon icon--nic-cage&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;div class=&quot;contextual-search__results&quot;&gt;
+      &lt;a href=&quot;#row0&quot; class=&quot;contextual-search__results-row&quot;&gt;
+        &lt;div class=&quot;contextual-search__title&quot;&gt;Google Analytics&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__meta&quot;&gt;3 MIN&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__category&quot;&gt;TOPICS &amp;gt; CONNECTING TO DATA&lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#row1&quot; class=&quot;contextual-search__results-row&quot;&gt;
+        &lt;div class=&quot;contextual-search__title&quot;&gt;Google Sheets API&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__meta&quot;&gt;2 MIN&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__category&quot;&gt;TOPICS &amp;gt; CONNECTING TO DATA&lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#row2&quot; class=&quot;contextual-search__results-row&quot;&gt;
+        &lt;div class=&quot;contextual-search__title&quot;&gt;Good Storytelling with Data&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__meta&quot;&gt;3 MIN&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__category&quot;&gt;TOPICS &amp;gt; DASHBOARDS &amp;amp; STORIES&lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#more&quot; class=&quot;contextual-search__results-row contextual-search__more&quot;&gt;
+        65 results for &amp;quot;goo&amp;quot; sitewide
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/153132/11155558/2140d822-89fb-11e5-9cef-5eaed5798b77.jpeg&quot; alt=&quot;Optional image of Nicolas Cage&quot;&gt;
 </code></pre>
               </div>
 

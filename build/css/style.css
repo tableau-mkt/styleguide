@@ -127,10 +127,10 @@ most common proportions for video players.
   margin-left: auto;
   margin-right: auto; }
 
-.float-right {
+.float-right, .video-playlist__all {
   float: right; }
 
-.float-left {
+.float-left, .video-playlist__topic-label {
   float: left; }
 
 .line-height-zero {
@@ -181,17 +181,17 @@ most common proportions for video players.
  *
  * Using placeholders results in CSS rule combining for selectors.
  */
-.plain-list, .inline-list, .tabs__tabs, .link-list.link-list--inline, .tags-list, .pager, .topic-nav .topic-nav__tabs, .context-switcher .context-switcher__list, .agenda-list, .link-list.link-list--plain, .link-list.video-chapters, .topic-nav .topic-nav__topic-list {
+.plain-list, .inline-list, .tabs__tabs, .link-list.link-list--inline, .link-list--inline.video-playlist__list, .tags-list, .pager, .topic-nav .topic-nav__tabs, .context-switcher .context-switcher__list, .agenda-list, .link-list.link-list--plain, .link-list.video-chapters, .video-chapters.video-playlist__list, .video-playlist__list, .topic-nav .topic-nav__topic-list {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .plain-list li, .inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li, .context-switcher .context-switcher__list li, .agenda-list li, .link-list.link-list--plain li, .link-list.video-chapters li, .topic-nav .topic-nav__topic-list li {
+  .plain-list li, .inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .link-list--inline.video-playlist__list li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li, .context-switcher .context-switcher__list li, .agenda-list li, .link-list.link-list--plain li, .link-list.video-chapters li, .video-chapters.video-playlist__list li, .video-playlist__list li, .topic-nav .topic-nav__topic-list li {
     list-style: none; }
 
-.inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li {
+.inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .link-list--inline.video-playlist__list li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li {
   display: inline-block; }
 
-.clearfix:after, .form-field__wrapper:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .flyout__close-wrapper:after, .table-list tbody tr:after, .person-teaser:after {
+.clearfix:after, .location:after, .contextual-search .contextual-search__results-row:after, .form-field__wrapper:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .flyout__close-wrapper:after, .table-list tbody tr:after, .person-teaser:after {
   content: "";
   display: table;
   clear: both; }
@@ -281,6 +281,21 @@ Style guide: colors.text
 Background Colors
 
 Colors used for backgrounds of elements or whole sections of a page.
+
+Markup: colors-background.hbs
+
+Nocode: true
+
+Bgcolor: #F7F9FB
+
+Weight: 2
+
+Style guide: colors.background
+*/
+/*
+Message colors
+
+Colors used for message backgrounds.
 
 Markup: colors-background.hbs
 
@@ -422,10 +437,10 @@ most common proportions for video players.
   margin-left: auto;
   margin-right: auto; }
 
-.float-right {
+.float-right, .video-playlist__all {
   float: right; }
 
-.float-left {
+.float-left, .video-playlist__topic-label {
   float: left; }
 
 .line-height-zero {
@@ -476,17 +491,17 @@ most common proportions for video players.
  *
  * Using placeholders results in CSS rule combining for selectors.
  */
-.plain-list, .inline-list, .tabs__tabs, .link-list.link-list--inline, .tags-list, .pager, .topic-nav .topic-nav__tabs, .context-switcher .context-switcher__list, .agenda-list, .link-list.link-list--plain, .link-list.video-chapters, .topic-nav .topic-nav__topic-list {
+.plain-list, .inline-list, .tabs__tabs, .link-list.link-list--inline, .link-list--inline.video-playlist__list, .tags-list, .pager, .topic-nav .topic-nav__tabs, .context-switcher .context-switcher__list, .agenda-list, .link-list.link-list--plain, .link-list.video-chapters, .video-chapters.video-playlist__list, .video-playlist__list, .topic-nav .topic-nav__topic-list {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .plain-list li, .inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li, .context-switcher .context-switcher__list li, .agenda-list li, .link-list.link-list--plain li, .link-list.video-chapters li, .topic-nav .topic-nav__topic-list li {
+  .plain-list li, .inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .link-list--inline.video-playlist__list li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li, .context-switcher .context-switcher__list li, .agenda-list li, .link-list.link-list--plain li, .link-list.video-chapters li, .video-chapters.video-playlist__list li, .video-playlist__list li, .topic-nav .topic-nav__topic-list li {
     list-style: none; }
 
-.inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li {
+.inline-list li, .tabs__tabs li, .link-list.link-list--inline li, .link-list--inline.video-playlist__list li, .tags-list li, .pager li, .topic-nav .topic-nav__tabs li {
   display: inline-block; }
 
-.clearfix:after, .form-field__wrapper:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .flyout__close-wrapper:after, .table-list tbody tr:after, .person-teaser:after {
+.clearfix:after, .location:after, .contextual-search .contextual-search__results-row:after, .form-field__wrapper:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .flyout__close-wrapper:after, .table-list tbody tr:after, .person-teaser:after {
   content: "";
   display: table;
   clear: both; }
@@ -651,7 +666,7 @@ Weight: 36
 Style guide: media
 */
 /*
-Content Lists
+Lists
 
 Lists of content that generally have a title, thumbnail and/or a description and
 link through to the full version of the content.
@@ -661,7 +676,7 @@ Weight: 40
 Style guide: lists
 */
 /*
-Content Teasers
+Teasers
 
 Breif teasers of content used individually or in lists to link to the full
 view of the content.
@@ -671,12 +686,21 @@ Weight: 50
 Style guide: teasers
 */
 /*
+Compound
+
+Multi-facetted, styled (non-interactive) content display widget.
+
+Weight: 60
+
+Style guide: compound
+*/
+/*
 Forms
 
 Form elements such as text fields and submit buttons used to make forms that the
 user can submit information through. Here's an example form:
 
-Weight: 60
+Weight: 70
 
 Style guide: forms
 */
@@ -685,17 +709,17 @@ Navigation
 
 Navigational tools used across the site
 
-Weight: 70
+Weight: 80
 
 Style guide: navigation
 */
 /*
-Interactive Components
+Interactive
 
 This section displays examples of components that have interactivity. Most
 Interactivity is defined via Javascript.
 
-Weight: 80
+Weight: 90
 
 Style guide: interactive
 */
@@ -704,7 +728,7 @@ Layout
 
 Components used for page layout
 
-Weight: 90
+Weight: 100
 
 Style guide layout
 */
@@ -987,6 +1011,14 @@ Style guide: buttons-links.link-formatted
     content: url(../images/shame/icons/collapse.png); }
   .link.link--share:before, .link--share.topic-link:before, .video-chapters__toggle-wrapper .link--share.video-chapters__toggle:before {
     content: url(../images/shame/icons/share.png); }
+  .link .icon, .topic-link .icon, .video-chapters__toggle-wrapper .video-chapters__toggle .icon, .link .cta.cta--download:after, .topic-link .cta.cta--download:after, .video-chapters__toggle-wrapper .video-chapters__toggle .cta.cta--download:after, .link .form__wrapper input.cta--download[type="submit"]:after, .form__wrapper .link input.cta--download[type="submit"]:after, .topic-link .form__wrapper input.cta--download[type="submit"]:after, .form__wrapper .topic-link input.cta--download[type="submit"]:after, .video-chapters__toggle-wrapper .video-chapters__toggle .form__wrapper input.cta--download[type="submit"]:after, .form__wrapper .video-chapters__toggle-wrapper .video-chapters__toggle input.cta--download[type="submit"]:after, .link .global-nav__top .global-nav__search:before, .global-nav__top .link .global-nav__search:before, .topic-link .global-nav__top .global-nav__search:before, .global-nav__top .topic-link .global-nav__search:before, .video-chapters__toggle-wrapper .video-chapters__toggle .global-nav__top .global-nav__search:before, .global-nav__top .video-chapters__toggle-wrapper .video-chapters__toggle .global-nav__search:before, .link .pager .pager__endcap.pager__endcap--previous a:before, .pager .pager__endcap.pager__endcap--previous .link a:before, .topic-link .pager .pager__endcap.pager__endcap--previous a:before, .pager .pager__endcap.pager__endcap--previous .topic-link a:before, .video-chapters__toggle-wrapper .video-chapters__toggle .pager .pager__endcap.pager__endcap--previous a:before, .pager .pager__endcap.pager__endcap--previous .video-chapters__toggle-wrapper .video-chapters__toggle a:before, .link
+  .pager .pager__endcap.pager__endcap--next a:after,
+  .pager .pager__endcap.pager__endcap--next .link a:after, .topic-link
+  .pager .pager__endcap.pager__endcap--next a:after,
+  .pager .pager__endcap.pager__endcap--next .topic-link a:after, .video-chapters__toggle-wrapper .video-chapters__toggle
+  .pager .pager__endcap.pager__endcap--next a:after,
+  .pager .pager__endcap.pager__endcap--next .video-chapters__toggle-wrapper .video-chapters__toggle a:after {
+    font-size: 1.5em; }
 
 /*
 Topic Link
@@ -1008,6 +1040,493 @@ Style guide: buttons-links.topic-link
   transition: border-color .25s; }
   .topic-link:hover {
     border-color: #dedede; }
+
+/*
+Detail Field
+
+Field with a label.
+
+Markup: detail-field.hbs
+
+Weight: 60
+
+.detail-field--secondary - Secondary "sidebar" field.
+
+Styleguide: compound.detail-field
+*/
+.detail-field.detail-field--secondary {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dedede; }
+  .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items {
+    font-family: "Benton Sans Light", Helvetica, sans-serif; }
+  @media (max-width: 639px) {
+    .detail-field.detail-field--secondary {
+      color: #333; } }
+
+@media (max-width: 639px) {
+  .field--name-field-datetime-range,
+  .field--name-dynamic-field-time {
+    background: #fafafa;
+    float: left;
+    width: 50%; } }
+
+.l-region--content-top.bg-cover {
+  text-align: center;
+  position: relative; }
+  .l-region--content-top.bg-cover .content-inner {
+    padding: 2em 0; }
+
+.l-region--content-top.bg-cover,
+.l-region--content-top.bg-cover h1,
+.l-region--content-top.bg-cover .heading--homepage,
+.l-region--content-top.bg-cover .heading--product {
+  color: #fff;
+  font-family: "Benton Sans Light", Helvetica, sans-serif; }
+
+.l-region--content-top.bg-overlay .hero__bg-cover-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+  background-color: #333; }
+  .l-region--content-top.bg-overlay .hero__bg-cover-overlay ~ * {
+    position: relative; }
+
+/*
+Page Hero
+
+Heroes on need to accomplish two main tasks. First, they need to convey a
+specific story as simply and beautifully as they can in order to drive traffic.
+Secondly, they need to set the tone for the page they are setting up.
+
+Very simple type and imagery treatments can create different feels for pages
+that need to stand on their own.
+
+Markup: hero.hbs
+
+Weight: 10
+
+Style guide: compound.hero
+*/
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+  .hero .hero__background {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto; }
+    .hero .hero__background .hero__background__inner {
+      height: 0;
+      padding-bottom: 33%;
+      background-size: cover; }
+    .hero .hero__background img {
+      position: absolute;
+      width: 100%; }
+  .hero .hero__video {
+    position: relative;
+    line-height: 0;
+    max-width: 1920px;
+    margin: 0 auto; }
+    .hero .hero__video video {
+      width: 100%; }
+  .hero .hero__video + .hero__background {
+    display: none; }
+  @media (min-width: 640px) {
+    .hero .hero__content {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      color: #fff; }
+      .hero .hero__content .hero__content__inner {
+        width: 100%; }
+      .hero .hero__content h1, .hero .hero__content .heading--homepage, .hero .hero__content .heading--product {
+        margin: 0; }
+      .hero .hero__content h4 + .hero__content__headline {
+        margin-top: .5em; }
+      .hero .hero__content .hero__content__cta {
+        margin-top: 1em; } }
+  @media (min-width: 961px) {
+    .hero .hero__background:before,
+    .hero .hero__background:after,
+    .hero .hero__video:before,
+    .hero .hero__video:after {
+      display: none;
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 200px;
+      height: 100%;
+      background-image: linear-gradient(to right, #1b1b1b, transparent); } }
+  @media (min-width: 961px) and (min-width: 1920px) {
+    .hero .hero__background:before,
+    .hero .hero__background:after,
+    .hero .hero__video:before,
+    .hero .hero__video:after {
+      display: block; } }
+  @media (min-width: 961px) {
+    .hero .hero__background:after,
+    .hero .hero__video:after {
+      background-image: linear-gradient(to left, #1b1b1b, transparent);
+      left: auto;
+      right: 0; } }
+
+.bg--white .hero__background:before,
+.bg--white .hero__video:before {
+  background-image: linear-gradient(to right, #fff, transparent); }
+
+.bg--white .hero__background:after,
+.bg--white .hero__video:after {
+  background-image: linear-gradient(to left, #fff, transparent); }
+
+.bg--light-gray-1 .hero__background:before,
+.bg--light-gray-1 .hero__video:before {
+  background-image: linear-gradient(to right, #fafafa, transparent); }
+
+.bg--light-gray-1 .hero__background:after,
+.bg--light-gray-1 .hero__video:after {
+  background-image: linear-gradient(to left, #fafafa, transparent); }
+
+.bg--light-gray-2 .hero__background:before,
+.bg--light-gray-2 .hero__video:before {
+  background-image: linear-gradient(to right, #ebebeb, transparent); }
+
+.bg--light-gray-2 .hero__background:after,
+.bg--light-gray-2 .hero__video:after {
+  background-image: linear-gradient(to left, #ebebeb, transparent); }
+
+.bg--dark-gray-1 .hero__background:before,
+.bg--dark-gray-1 .hero__video:before {
+  background-image: linear-gradient(to right, #464646, transparent); }
+
+.bg--dark-gray-1 .hero__background:after,
+.bg--dark-gray-1 .hero__video:after {
+  background-image: linear-gradient(to left, #464646, transparent); }
+
+.bg--dark-gray-2 .hero__background:before,
+.bg--dark-gray-2 .hero__video:before {
+  background-image: linear-gradient(to right, #333, transparent); }
+
+.bg--dark-gray-2 .hero__background:after,
+.bg--dark-gray-2 .hero__video:after {
+  background-image: linear-gradient(to left, #333, transparent); }
+
+.bg--dark-gray-3 .hero__background:before, .bg--media-shade .hero__background:before,
+.bg--dark-gray-3 .hero__video:before, .bg--media-shade .hero__video:before {
+  background-image: linear-gradient(to right, #1b1b1b, transparent); }
+
+.bg--dark-gray-3 .hero__background:after, .bg--media-shade .hero__background:after,
+.bg--dark-gray-3 .hero__video:after, .bg--media-shade .hero__video:after {
+  background-image: linear-gradient(to left, #1b1b1b, transparent); }
+
+.bg--about-featured .hero__background:before,
+.bg--about-featured .hero__video:before {
+  background-image: linear-gradient(to right, #457387, transparent); }
+
+.bg--about-featured .hero__background:after,
+.bg--about-featured .hero__video:after {
+  background-image: linear-gradient(to left, #457387, transparent); }
+
+.bg--data-sources .hero__background:before, .card.card--quote .hero__background:before,
+.bg--data-sources .hero__video:before, .card.card--quote .hero__video:before {
+  background-image: linear-gradient(to right, #2e4c65, transparent); }
+
+.bg--data-sources .hero__background:after, .card.card--quote .hero__background:after,
+.bg--data-sources .hero__video:after, .card.card--quote .hero__video:after {
+  background-image: linear-gradient(to left, #2e4c65, transparent); }
+
+.bg--nav-drawer-gray-1 .hero__background:before,
+.bg--nav-drawer-gray-1 .hero__video:before {
+  background-image: linear-gradient(to right, #f0f0f0, transparent); }
+
+.bg--nav-drawer-gray-1 .hero__background:after,
+.bg--nav-drawer-gray-1 .hero__video:after {
+  background-image: linear-gradient(to left, #f0f0f0, transparent); }
+
+.bg--nav-drawer-gray-2 .hero__background:before,
+.bg--nav-drawer-gray-2 .hero__video:before {
+  background-image: linear-gradient(to right, #ddd, transparent); }
+
+.bg--nav-drawer-gray-2 .hero__background:after,
+.bg--nav-drawer-gray-2 .hero__video:after {
+  background-image: linear-gradient(to left, #ddd, transparent); }
+
+@media (max-width: 960px) {
+  .hero .hero__video {
+    display: none; }
+  .hero .hero__video + .hero__background {
+    display: block; }
+  .hero .hero__background .hero__background__inner {
+    padding-bottom: 50%; }
+  .hero .hero__content h1.heading--homepage br, .hero .hero__content .heading--homepage br, .hero .hero__content .heading--homepage.heading--product br {
+    display: none; } }
+
+@media (max-width: 639px) {
+  .hero h1, .hero .heading--homepage, .hero .heading--product, .hero h4.heading--label, .hero .detail-field.detail-field--secondary h4.detail-field__items, .detail-field.detail-field--secondary .hero h4.detail-field__items, .hero .detail-field.detail-field--secondary h4.field__items, .detail-field.detail-field--secondary .hero h4.field__items {
+    color: #333; }
+  .hero .hero__content {
+    padding: 2em 0; }
+    .hero .hero__content h1.heading--homepage, .hero .hero__content .heading--homepage, .hero .hero__content .heading--homepage.heading--product {
+      margin-top: .2em; }
+      .hero .hero__content h1.heading--homepage br, .hero .hero__content .heading--homepage br, .hero .hero__content .heading--homepage.heading--product br {
+        display: none; }
+    .hero .hero__content .cta, .hero .hero__content .form__wrapper input[type="submit"], .form__wrapper .hero .hero__content input[type="submit"] {
+      display: block;
+      text-align: center; }
+  .bg--dark-gray-1 .hero,
+  .bg--dark-gray-2 .hero,
+  .bg--dark-gray-3 .hero, .bg--media-shade .hero {
+    background: #fff;
+    color: #333; } }
+
+/*
+Location
+
+Details about a geo-graphic location, with a map.
+
+Weight: 80
+
+Markup: location.hbs
+
+Style guide: compound.location
+*/
+.location .location__map-image {
+  float: left;
+  margin: 0 20px 0 0; }
+
+.location .location__address {
+  float: left; }
+  .location .location__address p {
+    margin: 0.25em; }
+
+.messages ul {
+  margin: 0 0 0 1em;
+  padding: 0; }
+
+.messages li {
+  list-style-image: none; }
+
+/*
+Messages
+
+Display special messages to the user. Recommend putting multiple messages in `<li>` tags.
+
+Markup: messages.hbs
+
+.messages--error
+.messages--warning
+
+Weight: 30
+
+Style guide: compound.messages
+*/
+.messages {
+  padding: 10px;
+  border: none;
+  background-color: #E8F7F1;
+  color: #47B282; }
+  .messages.messages--warning {
+    color: #8f8017;
+    background-color: #fff6b6; }
+  .messages.messages--error {
+    color: #c92434;
+    background-color: #f9e4e4; }
+
+/*
+Quote
+
+Stylized quoted text such as a pull quote or testimonial.
+
+Markup: quote.hbs
+
+Weight: 40
+
+Style Guide: compound.quote
+*/
+.quote .quote__text {
+  position: relative;
+  font-size: 1.7em;
+  line-height: 1.4; }
+  .quote .quote__text:before {
+    position: absolute;
+    content: "\201C";
+    left: -0.6em; }
+  .quote .quote__text:after {
+    content: "\201D"; }
+
+.quote .quote__byline:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  margin-right: .5em;
+  vertical-align: middle;
+  background: #bbb; }
+
+.quote .quote__byline .quote__byline__title {
+  color: #787878; }
+
+.quote.quote--light .quote__byline .quote__byline__name {
+  color: #fff; }
+
+.quote.quote--light .quote__byline .quote__byline__title {
+  color: #bbb; }
+
+.quote.quote--light .quote__byline:before {
+  background: #bbb; }
+
+@media (max-width: 639px) {
+  .quote .quote__text {
+    font-size: 1.2em; }
+  .quote .quote__byline:before {
+    width: 20px; } }
+
+/*
+Contextual Search
+
+Contextual search form for section-specific searches.
+
+Upon submitting (e.g., pressing ENTER or clicking the search submit icon) an
+intermediate search results list is shown in the context of the page (provided
+via AJAX).
+
+More results text, at the bottom of the intermediate search results list, allows
+you to continue to the full results page.
+
+Down/up arrow keys allow you to select a results row, and clicking outside the
+search component will close the search results.
+
+Markup: contextual-search.hbs
+
+Weight: 10
+
+Style guide: forms.contextual-search
+*/
+.contextual-search {
+  position: relative;
+  margin: 2em auto;
+  width: 60%;
+  max-width: 650px;
+  min-height: 4em;
+  /* when component is open */ }
+  @media (max-width: 639px) {
+    .contextual-search {
+      width: 100%; } }
+  .contextual-search .contextual-search__ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: #fafafa;
+    border-radius: 2em;
+    box-shadow: 2px 2px 3px #dedede inset; }
+    @media (max-width: 639px) {
+      .contextual-search .contextual-search__ui {
+        left: 1em;
+        right: 1em; } }
+  .contextual-search .contextual-search__form {
+    position: relative; }
+  .contextual-search .contextual-search__input {
+    margin: 0;
+    padding: 0.9em 3.2em 0.9em 1.6em;
+    width: 100%;
+    height: 3.2em;
+    line-height: normal;
+    background: none;
+    outline: 0;
+    border: 0;
+    font-size: 1.25em;
+    color: #787878;
+    font-family: "Merriweather", serif; }
+    .contextual-search .contextual-search__input::-webkit-input-placeholder {
+      color: #bbb; }
+    .contextual-search .contextual-search__input::-moz-placeholder {
+      color: #bbb; }
+    .contextual-search .contextual-search__input:-ms-input-placeholder {
+      color: #bbb; }
+    .contextual-search .contextual-search__input::placeholder {
+      color: #bbb; }
+    .contextual-search .contextual-search__input::-webkit-search-cancel-button {
+      display: none; }
+    .contextual-search .contextual-search__input::-ms-clear {
+      display: none; }
+  .contextual-search .contextual-search__button {
+    position: absolute;
+    top: 0;
+    right: 0.20833em;
+    border: 0;
+    padding: 0;
+    width: 2.66667em;
+    height: 2.66667em;
+    line-height: 1;
+    font-size: 1.5em;
+    outline: 0;
+    background: transparent;
+    cursor: pointer; }
+  .contextual-search .contextual-search__reset {
+    display: none; }
+  .contextual-search.is-open .contextual-search__ui {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); }
+  .contextual-search.is-open .contextual-search__reset {
+    display: block; }
+  .contextual-search.is-open .contextual-search__submit {
+    display: none; }
+  .contextual-search .contextual-search__results {
+    display: none;
+    margin: 0;
+    padding: 0; }
+  .contextual-search.is-open .contextual-search__results {
+    display: block; }
+  .contextual-search .contextual-search__results-row {
+    transition: background 0.25s ease-in-out;
+    clear: both;
+    display: block;
+    padding: 1.125em 2em;
+    border-bottom: 1px solid #dedede;
+    color: inherit;
+    background: rgba(235, 235, 235, 0.5);
+    text-decoration: none; }
+    .contextual-search .contextual-search__results-row:last-child {
+      border-bottom: 0; }
+    .contextual-search .contextual-search__results-row.is-selected, .contextual-search .contextual-search__results-row:hover {
+      background: #fff; }
+  .contextual-search .contextual-search__title {
+    width: 74.46809%;
+    float: left;
+    margin-right: 2.12766%; }
+  .contextual-search .contextual-search__meta {
+    width: 23.40426%;
+    float: right;
+    margin-right: 0;
+    margin-left: -100%;
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle; }
+  .contextual-search .contextual-search__category {
+    width: 74.46809%;
+    float: left;
+    margin-right: 2.12766%; }
+  .contextual-search .contextual-search__more {
+    display: block;
+    padding: 1.63636em 2.90909em;
+    border-radius: 0 0 2.90909em 2.90909em;
+    color: #eb912c;
+    text-align: center; }
+    .contextual-search .contextual-search__more:hover {
+      text-decoration: none; }
 
 /*
 Base Form Styles
@@ -1049,6 +1568,26 @@ Style guide: forms.base
     transition: opacity 50ms ease, -webkit-transform 150ms ease;
     transition: opacity 50ms ease, transform 150ms ease; }
 
+.has-float-label input[type="text"],
+.has-float-label input[type="search"],
+.has-float-label input[type="tel"],
+.has-float-label input[type="password"],
+.has-float-label input[type="number"],
+.has-float-label input[type="email"],
+.has-float-label textarea {
+  padding-top: 1.7em;
+  padding-bottom: 0.3em; }
+
+.has-float-label .form__select {
+  padding-top: 3em;
+  padding-bottom: 0.3em; }
+  .has-float-label .form__select:before {
+    top: 20px; }
+  .has-float-label .form__select:after {
+    top: 19px; }
+  .has-float-label .form__select select {
+    padding-top: 1.1em; }
+
 /*
 Input Fields
 
@@ -1057,8 +1596,6 @@ Text inputs on a form. Including text fields types, textareas
 Markup: form_input.hbs
 
 Weight: 1
-
-.input--full-width - A full-width input field.
 
 Style guide: forms.input
 
@@ -1076,7 +1613,7 @@ textarea,
   box-sizing: border-box;
   border: 1px solid #dedede;
   border-radius: 0;
-  padding: 1.7em 0.5em 0.3em;
+  padding: 0.5em;
   background: #fff;
   color: #333;
   font-size: 16px;
@@ -1110,10 +1647,16 @@ textarea,
   .form__select {
     text-align: center; }
 
-input::input-placeholder,
-input::-webkit-input-placeholder,
-input::-moz-placeholder,
+input::-webkit-input-placeholder {
+  color: #787878; }
+
+input::-moz-placeholder {
+  color: #787878; }
+
 input:-ms-input-placeholder {
+  color: #787878; }
+
+input::placeholder {
   color: #787878; }
 
 @media (max-width: 639px) {
@@ -1122,7 +1665,7 @@ input:-ms-input-placeholder {
 
 .form__select {
   position: relative;
-  padding: 3em 0.5em 0.3em;
+  padding: 2em 0.5em 0.3em;
   /* Stroke */
   /* Fill */ }
   .form__select:before, .form__select:after {
@@ -1135,26 +1678,26 @@ input:-ms-input-placeholder {
     border-bottom: 0;
     pointer-events: none; }
   .form__select:before {
-    top: 20px;
+    top: 15px;
     right: 11px;
     border-top-color: #dedede;
     border-width: 8px; }
   .form__select:after {
-    top: 19px;
+    top: 14px;
     right: 12px;
     border-top-color: #fff;
     border-width: 7px; }
   .form__select select {
     width: 100%;
-    -webkit-appearance: none;
-            appearance: none;
-    border: 0;
-    background: transparent;
     left: 0.5em;
-    font-size: 1em;
-    color: #333;
+    border: 0;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     outline: none;
-    padding-top: 1.1em; }
+    background: transparent;
+    font-size: 1em;
+    color: #333; }
   .form__select select::-ms-expand {
     display: none; }
 
@@ -1213,60 +1756,6 @@ Weight: 4
 
 Style guide: forms.confirmation
 */
-/*
-Section Search
-
-Section-level search form used within a specific section to search only content
-of that section. Displays autocomplete list and submits to global search results
-page filtered down to the corresponding section.
-
-@TODO add dropdonw autocomplete handling/styles as well as the clear "X" in
-place of magnifying glass icon when text is in the field.
-
-Markup: section-search.hbs
-
-Weight: 10
-
-Style guide: forms.section-search
-*/
-.section-search {
-  width: 60%;
-  position: relative;
-  margin: 2em auto;
-  background: #fafafa;
-  box-shadow: 2px 2px 3px #dedede inset;
-  border-radius: 50px; }
-  .section-search input[type="search"] {
-    width: 100%;
-    margin: 0;
-    padding: 0.9em 64px 0.9em 1.3em;
-    background: none;
-    outline: 0;
-    border: 0;
-    font-size: 1.5em;
-    color: #787878;
-    font-family: "Merriweather", serif; }
-    .section-search input[type="search"]::-webkit-input-placeholder {
-      color: #bbb; }
-  .section-search input[type="submit"] {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 64px;
-    height: 64px;
-    border: 0;
-    outline: 0;
-    overflow: hidden;
-    font-size: 0em;
-    text-indent: -99em;
-    background: none;
-    background-image: url("../images/shame/icons/icon-magnifying-glass.png");
-    background-repeat: no-repeat;
-    background-position: center; }
-  @media (max-width: 639px) {
-    .section-search {
-      width: 100%; } }
-
 /*
 Thumbnail Image
 
@@ -1837,7 +2326,7 @@ Style guide: layout.colored
   .bg--white .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--white .detail-field__items,
   .bg--white .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--white .field__items, .bg--white .heading--h5, .bg--white .detail-field .detail-field__label, .detail-field .bg--white .detail-field__label, .bg--white .detail-field .field__label, .detail-field .bg--white .field__label, .bg--white h2.block__title, .bg--white .block__title.heading--medium,
+  .bg--white .field__items, .bg--white .heading--h5, .bg--white .detail-field .detail-field__label, .detail-field .bg--white .detail-field__label, .bg--white .detail-field .field__label, .detail-field .bg--white .field__label, .bg--white .location .location__general, .location .bg--white .location__general, .bg--white h2.block__title, .bg--white .block__title.heading--medium,
   .bg--white h6, .bg--white .heading--h6 {
     color: #000; }
     .bg--white h1 a, .bg--white .heading--homepage a, .bg--white .heading--product a, .bg--white .heading--h1 a,
@@ -1850,7 +2339,7 @@ Style guide: layout.colored
     .bg--white .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--white .detail-field__items a,
     .bg--white .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--white .field__items a, .bg--white .heading--h5 a, .bg--white .detail-field .detail-field__label a, .detail-field .bg--white .detail-field__label a, .bg--white .detail-field .field__label a, .detail-field .bg--white .field__label a, .bg--white h2.block__title a, .bg--white .block__title.heading--medium a,
+    .bg--white .field__items a, .bg--white .heading--h5 a, .bg--white .detail-field .detail-field__label a, .detail-field .bg--white .detail-field__label a, .bg--white .detail-field .field__label a, .detail-field .bg--white .field__label a, .bg--white .location .location__general a, .location .bg--white .location__general a, .bg--white h2.block__title a, .bg--white .block__title.heading--medium a,
     .bg--white h6 a, .bg--white .heading--h6 a {
       color: #000; }
 
@@ -1867,7 +2356,7 @@ Style guide: layout.colored
   .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--light-gray-1 .detail-field__items,
   .bg--light-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--light-gray-1 .field__items, .bg--light-gray-1 .heading--h5, .bg--light-gray-1 .detail-field .detail-field__label, .detail-field .bg--light-gray-1 .detail-field__label, .bg--light-gray-1 .detail-field .field__label, .detail-field .bg--light-gray-1 .field__label, .bg--light-gray-1 h2.block__title, .bg--light-gray-1 .block__title.heading--medium,
+  .bg--light-gray-1 .field__items, .bg--light-gray-1 .heading--h5, .bg--light-gray-1 .detail-field .detail-field__label, .detail-field .bg--light-gray-1 .detail-field__label, .bg--light-gray-1 .detail-field .field__label, .detail-field .bg--light-gray-1 .field__label, .bg--light-gray-1 .location .location__general, .location .bg--light-gray-1 .location__general, .bg--light-gray-1 h2.block__title, .bg--light-gray-1 .block__title.heading--medium,
   .bg--light-gray-1 h6, .bg--light-gray-1 .heading--h6 {
     color: #000; }
     .bg--light-gray-1 h1 a, .bg--light-gray-1 .heading--homepage a, .bg--light-gray-1 .heading--product a, .bg--light-gray-1 .heading--h1 a,
@@ -1880,7 +2369,7 @@ Style guide: layout.colored
     .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--light-gray-1 .detail-field__items a,
     .bg--light-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--light-gray-1 .field__items a, .bg--light-gray-1 .heading--h5 a, .bg--light-gray-1 .detail-field .detail-field__label a, .detail-field .bg--light-gray-1 .detail-field__label a, .bg--light-gray-1 .detail-field .field__label a, .detail-field .bg--light-gray-1 .field__label a, .bg--light-gray-1 h2.block__title a, .bg--light-gray-1 .block__title.heading--medium a,
+    .bg--light-gray-1 .field__items a, .bg--light-gray-1 .heading--h5 a, .bg--light-gray-1 .detail-field .detail-field__label a, .detail-field .bg--light-gray-1 .detail-field__label a, .bg--light-gray-1 .detail-field .field__label a, .detail-field .bg--light-gray-1 .field__label a, .bg--light-gray-1 .location .location__general a, .location .bg--light-gray-1 .location__general a, .bg--light-gray-1 h2.block__title a, .bg--light-gray-1 .block__title.heading--medium a,
     .bg--light-gray-1 h6 a, .bg--light-gray-1 .heading--h6 a {
       color: #000; }
 
@@ -1897,7 +2386,7 @@ Style guide: layout.colored
   .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--light-gray-2 .detail-field__items,
   .bg--light-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--light-gray-2 .field__items, .bg--light-gray-2 .heading--h5, .bg--light-gray-2 .detail-field .detail-field__label, .detail-field .bg--light-gray-2 .detail-field__label, .bg--light-gray-2 .detail-field .field__label, .detail-field .bg--light-gray-2 .field__label, .bg--light-gray-2 h2.block__title, .bg--light-gray-2 .block__title.heading--medium,
+  .bg--light-gray-2 .field__items, .bg--light-gray-2 .heading--h5, .bg--light-gray-2 .detail-field .detail-field__label, .detail-field .bg--light-gray-2 .detail-field__label, .bg--light-gray-2 .detail-field .field__label, .detail-field .bg--light-gray-2 .field__label, .bg--light-gray-2 .location .location__general, .location .bg--light-gray-2 .location__general, .bg--light-gray-2 h2.block__title, .bg--light-gray-2 .block__title.heading--medium,
   .bg--light-gray-2 h6, .bg--light-gray-2 .heading--h6 {
     color: #000; }
     .bg--light-gray-2 h1 a, .bg--light-gray-2 .heading--homepage a, .bg--light-gray-2 .heading--product a, .bg--light-gray-2 .heading--h1 a,
@@ -1910,7 +2399,7 @@ Style guide: layout.colored
     .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--light-gray-2 .detail-field__items a,
     .bg--light-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--light-gray-2 .field__items a, .bg--light-gray-2 .heading--h5 a, .bg--light-gray-2 .detail-field .detail-field__label a, .detail-field .bg--light-gray-2 .detail-field__label a, .bg--light-gray-2 .detail-field .field__label a, .detail-field .bg--light-gray-2 .field__label a, .bg--light-gray-2 h2.block__title a, .bg--light-gray-2 .block__title.heading--medium a,
+    .bg--light-gray-2 .field__items a, .bg--light-gray-2 .heading--h5 a, .bg--light-gray-2 .detail-field .detail-field__label a, .detail-field .bg--light-gray-2 .detail-field__label a, .bg--light-gray-2 .detail-field .field__label a, .detail-field .bg--light-gray-2 .field__label a, .bg--light-gray-2 .location .location__general a, .location .bg--light-gray-2 .location__general a, .bg--light-gray-2 h2.block__title a, .bg--light-gray-2 .block__title.heading--medium a,
     .bg--light-gray-2 h6 a, .bg--light-gray-2 .heading--h6 a {
       color: #000; }
 
@@ -1927,7 +2416,7 @@ Style guide: layout.colored
   .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--dark-gray-1 .detail-field__items,
   .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--dark-gray-1 .field__items, .bg--dark-gray-1 .heading--h5, .bg--dark-gray-1 .detail-field .detail-field__label, .detail-field .bg--dark-gray-1 .detail-field__label, .bg--dark-gray-1 .detail-field .field__label, .detail-field .bg--dark-gray-1 .field__label, .bg--dark-gray-1 h2.block__title, .bg--dark-gray-1 .block__title.heading--medium,
+  .bg--dark-gray-1 .field__items, .bg--dark-gray-1 .heading--h5, .bg--dark-gray-1 .detail-field .detail-field__label, .detail-field .bg--dark-gray-1 .detail-field__label, .bg--dark-gray-1 .detail-field .field__label, .detail-field .bg--dark-gray-1 .field__label, .bg--dark-gray-1 .location .location__general, .location .bg--dark-gray-1 .location__general, .bg--dark-gray-1 h2.block__title, .bg--dark-gray-1 .block__title.heading--medium,
   .bg--dark-gray-1 h6, .bg--dark-gray-1 .heading--h6 {
     color: #fff; }
     .bg--dark-gray-1 h1 a, .bg--dark-gray-1 .heading--homepage a, .bg--dark-gray-1 .heading--product a, .bg--dark-gray-1 .heading--h1 a,
@@ -1940,7 +2429,7 @@ Style guide: layout.colored
     .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--dark-gray-1 .detail-field__items a,
     .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--dark-gray-1 .field__items a, .bg--dark-gray-1 .heading--h5 a, .bg--dark-gray-1 .detail-field .detail-field__label a, .detail-field .bg--dark-gray-1 .detail-field__label a, .bg--dark-gray-1 .detail-field .field__label a, .detail-field .bg--dark-gray-1 .field__label a, .bg--dark-gray-1 h2.block__title a, .bg--dark-gray-1 .block__title.heading--medium a,
+    .bg--dark-gray-1 .field__items a, .bg--dark-gray-1 .heading--h5 a, .bg--dark-gray-1 .detail-field .detail-field__label a, .detail-field .bg--dark-gray-1 .detail-field__label a, .bg--dark-gray-1 .detail-field .field__label a, .detail-field .bg--dark-gray-1 .field__label a, .bg--dark-gray-1 .location .location__general a, .location .bg--dark-gray-1 .location__general a, .bg--dark-gray-1 h2.block__title a, .bg--dark-gray-1 .block__title.heading--medium a,
     .bg--dark-gray-1 h6 a, .bg--dark-gray-1 .heading--h6 a {
       color: #fff; }
 
@@ -1957,7 +2446,7 @@ Style guide: layout.colored
   .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--dark-gray-2 .detail-field__items,
   .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--dark-gray-2 .field__items, .bg--dark-gray-2 .heading--h5, .bg--dark-gray-2 .detail-field .detail-field__label, .detail-field .bg--dark-gray-2 .detail-field__label, .bg--dark-gray-2 .detail-field .field__label, .detail-field .bg--dark-gray-2 .field__label, .bg--dark-gray-2 h2.block__title, .bg--dark-gray-2 .block__title.heading--medium,
+  .bg--dark-gray-2 .field__items, .bg--dark-gray-2 .heading--h5, .bg--dark-gray-2 .detail-field .detail-field__label, .detail-field .bg--dark-gray-2 .detail-field__label, .bg--dark-gray-2 .detail-field .field__label, .detail-field .bg--dark-gray-2 .field__label, .bg--dark-gray-2 .location .location__general, .location .bg--dark-gray-2 .location__general, .bg--dark-gray-2 h2.block__title, .bg--dark-gray-2 .block__title.heading--medium,
   .bg--dark-gray-2 h6, .bg--dark-gray-2 .heading--h6 {
     color: #fff; }
     .bg--dark-gray-2 h1 a, .bg--dark-gray-2 .heading--homepage a, .bg--dark-gray-2 .heading--product a, .bg--dark-gray-2 .heading--h1 a,
@@ -1970,7 +2459,7 @@ Style guide: layout.colored
     .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--dark-gray-2 .detail-field__items a,
     .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--dark-gray-2 .field__items a, .bg--dark-gray-2 .heading--h5 a, .bg--dark-gray-2 .detail-field .detail-field__label a, .detail-field .bg--dark-gray-2 .detail-field__label a, .bg--dark-gray-2 .detail-field .field__label a, .detail-field .bg--dark-gray-2 .field__label a, .bg--dark-gray-2 h2.block__title a, .bg--dark-gray-2 .block__title.heading--medium a,
+    .bg--dark-gray-2 .field__items a, .bg--dark-gray-2 .heading--h5 a, .bg--dark-gray-2 .detail-field .detail-field__label a, .detail-field .bg--dark-gray-2 .detail-field__label a, .bg--dark-gray-2 .detail-field .field__label a, .detail-field .bg--dark-gray-2 .field__label a, .bg--dark-gray-2 .location .location__general a, .location .bg--dark-gray-2 .location__general a, .bg--dark-gray-2 h2.block__title a, .bg--dark-gray-2 .block__title.heading--medium a,
     .bg--dark-gray-2 h6 a, .bg--dark-gray-2 .heading--h6 a {
       color: #fff; }
 
@@ -1987,7 +2476,7 @@ Style guide: layout.colored
   .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--dark-gray-3 .detail-field__items, .bg--media-shade .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--media-shade .detail-field__items,
   .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--dark-gray-3 .field__items, .bg--media-shade .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--media-shade .field__items, .bg--dark-gray-3 .heading--h5, .bg--media-shade .heading--h5, .bg--dark-gray-3 .detail-field .detail-field__label, .detail-field .bg--dark-gray-3 .detail-field__label, .bg--media-shade .detail-field .detail-field__label, .detail-field .bg--media-shade .detail-field__label, .bg--dark-gray-3 .detail-field .field__label, .detail-field .bg--dark-gray-3 .field__label, .bg--media-shade .detail-field .field__label, .detail-field .bg--media-shade .field__label, .bg--dark-gray-3 h2.block__title, .bg--media-shade h2.block__title, .bg--dark-gray-3 .block__title.heading--medium, .bg--media-shade .block__title.heading--medium,
+  .bg--dark-gray-3 .field__items, .bg--media-shade .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--media-shade .field__items, .bg--dark-gray-3 .heading--h5, .bg--media-shade .heading--h5, .bg--dark-gray-3 .detail-field .detail-field__label, .detail-field .bg--dark-gray-3 .detail-field__label, .bg--media-shade .detail-field .detail-field__label, .detail-field .bg--media-shade .detail-field__label, .bg--dark-gray-3 .detail-field .field__label, .detail-field .bg--dark-gray-3 .field__label, .bg--media-shade .detail-field .field__label, .detail-field .bg--media-shade .field__label, .bg--dark-gray-3 .location .location__general, .location .bg--dark-gray-3 .location__general, .bg--media-shade .location .location__general, .location .bg--media-shade .location__general, .bg--dark-gray-3 h2.block__title, .bg--media-shade h2.block__title, .bg--dark-gray-3 .block__title.heading--medium, .bg--media-shade .block__title.heading--medium,
   .bg--dark-gray-3 h6, .bg--media-shade h6, .bg--dark-gray-3 .heading--h6, .bg--media-shade .heading--h6 {
     color: #fff; }
     .bg--dark-gray-3 h1 a, .bg--media-shade h1 a, .bg--dark-gray-3 .heading--homepage a, .bg--media-shade .heading--homepage a, .bg--dark-gray-3 .heading--product a, .bg--media-shade .heading--product a, .bg--dark-gray-3 .heading--h1 a, .bg--media-shade .heading--h1 a,
@@ -2000,7 +2489,7 @@ Style guide: layout.colored
     .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--dark-gray-3 .detail-field__items a, .bg--media-shade .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--media-shade .detail-field__items a,
     .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--dark-gray-3 .field__items a, .bg--media-shade .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--media-shade .field__items a, .bg--dark-gray-3 .heading--h5 a, .bg--media-shade .heading--h5 a, .bg--dark-gray-3 .detail-field .detail-field__label a, .detail-field .bg--dark-gray-3 .detail-field__label a, .bg--media-shade .detail-field .detail-field__label a, .detail-field .bg--media-shade .detail-field__label a, .bg--dark-gray-3 .detail-field .field__label a, .detail-field .bg--dark-gray-3 .field__label a, .bg--media-shade .detail-field .field__label a, .detail-field .bg--media-shade .field__label a, .bg--dark-gray-3 h2.block__title a, .bg--media-shade h2.block__title a, .bg--dark-gray-3 .block__title.heading--medium a, .bg--media-shade .block__title.heading--medium a,
+    .bg--dark-gray-3 .field__items a, .bg--media-shade .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--media-shade .field__items a, .bg--dark-gray-3 .heading--h5 a, .bg--media-shade .heading--h5 a, .bg--dark-gray-3 .detail-field .detail-field__label a, .detail-field .bg--dark-gray-3 .detail-field__label a, .bg--media-shade .detail-field .detail-field__label a, .detail-field .bg--media-shade .detail-field__label a, .bg--dark-gray-3 .detail-field .field__label a, .detail-field .bg--dark-gray-3 .field__label a, .bg--media-shade .detail-field .field__label a, .detail-field .bg--media-shade .field__label a, .bg--dark-gray-3 .location .location__general a, .location .bg--dark-gray-3 .location__general a, .bg--media-shade .location .location__general a, .location .bg--media-shade .location__general a, .bg--dark-gray-3 h2.block__title a, .bg--media-shade h2.block__title a, .bg--dark-gray-3 .block__title.heading--medium a, .bg--media-shade .block__title.heading--medium a,
     .bg--dark-gray-3 h6 a, .bg--media-shade h6 a, .bg--dark-gray-3 .heading--h6 a, .bg--media-shade .heading--h6 a {
       color: #fff; }
 
@@ -2017,7 +2506,7 @@ Style guide: layout.colored
   .bg--about-featured .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--about-featured .detail-field__items,
   .bg--about-featured .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--about-featured .field__items, .bg--about-featured .heading--h5, .bg--about-featured .detail-field .detail-field__label, .detail-field .bg--about-featured .detail-field__label, .bg--about-featured .detail-field .field__label, .detail-field .bg--about-featured .field__label, .bg--about-featured h2.block__title, .bg--about-featured .block__title.heading--medium,
+  .bg--about-featured .field__items, .bg--about-featured .heading--h5, .bg--about-featured .detail-field .detail-field__label, .detail-field .bg--about-featured .detail-field__label, .bg--about-featured .detail-field .field__label, .detail-field .bg--about-featured .field__label, .bg--about-featured .location .location__general, .location .bg--about-featured .location__general, .bg--about-featured h2.block__title, .bg--about-featured .block__title.heading--medium,
   .bg--about-featured h6, .bg--about-featured .heading--h6 {
     color: #fff; }
     .bg--about-featured h1 a, .bg--about-featured .heading--homepage a, .bg--about-featured .heading--product a, .bg--about-featured .heading--h1 a,
@@ -2030,7 +2519,7 @@ Style guide: layout.colored
     .bg--about-featured .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--about-featured .detail-field__items a,
     .bg--about-featured .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--about-featured .field__items a, .bg--about-featured .heading--h5 a, .bg--about-featured .detail-field .detail-field__label a, .detail-field .bg--about-featured .detail-field__label a, .bg--about-featured .detail-field .field__label a, .detail-field .bg--about-featured .field__label a, .bg--about-featured h2.block__title a, .bg--about-featured .block__title.heading--medium a,
+    .bg--about-featured .field__items a, .bg--about-featured .heading--h5 a, .bg--about-featured .detail-field .detail-field__label a, .detail-field .bg--about-featured .detail-field__label a, .bg--about-featured .detail-field .field__label a, .detail-field .bg--about-featured .field__label a, .bg--about-featured .location .location__general a, .location .bg--about-featured .location__general a, .bg--about-featured h2.block__title a, .bg--about-featured .block__title.heading--medium a,
     .bg--about-featured h6 a, .bg--about-featured .heading--h6 a {
       color: #fff; }
 
@@ -2047,7 +2536,7 @@ Style guide: layout.colored
   .bg--data-sources .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--data-sources .detail-field__items, .card.card--quote .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .card.card--quote .detail-field__items,
   .bg--data-sources .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--data-sources .field__items, .card.card--quote .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .card.card--quote .field__items, .bg--data-sources .heading--h5, .card.card--quote .heading--h5, .bg--data-sources .detail-field .detail-field__label, .detail-field .bg--data-sources .detail-field__label, .card.card--quote .detail-field .detail-field__label, .detail-field .card.card--quote .detail-field__label, .bg--data-sources .detail-field .field__label, .detail-field .bg--data-sources .field__label, .card.card--quote .detail-field .field__label, .detail-field .card.card--quote .field__label, .bg--data-sources h2.block__title, .card.card--quote h2.block__title, .bg--data-sources .block__title.heading--medium, .card.card--quote .block__title.heading--medium,
+  .bg--data-sources .field__items, .card.card--quote .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .card.card--quote .field__items, .bg--data-sources .heading--h5, .card.card--quote .heading--h5, .bg--data-sources .detail-field .detail-field__label, .detail-field .bg--data-sources .detail-field__label, .card.card--quote .detail-field .detail-field__label, .detail-field .card.card--quote .detail-field__label, .bg--data-sources .detail-field .field__label, .detail-field .bg--data-sources .field__label, .card.card--quote .detail-field .field__label, .detail-field .card.card--quote .field__label, .bg--data-sources .location .location__general, .location .bg--data-sources .location__general, .card.card--quote .location .location__general, .location .card.card--quote .location__general, .bg--data-sources h2.block__title, .card.card--quote h2.block__title, .bg--data-sources .block__title.heading--medium, .card.card--quote .block__title.heading--medium,
   .bg--data-sources h6, .card.card--quote h6, .bg--data-sources .heading--h6, .card.card--quote .heading--h6 {
     color: #fff; }
     .bg--data-sources h1 a, .card.card--quote h1 a, .bg--data-sources .heading--homepage a, .card.card--quote .heading--homepage a, .bg--data-sources .heading--product a, .card.card--quote .heading--product a, .bg--data-sources .heading--h1 a, .card.card--quote .heading--h1 a,
@@ -2060,7 +2549,7 @@ Style guide: layout.colored
     .bg--data-sources .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--data-sources .detail-field__items a, .card.card--quote .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .card.card--quote .detail-field__items a,
     .bg--data-sources .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--data-sources .field__items a, .card.card--quote .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .card.card--quote .field__items a, .bg--data-sources .heading--h5 a, .card.card--quote .heading--h5 a, .bg--data-sources .detail-field .detail-field__label a, .detail-field .bg--data-sources .detail-field__label a, .card.card--quote .detail-field .detail-field__label a, .detail-field .card.card--quote .detail-field__label a, .bg--data-sources .detail-field .field__label a, .detail-field .bg--data-sources .field__label a, .card.card--quote .detail-field .field__label a, .detail-field .card.card--quote .field__label a, .bg--data-sources h2.block__title a, .card.card--quote h2.block__title a, .bg--data-sources .block__title.heading--medium a, .card.card--quote .block__title.heading--medium a,
+    .bg--data-sources .field__items a, .card.card--quote .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .card.card--quote .field__items a, .bg--data-sources .heading--h5 a, .card.card--quote .heading--h5 a, .bg--data-sources .detail-field .detail-field__label a, .detail-field .bg--data-sources .detail-field__label a, .card.card--quote .detail-field .detail-field__label a, .detail-field .card.card--quote .detail-field__label a, .bg--data-sources .detail-field .field__label a, .detail-field .bg--data-sources .field__label a, .card.card--quote .detail-field .field__label a, .detail-field .card.card--quote .field__label a, .bg--data-sources .location .location__general a, .location .bg--data-sources .location__general a, .card.card--quote .location .location__general a, .location .card.card--quote .location__general a, .bg--data-sources h2.block__title a, .card.card--quote h2.block__title a, .bg--data-sources .block__title.heading--medium a, .card.card--quote .block__title.heading--medium a,
     .bg--data-sources h6 a, .card.card--quote h6 a, .bg--data-sources .heading--h6 a, .card.card--quote .heading--h6 a {
       color: #fff; }
 
@@ -2077,7 +2566,7 @@ Style guide: layout.colored
   .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--nav-drawer-gray-1 .detail-field__items,
   .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--nav-drawer-gray-1 .field__items, .bg--nav-drawer-gray-1 .heading--h5, .bg--nav-drawer-gray-1 .detail-field .detail-field__label, .detail-field .bg--nav-drawer-gray-1 .detail-field__label, .bg--nav-drawer-gray-1 .detail-field .field__label, .detail-field .bg--nav-drawer-gray-1 .field__label, .bg--nav-drawer-gray-1 h2.block__title, .bg--nav-drawer-gray-1 .block__title.heading--medium,
+  .bg--nav-drawer-gray-1 .field__items, .bg--nav-drawer-gray-1 .heading--h5, .bg--nav-drawer-gray-1 .detail-field .detail-field__label, .detail-field .bg--nav-drawer-gray-1 .detail-field__label, .bg--nav-drawer-gray-1 .detail-field .field__label, .detail-field .bg--nav-drawer-gray-1 .field__label, .bg--nav-drawer-gray-1 .location .location__general, .location .bg--nav-drawer-gray-1 .location__general, .bg--nav-drawer-gray-1 h2.block__title, .bg--nav-drawer-gray-1 .block__title.heading--medium,
   .bg--nav-drawer-gray-1 h6, .bg--nav-drawer-gray-1 .heading--h6 {
     color: #000; }
     .bg--nav-drawer-gray-1 h1 a, .bg--nav-drawer-gray-1 .heading--homepage a, .bg--nav-drawer-gray-1 .heading--product a, .bg--nav-drawer-gray-1 .heading--h1 a,
@@ -2090,7 +2579,7 @@ Style guide: layout.colored
     .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--nav-drawer-gray-1 .detail-field__items a,
     .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--nav-drawer-gray-1 .field__items a, .bg--nav-drawer-gray-1 .heading--h5 a, .bg--nav-drawer-gray-1 .detail-field .detail-field__label a, .detail-field .bg--nav-drawer-gray-1 .detail-field__label a, .bg--nav-drawer-gray-1 .detail-field .field__label a, .detail-field .bg--nav-drawer-gray-1 .field__label a, .bg--nav-drawer-gray-1 h2.block__title a, .bg--nav-drawer-gray-1 .block__title.heading--medium a,
+    .bg--nav-drawer-gray-1 .field__items a, .bg--nav-drawer-gray-1 .heading--h5 a, .bg--nav-drawer-gray-1 .detail-field .detail-field__label a, .detail-field .bg--nav-drawer-gray-1 .detail-field__label a, .bg--nav-drawer-gray-1 .detail-field .field__label a, .detail-field .bg--nav-drawer-gray-1 .field__label a, .bg--nav-drawer-gray-1 .location .location__general a, .location .bg--nav-drawer-gray-1 .location__general a, .bg--nav-drawer-gray-1 h2.block__title a, .bg--nav-drawer-gray-1 .block__title.heading--medium a,
     .bg--nav-drawer-gray-1 h6 a, .bg--nav-drawer-gray-1 .heading--h6 a {
       color: #000; }
 
@@ -2107,7 +2596,7 @@ Style guide: layout.colored
   .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .bg--nav-drawer-gray-2 .detail-field__items,
   .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .bg--nav-drawer-gray-2 .field__items, .bg--nav-drawer-gray-2 .heading--h5, .bg--nav-drawer-gray-2 .detail-field .detail-field__label, .detail-field .bg--nav-drawer-gray-2 .detail-field__label, .bg--nav-drawer-gray-2 .detail-field .field__label, .detail-field .bg--nav-drawer-gray-2 .field__label, .bg--nav-drawer-gray-2 h2.block__title, .bg--nav-drawer-gray-2 .block__title.heading--medium,
+  .bg--nav-drawer-gray-2 .field__items, .bg--nav-drawer-gray-2 .heading--h5, .bg--nav-drawer-gray-2 .detail-field .detail-field__label, .detail-field .bg--nav-drawer-gray-2 .detail-field__label, .bg--nav-drawer-gray-2 .detail-field .field__label, .detail-field .bg--nav-drawer-gray-2 .field__label, .bg--nav-drawer-gray-2 .location .location__general, .location .bg--nav-drawer-gray-2 .location__general, .bg--nav-drawer-gray-2 h2.block__title, .bg--nav-drawer-gray-2 .block__title.heading--medium,
   .bg--nav-drawer-gray-2 h6, .bg--nav-drawer-gray-2 .heading--h6 {
     color: #000; }
     .bg--nav-drawer-gray-2 h1 a, .bg--nav-drawer-gray-2 .heading--homepage a, .bg--nav-drawer-gray-2 .heading--product a, .bg--nav-drawer-gray-2 .heading--h1 a,
@@ -2120,7 +2609,7 @@ Style guide: layout.colored
     .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .bg--nav-drawer-gray-2 .detail-field__items a,
     .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .bg--nav-drawer-gray-2 .field__items a, .bg--nav-drawer-gray-2 .heading--h5 a, .bg--nav-drawer-gray-2 .detail-field .detail-field__label a, .detail-field .bg--nav-drawer-gray-2 .detail-field__label a, .bg--nav-drawer-gray-2 .detail-field .field__label a, .detail-field .bg--nav-drawer-gray-2 .field__label a, .bg--nav-drawer-gray-2 h2.block__title a, .bg--nav-drawer-gray-2 .block__title.heading--medium a,
+    .bg--nav-drawer-gray-2 .field__items a, .bg--nav-drawer-gray-2 .heading--h5 a, .bg--nav-drawer-gray-2 .detail-field .detail-field__label a, .detail-field .bg--nav-drawer-gray-2 .detail-field__label a, .bg--nav-drawer-gray-2 .detail-field .field__label a, .detail-field .bg--nav-drawer-gray-2 .field__label a, .bg--nav-drawer-gray-2 .location .location__general a, .location .bg--nav-drawer-gray-2 .location__general a, .bg--nav-drawer-gray-2 h2.block__title a, .bg--nav-drawer-gray-2 .block__title.heading--medium a,
     .bg--nav-drawer-gray-2 h6 a, .bg--nav-drawer-gray-2 .heading--h6 a {
       color: #000; }
 
@@ -2159,12 +2648,16 @@ Style guide: layout.container
     padding-right: 3%; }
 
 @media (max-width: 960px) {
-  .content-container.content-container--wide, .content-container--wide.flyout__close-wrapper, .content-container.content-container--narrow, .content-container--narrow.flyout__close-wrapper {
+  .content-container, .flyout__close-wrapper,
+  .content-container--wide,
+  .content-container--narrow {
     padding-left: 2em;
     padding-right: 2em; } }
 
 @media (max-width: 639px) {
-  .content-container.content-container--wide, .content-container--wide.flyout__close-wrapper, .content-container.content-container--narrow, .content-container--narrow.flyout__close-wrapper {
+  .content-container, .flyout__close-wrapper,
+  .content-container--wide,
+  .content-container--narrow {
     padding-left: 1em;
     padding-right: 1em; } }
 
@@ -2279,9 +2772,9 @@ Style guide: layout.grids
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--1 {
-      width: 6.3829787234%;
+      width: 6.38298%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--1.grid--last {
         margin-right: 0; }
       .grid--1:last-child {
@@ -2289,20 +2782,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--1 {
-    margin-left: 8.5106382979%; } }
+    margin-left: 8.51064%; } }
 
 @media (min-width: 640px) {
   .pull--1 {
-    margin-left: -8.5106382979%; } }
+    margin-left: -8.51064%; } }
 
 .grid--2 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--2 {
-      width: 14.8936170213%;
+      width: 14.89362%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--2.grid--last {
         margin-right: 0; }
       .grid--2:last-child {
@@ -2310,20 +2803,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--2 {
-    margin-left: 17.0212765957%; } }
+    margin-left: 17.02128%; } }
 
 @media (min-width: 640px) {
   .pull--2 {
-    margin-left: -17.0212765957%; } }
+    margin-left: -17.02128%; } }
 
 .grid--3 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--3 {
-      width: 23.4042553191%;
+      width: 23.40426%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--3.grid--last {
         margin-right: 0; }
       .grid--3:last-child {
@@ -2331,20 +2824,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--3 {
-    margin-left: 25.5319148936%; } }
+    margin-left: 25.53191%; } }
 
 @media (min-width: 640px) {
   .pull--3 {
-    margin-left: -25.5319148936%; } }
+    margin-left: -25.53191%; } }
 
 .grid--4 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--4 {
-      width: 31.914893617%;
+      width: 31.91489%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--4.grid--last {
         margin-right: 0; }
       .grid--4:last-child {
@@ -2352,20 +2845,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--4 {
-    margin-left: 34.0425531915%; } }
+    margin-left: 34.04255%; } }
 
 @media (min-width: 640px) {
   .pull--4 {
-    margin-left: -34.0425531915%; } }
+    margin-left: -34.04255%; } }
 
 .grid--5 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--5 {
-      width: 40.4255319149%;
+      width: 40.42553%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--5.grid--last {
         margin-right: 0; }
       .grid--5:last-child {
@@ -2373,20 +2866,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--5 {
-    margin-left: 42.5531914894%; } }
+    margin-left: 42.55319%; } }
 
 @media (min-width: 640px) {
   .pull--5 {
-    margin-left: -42.5531914894%; } }
+    margin-left: -42.55319%; } }
 
 .grid--6 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--6 {
-      width: 48.9361702128%;
+      width: 48.93617%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--6.grid--last {
         margin-right: 0; }
       .grid--6:last-child {
@@ -2394,20 +2887,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--6 {
-    margin-left: 51.0638297872%; } }
+    margin-left: 51.06383%; } }
 
 @media (min-width: 640px) {
   .pull--6 {
-    margin-left: -51.0638297872%; } }
+    margin-left: -51.06383%; } }
 
 .grid--7 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--7 {
-      width: 57.4468085106%;
+      width: 57.44681%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--7.grid--last {
         margin-right: 0; }
       .grid--7:last-child {
@@ -2415,20 +2908,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--7 {
-    margin-left: 59.5744680851%; } }
+    margin-left: 59.57447%; } }
 
 @media (min-width: 640px) {
   .pull--7 {
-    margin-left: -59.5744680851%; } }
+    margin-left: -59.57447%; } }
 
 .grid--8 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--8 {
-      width: 65.9574468085%;
+      width: 65.95745%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--8.grid--last {
         margin-right: 0; }
       .grid--8:last-child {
@@ -2436,20 +2929,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--8 {
-    margin-left: 68.085106383%; } }
+    margin-left: 68.08511%; } }
 
 @media (min-width: 640px) {
   .pull--8 {
-    margin-left: -68.085106383%; } }
+    margin-left: -68.08511%; } }
 
 .grid--9 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--9 {
-      width: 74.4680851064%;
+      width: 74.46809%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--9.grid--last {
         margin-right: 0; }
       .grid--9:last-child {
@@ -2457,20 +2950,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--9 {
-    margin-left: 76.5957446809%; } }
+    margin-left: 76.59574%; } }
 
 @media (min-width: 640px) {
   .pull--9 {
-    margin-left: -76.5957446809%; } }
+    margin-left: -76.59574%; } }
 
 .grid--10 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--10 {
-      width: 82.9787234043%;
+      width: 82.97872%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--10.grid--last {
         margin-right: 0; }
       .grid--10:last-child {
@@ -2478,20 +2971,20 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--10 {
-    margin-left: 85.1063829787%; } }
+    margin-left: 85.10638%; } }
 
 @media (min-width: 640px) {
   .pull--10 {
-    margin-left: -85.1063829787%; } }
+    margin-left: -85.10638%; } }
 
 .grid--11 {
   position: relative;
   box-sizing: border-box; }
   @media (min-width: 640px) {
     .grid--11 {
-      width: 91.4893617021%;
+      width: 91.48936%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .grid--11.grid--last {
         margin-right: 0; }
       .grid--11:last-child {
@@ -2499,11 +2992,11 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--11 {
-    margin-left: 93.6170212766%; } }
+    margin-left: 93.61702%; } }
 
 @media (min-width: 640px) {
   .pull--11 {
-    margin-left: -93.6170212766%; } }
+    margin-left: -93.61702%; } }
 
 .grid--12 {
   position: relative;
@@ -2521,17 +3014,17 @@ Style guide: layout.grids
 
 @media (min-width: 640px) {
   .push--12 {
-    margin-left: 102.127659574%; } }
+    margin-left: 102.12766%; } }
 
 @media (min-width: 640px) {
   .pull--12 {
-    margin-left: -102.127659574%; } }
+    margin-left: -102.12766%; } }
 
 @media (max-width: 799.5px) and (min-width: 426px) {
   .grid--tablet-mobile-split .grid--3 {
-    width: 48.9361702128%;
+    width: 48.93617%;
     float: left;
-    margin-right: 2.1276595745%; }
+    margin-right: 2.12766%; }
     .grid--tablet-mobile-split .grid--3:nth-child(even) {
       margin-right: 0; } }
 
@@ -2540,406 +3033,210 @@ Style guide: layout.grids
     width: 100%;
     margin-right: 0; }
   .grid--tablet-half {
-    width: 48.9361702128%;
+    width: 48.93617%;
     float: left;
-    margin-right: 2.1276595745%; }
+    margin-right: 2.12766%; }
     .grid--tablet-half:nth-child(even) {
       margin-right: 0; } }
 
 /*
 Half-column Push/Pull
 
-This is just a utility to allow for pushing and pulling by half-column units 
+This is just a utility to allow for pushing and pulling by half-column units
 rather than needing to push by a full unit. This should only be used if you need
 to center content in an uneven number of columns
  */
 @media (min-width: 640px) {
   .push-half--1 {
-    margin-left: 4.2372881356%; } }
+    margin-left: 4.23729%; } }
 
 @media (min-width: 640px) {
   .pull-half--1 {
-    margin-left: -4.2372881356%; } }
+    margin-left: -4.23729%; } }
 
 @media (min-width: 640px) {
   .push-half--2 {
-    margin-left: 8.4745762712%; } }
+    margin-left: 8.47458%; } }
 
 @media (min-width: 640px) {
   .pull-half--2 {
-    margin-left: -8.4745762712%; } }
+    margin-left: -8.47458%; } }
 
 @media (min-width: 640px) {
   .push-half--3 {
-    margin-left: 12.7118644068%; } }
+    margin-left: 12.71186%; } }
 
 @media (min-width: 640px) {
   .pull-half--3 {
-    margin-left: -12.7118644068%; } }
+    margin-left: -12.71186%; } }
 
 @media (min-width: 640px) {
   .push-half--4 {
-    margin-left: 16.9491525424%; } }
+    margin-left: 16.94915%; } }
 
 @media (min-width: 640px) {
   .pull-half--4 {
-    margin-left: -16.9491525424%; } }
+    margin-left: -16.94915%; } }
 
 @media (min-width: 640px) {
   .push-half--5 {
-    margin-left: 21.186440678%; } }
+    margin-left: 21.18644%; } }
 
 @media (min-width: 640px) {
   .pull-half--5 {
-    margin-left: -21.186440678%; } }
+    margin-left: -21.18644%; } }
 
 @media (min-width: 640px) {
   .push-half--6 {
-    margin-left: 25.4237288136%; } }
+    margin-left: 25.42373%; } }
 
 @media (min-width: 640px) {
   .pull-half--6 {
-    margin-left: -25.4237288136%; } }
+    margin-left: -25.42373%; } }
 
 @media (min-width: 640px) {
   .push-half--7 {
-    margin-left: 29.6610169492%; } }
+    margin-left: 29.66102%; } }
 
 @media (min-width: 640px) {
   .pull-half--7 {
-    margin-left: -29.6610169492%; } }
+    margin-left: -29.66102%; } }
 
 @media (min-width: 640px) {
   .push-half--8 {
-    margin-left: 33.8983050847%; } }
+    margin-left: 33.89831%; } }
 
 @media (min-width: 640px) {
   .pull-half--8 {
-    margin-left: -33.8983050847%; } }
+    margin-left: -33.89831%; } }
 
 @media (min-width: 640px) {
   .push-half--9 {
-    margin-left: 38.1355932203%; } }
+    margin-left: 38.13559%; } }
 
 @media (min-width: 640px) {
   .pull-half--9 {
-    margin-left: -38.1355932203%; } }
+    margin-left: -38.13559%; } }
 
 @media (min-width: 640px) {
   .push-half--10 {
-    margin-left: 42.3728813559%; } }
+    margin-left: 42.37288%; } }
 
 @media (min-width: 640px) {
   .pull-half--10 {
-    margin-left: -42.3728813559%; } }
+    margin-left: -42.37288%; } }
 
 @media (min-width: 640px) {
   .push-half--11 {
-    margin-left: 46.6101694915%; } }
+    margin-left: 46.61017%; } }
 
 @media (min-width: 640px) {
   .pull-half--11 {
-    margin-left: -46.6101694915%; } }
+    margin-left: -46.61017%; } }
 
 @media (min-width: 640px) {
   .push-half--12 {
-    margin-left: 50.8474576271%; } }
+    margin-left: 50.84746%; } }
 
 @media (min-width: 640px) {
   .pull-half--12 {
-    margin-left: -50.8474576271%; } }
+    margin-left: -50.84746%; } }
 
 @media (min-width: 640px) {
   .push-half--13 {
-    margin-left: 55.0847457627%; } }
+    margin-left: 55.08475%; } }
 
 @media (min-width: 640px) {
   .pull-half--13 {
-    margin-left: -55.0847457627%; } }
+    margin-left: -55.08475%; } }
 
 @media (min-width: 640px) {
   .push-half--14 {
-    margin-left: 59.3220338983%; } }
+    margin-left: 59.32203%; } }
 
 @media (min-width: 640px) {
   .pull-half--14 {
-    margin-left: -59.3220338983%; } }
+    margin-left: -59.32203%; } }
 
 @media (min-width: 640px) {
   .push-half--15 {
-    margin-left: 63.5593220339%; } }
+    margin-left: 63.55932%; } }
 
 @media (min-width: 640px) {
   .pull-half--15 {
-    margin-left: -63.5593220339%; } }
+    margin-left: -63.55932%; } }
 
 @media (min-width: 640px) {
   .push-half--16 {
-    margin-left: 67.7966101695%; } }
+    margin-left: 67.79661%; } }
 
 @media (min-width: 640px) {
   .pull-half--16 {
-    margin-left: -67.7966101695%; } }
+    margin-left: -67.79661%; } }
 
 @media (min-width: 640px) {
   .push-half--17 {
-    margin-left: 72.0338983051%; } }
+    margin-left: 72.0339%; } }
 
 @media (min-width: 640px) {
   .pull-half--17 {
-    margin-left: -72.0338983051%; } }
+    margin-left: -72.0339%; } }
 
 @media (min-width: 640px) {
   .push-half--18 {
-    margin-left: 76.2711864407%; } }
+    margin-left: 76.27119%; } }
 
 @media (min-width: 640px) {
   .pull-half--18 {
-    margin-left: -76.2711864407%; } }
+    margin-left: -76.27119%; } }
 
 @media (min-width: 640px) {
   .push-half--19 {
-    margin-left: 80.5084745763%; } }
+    margin-left: 80.50847%; } }
 
 @media (min-width: 640px) {
   .pull-half--19 {
-    margin-left: -80.5084745763%; } }
+    margin-left: -80.50847%; } }
 
 @media (min-width: 640px) {
   .push-half--20 {
-    margin-left: 84.7457627119%; } }
+    margin-left: 84.74576%; } }
 
 @media (min-width: 640px) {
   .pull-half--20 {
-    margin-left: -84.7457627119%; } }
+    margin-left: -84.74576%; } }
 
 @media (min-width: 640px) {
   .push-half--21 {
-    margin-left: 88.9830508475%; } }
+    margin-left: 88.98305%; } }
 
 @media (min-width: 640px) {
   .pull-half--21 {
-    margin-left: -88.9830508475%; } }
+    margin-left: -88.98305%; } }
 
 @media (min-width: 640px) {
   .push-half--22 {
-    margin-left: 93.2203389831%; } }
+    margin-left: 93.22034%; } }
 
 @media (min-width: 640px) {
   .pull-half--22 {
-    margin-left: -93.2203389831%; } }
+    margin-left: -93.22034%; } }
 
 @media (min-width: 640px) {
   .push-half--23 {
-    margin-left: 97.4576271186%; } }
+    margin-left: 97.45763%; } }
 
 @media (min-width: 640px) {
   .pull-half--23 {
-    margin-left: -97.4576271186%; } }
+    margin-left: -97.45763%; } }
 
 @media (min-width: 640px) {
   .push-half--24 {
-    margin-left: 101.694915254%; } }
+    margin-left: 101.69492%; } }
 
 @media (min-width: 640px) {
   .pull-half--24 {
-    margin-left: -101.694915254%; } }
-
-/*
-Page Hero
-
-Heroes on need to accomplish two main tasks. First, they need to convey a 
-specific story as simply and beautifully as they can in order to drive traffic. 
-Secondly, they need to set the tone for the page they are setting up.
-
-Very simple type and imagery treatments can create different feels for pages 
-that need to stand on their own.
-
-Markup: hero.hbs
-
-Weight: 10
-
-Style guide: layout.hero
-*/
-.hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden; }
-  .hero .hero__background {
-    position: relative;
-    max-width: 1920px;
-    margin: 0 auto; }
-    .hero .hero__background .hero__background__inner {
-      height: 0;
-      padding-bottom: 33%;
-      background-size: cover; }
-    .hero .hero__background img {
-      position: absolute;
-      width: 100%; }
-  .hero .hero__video {
-    position: relative;
-    line-height: 0;
-    max-width: 1920px;
-    margin: 0 auto; }
-    .hero .hero__video video {
-      width: 100%; }
-  .hero .hero__video + .hero__background {
-    display: none; }
-  @media (min-width: 640px) {
-    .hero .hero__content {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      color: #fff; }
-      .hero .hero__content .hero__content__inner {
-        width: 100%; }
-      .hero .hero__content h1, .hero .hero__content .heading--homepage, .hero .hero__content .heading--product {
-        margin: 0; }
-      .hero .hero__content h4 + .hero__content__headline {
-        margin-top: .5em; }
-      .hero .hero__content .hero__content__cta {
-        margin-top: 1em; } }
-  @media (min-width: 961px) {
-    .hero .hero__background:before,
-    .hero .hero__background:after,
-    .hero .hero__video:before,
-    .hero .hero__video:after {
-      display: none;
-      content: " ";
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      width: 200px;
-      height: 100%;
-      background-image: linear-gradient(to right, #1b1b1b, transparent); } }
-  @media (min-width: 961px) and (min-width: 1920px) {
-    .hero .hero__background:before,
-    .hero .hero__background:after,
-    .hero .hero__video:before,
-    .hero .hero__video:after {
-      display: block; } }
-  @media (min-width: 961px) {
-    .hero .hero__background:after,
-    .hero .hero__video:after {
-      background-image: linear-gradient(to left, #1b1b1b, transparent);
-      left: auto;
-      right: 0; } }
-
-.bg--white .hero__background:before,
-.bg--white .hero__video:before {
-  background-image: linear-gradient(to right, #fff, transparent); }
-
-.bg--white .hero__background:after,
-.bg--white .hero__video:after {
-  background-image: linear-gradient(to left, #fff, transparent); }
-
-.bg--light-gray-1 .hero__background:before,
-.bg--light-gray-1 .hero__video:before {
-  background-image: linear-gradient(to right, #fafafa, transparent); }
-
-.bg--light-gray-1 .hero__background:after,
-.bg--light-gray-1 .hero__video:after {
-  background-image: linear-gradient(to left, #fafafa, transparent); }
-
-.bg--light-gray-2 .hero__background:before,
-.bg--light-gray-2 .hero__video:before {
-  background-image: linear-gradient(to right, #ebebeb, transparent); }
-
-.bg--light-gray-2 .hero__background:after,
-.bg--light-gray-2 .hero__video:after {
-  background-image: linear-gradient(to left, #ebebeb, transparent); }
-
-.bg--dark-gray-1 .hero__background:before,
-.bg--dark-gray-1 .hero__video:before {
-  background-image: linear-gradient(to right, #464646, transparent); }
-
-.bg--dark-gray-1 .hero__background:after,
-.bg--dark-gray-1 .hero__video:after {
-  background-image: linear-gradient(to left, #464646, transparent); }
-
-.bg--dark-gray-2 .hero__background:before,
-.bg--dark-gray-2 .hero__video:before {
-  background-image: linear-gradient(to right, #333, transparent); }
-
-.bg--dark-gray-2 .hero__background:after,
-.bg--dark-gray-2 .hero__video:after {
-  background-image: linear-gradient(to left, #333, transparent); }
-
-.bg--dark-gray-3 .hero__background:before, .bg--media-shade .hero__background:before,
-.bg--dark-gray-3 .hero__video:before, .bg--media-shade .hero__video:before {
-  background-image: linear-gradient(to right, #1b1b1b, transparent); }
-
-.bg--dark-gray-3 .hero__background:after, .bg--media-shade .hero__background:after,
-.bg--dark-gray-3 .hero__video:after, .bg--media-shade .hero__video:after {
-  background-image: linear-gradient(to left, #1b1b1b, transparent); }
-
-.bg--about-featured .hero__background:before,
-.bg--about-featured .hero__video:before {
-  background-image: linear-gradient(to right, #457387, transparent); }
-
-.bg--about-featured .hero__background:after,
-.bg--about-featured .hero__video:after {
-  background-image: linear-gradient(to left, #457387, transparent); }
-
-.bg--data-sources .hero__background:before, .card.card--quote .hero__background:before,
-.bg--data-sources .hero__video:before, .card.card--quote .hero__video:before {
-  background-image: linear-gradient(to right, #2e4c65, transparent); }
-
-.bg--data-sources .hero__background:after, .card.card--quote .hero__background:after,
-.bg--data-sources .hero__video:after, .card.card--quote .hero__video:after {
-  background-image: linear-gradient(to left, #2e4c65, transparent); }
-
-.bg--nav-drawer-gray-1 .hero__background:before,
-.bg--nav-drawer-gray-1 .hero__video:before {
-  background-image: linear-gradient(to right, #f0f0f0, transparent); }
-
-.bg--nav-drawer-gray-1 .hero__background:after,
-.bg--nav-drawer-gray-1 .hero__video:after {
-  background-image: linear-gradient(to left, #f0f0f0, transparent); }
-
-.bg--nav-drawer-gray-2 .hero__background:before,
-.bg--nav-drawer-gray-2 .hero__video:before {
-  background-image: linear-gradient(to right, #ddd, transparent); }
-
-.bg--nav-drawer-gray-2 .hero__background:after,
-.bg--nav-drawer-gray-2 .hero__video:after {
-  background-image: linear-gradient(to left, #ddd, transparent); }
-
-@media (max-width: 960px) {
-  .hero .hero__video {
-    display: none; }
-  .hero .hero__video + .hero__background {
-    display: block; }
-  .hero .hero__background .hero__background__inner {
-    padding-bottom: 50%; }
-  .hero .hero__content h1.heading--homepage br, .hero .hero__content .heading--homepage br, .hero .hero__content .heading--homepage.heading--product br {
-    display: none; } }
-
-@media (max-width: 639px) {
-  .hero h1, .hero .heading--homepage, .hero .heading--product, .hero h4.heading--label, .hero .detail-field.detail-field--secondary h4.detail-field__items, .detail-field.detail-field--secondary .hero h4.detail-field__items, .hero .detail-field.detail-field--secondary h4.field__items, .detail-field.detail-field--secondary .hero h4.field__items {
-    color: #333; }
-  .hero .hero__content {
-    padding: 2em 0; }
-    .hero .hero__content h1.heading--homepage, .hero .hero__content .heading--homepage, .hero .hero__content .heading--homepage.heading--product {
-      margin-top: .2em; }
-      .hero .hero__content h1.heading--homepage br, .hero .hero__content .heading--homepage br, .hero .hero__content .heading--homepage.heading--product br {
-        display: none; }
-    .hero .hero__content .cta, .hero .hero__content .form__wrapper input[type="submit"], .form__wrapper .hero .hero__content input[type="submit"] {
-      display: block;
-      text-align: center; }
-  .bg--dark-gray-1 .hero,
-  .bg--dark-gray-2 .hero,
-  .bg--dark-gray-3 .hero, .bg--media-shade .hero {
-    background: #fff;
-    color: #333; } }
+    margin-left: -101.69492%; } }
 
 /*
 Marginless marginless Boxes
@@ -2972,13 +3269,13 @@ Style guide: layout.marginless-box
 
 @media (min-width: 961px) {
   .marginless-box.marginless-box--thirds {
-    width: 33.3333333333%; }
+    width: 33.33333%; }
   .marginless-box.marginless-box--fourths {
     width: 25%; }
   .marginless-box.marginless-box--fifths {
     width: 20%; }
   .marginless-box.marginless-box--sixths {
-    width: 16.6666666667%; } }
+    width: 16.66667%; } }
 
 /*
 Padded box
@@ -3155,10 +3452,10 @@ Style guide: lists.cross-reference-1
 */
 @media (min-width: 640px) {
   .cross-reference-1 {
-    width: 82.9787234043%;
+    width: 82.97872%;
     float: left;
-    margin-right: 2.1276595745%;
-    margin-left: 8.5106382979%;
+    margin-right: 2.12766%;
+    margin-left: 8.51064%;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -3175,7 +3472,7 @@ Style guide: lists.cross-reference-1
       text-align: right; }
     .cross-reference-1 .cross-reference-1__copy {
       margin-left: 140px;
-      padding-left: 2.1276595745%; }
+      padding-left: 2.12766%; }
     .cross-reference-1 .cross-reference-1__link {
       margin: 0; } }
 
@@ -3212,16 +3509,16 @@ Style guide: lists.cross-reference-2
     text-align: right; }
   .cross-reference-2 .cross-reference-2__copy {
     margin-left: 140px;
-    padding-left: 4.2553191489%; }
+    padding-left: 4.25532%; }
   .cross-reference-2 .cross-reference-2__link {
     margin: 0; } }
 
 @media (min-width: 640px) {
   .cross-reference-2 .cross-reference-2__item:first-child {
-    padding-right: 2.1276595745%;
+    padding-right: 2.12766%;
     border-right: 1px solid #dedede; }
   .cross-reference-2 .cross-reference-2__item:last-child {
-    padding-left: 2.1276595745%; } }
+    padding-left: 2.12766%; } }
 
 @media (max-width: 960px) {
   .cross-reference-2 {
@@ -3446,6 +3743,112 @@ Nocode: true
 Style guide: media.video-chapters-demo
 */
 /*
+Video Playlist
+
+A playlist of related Brightcove videos.
+
+Markup: video_playlist.hbs
+
+Bgcolor: #111111;
+width: 368px;
+border: 0;
+border-left: 35px solid black;
+
+Style guide: media.video-playlist
+*/
+.video-playlist {
+  background-color: #fafafa; }
+
+.video-playlist__header-wrapper {
+  position: relative;
+  padding: 2.5em 2.5em 1.25em 2.5em;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede; }
+
+.video-playlist__topic {
+  margin: 0; }
+
+.video-playlist__list {
+  padding: 1.25em 0; }
+
+.video-playlist__item-wrapper {
+  padding: 0 2.5em; }
+  .video-playlist__item-wrapper:first-child .video-playlist__item {
+    border-top: none; }
+
+.video-playlist__item-wrapper.is-active {
+  background-color: #ebebeb;
+  position: relative;
+  /* Only show arrow on desktops. */ }
+  .video-playlist__item-wrapper.is-active .video-playlist__item,
+  .video-playlist__item-wrapper.is-active + .video-playlist__item-wrapper .video-playlist__item {
+    border-color: transparent; }
+  @media (min-width: 961px) {
+    .video-playlist__item-wrapper.is-active {
+      /* SVG implementation. */
+      /* Linear gradient implementation. */
+      /*&:before,
+    &:after {
+      width: 15px;
+      height: 50%;
+      position: absolute;
+      left: -15px;
+      content: "";
+    }
+
+    &:before {
+      top: 0;
+      background: linear-gradient(to left top, $bg-light-gray-2 50%, transparent 50%)
+    }
+
+    &:after {
+      top: 50%;
+      background: linear-gradient(to left bottom, $bg-light-gray-2 50%, transparent 50%)
+    }*/ }
+      .video-playlist__item-wrapper.is-active:before {
+        position: absolute;
+        top: 0;
+        left: -1em;
+        content: "";
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100%' height='100%' preserveAspectRatio='none' style='-webkit-backface-visibility: hidden;' viewBox='0 0 512 512'%3E %3Cpolygon fill='%23EBEBEB' points='512,0 0,256 512,512 '/%3E %3C/svg%3E");
+        background-size: 100% 100%;
+        width: 1em;
+        height: 100%; } }
+  .video-playlist__item-wrapper.is-active .video-playlist__item {
+    position: relative; }
+    .video-playlist__item-wrapper.is-active .video-playlist__item:before {
+      font-family: "tableau-icons";
+      position: absolute;
+      display: inline-block;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      left: -1.8em; }
+
+.video-playlist__item {
+  clear: both;
+  display: table;
+  width: 100%;
+  padding: 0.5em 0;
+  border-top: 1px solid #dedede; }
+
+.video-playlist__link {
+  display: table-cell; }
+
+.video-playlist__watched {
+  width: 1.5em;
+  display: table-cell;
+  padding-left: 1.5em; }
+
+.video-playlist__length {
+  width: 4em;
+  display: table-cell; }
+
+.video-playlist__link a {
+  color: #787878; }
+
+/*
 Formatted Icons
 
 Different formatting/style options for icons
@@ -3473,7 +3876,6 @@ Nodefault: true
 Markup: icon.hbs
 
 .icon--people - people icon
-.icon--search - search icon
 .icon--social-facebook - social-facebook icon
 .icon--social-gplus - social-gplus icon
 .icon--social-instagram - social-instagram icon
@@ -3502,8 +3904,8 @@ Style Guide: media.icons
 */
 @font-face {
   font-family: "tableau-icons";
-  src: url("../fonts/tableau-icons-23c1812a9d8e930e8dca816ddf116ec9.eot?23c1812a9d8e930e8dca816ddf116ec9");
-  src: url("../fonts/tableau-icons-23c1812a9d8e930e8dca816ddf116ec9.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-23c1812a9d8e930e8dca816ddf116ec9.woff?23c1812a9d8e930e8dca816ddf116ec9") format("woff"), url("../fonts/tableau-icons-23c1812a9d8e930e8dca816ddf116ec9.ttf?23c1812a9d8e930e8dca816ddf116ec9") format("truetype");
+  src: url("../fonts/tableau-icons-a7f2f0ecfa91b72fe7255407a5bc39a7.eot?a7f2f0ecfa91b72fe7255407a5bc39a7");
+  src: url("../fonts/tableau-icons-a7f2f0ecfa91b72fe7255407a5bc39a7.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-a7f2f0ecfa91b72fe7255407a5bc39a7.woff?a7f2f0ecfa91b72fe7255407a5bc39a7") format("woff"), url("../fonts/tableau-icons-a7f2f0ecfa91b72fe7255407a5bc39a7.ttf?a7f2f0ecfa91b72fe7255407a5bc39a7") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -3525,59 +3927,56 @@ Style Guide: media.icons
 .icon--people:before {
   content: "\f101"; }
 
-.icon--search:before, .global-nav__top .global-nav__search:before {
+.icon--social-facebook:before {
   content: "\f102"; }
 
-.icon--social-facebook:before {
+.icon--social-gplus:before {
   content: "\f103"; }
 
-.icon--social-gplus:before {
+.icon--social-instagram:before {
   content: "\f104"; }
 
-.icon--social-instagram:before {
+.icon--social-linkedin:before {
   content: "\f105"; }
 
-.icon--social-linkedin:before {
+.icon--social-twitter:before {
   content: "\f106"; }
 
-.icon--social-twitter:before {
+.icon--plus-circle:before {
   content: "\f107"; }
 
-.icon--plus-circle:before {
+.icon--arrow-left:before {
   content: "\f108"; }
 
-.icon--arrow-left:before {
+.icon--arrow-right:before {
   content: "\f109"; }
 
-.icon--arrow-right:before {
+.icon--chevron-left:before {
   content: "\f10a"; }
 
-.icon--chevron-left:before {
+.icon--chevron-right:before {
   content: "\f10b"; }
 
-.icon--chevron-right:before {
+.icon--cursor-cloud:before {
   content: "\f10c"; }
 
-.icon--cursor-cloud:before {
+.icon--download:before {
   content: "\f10d"; }
 
-.icon--download:before {
+.icon--laptop:before {
   content: "\f10e"; }
 
-.icon--laptop:before {
+.icon--link:before {
   content: "\f10f"; }
 
-.icon--link:before {
+.icon--nic-cage:before, .video-playlist__item-wrapper.is-active .video-playlist__item:before {
   content: "\f110"; }
-
-.icon--nic-cage:before {
-  content: "\f111"; }
 
 .icon--people:before {
   content: "\f101"; }
 
 .icon--search:before, .global-nav__top .global-nav__search:before {
-  content: "\f102"; }
+  content: "\f111"; }
 
 .icon--share:before {
   content: "\f112"; }
@@ -3729,11 +4128,11 @@ Style Guide: navigation.footer
 /*
 Global Navigation
 
-The global navigation bar that sits at the top of each page. Contains primary, 
+The global navigation bar that sits at the top of each page. Contains primary,
 secondary, and sub navigation as well as the global search bar.
 
-**NOTE: The global nav and footer are not yet ready for consumption. We will be 
-updating interactions and providing more details on how to implement these 
+**NOTE: The global nav and footer are not yet ready for consumption. We will be
+updating interactions and providing more details on how to implement these
 components very soon in an upcoming release**
 
 Markup: global-nav.hbs
@@ -3889,7 +4288,7 @@ Style guide: navigation.global
         top: 64px;
         left: 0;
         width: 100%;
-        z-index: 10;
+        z-index: 10000;
         background: #f0f0f0; }
       .global-nav__top .global-nav__hamburger {
         position: absolute;
@@ -3951,7 +4350,7 @@ Style guide: navigation.global
   .global-nav__drawers {
     position: absolute;
     overflow: hidden;
-    z-index: 10;
+    z-index: 10000;
     width: 100%; }
     .global-nav__drawers .global-nav__drawers__drawer {
       display: none; }
@@ -3969,8 +4368,10 @@ Style guide: navigation.global
       margin-bottom: 0; }
     .global-nav__drawers .global-nav__drawer__link-list ul {
       -webkit-column-count: 3;
+      -moz-column-count: 3;
       column-count: 3;
       -webkit-column-gap: 4em;
+      -moz-column-gap: 4em;
       column-gap: 4em; }
     .global-nav__drawers .global-nav__drawer__secondary {
       position: relative; }
@@ -4041,12 +4442,13 @@ Style guide: navigation.global
     display: inline-block; }
   .global-nav__drawers .sub-nav__item .global-nav__drawer__link-list ul {
     -webkit-column-count: 2;
+    -moz-column-count: 2;
     column-count: 2; } }
 
 .ui-autocomplete {
   display: block;
   position: absolute;
-  z-index: 20;
+  z-index: 10000;
   padding: 10px 45px;
   list-style: none;
   border-top: 27px solid #fff;
@@ -4268,7 +4670,7 @@ Style guide: navigation.subnav
           width: 100%;
           overflow-x: auto;
           padding: 0.25em 0; }
-          .subnav .subnav__links .subnav__links__wrapper ul.link-list {
+          .subnav .subnav__links .subnav__links__wrapper ul.link-list, .subnav .subnav__links .subnav__links__wrapper ul.video-playlist__list {
             white-space: nowrap; }
           .subnav .subnav__links .subnav__links__wrapper li {
             padding: .5em 1em .5em 0; }
@@ -4336,19 +4738,24 @@ Style Guide: navigation.topic-nav
 
 .topic-nav .topic-nav__topic-list {
   -webkit-column-count: 3;
+  -moz-column-count: 3;
   column-count: 3;
   -webkit-column-gap: 4em;
+  -moz-column-gap: 4em;
   column-gap: 4em;
   -webkit-column-rule: 1px solid #dedede;
+  -moz-column-rule: 1px solid #dedede;
   column-rule: 1px solid #dedede;
   padding: 4em; }
   @media (max-width: 960px) {
     .topic-nav .topic-nav__topic-list {
       -webkit-column-count: 2;
+      -moz-column-count: 2;
       column-count: 2;
       padding: 3em 0; } }
   .topic-nav .topic-nav__topic-list li {
     -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
     break-inside: avoid; }
   .topic-nav .topic-nav__topic-list a {
     color: #787878;
@@ -4429,6 +4836,7 @@ Image based icons
 
 @TODO get design to make SVGs and migrate to iconfont generation.
 */
+.icon--circle-filled-orange,
 .icon--product-mobile,
 .icon--product-public,
 .icon--product-reader,
@@ -4446,6 +4854,9 @@ Image based icons
 .icon--slideshow-next-dark,
 .icon--magnifying-glass {
   display: inline-block; }
+
+.icon--circle-filled-orange:before {
+  content: url(../images/shame/icons/icon-circle-filled-orange.png); }
 
 .icon--product-mobile:before {
   content: url(../images/shame/icons/icon-product-mobile.png); }
@@ -4571,9 +4982,9 @@ Style Guide: teasers.card
       margin-bottom: 16em; } }
   @media (min-width: 640px) {
     .card {
-      width: 31.914893617%;
+      width: 31.91489%;
       float: left;
-      margin-right: 2.1276595745%; }
+      margin-right: 2.12766%; }
       .card.card--row-end {
         margin-right: 0; } }
 
@@ -4600,9 +5011,9 @@ Style Guide: teasers.card-wide
 
 @media (min-width: 640px) {
   .card.card--wide {
-    width: 65.9574468085%;
+    width: 65.95745%;
     float: left;
-    margin-right: 2.1276595745%; }
+    margin-right: 2.12766%; }
     .card.card--wide.card--row-end {
       margin-right: 0; } }
 
@@ -4719,22 +5130,22 @@ Style guide: teasers.person-teaser
   .person-teaser .person-teaser__image {
     width: 20%;
     float: left;
-    margin-right: 6.6666666667%; }
+    margin-right: 6.66667%; }
     @media (min-width: 640px) {
       .person-teaser .person-teaser__image {
-        width: 14.8936170213%;
+        width: 14.89362%;
         float: left;
-        margin-right: 2.1276595745%; } }
+        margin-right: 2.12766%; } }
   .person-teaser .person-teaser__info {
-    width: 73.3333333333%;
+    width: 73.33333%;
     float: left;
     margin-left: 0;
     margin-right: -100%; }
     @media (min-width: 640px) {
       .person-teaser .person-teaser__info {
-        width: 31.914893617%;
+        width: 31.91489%;
         float: left;
-        margin-right: 2.1276595745%;
+        margin-right: 2.12766%;
         padding-top: 1.5em; } }
   .person-teaser .person-teaser__name {
     margin-bottom: 0;
@@ -4806,8 +5217,8 @@ Style guide: teasers.text_teaser
 /*
 Body Copy
 
-Default copy formatting for body copy and other areas with longer chunks of 
-copy. 
+Default copy formatting for body copy and other areas with longer chunks of
+copy.
 
 Markup: body-copy.hbs
 
@@ -4823,6 +5234,8 @@ Weight: 10
 Style guide: typography.body-copy
  */
 body,
+.text--body-base,
+.contextual-search .contextual-search__title,
 .kss-example-preview-wrapper {
   font-family: "Merriweather", serif;
   font-weight: normal;
@@ -4832,7 +5245,7 @@ body,
   line-height: 1.88;
   -webkit-font-smoothing: antialiased; }
 
-.text--body-small, .global-footer .global-footer__first, .global-nav__top .global-nav__primary-menu, .global-nav__drawers .sub-nav__item__description,
+.text--body-small, .location .location__address, .video-playlist__link, .global-footer .global-footer__first, .global-nav__top .global-nav__primary-menu, .global-nav__drawers .sub-nav__item__description,
 .global-nav__drawers .global-nav__drawer__link-list, .card.card--summary .card__summary, .teaser-item .teaser-item__description {
   font-size: 0.875em;
   line-height: 1.86; }
@@ -4844,35 +5257,6 @@ body,
 .text--body-large {
   font-size: 1.875em;
   line-height: 1.53; }
-
-/*
-Detail Field
-
-Field with a label.
-
-Markup: detail-field.hbs
-
-Weight: 60
-
-.detail-field--secondary - Secondary "sidebar" field.
-
-Styleguide: typography.detail-field
-*/
-.detail-field.detail-field--secondary {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #dedede; }
-  .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items {
-    font-family: "Benton Sans Light", Helvetica, sans-serif; }
-  @media (max-width: 639px) {
-    .detail-field.detail-field--secondary {
-      color: #333; } }
-
-@media (max-width: 639px) {
-  .field--name-field-datetime-range,
-  .field-name-dynamic-field-time {
-    background: #fafafa;
-    float: left;
-    width: 50%; } }
 
 /*
 Font Families
@@ -4955,7 +5339,7 @@ em,
 .text--left {
   text-align: left; }
 
-.text--right {
+.text--right, .video-playlist__length {
   text-align: right; }
 
 .text--centered {
@@ -5012,7 +5396,7 @@ Style guide: typography.colors
   .text--negative .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--negative .detail-field__items,
   .text--negative .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--negative .field__items, .text--negative .heading--h5, .text--negative .detail-field .detail-field__label, .detail-field .text--negative .detail-field__label, .text--negative .detail-field .field__label, .detail-field .text--negative .field__label, .text--negative h2.block__title, .text--negative .block__title.heading--medium,
+  .text--negative .field__items, .text--negative .heading--h5, .text--negative .detail-field .detail-field__label, .detail-field .text--negative .detail-field__label, .text--negative .detail-field .field__label, .detail-field .text--negative .field__label, .text--negative .location .location__general, .location .text--negative .location__general, .text--negative h2.block__title, .text--negative .block__title.heading--medium,
   .text--negative h6, .text--negative .heading--h6 {
     color: #fff; }
     .text--negative h1 a, .text--negative .heading--homepage a, .text--negative .heading--product a, .text--negative .heading--h1 a,
@@ -5025,7 +5409,7 @@ Style guide: typography.colors
     .text--negative .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--negative .detail-field__items a,
     .text--negative .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--negative .field__items a, .text--negative .heading--h5 a, .text--negative .detail-field .detail-field__label a, .detail-field .text--negative .detail-field__label a, .text--negative .detail-field .field__label a, .detail-field .text--negative .field__label a, .text--negative h2.block__title a, .text--negative .block__title.heading--medium a,
+    .text--negative .field__items a, .text--negative .heading--h5 a, .text--negative .detail-field .detail-field__label a, .detail-field .text--negative .detail-field__label a, .text--negative .detail-field .field__label a, .detail-field .text--negative .field__label a, .text--negative .location .location__general a, .location .text--negative .location__general a, .text--negative h2.block__title a, .text--negative .block__title.heading--medium a,
     .text--negative h6 a, .text--negative .heading--h6 a {
       color: #fff; }
 
@@ -5041,7 +5425,7 @@ Style guide: typography.colors
   .text--light-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--light-body .detail-field__items,
   .text--light-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--light-body .field__items, .text--light-body .heading--h5, .text--light-body .detail-field .detail-field__label, .detail-field .text--light-body .detail-field__label, .text--light-body .detail-field .field__label, .detail-field .text--light-body .field__label, .text--light-body h2.block__title, .text--light-body .block__title.heading--medium,
+  .text--light-body .field__items, .text--light-body .heading--h5, .text--light-body .detail-field .detail-field__label, .detail-field .text--light-body .detail-field__label, .text--light-body .detail-field .field__label, .detail-field .text--light-body .field__label, .text--light-body .location .location__general, .location .text--light-body .location__general, .text--light-body h2.block__title, .text--light-body .block__title.heading--medium,
   .text--light-body h6, .text--light-body .heading--h6 {
     color: #bbb; }
     .text--light-body h1 a, .text--light-body .heading--homepage a, .text--light-body .heading--product a, .text--light-body .heading--h1 a,
@@ -5054,7 +5438,7 @@ Style guide: typography.colors
     .text--light-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--light-body .detail-field__items a,
     .text--light-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--light-body .field__items a, .text--light-body .heading--h5 a, .text--light-body .detail-field .detail-field__label a, .detail-field .text--light-body .detail-field__label a, .text--light-body .detail-field .field__label a, .detail-field .text--light-body .field__label a, .text--light-body h2.block__title a, .text--light-body .block__title.heading--medium a,
+    .text--light-body .field__items a, .text--light-body .heading--h5 a, .text--light-body .detail-field .detail-field__label a, .detail-field .text--light-body .detail-field__label a, .text--light-body .detail-field .field__label a, .detail-field .text--light-body .field__label a, .text--light-body .location .location__general a, .location .text--light-body .location__general a, .text--light-body h2.block__title a, .text--light-body .block__title.heading--medium a,
     .text--light-body h6 a, .text--light-body .heading--h6 a {
       color: #bbb; }
 
@@ -5070,7 +5454,7 @@ Style guide: typography.colors
   .text--medium-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--medium-body .detail-field__items,
   .text--medium-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--medium-body .field__items, .text--medium-body .heading--h5, .text--medium-body .detail-field .detail-field__label, .detail-field .text--medium-body .detail-field__label, .text--medium-body .detail-field .field__label, .detail-field .text--medium-body .field__label, .text--medium-body h2.block__title, .text--medium-body .block__title.heading--medium,
+  .text--medium-body .field__items, .text--medium-body .heading--h5, .text--medium-body .detail-field .detail-field__label, .detail-field .text--medium-body .detail-field__label, .text--medium-body .detail-field .field__label, .detail-field .text--medium-body .field__label, .text--medium-body .location .location__general, .location .text--medium-body .location__general, .text--medium-body h2.block__title, .text--medium-body .block__title.heading--medium,
   .text--medium-body h6, .text--medium-body .heading--h6 {
     color: #787878; }
     .text--medium-body h1 a, .text--medium-body .heading--homepage a, .text--medium-body .heading--product a, .text--medium-body .heading--h1 a,
@@ -5083,7 +5467,7 @@ Style guide: typography.colors
     .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--medium-body .detail-field__items a,
     .text--medium-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--medium-body .field__items a, .text--medium-body .heading--h5 a, .text--medium-body .detail-field .detail-field__label a, .detail-field .text--medium-body .detail-field__label a, .text--medium-body .detail-field .field__label a, .detail-field .text--medium-body .field__label a, .text--medium-body h2.block__title a, .text--medium-body .block__title.heading--medium a,
+    .text--medium-body .field__items a, .text--medium-body .heading--h5 a, .text--medium-body .detail-field .detail-field__label a, .detail-field .text--medium-body .detail-field__label a, .text--medium-body .detail-field .field__label a, .detail-field .text--medium-body .field__label a, .text--medium-body .location .location__general a, .location .text--medium-body .location__general a, .text--medium-body h2.block__title a, .text--medium-body .block__title.heading--medium a,
     .text--medium-body h6 a, .text--medium-body .heading--h6 a {
       color: #787878; }
 
@@ -5099,7 +5483,7 @@ Style guide: typography.colors
   .text--dark-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--dark-body .detail-field__items,
   .text--dark-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--dark-body .field__items, .text--dark-body .heading--h5, .text--dark-body .detail-field .detail-field__label, .detail-field .text--dark-body .detail-field__label, .text--dark-body .detail-field .field__label, .detail-field .text--dark-body .field__label, .text--dark-body h2.block__title, .text--dark-body .block__title.heading--medium,
+  .text--dark-body .field__items, .text--dark-body .heading--h5, .text--dark-body .detail-field .detail-field__label, .detail-field .text--dark-body .detail-field__label, .text--dark-body .detail-field .field__label, .detail-field .text--dark-body .field__label, .text--dark-body .location .location__general, .location .text--dark-body .location__general, .text--dark-body h2.block__title, .text--dark-body .block__title.heading--medium,
   .text--dark-body h6, .text--dark-body .heading--h6 {
     color: #333; }
     .text--dark-body h1 a, .text--dark-body .heading--homepage a, .text--dark-body .heading--product a, .text--dark-body .heading--h1 a,
@@ -5112,7 +5496,7 @@ Style guide: typography.colors
     .text--dark-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--dark-body .detail-field__items a,
     .text--dark-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--dark-body .field__items a, .text--dark-body .heading--h5 a, .text--dark-body .detail-field .detail-field__label a, .detail-field .text--dark-body .detail-field__label a, .text--dark-body .detail-field .field__label a, .detail-field .text--dark-body .field__label a, .text--dark-body h2.block__title a, .text--dark-body .block__title.heading--medium a,
+    .text--dark-body .field__items a, .text--dark-body .heading--h5 a, .text--dark-body .detail-field .detail-field__label a, .detail-field .text--dark-body .detail-field__label a, .text--dark-body .detail-field .field__label a, .detail-field .text--dark-body .field__label a, .text--dark-body .location .location__general a, .location .text--dark-body .location__general a, .text--dark-body h2.block__title a, .text--dark-body .block__title.heading--medium a,
     .text--dark-body h6 a, .text--dark-body .heading--h6 a {
       color: #333; }
 
@@ -5128,7 +5512,7 @@ Style guide: typography.colors
   .text--link .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--link .detail-field__items,
   .text--link .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--link .field__items, .text--link .heading--h5, .text--link .detail-field .detail-field__label, .detail-field .text--link .detail-field__label, .text--link .detail-field .field__label, .detail-field .text--link .field__label, .text--link h2.block__title, .text--link .block__title.heading--medium,
+  .text--link .field__items, .text--link .heading--h5, .text--link .detail-field .detail-field__label, .detail-field .text--link .detail-field__label, .text--link .detail-field .field__label, .detail-field .text--link .field__label, .text--link .location .location__general, .location .text--link .location__general, .text--link h2.block__title, .text--link .block__title.heading--medium,
   .text--link h6, .text--link .heading--h6 {
     color: #eb912c; }
     .text--link h1 a, .text--link .heading--homepage a, .text--link .heading--product a, .text--link .heading--h1 a,
@@ -5141,7 +5525,7 @@ Style guide: typography.colors
     .text--link .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--link .detail-field__items a,
     .text--link .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--link .field__items a, .text--link .heading--h5 a, .text--link .detail-field .detail-field__label a, .detail-field .text--link .detail-field__label a, .text--link .detail-field .field__label a, .detail-field .text--link .field__label a, .text--link h2.block__title a, .text--link .block__title.heading--medium a,
+    .text--link .field__items a, .text--link .heading--h5 a, .text--link .detail-field .detail-field__label a, .detail-field .text--link .detail-field__label a, .text--link .detail-field .field__label a, .detail-field .text--link .field__label a, .text--link .location .location__general a, .location .text--link .location__general a, .text--link h2.block__title a, .text--link .block__title.heading--medium a,
     .text--link h6 a, .text--link .heading--h6 a {
       color: #eb912c; }
 
@@ -5157,7 +5541,7 @@ Style guide: typography.colors
   .text--headlines .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--headlines .detail-field__items,
   .text--headlines .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--headlines .field__items, .text--headlines .heading--h5, .text--headlines .detail-field .detail-field__label, .detail-field .text--headlines .detail-field__label, .text--headlines .detail-field .field__label, .detail-field .text--headlines .field__label, .text--headlines h2.block__title, .text--headlines .block__title.heading--medium,
+  .text--headlines .field__items, .text--headlines .heading--h5, .text--headlines .detail-field .detail-field__label, .detail-field .text--headlines .detail-field__label, .text--headlines .detail-field .field__label, .detail-field .text--headlines .field__label, .text--headlines .location .location__general, .location .text--headlines .location__general, .text--headlines h2.block__title, .text--headlines .block__title.heading--medium,
   .text--headlines h6, .text--headlines .heading--h6 {
     color: #000; }
     .text--headlines h1 a, .text--headlines .heading--homepage a, .text--headlines .heading--product a, .text--headlines .heading--h1 a,
@@ -5170,7 +5554,7 @@ Style guide: typography.colors
     .text--headlines .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--headlines .detail-field__items a,
     .text--headlines .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--headlines .field__items a, .text--headlines .heading--h5 a, .text--headlines .detail-field .detail-field__label a, .detail-field .text--headlines .detail-field__label a, .text--headlines .detail-field .field__label a, .detail-field .text--headlines .field__label a, .text--headlines h2.block__title a, .text--headlines .block__title.heading--medium a,
+    .text--headlines .field__items a, .text--headlines .heading--h5 a, .text--headlines .detail-field .detail-field__label a, .detail-field .text--headlines .detail-field__label a, .text--headlines .detail-field .field__label a, .detail-field .text--headlines .field__label a, .text--headlines .location .location__general a, .location .text--headlines .location__general a, .text--headlines h2.block__title a, .text--headlines .block__title.heading--medium a,
     .text--headlines h6 a, .text--headlines .heading--h6 a {
       color: #000; }
 
@@ -5186,7 +5570,7 @@ Style guide: typography.colors
   .text--nav-items .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--nav-items .detail-field__items,
   .text--nav-items .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--nav-items .field__items, .text--nav-items .heading--h5, .text--nav-items .detail-field .detail-field__label, .detail-field .text--nav-items .detail-field__label, .text--nav-items .detail-field .field__label, .detail-field .text--nav-items .field__label, .text--nav-items h2.block__title, .text--nav-items .block__title.heading--medium,
+  .text--nav-items .field__items, .text--nav-items .heading--h5, .text--nav-items .detail-field .detail-field__label, .detail-field .text--nav-items .detail-field__label, .text--nav-items .detail-field .field__label, .detail-field .text--nav-items .field__label, .text--nav-items .location .location__general, .location .text--nav-items .location__general, .text--nav-items h2.block__title, .text--nav-items .block__title.heading--medium,
   .text--nav-items h6, .text--nav-items .heading--h6 {
     color: #212535; }
     .text--nav-items h1 a, .text--nav-items .heading--homepage a, .text--nav-items .heading--product a, .text--nav-items .heading--h1 a,
@@ -5199,7 +5583,7 @@ Style guide: typography.colors
     .text--nav-items .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--nav-items .detail-field__items a,
     .text--nav-items .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--nav-items .field__items a, .text--nav-items .heading--h5 a, .text--nav-items .detail-field .detail-field__label a, .detail-field .text--nav-items .detail-field__label a, .text--nav-items .detail-field .field__label a, .detail-field .text--nav-items .field__label a, .text--nav-items h2.block__title a, .text--nav-items .block__title.heading--medium a,
+    .text--nav-items .field__items a, .text--nav-items .heading--h5 a, .text--nav-items .detail-field .detail-field__label a, .detail-field .text--nav-items .detail-field__label a, .text--nav-items .detail-field .field__label a, .detail-field .text--nav-items .field__label a, .text--nav-items .location .location__general a, .location .text--nav-items .location__general a, .text--nav-items h2.block__title a, .text--nav-items .block__title.heading--medium a,
     .text--nav-items h6 a, .text--nav-items .heading--h6 a {
       color: #212535; }
 
@@ -5215,7 +5599,7 @@ Style guide: typography.colors
   .text--data-sources .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--data-sources .detail-field__items,
   .text--data-sources .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--data-sources .field__items, .text--data-sources .heading--h5, .text--data-sources .detail-field .detail-field__label, .detail-field .text--data-sources .detail-field__label, .text--data-sources .detail-field .field__label, .detail-field .text--data-sources .field__label, .text--data-sources h2.block__title, .text--data-sources .block__title.heading--medium,
+  .text--data-sources .field__items, .text--data-sources .heading--h5, .text--data-sources .detail-field .detail-field__label, .detail-field .text--data-sources .detail-field__label, .text--data-sources .detail-field .field__label, .detail-field .text--data-sources .field__label, .text--data-sources .location .location__general, .location .text--data-sources .location__general, .text--data-sources h2.block__title, .text--data-sources .block__title.heading--medium,
   .text--data-sources h6, .text--data-sources .heading--h6 {
     color: #a3b9cb; }
     .text--data-sources h1 a, .text--data-sources .heading--homepage a, .text--data-sources .heading--product a, .text--data-sources .heading--h1 a,
@@ -5228,7 +5612,7 @@ Style guide: typography.colors
     .text--data-sources .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--data-sources .detail-field__items a,
     .text--data-sources .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--data-sources .field__items a, .text--data-sources .heading--h5 a, .text--data-sources .detail-field .detail-field__label a, .detail-field .text--data-sources .detail-field__label a, .text--data-sources .detail-field .field__label a, .detail-field .text--data-sources .field__label a, .text--data-sources h2.block__title a, .text--data-sources .block__title.heading--medium a,
+    .text--data-sources .field__items a, .text--data-sources .heading--h5 a, .text--data-sources .detail-field .detail-field__label a, .detail-field .text--data-sources .detail-field__label a, .text--data-sources .detail-field .field__label a, .detail-field .text--data-sources .field__label a, .text--data-sources .location .location__general a, .location .text--data-sources .location__general a, .text--data-sources h2.block__title a, .text--data-sources .block__title.heading--medium a,
     .text--data-sources h6 a, .text--data-sources .heading--h6 a {
       color: #a3b9cb; }
 
@@ -5244,7 +5628,7 @@ Style guide: typography.colors
   .text--stories .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--stories .detail-field__items,
   .text--stories .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--stories .field__items, .text--stories .heading--h5, .text--stories .detail-field .detail-field__label, .detail-field .text--stories .detail-field__label, .text--stories .detail-field .field__label, .detail-field .text--stories .field__label, .text--stories h2.block__title, .text--stories .block__title.heading--medium,
+  .text--stories .field__items, .text--stories .heading--h5, .text--stories .detail-field .detail-field__label, .detail-field .text--stories .detail-field__label, .text--stories .detail-field .field__label, .detail-field .text--stories .field__label, .text--stories .location .location__general, .location .text--stories .location__general, .text--stories h2.block__title, .text--stories .block__title.heading--medium,
   .text--stories h6, .text--stories .heading--h6 {
     color: #847094; }
     .text--stories h1 a, .text--stories .heading--homepage a, .text--stories .heading--product a, .text--stories .heading--h1 a,
@@ -5257,7 +5641,7 @@ Style guide: typography.colors
     .text--stories .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--stories .detail-field__items a,
     .text--stories .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--stories .field__items a, .text--stories .heading--h5 a, .text--stories .detail-field .detail-field__label a, .detail-field .text--stories .detail-field__label a, .text--stories .detail-field .field__label a, .detail-field .text--stories .field__label a, .text--stories h2.block__title a, .text--stories .block__title.heading--medium a,
+    .text--stories .field__items a, .text--stories .heading--h5 a, .text--stories .detail-field .detail-field__label a, .detail-field .text--stories .detail-field__label a, .text--stories .detail-field .field__label a, .detail-field .text--stories .field__label a, .text--stories .location .location__general a, .location .text--stories .location__general a, .text--stories h2.block__title a, .text--stories .block__title.heading--medium a,
     .text--stories h6 a, .text--stories .heading--h6 a {
       color: #847094; }
 
@@ -5273,7 +5657,7 @@ Style guide: typography.colors
   .text--learning .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--learning .detail-field__items,
   .text--learning .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--learning .field__items, .text--learning .heading--h5, .text--learning .detail-field .detail-field__label, .detail-field .text--learning .detail-field__label, .text--learning .detail-field .field__label, .detail-field .text--learning .field__label, .text--learning h2.block__title, .text--learning .block__title.heading--medium,
+  .text--learning .field__items, .text--learning .heading--h5, .text--learning .detail-field .detail-field__label, .detail-field .text--learning .detail-field__label, .text--learning .detail-field .field__label, .detail-field .text--learning .field__label, .text--learning .location .location__general, .location .text--learning .location__general, .text--learning h2.block__title, .text--learning .block__title.heading--medium,
   .text--learning h6, .text--learning .heading--h6 {
     color: #6f99a5; }
     .text--learning h1 a, .text--learning .heading--homepage a, .text--learning .heading--product a, .text--learning .heading--h1 a,
@@ -5286,7 +5670,7 @@ Style guide: typography.colors
     .text--learning .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--learning .detail-field__items a,
     .text--learning .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--learning .field__items a, .text--learning .heading--h5 a, .text--learning .detail-field .detail-field__label a, .detail-field .text--learning .detail-field__label a, .text--learning .detail-field .field__label a, .detail-field .text--learning .field__label a, .text--learning h2.block__title a, .text--learning .block__title.heading--medium a,
+    .text--learning .field__items a, .text--learning .heading--h5 a, .text--learning .detail-field .detail-field__label a, .detail-field .text--learning .detail-field__label a, .text--learning .detail-field .field__label a, .detail-field .text--learning .field__label a, .text--learning .location .location__general a, .location .text--learning .location__general a, .text--learning h2.block__title a, .text--learning .block__title.heading--medium a,
     .text--learning h6 a, .text--learning .heading--h6 a {
       color: #6f99a5; }
 
@@ -5302,7 +5686,7 @@ Style guide: typography.colors
   .text--highlight .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--highlight .detail-field__items,
   .text--highlight .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--highlight .field__items, .text--highlight .heading--h5, .text--highlight .detail-field .detail-field__label, .detail-field .text--highlight .detail-field__label, .text--highlight .detail-field .field__label, .detail-field .text--highlight .field__label, .text--highlight h2.block__title, .text--highlight .block__title.heading--medium,
+  .text--highlight .field__items, .text--highlight .heading--h5, .text--highlight .detail-field .detail-field__label, .detail-field .text--highlight .detail-field__label, .text--highlight .detail-field .field__label, .detail-field .text--highlight .field__label, .text--highlight .location .location__general, .location .text--highlight .location__general, .text--highlight h2.block__title, .text--highlight .block__title.heading--medium,
   .text--highlight h6, .text--highlight .heading--h6 {
     color: #53bd92; }
     .text--highlight h1 a, .text--highlight .heading--homepage a, .text--highlight .heading--product a, .text--highlight .heading--h1 a,
@@ -5315,7 +5699,7 @@ Style guide: typography.colors
     .text--highlight .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--highlight .detail-field__items a,
     .text--highlight .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--highlight .field__items a, .text--highlight .heading--h5 a, .text--highlight .detail-field .detail-field__label a, .detail-field .text--highlight .detail-field__label a, .text--highlight .detail-field .field__label a, .detail-field .text--highlight .field__label a, .text--highlight h2.block__title a, .text--highlight .block__title.heading--medium a,
+    .text--highlight .field__items a, .text--highlight .heading--h5 a, .text--highlight .detail-field .detail-field__label a, .detail-field .text--highlight .detail-field__label a, .text--highlight .detail-field .field__label a, .detail-field .text--highlight .field__label a, .text--highlight .location .location__general a, .location .text--highlight .location__general a, .text--highlight h2.block__title a, .text--highlight .block__title.heading--medium a,
     .text--highlight h6 a, .text--highlight .heading--h6 a {
       color: #53bd92; }
 
@@ -5331,7 +5715,7 @@ Style guide: typography.colors
   .text--mission-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--mission-1 .detail-field__items,
   .text--mission-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--mission-1 .field__items, .text--mission-1 .heading--h5, .text--mission-1 .detail-field .detail-field__label, .detail-field .text--mission-1 .detail-field__label, .text--mission-1 .detail-field .field__label, .detail-field .text--mission-1 .field__label, .text--mission-1 h2.block__title, .text--mission-1 .block__title.heading--medium,
+  .text--mission-1 .field__items, .text--mission-1 .heading--h5, .text--mission-1 .detail-field .detail-field__label, .detail-field .text--mission-1 .detail-field__label, .text--mission-1 .detail-field .field__label, .detail-field .text--mission-1 .field__label, .text--mission-1 .location .location__general, .location .text--mission-1 .location__general, .text--mission-1 h2.block__title, .text--mission-1 .block__title.heading--medium,
   .text--mission-1 h6, .text--mission-1 .heading--h6 {
     color: #316cc8; }
     .text--mission-1 h1 a, .text--mission-1 .heading--homepage a, .text--mission-1 .heading--product a, .text--mission-1 .heading--h1 a,
@@ -5344,7 +5728,7 @@ Style guide: typography.colors
     .text--mission-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--mission-1 .detail-field__items a,
     .text--mission-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--mission-1 .field__items a, .text--mission-1 .heading--h5 a, .text--mission-1 .detail-field .detail-field__label a, .detail-field .text--mission-1 .detail-field__label a, .text--mission-1 .detail-field .field__label a, .detail-field .text--mission-1 .field__label a, .text--mission-1 h2.block__title a, .text--mission-1 .block__title.heading--medium a,
+    .text--mission-1 .field__items a, .text--mission-1 .heading--h5 a, .text--mission-1 .detail-field .detail-field__label a, .detail-field .text--mission-1 .detail-field__label a, .text--mission-1 .detail-field .field__label a, .detail-field .text--mission-1 .field__label a, .text--mission-1 .location .location__general a, .location .text--mission-1 .location__general a, .text--mission-1 h2.block__title a, .text--mission-1 .block__title.heading--medium a,
     .text--mission-1 h6 a, .text--mission-1 .heading--h6 a {
       color: #316cc8; }
 
@@ -5360,7 +5744,7 @@ Style guide: typography.colors
   .text--mission-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--mission-2 .detail-field__items,
   .text--mission-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--mission-2 .field__items, .text--mission-2 .heading--h5, .text--mission-2 .detail-field .detail-field__label, .detail-field .text--mission-2 .detail-field__label, .text--mission-2 .detail-field .field__label, .detail-field .text--mission-2 .field__label, .text--mission-2 h2.block__title, .text--mission-2 .block__title.heading--medium,
+  .text--mission-2 .field__items, .text--mission-2 .heading--h5, .text--mission-2 .detail-field .detail-field__label, .detail-field .text--mission-2 .detail-field__label, .text--mission-2 .detail-field .field__label, .detail-field .text--mission-2 .field__label, .text--mission-2 .location .location__general, .location .text--mission-2 .location__general, .text--mission-2 h2.block__title, .text--mission-2 .block__title.heading--medium,
   .text--mission-2 h6, .text--mission-2 .heading--h6 {
     color: #7dcdf1; }
     .text--mission-2 h1 a, .text--mission-2 .heading--homepage a, .text--mission-2 .heading--product a, .text--mission-2 .heading--h1 a,
@@ -5373,7 +5757,7 @@ Style guide: typography.colors
     .text--mission-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--mission-2 .detail-field__items a,
     .text--mission-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--mission-2 .field__items a, .text--mission-2 .heading--h5 a, .text--mission-2 .detail-field .detail-field__label a, .detail-field .text--mission-2 .detail-field__label a, .text--mission-2 .detail-field .field__label a, .detail-field .text--mission-2 .field__label a, .text--mission-2 h2.block__title a, .text--mission-2 .block__title.heading--medium a,
+    .text--mission-2 .field__items a, .text--mission-2 .heading--h5 a, .text--mission-2 .detail-field .detail-field__label a, .detail-field .text--mission-2 .detail-field__label a, .text--mission-2 .detail-field .field__label a, .detail-field .text--mission-2 .field__label a, .text--mission-2 .location .location__general a, .location .text--mission-2 .location__general a, .text--mission-2 h2.block__title a, .text--mission-2 .block__title.heading--medium a,
     .text--mission-2 h6 a, .text--mission-2 .heading--h6 a {
       color: #7dcdf1; }
 
@@ -5389,7 +5773,7 @@ Style guide: typography.colors
   .text--mission-3 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary
   .text--mission-3 .detail-field__items,
   .text--mission-3 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary
-  .text--mission-3 .field__items, .text--mission-3 .heading--h5, .text--mission-3 .detail-field .detail-field__label, .detail-field .text--mission-3 .detail-field__label, .text--mission-3 .detail-field .field__label, .detail-field .text--mission-3 .field__label, .text--mission-3 h2.block__title, .text--mission-3 .block__title.heading--medium,
+  .text--mission-3 .field__items, .text--mission-3 .heading--h5, .text--mission-3 .detail-field .detail-field__label, .detail-field .text--mission-3 .detail-field__label, .text--mission-3 .detail-field .field__label, .detail-field .text--mission-3 .field__label, .text--mission-3 .location .location__general, .location .text--mission-3 .location__general, .text--mission-3 h2.block__title, .text--mission-3 .block__title.heading--medium,
   .text--mission-3 h6, .text--mission-3 .heading--h6 {
     color: #5facce; }
     .text--mission-3 h1 a, .text--mission-3 .heading--homepage a, .text--mission-3 .heading--product a, .text--mission-3 .heading--h1 a,
@@ -5402,7 +5786,7 @@ Style guide: typography.colors
     .text--mission-3 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary
     .text--mission-3 .detail-field__items a,
     .text--mission-3 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary
-    .text--mission-3 .field__items a, .text--mission-3 .heading--h5 a, .text--mission-3 .detail-field .detail-field__label a, .detail-field .text--mission-3 .detail-field__label a, .text--mission-3 .detail-field .field__label a, .detail-field .text--mission-3 .field__label a, .text--mission-3 h2.block__title a, .text--mission-3 .block__title.heading--medium a,
+    .text--mission-3 .field__items a, .text--mission-3 .heading--h5 a, .text--mission-3 .detail-field .detail-field__label a, .detail-field .text--mission-3 .detail-field__label a, .text--mission-3 .detail-field .field__label a, .detail-field .text--mission-3 .field__label a, .text--mission-3 .location .location__general a, .location .text--mission-3 .location__general a, .text--mission-3 h2.block__title a, .text--mission-3 .block__title.heading--medium a,
     .text--mission-3 h6 a, .text--mission-3 .heading--h6 a {
       color: #5facce; }
 
@@ -5442,7 +5826,7 @@ Style guide: typography.other
   color: #787878;
   line-height: 1.875; }
 
-.text--label, .form-field__label, .social-share, .tabs__tabs .tabs__tab-link, .eyebrow-badge--date .eyebrow-badge__label, .label-tag, .agenda-list__item .agenda__time, .table-list thead th, .tags-list, .video-chapters, .pager .pager__endcap, .teaser-item .teaser-item__label, .text-teaser-item .text-teaser-item__type, .detail-field.detail-field--secondary .detail-field__label, .detail-field.detail-field--secondary .field__label, .quote .quote__byline {
+.text--label, .detail-field.detail-field--secondary .detail-field__label, .detail-field.detail-field--secondary .field__label, .sidebar--right .block__title, .quote .quote__byline, .contextual-search .contextual-search__meta, .contextual-search .contextual-search__category, .contextual-search .contextual-search__more, .form-field__label, .social-share, .tabs__tabs .tabs__tab-link, .eyebrow-badge--date .eyebrow-badge__label, .label-tag, .agenda-list__item .agenda__time, .table-list thead th, .tags-list, .video-chapters, .video-playlist__topic-label, .video-playlist__all, .video-playlist__length, .pager .pager__endcap, .teaser-item .teaser-item__label, .text-teaser-item .text-teaser-item__type {
   font-family: "Benton Sans Book", Helvetica, sans-serif;
   font-size: 0.6875em;
   letter-spacing: 1px;
@@ -5473,7 +5857,7 @@ h4, .heading--h4,
 h5,
 .heading--label,
 .detail-field.detail-field--secondary .detail-field__items,
-.detail-field.detail-field--secondary .field__items, .heading--h5, .detail-field .detail-field__label, .detail-field .field__label, h2.block__title, .block__title.heading--medium,
+.detail-field.detail-field--secondary .field__items, .heading--h5, .detail-field .detail-field__label, .detail-field .field__label, .location .location__general, h2.block__title, .block__title.heading--medium,
 h6, .heading--h6 {
   margin: .5em 0;
   font-family: "Benton Sans Thin", Helvetica, sans-serif;
@@ -5527,13 +5911,13 @@ h4, .heading--h4 {
     h4, .heading--h4 {
       font-size: 1.125em; } }
 
-h5, .heading--label, .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items, .heading--h5, .detail-field .detail-field__label, .detail-field .field__label, h2.block__title, .block__title.heading--medium {
+h5, .heading--label, .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items, .heading--h5, .detail-field .detail-field__label, .detail-field .field__label, .location .location__general, h2.block__title, .block__title.heading--medium {
   font-size: 1.25em;
   font-family: "Benton Sans Light", Helvetica, sans-serif;
   color: #333;
   line-height: 1.5;
   -webkit-font-smoothing: auto; }
-  h5 a, .heading--label a, .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .field__items a, .heading--h5 a, .detail-field .detail-field__label a, .detail-field .field__label a, h2.block__title a, .block__title.heading--medium a {
+  h5 a, .heading--label a, .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .field__items a, .heading--h5 a, .detail-field .detail-field__label a, .detail-field .field__label a, .location .location__general a, h2.block__title a, .block__title.heading--medium a {
     color: #333; }
 
 h6, .heading--h6 {
@@ -5623,52 +6007,3 @@ Style guide: typography.heading-highlight
     background: #cdcdcd; }
   .heading-highlight.heading-highlight--negative:before {
     background: #fff; }
-
-/*
-Quotes
-
-Stylized quoted text such as a pull quote or testimonial.
-
-Markup: quote.hbs
-
-Weight: 40
-
-Style Guide: typography.quote
-*/
-.quote .quote__text {
-  position: relative;
-  font-size: 1.7em;
-  line-height: 1.4; }
-  .quote .quote__text:before {
-    position: absolute;
-    content: "\201C";
-    left: -0.6em; }
-  .quote .quote__text:after {
-    content: "\201D"; }
-
-.quote .quote__byline:before {
-  content: "";
-  display: inline-block;
-  width: 30px;
-  height: 1px;
-  margin-right: .5em;
-  vertical-align: middle;
-  background: #bbb; }
-
-.quote .quote__byline .quote__byline__title {
-  color: #787878; }
-
-.quote.quote--light .quote__byline .quote__byline__name {
-  color: #fff; }
-
-.quote.quote--light .quote__byline .quote__byline__title {
-  color: #bbb; }
-
-.quote.quote--light .quote__byline:before {
-  background: #bbb; }
-
-@media (max-width: 639px) {
-  .quote .quote__text {
-    font-size: 1.2em; }
-  .quote .quote__byline:before {
-    width: 20px; } }
