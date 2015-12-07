@@ -127,10 +127,10 @@ in CSS as well.
   });
 })(jQuery, window);
 ;
-/** 
+/**
  * Content Reveal utility
  *
- * Set a wrapper around content as a revealable region. Assign a "trigger" 
+ * Set a wrapper around content as a revealable region. Assign a "trigger"
  * element as the toggle to expand and collapse the content region.
  *
  * Options:
@@ -144,7 +144,7 @@ in CSS as well.
  *    triggers: $('.triggers-selector')
  *  });
  *
- * @TODO: Can still use some cleanup and work to be a more agnostic plugin 
+ * @TODO: Can still use some cleanup and work to be a more agnostic plugin
  */
 
 (function ( $ ) {
@@ -199,11 +199,11 @@ in CSS as well.
       if (hideText != "") {
         $trigger.text(hideText);
       }
-      
+
       // Video players break when we display none so using a custom reimplementation
       // of slideDown. See helpers.js.
       $target.slideHeight('down', customAnimation);
-      
+
       $curtain.slideUp(customAnimation);
 
       if (media == "video") {
@@ -229,9 +229,9 @@ in CSS as well.
           media = data.revealMedia;
 
       $(trigger).data('revealState', 'closed').text(showText).removeClass('open');
-      
+
       $target.slideHeight('up', settings.animation);
-      
+
       $curtain.slideDown(settings.animation);
 
       if (media == "video") {
@@ -244,11 +244,11 @@ in CSS as well.
     function setup() {
       // Add reveal-state data
       settings.triggers.data('revealState', 'closed');
-      
+
       settings.triggers.each(function(index, el) {
         var $target = $('#' + $(this).data('revealTarget')),
             showText = $(this).text();
-        
+
         // Link content back to it's corresponding trigger
         $target.data('revealTrigger', $(this));
 
@@ -257,8 +257,8 @@ in CSS as well.
       });
 
       // // Set initial margin on content if there is a curtain
-      // // @TODO this is for naimating the reveal as if the content is 
-      // // stationary and the elements above and below are revealing it. 
+      // // @TODO this is for naimating the reveal as if the content is
+      // // stationary and the elements above and below are revealing it.
       // // Currently, the content moves up as the curtain slides up.
       // settings.contents.each(function(index, el) {
       //   var data = $($(this).data('revealTrigger')).data(),
@@ -293,6 +293,144 @@ in CSS as well.
     return this;
   }
 }( jQuery ));
+;
+'use strict';
+
+/**
+ * jQuery Dynamic Select Filters
+ *
+ * Given a set of input radio options, generate a corresponding select list per
+ * option group and binds change events so that using the select triggers the
+ * original option inputs, which may now be hidden.
+ *
+ * The javascript init, with options thrown in:
+ *
+
+  $('.filter-set').dynamicSelectFilters({
+    container: '.mobile-filter-set',
+    groupHeading: '.filter-set__heading',
+    onCreateSelectCallback: function () {
+      // 'this' is the jQuery wrapped select element, created per group set.
+      this.wrap('<div class="form-field__wrapper"><div class="form__select"></div></div>');
+
+      // Perform additional event bindings as needed.
+      this.on('click.namespace', function myCoolEvent(e) {
+        doMyThings();
+      });
+    }
+  });
+
+ */
+(function ($) {
+  // Set plugin method name and defaults
+  var pluginName = 'dynamicSelectFilters',
+      defaults = {
+        // A DOM selector of the container to place the dynamic <select> elements.
+        // If not defined, one will be generated and placed before the first
+        // option group found.
+        container: false,
+        // An optional DOM selector to provide a default option in the select
+        // element. Should be located inside the grouping DOM element.
+        groupHeading: '',
+        // Callback function after each select is created. Passes in the newly
+        // created select jQuery element to perform any additional modifications.
+        onCreateSelectCallback: null
+      };
+
+  // plugin constructor
+  function Plugin (element, options) {
+    var $element = $(element);
+
+    // Set up internals for tracking, just in case.
+    this._name = pluginName;
+    this._defaults = defaults;
+    this._element = $element;
+
+    // Use the init options.
+    this.options = $.extend(true, defaults, options);
+
+    // Do it now.
+    this.init();
+  }
+
+  Plugin.prototype.init = function () {
+    var _options = this.options,
+        $radioGroups = this._element,
+        $selectContainer = $(_options.container);
+
+    if (!$radioGroups.length) {
+      return;
+    }
+
+    // If no container for the select is defined, add one.
+    if (!$selectContainer.length) {
+      $radioGroups.eq(0).before('<div class="dynamic-select-container"></div>');
+      $selectContainer = $radioGroups.eq(0).prev('.dynamic-select-container');
+    }
+
+    $radioGroups.each(function initSelectDuplication() {
+      var $this = $(this),
+          // Grouping label, generated as a disabled option within the select to
+          // act as a label.
+          groupHeading = $this.find(_options.groupHeading),
+          $input = $this.find('input[type="radio"]'),
+          $label = $this.find('label'),
+          $select = $('<select>'),
+          selectOptions = '';
+
+      if (!$input.length) {
+        return;
+      }
+
+      // If given a groupHeading element, use it to create a placeholder-esque
+      // option for the current <select>
+      if (groupHeading.length) {
+        selectOptions = '<option class="select-placeholder" disabled selected>' + groupHeading.text().trim().replace(/\:$/, '') + '</option>';
+      }
+
+      // Continue building out the select options using all the radio/checkbox inputs.
+      $input.each(function buildSelectOptions() {
+        var $this = $(this),
+            $label = $this.next('label'),
+            triggerElement = '#' + $this.attr('id').trim(),
+            isSelected = ($this.is(':checked')) ? 'selected' : '';
+
+        // Let the option value be the input element to trigger, by DOM id.
+        selectOptions += '<option value="' + triggerElement + '" ' + isSelected + '>' + $label.text() + '</option>';
+
+        // Sync the select state when the option input is used.
+        $this.on('change.dynamicfilter', function twoWayValueBind() {
+          $select.find('option[value="' + triggerElement + '"]').prop('selected', true);
+        });
+      });
+
+      // Flesh out the select, and enact bindings.
+      $select.html(selectOptions)
+        .on('change.dynamicfilter', function bindDynamicSelectActions() {
+          var $triggerEl = $($(this).val());
+
+          $triggerEl.prop('checked', true);
+        })
+        .appendTo($selectContainer);
+
+        // Apply any per instance callbacks.
+        if (typeof _options.onCreateSelectCallback === 'function') {
+          _options.onCreateSelectCallback.call($select);
+        }
+    });
+  };
+
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[pluginName] = function (options) {
+    return this.each(function initPlugin() {
+      if (!$.data(this, 'plugin_' + pluginName)) {
+        $.data(this, 'plugin_' + pluginName,
+        new Plugin(this, options));
+      }
+    });
+  };
+})(jQuery);
+
 ;
 "use strict";
 
@@ -701,22 +839,22 @@ $(document).ready(function () {
 
 })(jQuery);
 ;
-/** 
+/**
  * Flyout content utility
  */
 (function($){
-  var $triggers = $('.flyout__trigger'),
-      $contents = $('.flyout__content'),
-      animation = {
-        duration: 1000,
-        easing: "easeInOutQuart"
-      };
-  
+
   $(document).ready(function(){
+    var $triggers = $('.flyout__trigger'),
+        $contents = $('.flyout__content'),
+        animation = {
+          duration: 1000,
+          easing: 'easeInOutQuart'
+        };
+
     if ($triggers.length && $contents.length) {
       // Run setup
       setup();
-
 
       $triggers.on('click.flyout', function(e) {
         var trigger = this,
@@ -739,117 +877,77 @@ $(document).ready(function () {
       });
     }
 
+
+    // Show the target content
+    function showContent(trigger) {
+      var data = $(trigger).data(),
+          $target = $('#' + data.flyoutTarget),
+          $parent = $target.offsetParent(),
+          $slideout = $parent.find('.flyout__slideout'),
+          parentPadding = $parent.outerHeight() - $parent.height(),
+          offset = $('.sticky-wrapper .stuck').outerHeight(true);
+
+      $target.data('flyoutState', 'open');
+
+      // Adjust height of parent
+      $parent.animate({
+        height: $target.outerHeight(true) - parentPadding,
+      }, animation);
+
+      $slideout.add($target).animate({
+        marginLeft: '-=100%',
+      }, animation);
+
+      smoothScrollTop($parent, animation.duration, offset, true);
+    }
+
+    // Hide the target content
+    function hideContent(trigger) {
+      var data = $(trigger).data(),
+          $target = $('#' + data.flyoutTarget),
+          $parent = $target.offsetParent(),
+          $slideout = $parent.find('.flyout__slideout'),
+          slideoutHeight = $slideout.outerHeight(true);
+
+      $target.data('flyoutState', 'closed');
+
+      // Adjust height of parent
+      $parent.animate({
+        height: slideoutHeight,
+      }, animation);
+
+      $slideout.add($target).animate({
+        marginLeft: '+=100%',
+      }, animation);
+
+      // Reset height of $parent to inherit in case of screen resizing that would
+      // need to adjust the height.
+      setTimeout(function() {
+        $parent.css('height', 'inherit');
+      }, animation.duration + 1);
+    }
+
+    // Hand-full of setup tasks
+    function setup() {
+      // Add flyout-state data
+      $contents.data('flyoutState', 'closed');
+
+      // Link content back to it's corresponding trigger
+      $triggers.each(function(index, el) {
+        var $target = $('#' + $(this).data('flyoutTarget'));
+        $target.data('flyoutTrigger', $(this));
+      });
+
+      // Set the relative parent to hide overflow
+      $contents.each(function(index, el) {
+        $(this).show();
+        $(this).offsetParent().css('overflow', 'hidden');
+      });
+    }
+
   });
-
-  // Show the target content
-  function showContent(trigger) {
-    var data = $(trigger).data(),
-        $target = $('#' + data.flyoutTarget),
-        $parent = $target.offsetParent(),
-        $slideout = $parent.find('.flyout__slideout'),
-        parentPadding = $parent.outerHeight() - $parent.height(),
-        offset = $('.sticky-wrapper .stuck').outerHeight(true);
-
-    $target.data('flyoutState', 'open');
-
-    // Adjust height of parent
-    $parent.animate({
-      height: $target.outerHeight(true) - parentPadding,
-    }, animation);
-
-    $slideout.add($target).animate({
-      marginLeft: '-=100%',
-    }, animation);
-
-    smoothScrollTop($parent, animation.duration, offset, true);
-  }
-
-  // Hide the target content
-  function hideContent(trigger) {
-    var data = $(trigger).data(),
-        $target = $('#' + data.flyoutTarget),
-        $parent = $target.offsetParent(),
-        $slideout = $parent.find('.flyout__slideout'),
-        slideoutHeight = $slideout.outerHeight(true);
-
-    $target.data('flyoutState', 'closed');
-
-    // Adjust height of parent
-    $parent.animate({
-      height: slideoutHeight,
-    }, animation);
-
-    $slideout.add($target).animate({
-      marginLeft: '+=100%',
-    }, animation);
-
-    // Reset height of $parent to inherit in case of screen resizing that would 
-    // need to adjust the height.
-    setTimeout(function() {
-      $parent.css('height', 'inherit');
-    }, animation.duration + 1);
-  }
-
-  // Hand-full of setup tasks
-  function setup() {
-    // Add flyout-state data
-    $contents.data('flyoutState', 'closed');
-    
-    // Link content back to it's corresponding trigger
-    $triggers.each(function(index, el) {
-      var $target = $('#' + $(this).data('flyoutTarget'));
-      $target.data('flyoutTrigger', $(this));
-    });
-
-    // Set the relative parent to hide overflow
-    $contents.each(function(index, el) {
-      $(this).show();
-      $(this).offsetParent().css('overflow', 'hidden');
-    });
-  }
-
 })(jQuery);
-
-
-
-
-/*******************************************************************************
- * HUGE CODE
-*******************************************************************************/
-
-function dataSourcesSearch() {
-  var $dataSources = $('.data-sources-flyout'),
-      $dataSearch = $dataSources.find('input[type=search]'),
-      $dataItems,
-      pattern,
-      dataItemText;
-
-  // While the user types look for matching terms
-  $dataSearch.on('keyup', function(e){
-    // Get the current search container bullet points
-    $dataItems = $(this).parents('.data-sources-container').find('.data-sources-content li');
-
-    // Go through each bullet point to make text with search
-    $dataItems.each(function(){
-      // Regex pattern to match any word
-      pattern = new RegExp("(\\b" + $dataSearch.val() + "\\b)", "gim");
-
-      // Get the text of each bullet point
-      dataItemText = $(this).text();
-
-      // Remove previous spans in bullet point text
-      dataItemText = dataItemText.replace(/(<span>|<\/span>)/igm, "");
-
-      // Add new span
-      dataItemText = dataItemText.replace(pattern, "<span>$1</span>");
-
-      // Update current data item text
-      $(this)[0].innerHTML = dataItemText;
-    });
-
-  });
-
-  };
+;
 /** 
  * Gif Player utility.
  */
@@ -929,9 +1027,9 @@ function dataSourcesSearch() {
  * Searches through a list of items and highlights items that match the term.
  */
 (function($){
-  var $searches = $('.search-highlight input[type="search"]');
-  
   $(document).ready(function(){
+    var $searches = $('.search-highlight input[type="search"]');
+    
     if ($searches.length) {
       $searches.each(function(index, el) {
         var $search = $(el),
@@ -1043,43 +1141,6 @@ function dataSourcesSearch() {
   });
 }( jQuery ));
 ;
-(function($){
-  var $vizSlideshow = $('.viz-slideshow__slides');
-
-  $(document).ready(function(){
-    if ($vizSlideshow.length) {
-      $vizSlideshow.slick({
-        centerMode: true,
-        centerPadding: '200px',
-        slidesToShow: 1,
-        arrows: true,
-        speed: 650,
-        easing: "easeInOutQuart",
-        slide: '.viz-slideshow__slide',
-        prevArrow: $(this).find('.viz-slideshow__arrow--prev'),
-        nextArrow: $(this).find('.viz-slideshow__arrow--next'),
-        responsive: [
-          {
-            breakpoint: 940,
-            settings: {
-              centerPadding: '50px'
-            }
-          },
-          {
-            breakpoint: 639,
-            settings: {
-              centerPadding: '25px',
-              arrows: false,
-              prevArrow: false,
-              nextArrow: false
-            }
-          }
-        ]
-      });
-    }
-  });
-})(jQuery);
-;
 /**
  * Brightcove video chapter handling.
  *
@@ -1144,7 +1205,30 @@ function dataSourcesSearch() {
   });
 })(jQuery, window);
 ;
-/** 
+(function($) {
+  /**
+   * Callback function to insert the menu into the DOM.
+   */
+  window.tabAjaxMegaMenu = function(data) {
+    var commands = {
+      insert: function (response) {
+        $(response.selector)[response.method](response.data);
+      }
+    };
+
+    // Execute our commands.
+    for (var i in data) {
+      if (data[i]['command'] && commands[data[i]['command']]) {
+        commands[data[i]['command']](data[i]);
+      }
+    }
+
+    // Trigger event when our menu has been loaded.
+    $(document).trigger('tabAjaxMegaMenu:ready');
+  };
+})(jQuery);
+;
+/**
  * Global gavigation interactions
  */
 (function($){
@@ -1162,49 +1246,48 @@ function dataSourcesSearch() {
     var $globalNav = $('.global-nav__top'),
       $menu = $globalNav.find('.global-nav__primary-menu'),
       $expandableLinks = $menu.find('li a.expandable'),
-      $drawers = $('.global-nav__drawers__drawer'),
+      $drawers = $('.global-nav__drawer'),
       $hamburger = $globalNav.find('.hamburger'),
       $mobileWrapper = $globalNav.find('.global-nav__mobile-wrapper'),
-      $mobileDrawerClose = $('.global-nav__drawers__drawer__close'),
+      $mobileDrawerClose = $('.global-nav__drawer-close'),
       animation = {
-        duration: 750,
-        easing: "easeInOutQuart"
+        duration: 150,
+        easing: 'linear'
       };
-
     /* Desktop stuff */
     if (matchMedia('(min-width: 961px)').matches) {
       // Drawer Expanding interaction
-      // @todo needs lots of work here.
-      
-      var throttle = _.throttle(function($link) {
-        openDrawer($link);
-      }, animation.duration);
 
-      $expandableLinks.hover( 
-        function() {
-          throttle($(this));
-        }, function() {
-          var $link = $(this),
-              $hoverElements = $globalNav.closest('.global-nav').siblings(),
-              $navLinks = $globalNav.find('a').not($link);
+      $expandableLinks.each(function (){
+        var $link = $(this),
+            $drawer = $drawers.filter('#' + $link.data('drawer-id')),
+            $both = $link.add($drawer);
 
-          $hoverElements.add($navLinks).hover(function() {
-            closeDrawer($link);
+        // Handling for hover interaction of drawers. Uses the doTimeout jquery
+        // utility to handle throttling and waiting on a small delay before
+        // showing the drawer (essentially hoverintent)
+        $both.hover(function () {
+          $both.doTimeout( 'open', 200, function() {
+            $both.addClass('is-open');
           });
-        }
-      );
+        }, function () {
+          $both.doTimeout( 'open', 200, function() {
+            $both.removeClass('is-open');
+          });
+        });
+      });
 
       $drawers.click(function(e) {
         e.stopPropagation();
       });
     }
 
-    /* Tablet/mobile stuff */ 
+    /* Tablet/mobile stuff */
     if (matchMedia('(max-width: 960px)').matches) {
 
       // Set the height of the dropdown content
       mobileHeightAdjust();
-      
+
       $(window).resize(function(e) {
         mobileHeightAdjust()
       });
@@ -1212,22 +1295,22 @@ function dataSourcesSearch() {
       $expandableLinks.on('click.nav', function(e) {
         var $link = $(this),
             $drawer = $('#' + $link.data('drawer-id'));
-        
+
         $drawer.show().addClass('open');
 
         $drawer.add($mobileWrapper).animate({
           marginLeft: '-=100%'
         }, animation);
-       
+
         e.preventDefault();
       });
     }
 
     $mobileDrawerClose.on('click.nav', function(e) {
-      var $drawer = $(this).closest('.global-nav__drawers__drawer');
+      var $drawer = $(this).closest('.global-nav__drawer');
 
       closeDrawerMobile($drawer);
-      
+
       e.preventDefault();
     });
 
@@ -1249,24 +1332,6 @@ function dataSourcesSearch() {
       $hamburger.parent().toggleClass('open');
       e.preventDefault();
     });
-
-    function openDrawer($link) {
-      var $drawer = $drawers.filter('#' + $link.data('drawer-id'));
-
-      if (!$drawers.hasClass('expanded')) {
-        $link.add($drawer).addClass('expanded');
-        $drawers.filter('#' + $link.data('drawer-id')).slideDown(animation);
-      }
-    }
-
-    function closeDrawer($link) {
-      var $drawer = $drawers.filter('#' + $link.data('drawer-id'));
-
-      if ($drawer.hasClass('expanded')) {
-        $link.add($drawer).removeClass('expanded');
-        $drawers.filter('#' + $link.data('drawer-id')).slideUp(animation);
-      }
-    }
 
     function closeDrawerMobile($drawer) {
       $drawer.add($mobileWrapper).animate({
@@ -1302,31 +1367,18 @@ function dataSourcesSearch() {
 
 })(jQuery);
 ;
-/** 
+/**
  * Global search bar interaction
  */
 (function($){
   $(document).ready(function(){
     var $search = $('.global-nav__search'),
-        $closeSearch = $search.find('.global-nav__search__close'),
-        availableTags = [
-          "Tableau",
-          "Desktop",
-          "Server",
-          "Online",
-          "Cloud",
-          "Public",
-          "Reader",
-          "Business Intelligence",
-          "Data",
-          "Products",
-          "Graphs",
-          "Visualizations"
-        ];
+        $closeSearch = $search.find('.global-nav__search-close');
 
     $search.on('click', function(e){
       e.preventDefault();
       $(this).parents('.global-nav__top').addClass('global-nav--search-shown');
+      $(this).find('input[type="search"]').focus();
     });
 
     $closeSearch.on('click', function(e){
@@ -1334,24 +1386,16 @@ function dataSourcesSearch() {
       e.preventDefault();
       $search.parents('.global-nav__top').removeClass('global-nav--search-shown');
     });
-    
-    // Search auto-complete for demo purposes. Requires jQuery UI Autocomplete
-    // @todo add support for highlighting the searched characters in the list
-    //    http://stackoverflow.com/questions/2435964/jqueryui-how-can-i-custom-format-the-autocomplete-plug-in-results
-    $search.find("input").autocomplete({
-      source: availableTags,
-      appendTo: ".global-nav"
-    });
-
   });
 })(jQuery);
 ;
-/** 
+/**
  * Hamburger interaction interactions
  */
 (function($){
-  var $hamburger = $('.hamburger');
   $(document).ready(function(){
+    var $hamburger = $('.hamburger');
+
     if ($hamburger.length) {
       $hamburger.on('click.hamburger', function(e) {
         $(this).toggleClass('hamburger--open');
@@ -1366,10 +1410,10 @@ function dataSourcesSearch() {
  */
 
 (function($){
-  var $nav = $('.subnav__links'),
-      $anchors = $('.anchor');
-
   $(document).ready(function(){
+    var $nav = $('.subnav__links'),
+        $anchors = $('.anchor-link');
+
     if ($nav.length && $anchors.length) {
       $anchors.waypoint({
         handler: function(direction) {
@@ -1382,18 +1426,16 @@ function dataSourcesSearch() {
         },
         offset: $('.subnav').outerHeight(true)
       });
+
+      // Smooth Scroll for anchor links
+      // @TODO generalize and separate from this component
+      $nav.find('a').click(function(e) {
+        var element = $(this).attr('href'),
+            offset = $('.subnav').outerHeight(true) - 1;
+        smoothScrollTop($(element), 500, offset);
+        e.preventDefault();
+      });
     }
-
-    // Smooth Scroll for anchor links
-    // @TODO generalize and separate from this component
-    $nav.find('a').click(function(e) {
-      var element = $(this).attr('href'),
-          offset = $('.subnav').outerHeight(true) - 1;
-
-      smoothScrollTop($(element), 500, offset);
-      e.preventDefault();
-    });
-    
   });
 })(jQuery);
 ;

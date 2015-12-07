@@ -85,6 +85,11 @@
           </a>
           <ul class="kss-nav__menu-child">
                 <li class="kss-nav__menu-item">
+                  <a href="section-teasers.html#kssref-teasers-large-teaser">
+                    Large Teaser
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-teasers.html#kssref-teasers-teaser-item">
                     Basic Teaser Item
                   </a>
@@ -97,6 +102,11 @@
                 <li class="kss-nav__menu-item">
                   <a href="section-teasers.html#kssref-teasers-card">
                     Card Teaser
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-teasers.html#kssref-teasers-summary-teaser">
+                    Summary Teaser
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
@@ -146,6 +156,11 @@
             Layout
           </a>
         </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-documentation.html">
+            Documentation
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -170,6 +185,90 @@ view of the content.</p>
 
 
             </div>
+            <section id="kssref-teasers-large-teaser" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-teasers-large-teaser"> -->
+                Large Teaser
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>A large teaser with a high-resolution preview image, meant to be displayed as a
+single full-width item. An example use case would be to display each slide of a
+slideshow as a large teaser.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="large-teaser">
+    <div class="large-teaser__thumbnail thumbnail">
+      <a href="">
+        <img src="http://www.placecage.com/850/475"/>
+      </a>
+    </div>
+
+  <div class="large-teaser__copy">
+      <div class="large-teaser__title">
+        <h4>
+          <a href="">Mapping Houston’s electricity usage.</a>
+        </h4>
+      </div>
+
+    <div class="large-teaser__description">
+        <p>Frank Bracco of the City of Houston Blog, visualizes the changing energy usage climate in Houston, Texas.</p>
+
+        <p class="large-teaser__link">
+          <a href="#" class="link ">Download</a>
+            <span class="text--label"> This dataset in Tableau</span>
+        </p>
+    </div>
+  </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;large-teaser&quot;&gt;
+    &lt;div class=&quot;large-teaser__thumbnail thumbnail&quot;&gt;
+      &lt;a href=&quot;&quot;&gt;
+        &lt;img src=&quot;http://www.placecage.com/850/475&quot;/&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+  &lt;div class=&quot;large-teaser__copy&quot;&gt;
+      &lt;div class=&quot;large-teaser__title&quot;&gt;
+        &lt;h4&gt;
+          &lt;a href=&quot;&quot;&gt;Mapping Houston’s electricity usage.&lt;/a&gt;
+        &lt;/h4&gt;
+      &lt;/div&gt;
+
+    &lt;div class=&quot;large-teaser__description&quot;&gt;
+        &lt;p&gt;Frank Bracco of the City of Houston Blog, visualizes the changing energy usage climate in Houston, Texas.&lt;/p&gt;
+
+        &lt;p class=&quot;large-teaser__link&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;link &quot;&gt;Download&lt;/a&gt;
+            &lt;span class=&quot;text--label&quot;&gt; This dataset in Tableau&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
             <section id="kssref-teasers-teaser-item" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -276,7 +375,8 @@ link to the full version of the content.</p>
 
 
             <div class="kss-description">
-              <p>Text-only teaser item used for lists of recommended content.</p>
+              <p>Text-only teaser item used for lists of recommended content.
+NOTE: Duplicated as mustache template for front-end LiftIgniter rendering!!!</p>
 
             </div>
           </div>
@@ -287,12 +387,11 @@ link to the full version of the content.</p>
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
                     <div class="text-teaser-item grid--4 [modifier class]">
-  <p class="text-teaser-item__type">Story</p>
+  
   <h4 class="text-teaser-item__title">
     <a href="http://www.tableau.com?story">Turning complex mountains of data into actionable insights at amaysim</a>
   </h4>
 </div>
-
 
                   </div>
                 </div>
@@ -303,12 +402,11 @@ link to the full version of the content.</p>
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;text-teaser-item grid--4 [modifier class]&quot;&gt;
-  &lt;p class=&quot;text-teaser-item__type&quot;&gt;Story&lt;/p&gt;
+  
   &lt;h4 class=&quot;text-teaser-item__title&quot;&gt;
     &lt;a href=&quot;http://www.tableau.com?story&quot;&gt;Turning complex mountains of data into actionable insights at amaysim&lt;/a&gt;
   &lt;/h4&gt;
 &lt;/div&gt;
-
 </code></pre>
               </div>
 
@@ -402,6 +500,72 @@ link to the full version of the content.</p>
         &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-teasers-summary-teaser" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-teasers-summary-teaser"> -->
+                Summary Teaser
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>A summary teaser item, used for displaying a teaser for a long summary. Fades
+away at the bottom.</p>
+
+            </div>
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview" style="background: white;
+border: 0;">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="summary-teaser [modifier class]">
+  <p>Nunc praesentium lacinia aliquam minus quisque deleniti iure per a? Culpa wisi explicabo natoque, et quod aperiam nisi litora occaecat, diamlorem convallis sem do molestias nam sem! Velit class! Lorem officia optio, blanditiis occaecat, alias nunc in, aenean dictum dictum magna cubilia mollitia eiusmod! Ea sint potenti ducimus laboris est.</p><p>Netus ab aptent arcu nec. Harum urna tristique architecto tristique? Mauris nulla culpa, veritatis per animi donec aut, hymenaeos. Officiis, pretium aliquid officia distinctio posuere fames harum. Perspiciatis cubilia wisi hendrerit reiciendis, ultrices. Ex temporibus aliquip, eius et? Sit temporibus. Nam sem, enim dis netus provident perspiciatis illum nascetur inventore.</p>
+</div>
+
+                  </div>
+                </div>
+              </div>
+             
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>A teaser for the light-gray-1 background color.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.summary-teaser--light-gray-1</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview" style="background: white;
+border: 0;">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="summary-teaser summary-teaser--light-gray-1">
+  <p>Nunc praesentium lacinia aliquam minus quisque deleniti iure per a? Culpa wisi explicabo natoque, et quod aperiam nisi litora occaecat, diamlorem convallis sem do molestias nam sem! Velit class! Lorem officia optio, blanditiis occaecat, alias nunc in, aenean dictum dictum magna cubilia mollitia eiusmod! Ea sint potenti ducimus laboris est.</p><p>Netus ab aptent arcu nec. Harum urna tristique architecto tristique? Mauris nulla culpa, veritatis per animi donec aut, hymenaeos. Officiis, pretium aliquid officia distinctio posuere fames harum. Perspiciatis cubilia wisi hendrerit reiciendis, ultrices. Ex temporibus aliquip, eius et? Sit temporibus. Nam sem, enim dis netus provident perspiciatis illum nascetur inventore.</p>
+</div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;summary-teaser [modifier class]&quot;&gt;
+  &lt;p&gt;Nunc praesentium lacinia aliquam minus quisque deleniti iure per a? Culpa wisi explicabo natoque, et quod aperiam nisi litora occaecat, diamlorem convallis sem do molestias nam sem! Velit class! Lorem officia optio, blanditiis occaecat, alias nunc in, aenean dictum dictum magna cubilia mollitia eiusmod! Ea sint potenti ducimus laboris est.&lt;/p&gt;&lt;p&gt;Netus ab aptent arcu nec. Harum urna tristique architecto tristique? Mauris nulla culpa, veritatis per animi donec aut, hymenaeos. Officiis, pretium aliquid officia distinctio posuere fames harum. Perspiciatis cubilia wisi hendrerit reiciendis, ultrices. Ex temporibus aliquip, eius et? Sit temporibus. Nam sem, enim dis netus provident perspiciatis illum nascetur inventore.&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
               </div>
@@ -783,8 +947,8 @@ link to the full version of the content.</p>
 <script src="build/vendor/jquery/dist/jquery.min.js"></script>
 <script src="build/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="build/js/vendor.js"></script>
-<script src="build/js/styleguide.js"></script>
 <script src="build/js/scripts.js"></script>
+<script src="build/js/styleguide.js"></script>
 <script src="//localhost:1234/livereload.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->

@@ -120,8 +120,23 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
+                  <a href="section-forms.html#kssref-forms-content-search">
+                    Content Search
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-forms.html#kssref-forms-contextual-search">
                     Contextual Search
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-forms.html#kssref-forms-fancy-radios">
+                    Fancy Radios
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-forms.html#kssref-forms-responsive-filter">
+                    Responsive Filters
                   </a>
                 </li>
           </ul>
@@ -139,6 +154,11 @@
         <li class="kss-nav__menu-item">
           <a href="section-layout.html">
             Layout
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-documentation.html">
+            Documentation
           </a>
         </li>
       </ul>
@@ -483,6 +503,48 @@ user can submit information through. Here&#39;s an example form:</p>
               </div>
 
             </section>
+            <section id="kssref-forms-content-search" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-forms-content-search"> -->
+                Content Search
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Search component for use within content (i.e. not header or footer)</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <form class="content-search" autocomplete="off">
+  <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+  <button class="content-search__button" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+</form>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;form class=&quot;content-search&quot; autocomplete=&quot;off&quot;&gt;
+  &lt;input class=&quot;content-search__input&quot; type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
+  &lt;button class=&quot;content-search__button&quot; type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+              </div>
+
+            </section>
             <section id="kssref-forms-contextual-search" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -511,12 +573,12 @@ search component will close the search results.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="contextual-search">
+                    <div class="content-search contextual-search">
   <div class="contextual-search__ui">
     <form class="contextual-search__form" autocomplete="off">
-      <input class="contextual-search__input" type="search" name="exampleSearch" placeholder="Search this section">
-      <button class="contextual-search__button contextual-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
-      <button class="contextual-search__button contextual-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--nic-cage"></i></button>
+      <input class="content-search__input contextual-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+      <button class="content-search__button contextual-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+      <button class="content-search__button contextual-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--nic-cage"></i></button>
     </form>
     <div class="contextual-search__results">
       <a href="#row0" class="contextual-search__results-row">
@@ -551,12 +613,12 @@ search component will close the search results.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;contextual-search&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;content-search contextual-search&quot;&gt;
   &lt;div class=&quot;contextual-search__ui&quot;&gt;
     &lt;form class=&quot;contextual-search__form&quot; autocomplete=&quot;off&quot;&gt;
-      &lt;input class=&quot;contextual-search__input&quot; type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
-      &lt;button class=&quot;contextual-search__button contextual-search__submit&quot; type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-      &lt;button class=&quot;contextual-search__button contextual-search__reset&quot; type=&quot;reset&quot; name=&quot;exampleSearchReset&quot;&gt;&lt;i class=&quot;icon icon--nic-cage&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;input class=&quot;content-search__input contextual-search__input&quot; type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
+      &lt;button class=&quot;content-search__button contextual-search__submit&quot; type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button class=&quot;content-search__button contextual-search__reset&quot; type=&quot;reset&quot; name=&quot;exampleSearchReset&quot;&gt;&lt;i class=&quot;icon icon--nic-cage&quot;&gt;&lt;/i&gt;&lt;/button&gt;
     &lt;/form&gt;
     &lt;div class=&quot;contextual-search__results&quot;&gt;
       &lt;a href=&quot;#row0&quot; class=&quot;contextual-search__results-row&quot;&gt;
@@ -586,6 +648,194 @@ search component will close the search results.</p>
               </div>
 
             </section>
+            <section id="kssref-forms-fancy-radios" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-forms-fancy-radios"> -->
+                Fancy Radios
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Radio option groups, with a custom <code>:checked</code> state.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="fancy-radios form-field__wrapper">
+  <div>
+    <input class="form-field fancy-radios__radio" type="radio" id="radio-all" name="fanciness" value="value-all" checked>
+    <label class="form-field__label" for="radio-all">All or things</label>
+  </div>
+  <div>
+    <input class="form-field fancy-radios__radio" type="radio" id="radio-one" name="fanciness" value="value-1" >
+    <label class="form-field__label" for="radio-one">Edward Maulis</label>
+  </div>
+  <div>
+    <input class="form-field fancy-radios__radio" type="radio" id="radio-two" name="fanciness" value="value-2" >
+    <label class="form-field__label" for="radio-two">Dr. Stanley Goodspeed</label>
+  </div>
+  <div>
+    <input class="form-field fancy-radios__radio" type="radio" id="radio-three" name="fanciness" value="value-3" >
+    <label class="form-field__label" for="radio-three">Randall &#x27;Memphis&#x27; Raines</label>
+  </div>
+  <div>
+    <input class="form-field fancy-radios__radio" type="radio" id="radio-four" name="fanciness" value="value-4" >
+    <label class="form-field__label" for="radio-four">Cameron Poe</label>
+  </div>
+  <div>
+    <input class="form-field fancy-radios__radio" type="radio" id="radio-five" name="fanciness" value="value-5" >
+    <label class="form-field__label" for="radio-five">Yuri Orlov</label>
+  </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;fancy-radios form-field__wrapper&quot;&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-all&quot; name=&quot;fanciness&quot; value=&quot;value-all&quot; checked&gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;radio-all&quot;&gt;All or things&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-one&quot; name=&quot;fanciness&quot; value=&quot;value-1&quot; &gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;radio-one&quot;&gt;Edward Maulis&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-two&quot; name=&quot;fanciness&quot; value=&quot;value-2&quot; &gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;radio-two&quot;&gt;Dr. Stanley Goodspeed&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-three&quot; name=&quot;fanciness&quot; value=&quot;value-3&quot; &gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;radio-three&quot;&gt;Randall &amp;#x27;Memphis&amp;#x27; Raines&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-four&quot; name=&quot;fanciness&quot; value=&quot;value-4&quot; &gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;radio-four&quot;&gt;Cameron Poe&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-five&quot; name=&quot;fanciness&quot; value=&quot;value-5&quot; &gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;radio-five&quot;&gt;Yuri Orlov&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-forms-responsive-filter" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-forms-responsive-filter"> -->
+                Responsive Filters
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Given sets of filter options as checkboxes or radio buttons, generate dynamic
+mobile equivalents wrapped into a select elements and bind the same filtering
+behavior to them. The example below is shown by default, but in practice, the
+filters could be hidden by adding specific classes / media query controls, such
+as <code>.desktop-hide</code></p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="mobile-filter-set">
+
+</div>
+
+<div class="filter-set">
+  <span class="filter-set__heading">Nick Roles</span>
+
+    <div class="form-field__wrapper">
+      <input class="form-field" type="radio" id="radio-res-all" name="first-responder" value="res-value-all" >
+      <label class="form-field__label" for="radio-res-all">All or things</label>
+    </div>
+    <div class="form-field__wrapper">
+      <input class="form-field" type="radio" id="radio-res-one" name="first-responder" value="res-value-1" >
+      <label class="form-field__label" for="radio-res-one">Edward Maulis</label>
+    </div>
+    <div class="form-field__wrapper">
+      <input class="form-field" type="radio" id="radio-res-two" name="first-responder" value="res-value-2" >
+      <label class="form-field__label" for="radio-res-two">Dr. Stanley Goodspeed</label>
+    </div>
+    <div class="form-field__wrapper">
+      <input class="form-field" type="radio" id="radio-res-three" name="first-responder" value="res-value-3" checked>
+      <label class="form-field__label" for="radio-res-three">Randall &#x27;Memphis&#x27; Raines</label>
+    </div>
+    <div class="form-field__wrapper">
+      <input class="form-field" type="radio" id="radio-res-four" name="first-responder" value="res-value-4" >
+      <label class="form-field__label" for="radio-res-four">Cameron Poe</label>
+    </div>
+    <div class="form-field__wrapper">
+      <input class="form-field" type="radio" id="radio-res-five" name="first-responder" value="res-value-5" >
+      <label class="form-field__label" for="radio-res-five">Yuri Orlov</label>
+    </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;mobile-filter-set&quot;&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;filter-set&quot;&gt;
+  &lt;span class=&quot;filter-set__heading&quot;&gt;Nick Roles&lt;/span&gt;
+
+    &lt;div class=&quot;form-field__wrapper&quot;&gt;
+      &lt;input class=&quot;form-field&quot; type=&quot;radio&quot; id=&quot;radio-res-all&quot; name=&quot;first-responder&quot; value=&quot;res-value-all&quot; &gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;radio-res-all&quot;&gt;All or things&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-field__wrapper&quot;&gt;
+      &lt;input class=&quot;form-field&quot; type=&quot;radio&quot; id=&quot;radio-res-one&quot; name=&quot;first-responder&quot; value=&quot;res-value-1&quot; &gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;radio-res-one&quot;&gt;Edward Maulis&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-field__wrapper&quot;&gt;
+      &lt;input class=&quot;form-field&quot; type=&quot;radio&quot; id=&quot;radio-res-two&quot; name=&quot;first-responder&quot; value=&quot;res-value-2&quot; &gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;radio-res-two&quot;&gt;Dr. Stanley Goodspeed&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-field__wrapper&quot;&gt;
+      &lt;input class=&quot;form-field&quot; type=&quot;radio&quot; id=&quot;radio-res-three&quot; name=&quot;first-responder&quot; value=&quot;res-value-3&quot; checked&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;radio-res-three&quot;&gt;Randall &amp;#x27;Memphis&amp;#x27; Raines&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-field__wrapper&quot;&gt;
+      &lt;input class=&quot;form-field&quot; type=&quot;radio&quot; id=&quot;radio-res-four&quot; name=&quot;first-responder&quot; value=&quot;res-value-4&quot; &gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;radio-res-four&quot;&gt;Cameron Poe&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-field__wrapper&quot;&gt;
+      &lt;input class=&quot;form-field&quot; type=&quot;radio&quot; id=&quot;radio-res-five&quot; name=&quot;first-responder&quot; value=&quot;res-value-5&quot; &gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;radio-res-five&quot;&gt;Yuri Orlov&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
     </article>
   </div>
 
@@ -606,8 +856,8 @@ search component will close the search results.</p>
 <script src="build/vendor/jquery/dist/jquery.min.js"></script>
 <script src="build/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="build/js/vendor.js"></script>
-<script src="build/js/styleguide.js"></script>
 <script src="build/js/scripts.js"></script>
+<script src="build/js/styleguide.js"></script>
 <script src="//localhost:1234/livereload.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->

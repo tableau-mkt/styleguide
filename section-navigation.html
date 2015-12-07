@@ -146,6 +146,11 @@
             Layout
           </a>
         </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-documentation.html">
+            Documentation
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -182,9 +187,8 @@
             <div class="kss-description">
               <p>The global navigation bar that sits at the top of each page. Contains primary,
 secondary, and sub navigation as well as the global search bar.</p>
-<p><strong>NOTE: The global nav and footer are not yet ready for consumption. We will be
-updating interactions and providing more details on how to implement these
-components very soon in an upcoming release</strong></p>
+<p>Check out <a href="section-documentation.html#kssref-documentation-global-nav-ajax">the documentation</a>
+for consuming the content for the global nav via ajax.</p>
 
             </div>
           </div>
@@ -202,37 +206,37 @@ components very soon in an upcoming release</strong></p>
             <img src="public/images/logo.png" alt="Tableau Software" />
           </a>
         </div>
-      
-      <div class="global-nav__mobile-wrapper tablet-hide">
+
+      <div class="global-nav__mobile-wrapper">
         <nav class="global-nav__primary-menu">
             <ul>
                 <li>
-                    <a href="#"  class=" expandable"  data-drawer-id="products">
+                    <a href="/products"  class=" expandable"  data-drawer-id="products">
                       Products
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable"  data-drawer-id="stories">
+                    <a href="/stories"  class=" expandable"  data-drawer-id="stories">
                       Stories
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable"  data-drawer-id="learning">
+                    <a href="/learn"  class=" expandable"  data-drawer-id="learning">
                       Learning
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable"  data-drawer-id="community">
+                    <a href="/community"  class=" expandable"  data-drawer-id="community">
                       Community
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable"  data-drawer-id="support">
+                    <a href="/support"  class=" expandable"  data-drawer-id="support">
                       Support
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class=" expandable"  data-drawer-id="about">
+                    <a href="/about"  class=" expandable"  data-drawer-id="about">
                       About
                     </a>
                 </li>
@@ -259,178 +263,184 @@ components very soon in an upcoming release</strong></p>
             </ul>
         </nav>
 
-        <div class="global-nav__search tablet-hide">
+        <div class="global-nav__search">
           <input type="search" placeholder="Search" name="q" autocomplete="off">
-          <a href="#" class="global-nav__search__close"></a>
+          <a href="#" class="global-nav__search-close"></a>
           <div id="predictive-container">
             <ul id="predictive-terms"></ul>
           </div>
         </div>
       </div>
-      
-      <div class="global-nav__hamburger tablet-show">
+
+      <div class="global-nav__hamburger">
         <a class="hamburger [modifier class]" href="#">
           <span class="hamburger__patty">Menu</span>
         </a>
       </div>
     </div>
   </div>
-  
+
   <div class="global-nav__drawers">
-      <div class="global-nav__drawers__drawer bg--light-gray-2" id="products">
-        <div class="global-nav__drawers__drawer__controls desktop-hide">
+      <div class="global-nav__drawer" id="products">
+        <div class="global-nav__drawer-controls">
           <span>
-            <a class="link link--arrow-left global-nav__drawers__drawer__close" href="#">Back</a>
+            <a class="link link--arrow-left global-nav__drawer-close" href="#">Back</a>
           </span>
           <span class="float-right">
             <a class="link" href="/products">View All</a>
           </span>
         </div>
-        <div class="global-nav__drawer__inner content-container content-container--wide">
-          <div class="global-nav__drawer__primary grid--8">
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--desktop">Tableau Desktop</a>
+        <div class="global-nav__drawer-inner content-container content-container--wide">
+          <div class="global-nav__drawer-primary grid--8">
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/products/desktop" class="text--desktop">Tableau Desktop</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Business analytics anyone can use.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Business analytics anyone can use.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/products/desktop">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--server">Tableau Server</a>
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/products/server" class="text--server">Tableau Server</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Rapid-fire business intelligence, today.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Rapid-fire business intelligence, today.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/products/server">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--online">Tableau Online</a>
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/products/online" class="text--online">Tableau Online</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">The power of Tableau, in the cloud.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">The power of Tableau, in the cloud.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/products/online">Learn More</a>
                 </p>
               </div>
           </div>
 
-          <div class="global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three">           
+          <div class="global-nav__drawer-secondary">
               <h3 class="text--label">More Tableau Products</h3>
             <ul class="plain-list">
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Tableau Mobile</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/products/mobile">Tableau Mobile</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Tableau straight from your phone.</p>
+                  <p class="sub-nav__item-description mobile-hide">Tableau straight from your phone.</p>
                 </li>
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Tableau Public</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/produtcs/public">Tableau Public</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Publish interactive data online.</p>
+                  <p class="sub-nav__item-description mobile-hide">Publish interactive data online.</p>
                 </li>
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Tableau Reader</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/products/reader">Tableau Reader</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Read saved files from Tableau Desktop.</p>
+                  <p class="sub-nav__item-description mobile-hide">Read saved files from Tableau Desktop.</p>
+                </li>
+                <li class="sub-nav__item">
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/products/vizable">Vizable</a>
+                  </h5>
+                  <p class="sub-nav__item-description mobile-hide">[VIZABLE DESCRIPTION]</p>
                 </li>
             </ul>
           </div>
 
         </div>
       </div>
-      <div class="global-nav__drawers__drawer bg--light-gray-2" id="stories">
-        <div class="global-nav__drawers__drawer__controls desktop-hide">
+      <div class="global-nav__drawer" id="stories">
+        <div class="global-nav__drawer-controls">
           <span>
-            <a class="link link--arrow-left global-nav__drawers__drawer__close" href="#">Back</a>
+            <a class="link link--arrow-left global-nav__drawer-close" href="#">Back</a>
           </span>
           <span class="float-right">
             <a class="link" href="/stories">View All</a>
           </span>
         </div>
-        <div class="global-nav__drawer__inner content-container content-container--wide">
-          <div class="global-nav__drawer__primary grid--8">
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Industries</a>
+        <div class="global-nav__drawer-inner content-container content-container--wide">
+          <div class="global-nav__drawer-primary grid--8">
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/stories/industries" class="text--">Industries</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Visually analyze your data in a way that makes sense for your industry</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Visually analyze your data in a way that makes sense for your industry</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/stories/industries">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Activities</a>
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/stories/activities" class="text--">Activities</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Discover the most frequently used capabilities resulting in fast data insights.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Discover the most frequently used capabilities resulting in fast data insights.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/stories/activities">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Technology</a>
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/stories/technology" class="text--">Technology</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Analyze nearly any data source live or with Tableau&#x27;s Data Engine</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Analyze nearly any data source live or with Tableau&#x27;s Data Engine</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/stories/technology">Learn More</a>
                 </p>
               </div>
           </div>
 
-          <div class="global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three">           
+          <div class="global-nav__drawer-secondary">
             <ul class="plain-list">
                 <li class="sub-nav__item">
                     <div class="thumbnail">
-                      <a href="#">
+                      <a href="/stories/galleru">
                         <img src="http://www.placecage.com/270/150" title="Tableau Viz Gallery"/>
                       </a>
                     </div>
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Tableau Viz Gallery</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/stories/galleru">Tableau Viz Gallery</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Explore a wide range of visualizations to see what&#x27;s possible in Tableau</p>
+                  <p class="sub-nav__item-description mobile-hide">Explore a wide range of visualizations to see what&#x27;s possible in Tableau</p>
                 </li>
             </ul>
           </div>
 
         </div>
       </div>
-      <div class="global-nav__drawers__drawer bg--light-gray-2" id="learning">
-        <div class="global-nav__drawers__drawer__controls desktop-hide">
+      <div class="global-nav__drawer" id="learning">
+        <div class="global-nav__drawer-controls">
           <span>
-            <a class="link link--arrow-left global-nav__drawers__drawer__close" href="#">Back</a>
+            <a class="link link--arrow-left global-nav__drawer-close" href="#">Back</a>
           </span>
           <span class="float-right">
             <a class="link" href="/learning">View All</a>
           </span>
         </div>
-        <div class="global-nav__drawer__inner content-container content-container--wide">
-          <div class="global-nav__drawer__primary grid--8">
-              <div class="sub-nav__item ">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small ">
+        <div class="global-nav__drawer-inner content-container content-container--wide">
+          <div class="global-nav__drawer-primary grid--8">
+              <div class="sub-nav__item ">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small ">
                     <a href="#" class="text--">Free Training Videos</a>
                   </h3>
-                
 
-                  <div class="global-nav__drawer__link-list">
+
+                  <div class="global-nav__drawer-link-list">
                     <ul class="link-list  ">
                         <li>
                             <a href="#"  class=" text--dark-body">Getting Started</a>
@@ -470,85 +480,85 @@ components very soon in an upcoming release</strong></p>
                         </li>
                     </ul>
                   </div>
-                <p class="sub-nav__item__link tablet-hide">
+                <p class="sub-nav__item-link tablet-hide">
                   <a class="link link--arrow" href="#">Learn More</a>
                 </p>
               </div>
           </div>
 
-          <div class="global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three">           
+          <div class="global-nav__drawer-secondary">
               <h3 class="text--label">More Ways to Learn</h3>
             <ul class="plain-list">
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Free Webinars</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/learn/webinars">Free Webinars</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">One hour online learning sessions scheduled with an instructor.</p>
+                  <p class="sub-nav__item-description mobile-hide">One hour online learning sessions scheduled with an instructor.</p>
                 </li>
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Paid Classroom Training</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/learn/classroom">Paid Classroom Training</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Intensive multi-day courses offered at a location of your choice arond the world.</p>
+                  <p class="sub-nav__item-description mobile-hide">Intensive multi-day courses offered at a location of your choice arond the world.</p>
                 </li>
             </ul>
           </div>
 
         </div>
       </div>
-      <div class="global-nav__drawers__drawer bg--light-gray-2" id="community">
-        <div class="global-nav__drawers__drawer__controls desktop-hide">
+      <div class="global-nav__drawer" id="community">
+        <div class="global-nav__drawer-controls">
           <span>
-            <a class="link link--arrow-left global-nav__drawers__drawer__close" href="#">Back</a>
+            <a class="link link--arrow-left global-nav__drawer-close" href="#">Back</a>
           </span>
           <span class="float-right">
             <a class="link" href="/community">View All</a>
           </span>
         </div>
-        <div class="global-nav__drawer__inner content-container content-container--wide">
-          <div class="global-nav__drawer__primary ">
-              <div class="sub-nav__item grid--3">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Forums</a>
+        <div class="global-nav__drawer-inner content-container content-container--wide">
+          <div class="global-nav__drawer-primary ">
+              <div class="sub-nav__item grid--3">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="http://community.tableau.com/community/forums" class="text--">Forums</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Explore and contribute to the newest, most active, and engaging threads now.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Explore and contribute to the newest, most active, and engaging threads now.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="http://community.tableau.com/community/forums">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--3">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Ideas</a>
+              <div class="sub-nav__item grid--3">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="http://community.tableau.com/community/ideas" class="text--">Ideas</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Vote on Tableau&#x27;s Community best ideas and add your own to the mix.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Vote on Tableau&#x27;s Community best ideas and add your own to the mix.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="http://community.tableau.com/community/ideas">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--3">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Groups</a>
+              <div class="sub-nav__item grid--3">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="http://community.tableau.com/community/groups" class="text--">Groups</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Connect with Tableau users who are in your area and share your interests and expertise.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Connect with Tableau users who are in your area and share your interests and expertise.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="http://community.tableau.com/community/groups">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--3">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Events</a>
+              <div class="sub-nav__item grid--3">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/events" class="text--">Events</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">With Tableay events across the globe, find an upcoming in-person event near you.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">With Tableay events across the globe, find an upcoming in-person event near you.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/events">Learn More</a>
                 </p>
               </div>
           </div>
@@ -556,144 +566,144 @@ components very soon in an upcoming release</strong></p>
 
         </div>
       </div>
-      <div class="global-nav__drawers__drawer bg--light-gray-2" id="support">
-        <div class="global-nav__drawers__drawer__controls desktop-hide">
+      <div class="global-nav__drawer" id="support">
+        <div class="global-nav__drawer-controls">
           <span>
-            <a class="link link--arrow-left global-nav__drawers__drawer__close" href="#">Back</a>
+            <a class="link link--arrow-left global-nav__drawer-close" href="#">Back</a>
           </span>
           <span class="float-right">
             <a class="link" href="/support">View All</a>
           </span>
         </div>
-        <div class="global-nav__drawer__inner content-container content-container--wide">
-          <div class="global-nav__drawer__primary grid--8">
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
+        <div class="global-nav__drawer-inner content-container content-container--wide">
+          <div class="global-nav__drawer-primary grid--8">
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
                     <a href="#" class="text--">Tableau Desktop</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Business analytics anyone can use.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
+                  <p class="sub-nav__item-description mobile-hide">Business analytics anyone can use.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
                   <a class="link link--arrow" href="#">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
                     <a href="#" class="text--">Tableau Server</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Rapid-fire business intelligence, today.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
+                  <p class="sub-nav__item-description mobile-hide">Rapid-fire business intelligence, today.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
                   <a class="link link--arrow" href="#">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
                     <a href="#" class="text--">Tableau Online</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">The power of Tableau, in the cloud.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
+                  <p class="sub-nav__item-description mobile-hide">The power of Tableau, in the cloud.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
                   <a class="link link--arrow" href="#">Learn More</a>
                 </p>
               </div>
           </div>
 
-          <div class="global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three">           
+          <div class="global-nav__drawer-secondary">
               <h3 class="text--label">Quick Links &amp; Resources</h3>
             <ul class="plain-list">
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Drivers &amp; Activation</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/support/drivers">Drivers &amp; Activation</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide"></p>
+                  <p class="sub-nav__item-description mobile-hide"></p>
                 </li>
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Knowledge Base</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="http://kb.tableau.com/?lang=en-us">Knowledge Base</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide"></p>
+                  <p class="sub-nav__item-description mobile-hide"></p>
                 </li>
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Quick Start Guides</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/support/manuals/quickstart">Quick Start Guides</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide"></p>
+                  <p class="sub-nav__item-description mobile-hide"></p>
                 </li>
             </ul>
           </div>
 
         </div>
       </div>
-      <div class="global-nav__drawers__drawer bg--light-gray-2" id="about">
-        <div class="global-nav__drawers__drawer__controls desktop-hide">
+      <div class="global-nav__drawer" id="about">
+        <div class="global-nav__drawer-controls">
           <span>
-            <a class="link link--arrow-left global-nav__drawers__drawer__close" href="#">Back</a>
+            <a class="link link--arrow-left global-nav__drawer-close" href="#">Back</a>
           </span>
           <span class="float-right">
             <a class="link" href="/about">View All</a>
           </span>
         </div>
-        <div class="global-nav__drawer__inner content-container content-container--wide">
-          <div class="global-nav__drawer__primary grid--8">
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Mission</a>
+        <div class="global-nav__drawer-inner content-container content-container--wide">
+          <div class="global-nav__drawer-primary grid--8">
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/about/mission" class="text--">Mission</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">See how we got here and where we&#x27;re going to.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">See how we got here and where we&#x27;re going to.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/about/mission">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Leadership</a>
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/about/leadership" class="text--">Leadership</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Learn about Tableau&#x27;s world-class leadership team.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Learn about Tableau&#x27;s world-class leadership team.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/about/leadership">Learn More</a>
                 </p>
               </div>
-              <div class="sub-nav__item grid--4">  
-                  <h3 class="sub-nav__item__title heading-highlight heading--small">
-                    <a href="#" class="text--">Press</a>
+              <div class="sub-nav__item grid--4">
+                  <h3 class="sub-nav__item-title heading-highlight heading--small">
+                    <a href="/about/press" class="text--">Press</a>
                   </h3>
-                
-                  <p class="sub-nav__item__description mobile-hide">Keep up to date with the latest Tableau news.</p>
 
-                <p class="sub-nav__item__link tablet-hide">
-                  <a class="link link--arrow" href="#">Learn More</a>
+                  <p class="sub-nav__item-description mobile-hide">Keep up to date with the latest Tableau news.</p>
+
+                <p class="sub-nav__item-link tablet-hide">
+                  <a class="link link--arrow" href="/about/press">Learn More</a>
                 </p>
               </div>
           </div>
 
-          <div class="global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three">           
+          <div class="global-nav__drawer-secondary">
               <h3 class="text--label">More About Our Company</h3>
             <ul class="plain-list">
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Investors</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="http://investors.tableau.com/">Investors</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Learn about the latest investor news and events.</p>
+                  <p class="sub-nav__item-description mobile-hide">Learn about the latest investor news and events.</p>
                 </li>
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Careers</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="http://careers.tableau.com/">Careers</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Check out our jobs and the benefits of working at Tableau</p>
+                  <p class="sub-nav__item-description mobile-hide">Check out our jobs and the benefits of working at Tableau</p>
                 </li>
                 <li class="sub-nav__item">
-                  <h5 class="sub-nav__item__title text--dropdown text--bold">
-                    <a class="text--dark-body" href="#">Contact us</a>
+                  <h5 class="sub-nav__item-title text--dropdown text--bold">
+                    <a class="text--dark-body" href="/about/contact">Contact us</a>
                   </h5>
-                  <p class="sub-nav__item__description mobile-hide">Get in touch.</p>
+                  <p class="sub-nav__item-description mobile-hide">Get in touch.</p>
                 </li>
             </ul>
           </div>
@@ -720,37 +730,37 @@ components very soon in an upcoming release</strong></p>
             &lt;img src=&quot;public/images/logo.png&quot; alt=&quot;Tableau Software&quot; /&gt;
           &lt;/a&gt;
         &lt;/div&gt;
-      
-      &lt;div class=&quot;global-nav__mobile-wrapper tablet-hide&quot;&gt;
+
+      &lt;div class=&quot;global-nav__mobile-wrapper&quot;&gt;
         &lt;nav class=&quot;global-nav__primary-menu&quot;&gt;
             &lt;ul&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;products&quot;&gt;
+                    &lt;a href=&quot;/products&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;products&quot;&gt;
                       Products
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;stories&quot;&gt;
+                    &lt;a href=&quot;/stories&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;stories&quot;&gt;
                       Stories
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;learning&quot;&gt;
+                    &lt;a href=&quot;/learn&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;learning&quot;&gt;
                       Learning
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;community&quot;&gt;
+                    &lt;a href=&quot;/community&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;community&quot;&gt;
                       Community
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;support&quot;&gt;
+                    &lt;a href=&quot;/support&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;support&quot;&gt;
                       Support
                     &lt;/a&gt;
                 &lt;/li&gt;
                 &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;about&quot;&gt;
+                    &lt;a href=&quot;/about&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;about&quot;&gt;
                       About
                     &lt;/a&gt;
                 &lt;/li&gt;
@@ -777,178 +787,184 @@ components very soon in an upcoming release</strong></p>
             &lt;/ul&gt;
         &lt;/nav&gt;
 
-        &lt;div class=&quot;global-nav__search tablet-hide&quot;&gt;
+        &lt;div class=&quot;global-nav__search&quot;&gt;
           &lt;input type=&quot;search&quot; placeholder=&quot;Search&quot; name=&quot;q&quot; autocomplete=&quot;off&quot;&gt;
-          &lt;a href=&quot;#&quot; class=&quot;global-nav__search__close&quot;&gt;&lt;/a&gt;
+          &lt;a href=&quot;#&quot; class=&quot;global-nav__search-close&quot;&gt;&lt;/a&gt;
           &lt;div id=&quot;predictive-container&quot;&gt;
             &lt;ul id=&quot;predictive-terms&quot;&gt;&lt;/ul&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      
-      &lt;div class=&quot;global-nav__hamburger tablet-show&quot;&gt;
+
+      &lt;div class=&quot;global-nav__hamburger&quot;&gt;
         &lt;a class=&quot;hamburger [modifier class]&quot; href=&quot;#&quot;&gt;
           &lt;span class=&quot;hamburger__patty&quot;&gt;Menu&lt;/span&gt;
         &lt;/a&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  
+
   &lt;div class=&quot;global-nav__drawers&quot;&gt;
-      &lt;div class=&quot;global-nav__drawers__drawer bg--light-gray-2&quot; id=&quot;products&quot;&gt;
-        &lt;div class=&quot;global-nav__drawers__drawer__controls desktop-hide&quot;&gt;
+      &lt;div class=&quot;global-nav__drawer&quot; id=&quot;products&quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-controls&quot;&gt;
           &lt;span&gt;
-            &lt;a class=&quot;link link--arrow-left global-nav__drawers__drawer__close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
+            &lt;a class=&quot;link link--arrow-left global-nav__drawer-close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
           &lt;/span&gt;
           &lt;span class=&quot;float-right&quot;&gt;
             &lt;a class=&quot;link&quot; href=&quot;/products&quot;&gt;View All&lt;/a&gt;
           &lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;global-nav__drawer__inner content-container content-container--wide&quot;&gt;
-          &lt;div class=&quot;global-nav__drawer__primary grid--8&quot;&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--desktop&quot;&gt;Tableau Desktop&lt;/a&gt;
+        &lt;div class=&quot;global-nav__drawer-inner content-container content-container--wide&quot;&gt;
+          &lt;div class=&quot;global-nav__drawer-primary grid--8&quot;&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/products/desktop&quot; class=&quot;text--desktop&quot;&gt;Tableau Desktop&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Business analytics anyone can use.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Business analytics anyone can use.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/products/desktop&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--server&quot;&gt;Tableau Server&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/products/server&quot; class=&quot;text--server&quot;&gt;Tableau Server&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Rapid-fire business intelligence, today.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Rapid-fire business intelligence, today.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/products/server&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--online&quot;&gt;Tableau Online&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/products/online&quot; class=&quot;text--online&quot;&gt;Tableau Online&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;The power of Tableau, in the cloud.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;The power of Tableau, in the cloud.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/products/online&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
           &lt;/div&gt;
 
-          &lt;div class=&quot;global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three&quot;&gt;           
+          &lt;div class=&quot;global-nav__drawer-secondary&quot;&gt;
               &lt;h3 class=&quot;text--label&quot;&gt;More Tableau Products&lt;/h3&gt;
             &lt;ul class=&quot;plain-list&quot;&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Tableau Mobile&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/products/mobile&quot;&gt;Tableau Mobile&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Tableau straight from your phone.&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Tableau straight from your phone.&lt;/p&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Tableau Public&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/produtcs/public&quot;&gt;Tableau Public&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Publish interactive data online.&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Publish interactive data online.&lt;/p&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Tableau Reader&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/products/reader&quot;&gt;Tableau Reader&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Read saved files from Tableau Desktop.&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Read saved files from Tableau Desktop.&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;sub-nav__item&quot;&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/products/vizable&quot;&gt;Vizable&lt;/a&gt;
+                  &lt;/h5&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;[VIZABLE DESCRIPTION]&lt;/p&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
           &lt;/div&gt;
 
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;global-nav__drawers__drawer bg--light-gray-2&quot; id=&quot;stories&quot;&gt;
-        &lt;div class=&quot;global-nav__drawers__drawer__controls desktop-hide&quot;&gt;
+      &lt;div class=&quot;global-nav__drawer&quot; id=&quot;stories&quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-controls&quot;&gt;
           &lt;span&gt;
-            &lt;a class=&quot;link link--arrow-left global-nav__drawers__drawer__close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
+            &lt;a class=&quot;link link--arrow-left global-nav__drawer-close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
           &lt;/span&gt;
           &lt;span class=&quot;float-right&quot;&gt;
             &lt;a class=&quot;link&quot; href=&quot;/stories&quot;&gt;View All&lt;/a&gt;
           &lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;global-nav__drawer__inner content-container content-container--wide&quot;&gt;
-          &lt;div class=&quot;global-nav__drawer__primary grid--8&quot;&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Industries&lt;/a&gt;
+        &lt;div class=&quot;global-nav__drawer-inner content-container content-container--wide&quot;&gt;
+          &lt;div class=&quot;global-nav__drawer-primary grid--8&quot;&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/stories/industries&quot; class=&quot;text--&quot;&gt;Industries&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Visually analyze your data in a way that makes sense for your industry&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Visually analyze your data in a way that makes sense for your industry&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/stories/industries&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Activities&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/stories/activities&quot; class=&quot;text--&quot;&gt;Activities&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Discover the most frequently used capabilities resulting in fast data insights.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Discover the most frequently used capabilities resulting in fast data insights.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/stories/activities&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Technology&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/stories/technology&quot; class=&quot;text--&quot;&gt;Technology&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Analyze nearly any data source live or with Tableau&amp;#x27;s Data Engine&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Analyze nearly any data source live or with Tableau&amp;#x27;s Data Engine&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/stories/technology&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
           &lt;/div&gt;
 
-          &lt;div class=&quot;global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three&quot;&gt;           
+          &lt;div class=&quot;global-nav__drawer-secondary&quot;&gt;
             &lt;ul class=&quot;plain-list&quot;&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
                     &lt;div class=&quot;thumbnail&quot;&gt;
-                      &lt;a href=&quot;#&quot;&gt;
+                      &lt;a href=&quot;/stories/galleru&quot;&gt;
                         &lt;img src=&quot;http://www.placecage.com/270/150&quot; title=&quot;Tableau Viz Gallery&quot;/&gt;
                       &lt;/a&gt;
                     &lt;/div&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Tableau Viz Gallery&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/stories/galleru&quot;&gt;Tableau Viz Gallery&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Explore a wide range of visualizations to see what&amp;#x27;s possible in Tableau&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Explore a wide range of visualizations to see what&amp;#x27;s possible in Tableau&lt;/p&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
           &lt;/div&gt;
 
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;global-nav__drawers__drawer bg--light-gray-2&quot; id=&quot;learning&quot;&gt;
-        &lt;div class=&quot;global-nav__drawers__drawer__controls desktop-hide&quot;&gt;
+      &lt;div class=&quot;global-nav__drawer&quot; id=&quot;learning&quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-controls&quot;&gt;
           &lt;span&gt;
-            &lt;a class=&quot;link link--arrow-left global-nav__drawers__drawer__close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
+            &lt;a class=&quot;link link--arrow-left global-nav__drawer-close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
           &lt;/span&gt;
           &lt;span class=&quot;float-right&quot;&gt;
             &lt;a class=&quot;link&quot; href=&quot;/learning&quot;&gt;View All&lt;/a&gt;
           &lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;global-nav__drawer__inner content-container content-container--wide&quot;&gt;
-          &lt;div class=&quot;global-nav__drawer__primary grid--8&quot;&gt;
-              &lt;div class=&quot;sub-nav__item &quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small &quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-inner content-container content-container--wide&quot;&gt;
+          &lt;div class=&quot;global-nav__drawer-primary grid--8&quot;&gt;
+              &lt;div class=&quot;sub-nav__item &quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small &quot;&gt;
                     &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Free Training Videos&lt;/a&gt;
                   &lt;/h3&gt;
-                
 
-                  &lt;div class=&quot;global-nav__drawer__link-list&quot;&gt;
+
+                  &lt;div class=&quot;global-nav__drawer-link-list&quot;&gt;
                     &lt;ul class=&quot;link-list  &quot;&gt;
                         &lt;li&gt;
                             &lt;a href=&quot;#&quot;  class=&quot; text--dark-body&quot;&gt;Getting Started&lt;/a&gt;
@@ -988,85 +1004,85 @@ components very soon in an upcoming release</strong></p>
                         &lt;/li&gt;
                     &lt;/ul&gt;
                   &lt;/div&gt;
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
                   &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
           &lt;/div&gt;
 
-          &lt;div class=&quot;global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three&quot;&gt;           
+          &lt;div class=&quot;global-nav__drawer-secondary&quot;&gt;
               &lt;h3 class=&quot;text--label&quot;&gt;More Ways to Learn&lt;/h3&gt;
             &lt;ul class=&quot;plain-list&quot;&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Free Webinars&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/learn/webinars&quot;&gt;Free Webinars&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;One hour online learning sessions scheduled with an instructor.&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;One hour online learning sessions scheduled with an instructor.&lt;/p&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Paid Classroom Training&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/learn/classroom&quot;&gt;Paid Classroom Training&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Intensive multi-day courses offered at a location of your choice arond the world.&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Intensive multi-day courses offered at a location of your choice arond the world.&lt;/p&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
           &lt;/div&gt;
 
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;global-nav__drawers__drawer bg--light-gray-2&quot; id=&quot;community&quot;&gt;
-        &lt;div class=&quot;global-nav__drawers__drawer__controls desktop-hide&quot;&gt;
+      &lt;div class=&quot;global-nav__drawer&quot; id=&quot;community&quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-controls&quot;&gt;
           &lt;span&gt;
-            &lt;a class=&quot;link link--arrow-left global-nav__drawers__drawer__close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
+            &lt;a class=&quot;link link--arrow-left global-nav__drawer-close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
           &lt;/span&gt;
           &lt;span class=&quot;float-right&quot;&gt;
             &lt;a class=&quot;link&quot; href=&quot;/community&quot;&gt;View All&lt;/a&gt;
           &lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;global-nav__drawer__inner content-container content-container--wide&quot;&gt;
-          &lt;div class=&quot;global-nav__drawer__primary &quot;&gt;
-              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Forums&lt;/a&gt;
+        &lt;div class=&quot;global-nav__drawer-inner content-container content-container--wide&quot;&gt;
+          &lt;div class=&quot;global-nav__drawer-primary &quot;&gt;
+              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;http://community.tableau.com/community/forums&quot; class=&quot;text--&quot;&gt;Forums&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Explore and contribute to the newest, most active, and engaging threads now.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Explore and contribute to the newest, most active, and engaging threads now.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;http://community.tableau.com/community/forums&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Ideas&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;http://community.tableau.com/community/ideas&quot; class=&quot;text--&quot;&gt;Ideas&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Vote on Tableau&amp;#x27;s Community best ideas and add your own to the mix.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Vote on Tableau&amp;#x27;s Community best ideas and add your own to the mix.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;http://community.tableau.com/community/ideas&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Groups&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;http://community.tableau.com/community/groups&quot; class=&quot;text--&quot;&gt;Groups&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Connect with Tableau users who are in your area and share your interests and expertise.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Connect with Tableau users who are in your area and share your interests and expertise.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;http://community.tableau.com/community/groups&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Events&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--3&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/events&quot; class=&quot;text--&quot;&gt;Events&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;With Tableay events across the globe, find an upcoming in-person event near you.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;With Tableay events across the globe, find an upcoming in-person event near you.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/events&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
           &lt;/div&gt;
@@ -1074,144 +1090,144 @@ components very soon in an upcoming release</strong></p>
 
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;global-nav__drawers__drawer bg--light-gray-2&quot; id=&quot;support&quot;&gt;
-        &lt;div class=&quot;global-nav__drawers__drawer__controls desktop-hide&quot;&gt;
+      &lt;div class=&quot;global-nav__drawer&quot; id=&quot;support&quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-controls&quot;&gt;
           &lt;span&gt;
-            &lt;a class=&quot;link link--arrow-left global-nav__drawers__drawer__close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
+            &lt;a class=&quot;link link--arrow-left global-nav__drawer-close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
           &lt;/span&gt;
           &lt;span class=&quot;float-right&quot;&gt;
             &lt;a class=&quot;link&quot; href=&quot;/support&quot;&gt;View All&lt;/a&gt;
           &lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;global-nav__drawer__inner content-container content-container--wide&quot;&gt;
-          &lt;div class=&quot;global-nav__drawer__primary grid--8&quot;&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-inner content-container content-container--wide&quot;&gt;
+          &lt;div class=&quot;global-nav__drawer-primary grid--8&quot;&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
                     &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Tableau Desktop&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Business analytics anyone can use.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Business analytics anyone can use.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
                   &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
                     &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Tableau Server&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Rapid-fire business intelligence, today.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Rapid-fire business intelligence, today.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
                   &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
                     &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Tableau Online&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;The power of Tableau, in the cloud.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;The power of Tableau, in the cloud.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
                   &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
           &lt;/div&gt;
 
-          &lt;div class=&quot;global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three&quot;&gt;           
+          &lt;div class=&quot;global-nav__drawer-secondary&quot;&gt;
               &lt;h3 class=&quot;text--label&quot;&gt;Quick Links &amp;amp; Resources&lt;/h3&gt;
             &lt;ul class=&quot;plain-list&quot;&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Drivers &amp;amp; Activation&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/support/drivers&quot;&gt;Drivers &amp;amp; Activation&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;&lt;/p&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Knowledge Base&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;http://kb.tableau.com/?lang=en-us&quot;&gt;Knowledge Base&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;&lt;/p&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Quick Start Guides&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/support/manuals/quickstart&quot;&gt;Quick Start Guides&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;&lt;/p&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
           &lt;/div&gt;
 
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;global-nav__drawers__drawer bg--light-gray-2&quot; id=&quot;about&quot;&gt;
-        &lt;div class=&quot;global-nav__drawers__drawer__controls desktop-hide&quot;&gt;
+      &lt;div class=&quot;global-nav__drawer&quot; id=&quot;about&quot;&gt;
+        &lt;div class=&quot;global-nav__drawer-controls&quot;&gt;
           &lt;span&gt;
-            &lt;a class=&quot;link link--arrow-left global-nav__drawers__drawer__close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
+            &lt;a class=&quot;link link--arrow-left global-nav__drawer-close&quot; href=&quot;#&quot;&gt;Back&lt;/a&gt;
           &lt;/span&gt;
           &lt;span class=&quot;float-right&quot;&gt;
             &lt;a class=&quot;link&quot; href=&quot;/about&quot;&gt;View All&lt;/a&gt;
           &lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;global-nav__drawer__inner content-container content-container--wide&quot;&gt;
-          &lt;div class=&quot;global-nav__drawer__primary grid--8&quot;&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Mission&lt;/a&gt;
+        &lt;div class=&quot;global-nav__drawer-inner content-container content-container--wide&quot;&gt;
+          &lt;div class=&quot;global-nav__drawer-primary grid--8&quot;&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/about/mission&quot; class=&quot;text--&quot;&gt;Mission&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;See how we got here and where we&amp;#x27;re going to.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;See how we got here and where we&amp;#x27;re going to.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/about/mission&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Leadership&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/about/leadership&quot; class=&quot;text--&quot;&gt;Leadership&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Learn about Tableau&amp;#x27;s world-class leadership team.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Learn about Tableau&amp;#x27;s world-class leadership team.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/about/leadership&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
-              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;  
-                  &lt;h3 class=&quot;sub-nav__item__title heading-highlight heading--small&quot;&gt;
-                    &lt;a href=&quot;#&quot; class=&quot;text--&quot;&gt;Press&lt;/a&gt;
+              &lt;div class=&quot;sub-nav__item grid--4&quot;&gt;
+                  &lt;h3 class=&quot;sub-nav__item-title heading-highlight heading--small&quot;&gt;
+                    &lt;a href=&quot;/about/press&quot; class=&quot;text--&quot;&gt;Press&lt;/a&gt;
                   &lt;/h3&gt;
-                
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Keep up to date with the latest Tableau news.&lt;/p&gt;
 
-                &lt;p class=&quot;sub-nav__item__link tablet-hide&quot;&gt;
-                  &lt;a class=&quot;link link--arrow&quot; href=&quot;#&quot;&gt;Learn More&lt;/a&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Keep up to date with the latest Tableau news.&lt;/p&gt;
+
+                &lt;p class=&quot;sub-nav__item-link tablet-hide&quot;&gt;
+                  &lt;a class=&quot;link link--arrow&quot; href=&quot;/about/press&quot;&gt;Learn More&lt;/a&gt;
                 &lt;/p&gt;
               &lt;/div&gt;
           &lt;/div&gt;
 
-          &lt;div class=&quot;global-nav__drawer__secondary grid--4 grid--last bg--nav-drawer-gray-2 padded-box padded-bg--three&quot;&gt;           
+          &lt;div class=&quot;global-nav__drawer-secondary&quot;&gt;
               &lt;h3 class=&quot;text--label&quot;&gt;More About Our Company&lt;/h3&gt;
             &lt;ul class=&quot;plain-list&quot;&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Investors&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;http://investors.tableau.com/&quot;&gt;Investors&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Learn about the latest investor news and events.&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Learn about the latest investor news and events.&lt;/p&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Careers&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;http://careers.tableau.com/&quot;&gt;Careers&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Check out our jobs and the benefits of working at Tableau&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Check out our jobs and the benefits of working at Tableau&lt;/p&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;sub-nav__item&quot;&gt;
-                  &lt;h5 class=&quot;sub-nav__item__title text--dropdown text--bold&quot;&gt;
-                    &lt;a class=&quot;text--dark-body&quot; href=&quot;#&quot;&gt;Contact us&lt;/a&gt;
+                  &lt;h5 class=&quot;sub-nav__item-title text--dropdown text--bold&quot;&gt;
+                    &lt;a class=&quot;text--dark-body&quot; href=&quot;/about/contact&quot;&gt;Contact us&lt;/a&gt;
                   &lt;/h5&gt;
-                  &lt;p class=&quot;sub-nav__item__description mobile-hide&quot;&gt;Get in touch.&lt;/p&gt;
+                  &lt;p class=&quot;sub-nav__item-description mobile-hide&quot;&gt;Get in touch.&lt;/p&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
           &lt;/div&gt;
@@ -1310,12 +1326,25 @@ components very soon in an upcoming release</strong></p>
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
                     <ul class="pager [modifier class]">
-  <li class="pager__endcap pager__endcap--previous pager__endcap--current"><a href="#">Prev</a></li>
+    <li class="pager__endcap pager__endcap--first pager__endcap--current">
+      <a href="#">First</a>
+    </li>
+  <li class="pager__endcap pager__endcap--previous pager__endcap--current">
+      <a href="#">Previous</a>
+  </li>
+
     <li class="pager__page pager__page--current"><a href="#">1</a></li>
     <li class="pager__page"><a href="#">2</a></li>
     <li class="pager__page"><a href="#">3</a></li>
     <li class="pager__page"><a href="#">4</a></li>
-  <li class="pager__endcap pager__endcap--next"><a href="#">Next</a></li>
+
+  <li class="pager__endcap pager__endcap--next">
+      <a href="#">Next</a>
+  </li>
+
+  <li class="pager__endcap pager__endcap--last">
+      <a href="#">Last</a>
+  </li>
 </ul>
 
                   </div>
@@ -1327,12 +1356,25 @@ components very soon in an upcoming release</strong></p>
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;ul class=&quot;pager [modifier class]&quot;&gt;
-  &lt;li class=&quot;pager__endcap pager__endcap--previous pager__endcap--current&quot;&gt;&lt;a href=&quot;#&quot;&gt;Prev&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;pager__endcap pager__endcap--first pager__endcap--current&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;First&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;li class=&quot;pager__endcap pager__endcap--previous pager__endcap--current&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Previous&lt;/a&gt;
+  &lt;/li&gt;
+
     &lt;li class=&quot;pager__page pager__page--current&quot;&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;pager__page&quot;&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;pager__page&quot;&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;pager__page&quot;&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;pager__endcap pager__endcap--next&quot;&gt;&lt;a href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;
+
+  &lt;li class=&quot;pager__endcap pager__endcap--next&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Next&lt;/a&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;pager__endcap pager__endcap--last&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Last&lt;/a&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
               </div>
@@ -1469,12 +1511,11 @@ and broken up into distinct sections.</p>
       </div>
 
       <div class="subnav__cta">
-        <a class="cta cta--arrow " href="#">
-          Start a Free Trial
-        </a>
+        <a class="cta cta--arrow" href="#">Start a Free Trial</a>
       </div>
   </div>
 </div>
+
                   </div>
                 </div>
               </div>
@@ -1507,12 +1548,11 @@ and broken up into distinct sections.</p>
       &lt;/div&gt;
 
       &lt;div class=&quot;subnav__cta&quot;&gt;
-        &lt;a class=&quot;cta cta--arrow &quot; href=&quot;#&quot;&gt;
-          Start a Free Trial
-        &lt;/a&gt;
+        &lt;a class=&quot;cta cta--arrow&quot; href=&quot;#&quot;&gt;Start a Free Trial&lt;/a&gt;
       &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
               </div>
 
             </section>
@@ -1599,12 +1639,12 @@ and broken up into distinct sections.</p>
         </div>
         <div class="topic-nav__drawer " id="search">
           <div class="content-container">
-              <div class="contextual-search">
+              <div class="content-search contextual-search">
                 <div class="contextual-search__ui">
                   <form class="contextual-search__form" autocomplete="off">
-                    <input class="contextual-search__input" type="search" name="topicSearch" placeholder="Search best actors">
-                    <button class="contextual-search__button contextual-search__submit" type="submit" name="topicSearchSubmit"><i class="icon icon--search"></i></button>
-                    <button class="contextual-search__button contextual-search__reset" type="reset" name="topicSearchReset"><i class="icon icon--nic-cage"></i></button>
+                    <input class="content-search__input contextual-search__input" type="search" name="topicSearch" placeholder="Search best actors">
+                    <button class="content-search__button contextual-search__submit" type="submit" name="topicSearchSubmit"><i class="icon icon--search"></i></button>
+                    <button class="content-search__button contextual-search__reset" type="reset" name="topicSearchReset"><i class="icon icon--nic-cage"></i></button>
                   </form>
                   <div class="contextual-search__results">
                     <a href="#more" class="contextual-search__results-row contextual-search__more">
@@ -1694,12 +1734,12 @@ and broken up into distinct sections.</p>
         &lt;/div&gt;
         &lt;div class=&quot;topic-nav__drawer &quot; id=&quot;search&quot;&gt;
           &lt;div class=&quot;content-container&quot;&gt;
-              &lt;div class=&quot;contextual-search&quot;&gt;
+              &lt;div class=&quot;content-search contextual-search&quot;&gt;
                 &lt;div class=&quot;contextual-search__ui&quot;&gt;
                   &lt;form class=&quot;contextual-search__form&quot; autocomplete=&quot;off&quot;&gt;
-                    &lt;input class=&quot;contextual-search__input&quot; type=&quot;search&quot; name=&quot;topicSearch&quot; placeholder=&quot;Search best actors&quot;&gt;
-                    &lt;button class=&quot;contextual-search__button contextual-search__submit&quot; type=&quot;submit&quot; name=&quot;topicSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-                    &lt;button class=&quot;contextual-search__button contextual-search__reset&quot; type=&quot;reset&quot; name=&quot;topicSearchReset&quot;&gt;&lt;i class=&quot;icon icon--nic-cage&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                    &lt;input class=&quot;content-search__input contextual-search__input&quot; type=&quot;search&quot; name=&quot;topicSearch&quot; placeholder=&quot;Search best actors&quot;&gt;
+                    &lt;button class=&quot;content-search__button contextual-search__submit&quot; type=&quot;submit&quot; name=&quot;topicSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                    &lt;button class=&quot;content-search__button contextual-search__reset&quot; type=&quot;reset&quot; name=&quot;topicSearchReset&quot;&gt;&lt;i class=&quot;icon icon--nic-cage&quot;&gt;&lt;/i&gt;&lt;/button&gt;
                   &lt;/form&gt;
                   &lt;div class=&quot;contextual-search__results&quot;&gt;
                     &lt;a href=&quot;#more&quot; class=&quot;contextual-search__results-row contextual-search__more&quot;&gt;
@@ -1735,9 +1775,8 @@ and broken up into distinct sections.</p>
             <div class="kss-description">
               <p>The global footer that is displayed at the bottom of each page. Contains several
 navigation links, the language selector, social buttons, and a copyright line.</p>
-<p><strong>NOTE: The global nav and footer are not yet ready for consumption. We will be
-updating interactions and providing more details on how to implement these
-components very soon in an upcoming release</strong></p>
+<p>Check out <a href="section-documentation.html#kssref-documentation-global-nav-ajax">the documentation</a>
+for consuming the content for the global footer via ajax.</p>
 
             </div>
           </div>
@@ -1892,8 +1931,8 @@ components very soon in an upcoming release</strong></p>
 <script src="build/vendor/jquery/dist/jquery.min.js"></script>
 <script src="build/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="build/js/vendor.js"></script>
-<script src="build/js/styleguide.js"></script>
 <script src="build/js/scripts.js"></script>
+<script src="build/js/styleguide.js"></script>
 <script src="//localhost:1234/livereload.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
