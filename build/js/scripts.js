@@ -271,7 +271,7 @@ in CSS as well.
 
       // Add a close icon to each content continer
       if (settings.closeLink) {
-        settings.contents.prepend($('<a href="#" class="reveal__close" href="#">&#9587;</a>'));
+        settings.contents.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window"></i></a>'));
       }
     }
 
@@ -566,15 +566,18 @@ in CSS as well.
   });
 })(jQuery);
 ;
-/** 
+/**
  * Tabs content utility
  *
- * Create interactive tabs that switch between different visible content when 
+ * Create interactive tabs that switch between different visible content when
  * tabs are clicked.
  *
  * Options:
  *   contents - Required - [jQuery Object] - element(s) to use as content wrapper
  *   tabLinks - Optional - [jQuery Ojbect] - element(s) to be used as a trigger
+ *   wrapper  - Optional - [jQuery Object] - Wrapping element around contents
+ *     and tabLinks. This defaults to .tabs__wrapper, but may be overidden for
+ *     specific cases.
  *   triggers - Optional - [jQuery Object] - additional elements (other than tabs)
  *     used for triggering the display of specific tabs
  *   animation - Optional - [object] - animation settings for expanding/collapsing
@@ -585,26 +588,28 @@ in CSS as well.
  *     triggers: $('.tab-triggers-selector')
  *   });
  *
- * @TODO: Can still use some cleanup and work to be a more agnostic plugin  
+ * @TODO: Can still use some cleanup and work to be a more agnostic plugin
  */
 
 (function ( $ ) {
   $.fn.tabs = function(options) {
     // Default settings
-    var settings = $.extend({
+    var settings = $.extend(true, {
       tabLinks: $(this),
+      wrapper: $('.tabs__wrapper'),
       animation: {
         duration: 1000,
         easing: "easeInOutQuart"
       }
     }, options);
 
-    if (settings.tabLinks && settings.contents) {
+    if (settings.tabLinks.length && settings.contents.length) {
       settings.tabLinks.on('click.tabs', function(e) {
-        if (!$(this).hasClass('active')) {
+        if (!$(this).hasClass('is-active')) {
           var $link = $(this),
               $content = $('#' + $link.data('tab-content')),
-              $previousLink = $link.closest("ul").find('a.active'),
+              $wrapper = $link.closest(settings.wrapper),
+              $previousLink = $link.closest("ul").find('a.is-active'),
               $previousContent = $('#' + $previousLink.data('tab-content')),
               previousContentHeight = $previousContent.outerHeight(true),
               $flyoutContainer = $content.closest('.flyout__content'),
@@ -614,8 +619,8 @@ in CSS as well.
           $contentClone.remove();
 
           // Manage active class
-          settings.tabLinks.add(settings.contents).removeClass('active');
-          $link.add($content).addClass('active');
+          settings.tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
+          $link.add($content).addClass('is-active');
 
           // Animate the height transition between tabs
           $content.height(previousContentHeight).animate({
@@ -637,22 +642,112 @@ in CSS as well.
         }
         e.preventDefault();
       });
-      
+
       if (settings.triggers) {
         settings.triggers.on('click.tabs-trigger', function(e) {
           var $link = settings.tabLinks.filter('[data-tab-content="' + $(this).data('tab-content') + '"]'),
               $content = $('#' + $(this).data('tab-content'));
 
           // Manage active class
-          settings.tabLinks.add(settings.contents).removeClass('active');
-          $link.add($content).addClass('active');
+          settings.tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
+          $link.add($content).addClass('is-active');
         });
       }
     }
 
     return this;
-  } 
+  }
 }( jQuery ));
+;
+/**
+ * Simple content search behaviors.
+ *
+ * - Handle down/up arrow keys on pick list
+ */
+
+// Loose augmentation pattern. Creates top-level Tabia variable if it doesn't
+// already exist.
+var Tabia = Tabia || {};
+
+// Create a base for this module's data and functions.
+Tabia.contentSearch = {};
+
+/**
+ * DOM-ready callback.
+ *
+ * @param {Object} $
+ *   jQuery
+ */
+Tabia.contentSearch.ready = function ($) {
+  // Set up all the section search components on the page.
+  $('.content-search').not('.contextual-search').each(function () {
+    var $this = $(this);
+
+    // Attach keydown handler with context.
+    $this.find('.content-search__input').keydown(
+      $.proxy(Tabia.contentSearch.keydownHandler, $this)
+    );
+
+    // Attach reset handler.
+    $this.find('.content-search__reset').click(function (event) {
+      // Allow overriding.
+      var $resetEvent = $.Event('contentSearch:reset');
+      $(document).trigger($resetEvent);
+      if (!$resetEvent.isDefaultPrevented()) {
+        // Reset/empty the form, via AJAX.
+        Tabia.contentSearch.resetForm($this);
+      }
+    });
+  });
+};
+
+/**
+ * Carry out the form reset.
+ *
+ * @param {jQuery Object} $search
+ */
+Tabia.contentSearch.resetForm = function($search) {
+  $search.removeClass('is-populated');
+  $search.find('.content-search__input').val('');
+  $search.find('.content-search__submit').click();
+};
+
+/**
+ * Carry out the form submit.
+ *
+ * @param {jQuery Object} $search
+ */
+Tabia.contentSearch.submitForm = function($search) {
+  if ($search.find('.content-search__input').val() !== '') {
+    $search.addClass('is-populated');
+    $search.find('.content-search__submit').click();
+  }
+};
+
+/**
+ * Keydown handler.
+ *
+ * @param {Object} event
+ */
+Tabia.contentSearch.keydownHandler = function (event) {
+  var $search = $(this[0]),
+      $submitEvent = $.Event('contentSearch:submit');
+
+  switch (event.which) {
+    case 13: // ENTER
+      // Allow overriding.
+      $(document).trigger($submitEvent);
+      // Submit the form, via AJAX.
+      if (!$submitEvent.isDefaultPrevented()) {
+        Tabia.contentSearch.submitForm($search);
+      }
+      event.preventDefault();
+      break;
+  }
+};
+
+// Attach our DOM-ready callback.
+jQuery(Tabia.contentSearch.ready);
 ;
 /**
  * Section search behaviors.
@@ -680,10 +775,10 @@ Tabia.contextualSearch.ready = function ($) {
     var $this = $(this),
         // Initialze a data object for this instance.
         search = {
-          selectionIndex: -1
+          selectionIndex: -1,
+          // Save a reference to this element.
+          element: this
         };
-    // Save a reference to this element.
-    search.element = this;
     // Attach keydown handler with our data context.
     $this.keydown($.proxy(Tabia.contextualSearch.keydownHandler, search));
     // Attach UI click handler. Don't propagate clicks to document.
@@ -695,7 +790,7 @@ Tabia.contextualSearch.ready = function ($) {
       $(search.element).removeClass('is-open');
     });
     // Attach reset handler.
-    $this.find('.contextual-search__reset').click(function contextualSearchReset() {
+    $this.find('.content-search__reset').click(function contextualSearchReset() {
       $(search.element).removeClass('is-open');
     });
   });
@@ -753,48 +848,71 @@ $(document).ready(function () {
 });
 ;
 /**
+ * Responsive filters interaction
+ *
+ * See jquery.dynamicSelectFilters.js
+ */
+(function ($) {
+  $(document).ready(function () {
+    $('.responsive-filter').dynamicSelectFilters({
+      container: '.responsive-filter__select',
+      groupHeading: '.responsive-filter__heading',
+      onCreateSelectCallback: function () {
+        // 'this' is the jQuery wrapped select element, created per group set.
+        this.wrap('<div class="form__select"></div>');
+      }
+    });
+  });
+})(jQuery);
+;
+/**
  * Custom Accordion implementation.
  */
 
 (function($){
   $(document).ready(function(){
-    if ($(".accordion").length) {
-      $(".accordion .accordion--item--content").not('.open .accordion--item--content').hide();
+    var $accordion = $('.accordion');
 
-      $(".accordion .accordion--item--title").click( function(e) {
-        var $t = $(this);
-        $t.siblings(".accordion--item--content").slideToggle(250, 'linear');
+    if (!$accordion.length) {
+      return;
+    }
 
-        $t.parents(".accordion--item").toggleClass("open");
-        if (!$t.closest('.accordion').find('.accordion-select-all').length) {
-          $t.parents(".accordion--item").siblings().find('.accordion--item--content').slideUp(250, 'linear');
-          $t.parents(".accordion--item").siblings().removeClass("open");
-        }
+    $('.accordion .accordion__content-wrapper').not('.open .accordion__content-wrapper').hide();
+    $('.accordion .accordion__title-wrapper').click( function(e) {
+      var $this = $(this),
+          $openItems = $this.parent().siblings('.open');
 
-        e.preventDefault();
-      });
-      
-      // Auto-scroll and expand accordions when linked to with a hash
-      var hash = window.location.hash;
-      if ($(hash).length && $(hash).closest('.accordion--item').length) {
-        $(hash).siblings('.field-collection-view').find('.accordion--item--title').trigger('click');   
-      }
+      // Close other open items.
+      $openItems.find('.accordion__content-wrapper').slideToggle(250, 'linear');
+      $openItems.toggleClass('open');
+
+      // Open new item.
+      $this.siblings('.accordion__content-wrapper').slideToggle(250, 'linear');
+      $this.parents('.accordion__item').toggleClass('open');
+
+      e.preventDefault();
+    });
+
+    // Auto-scroll and expand accordions when linked to with a hash
+    var hash = window.location.hash;
+    if ($(hash).length && $(hash).closest('.accordion__item').length) {
+      $(hash).siblings('.accordion__title').trigger('click');
     }
   });
 })(jQuery);
 ;
-/** 
+/**
  * Context Switcher component
  */
 (function($){
-  var $triggers = $('.context-switcher__trigger'),
-      $lists = $('.context-switcher__list'),
-      animation = {
-        duration: 500,
-        easing: "easeInOutQuart"
-      };
-  
   $(document).ready(function(){
+    var $triggers = $('.context-switcher__trigger'),
+    $lists = $('.context-switcher__list'),
+    animation = {
+      duration: 500,
+      easing: "easeInOutQuart"
+    };
+    
     if ($triggers.length && $lists.length) {
       // Run setup
       setup();
@@ -948,13 +1066,13 @@ $(document).ready(function () {
   });
 })(jQuery);
 ;
-/** 
+/**
  * Gif Player utility.
  */
 (function($){
-  var $gifs = $('.gif-player');
-  
   $(document).ready(function(){
+    var $gifs = $('.gif-player');
+
     if ($gifs.length) {
       $gifs.each(function(index, el) {
         var $gif = $(this);
@@ -964,7 +1082,7 @@ $(document).ready(function () {
 
         // Lazy load in gifs so they start animating after brought into view.
         // Switch back to placeholder when image has exited view.
-        // 
+        //
         // @todo store gif length in a data param and indicate when the gif is
         // being animated vs static. Add a replay button once the loop ends
         var inview = new Waypoint.Inview({
@@ -976,7 +1094,7 @@ $(document).ready(function () {
             $gif.attr('src', $gif.data('static-src'));
           }
         });
-        
+
       });
     }
   });
@@ -1007,6 +1125,32 @@ $(document).ready(function () {
     }
   });
 })(jQuery);
+;
+(function($) {
+  $.fn.moveProgressBar = function (progress) {
+    var $el = $(this),
+        $progress = $el.find('.progress'),
+        progress = progress || parseInt($progress.data('progress')) || 0,
+        treshold = [5, 50, 100],
+        modifier = '';
+
+    for (var i in treshold) {
+      if (progress <= treshold[i]) {
+        modifier = 'progress--' + treshold[i];
+        break;
+      }
+    }
+
+    // Make sure we have a valid percentage.
+    progress = (progress > 100) ? 100 : progress;
+
+    $progress.removeClass (function (index, css) {
+      return (css.match (/(^|\s)progress--\S+/g) || []).join(' ');
+    }).css({
+      'width': progress + '%'
+    }).addClass(modifier);
+  };
+}( jQuery ));
 ;
 /** 
  * Reveal content component interaction
@@ -1127,13 +1271,13 @@ $(document).ready(function () {
   }
 })(jQuery);
 ;
-/** 
+/**
  * Tabs component interaction
  * See jquery.tabs.js for details
  */
 
 (function ( $ ) {
-  $(document).ready(function(){
+  $(document).ready(function() {
     $('.tabs__tab-link').tabs({
       contents: $('.tabs__tab-content'),
       triggers: $('.tabs__tab-trigger')
@@ -1439,7 +1583,7 @@ $(document).ready(function () {
   });
 })(jQuery);
 ;
-/** 
+/**
  * Topic Navigation interaction
  * Requires jquery.contentReveal.js and jquery.tabs.js
  */
@@ -1448,7 +1592,8 @@ $(document).ready(function () {
   $(document).ready(function() {
     // Tabs integration
     $('.topic-nav__tabs a').tabs({
-      contents: $('.topic-nav__drawer')
+      contents: $('.topic-nav__drawer'),
+      wrapper: $('.topic-nav')
     });
 
     // contentReveal interaction
@@ -1462,15 +1607,16 @@ $(document).ready(function () {
       var $parentNav = $(this).closest('.topic-nav');
 
       if ($(this).data('revealState') == 'open') {
-        $parentNav.find('.topic-nav__tabs a').eq(0).trigger('click').addClass('active');
-      } else {
-        $parentNav.find('.topic-nav__tabs a').removeClass('active');
+        $parentNav.find('.topic-nav__tabs a').eq(0).trigger('click').addClass('is-active');
+      }
+      else {
+        $parentNav.find('.topic-nav__tabs a').removeClass('is-active');
       }
     });
 
     $('.topic-nav__tabs a').on('click.topic-nav', function(e) {
       var $toggle = $(this).closest('.topic-nav').find('.topic-nav__toggle');
-      
+
       if ($toggle.data('revealState') == 'closed') {
         $toggle.trigger('click.reveal');
       }

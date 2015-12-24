@@ -13,7 +13,7 @@
  */
 
 jQuery(function ready($) {
-  $('.contextual-search__input').keydown(function (event) {
+  $('.contextual-search .content-search__input').keydown(function (event) {
     var keyCode = $.ui.keyCode;
 
     switch (event.keyCode) {
@@ -29,24 +29,6 @@ jQuery(function ready($) {
   });
 });
 ;
-/**
- * Responsive filters demo
- *
- * Just for the styleguide.
- */
-(function ($) {
-  $(document).ready(function () {
-    $('.filter-set').dynamicSelectFilters({
-      container: '.mobile-filter-set',
-      groupHeading: '.filter-set__heading',
-      onCreateSelectCallback: function () {
-        // 'this' is the jQuery wrapped select element, created per group set.
-        this.wrap('<div class="form-field__wrapper"><div class="form__select"></div></div>');
-      }
-    });
-  });
-})(jQuery);
-;
 (function($){
   var $vizSlideshow = $('.fullbleed-slideshow');
 
@@ -60,8 +42,8 @@ jQuery(function ready($) {
         speed: 650,
         easing: 'easeInOutQuart',
         slide: '.large-teaser',
-        prevArrow: '<button class="fullbleed-slideshow__arrow fullbleed-slideshow__arrow--prev"><i class="icon icon--slideshow-prev">Previous</i></button>',
-        nextArrow: '<button class="fullbleed-slideshow__arrow fullbleed-slideshow__arrow--next"><i class="icon icon--slideshow-next">Next</i></button>',
+        prevArrow: '<button class="fullbleed-slideshow__arrow fullbleed-slideshow__arrow--prev"><i class="icon icon--chevron-left">Previous</i></button>',
+        nextArrow: '<button class="fullbleed-slideshow__arrow fullbleed-slideshow__arrow--next"><i class="icon icon--chevron-right">Next</i></button>',
         responsive: [
           {
             breakpoint: 940,
@@ -83,6 +65,12 @@ jQuery(function ready($) {
     }
   });
 })(jQuery);
+;
+(function($){
+  $(document).ready(function(){
+    $('.progress-bar').moveProgressBar();
+  });
+}( jQuery ));
 ;
 /**
  * Video playlist script for demo purposes only.

@@ -135,6 +135,11 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
+                  <a href="section-interactive.html#kssref-interactive-progress-bar">
+                    Progress bar
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-interactive.html#kssref-interactive-reveal">
                     Content Reveal
                   </a>
@@ -157,6 +162,11 @@
                 <li class="kss-nav__menu-item">
                   <a href="section-interactive.html#kssref-interactive-tabs">
                     Content Tabs
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-interactive.html#kssref-interactive-tooltip">
+                    Tooltip
                   </a>
                 </li>
           </ul>
@@ -217,26 +227,45 @@ content.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="accordion">
-  <div class="accordion--item">
-    <h5 class="accordion--item--title">This is an example</h5>
-    <div class="accordion--item--content">
-      <p>Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.</p>
+                    <div class="accordion [modifier class]">
+    <div class="accordion__item">
+      <div class="accordion__title-wrapper">
+        <div class="accordion__title">
+          <div class='text--label'>16 VIDEOS</div><h5>Connecting to Data</h5>
+        </div>
+      </div>
+      <div class="accordion__content-wrapper">
+        <div class="accordion__content">
+          <span>Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.</span>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="accordion--item">
-    <h5 class="accordion--item--title">Another Example</h5>
-    <div class="accordion--item--content">
-      <p>Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.</p>
+    <div class="accordion__item">
+      <div class="accordion__title-wrapper">
+        <div class="accordion__title">
+          <div class='text--label'>16 VIDEOS</div><h5>Connecting to Data</h5>
+        </div>
+      </div>
+      <div class="accordion__content-wrapper">
+        <div class="accordion__content">
+          <span>Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.</span>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="accordion--item">
-    <h5 class="accordion--item--title">Testing another</h5>
-    <div class="accordion--item--content">
-      <p>Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.</p>
+    <div class="accordion__item">
+      <div class="accordion__title-wrapper">
+        <div class="accordion__title">
+          <div class='text--label'>16 VIDEOS</div><h5>Connecting to Data</h5>
+        </div>
+      </div>
+      <div class="accordion__content-wrapper">
+        <div class="accordion__content">
+          <span>Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.</span>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
+
                   </div>
                 </div>
               </div>
@@ -245,26 +274,45 @@ content.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;accordion&quot;&gt;
-  &lt;div class=&quot;accordion--item&quot;&gt;
-    &lt;h5 class=&quot;accordion--item--title&quot;&gt;This is an example&lt;/h5&gt;
-    &lt;div class=&quot;accordion--item--content&quot;&gt;
-      &lt;p&gt;Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.&lt;/p&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;accordion [modifier class]&quot;&gt;
+    &lt;div class=&quot;accordion__item&quot;&gt;
+      &lt;div class=&quot;accordion__title-wrapper&quot;&gt;
+        &lt;div class=&quot;accordion__title&quot;&gt;
+          &lt;div class=&#x27;text--label&#x27;&gt;16 VIDEOS&lt;/div&gt;&lt;h5&gt;Connecting to Data&lt;/h5&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accordion__content-wrapper&quot;&gt;
+        &lt;div class=&quot;accordion__content&quot;&gt;
+          &lt;span&gt;Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;accordion--item&quot;&gt;
-    &lt;h5 class=&quot;accordion--item--title&quot;&gt;Another Example&lt;/h5&gt;
-    &lt;div class=&quot;accordion--item--content&quot;&gt;
-      &lt;p&gt;Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.&lt;/p&gt;
+    &lt;div class=&quot;accordion__item&quot;&gt;
+      &lt;div class=&quot;accordion__title-wrapper&quot;&gt;
+        &lt;div class=&quot;accordion__title&quot;&gt;
+          &lt;div class=&#x27;text--label&#x27;&gt;16 VIDEOS&lt;/div&gt;&lt;h5&gt;Connecting to Data&lt;/h5&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accordion__content-wrapper&quot;&gt;
+        &lt;div class=&quot;accordion__content&quot;&gt;
+          &lt;span&gt;Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;accordion--item&quot;&gt;
-    &lt;h5 class=&quot;accordion--item--title&quot;&gt;Testing another&lt;/h5&gt;
-    &lt;div class=&quot;accordion--item--content&quot;&gt;
-      &lt;p&gt;Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.&lt;/p&gt;
+    &lt;div class=&quot;accordion__item&quot;&gt;
+      &lt;div class=&quot;accordion__title-wrapper&quot;&gt;
+        &lt;div class=&quot;accordion__title&quot;&gt;
+          &lt;div class=&#x27;text--label&#x27;&gt;16 VIDEOS&lt;/div&gt;&lt;h5&gt;Connecting to Data&lt;/h5&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accordion__content-wrapper&quot;&gt;
+        &lt;div class=&quot;accordion__content&quot;&gt;
+          &lt;span&gt;Recusandae iste cupidatat provident hic incididunt inventore exercitationem habitant diam fugiat occaecat quod dignissim optio cum facilis sapiente! Autem pretium.&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
               </div>
 
             </section>
@@ -1017,6 +1065,46 @@ option to reloop the gif.</p>
               </div>
 
             </section>
+            <section id="kssref-interactive-progress-bar" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-interactive-progress-bar"> -->
+                Progress bar
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Simple way of displaying progress.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="progress-bar [modifier class]">
+  <div class="progress" data-progress=80></div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;progress-bar [modifier class]&quot;&gt;
+  &lt;div class=&quot;progress&quot; data-progress=80&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
             <section id="kssref-interactive-reveal" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -1214,16 +1302,16 @@ attribute that matches the <code>data-reveal-target</code>.</p>
   <a class="social-share" href="#"><i class="icon icon--share"></i> Share</a>
 
   <div class="social-share__widgets">
-      <a href="#" class="social-share__widget social-share__widet--linkedin" data-social="linkedin">
+      <a href="#" class="social-share__widget social-share__widget--linkedin" data-social="linkedin">
         <i class="icon icon--social-linkedin"></i>
       </a>
-      <a href="#" class="social-share__widget social-share__widet--facebook" data-social="facebook">
+      <a href="#" class="social-share__widget social-share__widget--facebook" data-social="facebook">
         <i class="icon icon--social-facebook"></i>
       </a>
-      <a href="#" class="social-share__widget social-share__widet--twitter" data-social="twitter">
+      <a href="#" class="social-share__widget social-share__widget--twitter" data-social="twitter">
         <i class="icon icon--social-twitter"></i>
       </a>
-      <a href="#" class="social-share__widget social-share__widet--gplus" data-social="gplus">
+      <a href="#" class="social-share__widget social-share__widget--gplus" data-social="gplus">
         <i class="icon icon--social-gplus"></i>
       </a>
   </div>
@@ -1241,16 +1329,16 @@ attribute that matches the <code>data-reveal-target</code>.</p>
   &lt;a class=&quot;social-share&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;icon icon--share&quot;&gt;&lt;/i&gt; Share&lt;/a&gt;
 
   &lt;div class=&quot;social-share__widgets&quot;&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widet--linkedin&quot; data-social=&quot;linkedin&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--linkedin&quot; data-social=&quot;linkedin&quot;&gt;
         &lt;i class=&quot;icon icon--social-linkedin&quot;&gt;&lt;/i&gt;
       &lt;/a&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widet--facebook&quot; data-social=&quot;facebook&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--facebook&quot; data-social=&quot;facebook&quot;&gt;
         &lt;i class=&quot;icon icon--social-facebook&quot;&gt;&lt;/i&gt;
       &lt;/a&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widet--twitter&quot; data-social=&quot;twitter&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--twitter&quot; data-social=&quot;twitter&quot;&gt;
         &lt;i class=&quot;icon icon--social-twitter&quot;&gt;&lt;/i&gt;
       &lt;/a&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widet--gplus&quot; data-social=&quot;gplus&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--gplus&quot; data-social=&quot;gplus&quot;&gt;
         &lt;i class=&quot;icon icon--social-gplus&quot;&gt;&lt;/i&gt;
       &lt;/a&gt;
   &lt;/div&gt;
@@ -1356,33 +1444,35 @@ once they get scrolled to and are about to go out of view.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <ul class="tabs__tabs">
-    <li>
-      <a href="#" class="tabs__tab-link  active" data-tab-content="tab-one">First Tab</a>
-    </li>
-    <li>
-      <a href="#" class="tabs__tab-link " data-tab-content="tab-two">Second Tab</a>
-    </li>
-    <li>
-      <a href="#" class="tabs__tab-link " data-tab-content="tab-three">third Tab</a>
-    </li>
-</ul>
+                    <div class="tabs__wrapper">
+  <ul class="tabs__tabs">
+      <li>
+        <a href="#" class="tabs__tab-link  is-active" data-tab-content="tab-one">First Tab</a>
+      </li>
+      <li>
+        <a href="#" class="tabs__tab-link " data-tab-content="tab-two">Second Tab</a>
+      </li>
+      <li>
+        <a href="#" class="tabs__tab-link " data-tab-content="tab-three">third Tab</a>
+      </li>
+  </ul>
 
-  <div class="tabs__tab-content active" id="tab-one">
-    <div class="clearfix bg--mobile padded-box">
-      <h3>First Tab</h3><p>Accusamus recusandae consequat, velit hic perferendis consectetuer excepteur dictum nullam! Aute laoreet, ipsum sunt id asperiores quis accusamus lectus a, deleniti lacus nisl error consequatur optio minim rhoncus aptent do, mollitia dapibus pede, natoque integer pharetra iusto blandit ad! Elementum lacus voluptatibus. Cupidatat aliqua scelerisque! Cras at aliqua, montes ullamcorper.</p><p>Quod primis placeat praesent cupidatat facilisi quidem culpa, lacus nemo, aliquid, per integer nulla fugit venenatis fugiat laboriosam posuere deleniti illo mattis, aptent mus luctus diamlorem molestie ligula! Autem dolore? Suscipit consectetuer pede rhoncus? Voluptas voluptate veritatis id? Rhoncus congue quos repellendus doloribus magni semper, tempora etiam vulputate cupidatat scelerisque.</p>
+    <div class="tabs__tab-content is-active" id="tab-one">
+      <div class="clearfix bg--mobile padded-box">
+        <h3>First Tab</h3><p>Accusamus recusandae consequat, velit hic perferendis consectetuer excepteur dictum nullam! Aute laoreet, ipsum sunt id asperiores quis accusamus lectus a, deleniti lacus nisl error consequatur optio minim rhoncus aptent do, mollitia dapibus pede, natoque integer pharetra iusto blandit ad! Elementum lacus voluptatibus. Cupidatat aliqua scelerisque! Cras at aliqua, montes ullamcorper.</p><p>Quod primis placeat praesent cupidatat facilisi quidem culpa, lacus nemo, aliquid, per integer nulla fugit venenatis fugiat laboriosam posuere deleniti illo mattis, aptent mus luctus diamlorem molestie ligula! Autem dolore? Suscipit consectetuer pede rhoncus? Voluptas voluptate veritatis id? Rhoncus congue quos repellendus doloribus magni semper, tempora etiam vulputate cupidatat scelerisque.</p>
+      </div>
     </div>
-  </div>
-  <div class="tabs__tab-content" id="tab-two">
-    <div class="clearfix bg--dark-gray-3 padded-box">
-      <h3>Second Tab</h3><p>Delectus debitis nonummy erat laudantium, temporibus dis autem dis impedit anim cumque! Ridiculus pharetra eros laborum, tenetur, sint, felis. Lacus lectus penatibus, eiusmod? Praesentium eaque facilisis vehicula odio. Doloribus tempore! Fermentum pellentesque, magnam exercitationem, netus, facilisis officiis cupidatat deserunt optio. Quia deleniti, est accumsan bibendum taciti ipsum ullamco, mollit curabitur.</p>
+    <div class="tabs__tab-content" id="tab-two">
+      <div class="clearfix bg--dark-gray-3 padded-box">
+        <h3>Second Tab</h3><p>Delectus debitis nonummy erat laudantium, temporibus dis autem dis impedit anim cumque! Ridiculus pharetra eros laborum, tenetur, sint, felis. Lacus lectus penatibus, eiusmod? Praesentium eaque facilisis vehicula odio. Doloribus tempore! Fermentum pellentesque, magnam exercitationem, netus, facilisis officiis cupidatat deserunt optio. Quia deleniti, est accumsan bibendum taciti ipsum ullamco, mollit curabitur.</p>
+      </div>
     </div>
-  </div>
-  <div class="tabs__tab-content" id="tab-three">
-    <div class="clearfix bg--desktop padded-box">
-      <h3>Third Tab</h3><p>Et vestibulum harum eleifend per montes, suspendisse urna dictum, aperiam suspendisse, interdum corporis, atque est nostrud? Totam? Posuere tincidunt sit. Faucibus illo distinctio ad? Magni, labore aliqua sequi ullam faucibus, laoreet suspendisse ullamco condimentum ad, facilisi, vero unde lorem aenean euismod officia. Facilisi reiciendis vivamus mi eleifend dolor? Natoque consequuntur.</p><p>Voluptate platea malesuada illo omnis erat in esse? Veniam pede, dolore, dicta quaerat necessitatibus. Eleifend illo. Class. Morbi metus consequatur, animi necessitatibus esse lacus, nonummy a, nascetur et, lacinia aliquet magnam iusto ultrices, facilisis. Pariatur architecto, quas delectus litora autem? Molestie? Tristique, harum exercitation nemo litora? Natus erat, dapibus adipiscing.</p><p>Lacus nulla recusandae proident, vivamus aliquip atque auctor aperiam? Distinctio class sapiente nec dignissimos provident placerat curae officia donec consectetuer tortor? Exercitationem. Aliquip incidunt. Animi non odio impedit, senectus vestibulum, magnam tincidunt? Cillum fringilla quisque sapien! Fugiat blanditiis, omnis sunt, mauris tempus dignissim eros! Cubilia integer adipiscing doloribus, quia iaculis.</p>
+    <div class="tabs__tab-content" id="tab-three">
+      <div class="clearfix bg--desktop padded-box">
+        <h3>Third Tab</h3><p>Et vestibulum harum eleifend per montes, suspendisse urna dictum, aperiam suspendisse, interdum corporis, atque est nostrud? Totam? Posuere tincidunt sit. Faucibus illo distinctio ad? Magni, labore aliqua sequi ullam faucibus, laoreet suspendisse ullamco condimentum ad, facilisi, vero unde lorem aenean euismod officia. Facilisi reiciendis vivamus mi eleifend dolor? Natoque consequuntur.</p><p>Voluptate platea malesuada illo omnis erat in esse? Veniam pede, dolore, dicta quaerat necessitatibus. Eleifend illo. Class. Morbi metus consequatur, animi necessitatibus esse lacus, nonummy a, nascetur et, lacinia aliquet magnam iusto ultrices, facilisis. Pariatur architecto, quas delectus litora autem? Molestie? Tristique, harum exercitation nemo litora? Natus erat, dapibus adipiscing.</p><p>Lacus nulla recusandae proident, vivamus aliquip atque auctor aperiam? Distinctio class sapiente nec dignissimos provident placerat curae officia donec consectetuer tortor? Exercitationem. Aliquip incidunt. Animi non odio impedit, senectus vestibulum, magnam tincidunt? Cillum fringilla quisque sapien! Fugiat blanditiis, omnis sunt, mauris tempus dignissim eros! Cubilia integer adipiscing doloribus, quia iaculis.</p>
+      </div>
     </div>
-  </div>
+</div>
 
                   </div>
                 </div>
@@ -1392,33 +1482,77 @@ once they get scrolled to and are about to go out of view.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;ul class=&quot;tabs__tabs&quot;&gt;
-    &lt;li&gt;
-      &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link  active&quot; data-tab-content=&quot;tab-one&quot;&gt;First Tab&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot; data-tab-content=&quot;tab-two&quot;&gt;Second Tab&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot; data-tab-content=&quot;tab-three&quot;&gt;third Tab&lt;/a&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;tabs__wrapper&quot;&gt;
+  &lt;ul class=&quot;tabs__tabs&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link  is-active&quot; data-tab-content=&quot;tab-one&quot;&gt;First Tab&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot; data-tab-content=&quot;tab-two&quot;&gt;Second Tab&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot; data-tab-content=&quot;tab-three&quot;&gt;third Tab&lt;/a&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
 
-  &lt;div class=&quot;tabs__tab-content active&quot; id=&quot;tab-one&quot;&gt;
-    &lt;div class=&quot;clearfix bg--mobile padded-box&quot;&gt;
-      &lt;h3&gt;First Tab&lt;/h3&gt;&lt;p&gt;Accusamus recusandae consequat, velit hic perferendis consectetuer excepteur dictum nullam! Aute laoreet, ipsum sunt id asperiores quis accusamus lectus a, deleniti lacus nisl error consequatur optio minim rhoncus aptent do, mollitia dapibus pede, natoque integer pharetra iusto blandit ad! Elementum lacus voluptatibus. Cupidatat aliqua scelerisque! Cras at aliqua, montes ullamcorper.&lt;/p&gt;&lt;p&gt;Quod primis placeat praesent cupidatat facilisi quidem culpa, lacus nemo, aliquid, per integer nulla fugit venenatis fugiat laboriosam posuere deleniti illo mattis, aptent mus luctus diamlorem molestie ligula! Autem dolore? Suscipit consectetuer pede rhoncus? Voluptas voluptate veritatis id? Rhoncus congue quos repellendus doloribus magni semper, tempora etiam vulputate cupidatat scelerisque.&lt;/p&gt;
+    &lt;div class=&quot;tabs__tab-content is-active&quot; id=&quot;tab-one&quot;&gt;
+      &lt;div class=&quot;clearfix bg--mobile padded-box&quot;&gt;
+        &lt;h3&gt;First Tab&lt;/h3&gt;&lt;p&gt;Accusamus recusandae consequat, velit hic perferendis consectetuer excepteur dictum nullam! Aute laoreet, ipsum sunt id asperiores quis accusamus lectus a, deleniti lacus nisl error consequatur optio minim rhoncus aptent do, mollitia dapibus pede, natoque integer pharetra iusto blandit ad! Elementum lacus voluptatibus. Cupidatat aliqua scelerisque! Cras at aliqua, montes ullamcorper.&lt;/p&gt;&lt;p&gt;Quod primis placeat praesent cupidatat facilisi quidem culpa, lacus nemo, aliquid, per integer nulla fugit venenatis fugiat laboriosam posuere deleniti illo mattis, aptent mus luctus diamlorem molestie ligula! Autem dolore? Suscipit consectetuer pede rhoncus? Voluptas voluptate veritatis id? Rhoncus congue quos repellendus doloribus magni semper, tempora etiam vulputate cupidatat scelerisque.&lt;/p&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;tabs__tab-content&quot; id=&quot;tab-two&quot;&gt;
-    &lt;div class=&quot;clearfix bg--dark-gray-3 padded-box&quot;&gt;
-      &lt;h3&gt;Second Tab&lt;/h3&gt;&lt;p&gt;Delectus debitis nonummy erat laudantium, temporibus dis autem dis impedit anim cumque! Ridiculus pharetra eros laborum, tenetur, sint, felis. Lacus lectus penatibus, eiusmod? Praesentium eaque facilisis vehicula odio. Doloribus tempore! Fermentum pellentesque, magnam exercitationem, netus, facilisis officiis cupidatat deserunt optio. Quia deleniti, est accumsan bibendum taciti ipsum ullamco, mollit curabitur.&lt;/p&gt;
+    &lt;div class=&quot;tabs__tab-content&quot; id=&quot;tab-two&quot;&gt;
+      &lt;div class=&quot;clearfix bg--dark-gray-3 padded-box&quot;&gt;
+        &lt;h3&gt;Second Tab&lt;/h3&gt;&lt;p&gt;Delectus debitis nonummy erat laudantium, temporibus dis autem dis impedit anim cumque! Ridiculus pharetra eros laborum, tenetur, sint, felis. Lacus lectus penatibus, eiusmod? Praesentium eaque facilisis vehicula odio. Doloribus tempore! Fermentum pellentesque, magnam exercitationem, netus, facilisis officiis cupidatat deserunt optio. Quia deleniti, est accumsan bibendum taciti ipsum ullamco, mollit curabitur.&lt;/p&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;tabs__tab-content&quot; id=&quot;tab-three&quot;&gt;
-    &lt;div class=&quot;clearfix bg--desktop padded-box&quot;&gt;
-      &lt;h3&gt;Third Tab&lt;/h3&gt;&lt;p&gt;Et vestibulum harum eleifend per montes, suspendisse urna dictum, aperiam suspendisse, interdum corporis, atque est nostrud? Totam? Posuere tincidunt sit. Faucibus illo distinctio ad? Magni, labore aliqua sequi ullam faucibus, laoreet suspendisse ullamco condimentum ad, facilisi, vero unde lorem aenean euismod officia. Facilisi reiciendis vivamus mi eleifend dolor? Natoque consequuntur.&lt;/p&gt;&lt;p&gt;Voluptate platea malesuada illo omnis erat in esse? Veniam pede, dolore, dicta quaerat necessitatibus. Eleifend illo. Class. Morbi metus consequatur, animi necessitatibus esse lacus, nonummy a, nascetur et, lacinia aliquet magnam iusto ultrices, facilisis. Pariatur architecto, quas delectus litora autem? Molestie? Tristique, harum exercitation nemo litora? Natus erat, dapibus adipiscing.&lt;/p&gt;&lt;p&gt;Lacus nulla recusandae proident, vivamus aliquip atque auctor aperiam? Distinctio class sapiente nec dignissimos provident placerat curae officia donec consectetuer tortor? Exercitationem. Aliquip incidunt. Animi non odio impedit, senectus vestibulum, magnam tincidunt? Cillum fringilla quisque sapien! Fugiat blanditiis, omnis sunt, mauris tempus dignissim eros! Cubilia integer adipiscing doloribus, quia iaculis.&lt;/p&gt;
+    &lt;div class=&quot;tabs__tab-content&quot; id=&quot;tab-three&quot;&gt;
+      &lt;div class=&quot;clearfix bg--desktop padded-box&quot;&gt;
+        &lt;h3&gt;Third Tab&lt;/h3&gt;&lt;p&gt;Et vestibulum harum eleifend per montes, suspendisse urna dictum, aperiam suspendisse, interdum corporis, atque est nostrud? Totam? Posuere tincidunt sit. Faucibus illo distinctio ad? Magni, labore aliqua sequi ullam faucibus, laoreet suspendisse ullamco condimentum ad, facilisi, vero unde lorem aenean euismod officia. Facilisi reiciendis vivamus mi eleifend dolor? Natoque consequuntur.&lt;/p&gt;&lt;p&gt;Voluptate platea malesuada illo omnis erat in esse? Veniam pede, dolore, dicta quaerat necessitatibus. Eleifend illo. Class. Morbi metus consequatur, animi necessitatibus esse lacus, nonummy a, nascetur et, lacinia aliquet magnam iusto ultrices, facilisis. Pariatur architecto, quas delectus litora autem? Molestie? Tristique, harum exercitation nemo litora? Natus erat, dapibus adipiscing.&lt;/p&gt;&lt;p&gt;Lacus nulla recusandae proident, vivamus aliquip atque auctor aperiam? Distinctio class sapiente nec dignissimos provident placerat curae officia donec consectetuer tortor? Exercitationem. Aliquip incidunt. Animi non odio impedit, senectus vestibulum, magnam tincidunt? Cillum fringilla quisque sapien! Fugiat blanditiis, omnis sunt, mauris tempus dignissim eros! Cubilia integer adipiscing doloribus, quia iaculis.&lt;/p&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-interactive-tooltip" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-interactive-tooltip"> -->
+                Tooltip
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Tooltip when hovering over link.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <a href="#" class="tooltip [modifier class]">
+  Hover over me
+  <div class="tooltip__text text--label"><h5 class='margin-zero text--negative'>Google Analytics</h5><p class='text--label'>11:00 MIN | 3K VIEWS</p><ul class='list-negative margin-zero'><li>What is Google Analytics</li><li>How to connect</li><li>How to analyze</li></ul></div>
+</a>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;a href=&quot;#&quot; class=&quot;tooltip [modifier class]&quot;&gt;
+  Hover over me
+  &lt;div class=&quot;tooltip__text text--label&quot;&gt;&lt;h5 class=&#x27;margin-zero text--negative&#x27;&gt;Google Analytics&lt;/h5&gt;&lt;p class=&#x27;text--label&#x27;&gt;11:00 MIN | 3K VIEWS&lt;/p&gt;&lt;ul class=&#x27;list-negative margin-zero&#x27;&gt;&lt;li&gt;What is Google Analytics&lt;/li&gt;&lt;li&gt;How to connect&lt;/li&gt;&lt;li&gt;How to analyze&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+&lt;/a&gt;
 </code></pre>
               </div>
 
