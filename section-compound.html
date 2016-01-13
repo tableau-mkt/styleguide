@@ -279,11 +279,11 @@
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="quote [modifier class]">
+                    <div class="quote ">
   <p class="quote__text">Tableau is the best thing that ever happened to us. We&#x27;ve spent 90 percent of our time on the data and 10 percent on the tool. We had a significant ROI.</p>
   <p class="quote__byline">
-    <span class="quote__byline-name">Cindy Sedlacek,</span>
-    <span class="quote__byline-detail">Professor</span>
+      <span class="quote__byline-name">Cindy Sedlacek,</span>
+      <span class="quote__byline-detail">Professor</span>
   </p>
 </div>
 
@@ -295,11 +295,11 @@
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;quote [modifier class]&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;quote &quot;&gt;
   &lt;p class=&quot;quote__text&quot;&gt;Tableau is the best thing that ever happened to us. We&amp;#x27;ve spent 90 percent of our time on the data and 10 percent on the tool. We had a significant ROI.&lt;/p&gt;
   &lt;p class=&quot;quote__byline&quot;&gt;
-    &lt;span class=&quot;quote__byline-name&quot;&gt;Cindy Sedlacek,&lt;/span&gt;
-    &lt;span class=&quot;quote__byline-detail&quot;&gt;Professor&lt;/span&gt;
+      &lt;span class=&quot;quote__byline-name&quot;&gt;Cindy Sedlacek,&lt;/span&gt;
+      &lt;span class=&quot;quote__byline-detail&quot;&gt;Professor&lt;/span&gt;
   &lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
@@ -331,8 +331,16 @@ that need to stand on their own.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="special-hero [modifier class]">
+                    <div class="special-hero ">
   <div id="hero-text">
+
+      <div class="special-hero__video">
+        <div class="special-hero__video-inner bg-cover" style="background-image: url(http://www.placecage.com/g/1366/540);">
+          <video data-video-id="4673566717001" data-account="3798483592001" data-player="68382327-2210-45c8-920a-a606cbb6de49" data-embed="default" class="video-js" loop autoplay controls>
+          </video>
+          <script src="//players.brightcove.net/3798483592001/68382327-2210-45c8-920a-a606cbb6de49_default/index.min.js"></script>
+        </div>
+      </div>
 
       <div class="special-hero__background">
         <div class="special-hero__background-inner" style="background-image: url(http://www.placecage.com/g/1366/540);">
@@ -344,6 +352,7 @@ that need to stand on their own.</p>
           <h1>Answer questions as fast<br class='tablet-hide'>as you can think of them<br class='tablet-hide'>with <strong>Tableau Desktop.</strong></h1><p><a class='cta cta--play reveal__trigger cta--secondary cta--light' href='#' data-reveal-target='video' data-reveal-media='video' data-reveal-curtain='hero-text'>See it in action</a></p><p>  <a href='/products/trial' class='link  link--arrow'>Try it for Free</a></p>
         </div>
       </div>
+
   </div>
 
     <div class="reveal__content" id="video">
@@ -359,8 +368,16 @@ that need to stand on their own.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;special-hero [modifier class]&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;special-hero &quot;&gt;
   &lt;div id=&quot;hero-text&quot;&gt;
+
+      &lt;div class=&quot;special-hero__video&quot;&gt;
+        &lt;div class=&quot;special-hero__video-inner bg-cover&quot; style=&quot;background-image: url(http://www.placecage.com/g/1366/540);&quot;&gt;
+          &lt;video data-video-id=&quot;4673566717001&quot; data-account=&quot;3798483592001&quot; data-player=&quot;68382327-2210-45c8-920a-a606cbb6de49&quot; data-embed=&quot;default&quot; class=&quot;video-js&quot; loop autoplay controls&gt;
+          &lt;/video&gt;
+          &lt;script src=&quot;//players.brightcove.net/3798483592001/68382327-2210-45c8-920a-a606cbb6de49_default/index.min.js&quot;&gt;&lt;/script&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 
       &lt;div class=&quot;special-hero__background&quot;&gt;
         &lt;div class=&quot;special-hero__background-inner&quot; style=&quot;background-image: url(http://www.placecage.com/g/1366/540);&quot;&gt;
@@ -372,6 +389,7 @@ that need to stand on their own.</p>
           &lt;h1&gt;Answer questions as fast&lt;br class=&#x27;tablet-hide&#x27;&gt;as you can think of them&lt;br class=&#x27;tablet-hide&#x27;&gt;with &lt;strong&gt;Tableau Desktop.&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;&lt;a class=&#x27;cta cta--play reveal__trigger cta--secondary cta--light&#x27; href=&#x27;#&#x27; data-reveal-target=&#x27;video&#x27; data-reveal-media=&#x27;video&#x27; data-reveal-curtain=&#x27;hero-text&#x27;&gt;See it in action&lt;/a&gt;&lt;/p&gt;&lt;p&gt;  &lt;a href=&#x27;/products/trial&#x27; class=&#x27;link  link--arrow&#x27;&gt;Try it for Free&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
       &lt;/div&gt;
+
   &lt;/div&gt;
 
     &lt;div class=&quot;reveal__content&quot; id=&quot;video&quot;&gt;
@@ -503,6 +521,9 @@ piece of content.</p>
       <p><strong>Bellagio</strong></p>
         <p>123 Main St.</p>
       <p>Las Vegas, NV</p>
+    <p>
+        <a href="https://www.google.com/maps/@36.1488957,-115.1411018,12.02z" target="_blank" class=" link link--arrow">Get Directions</a>
+    </p>
   </div>
 </div>
 
@@ -523,6 +544,9 @@ piece of content.</p>
       &lt;p&gt;&lt;strong&gt;Bellagio&lt;/strong&gt;&lt;/p&gt;
         &lt;p&gt;123 Main St.&lt;/p&gt;
       &lt;p&gt;Las Vegas, NV&lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://www.google.com/maps/@36.1488957,-115.1411018,12.02z&quot; target=&quot;_blank&quot; class=&quot; link link--arrow&quot;&gt;Get Directions&lt;/a&gt;
+    &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -651,7 +675,7 @@ that need to stand on their own.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="hero [modifier class]">
+                    <div class="hero ">
 
     <div class="hero__background">
       <div class="hero__background__inner" style="background-image: url(http://www.placecage.com/1366/540);">
@@ -693,7 +717,7 @@ that need to stand on their own.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;hero [modifier class]&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;hero &quot;&gt;
 
     &lt;div class=&quot;hero__background&quot;&gt;
       &lt;div class=&quot;hero__background__inner&quot; style=&quot;background-image: url(http://www.placecage.com/1366/540);&quot;&gt;

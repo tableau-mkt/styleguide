@@ -1,57 +1,59 @@
+/**
+ * Helper functions for all components.
+ */
+
 var Tabia = Tabia || {};
 
-Tabia.yo = function(content) {
+Tabia.yo = function (content) {
   window.console && console.log(content || "Yo");
 };
 
-Tabia.later = function(func, time) {
+Tabia.later = function (func, time) {
   setTimeout(func, time || 2000);
 };
 
+(function ($) {
 
-/**
- * Smooth Scroll to top of an element
- * @param  {jQuery Object} $element - Element to scroll to the top of
- * @param  {integer} duration       - Length of the animation
- * @param  {integer} offset         - Any offset to account for sticky elements
- * @param  {boolean} onlyUp         - Whether scroll should only happen if the scroll direction is up
- */
-function smoothScrollTop($element, duration, offset, onlyUp) {
-  duration = duration || 500;
-  offset = offset || 0;
-  onlyUp = onlyUp || false;
+  /**
+   * Smooth Scroll to top of an element
+   * @param  {jQuery Object} $element - Element to scroll to the top of
+   * @param  {integer} duration       - Length of the animation
+   * @param  {integer} offset         - Any offset to account for sticky elements
+   * @param  {boolean} onlyUp         - Whether scroll should only happen if the scroll direction is up
+   */
+  Tabia.smoothScrollTop = function ($element, duration, offset, onlyUp) {
+    duration = duration || 500;
+    offset = offset || 0;
+    onlyUp = onlyUp || false;
 
-  var elementTop = $element.offset().top,
-      pageTop = $(window).scrollTop(),
-      scroll = !onlyUp;
+    var elementTop = $element.offset().top,
+        pageTop = $(window).scrollTop(),
+        scroll = !onlyUp;
 
-  if (onlyUp && pageTop > elementTop) {
-    scroll = true;
+    if (onlyUp && pageTop > elementTop) {
+      scroll = true;
+    }
+
+    if (scroll) {
+      $('body, html').animate({
+        scrollTop: elementTop - offset
+      }, duration);
+    }
   }
 
-  if (scroll) {
-    $('body, html').animate({
-      scrollTop: elementTop - offset
-    }, duration);
-  }
-}
 
-
-/*
-A re-implementation of jQuery's slideDown() and slideUp() that animates the
-height of an element without requiring the use of display: none;
-
-Helpful when needing to hide a video player while maintaining control via an
-API.
-
-The element must have "overflow: hidden;" set in CSS for this to work properly.
-In order to have the element hidden by default, you mist also set "height: 0;"
-in CSS as well.
-*/
-
-(function ( $ ) {
-  $.fn.slideHeight = function(direction, options) {
-
+  /**
+   * A re-implementation of jQuery's slideDown() and slideUp() that animates the
+   *  height of an element without requiring the use of display: none;
+   *
+   *  Helpful when needing to hide a video player while maintaining control via an
+   *  API.
+   *
+   *  The element must have "overflow: hidden;" set in CSS for this to work properly.
+   *  In order to have the element hidden by default, you mist also set "height: 0;"
+   *  in CSS as well.
+   */
+  $.fn.slideHeight = function (direction, options) {
     var $el = $(this),
         options = options || {duration: 400, easing: "swing"};
 
@@ -82,31 +84,29 @@ in CSS as well.
 
     return this;
   };
-}( jQuery ));
 
 
-/**
- * General Brightcove video embed binding.
- *
- * This is a generic setup for in-page embedded players. We can bind a VideoJS wrapped object to a data property on the player DOM element, allowing us to control players by selecting the DOM element and accessing the bcPlayer data property. E.g.:
- *
- * $('#my-playerthing').data('bcPlayer').play();
- * $('#my-playerthing').data('bcPlayer').pause();
- *
- * A more complicated example that retrieves the full video metadata via the Brightcove catalog method:
- *
- * var $video = $('#my-player-object');
- *
- * $video.data('bcPlayer').catalog.getVideo($video.data('videoId'),
- * function(error, data) {
- *   // Do things with the return.
- *   console.log(data);
- * });
- *
- * This presumes that the Brightcove API script has been loaded on page.
- */
-(function ($, window) {
-  $(document).ready(function() {
+  /**
+   * General Brightcove video embed binding.
+   *
+   * This is a generic setup for in-page embedded players. We can bind a VideoJS wrapped object to a data property on the player DOM element, allowing us to control players by selecting the DOM element and accessing the bcPlayer data property. E.g.:
+   *
+   * $('#my-playerthing').data('bcPlayer').play();
+   * $('#my-playerthing').data('bcPlayer').pause();
+   *
+   * A more complicated example that retrieves the full video metadata via the Brightcove catalog method:
+   *
+   * var $video = $('#my-player-object');
+   *
+   * $video.data('bcPlayer').catalog.getVideo($video.data('videoId'),
+   * function(error, data) {
+   *   // Do things with the return.
+   *   console.log(data);
+   * });
+   *
+   * This presumes that the Brightcove API script has been loaded on page.
+   */
+  $(document).ready(function () {
     // Use the default Brightcove embed selector.
     var $players = $('.video-js');
 
@@ -125,10 +125,11 @@ in CSS as well.
       });
     });
   });
+
 })(jQuery, window);
 ;
 /**
- * Content Reveal utility
+ * Content Reveal utility.
  *
  * Set a wrapper around content as a revealable region. Assign a "trigger"
  * element as the toggle to expand and collapse the content region.
@@ -147,7 +148,7 @@ in CSS as well.
  * @TODO: Can still use some cleanup and work to be a more agnostic plugin
  */
 
-(function ( $ ) {
+(function ($) {
   $.fn.contentReveal = function(options) {
     // Default settings
     var settings = $.extend({
@@ -192,10 +193,14 @@ in CSS as well.
           hideText = data.revealHideText,
           type = data.revealType,
           media = data.revealMedia,
+          scrollBehavior = data.revealScroll,
+          $scrollTarget,
           scrollOffset = $('.sticky-wrapper .stuck').outerHeight(true),
-          customAnimation = customAnimation || settings.animation;
+          expandToggle = data.revealExpandToggle;
 
-      $trigger.data('revealState', 'open').addClass('open');
+      customAnimation = customAnimation || settings.animation;
+
+      $trigger.data('revealState', 'open').addClass('is-open');
       if (hideText != "") {
         $trigger.text(hideText);
       }
@@ -215,20 +220,47 @@ in CSS as well.
         }, customAnimation.duration/2);
       }
 
-      if ($curtain.length) {
-        smoothScrollTop($curtain, customAnimation.duration, scrollOffset, true);
+      // Scroll when reveal is clicked open.
+      if (scrollBehavior) {
+        switch (scrollBehavior) {
+          case 'trigger':
+            $scrollTarget = $trigger;
+            break;
+          case 'target':
+            $scrollTarget = $target;
+            break;
+          default:
+            $scrollTarget = $('#' + scrollBehavior);
+            break;
+        }
+        Tabia.smoothScrollTop($scrollTarget, customAnimation.duration, scrollOffset, false);
+      }
+      else if ($curtain.length) {
+        // Use curtain for scroll.
+        Tabia.smoothScrollTop($curtain, customAnimation.duration, scrollOffset, true);
+      }
+
+      // Special expand icon handling
+      if (expandToggle) {
+        $trigger.addClass('link--collapse').removeClass('link--expand');
       }
     }
 
     // Hide the target content
     function hideContent(trigger) {
-      var data = $(trigger).data(),
+      var $trigger = $(trigger),
+          data = $trigger.data(),
           $target = $('#' + data.revealTarget),
           $curtain = $('#' + data.revealCurtain),
           showText = data.revealShowText,
-          media = data.revealMedia;
+          media = data.revealMedia,
+          expandToggle = data.revealExpandToggle;
 
-      $(trigger).data('revealState', 'closed').text(showText).removeClass('open');
+      $trigger.data('revealState', 'closed').removeClass('is-open');
+
+      if (typeof showText !== 'undefined') {
+        $trigger.text(showText);
+      }
 
       $target.slideHeight('up', settings.animation);
 
@@ -238,6 +270,11 @@ in CSS as well.
         var player = videojs($target.find('.reveal-video--brightcove')[0]);
         player.pause();
       }
+
+      // Special expand icon handling
+      if (expandToggle) {
+        $trigger.addClass('link--expand').removeClass('link--collapse');
+      }
     }
 
     // Hand-full of setup tasks
@@ -246,14 +283,22 @@ in CSS as well.
       settings.triggers.data('revealState', 'closed');
 
       settings.triggers.each(function(index, el) {
-        var $target = $('#' + $(this).data('revealTarget')),
-            showText = $(this).text();
+        var $trigger = $(this),
+            $target = $('#' + $trigger.data('revealTarget')),
+            showText = $trigger.text();
 
         // Link content back to it's corresponding trigger
-        $target.data('revealTrigger', $(this));
+        $target.data('revealTrigger', $trigger);
+
+        // Special handling for links with an expand icon.
+        if ($trigger.hasClass('link--expand')) {
+          $trigger.data('revealExpandToggle', true);
+        }
 
         // Save original trigger text
-        settings.triggers.data('revealShowText', showText);
+        if (typeof $trigger.data('revealHideText') !== undefined) {
+          settings.triggers.data('revealShowText', showText);
+        }
       });
 
       // // Set initial margin on content if there is a curtain
@@ -271,7 +316,7 @@ in CSS as well.
 
       // Add a close icon to each content continer
       if (settings.closeLink) {
-        settings.contents.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window"></i></a>'));
+        settings.contents.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window-style2"></i></a>'));
       }
     }
 
@@ -292,7 +337,7 @@ in CSS as well.
 
     return this;
   }
-}( jQuery ));
+})(jQuery);
 ;
 'use strict';
 
@@ -470,6 +515,8 @@ in CSS as well.
           // Class given to label when its field has a non-null value. Toggled
           // when the value is empty / falsy.
           activeClass: 'is-active',
+          // Class given to input when it has an empty value.
+          emptyClass: 'is-empty',
           // Class given to label when its field is focused. Toggled when it
           // loses focus.
           focusClass: 'has-focus'
@@ -497,15 +544,15 @@ in CSS as well.
     }
 
     // Utility: find a input that we want to alter the label for.
-    Plugin.prototype._findInput = function(el) {
-      var $textInputs = $(el).find('input, textarea').not('[type="checkbox"], [type="radio"]');
+    Plugin.prototype._findInput = function($el) {
+      var $textInputs = $el.find('input, textarea').not('[type="checkbox"], [type="radio"]');
       // The regular text input types.
       if ($textInputs.length) {
         return $textInputs;
       }
       // Try for select elements.
       else {
-        return $(el).find('select');
+        return $el.find('select');
       }
     };
 
@@ -520,46 +567,53 @@ in CSS as well.
       return $(el).find('label');
     };
 
-    Plugin.prototype._onKeyUp = function (ev) {
-      // On empty value, inactivate the label.
-      if (this._input.val() === '') {
-        this._label.removeClass(this.options.activeClass);
-      }
-      else {
-        this._label.addClass(this.options.activeClass);
-      }
-      ev && ev.preventDefault();
+    Plugin.prototype._checkValue = function () {
+      var isEmpty = this._input.val() === '' || this._input.val() === '_none';
+
+      // On empty value, add state classes to input and label.
+      this._input.toggleClass(this.options.emptyClass, isEmpty);
+      this._label.toggleClass(this.options.activeClass, !isEmpty);
     };
 
-    Plugin.prototype._onFocus = function (ev) {
+    Plugin.prototype._onKeyUp = function () {
+      this._checkValue();
+    };
+
+    Plugin.prototype._onFocus = function () {
       this._label.addClass(this.options.focusClass);
       this._onKeyUp();
-      ev && ev.preventDefault();
     };
 
-    Plugin.prototype._onBlur = function (ev) {
+    Plugin.prototype._onBlur = function () {
       this._label.removeClass(this.options.focusClass);
       this._onKeyUp();
-      ev && ev.preventDefault();
     };
 
     Plugin.prototype.init = function () {
       // Mark the element as having been init'ed.
       this._element.addClass(this.options.wrapperInitClass);
 
-      // Event bindings to the input element.
-      this._input.on('keyup change', $.proxy(this._onKeyUp, this));
-      this._input.on('blur', $.proxy(this._onBlur, this));
-      this._input.on('focus', $.proxy(this._onFocus, this));
+      // Check value for initial active class.
+      this._checkValue();
+
+      // Event bindings to the input element with floatLabels namespace.
+      this._input
+        .off('keyup.floatLabels change.floatLabels')
+        .on('keyup.floatLabels change.floatLabels', $.proxy(this._onKeyUp, this));
+      this._input
+        .off('blur.floatLabels')
+        .on('blur.floatLabels', $.proxy(this._onBlur, this));
+      this._input
+        .off('focus.floatLabels')
+        .on('focus.floatLabels', $.proxy(this._onFocus, this));
     };
 
     // Lightweight constructor, preventing against multiple instantiations
     $.fn[pluginName] = function (options) {
       return this.each(function initPlugin() {
-        if (!$.data(this, 'plugin_' + pluginName)) {
-          $.data(this, 'plugin_' + pluginName,
-          new Plugin(this, options));
-        }
+        // Allow the plugin to be instantiated more than once. Event handlers
+        // will be re-bound to avoid issues.
+        $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
       });
     };
 
@@ -649,7 +703,7 @@ in CSS as well.
               $content = $('#' + $(this).data('tab-content'));
 
           // Manage active class
-          settings.tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
+          settings.tabLinks.add(settings.wrapper.find(settings.contents)).removeClass('is-active');
           $link.add($content).addClass('is-active');
         });
       }
@@ -692,7 +746,7 @@ Tabia.contentSearch.ready = function ($) {
     $this.find('.content-search__reset').click(function (event) {
       // Allow overriding.
       var $resetEvent = $.Event('contentSearch:reset');
-      $(document).trigger($resetEvent);
+      $this.trigger($resetEvent);
       if (!$resetEvent.isDefaultPrevented()) {
         // Reset/empty the form, via AJAX.
         Tabia.contentSearch.resetForm($this);
@@ -843,8 +897,27 @@ Tabia.contextualSearch.select = function (direction) {
 // Attach our DOM-ready callback.
 jQuery(Tabia.contextualSearch.ready);
 ;
+// Loose augmentation pattern. Creates top-level Tabia variable if it doesn't
+// already exist.
+var Tabia = Tabia || {};
+
+Tabia.form = {};
+
+Tabia.form.initFloatLabels = function ($elements) {
+  $elements.find('input, select, textarea')
+    .not('[type="checkbox"], [type="radio"]')
+    .closest('.form-field')
+    .floatLabel({
+      labelSelector: '.form-field__label'
+    });
+};
+
 $(document).ready(function () {
-  $('.has-float-label').find('input, select, textarea').not('[type="checkbox"], [type="radio"]').closest('.form-field__wrapper').floatLabel();
+  Tabia.form.initFloatLabels($('.has-float-label'));
+});
+
+$(document).on('initFloatLabels', function (e) {
+  Tabia.form.initFloatLabels($(e.target));
 });
 ;
 /**
@@ -1016,7 +1089,7 @@ $(document).ready(function () {
         marginLeft: '-=100%',
       }, animation);
 
-      smoothScrollTop($parent, animation.duration, offset, true);
+      Tabia.smoothScrollTop($parent, animation.duration, offset, true);
     }
 
     // Hide the target content
@@ -1327,6 +1400,10 @@ $(document).ready(function () {
         return;
       }
 
+      $readyChapters.next('.video-chapters__toggle-wrapper').find('.video-chapters__toggle').on('click.toggle', function(e) {
+        $(this).toggleClass('is-open');
+      });
+
       $readyChapters.find('.video-chapters__chapter').on('click.chapter', function triggerVideoChapter (e) {
         var $this = $(this),
             timestamp = $this.data('timestamp');
@@ -1337,7 +1414,7 @@ $(document).ready(function () {
         BCPlayer.currentTime(timestamp);
 
         // Scroll.
-        smoothScrollTop($videoElement);
+        Tabia.smoothScrollTop($videoElement);
 
         // Play the video if it ain't playing.
         if (BCPlayer.paused()) {
@@ -1388,58 +1465,54 @@ $(document).ready(function () {
    */
   $(document).one('tabAjaxMegaMenu:ready', function tabAjaxMenuReady() {
     var $globalNav = $('.global-nav__top'),
-      $menu = $globalNav.find('.global-nav__primary-menu'),
-      $expandableLinks = $menu.find('li a.expandable'),
-      $drawers = $('.global-nav__drawer'),
-      $hamburger = $globalNav.find('.hamburger'),
-      $mobileWrapper = $globalNav.find('.global-nav__mobile-wrapper'),
-      $mobileDrawerClose = $('.global-nav__drawer-close'),
-      animation = {
-        duration: 150,
-        easing: 'linear'
-      };
-    /* Desktop stuff */
-    if (matchMedia('(min-width: 961px)').matches) {
-      // Drawer Expanding interaction
+        $menu = $globalNav.find('.global-nav__primary-menu'),
+        $expandableLinks = $menu.find('li a.expandable'),
+        $drawers = $('.global-nav__drawer'),
+        $hamburger = $globalNav.find('.hamburger'),
+        $mobileWrapper = $globalNav.find('.global-nav__mobile-wrapper'),
+        $mobileDrawerClose = $('.global-nav__drawer-close'),
+        animation = {
+          duration: 150,
+          easing: 'linear'
+        };
 
-      $expandableLinks.each(function (){
-        var $link = $(this),
-            $drawer = $drawers.filter('#' + $link.data('drawer-id')),
-            $both = $link.add($drawer);
+    // Do some initial sizing.
+    sizing();
 
-        // Handling for hover interaction of drawers. Uses the doTimeout jquery
-        // utility to handle throttling and waiting on a small delay before
-        // showing the drawer (essentially hoverintent)
-        $both.hover(function () {
-          $both.doTimeout( 'open', 200, function() {
-            $both.addClass('is-open');
-          });
-        }, function () {
-          $both.doTimeout( 'open', 200, function() {
-            $both.removeClass('is-open');
-          });
+    // Size on window resize and orientation change.
+    $(window).on('resize orientationchange', _.debounce(sizing, 100));
+
+    // Desktop stuff.
+    // Drawer Expanding interaction
+    $expandableLinks.each(function (){
+      var $link = $(this),
+          $drawer = $drawers.filter('#' + $link.data('drawer-id')),
+          $both = $link.add($drawer);
+
+      // Handling for hover interaction of drawers. Uses the doTimeout jquery
+      // utility to handle throttling and waiting on a small delay before
+      // showing the drawer (essentially hoverintent)
+      $both.hover(function () {
+        $both.doTimeout( 'open', 200, function() {
+          $both.addClass('is-open');
+        });
+      }, function () {
+        $both.doTimeout( 'open', 200, function() {
+          $both.removeClass('is-open');
         });
       });
+    });
 
-      $drawers.click(function(e) {
-        e.stopPropagation();
-      });
-    }
+    $drawers.click(function(e) {
+      e.stopPropagation();
+    });
 
-    /* Tablet/mobile stuff */
-    if (matchMedia('(max-width: 960px)').matches) {
+    // Tablet/mobile stuff.
+    $expandableLinks.on('click.nav', function(e) {
+      var $link = $(this),
+          $drawer = $('#' + $link.data('drawer-id'));
 
-      // Set the height of the dropdown content
-      mobileHeightAdjust();
-
-      $(window).resize(function(e) {
-        mobileHeightAdjust()
-      });
-
-      $expandableLinks.on('click.nav', function(e) {
-        var $link = $(this),
-            $drawer = $('#' + $link.data('drawer-id'));
-
+      if (isMobile()) {
         $drawer.show().addClass('open');
 
         $drawer.add($mobileWrapper).animate({
@@ -1447,8 +1520,8 @@ $(document).ready(function () {
         }, animation);
 
         e.preventDefault();
-      });
-    }
+      }
+    });
 
     $mobileDrawerClose.on('click.nav', function(e) {
       var $drawer = $(this).closest('.global-nav__drawer');
@@ -1487,14 +1560,37 @@ $(document).ready(function () {
       }, animation.duration);
     }
 
+    // Helper function to check whether we are on a mobile/tablet viewport.
+    function isMobile() {
+      return matchMedia('(max-width: 960px)').matches;
+    }
+
+    // Prepare our menu for the user's viewport.
+    function sizing() {
+      // Tablet/Mobile
+      if (isMobile()) {
+        // Adjust the height of the mobile menu
+        mobileHeightAdjust();
+      }
+      // Desktop
+      else {
+        // Remove any mobile markup, and revert to original settings.
+        $hamburger.removeClass('hamburger--open');
+        $hamburger.parent().removeClass('open');
+        $mobileWrapper.removeAttr('style');
+        $drawers.removeAttr('style').removeClass('open');
+      }
+    }
+
+    // Adjust the height of the mobile menu to take up the entire height.
     function mobileHeightAdjust() {
       // @todo this is pretty bad... Can probably figure out a clever CSS hack to
-      // acheive this with vh units or something.
+      // achieve this with vh units or something.
       var drawerHeight = $(window).outerHeight(true) - $globalNav.outerHeight(true);
 
       $mobileWrapper.add($drawers).each(function(index, el) {
         var $wrapper = $(el),
-          origHeight = $wrapper.data('orig-height');
+            origHeight = $wrapper.data('orig-height');
 
         if (isNaN(origHeight)) {
           origHeight = $wrapper.height();
@@ -1555,30 +1651,72 @@ $(document).ready(function () {
 
 (function($){
   $(document).ready(function(){
-    var $nav = $('.subnav__links'),
+    var $subnav = $('.subnav'),
+        $links = $subnav.find('.subnav__links'),
+        $linksWrapper = $links.find('.subnav__links-wrapper'),
         $anchors = $('.anchor-link');
 
-    if ($nav.length && $anchors.length) {
+    if ($links.length && $anchors.length) {
       $anchors.waypoint({
         handler: function(direction) {
           var id = this.element.id;
           if (direction === 'down') {
-            $nav.find('a[href=#' + id + ']').parent().addClass('active').siblings().removeClass('active');
+            $links.find('a[href="#' + id + '"]').parent().addClass('is-active').siblings().removeClass('is-active');
           } else if (direction === 'up') {
-            $nav.find('a[href=#' + id + ']').parent().prev().addClass('active').siblings().removeClass('active');
+            $links.find('a[href="#' + id + '"]').parent().prev().addClass('is-active').siblings().removeClass('is-active');
           }
         },
-        offset: $('.subnav').outerHeight(true)
+        offset: $subnav.outerHeight(true)
       });
+
+      // Handle scrolling of links on mobile
+      mobileScroll();
+      $(window).on('resize orientationchange', _.debounce(mobileScroll, 100));
 
       // Smooth Scroll for anchor links
       // @TODO generalize and separate from this component
-      $nav.find('a').click(function(e) {
+      $links.find('a').click(function(e) {
         var element = $(this).attr('href'),
-            offset = $('.subnav').outerHeight(true) - 1;
-        smoothScrollTop($(element), 500, offset);
+            offset = $subnav.outerHeight(true) - 1;
+
+        // Offset for mobile
+        if ($subnav.find(".sticky-wrapper").length) {
+          offset = $subnav.find(".sticky-wrapper").outerHeight(true) - 1;
+        }
+
+        Tabia.smoothScrollTop($(element), 500, offset);
         e.preventDefault();
       });
+    }
+
+    // Manage scroll fading on mobile if there's overflow.
+    function mobileScroll() {
+      var width = $linksWrapper[0].offsetWidth,
+          scrollWidth = $linksWrapper[0].scrollWidth;
+
+      if (width < scrollWidth) {
+        // Add right fade right away since we always start on the left.
+        $links.addClass('fade-right');
+
+        $linksWrapper.scroll(function () {
+          var scrollPos = $linksWrapper.scrollLeft();
+
+          // Add both fades and then remove below if needed.
+          $links.addClass('fade-right fade-left');
+
+          // Remove right fade when scrolled all the way to the right
+          if (scrollPos === (scrollWidth - width)) {
+            $links.removeClass('fade-right');
+          }
+          // Remove left fade when scrolled all the way to the left
+          if (scrollPos === 0) {
+            $links.removeClass('fade-left');
+          }
+        });
+      } else {
+        $links.removeClass('fade-left fade-right');
+      }
+
     }
   });
 })(jQuery);

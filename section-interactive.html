@@ -227,7 +227,7 @@ content.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="accordion [modifier class]">
+                    <div class="accordion ">
     <div class="accordion__item">
       <div class="accordion__title-wrapper">
         <div class="accordion__title">
@@ -274,7 +274,7 @@ content.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;accordion [modifier class]&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;accordion &quot;&gt;
     &lt;div class=&quot;accordion__item&quot;&gt;
       &lt;div class=&quot;accordion__title-wrapper&quot;&gt;
         &lt;div class=&quot;accordion__title&quot;&gt;
@@ -333,7 +333,7 @@ content.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="context-switcher [modifier class] heading--h2">
+                    <div class="context-switcher  heading--h2">
   <span class="context-switcher__trigger ">every industry</span>
   <ul class="context-switcher__list">
     <li class="selected"><a href="#" data-option-id="default">every industry</a></li>
@@ -368,7 +368,7 @@ content.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;context-switcher [modifier class] heading--h2&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;context-switcher  heading--h2&quot;&gt;
   &lt;span class=&quot;context-switcher__trigger &quot;&gt;every industry&lt;/span&gt;
   &lt;ul class=&quot;context-switcher__list&quot;&gt;
     &lt;li class=&quot;selected&quot;&gt;&lt;a href=&quot;#&quot; data-option-id=&quot;default&quot;&gt;every industry&lt;/a&gt;&lt;/li&gt;
@@ -802,7 +802,7 @@ option to reloop the gif.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <img class="gif-player [modifier class]" src="/build/images/interactive/gif_player/test-static.png" data-gif-src="/build/images/interactive/gif_player/test.gif">
+                    <img class="gif-player " src="/build/images/interactive/gif_player/test-static.png" data-gif-src="/build/images/interactive/gif_player/test.gif">
 
                   </div>
                 </div>
@@ -812,7 +812,7 @@ option to reloop the gif.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;img class=&quot;gif-player [modifier class]&quot; src=&quot;/build/images/interactive/gif_player/test-static.png&quot; data-gif-src=&quot;/build/images/interactive/gif_player/test.gif&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;img class=&quot;gif-player &quot; src=&quot;/build/images/interactive/gif_player/test-static.png&quot; data-gif-src=&quot;/build/images/interactive/gif_player/test.gif&quot;&gt;
 </code></pre>
               </div>
 
@@ -1086,7 +1086,7 @@ option to reloop the gif.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="progress-bar [modifier class]">
+                    <div class="progress-bar ">
   <div class="progress" data-progress=80></div>
 </div>
 
@@ -1098,7 +1098,7 @@ option to reloop the gif.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;progress-bar [modifier class]&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;progress-bar &quot;&gt;
   &lt;div class=&quot;progress&quot; data-progress=80&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -1182,7 +1182,7 @@ attribute that matches the <code>data-reveal-target</code>.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview" style="background: #F7F9FB;;">
                   <div class="kss-example-preview-wrapper">
-                    <div class="search-highlight [modifier class]">
+                    <div class="search-highlight ">
   <input type="search" data-content="test-content" data-highlight-class="text--bold"/>
   <button><i class="icon icon--search"></i></button>
 </div>
@@ -1232,7 +1232,7 @@ attribute that matches the <code>data-reveal-target</code>.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-highlight [modifier class]&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-highlight &quot;&gt;
   &lt;input type=&quot;search&quot; data-content=&quot;test-content&quot; data-highlight-class=&quot;text--bold&quot;/&gt;
   &lt;button&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
 &lt;/div&gt;
@@ -1531,20 +1531,47 @@ once they get scrolled to and are about to go out of view.</p>
             </div>
           </div>
 
-            <h4>Example</h4>
+            <h4>Examples</h4>
             <div class="kss-examples">
-              <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
-                  <div class="kss-example-preview-wrapper">
-                    <a href="#" class="tooltip [modifier class]">
+             
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>right tooltip</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.tooltip--right</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <a href="#" class="tooltip tooltip--right">
   Hover over me
   <div class="tooltip__text text--label"><h5 class='margin-zero text--negative'>Google Analytics</h5><p class='text--label'>11:00 MIN | 3K VIEWS</p><ul class='list-negative margin-zero'><li>What is Google Analytics</li><li>How to connect</li><li>How to analyze</li></ul></div>
 </a>
 
+                    </div>
                   </div>
                 </div>
-              </div>
-             
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Left tooltip</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.tooltip--left</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <a href="#" class="tooltip tooltip--left">
+  Hover over me
+  <div class="tooltip__text text--label"><h5 class='margin-zero text--negative'>Google Analytics</h5><p class='text--label'>11:00 MIN | 3K VIEWS</p><ul class='list-negative margin-zero'><li>What is Google Analytics</li><li>How to connect</li><li>How to analyze</li></ul></div>
+</a>
+
+                    </div>
+                  </div>
+                </div>
             </div>
             
               <h4>Markup</h4>

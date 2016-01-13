@@ -65,13 +65,18 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
+                  <a href="section-typography.html#kssref-typography-caption">
+                    Caption
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-typography.html#kssref-typography-headings">
                     Default Headings
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
-                  <a href="section-typography.html#kssref-typography-context-headings">
-                    Context-specific Headings
+                  <a href="section-typography.html#kssref-typography-special-headings">
+                    Special Heading Formats
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
@@ -92,6 +97,11 @@
                 <li class="kss-nav__menu-item">
                   <a href="section-typography.html#kssref-typography-heading-highlight">
                     Heading Highlight
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-typography.html#kssref-typography-text-stat">
+                    Text Statistic
                   </a>
                 </li>
           </ul>
@@ -407,6 +417,69 @@ copy.</p>
               </div>
 
             </section>
+            <section id="kssref-typography-caption" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-typography-caption"> -->
+                Caption
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Formatted title or brief explanation appended to an article, image...</p>
+
+            </div>
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <p class="caption [modifier class]">
+  Pariatur pretium interdum ut platea ab, purus tortor alias erat tortor pellentesque pede, feugiat placerat dolor quos adipisci, impedit, illo! Litora necessitatibus interdum sociosqu! Natus volutpat ab? Penatibus arcu dis! Volutpat repudiandae dolorum vehicula semper provident reiciendis magna pulvinar elementum sociosqu aut. Aliquip integer laborum, molestiae wisi per pretium auctor.
+</p>
+
+                  </div>
+                </div>
+              </div>
+             
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Image caption</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.caption--image</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <p class="caption caption--image">
+  Pariatur pretium interdum ut platea ab, purus tortor alias erat tortor pellentesque pede, feugiat placerat dolor quos adipisci, impedit, illo! Litora necessitatibus interdum sociosqu! Natus volutpat ab? Penatibus arcu dis! Volutpat repudiandae dolorum vehicula semper provident reiciendis magna pulvinar elementum sociosqu aut. Aliquip integer laborum, molestiae wisi per pretium auctor.
+</p>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;p class=&quot;caption [modifier class]&quot;&gt;
+  Pariatur pretium interdum ut platea ab, purus tortor alias erat tortor pellentesque pede, feugiat placerat dolor quos adipisci, impedit, illo! Litora necessitatibus interdum sociosqu! Natus volutpat ab? Penatibus arcu dis! Volutpat repudiandae dolorum vehicula semper provident reiciendis magna pulvinar elementum sociosqu aut. Aliquip integer laborum, molestiae wisi per pretium auctor.
+&lt;/p&gt;
+</code></pre>
+              </div>
+
+            </section>
             <section id="kssref-typography-headings" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -453,18 +526,18 @@ copy.</p>
               </div>
 
             </section>
-            <section id="kssref-typography-context-headings" class="kss-section kss-section--depth-2">
+            <section id="kssref-typography-special-headings" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
             <h3 class="kss-title kss-title--level-2">
-              <!-- <a class="kss-title__permalink" href="#kssref-typography-context-headings"> -->
-                Context-specific Headings
+              <!-- <a class="kss-title__permalink" href="#kssref-typography-special-headings"> -->
+                Special Heading Formats
               <!-- </a> -->
             </h3>
 
 
             <div class="kss-description">
-              <p>These heading classes are used for specific cases and in specific contexts.</p>
+              <p>Heading modifiers used for specific use-cases.</p>
 
             </div>
           </div>
@@ -475,63 +548,15 @@ copy.</p>
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
-                      <p>Homepage Hero (70px) - uses <code>&lt;h1&gt;</code></p>
+                      <p>Larger heading reserved for special cases (70px) - uses <code>&lt;h1&gt;</code></p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.heading--homepage</code></p>
+                      <p><code>.heading--huge</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <p class="heading--homepage">Lorem Ipsum</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>Product Landing/Product Detail Hero (50px) - uses <code>&lt;h1&gt;</code></p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.heading--product</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="heading--product">Lorem Ipsum</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>Medium headers (36px) - uses <code>&lt;h2&gt;</code></p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.heading--medium</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="heading--medium">Lorem Ipsum</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="kss-example">
-                  <div class="kss-example-details">
-                    <div class="kss-example-desc">
-                      <p>HP Hero Eyebrow/News title/Demo (20px) - uses <code>&lt;h5&gt;</code></p>
-                    </div>
-                    <div class="kss-example-name">
-                      <p><code>.heading--label</code></p>
-                    </div>
-                  </div>
-                  <div class="kss-example-preview">
-                    <div class="kss-example-preview-wrapper">
-                      <p class="heading--label">Lorem Ipsum</p>
+                      <p class="heading--huge">Lorem Ipsum</p>
 
                     </div>
                   </div>
@@ -560,7 +585,7 @@ copy.</p>
                     <h6>Default styling</h6>
                   </div>
                 </div>
-                <div class="kss-example-preview">
+                <div class="kss-example-preview" style="background: #F7F9FB;">
                   <div class="kss-example-preview-wrapper">
                     <p class="[modifier class]">
   This sentence is an example of formatted text.
@@ -579,7 +604,7 @@ copy.</p>
                       <p><code>.text--bold</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--bold">
   This sentence is an example of formatted text.
@@ -597,7 +622,7 @@ copy.</p>
                       <p><code>.text--light</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--light">
   This sentence is an example of formatted text.
@@ -615,7 +640,7 @@ copy.</p>
                       <p><code>.text--italic</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--italic">
   This sentence is an example of formatted text.
@@ -633,7 +658,7 @@ copy.</p>
                       <p><code>.text--caps</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--caps">
   This sentence is an example of formatted text.
@@ -651,7 +676,7 @@ copy.</p>
                       <p><code>.text--right</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--right">
   This sentence is an example of formatted text.
@@ -669,7 +694,7 @@ copy.</p>
                       <p><code>.text--left</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--left">
   This sentence is an example of formatted text.
@@ -687,7 +712,7 @@ copy.</p>
                       <p><code>.text--centered</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--centered">
   This sentence is an example of formatted text.
@@ -705,7 +730,7 @@ copy.</p>
                       <p><code>.text--justified</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--justified">
   This sentence is an example of formatted text.
@@ -723,9 +748,45 @@ copy.</p>
                       <p><code>.text--lineheight-zero</code></p>
                     </div>
                   </div>
-                  <div class="kss-example-preview">
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
                     <div class="kss-example-preview-wrapper">
                       <p class="text--lineheight-zero">
+  This sentence is an example of formatted text.
+</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Text with a shadow to make light text more readable on light or busy background images</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.text--contrast-light</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
+                    <div class="kss-example-preview-wrapper">
+                      <p class="text--contrast-light">
+  This sentence is an example of formatted text.
+</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Text with a shadow to make dark text more readable on dark or busy background images</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.text--contrast-dark</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview" style="background: #F7F9FB;">
+                    <div class="kss-example-preview-wrapper">
+                      <p class="text--contrast-dark">
   This sentence is an example of formatted text.
 </p>
 
@@ -1165,11 +1226,69 @@ related to a particular product.</p>
                     </div>
                   </div>
                 </div>
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Mission blue colored highlight</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.heading-highlight--mission</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview" style="background: #eee;">
+                    <div class="kss-example-preview-wrapper">
+                      <h3 class="heading-highlight heading--small heading-highlight--mission ">Highlight Heading</h3>
+
+                    </div>
+                  </div>
+                </div>
             </div>
             
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;h3 class=&quot;heading-highlight heading--small [modifier class] &quot;&gt;Highlight Heading&lt;/h3&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-typography-text-stat" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-typography-text-stat"> -->
+                Text Statistic
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>This format is used to display a large, prominent, usually numerical statistic
+with an optional suffix. Other text format classes can be applied to this
+component, for instance to change the text color.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <p class="text-stat ">
+  99<span class="text-stat__suffix">%</span>
+</p>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;p class=&quot;text-stat &quot;&gt;
+  99&lt;span class=&quot;text-stat__suffix&quot;&gt;%&lt;/span&gt;
+&lt;/p&gt;
 </code></pre>
               </div>
 

@@ -242,7 +242,7 @@ for consuming the content for the global nav via ajax.</p>
                 </li>
             </ul>
 
-            <ul class="link-list [modifier class] ">
+            <ul class="link-list  ">
             </ul>
         </nav>
 
@@ -273,7 +273,7 @@ for consuming the content for the global nav via ajax.</p>
       </div>
 
       <div class="global-nav__hamburger">
-        <a class="hamburger [modifier class]" href="#">
+        <a class="hamburger " href="#">
           <span class="hamburger__patty">Menu</span>
         </a>
       </div>
@@ -766,7 +766,7 @@ for consuming the content for the global nav via ajax.</p>
                 &lt;/li&gt;
             &lt;/ul&gt;
 
-            &lt;ul class=&quot;link-list [modifier class] &quot;&gt;
+            &lt;ul class=&quot;link-list  &quot;&gt;
             &lt;/ul&gt;
         &lt;/nav&gt;
 
@@ -797,7 +797,7 @@ for consuming the content for the global nav via ajax.</p>
       &lt;/div&gt;
 
       &lt;div class=&quot;global-nav__hamburger&quot;&gt;
-        &lt;a class=&quot;hamburger [modifier class]&quot; href=&quot;#&quot;&gt;
+        &lt;a class=&quot;hamburger &quot; href=&quot;#&quot;&gt;
           &lt;span class=&quot;hamburger__patty&quot;&gt;Menu&lt;/span&gt;
         &lt;/a&gt;
       &lt;/div&gt;
@@ -1325,7 +1325,7 @@ for consuming the content for the global nav via ajax.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <ul class="pager [modifier class]">
+                    <ul class="pager ">
     <li class="pager__endcap pager__endcap--first pager__endcap--current">
       <a href="#">First</a>
     </li>
@@ -1355,7 +1355,7 @@ for consuming the content for the global nav via ajax.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;ul class=&quot;pager [modifier class]&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;ul class=&quot;pager &quot;&gt;
     &lt;li class=&quot;pager__endcap pager__endcap--first pager__endcap--current&quot;&gt;
       &lt;a href=&quot;#&quot;&gt;First&lt;/a&gt;
     &lt;/li&gt;
@@ -1487,31 +1487,30 @@ and broken up into distinct sections.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="subnav bg--dark-gray-1 sticky--desktop sticky--tablet">
+                    <div class="subnav sticky--desktop">
   <div class="content-container content-container--wide">
-    <h5 class="subnav__title heading--label">Tableau Desktop</h5>
+    <h5 class="subnav__title">Tableau Desktop</h5>
 
-      <div class="subnav__links bg--dark-gray-1 sticky--mobile">
-        <div class="subnav__links__wrapper">
-          <ul class="link-list link-list--inline ">
-              <li class="active">
-                  <a href="#overview"  class="">Overview</a>
-              </li>
-              <li>
-                  <a href="#features"  class="">Features</a>
-              </li>
-              <li>
-                  <a href="#gallery"  class="">Gallery</a>
-              </li>
-              <li>
-                  <a href="#pricing"  class="">Pricing & Specs</a>
-              </li>
-          </ul>
+      <div class="subnav__links sticky--mobile sticky--tablet">
+        <div class="subnav__links-wrapper">
+            <ul class="link-list link-list--inline ">
+                <li class="is-active">
+                    <a href="#overview"  class="">Overview</a>
+                </li>
+                <li>
+                    <a href="#features"  class="">Features</a>
+                </li>
+                <li>
+                    <a href="#gallery"  class="">Gallery</a>
+                </li>
+                <li>
+                    <a href="#pricing"  class="">Pricing & Specs</a>
+                </li>
+            </ul>
+            <div class="subnav__cta">
+              <a class="cta cta--arrow" href="#">Start a Free Trial</a>
+            </div>
         </div>
-      </div>
-
-      <div class="subnav__cta">
-        <a class="cta cta--arrow" href="#">Start a Free Trial</a>
       </div>
   </div>
 </div>
@@ -1524,31 +1523,30 @@ and broken up into distinct sections.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;subnav bg--dark-gray-1 sticky--desktop sticky--tablet&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;subnav sticky--desktop&quot;&gt;
   &lt;div class=&quot;content-container content-container--wide&quot;&gt;
-    &lt;h5 class=&quot;subnav__title heading--label&quot;&gt;Tableau Desktop&lt;/h5&gt;
+    &lt;h5 class=&quot;subnav__title&quot;&gt;Tableau Desktop&lt;/h5&gt;
 
-      &lt;div class=&quot;subnav__links bg--dark-gray-1 sticky--mobile&quot;&gt;
-        &lt;div class=&quot;subnav__links__wrapper&quot;&gt;
-          &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
-              &lt;li class=&quot;active&quot;&gt;
-                  &lt;a href=&quot;#overview&quot;  class=&quot;&quot;&gt;Overview&lt;/a&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                  &lt;a href=&quot;#features&quot;  class=&quot;&quot;&gt;Features&lt;/a&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                  &lt;a href=&quot;#gallery&quot;  class=&quot;&quot;&gt;Gallery&lt;/a&gt;
-              &lt;/li&gt;
-              &lt;li&gt;
-                  &lt;a href=&quot;#pricing&quot;  class=&quot;&quot;&gt;Pricing &amp; Specs&lt;/a&gt;
-              &lt;/li&gt;
-          &lt;/ul&gt;
+      &lt;div class=&quot;subnav__links sticky--mobile sticky--tablet&quot;&gt;
+        &lt;div class=&quot;subnav__links-wrapper&quot;&gt;
+            &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
+                &lt;li class=&quot;is-active&quot;&gt;
+                    &lt;a href=&quot;#overview&quot;  class=&quot;&quot;&gt;Overview&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href=&quot;#features&quot;  class=&quot;&quot;&gt;Features&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href=&quot;#gallery&quot;  class=&quot;&quot;&gt;Gallery&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href=&quot;#pricing&quot;  class=&quot;&quot;&gt;Pricing &amp; Specs&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;div class=&quot;subnav__cta&quot;&gt;
+              &lt;a class=&quot;cta cta--arrow&quot; href=&quot;#&quot;&gt;Start a Free Trial&lt;/a&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;subnav__cta&quot;&gt;
-        &lt;a class=&quot;cta cta--arrow&quot; href=&quot;#&quot;&gt;Start a Free Trial&lt;/a&gt;
       &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
