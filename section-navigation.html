@@ -17,7 +17,6 @@
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
-<link rel="stylesheet" href="build/vendor/slick.js/slick/slick-theme.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
 
@@ -208,6 +207,23 @@ for consuming the content for the global nav via ajax.</p>
         </div>
 
       <div class="global-nav__mobile-wrapper">
+        <nav class="global-nav__secondary-menu">
+          <ul class="link-list link-list--inline ">
+              <li>
+                  <a href="#"  class=" link">Buy</a>
+              </li>
+              <li>
+                  <a href="#"  class=" link">Sign In</a>
+              </li>
+              <li>
+                  <a href="#"  class=" global-nav__search-toggle">Search</a>
+              </li>
+              <li>
+                  <a href="#"  class=" cta">Free Trial</a>
+              </li>
+          </ul>
+        </nav>
+
         <nav class="global-nav__primary-menu">
             <ul>
                 <li>
@@ -239,26 +255,6 @@ for consuming the content for the global nav via ajax.</p>
                     <a href="/about"  class=" expandable"  data-drawer-id="about">
                       About
                     </a>
-                </li>
-            </ul>
-
-            <ul class="link-list  ">
-            </ul>
-        </nav>
-
-        <nav class="global-nav__secondary-menu">
-            <ul class="link-list link-list--inline ">
-                <li>
-                    <a href="#"  class=" link">Buy</a>
-                </li>
-                <li>
-                    <a href="#"  class=" link">Sign In</a>
-                </li>
-                <li>
-                    <a href="#"  class=" search tablet-show"><i class='icon--magnifying-glass'></i></a>
-                </li>
-                <li>
-                    <a href="#"  class=" cta">Free Trial</a>
                 </li>
             </ul>
         </nav>
@@ -732,6 +728,23 @@ for consuming the content for the global nav via ajax.</p>
         &lt;/div&gt;
 
       &lt;div class=&quot;global-nav__mobile-wrapper&quot;&gt;
+        &lt;nav class=&quot;global-nav__secondary-menu&quot;&gt;
+          &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
+              &lt;li&gt;
+                  &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Buy&lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                  &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Sign In&lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                  &lt;a href=&quot;#&quot;  class=&quot; global-nav__search-toggle&quot;&gt;Search&lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                  &lt;a href=&quot;#&quot;  class=&quot; cta&quot;&gt;Free Trial&lt;/a&gt;
+              &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+
         &lt;nav class=&quot;global-nav__primary-menu&quot;&gt;
             &lt;ul&gt;
                 &lt;li&gt;
@@ -763,26 +776,6 @@ for consuming the content for the global nav via ajax.</p>
                     &lt;a href=&quot;/about&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;about&quot;&gt;
                       About
                     &lt;/a&gt;
-                &lt;/li&gt;
-            &lt;/ul&gt;
-
-            &lt;ul class=&quot;link-list  &quot;&gt;
-            &lt;/ul&gt;
-        &lt;/nav&gt;
-
-        &lt;nav class=&quot;global-nav__secondary-menu&quot;&gt;
-            &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
-                &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Buy&lt;/a&gt;
-                &lt;/li&gt;
-                &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Sign In&lt;/a&gt;
-                &lt;/li&gt;
-                &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; search tablet-show&quot;&gt;&lt;i class=&#x27;icon--magnifying-glass&#x27;&gt;&lt;/i&gt;&lt;/a&gt;
-                &lt;/li&gt;
-                &lt;li&gt;
-                    &lt;a href=&quot;#&quot;  class=&quot; cta&quot;&gt;Free Trial&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
         &lt;/nav&gt;
@@ -1565,7 +1558,7 @@ and broken up into distinct sections.</p>
 
 
             <div class="kss-description">
-              <p>Used to navigate through different topics or categories of a section.</p>
+              <p>Used to navigate through different topics or categories of a section. Use <code>?topic=id</code> URL parameter to auto-select a topic when the page is loaded.</p>
 
             </div>
           </div>
@@ -1580,7 +1573,7 @@ and broken up into distinct sections.</p>
         <li><a href="#"  data-tab-content="nic">Nic Cage</a></li>
         <li><a href="#"  data-tab-content="john">John Travolta</a></li>
         <li><a href="#"  data-tab-content="adam">Adam Sandler</a></li>
-        <li><a href="#"  data-tab-content="search"><i class='icon--magnifying-glass'></i></a></li>
+        <li><a href="#"  data-tab-content="search"><i class='icon icon--search'></i></a></li>
     </ul>
 
     <div class="topic-nav__drawers" id="topic-nav-container">
@@ -1635,7 +1628,7 @@ and broken up into distinct sections.</p>
               </ul>
           </div>
         </div>
-        <div class="topic-nav__drawer " id="search">
+        <div class="topic-nav__drawer topic-nav__search" id="search">
           <div class="content-container">
               <div class="content-search contextual-search">
                 <div class="contextual-search__ui">
@@ -1675,7 +1668,7 @@ and broken up into distinct sections.</p>
         &lt;li&gt;&lt;a href=&quot;#&quot;  data-tab-content=&quot;nic&quot;&gt;Nic Cage&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=&quot;#&quot;  data-tab-content=&quot;john&quot;&gt;John Travolta&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=&quot;#&quot;  data-tab-content=&quot;adam&quot;&gt;Adam Sandler&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;  data-tab-content=&quot;search&quot;&gt;&lt;i class=&#x27;icon--magnifying-glass&#x27;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;  data-tab-content=&quot;search&quot;&gt;&lt;i class=&#x27;icon icon--search&#x27;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;div class=&quot;topic-nav__drawers&quot; id=&quot;topic-nav-container&quot;&gt;
@@ -1730,7 +1723,7 @@ and broken up into distinct sections.</p>
               &lt;/ul&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;topic-nav__drawer &quot; id=&quot;search&quot;&gt;
+        &lt;div class=&quot;topic-nav__drawer topic-nav__search&quot; id=&quot;search&quot;&gt;
           &lt;div class=&quot;content-container&quot;&gt;
               &lt;div class=&quot;content-search contextual-search&quot;&gt;
                 &lt;div class=&quot;contextual-search__ui&quot;&gt;

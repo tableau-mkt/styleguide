@@ -17,7 +17,6 @@
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
-<link rel="stylesheet" href="build/vendor/slick.js/slick/slick-theme.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
 
@@ -227,6 +226,23 @@ components in this section to show how a basic page should be laid out.</p>
             </div>
     
           <div class="global-nav__mobile-wrapper">
+            <nav class="global-nav__secondary-menu">
+              <ul class="link-list link-list--inline ">
+                  <li>
+                      <a href="#"  class=" link">Buy</a>
+                  </li>
+                  <li>
+                      <a href="#"  class=" link">Sign In</a>
+                  </li>
+                  <li>
+                      <a href="#"  class=" search tablet-show"><i class='icon--magnifying-glass'></i></a>
+                  </li>
+                  <li>
+                      <a href="#"  class=" cta">Free Trial</a>
+                  </li>
+              </ul>
+            </nav>
+    
             <nav class="global-nav__primary-menu">
                 <ul>
                     <li>
@@ -258,26 +274,6 @@ components in this section to show how a basic page should be laid out.</p>
                         <a href="#"  class=" expandable"  data-drawer-id="about">
                           About
                         </a>
-                    </li>
-                </ul>
-    
-                <ul class="link-list  ">
-                </ul>
-            </nav>
-    
-            <nav class="global-nav__secondary-menu">
-                <ul class="link-list link-list--inline ">
-                    <li>
-                        <a href="#"  class=" link">Buy</a>
-                    </li>
-                    <li>
-                        <a href="#"  class=" link">Sign In</a>
-                    </li>
-                    <li>
-                        <a href="#"  class=" search tablet-show"><i class='icon--magnifying-glass'></i></a>
-                    </li>
-                    <li>
-                        <a href="#"  class=" cta">Free Trial</a>
                     </li>
                 </ul>
             </nav>
@@ -834,6 +830,23 @@ components in this section to show how a basic page should be laid out.</p>
             &lt;/div&gt;
     
           &lt;div class=&quot;global-nav__mobile-wrapper&quot;&gt;
+            &lt;nav class=&quot;global-nav__secondary-menu&quot;&gt;
+              &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
+                  &lt;li&gt;
+                      &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Buy&lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                      &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Sign In&lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                      &lt;a href=&quot;#&quot;  class=&quot; search tablet-show&quot;&gt;&lt;i class=&#x27;icon--magnifying-glass&#x27;&gt;&lt;/i&gt;&lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                      &lt;a href=&quot;#&quot;  class=&quot; cta&quot;&gt;Free Trial&lt;/a&gt;
+                  &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/nav&gt;
+    
             &lt;nav class=&quot;global-nav__primary-menu&quot;&gt;
                 &lt;ul&gt;
                     &lt;li&gt;
@@ -865,26 +878,6 @@ components in this section to show how a basic page should be laid out.</p>
                         &lt;a href=&quot;#&quot;  class=&quot; expandable&quot;  data-drawer-id=&quot;about&quot;&gt;
                           About
                         &lt;/a&gt;
-                    &lt;/li&gt;
-                &lt;/ul&gt;
-    
-                &lt;ul class=&quot;link-list  &quot;&gt;
-                &lt;/ul&gt;
-            &lt;/nav&gt;
-    
-            &lt;nav class=&quot;global-nav__secondary-menu&quot;&gt;
-                &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
-                    &lt;li&gt;
-                        &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Buy&lt;/a&gt;
-                    &lt;/li&gt;
-                    &lt;li&gt;
-                        &lt;a href=&quot;#&quot;  class=&quot; link&quot;&gt;Sign In&lt;/a&gt;
-                    &lt;/li&gt;
-                    &lt;li&gt;
-                        &lt;a href=&quot;#&quot;  class=&quot; search tablet-show&quot;&gt;&lt;i class=&#x27;icon--magnifying-glass&#x27;&gt;&lt;/i&gt;&lt;/a&gt;
-                    &lt;/li&gt;
-                    &lt;li&gt;
-                        &lt;a href=&quot;#&quot;  class=&quot; cta&quot;&gt;Free Trial&lt;/a&gt;
                     &lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/nav&gt;
@@ -1499,6 +1492,21 @@ page needs to be broken up vertically or horizontally.</p>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
                       <hr class="divider divider--dark">
+                    </div>
+                  </div>
+                </div>
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>A fixed width divider that expands to full width for smaller screen sizes.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.divider--short</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <hr class="divider divider--short">
                     </div>
                   </div>
                 </div>

@@ -1,132 +1,152 @@
 /**
- * Helper functions for all components.
+ * General Brightcove video embed binding.
+ *
+ * This is a generic setup for in-page embedded players. We can bind a VideoJS wrapped object to a data property on the player DOM element, allowing us to control players by selecting the DOM element and accessing the bcPlayer data property. E.g.:
+ *
+ * $('#my-playerthing').data('bcPlayer').play();
+ * $('#my-playerthing').data('bcPlayer').pause();
+ *
+ * A more complicated example that retrieves the full video metadata via the Brightcove catalog method:
+ *
+ * var $video = $('#my-player-object');
+ *
+ * $video.data('bcPlayer').catalog.getVideo($video.data('videoId'),
+ * function(error, data) {
+ *   // Do things with the return.
+ *   console.log(data);
+ * });
+ *
+ * This presumes that the Brightcove API script has been loaded on page.
  */
+$(document).ready(function () {
+  // Use the default Brightcove embed selector.
+  var $players = $('.video-js');
 
-var Tabia = Tabia || {};
-
-Tabia.yo = function (content) {
-  window.console && console.log(content || "Yo");
-};
-
-Tabia.later = function (func, time) {
-  setTimeout(func, time || 2000);
-};
-
-(function ($) {
-
-  /**
-   * Smooth Scroll to top of an element
-   * @param  {jQuery Object} $element - Element to scroll to the top of
-   * @param  {integer} duration       - Length of the animation
-   * @param  {integer} offset         - Any offset to account for sticky elements
-   * @param  {boolean} onlyUp         - Whether scroll should only happen if the scroll direction is up
-   */
-  Tabia.smoothScrollTop = function ($element, duration, offset, onlyUp) {
-    duration = duration || 500;
-    offset = offset || 0;
-    onlyUp = onlyUp || false;
-
-    var elementTop = $element.offset().top,
-        pageTop = $(window).scrollTop(),
-        scroll = !onlyUp;
-
-    if (onlyUp && pageTop > elementTop) {
-      scroll = true;
-    }
-
-    if (scroll) {
-      $('body, html').animate({
-        scrollTop: elementTop - offset
-      }, duration);
-    }
+  // Bail early if there aren't even any players.
+  if (!$players.length || typeof window.videojs !== 'function') {
+    return;
   }
 
+  $players.each(function setupBrightcoveInstances() {
+    var $this = $(this);
 
-  /**
-   * A re-implementation of jQuery's slideDown() and slideUp() that animates the
-   *  height of an element without requiring the use of display: none;
-   *
-   *  Helpful when needing to hide a video player while maintaining control via an
-   *  API.
-   *
-   *  The element must have "overflow: hidden;" set in CSS for this to work properly.
-   *  In order to have the element hidden by default, you mist also set "height: 0;"
-   *  in CSS as well.
-   */
-  $.fn.slideHeight = function (direction, options) {
-    var $el = $(this),
-        options = options || {duration: 400, easing: "swing"};
-
-    if (direction === "down") {
-      var $elClone = $el.clone().show().css({"height":"auto"}).appendTo($el.parent()),
-          elHeight = $elClone.outerHeight(true);
-
-      // Removing clone needed for calculating height.
-      $elClone.remove();
-
-      $el.animate({
-          height: elHeight
-        },
-        options.duration,
-        options.easing,
-        function() {
-          // Reset the height to auto to ensure the height remains accurate on viewport resizing
-          $el.css('height', 'auto');
-        }
-      );
-    }
-
-    if (direction === "up") {
-      $el.animate({
-        height: 0
-      }, options);
-    }
-
-    return this;
-  };
-
-
-  /**
-   * General Brightcove video embed binding.
-   *
-   * This is a generic setup for in-page embedded players. We can bind a VideoJS wrapped object to a data property on the player DOM element, allowing us to control players by selecting the DOM element and accessing the bcPlayer data property. E.g.:
-   *
-   * $('#my-playerthing').data('bcPlayer').play();
-   * $('#my-playerthing').data('bcPlayer').pause();
-   *
-   * A more complicated example that retrieves the full video metadata via the Brightcove catalog method:
-   *
-   * var $video = $('#my-player-object');
-   *
-   * $video.data('bcPlayer').catalog.getVideo($video.data('videoId'),
-   * function(error, data) {
-   *   // Do things with the return.
-   *   console.log(data);
-   * });
-   *
-   * This presumes that the Brightcove API script has been loaded on page.
-   */
-  $(document).ready(function () {
-    // Use the default Brightcove embed selector.
-    var $players = $('.video-js');
-
-    // Bail early if there aren't even any players.
-    if (!$players.length || !typeof window.videojs === 'function') {
-      return;
-    }
-
-    $players.each(function setupBrightcoveInstances() {
-      var $this = $(this);
-
-      // Pass in the DOM element, not the jQuery wrapped object.
-      window.videojs($this[0]).ready(function prepareBrightcoveInstance() {
-        $this.data('bcPlayer', this);
-        $(document).trigger('brightcove:ready', $this.attr('id'));
-      });
+    // Pass in the DOM element, not the jQuery wrapped object.
+    window.videojs($this[0]).ready(function prepareBrightcoveInstance() {
+      $this.data('bcPlayer', this);
+      $(document).trigger('brightcove:ready', $this.attr('id'));
     });
   });
+});
+;
+/**
+ * Components Utility Functions
+ */
 
-})(jQuery, window);
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Declare this component's namespace.
+Components.utils = {};
+
+// Breakpoint values.
+Components.utils.breakpoints = {
+  mobileMax: 639,
+  tabletMin: 640,
+  tabletMax: 960,
+  desktopMin: 961,
+  contentMax: 1550,
+  layoutMax: 1920
+};
+
+/**
+ * Smooth Scroll to top of an element
+ * @param  {jQuery Object} $element - Element to scroll to the top of
+ * @param  {integer} duration       - Length of the animation
+ * @param  {integer} offset         - Any offset to account for sticky elements
+ * @param  {boolean} onlyUp         - Whether scroll should only happen if the scroll direction is up
+ */
+Components.utils.smoothScrollTop = function ($element, duration, offset, onlyUp) {
+  duration = duration || 500;
+  offset = offset || 0;
+  onlyUp = onlyUp || false;
+
+  var elementTop = $element.offset().top,
+      pageTop = $(window).scrollTop(),
+      scroll = !onlyUp;
+
+  if (onlyUp && pageTop > elementTop) {
+    scroll = true;
+  }
+
+  if (scroll) {
+    $('body, html').animate({
+      scrollTop: elementTop - offset
+    }, duration);
+  }
+};
+
+/**
+ * Get parsed URL params, with caching.
+ *
+ * @return {Object} URL Params
+ */
+Components.utils.getUrlParams = function () {
+  var urlParams = Components.utils.parseUrlParams;
+  // Return the cached result, or on cache miss, the result of the invoked
+  // function, assigned to the cache property of this Function object.
+  return urlParams.cache || (urlParams.cache = urlParams());
+};
+
+/**
+ * Get parsed URL params.
+ *
+ * @return {Object} URL Params
+ */
+Components.utils.parseUrlParams = function () {
+  var result = {},
+    match,
+    pl = /\+/g, // Regex for replacing addition symbol with a space
+    search = /([^&=]+)=?([^&]*)/g,
+    decode = function (s) {
+      return decodeURIComponent(s.replace(pl, ' '));
+    },
+    query = window.location.search.substring(1);
+
+  while ((match = search.exec(query)) !== null) {
+    result[decode(match[1])] = decode(match[2]);
+  }
+
+  return result;
+};
+
+
+/**
+ * Helper to identify which breakpoint the browser is in.
+ * @param  {string} layout - the layout mode to check for.
+ * @return {Boolean} whether viewport is within specified breakpoint
+ * @example Components.utils.breakpoint('mobile') - true if in mobile layout
+ */
+Components.utils.breakpoint = function (layout) {
+  // Fail fast if matchMedia isn't present.
+  if (typeof window.matchMedia !== 'function') {
+    return false;
+  }
+
+  switch (layout) {
+    case 'mobile':
+      return matchMedia('(max-width: ' + Components.utils.breakpoints.mobileMax + 'px)').matches;
+      break;
+    case 'tablet':
+      return matchMedia('(min-width:' + Components.utils.breakpoints.tabletMin + 'px) and (max-width: ' + Components.utils.breakpoints.tabletMax + 'px)').matches;
+      break;
+    case 'desktop':
+      return matchMedia('(min-width: ' + Components.utils.breakpoints.desktopMin + 'px)').matches;
+      break;
+    default:
+      return false;
+  }
+};
 ;
 /**
  * Content Reveal utility.
@@ -233,11 +253,11 @@ Tabia.later = function (func, time) {
             $scrollTarget = $('#' + scrollBehavior);
             break;
         }
-        Tabia.smoothScrollTop($scrollTarget, customAnimation.duration, scrollOffset, false);
+        Components.utils.smoothScrollTop($scrollTarget, customAnimation.duration, scrollOffset, false);
       }
       else if ($curtain.length) {
         // Use curtain for scroll.
-        Tabia.smoothScrollTop($curtain, customAnimation.duration, scrollOffset, true);
+        Components.utils.smoothScrollTop($curtain, customAnimation.duration, scrollOffset, true);
       }
 
       // Special expand icon handling
@@ -621,6 +641,55 @@ Tabia.later = function (func, time) {
 })(jQuery);
 ;
 /**
+ * A re-implementation of jQuery's slideDown() and slideUp() that animates the
+ *  height of an element without requiring the use of display: none;
+ *
+ *  Helpful when needing to hide a video player while maintaining control via an
+ *  API.
+ *
+ *  The element must have "overflow: hidden;" set in CSS for this to work properly.
+ *  In order to have the element hidden by default, you mist also set "height: 0;"
+ *  in CSS as well.
+ */
+
+(function ($) {
+
+  $.fn.slideHeight = function (direction, options) {
+    var $el = $(this);
+
+    options = options || {duration: 400, easing: "swing"};
+
+    if (direction === "down") {
+      var $elClone = $el.clone().show().css({"height":"auto"}).appendTo($el.parent()),
+          elHeight = $elClone.outerHeight(true);
+
+      // Removing clone needed for calculating height.
+      $elClone.remove();
+
+      $el.animate({
+          height: elHeight
+        },
+        options.duration,
+        options.easing,
+        function() {
+          // Reset the height to auto to ensure the height remains accurate on viewport resizing
+          $el.css('height', 'auto');
+        }
+      );
+    }
+
+    if (direction === "up") {
+      $el.animate({
+        height: 0
+      }, options);
+    }
+
+    return this;
+  };
+
+})(jQuery);
+;
+/**
  * Tabs content utility
  *
  * Create interactive tabs that switch between different visible content when
@@ -690,7 +759,7 @@ Tabia.later = function (func, time) {
 
             // Adjust height of parent
             $parent.animate({
-              height: flyoutHeight - parentPadding + heightChange,
+              height: flyoutHeight - parentPadding + heightChange
             }, settings.animation);
           }
         }
@@ -719,12 +788,12 @@ Tabia.later = function (func, time) {
  * - Handle down/up arrow keys on pick list
  */
 
-// Loose augmentation pattern. Creates top-level Tabia variable if it doesn't
-// already exist.
-var Tabia = Tabia || {};
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
 
 // Create a base for this module's data and functions.
-Tabia.contentSearch = {};
+Components.contentSearch = {};
 
 /**
  * DOM-ready callback.
@@ -732,14 +801,14 @@ Tabia.contentSearch = {};
  * @param {Object} $
  *   jQuery
  */
-Tabia.contentSearch.ready = function ($) {
+Components.contentSearch.ready = function ($) {
   // Set up all the section search components on the page.
   $('.content-search').not('.contextual-search').each(function () {
     var $this = $(this);
 
     // Attach keydown handler with context.
     $this.find('.content-search__input').keydown(
-      $.proxy(Tabia.contentSearch.keydownHandler, $this)
+      $.proxy(Components.contentSearch.keydownHandler, $this)
     );
 
     // Attach reset handler.
@@ -749,7 +818,7 @@ Tabia.contentSearch.ready = function ($) {
       $this.trigger($resetEvent);
       if (!$resetEvent.isDefaultPrevented()) {
         // Reset/empty the form, via AJAX.
-        Tabia.contentSearch.resetForm($this);
+        Components.contentSearch.resetForm($this);
       }
     });
   });
@@ -760,10 +829,9 @@ Tabia.contentSearch.ready = function ($) {
  *
  * @param {jQuery Object} $search
  */
-Tabia.contentSearch.resetForm = function($search) {
-  $search.removeClass('is-populated');
+Components.contentSearch.resetForm = function($search) {
+  $search.removeClass('has-suggestion');
   $search.find('.content-search__input').val('');
-  $search.find('.content-search__submit').click();
 };
 
 /**
@@ -771,9 +839,9 @@ Tabia.contentSearch.resetForm = function($search) {
  *
  * @param {jQuery Object} $search
  */
-Tabia.contentSearch.submitForm = function($search) {
+Components.contentSearch.submitForm = function($search) {
   if ($search.find('.content-search__input').val() !== '') {
-    $search.addClass('is-populated');
+    $search.removeClass('has-suggestion');
     $search.find('.content-search__submit').click();
   }
 };
@@ -783,16 +851,20 @@ Tabia.contentSearch.submitForm = function($search) {
  *
  * @param {Object} event
  */
-Tabia.contentSearch.keydownHandler = function (event) {
+Components.contentSearch.keydownHandler = function (event) {
   var $search = $(this[0]),
       $submitEvent = $.Event('contentSearch:submit');
 
   switch (event.which) {
     case 13: // ENTER
+      $search.removeClass('has-suggestion');
       // Allow overriding.
       $(document).trigger($submitEvent);
       // Submit the form, via AJAX.
       if (!$submitEvent.isDefaultPrevented()) {
+        // Prevent any further events from occurring on the input.
+        $search.find('.content-search__input').prop('readonly', true)
+          .off('keyup keydown blur');
         Tabia.contentSearch.submitForm($search);
       }
       event.preventDefault();
@@ -801,7 +873,7 @@ Tabia.contentSearch.keydownHandler = function (event) {
 };
 
 // Attach our DOM-ready callback.
-jQuery(Tabia.contentSearch.ready);
+jQuery(Components.contentSearch.ready);
 ;
 /**
  * Section search behaviors.
@@ -810,12 +882,12 @@ jQuery(Tabia.contentSearch.ready);
  * - Handle down/up arrow keys on pick list
  */
 
-// Loose augmentation pattern. Creates top-level Tabia variable if it doesn't
-// already exist.
-var Tabia = Tabia || {};
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
 
 // Create a base for this module's data and functions.
-Tabia.contextualSearch = {};
+Components.contextualSearch = {};
 
 /**
  * DOM-ready callback.
@@ -823,7 +895,7 @@ Tabia.contextualSearch = {};
  * @param {Object} $
  *   jQuery
  */
-Tabia.contextualSearch.ready = function ($) {
+Components.contextualSearch.ready = function ($) {
   // Set up all the section search components on the page.
   $('.contextual-search').each(function () {
     var $this = $(this),
@@ -834,7 +906,7 @@ Tabia.contextualSearch.ready = function ($) {
           element: this
         };
     // Attach keydown handler with our data context.
-    $this.keydown($.proxy(Tabia.contextualSearch.keydownHandler, search));
+    $this.keydown($.proxy(Components.contextualSearch.keydownHandler, search));
     // Attach UI click handler. Don't propagate clicks to document.
     $this.find('.contextual-search__ui').click(function (event) {
       event.stopPropagation();
@@ -855,7 +927,7 @@ Tabia.contextualSearch.ready = function ($) {
  *
  * @param {Object} event
  */
-Tabia.contextualSearch.keydownHandler = function (event) {
+Components.contextualSearch.keydownHandler = function (event) {
   // Only handle keys when the results list is open.
   if (!$(this.element).hasClass('is-open')) {
     return;
@@ -863,16 +935,16 @@ Tabia.contextualSearch.keydownHandler = function (event) {
 
   switch (event.which) {
     case 38: // UP
-      Tabia.contextualSearch.select.call(this, -1);
+      Components.contextualSearch.select.call(this, -1);
       break;
     case 40: // DOWN
-      Tabia.contextualSearch.select.call(this, 1);
+      Components.contextualSearch.select.call(this, 1);
       break;
     case 27: // ESCAPE
       $(this.element).removeClass('is-open');
       break;
     case 13: // ENTER
-      Tabia.contextualSearch.select(0);
+      Components.contextualSearch.select(0);
       this.$rows.get(this.selectionIndex).click();
       event.preventDefault();
       break;
@@ -885,7 +957,7 @@ Tabia.contextualSearch.keydownHandler = function (event) {
  * @param {Number} direction
  *   -1, 0, or 1
  */
-Tabia.contextualSearch.select = function (direction) {
+Components.contextualSearch.select = function (direction) {
   this.$rows = $(this.element).find('.contextual-search__results-row');
   this.selectionIndex += direction;
   this.selectionIndex = Math.max(this.selectionIndex, 0);
@@ -895,15 +967,15 @@ Tabia.contextualSearch.select = function (direction) {
 };
 
 // Attach our DOM-ready callback.
-jQuery(Tabia.contextualSearch.ready);
+jQuery(Components.contextualSearch.ready);
 ;
-// Loose augmentation pattern. Creates top-level Tabia variable if it doesn't
-// already exist.
-var Tabia = Tabia || {};
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
 
-Tabia.form = {};
+Components.form = {};
 
-Tabia.form.initFloatLabels = function ($elements) {
+Components.form.initFloatLabels = function ($elements) {
   $elements.find('input, select, textarea')
     .not('[type="checkbox"], [type="radio"]')
     .closest('.form-field')
@@ -913,11 +985,11 @@ Tabia.form.initFloatLabels = function ($elements) {
 };
 
 $(document).ready(function () {
-  Tabia.form.initFloatLabels($('.has-float-label'));
+  Components.form.initFloatLabels($('.has-float-label'));
 });
 
 $(document).on('initFloatLabels', function (e) {
-  Tabia.form.initFloatLabels($(e.target));
+  Components.form.initFloatLabels($(e.target));
 });
 ;
 /**
@@ -1089,7 +1161,7 @@ $(document).on('initFloatLabels', function (e) {
         marginLeft: '-=100%',
       }, animation);
 
-      Tabia.smoothScrollTop($parent, animation.duration, offset, true);
+      Components.utils.smoothScrollTop($parent, animation.duration, offset, true);
     }
 
     // Hide the target content
@@ -1170,6 +1242,20 @@ $(document).on('initFloatLabels', function (e) {
 
       });
     }
+  });
+})(jQuery);
+;
+(function($) {
+  $(document).ready(function() {
+
+    /**
+     * Handles closing the notification.
+     */
+    $('.global-notification .global-notification__close').click(function (e) {
+      e.preventDefault();
+
+      $('.global-notification').slideUp();
+    });
   });
 })(jQuery);
 ;
@@ -1307,8 +1393,32 @@ $(document).on('initFloatLabels', function (e) {
   });
 })(jQuery);
 ;
-(function($){
-  $(document).ready(function(){
+(function($) {
+  $.fn.sonarPulse = function () {
+    var $el = $(this),
+        padding = 0;
+        sonarPositionX = '10px',
+        sonarSelector = '.sonar-indicator',
+        $sonarElement = $('<div class="sonar-indicator"></div>');
+
+    // Try and place the sonar indicator without obstructing the element.
+    if ($el.css('padding-left')) {
+      padding = parseInt($el.css('padding-left').replace("px", ""));
+      sonarPositionX = (padding/2) - 5 + 'px';
+    }
+    $sonarElement.css('left', sonarPositionX);
+    $el.remove(sonarSelector).prepend($sonarElement);
+
+    // Remove our sonar pulse after 5 seconds.
+    setTimeout(function()
+    {
+      $el.find(sonarSelector).remove();
+    }, 5000);
+  };
+}(jQuery));
+;
+(function($) {
+  $(document).ready(function() {
 
     /**
      * Allows making an element sticky on the page with just a 'sticky' class.
@@ -1317,24 +1427,31 @@ $(document).on('initFloatLabels', function (e) {
       stickIt(this);
     });
 
-    if (matchMedia('(min-width: 961px)').matches) {
+    // For less capable browsers, only execute sticky on desktop.
+    if (!window.matchMedia || $('.lt-ie9').length) {
+      $('.sticky--desktop').each(function(i) {
+        stickIt(this);
+      });
+      return;
+    }
+
+    if (Components.utils.breakpoint('desktop')) {
       $('.sticky--desktop').each(function(i) {
         stickIt(this);
       });
     }
 
-    if (matchMedia('(max-width: 960px) and (min-width: 640px)').matches) {
+    if (Components.utils.breakpoint('tablet')) {
       $('.sticky--tablet').each(function(i) {
         stickIt(this);
       });
     }
 
-    if (matchMedia('(max-width: 639px)').matches) {
+    if (Components.utils.breakpoint('mobile')) {
       $('.sticky--mobile').each(function(i) {
         stickIt(this);
       });
     }
-
   });
 
   function stickIt(el) {
@@ -1414,7 +1531,7 @@ $(document).on('initFloatLabels', function (e) {
         BCPlayer.currentTime(timestamp);
 
         // Scroll.
-        Tabia.smoothScrollTop($videoElement);
+        Components.utils.smoothScrollTop($videoElement);
 
         // Play the video if it ain't playing.
         if (BCPlayer.paused()) {
@@ -1467,13 +1584,14 @@ $(document).on('initFloatLabels', function (e) {
     var $globalNav = $('.global-nav__top'),
         $menu = $globalNav.find('.global-nav__primary-menu'),
         $expandableLinks = $menu.find('li a.expandable'),
+        $drawersWrapper = $('.global-nav__drawers'),
         $drawers = $('.global-nav__drawer'),
         $hamburger = $globalNav.find('.hamburger'),
         $mobileWrapper = $globalNav.find('.global-nav__mobile-wrapper'),
         $mobileDrawerClose = $('.global-nav__drawer-close'),
         animation = {
-          duration: 150,
-          easing: 'linear'
+          duration: 500,
+          easing: "easeInOutQuart"
         };
 
     // Do some initial sizing.
@@ -1512,8 +1630,9 @@ $(document).on('initFloatLabels', function (e) {
       var $link = $(this),
           $drawer = $('#' + $link.data('drawer-id'));
 
-      if (isMobile()) {
-        $drawer.show().addClass('open');
+      if (Components.utils.breakpoint('tablet') || Components.utils.breakpoint('mobile')) {
+        $drawersWrapper.addClass('is-open');
+        $drawer.show().addClass('mobile-open');
 
         $drawer.add($mobileWrapper).animate({
           marginLeft: '-=100%'
@@ -1533,19 +1652,17 @@ $(document).on('initFloatLabels', function (e) {
 
     // Mobile menu
     $hamburger.on('click.global-nav', function(e) {
-      var $openDrawer = $drawers.filter('.open'),
-          drawerOptions = $.extend({}, animation);
+      var $openDrawer = $drawers.filter('.mobile-open');
 
       if ($openDrawer.length) {
-        drawerOptions.done = function() {
-          $openDrawer.css('margin-left', '100%');
+        $drawersWrapper.removeClass('is-open');
+        setTimeout(function() {
+          $openDrawer.css('margin-left', '100%').hide().removeClass('mobile-open');
           $mobileWrapper.css('margin-left', '0%');
-        };
-
-        $openDrawer.slideUp(drawerOptions).removeClass('open');
+        }, 500);
       }
 
-      $mobileWrapper.slideToggle(animation);
+      $mobileWrapper.toggleClass('is-open');
       $hamburger.parent().toggleClass('open');
       e.preventDefault();
     });
@@ -1555,29 +1672,32 @@ $(document).on('initFloatLabels', function (e) {
         marginLeft: '+=100%'
       }, animation);
 
-      setTimeout(function() {
-        $drawer.hide().removeClass('open');
-      }, animation.duration);
-    }
 
-    // Helper function to check whether we are on a mobile/tablet viewport.
-    function isMobile() {
-      return matchMedia('(max-width: 960px)').matches;
+      setTimeout(function() {
+        $drawersWrapper.removeClass('is-open');
+        $drawer.hide().removeClass('mobile-open');
+      }, animation.duration);
     }
 
     // Prepare our menu for the user's viewport.
     function sizing() {
       // Tablet/Mobile
-      if (isMobile()) {
+      if (Components.utils.breakpoint('tablet') || Components.utils.breakpoint('mobile')) {
         // Adjust the height of the mobile menu
         mobileHeightAdjust();
+
+        // Delay adding this class to prevent CSS transitions from firing when
+        // switching from desktop to tablet/mobile.
+        setTimeout(function() {
+          $mobileWrapper.addClass('is-mobile');
+        }, animation.duration);
       }
       // Desktop
       else {
         // Remove any mobile markup, and revert to original settings.
         $hamburger.removeClass('hamburger--open');
         $hamburger.parent().removeClass('open');
-        $mobileWrapper.removeAttr('style');
+        $mobileWrapper.removeAttr('style').removeClass('is-mobile is-open');
         $drawers.removeAttr('style').removeClass('open');
       }
     }
@@ -1602,7 +1722,6 @@ $(document).on('initFloatLabels', function (e) {
         }
       });
     }
-
   });
 
 })(jQuery);
@@ -1610,21 +1729,30 @@ $(document).on('initFloatLabels', function (e) {
 /**
  * Global search bar interaction
  */
-(function($){
-  $(document).ready(function(){
-    var $search = $('.global-nav__search'),
-        $closeSearch = $search.find('.global-nav__search-close');
+(function($) {
+  $(document).ready(function() {
+    var $searchWrapper = $('.global-nav__search'),
+        $searchToggle = $('.global-nav__search-toggle'),
+        $closeSearch = $('.global-nav__search-close'),
+        animation = {
+          duration: 500,
+          easing: "easeInOutQuart"
+        };
 
-    $search.on('click', function(e){
+    $searchToggle.on('click', function(e) {
       e.preventDefault();
       $(this).parents('.global-nav__top').addClass('global-nav--search-shown');
-      $(this).find('input[type="search"]').focus();
+      $searchWrapper.fadeIn(animation);
+
+      // Make sure to focus the search field
+      $searchWrapper.find('input[type="search"]').focus();
     });
 
-    $closeSearch.on('click', function(e){
+    $closeSearch.on('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
-      $search.parents('.global-nav__top').removeClass('global-nav--search-shown');
+      $searchToggle.parents('.global-nav__top').removeClass('global-nav--search-shown');
+      $searchWrapper.fadeOut(animation);
     });
   });
 })(jQuery);
@@ -1670,7 +1798,9 @@ $(document).on('initFloatLabels', function (e) {
       });
 
       // Handle scrolling of links on mobile
-      mobileScroll();
+      if ($linksWrapper.length) {
+        mobileScroll();
+      }
       $(window).on('resize orientationchange', _.debounce(mobileScroll, 100));
 
       // Smooth Scroll for anchor links
@@ -1684,7 +1814,7 @@ $(document).on('initFloatLabels', function (e) {
           offset = $subnav.find(".sticky-wrapper").outerHeight(true) - 1;
         }
 
-        Tabia.smoothScrollTop($(element), 500, offset);
+        Components.utils.smoothScrollTop($(element), 500, offset);
         e.preventDefault();
       });
     }
@@ -1726,39 +1856,68 @@ $(document).on('initFloatLabels', function (e) {
  * Requires jquery.contentReveal.js and jquery.tabs.js
  */
 
-(function ( $ ) {
-  $(document).ready(function() {
-    // Tabs integration
-    $('.topic-nav__tabs a').tabs({
-      contents: $('.topic-nav__drawer'),
-      wrapper: $('.topic-nav')
-    });
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
 
-    // contentReveal interaction
-    $('.topic-nav__drawers').contentReveal({
-      triggers: $('.topic-nav__toggle'),
-      closeLink: false
-    });
+// Declare this component's namespace.
+Components.topicNav = {};
 
-    // Custom tweaks
-    $('.topic-nav__toggle').on('click.topic-nav', function(e) {
-      var $parentNav = $(this).closest('.topic-nav');
-
-      if ($(this).data('revealState') == 'open') {
-        $parentNav.find('.topic-nav__tabs a').eq(0).trigger('click').addClass('is-active');
-      }
-      else {
-        $parentNav.find('.topic-nav__tabs a').removeClass('is-active');
-      }
-    });
-
-    $('.topic-nav__tabs a').on('click.topic-nav', function(e) {
-      var $toggle = $(this).closest('.topic-nav').find('.topic-nav__toggle');
-
-      if ($toggle.data('revealState') == 'closed') {
-        $toggle.trigger('click.reveal');
-      }
-    });
-
+/**
+ * Topic Navigation DOM-ready callback.
+ */
+Components.topicNav.init = function ($) {
+  // Tabs integration
+  $('.topic-nav__tabs a').tabs({
+    contents: $('.topic-nav__drawer'),
+    wrapper: $('.topic-nav')
   });
-}( jQuery ));
+
+  // contentReveal interaction
+  $('.topic-nav__drawers').contentReveal({
+    triggers: $('.topic-nav__toggle'),
+    closeLink: false
+  });
+
+  // Custom tweaks
+  $('.topic-nav__toggle').on('click.topic-nav', function (e) {
+    var $parentNav = $(this).closest('.topic-nav');
+
+    if ($(this).data('revealState') === 'open') {
+      $parentNav.find('.topic-nav__tabs a').eq(0).trigger('click').addClass('is-active');
+    }
+    else {
+      $parentNav.find('.topic-nav__tabs a').removeClass('is-active');
+    }
+  });
+
+  $('.topic-nav__tabs a').on('click.topic-nav', function (e) {
+    var $toggle = $(this).closest('.topic-nav').find('.topic-nav__toggle');
+
+    if ($toggle.data('revealState') === 'closed') {
+      $toggle.trigger('click.reveal');
+    }
+  });
+
+  // Set active tab to topic query param on DOM-ready.
+  Components.topicNav.setActiveTab(Components.utils.getUrlParams().topic);
+};
+
+/**
+ * Set the active tab.
+ *
+ * @param {String} topic ID
+ *
+ * @return {Boolean} whether matching content was found on the page.
+ */
+Components.topicNav.setActiveTab = function (topic) {
+  var $matchingContent = $('[data-tab-content="' + topic + '"]');
+
+  // Trigger a click on any matching elements.
+  $matchingContent.click();
+
+  return $matchingContent.length > 0;
+};
+
+// Bind DOM-ready callback.
+$(document).ready(Components.topicNav.init);

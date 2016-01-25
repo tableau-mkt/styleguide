@@ -17,7 +17,6 @@
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
-<link rel="stylesheet" href="build/vendor/slick.js/slick/slick-theme.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
 
@@ -127,6 +126,11 @@
                 <li class="kss-nav__menu-item">
                   <a href="section-lists.html#kssref-lists-agenda">
                     Agenda List
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-lists.html#kssref-lists-comparison-list">
+                    Comparison List
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
@@ -379,12 +383,12 @@ link through to the full version of the content.</p>
                       <p>Light colored bullets.</p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.list-negative</code></p>
+                      <p><code>.list--negative</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview" style="background: #ccc;">
                     <div class="kss-example-preview-wrapper">
-                      <ul class="list-negative ">
+                      <ul class="list--negative ">
     <li >
       For anyone.
     </li>
@@ -1289,6 +1293,152 @@ width: 368px;;">
       &lt;/div&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-lists-comparison-list" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-lists-comparison-list"> -->
+                Comparison List
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>A table list for comparing aspects of different things.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <table class="comparison-list ">
+  <thead>
+    <tr>
+        <th width="25%" class="bg--light-gray-1">&nbsp;</th>
+        <th width="25%" class="bg--light-gray-2"><i class='icon icon--big icon--tableau-server'></i><br><span class='mobile-hide'>Thing of Things #1</span></th>
+        <th width="25%" class="bg--light-gray-2"><i class='icon icon--big icon--tableau-online'></i><br><span class='mobile-hide'>Thing of Things #1</span></th>
+        <th width="25%" class="bg--light-gray-2"><i class='icon icon--big icon--tableau-reader'></i><br><span class='mobile-hide'>Thing of Things #1</span></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr class="mobile-hide comparison-list__subhead">
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          Ridiculus ligula platea! Convallis
+        </td>
+        <td>
+          Ridiculus ligula platea! Convallis sint quos vehicula doloremque et
+        </td>
+        <td>
+          Vehicula doloremqueteleger et
+        </td>
+    </tr>
+
+      <tr>
+          <td class="comparison-list__feature-description">
+            Dictum tristique, ut iaculis
+          </td>
+          <td class="">
+            <i class='comparison-list__indicator'></i>
+          </td>
+          <td class="">
+            <i class='comparison-list__indicator comparison-list__indicator--negative'></i>
+          </td>
+          <td class="">
+            <i class='comparison-list__indicator'></i>
+          </td>
+      </tr>
+      <tr>
+          <td class="comparison-list__feature-description">
+            Midiculus ligula platea! Convallis sint quos vehicula
+          </td>
+          <td class="">
+            <i class='comparison-list__indicator comparison-list__indicator--negative'></i>
+          </td>
+          <td class="">
+            <i class='comparison-list__indicator comparison-list__indicator--negative'></i>
+          </td>
+          <td class="">
+            <i class='comparison-list__indicator'></i>
+          </td>
+      </tr>
+  </tbody>
+</table>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;table class=&quot;comparison-list &quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th width=&quot;25%&quot; class=&quot;bg--light-gray-1&quot;&gt;&amp;nbsp;&lt;/th&gt;
+        &lt;th width=&quot;25%&quot; class=&quot;bg--light-gray-2&quot;&gt;&lt;i class=&#x27;icon icon--big icon--tableau-server&#x27;&gt;&lt;/i&gt;&lt;br&gt;&lt;span class=&#x27;mobile-hide&#x27;&gt;Thing of Things #1&lt;/span&gt;&lt;/th&gt;
+        &lt;th width=&quot;25%&quot; class=&quot;bg--light-gray-2&quot;&gt;&lt;i class=&#x27;icon icon--big icon--tableau-online&#x27;&gt;&lt;/i&gt;&lt;br&gt;&lt;span class=&#x27;mobile-hide&#x27;&gt;Thing of Things #1&lt;/span&gt;&lt;/th&gt;
+        &lt;th width=&quot;25%&quot; class=&quot;bg--light-gray-2&quot;&gt;&lt;i class=&#x27;icon icon--big icon--tableau-reader&#x27;&gt;&lt;/i&gt;&lt;br&gt;&lt;span class=&#x27;mobile-hide&#x27;&gt;Thing of Things #1&lt;/span&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr class=&quot;mobile-hide comparison-list__subhead&quot;&gt;
+        &lt;td&gt;
+          &amp;nbsp;
+        &lt;/td&gt;
+        &lt;td&gt;
+          Ridiculus ligula platea! Convallis
+        &lt;/td&gt;
+        &lt;td&gt;
+          Ridiculus ligula platea! Convallis sint quos vehicula doloremque et
+        &lt;/td&gt;
+        &lt;td&gt;
+          Vehicula doloremqueteleger et
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+      &lt;tr&gt;
+          &lt;td class=&quot;comparison-list__feature-description&quot;&gt;
+            Dictum tristique, ut iaculis
+          &lt;/td&gt;
+          &lt;td class=&quot;&quot;&gt;
+            &lt;i class=&#x27;comparison-list__indicator&#x27;&gt;&lt;/i&gt;
+          &lt;/td&gt;
+          &lt;td class=&quot;&quot;&gt;
+            &lt;i class=&#x27;comparison-list__indicator comparison-list__indicator--negative&#x27;&gt;&lt;/i&gt;
+          &lt;/td&gt;
+          &lt;td class=&quot;&quot;&gt;
+            &lt;i class=&#x27;comparison-list__indicator&#x27;&gt;&lt;/i&gt;
+          &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td class=&quot;comparison-list__feature-description&quot;&gt;
+            Midiculus ligula platea! Convallis sint quos vehicula
+          &lt;/td&gt;
+          &lt;td class=&quot;&quot;&gt;
+            &lt;i class=&#x27;comparison-list__indicator comparison-list__indicator--negative&#x27;&gt;&lt;/i&gt;
+          &lt;/td&gt;
+          &lt;td class=&quot;&quot;&gt;
+            &lt;i class=&#x27;comparison-list__indicator comparison-list__indicator--negative&#x27;&gt;&lt;/i&gt;
+          &lt;/td&gt;
+          &lt;td class=&quot;&quot;&gt;
+            &lt;i class=&#x27;comparison-list__indicator&#x27;&gt;&lt;/i&gt;
+          &lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </code></pre>
               </div>
 

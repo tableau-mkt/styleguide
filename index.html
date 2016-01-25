@@ -17,7 +17,6 @@
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
-<link rel="stylesheet" href="build/vendor/slick.js/slick/slick-theme.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
 
@@ -123,16 +122,16 @@
 <p>Welcome to the the Tableau Style Guide! This style guide is a curated collection
 of components used to build websites and pages with the Tableau corporate brand.
 Explore the style guide with the navigation on the left to find working examples
-of components as well as any variations (modifiers) and markup examples. </p>
+of components as well as any variations (modifiers) and markup examples.</p>
 <p>Please note that this is a living style guide which automatically reflects
-the latest updates and additions. Components will occasionally be updated, 
-added, and possibly even removed. </p>
+the latest updates and additions. Components will occasionally be updated,
+added, and possibly even removed.</p>
 <p><img src="https://media.giphy.com/media/xTiTnHMbep19cuNnoY/giphy.gif" alt=""></p>
 <h2 id="installation">Installation</h2>
 <h4 id="download-the-assets">Download the Assets</h4>
-<p>All assets including styles, javascript, and other files are packaged up in a 
+<p>All assets including styles, javascript, and other files are packaged up in a
 ZIP file. The ZIP will decompress into a <code>build</code> folder. If you rename this when
-adding it to your environment, make sure to update all paths below to be 
+adding it to your environment, make sure to update all paths below to be
 relative to the renamed folder rather than <code>/build/</code>.</p>
 <p class="kss-example-preview">
   <a href="tableau-components.zip" class="cta">Download</a>
@@ -141,7 +140,6 @@ relative to the renamed folder rather than <code>/build/</code>.</p>
 <h4 id="include-css-in-lt-head-gt-">Include CSS in &lt;head&gt;</h4>
 <div class="kss-markup">
 <pre class="prettyprint lang-html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/build/vendor/slick.js/slick/slick.css&quot; media=&quot;all&quot; /&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;/build/vendor/slick.js/slick/slick-theme.css&quot; media=&quot;all&quot; /&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;/build/css/style.css&quot; media=&quot;all&quot; /&gt;
 </code></pre>
 </div>
@@ -160,9 +158,9 @@ relative to the renamed folder rather than <code>/build/</code>.</p>
 
 
 <h4 id="scripts-at-bottom-of-html">Scripts at Bottom of HTML</h4>
-<p>We concatenate most of our third-party plugins and scripts into a <code>vendor.js</code> 
-file, but keep jQuery and jQuery UI separate in case your system already 
-includes them. </p>
+<p>We concatenate most of our third-party plugins and scripts into a <code>vendor.js</code>
+file, but keep jQuery and jQuery UI separate in case your system already
+includes them.</p>
 <div class="kss-markup">
 <pre class="prettyprint lang-html"><code>&lt;script src=&quot;build/vendor/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;build/vendor/jquery-ui/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
@@ -173,32 +171,32 @@ includes them. </p>
 <h2 id="usage">Usage</h2>
 <p>Once all the assets above are included on the page/site, all of the components
 described in this style guide should work out of the box. If you&#39;re working with
-static markup on a page, it&#39;s as simple as copying the markup example from the 
-style guide and updating with your content. To get a basic page layout going, 
+static markup on a page, it&#39;s as simple as copying the markup example from the
+style guide and updating with your content. To get a basic page layout going,
 check out the <a href="section-layout.html#kssref-layout-basic-page">Basic Page Layout</a>
 component.</p>
-<p>Applying styles to an existing system takes a bit more work, however. 
-Essentially classes and DOM will need to be modified in any generated markup so 
-that they match the structure and classes of the component in the style guide. </p>
+<p>Applying styles to an existing system takes a bit more work, however.
+Essentially classes and DOM will need to be modified in any generated markup so
+that they match the structure and classes of the component in the style guide.</p>
 <p>Alternatively, if the system being integrated doesn&#39;t easily allow for inserting
-classes where needed or doesn&#39;t allow for manipulation of HTML output, there&#39;s 
+classes where needed or doesn&#39;t allow for manipulation of HTML output, there&#39;s
 some more involved options that involve customizing the component library. For
-more information on this, see the Development section below and the linked 
+more information on this, see the Development section below and the linked
 developemnt documentation.</p>
 <h2 id="release-notes-bug-reports">Release Notes &amp; Bug Reports</h2>
 <p>When we release new features, bug fixes, or any other changes to this project,
 we provide notes detailing all changes made. Use these to inform your testing
 as you update to the latest version.  Release notes live in the [Release Notes]
 (<a href="https://github.com/tableau-mkt/components/releases">https://github.com/tableau-mkt/components/releases</a>) section on GitHub.</p>
-<p>All bug reports, feature requests, and issue tracking are handled through the 
-<a href="https://github.com/tableau-mkt/components/issues">Issue Queue</a> on GitHub. 
-Please feel free to submit anything you find to the issue queue; we will 
+<p>All bug reports, feature requests, and issue tracking are handled through the
+<a href="https://github.com/tableau-mkt/components/issues">Issue Queue</a> on GitHub.
+Please feel free to submit anything you find to the issue queue; we will
 monitor and provide fixes where needed.</p>
-<p>If you don&#39;t have access to the GitHub repo yet, request it from 
+<p>If you don&#39;t have access to the GitHub repo yet, request it from
 <a href="mailto:marketing-webteam@tableau.com?subject=COmponent%20Library%20Access">marketing-webteam@tableau.com</a>.</p>
 <h2 id="development">Development</h2>
 <p>See the project <a href="https://github.com/tableau-mkt/components#tableau-components">README</a>
-for development guidelines for working with the style guide. If you don&#39;t have 
+for development guidelines for working with the style guide. If you don&#39;t have
 access, please request it from <a href="mailto:marketing-webteam@tableau.com?subject=COmponent%20Library%20Access">marketing-webteam@tableau.com</a>.</p>
 
       </div>

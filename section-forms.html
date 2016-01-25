@@ -17,7 +17,6 @@
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
-<link rel="stylesheet" href="build/vendor/slick.js/slick/slick-theme.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
 
@@ -105,8 +104,13 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
+                  <a href="section-forms.html#kssref-forms-fields-dark">
+                    Form on Dark Backgrounds
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-forms.html#kssref-forms-validation">
-                    Validation Messages
+                    Invalid Form Fields
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
@@ -125,7 +129,7 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
-                  <a href="section-forms.html#kssref-forms-fancy-radios">
+                  <a href="section-forms.html#kssref-forms-fancy-filters">
                     Fancy Radios
                   </a>
                 </li>
@@ -232,7 +236,7 @@ user can submit information through. Here&#39;s an example form:</p>
   </div>
 
   <div class="form__actions">
-    <input class="form__button" type="submit" value="Submit">
+    <input class="form__button cta cta--secondary" type="submit" value="Submit">
   </div>
 </div>
 
@@ -277,7 +281,7 @@ user can submit information through. Here&#39;s an example form:</p>
   </div>
 
   <div class="form__actions">
-    <input class="form__button" type="submit" value="Submit">
+    <input class="form__button cta cta--secondary" type="submit" value="Submit">
   </div>
 </div>
 
@@ -321,7 +325,7 @@ user can submit information through. Here&#39;s an example form:</p>
   </div>
 
   <div class="form__actions">
-    <input class="form__button" type="submit" value="Submit">
+    <input class="form__button cta cta--secondary" type="submit" value="Submit">
   </div>
 </div>
 
@@ -365,7 +369,7 @@ user can submit information through. Here&#39;s an example form:</p>
   </div>
 
   <div class="form__actions">
-    <input class="form__button" type="submit" value="Submit">
+    <input class="form__button cta cta--secondary" type="submit" value="Submit">
   </div>
 </div>
 
@@ -402,7 +406,7 @@ user can submit information through. Here&#39;s an example form:</p>
   &lt;/div&gt;
 
   &lt;div class=&quot;form__actions&quot;&gt;
-    &lt;input class=&quot;form__button&quot; type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+    &lt;input class=&quot;form__button cta cta--secondary&quot; type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -431,68 +435,199 @@ user can submit information through. Here&#39;s an example form:</p>
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
                     <div class="form ">
-  <div class="form-field has-float-label">
-    <label class="form-field__label" for="text-field">Text Field:</label>
-    <input class="form-field__control" type="text" name="text-field" id="text-field" placeholder="text">
-    <div class="form-field__description">A description goes here.</div>
+
+  <div class="form__fieldset">
+    <div class="form__legend">Legendary Fields</div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="text-field">Text Field:</label>
+      <input class="form-field__control" type="text" name="text-field" id="text-field" placeholder="text">
+      <div class="form-field__description">A description goes here.</div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label" for="text-field-2">Text Field (No Placeholder)</label>
+      <br>
+      <input class="form-field__control" type="text" name="text-field-2" id="text-field-2">
+    </div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="email-field">Email Field:</label>
+      <input class="form-field__control" type="email" name="email-field" id="email-field" placeholder="email">
+    </div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="password-field">Password Field:</label>
+      <input class="form-field__control" type="password" name="password-field" id="password-field" placeholder="password">
+    </div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="sample-textarea">Long text</label>
+      <textarea class="form-field__control" rows="5" name="sample-textarea" placeholder="Long text here..."></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label" for="sample-textarea">Long text (No Placeholder)</label>
+      <br>
+      <textarea class="form-field__control" rows="5" name="sample-textarea"></textarea>
+    </div>
   </div>
 
-  <div class="form-field">
-    <label class="form-field__label" for="text-field-2">Text Field (No Placeholder)</label>
-    <br>
-    <input class="form-field__control" type="text" name="text-field-2" id="text-field-2">
-  </div>
+  <div class="form__fieldset">
+    <div class="form__legend">More Legendary Fields</div>
 
-  <div class="form-field has-float-label">
-    <label class="form-field__label" for="email-field">Email Field:</label>
-    <input class="form-field__control" type="email" name="email-field" id="email-field" placeholder="email">
-  </div>
+      <div class="form-field form-field--select has-float-label">
+        <label class="form-field__label" for="sample-select">Select List</label>
 
-  <div class="form-field has-float-label">
-    <label class="form-field__label" for="password-field">Password Field:</label>
-    <input class="form-field__control" type="password" name="password-field" id="password-field" placeholder="password">
-  </div>
+        <select name="sample-select">
+          <option class="form-field__option-none" value="_none" selected>- Select One -</option>
+          <option value="one">Choice One</option>
+          <option value="two">Choice Two</option>
+          <option value="three">Choice Three</option>
+          <option value="four">Choice Four</option>
+        </select>
+      </div>
 
-  <div class="form-field has-float-label">
-    <label class="form-field__label" for="sample-textarea">Long text</label>
-    <textarea class="form-field__control" rows="5" name="sample-textarea" placeholder="Long text here..."></textarea>
-  </div>
+      <div class="form-field form-field--select">
+        <label class="form-field__label" for="sample-select-2">Select List (No Placeholder)</label>
+        <br>
+        <select name="sample-select-2">
+          <option class="form-field__option-none" selected>--</option>
+          <option value="one">Choice One</option>
+          <option value="two">Choice Two</option>
+          <option value="three">Choice Three</option>
+          <option value="four">Choice Four</option>
+        </select>
+      </div>
 
-  <div class="form-field">
-    <label class="form-field__label" for="sample-textarea">Long text (No Placeholder)</label>
-    <br>
-    <textarea class="form-field__control" rows="5" name="sample-textarea"></textarea>
-  </div>
+      <div class="form-field">
+        <label class="form-field__label">Choose one or more</label>
+        <div class="form-field form-field--checkbox">
+          <input type="checkbox" name="example-checkbox" id="example-checkbox-1">
+          <label class="form-field__label" for="example-checkbox-1">A Great Checkbox</label>
+        </div>
+        <div class="form-field form-field--checkbox">
+          <input type="checkbox" name="example-checkbox" id="example-checkbox-2">
+          <label class="form-field__label" for="example-checkbox-2">A Great Checkbox</label>
+        </div>
+      </div>
 
-  <div class="form-field form-field--select has-float-label">
-    <label class="form-field__label" for="sample-select">Select List</label>
+      <div class="form-field">
+        <label class="form-field__label">Choose an option</label>
+        <div class="form-field form-field--radio">
+          <input type="radio" name="example-radio" id="example-radio-a">
+          <label class="form-field__label" for="example-radio-a">Option A</label>
+        </div>
+        <div class="form-field form-field--radio">
+          <input type="radio" name="example-radio" id="example-radio-b">
+          <label class="form-field__label" for="example-radio-b">Option B</label>
+        </div>
+        <div class="form-field form-field--radio">
+          <input type="radio" name="example-radio" id="example-radio-c">
+          <label class="form-field__label" for="example-radio-c">Option C</label>
+        </div>
+      </div>
+    </div>
 
-    <select name="sample-select">
-      <option class="form-field__option-none" value="_none" disabled selected>Select List</option>
-      <option value="one">Choice One</option>
-      <option value="two">Choice Two</option>
-      <option value="three">Choice Three</option>
-      <option value="four">Choice Four</option>
-    </select>
-  </div>
+    <div class="form__fieldset">
+      <div class="form__legend">Invalid Form Fields</div>
 
-  <div class="form-field form-field--select">
-    <label class="form-field__label" for="sample-select">Select List (No Placeholder)</label>
-    <br>
-    <select name="sample-select">
-      <option selected>--</option>
-      <option value="one">Choice One</option>
-      <option value="two">Choice Two</option>
-      <option value="three">Choice Three</option>
-      <option value="four">Choice Four</option>
-    </select>
-  </div>
+      <div class="form-field form-field--invalid has-float-label">
+        <label class="form-field__label" for="text-field">Text Field:</label>
+        <input class="form-field__control" type="text" name="text-field" id="text-field" placeholder="text">
+        <div class="form-field__description">A description goes here.</div>
+      </div>
 
-  <div class="form-field form-field--checkbox">
-    <input type="checkbox" name="example-checkbox" id="example-checkbox">
-    <label class="form-field__label" for="example-checkbox">A Great Checkbox</label>
+      <div class="form-field form-field--invalid">
+        <label class="form-field__label" for="text-field-2">Text Field (No Placeholder)</label>
+        <br>
+        <input class="form-field__control" type="text" name="text-field-2" id="text-field-2">
+      </div>
+
+      <div class="form-field form-field--invalid has-float-label">
+        <label class="form-field__label" for="email-field">Email Field:</label>
+        <input class="form-field__control" type="email" name="email-field" id="email-field" placeholder="email">
+      </div>
+    </div>
+
+    <div class="form__fieldset">
+      <div class="form__legend">Inline Form Fields</div>
+
+        <div class="form-field">
+          <label class="form-field__label" for="text-field">Enter a date</label>
+          <br>
+
+          <div class="form-field form-field--inline has-float-label">
+            <label class="form-field__label" for="select-month">Month</label>
+            <select id="select-month" name="select-month">
+              <option class="form-field__option-none" value="" selected="selected">Month</option>
+              <option value="1">Jan</option>
+              <option value="2">Feb</option>
+              <option value="3">Mar</option>
+              <option value="4">Apr</option>
+              <option value="5">May</option>
+              <option value="6">Jun</option>
+              <option value="7">Jul</option>
+              <option value="8">Aug</option>
+              <option value="9">Sep</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+            </select>
+          </div>
+
+          <div class="form-field form-field--inline has-float-label">
+            <label class="form-field__label" for="select-day">Day</label>
+            <select id="select-day" name="select-day">
+              <option class="form-field__option-none" value="" selected="selected">Day</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+
+          <div class="form-field form-field--inline has-float-label">
+            <label class="form-field__label" for="select-year">Year</label>
+            <select id="select-year" name="select-year">
+              <option class="form-field__option-none" value="" selected="selected">Year</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+            </select>
+          </div>
+        </div>
+    </div>
   </div>
-</div>
 
                   </div>
                 </div>
@@ -503,68 +638,625 @@ user can submit information through. Here&#39;s an example form:</p>
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;form &quot;&gt;
-  &lt;div class=&quot;form-field has-float-label&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Text Field:&lt;/label&gt;
-    &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field&quot; id=&quot;text-field&quot; placeholder=&quot;text&quot;&gt;
-    &lt;div class=&quot;form-field__description&quot;&gt;A description goes here.&lt;/div&gt;
+
+  &lt;div class=&quot;form__fieldset&quot;&gt;
+    &lt;div class=&quot;form__legend&quot;&gt;Legendary Fields&lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Text Field:&lt;/label&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field&quot; id=&quot;text-field&quot; placeholder=&quot;text&quot;&gt;
+      &lt;div class=&quot;form-field__description&quot;&gt;A description goes here.&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;text-field-2&quot;&gt;Text Field (No Placeholder)&lt;/label&gt;
+      &lt;br&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field-2&quot; id=&quot;text-field-2&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;email-field&quot;&gt;Email Field:&lt;/label&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;email&quot; name=&quot;email-field&quot; id=&quot;email-field&quot; placeholder=&quot;email&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;password-field&quot;&gt;Password Field:&lt;/label&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;password&quot; name=&quot;password-field&quot; id=&quot;password-field&quot; placeholder=&quot;password&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;sample-textarea&quot;&gt;Long text&lt;/label&gt;
+      &lt;textarea class=&quot;form-field__control&quot; rows=&quot;5&quot; name=&quot;sample-textarea&quot; placeholder=&quot;Long text here...&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;sample-textarea&quot;&gt;Long text (No Placeholder)&lt;/label&gt;
+      &lt;br&gt;
+      &lt;textarea class=&quot;form-field__control&quot; rows=&quot;5&quot; name=&quot;sample-textarea&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;div class=&quot;form-field&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;text-field-2&quot;&gt;Text Field (No Placeholder)&lt;/label&gt;
-    &lt;br&gt;
-    &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field-2&quot; id=&quot;text-field-2&quot;&gt;
+  &lt;div class=&quot;form__fieldset&quot;&gt;
+    &lt;div class=&quot;form__legend&quot;&gt;More Legendary Fields&lt;/div&gt;
+
+      &lt;div class=&quot;form-field form-field--select has-float-label&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select&quot;&gt;Select List&lt;/label&gt;
+
+        &lt;select name=&quot;sample-select&quot;&gt;
+          &lt;option class=&quot;form-field__option-none&quot; value=&quot;_none&quot; selected&gt;- Select One -&lt;/option&gt;
+          &lt;option value=&quot;one&quot;&gt;Choice One&lt;/option&gt;
+          &lt;option value=&quot;two&quot;&gt;Choice Two&lt;/option&gt;
+          &lt;option value=&quot;three&quot;&gt;Choice Three&lt;/option&gt;
+          &lt;option value=&quot;four&quot;&gt;Choice Four&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-field form-field--select&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select-2&quot;&gt;Select List (No Placeholder)&lt;/label&gt;
+        &lt;br&gt;
+        &lt;select name=&quot;sample-select-2&quot;&gt;
+          &lt;option class=&quot;form-field__option-none&quot; selected&gt;--&lt;/option&gt;
+          &lt;option value=&quot;one&quot;&gt;Choice One&lt;/option&gt;
+          &lt;option value=&quot;two&quot;&gt;Choice Two&lt;/option&gt;
+          &lt;option value=&quot;three&quot;&gt;Choice Three&lt;/option&gt;
+          &lt;option value=&quot;four&quot;&gt;Choice Four&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot;&gt;Choose one or more&lt;/label&gt;
+        &lt;div class=&quot;form-field form-field--checkbox&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox&quot; id=&quot;example-checkbox-1&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-checkbox-1&quot;&gt;A Great Checkbox&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field form-field--checkbox&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox&quot; id=&quot;example-checkbox-2&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-checkbox-2&quot;&gt;A Great Checkbox&lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot;&gt;Choose an option&lt;/label&gt;
+        &lt;div class=&quot;form-field form-field--radio&quot;&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;example-radio&quot; id=&quot;example-radio-a&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-radio-a&quot;&gt;Option A&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field form-field--radio&quot;&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;example-radio&quot; id=&quot;example-radio-b&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-radio-b&quot;&gt;Option B&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field form-field--radio&quot;&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;example-radio&quot; id=&quot;example-radio-c&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-radio-c&quot;&gt;Option C&lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form__fieldset&quot;&gt;
+      &lt;div class=&quot;form__legend&quot;&gt;Invalid Form Fields&lt;/div&gt;
+
+      &lt;div class=&quot;form-field form-field--invalid has-float-label&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Text Field:&lt;/label&gt;
+        &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field&quot; id=&quot;text-field&quot; placeholder=&quot;text&quot;&gt;
+        &lt;div class=&quot;form-field__description&quot;&gt;A description goes here.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-field form-field--invalid&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;text-field-2&quot;&gt;Text Field (No Placeholder)&lt;/label&gt;
+        &lt;br&gt;
+        &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field-2&quot; id=&quot;text-field-2&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-field form-field--invalid has-float-label&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;email-field&quot;&gt;Email Field:&lt;/label&gt;
+        &lt;input class=&quot;form-field__control&quot; type=&quot;email&quot; name=&quot;email-field&quot; id=&quot;email-field&quot; placeholder=&quot;email&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form__fieldset&quot;&gt;
+      &lt;div class=&quot;form__legend&quot;&gt;Inline Form Fields&lt;/div&gt;
+
+        &lt;div class=&quot;form-field&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Enter a date&lt;/label&gt;
+          &lt;br&gt;
+
+          &lt;div class=&quot;form-field form-field--inline has-float-label&quot;&gt;
+            &lt;label class=&quot;form-field__label&quot; for=&quot;select-month&quot;&gt;Month&lt;/label&gt;
+            &lt;select id=&quot;select-month&quot; name=&quot;select-month&quot;&gt;
+              &lt;option class=&quot;form-field__option-none&quot; value=&quot;&quot; selected=&quot;selected&quot;&gt;Month&lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;Jan&lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;Feb&lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;Mar&lt;/option&gt;
+              &lt;option value=&quot;4&quot;&gt;Apr&lt;/option&gt;
+              &lt;option value=&quot;5&quot;&gt;May&lt;/option&gt;
+              &lt;option value=&quot;6&quot;&gt;Jun&lt;/option&gt;
+              &lt;option value=&quot;7&quot;&gt;Jul&lt;/option&gt;
+              &lt;option value=&quot;8&quot;&gt;Aug&lt;/option&gt;
+              &lt;option value=&quot;9&quot;&gt;Sep&lt;/option&gt;
+              &lt;option value=&quot;10&quot;&gt;Oct&lt;/option&gt;
+              &lt;option value=&quot;11&quot;&gt;Nov&lt;/option&gt;
+              &lt;option value=&quot;12&quot;&gt;Dec&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;form-field form-field--inline has-float-label&quot;&gt;
+            &lt;label class=&quot;form-field__label&quot; for=&quot;select-day&quot;&gt;Day&lt;/label&gt;
+            &lt;select id=&quot;select-day&quot; name=&quot;select-day&quot;&gt;
+              &lt;option class=&quot;form-field__option-none&quot; value=&quot;&quot; selected=&quot;selected&quot;&gt;Day&lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+              &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
+              &lt;option value=&quot;5&quot;&gt;5&lt;/option&gt;
+              &lt;option value=&quot;6&quot;&gt;6&lt;/option&gt;
+              &lt;option value=&quot;7&quot;&gt;7&lt;/option&gt;
+              &lt;option value=&quot;8&quot;&gt;8&lt;/option&gt;
+              &lt;option value=&quot;9&quot;&gt;9&lt;/option&gt;
+              &lt;option value=&quot;10&quot;&gt;10&lt;/option&gt;
+              &lt;option value=&quot;11&quot;&gt;11&lt;/option&gt;
+              &lt;option value=&quot;12&quot;&gt;12&lt;/option&gt;
+              &lt;option value=&quot;13&quot;&gt;13&lt;/option&gt;
+              &lt;option value=&quot;14&quot;&gt;14&lt;/option&gt;
+              &lt;option value=&quot;15&quot;&gt;15&lt;/option&gt;
+              &lt;option value=&quot;16&quot;&gt;16&lt;/option&gt;
+              &lt;option value=&quot;17&quot;&gt;17&lt;/option&gt;
+              &lt;option value=&quot;18&quot;&gt;18&lt;/option&gt;
+              &lt;option value=&quot;19&quot;&gt;19&lt;/option&gt;
+              &lt;option value=&quot;20&quot;&gt;20&lt;/option&gt;
+              &lt;option value=&quot;21&quot;&gt;21&lt;/option&gt;
+              &lt;option value=&quot;22&quot;&gt;22&lt;/option&gt;
+              &lt;option value=&quot;23&quot;&gt;23&lt;/option&gt;
+              &lt;option value=&quot;24&quot;&gt;24&lt;/option&gt;
+              &lt;option value=&quot;25&quot;&gt;25&lt;/option&gt;
+              &lt;option value=&quot;26&quot;&gt;26&lt;/option&gt;
+              &lt;option value=&quot;27&quot;&gt;27&lt;/option&gt;
+              &lt;option value=&quot;28&quot;&gt;28&lt;/option&gt;
+              &lt;option value=&quot;29&quot;&gt;29&lt;/option&gt;
+              &lt;option value=&quot;30&quot;&gt;30&lt;/option&gt;
+              &lt;option value=&quot;31&quot;&gt;31&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;form-field form-field--inline has-float-label&quot;&gt;
+            &lt;label class=&quot;form-field__label&quot; for=&quot;select-year&quot;&gt;Year&lt;/label&gt;
+            &lt;select id=&quot;select-year&quot; name=&quot;select-year&quot;&gt;
+              &lt;option class=&quot;form-field__option-none&quot; value=&quot;&quot; selected=&quot;selected&quot;&gt;Year&lt;/option&gt;
+              &lt;option value=&quot;2014&quot;&gt;2014&lt;/option&gt;
+              &lt;option value=&quot;2015&quot;&gt;2015&lt;/option&gt;
+              &lt;option value=&quot;2016&quot;&gt;2016&lt;/option&gt;
+              &lt;option value=&quot;2017&quot;&gt;2017&lt;/option&gt;
+              &lt;option value=&quot;2018&quot;&gt;2018&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-forms-fields-dark" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-forms-fields-dark"> -->
+                Form on Dark Backgrounds
+              <!-- </a> -->
+            </h3>
+
+
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+             
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Negative default text color and heavier font weight for readability on dark backgrounds.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.form--negative</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview" style="background: #333;">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="form form--negative">
+
+  <div class="form__fieldset">
+    <div class="form__legend">Legendary Fields</div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="text-field">Text Field:</label>
+      <input class="form-field__control" type="text" name="text-field" id="text-field" placeholder="text">
+      <div class="form-field__description">A description goes here.</div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label" for="text-field-2">Text Field (No Placeholder)</label>
+      <br>
+      <input class="form-field__control" type="text" name="text-field-2" id="text-field-2">
+    </div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="email-field">Email Field:</label>
+      <input class="form-field__control" type="email" name="email-field" id="email-field" placeholder="email">
+    </div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="password-field">Password Field:</label>
+      <input class="form-field__control" type="password" name="password-field" id="password-field" placeholder="password">
+    </div>
+
+    <div class="form-field has-float-label">
+      <label class="form-field__label" for="sample-textarea">Long text</label>
+      <textarea class="form-field__control" rows="5" name="sample-textarea" placeholder="Long text here..."></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label" for="sample-textarea">Long text (No Placeholder)</label>
+      <br>
+      <textarea class="form-field__control" rows="5" name="sample-textarea"></textarea>
+    </div>
+  </div>
+
+  <div class="form__fieldset">
+    <div class="form__legend">More Legendary Fields</div>
+
+      <div class="form-field form-field--select has-float-label">
+        <label class="form-field__label" for="sample-select">Select List</label>
+
+        <select name="sample-select">
+          <option class="form-field__option-none" value="_none" selected>- Select One -</option>
+          <option value="one">Choice One</option>
+          <option value="two">Choice Two</option>
+          <option value="three">Choice Three</option>
+          <option value="four">Choice Four</option>
+        </select>
+      </div>
+
+      <div class="form-field form-field--select">
+        <label class="form-field__label" for="sample-select-2">Select List (No Placeholder)</label>
+        <br>
+        <select name="sample-select-2">
+          <option class="form-field__option-none" selected>--</option>
+          <option value="one">Choice One</option>
+          <option value="two">Choice Two</option>
+          <option value="three">Choice Three</option>
+          <option value="four">Choice Four</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label class="form-field__label">Choose one or more</label>
+        <div class="form-field form-field--checkbox">
+          <input type="checkbox" name="example-checkbox" id="example-checkbox-1">
+          <label class="form-field__label" for="example-checkbox-1">A Great Checkbox</label>
+        </div>
+        <div class="form-field form-field--checkbox">
+          <input type="checkbox" name="example-checkbox" id="example-checkbox-2">
+          <label class="form-field__label" for="example-checkbox-2">A Great Checkbox</label>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="form-field__label">Choose an option</label>
+        <div class="form-field form-field--radio">
+          <input type="radio" name="example-radio" id="example-radio-a">
+          <label class="form-field__label" for="example-radio-a">Option A</label>
+        </div>
+        <div class="form-field form-field--radio">
+          <input type="radio" name="example-radio" id="example-radio-b">
+          <label class="form-field__label" for="example-radio-b">Option B</label>
+        </div>
+        <div class="form-field form-field--radio">
+          <input type="radio" name="example-radio" id="example-radio-c">
+          <label class="form-field__label" for="example-radio-c">Option C</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__fieldset">
+      <div class="form__legend">Invalid Form Fields</div>
+
+      <div class="form-field form-field--invalid has-float-label">
+        <label class="form-field__label" for="text-field">Text Field:</label>
+        <input class="form-field__control" type="text" name="text-field" id="text-field" placeholder="text">
+        <div class="form-field__description">A description goes here.</div>
+      </div>
+
+      <div class="form-field form-field--invalid">
+        <label class="form-field__label" for="text-field-2">Text Field (No Placeholder)</label>
+        <br>
+        <input class="form-field__control" type="text" name="text-field-2" id="text-field-2">
+      </div>
+
+      <div class="form-field form-field--invalid has-float-label">
+        <label class="form-field__label" for="email-field">Email Field:</label>
+        <input class="form-field__control" type="email" name="email-field" id="email-field" placeholder="email">
+      </div>
+    </div>
+
+    <div class="form__fieldset">
+      <div class="form__legend">Inline Form Fields</div>
+
+        <div class="form-field">
+          <label class="form-field__label" for="text-field">Enter a date</label>
+          <br>
+
+          <div class="form-field form-field--inline has-float-label">
+            <label class="form-field__label" for="select-month">Month</label>
+            <select id="select-month" name="select-month">
+              <option class="form-field__option-none" value="" selected="selected">Month</option>
+              <option value="1">Jan</option>
+              <option value="2">Feb</option>
+              <option value="3">Mar</option>
+              <option value="4">Apr</option>
+              <option value="5">May</option>
+              <option value="6">Jun</option>
+              <option value="7">Jul</option>
+              <option value="8">Aug</option>
+              <option value="9">Sep</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+            </select>
+          </div>
+
+          <div class="form-field form-field--inline has-float-label">
+            <label class="form-field__label" for="select-day">Day</label>
+            <select id="select-day" name="select-day">
+              <option class="form-field__option-none" value="" selected="selected">Day</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+
+          <div class="form-field form-field--inline has-float-label">
+            <label class="form-field__label" for="select-year">Year</label>
+            <select id="select-year" name="select-year">
+              <option class="form-field__option-none" value="" selected="selected">Year</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+            </select>
+          </div>
+        </div>
+    </div>
+  </div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;form [modifier class]&quot;&gt;
+
+  &lt;div class=&quot;form__fieldset&quot;&gt;
+    &lt;div class=&quot;form__legend&quot;&gt;Legendary Fields&lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Text Field:&lt;/label&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field&quot; id=&quot;text-field&quot; placeholder=&quot;text&quot;&gt;
+      &lt;div class=&quot;form-field__description&quot;&gt;A description goes here.&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;text-field-2&quot;&gt;Text Field (No Placeholder)&lt;/label&gt;
+      &lt;br&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field-2&quot; id=&quot;text-field-2&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;email-field&quot;&gt;Email Field:&lt;/label&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;email&quot; name=&quot;email-field&quot; id=&quot;email-field&quot; placeholder=&quot;email&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;password-field&quot;&gt;Password Field:&lt;/label&gt;
+      &lt;input class=&quot;form-field__control&quot; type=&quot;password&quot; name=&quot;password-field&quot; id=&quot;password-field&quot; placeholder=&quot;password&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field has-float-label&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;sample-textarea&quot;&gt;Long text&lt;/label&gt;
+      &lt;textarea class=&quot;form-field__control&quot; rows=&quot;5&quot; name=&quot;sample-textarea&quot; placeholder=&quot;Long text here...&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;form-field__label&quot; for=&quot;sample-textarea&quot;&gt;Long text (No Placeholder)&lt;/label&gt;
+      &lt;br&gt;
+      &lt;textarea class=&quot;form-field__control&quot; rows=&quot;5&quot; name=&quot;sample-textarea&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;div class=&quot;form-field has-float-label&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;email-field&quot;&gt;Email Field:&lt;/label&gt;
-    &lt;input class=&quot;form-field__control&quot; type=&quot;email&quot; name=&quot;email-field&quot; id=&quot;email-field&quot; placeholder=&quot;email&quot;&gt;
-  &lt;/div&gt;
+  &lt;div class=&quot;form__fieldset&quot;&gt;
+    &lt;div class=&quot;form__legend&quot;&gt;More Legendary Fields&lt;/div&gt;
 
-  &lt;div class=&quot;form-field has-float-label&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;password-field&quot;&gt;Password Field:&lt;/label&gt;
-    &lt;input class=&quot;form-field__control&quot; type=&quot;password&quot; name=&quot;password-field&quot; id=&quot;password-field&quot; placeholder=&quot;password&quot;&gt;
-  &lt;/div&gt;
+      &lt;div class=&quot;form-field form-field--select has-float-label&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select&quot;&gt;Select List&lt;/label&gt;
 
-  &lt;div class=&quot;form-field has-float-label&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;sample-textarea&quot;&gt;Long text&lt;/label&gt;
-    &lt;textarea class=&quot;form-field__control&quot; rows=&quot;5&quot; name=&quot;sample-textarea&quot; placeholder=&quot;Long text here...&quot;&gt;&lt;/textarea&gt;
-  &lt;/div&gt;
+        &lt;select name=&quot;sample-select&quot;&gt;
+          &lt;option class=&quot;form-field__option-none&quot; value=&quot;_none&quot; selected&gt;- Select One -&lt;/option&gt;
+          &lt;option value=&quot;one&quot;&gt;Choice One&lt;/option&gt;
+          &lt;option value=&quot;two&quot;&gt;Choice Two&lt;/option&gt;
+          &lt;option value=&quot;three&quot;&gt;Choice Three&lt;/option&gt;
+          &lt;option value=&quot;four&quot;&gt;Choice Four&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
 
-  &lt;div class=&quot;form-field&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;sample-textarea&quot;&gt;Long text (No Placeholder)&lt;/label&gt;
-    &lt;br&gt;
-    &lt;textarea class=&quot;form-field__control&quot; rows=&quot;5&quot; name=&quot;sample-textarea&quot;&gt;&lt;/textarea&gt;
-  &lt;/div&gt;
+      &lt;div class=&quot;form-field form-field--select&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select-2&quot;&gt;Select List (No Placeholder)&lt;/label&gt;
+        &lt;br&gt;
+        &lt;select name=&quot;sample-select-2&quot;&gt;
+          &lt;option class=&quot;form-field__option-none&quot; selected&gt;--&lt;/option&gt;
+          &lt;option value=&quot;one&quot;&gt;Choice One&lt;/option&gt;
+          &lt;option value=&quot;two&quot;&gt;Choice Two&lt;/option&gt;
+          &lt;option value=&quot;three&quot;&gt;Choice Three&lt;/option&gt;
+          &lt;option value=&quot;four&quot;&gt;Choice Four&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
 
-  &lt;div class=&quot;form-field form-field--select has-float-label&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select&quot;&gt;Select List&lt;/label&gt;
+      &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot;&gt;Choose one or more&lt;/label&gt;
+        &lt;div class=&quot;form-field form-field--checkbox&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox&quot; id=&quot;example-checkbox-1&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-checkbox-1&quot;&gt;A Great Checkbox&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field form-field--checkbox&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox&quot; id=&quot;example-checkbox-2&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-checkbox-2&quot;&gt;A Great Checkbox&lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    &lt;select name=&quot;sample-select&quot;&gt;
-      &lt;option class=&quot;form-field__option-none&quot; value=&quot;_none&quot; disabled selected&gt;Select List&lt;/option&gt;
-      &lt;option value=&quot;one&quot;&gt;Choice One&lt;/option&gt;
-      &lt;option value=&quot;two&quot;&gt;Choice Two&lt;/option&gt;
-      &lt;option value=&quot;three&quot;&gt;Choice Three&lt;/option&gt;
-      &lt;option value=&quot;four&quot;&gt;Choice Four&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/div&gt;
+      &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot;&gt;Choose an option&lt;/label&gt;
+        &lt;div class=&quot;form-field form-field--radio&quot;&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;example-radio&quot; id=&quot;example-radio-a&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-radio-a&quot;&gt;Option A&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field form-field--radio&quot;&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;example-radio&quot; id=&quot;example-radio-b&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-radio-b&quot;&gt;Option B&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field form-field--radio&quot;&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;example-radio&quot; id=&quot;example-radio-c&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;example-radio-c&quot;&gt;Option C&lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-  &lt;div class=&quot;form-field form-field--select&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select&quot;&gt;Select List (No Placeholder)&lt;/label&gt;
-    &lt;br&gt;
-    &lt;select name=&quot;sample-select&quot;&gt;
-      &lt;option selected&gt;--&lt;/option&gt;
-      &lt;option value=&quot;one&quot;&gt;Choice One&lt;/option&gt;
-      &lt;option value=&quot;two&quot;&gt;Choice Two&lt;/option&gt;
-      &lt;option value=&quot;three&quot;&gt;Choice Three&lt;/option&gt;
-      &lt;option value=&quot;four&quot;&gt;Choice Four&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/div&gt;
+    &lt;div class=&quot;form__fieldset&quot;&gt;
+      &lt;div class=&quot;form__legend&quot;&gt;Invalid Form Fields&lt;/div&gt;
 
-  &lt;div class=&quot;form-field form-field--checkbox&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox&quot; id=&quot;example-checkbox&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;example-checkbox&quot;&gt;A Great Checkbox&lt;/label&gt;
+      &lt;div class=&quot;form-field form-field--invalid has-float-label&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Text Field:&lt;/label&gt;
+        &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field&quot; id=&quot;text-field&quot; placeholder=&quot;text&quot;&gt;
+        &lt;div class=&quot;form-field__description&quot;&gt;A description goes here.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-field form-field--invalid&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;text-field-2&quot;&gt;Text Field (No Placeholder)&lt;/label&gt;
+        &lt;br&gt;
+        &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field-2&quot; id=&quot;text-field-2&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-field form-field--invalid has-float-label&quot;&gt;
+        &lt;label class=&quot;form-field__label&quot; for=&quot;email-field&quot;&gt;Email Field:&lt;/label&gt;
+        &lt;input class=&quot;form-field__control&quot; type=&quot;email&quot; name=&quot;email-field&quot; id=&quot;email-field&quot; placeholder=&quot;email&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form__fieldset&quot;&gt;
+      &lt;div class=&quot;form__legend&quot;&gt;Inline Form Fields&lt;/div&gt;
+
+        &lt;div class=&quot;form-field&quot;&gt;
+          &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Enter a date&lt;/label&gt;
+          &lt;br&gt;
+
+          &lt;div class=&quot;form-field form-field--inline has-float-label&quot;&gt;
+            &lt;label class=&quot;form-field__label&quot; for=&quot;select-month&quot;&gt;Month&lt;/label&gt;
+            &lt;select id=&quot;select-month&quot; name=&quot;select-month&quot;&gt;
+              &lt;option class=&quot;form-field__option-none&quot; value=&quot;&quot; selected=&quot;selected&quot;&gt;Month&lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;Jan&lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;Feb&lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;Mar&lt;/option&gt;
+              &lt;option value=&quot;4&quot;&gt;Apr&lt;/option&gt;
+              &lt;option value=&quot;5&quot;&gt;May&lt;/option&gt;
+              &lt;option value=&quot;6&quot;&gt;Jun&lt;/option&gt;
+              &lt;option value=&quot;7&quot;&gt;Jul&lt;/option&gt;
+              &lt;option value=&quot;8&quot;&gt;Aug&lt;/option&gt;
+              &lt;option value=&quot;9&quot;&gt;Sep&lt;/option&gt;
+              &lt;option value=&quot;10&quot;&gt;Oct&lt;/option&gt;
+              &lt;option value=&quot;11&quot;&gt;Nov&lt;/option&gt;
+              &lt;option value=&quot;12&quot;&gt;Dec&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;form-field form-field--inline has-float-label&quot;&gt;
+            &lt;label class=&quot;form-field__label&quot; for=&quot;select-day&quot;&gt;Day&lt;/label&gt;
+            &lt;select id=&quot;select-day&quot; name=&quot;select-day&quot;&gt;
+              &lt;option class=&quot;form-field__option-none&quot; value=&quot;&quot; selected=&quot;selected&quot;&gt;Day&lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+              &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
+              &lt;option value=&quot;5&quot;&gt;5&lt;/option&gt;
+              &lt;option value=&quot;6&quot;&gt;6&lt;/option&gt;
+              &lt;option value=&quot;7&quot;&gt;7&lt;/option&gt;
+              &lt;option value=&quot;8&quot;&gt;8&lt;/option&gt;
+              &lt;option value=&quot;9&quot;&gt;9&lt;/option&gt;
+              &lt;option value=&quot;10&quot;&gt;10&lt;/option&gt;
+              &lt;option value=&quot;11&quot;&gt;11&lt;/option&gt;
+              &lt;option value=&quot;12&quot;&gt;12&lt;/option&gt;
+              &lt;option value=&quot;13&quot;&gt;13&lt;/option&gt;
+              &lt;option value=&quot;14&quot;&gt;14&lt;/option&gt;
+              &lt;option value=&quot;15&quot;&gt;15&lt;/option&gt;
+              &lt;option value=&quot;16&quot;&gt;16&lt;/option&gt;
+              &lt;option value=&quot;17&quot;&gt;17&lt;/option&gt;
+              &lt;option value=&quot;18&quot;&gt;18&lt;/option&gt;
+              &lt;option value=&quot;19&quot;&gt;19&lt;/option&gt;
+              &lt;option value=&quot;20&quot;&gt;20&lt;/option&gt;
+              &lt;option value=&quot;21&quot;&gt;21&lt;/option&gt;
+              &lt;option value=&quot;22&quot;&gt;22&lt;/option&gt;
+              &lt;option value=&quot;23&quot;&gt;23&lt;/option&gt;
+              &lt;option value=&quot;24&quot;&gt;24&lt;/option&gt;
+              &lt;option value=&quot;25&quot;&gt;25&lt;/option&gt;
+              &lt;option value=&quot;26&quot;&gt;26&lt;/option&gt;
+              &lt;option value=&quot;27&quot;&gt;27&lt;/option&gt;
+              &lt;option value=&quot;28&quot;&gt;28&lt;/option&gt;
+              &lt;option value=&quot;29&quot;&gt;29&lt;/option&gt;
+              &lt;option value=&quot;30&quot;&gt;30&lt;/option&gt;
+              &lt;option value=&quot;31&quot;&gt;31&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;form-field form-field--inline has-float-label&quot;&gt;
+            &lt;label class=&quot;form-field__label&quot; for=&quot;select-year&quot;&gt;Year&lt;/label&gt;
+            &lt;select id=&quot;select-year&quot; name=&quot;select-year&quot;&gt;
+              &lt;option class=&quot;form-field__option-none&quot; value=&quot;&quot; selected=&quot;selected&quot;&gt;Year&lt;/option&gt;
+              &lt;option value=&quot;2014&quot;&gt;2014&lt;/option&gt;
+              &lt;option value=&quot;2015&quot;&gt;2015&lt;/option&gt;
+              &lt;option value=&quot;2016&quot;&gt;2016&lt;/option&gt;
+              &lt;option value=&quot;2017&quot;&gt;2017&lt;/option&gt;
+              &lt;option value=&quot;2018&quot;&gt;2018&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
 </code></pre>
               </div>
 
@@ -574,13 +1266,13 @@ user can submit information through. Here&#39;s an example form:</p>
           <div class="kss-style">
             <h3 class="kss-title kss-title--level-2">
               <!-- <a class="kss-title__permalink" href="#kssref-forms-validation"> -->
-                Validation Messages
+                Invalid Form Fields
               <!-- </a> -->
             </h3>
 
 
             <div class="kss-description">
-              <p>Warnings, errors, etc.</p>
+              <p>For missing/invalid form element submissions.</p>
 
             </div>
           </div>
@@ -591,7 +1283,7 @@ user can submit information through. Here&#39;s an example form:</p>
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
-                      <p>Invalid form field</p>
+                      <p>Invalid form field.</p>
                     </div>
                     <div class="kss-example-name">
                       <p><code>.form-field--invalid</code></p>
@@ -601,21 +1293,21 @@ user can submit information through. Here&#39;s an example form:</p>
                     <div class="kss-example-preview-wrapper">
                       <div class="form">
   <div class="form-field has-float-label form-field--invalid">
-    <label class="form-field__label" for="text-field">Text Field:</label>
-    <input class="form-field__control" type="text" name="text-field" id="text-field" placeholder="text">
+    <label class="form-field__label" for="text-invalid">Text Field:</label>
+    <input class="form-field__control" type="text" name="text-invalid" id="text-invalid" placeholder="text">
     <div class="form-field__description"><span class="form-field__error">This field is required.</span></div>
   </div>
 
   <div class="form-field form-field--invalid">
-    <label class="form-field__label" for="text-field-2">Text Field (No Placeholder)</label>
+    <label class="form-field__label" for="text-invalid-2">Text Field (No Placeholder)</label>
     <br>
-    <input class="form-field__control" type="text" name="text-field-2" id="text-field-2">
+    <input class="form-field__control" type="text" name="text-invalid-2" id="text-invalid-2">
     <div class="form-field__description"><span class="form-field__error">This field is required.</span></div>
   </div>
 
   <div class="form-field has-float-label form-field--invalid">
-    <label class="form-field__label" for="email-field">Email Field:</label>
-    <input class="form-field__control" type="email" name="email-field" id="email-field" placeholder="email">
+    <label class="form-field__label" for="email-invalid">Email Field:</label>
+    <input class="form-field__control" type="email" name="email-invalid" id="email-invalid" placeholder="email">
     <div class="form-field__description"><span class="form-field__error">This field is required.</span></div>
   </div>
 </div>
@@ -629,21 +1321,21 @@ user can submit information through. Here&#39;s an example form:</p>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;form&quot;&gt;
   &lt;div class=&quot;form-field has-float-label [modifier class]&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;text-field&quot;&gt;Text Field:&lt;/label&gt;
-    &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field&quot; id=&quot;text-field&quot; placeholder=&quot;text&quot;&gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;text-invalid&quot;&gt;Text Field:&lt;/label&gt;
+    &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-invalid&quot; id=&quot;text-invalid&quot; placeholder=&quot;text&quot;&gt;
     &lt;div class=&quot;form-field__description&quot;&gt;&lt;span class=&quot;form-field__error&quot;&gt;This field is required.&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;form-field [modifier class]&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;text-field-2&quot;&gt;Text Field (No Placeholder)&lt;/label&gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;text-invalid-2&quot;&gt;Text Field (No Placeholder)&lt;/label&gt;
     &lt;br&gt;
-    &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-field-2&quot; id=&quot;text-field-2&quot;&gt;
+    &lt;input class=&quot;form-field__control&quot; type=&quot;text&quot; name=&quot;text-invalid-2&quot; id=&quot;text-invalid-2&quot;&gt;
     &lt;div class=&quot;form-field__description&quot;&gt;&lt;span class=&quot;form-field__error&quot;&gt;This field is required.&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;form-field has-float-label [modifier class]&quot;&gt;
-    &lt;label class=&quot;form-field__label&quot; for=&quot;email-field&quot;&gt;Email Field:&lt;/label&gt;
-    &lt;input class=&quot;form-field__control&quot; type=&quot;email&quot; name=&quot;email-field&quot; id=&quot;email-field&quot; placeholder=&quot;email&quot;&gt;
+    &lt;label class=&quot;form-field__label&quot; for=&quot;email-invalid&quot;&gt;Email Field:&lt;/label&gt;
+    &lt;input class=&quot;form-field__control&quot; type=&quot;email&quot; name=&quot;email-invalid&quot; id=&quot;email-invalid&quot; placeholder=&quot;email&quot;&gt;
     &lt;div class=&quot;form-field__description&quot;&gt;&lt;span class=&quot;form-field__error&quot;&gt;This field is required.&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -703,12 +1395,17 @@ user can submit information through. Here&#39;s an example form:</p>
             </div>
           </div>
 
-            <h4>Example</h4>
+            <h4>Examples</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <form class="content-search" autocomplete="off">
+                    <form class="content-search [modifier class]" autocomplete="off">
   <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
   <button class="content-search__button content-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
   <button class="content-search__button content-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--close-window-style2"></i></button>
@@ -718,11 +1415,31 @@ user can submit information through. Here&#39;s an example form:</p>
                 </div>
               </div>
              
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>White input background variant for use on color backgrounds.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.content-search--white</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <form class="content-search content-search--white" autocomplete="off">
+  <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+  <button class="content-search__button content-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+  <button class="content-search__button content-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--close-window-style2"></i></button>
+</form>
+
+                    </div>
+                  </div>
+                </div>
             </div>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;form class=&quot;content-search&quot; autocomplete=&quot;off&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;form class=&quot;content-search [modifier class]&quot; autocomplete=&quot;off&quot;&gt;
   &lt;input class=&quot;content-search__input&quot; type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
   &lt;button class=&quot;content-search__button content-search__submit&quot; type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
   &lt;button class=&quot;content-search__button content-search__reset&quot; type=&quot;reset&quot; name=&quot;exampleSearchReset&quot;&gt;&lt;i class=&quot;icon icon--close-window-style2&quot;&gt;&lt;/i&gt;&lt;/button&gt;
@@ -834,11 +1551,11 @@ search component will close the search results.</p>
               </div>
 
             </section>
-            <section id="kssref-forms-fancy-radios" class="kss-section kss-section--depth-2">
+            <section id="kssref-forms-fancy-filters" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
             <h3 class="kss-title kss-title--level-2">
-              <!-- <a class="kss-title__permalink" href="#kssref-forms-fancy-radios"> -->
+              <!-- <a class="kss-title__permalink" href="#kssref-forms-fancy-filters"> -->
                 Fancy Radios
               <!-- </a> -->
             </h3>
@@ -855,30 +1572,30 @@ search component will close the search results.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="fancy-radios form-field">
-  <label class="form-field__label fancy-radios__group-label">Characters:</label>
+                    <div class="fancy-filters form-field">
+  <label class="form-field__label fancy-filters__group-label">Characters:</label>
   <div>
-    <input class="form-field fancy-radios__radio" type="radio" id="radio-all" name="fanciness" value="value-all" checked>
+    <input class="form-field fancy-filters__radio" type="radio" id="radio-all" name="fanciness" value="value-all" checked>
     <label class="form-field__label" for="radio-all">All or things</label>
   </div>
   <div>
-    <input class="form-field fancy-radios__radio" type="radio" id="radio-one" name="fanciness" value="value-1" >
+    <input class="form-field fancy-filters__radio" type="radio" id="radio-one" name="fanciness" value="value-1" >
     <label class="form-field__label" for="radio-one">Edward Maulis</label>
   </div>
   <div>
-    <input class="form-field fancy-radios__radio" type="radio" id="radio-two" name="fanciness" value="value-2" >
+    <input class="form-field fancy-filters__radio" type="radio" id="radio-two" name="fanciness" value="value-2" >
     <label class="form-field__label" for="radio-two">Dr. Stanley Goodspeed</label>
   </div>
   <div>
-    <input class="form-field fancy-radios__radio" type="radio" id="radio-three" name="fanciness" value="value-3" >
+    <input class="form-field fancy-filters__radio" type="radio" id="radio-three" name="fanciness" value="value-3" >
     <label class="form-field__label" for="radio-three">Randall &#x27;Memphis&#x27; Raines</label>
   </div>
   <div>
-    <input class="form-field fancy-radios__radio" type="radio" id="radio-four" name="fanciness" value="value-4" >
+    <input class="form-field fancy-filters__radio" type="radio" id="radio-four" name="fanciness" value="value-4" >
     <label class="form-field__label" for="radio-four">Cameron Poe</label>
   </div>
   <div>
-    <input class="form-field fancy-radios__radio" type="radio" id="radio-five" name="fanciness" value="value-5" >
+    <input class="form-field fancy-filters__radio" type="radio" id="radio-five" name="fanciness" value="value-5" >
     <label class="form-field__label" for="radio-five">Yuri Orlov</label>
   </div>
 </div>
@@ -891,30 +1608,30 @@ search component will close the search results.</p>
             
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;fancy-radios form-field&quot;&gt;
-  &lt;label class=&quot;form-field__label fancy-radios__group-label&quot;&gt;Characters:&lt;/label&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;fancy-filters form-field&quot;&gt;
+  &lt;label class=&quot;form-field__label fancy-filters__group-label&quot;&gt;Characters:&lt;/label&gt;
   &lt;div&gt;
-    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-all&quot; name=&quot;fanciness&quot; value=&quot;value-all&quot; checked&gt;
+    &lt;input class=&quot;form-field fancy-filters__radio&quot; type=&quot;radio&quot; id=&quot;radio-all&quot; name=&quot;fanciness&quot; value=&quot;value-all&quot; checked&gt;
     &lt;label class=&quot;form-field__label&quot; for=&quot;radio-all&quot;&gt;All or things&lt;/label&gt;
   &lt;/div&gt;
   &lt;div&gt;
-    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-one&quot; name=&quot;fanciness&quot; value=&quot;value-1&quot; &gt;
+    &lt;input class=&quot;form-field fancy-filters__radio&quot; type=&quot;radio&quot; id=&quot;radio-one&quot; name=&quot;fanciness&quot; value=&quot;value-1&quot; &gt;
     &lt;label class=&quot;form-field__label&quot; for=&quot;radio-one&quot;&gt;Edward Maulis&lt;/label&gt;
   &lt;/div&gt;
   &lt;div&gt;
-    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-two&quot; name=&quot;fanciness&quot; value=&quot;value-2&quot; &gt;
+    &lt;input class=&quot;form-field fancy-filters__radio&quot; type=&quot;radio&quot; id=&quot;radio-two&quot; name=&quot;fanciness&quot; value=&quot;value-2&quot; &gt;
     &lt;label class=&quot;form-field__label&quot; for=&quot;radio-two&quot;&gt;Dr. Stanley Goodspeed&lt;/label&gt;
   &lt;/div&gt;
   &lt;div&gt;
-    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-three&quot; name=&quot;fanciness&quot; value=&quot;value-3&quot; &gt;
+    &lt;input class=&quot;form-field fancy-filters__radio&quot; type=&quot;radio&quot; id=&quot;radio-three&quot; name=&quot;fanciness&quot; value=&quot;value-3&quot; &gt;
     &lt;label class=&quot;form-field__label&quot; for=&quot;radio-three&quot;&gt;Randall &amp;#x27;Memphis&amp;#x27; Raines&lt;/label&gt;
   &lt;/div&gt;
   &lt;div&gt;
-    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-four&quot; name=&quot;fanciness&quot; value=&quot;value-4&quot; &gt;
+    &lt;input class=&quot;form-field fancy-filters__radio&quot; type=&quot;radio&quot; id=&quot;radio-four&quot; name=&quot;fanciness&quot; value=&quot;value-4&quot; &gt;
     &lt;label class=&quot;form-field__label&quot; for=&quot;radio-four&quot;&gt;Cameron Poe&lt;/label&gt;
   &lt;/div&gt;
   &lt;div&gt;
-    &lt;input class=&quot;form-field fancy-radios__radio&quot; type=&quot;radio&quot; id=&quot;radio-five&quot; name=&quot;fanciness&quot; value=&quot;value-5&quot; &gt;
+    &lt;input class=&quot;form-field fancy-filters__radio&quot; type=&quot;radio&quot; id=&quot;radio-five&quot; name=&quot;fanciness&quot; value=&quot;value-5&quot; &gt;
     &lt;label class=&quot;form-field__label&quot; for=&quot;radio-five&quot;&gt;Yuri Orlov&lt;/label&gt;
   &lt;/div&gt;
 &lt;/div&gt;
