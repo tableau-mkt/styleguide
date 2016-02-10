@@ -12,10 +12,6 @@
   <meta name="description" content="">
   <meta name="generator" content="kss-node">
   <meta name="viewport" content="width=device-width">
-
-  <link href="//cloud.webtype.com/css/22656ecb-3391-46f0-80ba-dce1b9624199.css" rel="stylesheet" type="text/css" />
-  <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
-
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
@@ -69,8 +65,18 @@
           </a>
           <ul class="kss-nav__menu-child">
                 <li class="kss-nav__menu-item">
+                  <a href="section-images.html#kssref-images-gif-player">
+                    Gif Player
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-images.html#kssref-images-image">
                     Image
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-images.html#kssref-images-image-base">
+                    Image base styles
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
@@ -148,6 +154,43 @@
 
 
             </div>
+            <section id="kssref-images-gif-player" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-images-gif-player"> -->
+                Gif Player
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Starts playing a gif once it&#39;s scrolled into view and only loops once. Provides
+option to reloop the gif.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <img class="gif-player " src="/build/images/interactive/gif_player/test-static.png" data-gif-src="/build/images/interactive/gif_player/test.gif">
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;img class=&quot;gif-player &quot; src=&quot;/build/images/interactive/gif_player/test-static.png&quot; data-gif-src=&quot;/build/images/interactive/gif_player/test.gif&quot;&gt;
+</code></pre>
+              </div>
+
+            </section>
             <section id="kssref-images-image" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -182,7 +225,7 @@
                   </div>
                 </div>
               </div>
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -241,13 +284,72 @@
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;figure class=&quot;image [modifier class]&quot;&gt;
   &lt;img src=&quot;http://www.placecage.com/300/300&quot; alt=&quot;Nic Cage&quot; /&gt;
     &lt;figcaption class=&quot;caption caption--image text--left&quot;&gt;Ridiculus ligula platea! Convallis sint quos vehicula doloremque et adipiscing, aliquid quia, accusamus occaecat quisque consequuntur blanditiis posuere, dictum tristique, ut iaculis!&lt;/figcaption&gt;
 &lt;/figure&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-images-image-base" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-images-image-base"> -->
+                Image base styles
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Basic styles for images.</p>
+<p><strong>@TODO</strong> Rework the current &quot;Image&quot; component to be more specific to image
+captions and handle basic image styles here.</p>
+
+            </div>
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <img class="image-accent [modifier class]" src="http://www.placecage.com/g/600/400" alt="Nic Cage" />
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Image accented with a keyline and glow.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.image--accent</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <img class="image-accent image--accent" src="http://www.placecage.com/g/600/400" alt="Nic Cage" />
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;img class=&quot;image-accent [modifier class]&quot; src=&quot;http://www.placecage.com/g/600/400&quot; alt=&quot;Nic Cage&quot; /&gt;
 </code></pre>
               </div>
 
@@ -285,7 +387,7 @@
                   </div>
                 </div>
               </div>
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -305,7 +407,7 @@
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;thumbnail [modifier class]&quot;&gt;
@@ -321,7 +423,7 @@
   <footer class="kss-footer kss-clearfix">
     <p>
       © <a href="http://www.tableau.com" target="_blank">Tableau Software</a>. All Rights Reserved. <br>
-      Generated by <a href="https://github.com/kss-node/kss-node" target="_blank">kss-node</a>. 
+      Generated by <a href="https://github.com/kss-node/kss-node" target="_blank">kss-node</a>.
     </p>
   </footer>
 

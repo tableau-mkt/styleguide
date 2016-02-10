@@ -12,10 +12,6 @@
   <meta name="description" content="">
   <meta name="generator" content="kss-node">
   <meta name="viewport" content="width=device-width">
-
-  <link href="//cloud.webtype.com/css/22656ecb-3391-46f0-80ba-dce1b9624199.css" rel="stylesheet" type="text/css" />
-  <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
-
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
@@ -124,13 +120,23 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
-                  <a href="section-interactive.html#kssref-interactive-gif-player">
-                    Gif Player
+                  <a href="section-interactive.html#kssref-interactive-hero-slideshow">
+                    Hero Slideshow
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
-                  <a href="section-interactive.html#kssref-interactive-hero-slideshow">
-                    Hero Slideshow
+                  <a href="section-interactive.html#kssref-interactive-loader">
+                    Loader
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-interactive.html#kssref-interactive-loading-overlay">
+                    Loading overlay
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-interactive.html#kssref-interactive-modal-message">
+                    Modal Message
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
@@ -283,9 +289,9 @@ content.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;accordion &quot;&gt;
@@ -377,9 +383,9 @@ content.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;context-switcher  heading--h2&quot;&gt;
@@ -424,6 +430,11 @@ content.</p>
 
             <div class="kss-description">
               <p>Simple tool to make content hidden and flyout when a trigger is clicked.</p>
+<p><strong>Trigger Options:</strong></p>
+<ul>
+<li><code>data-flyout-target=&quot;[CONTENT ID]&quot;</code> - (required) - The ID of the container around the flyout content</li>
+<li><code>data-flyout-scroll-down=&quot;true&quot;</code> - (optional) - Whether or not clicking this trigger should scroll down to the top of the flyout content container. Useful when the trigger referencing a flyout section lower down on the page</li>
+</ul>
 
             </div>
           </div>
@@ -452,9 +463,9 @@ content.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;flyout__slideout&quot;&gt;
@@ -643,9 +654,9 @@ content.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;fullbleed-slideshow&quot;&gt;
@@ -794,43 +805,6 @@ content.</p>
               </div>
 
             </section>
-            <section id="kssref-interactive-gif-player" class="kss-section kss-section--depth-2">
-
-          <div class="kss-style">
-            <h3 class="kss-title kss-title--level-2">
-              <!-- <a class="kss-title__permalink" href="#kssref-interactive-gif-player"> -->
-                Gif Player
-              <!-- </a> -->
-            </h3>
-
-
-            <div class="kss-description">
-              <p>Starts playing a gif once it&#39;s scrolled into view and only loops once. Provides
-option to reloop the gif.</p>
-
-            </div>
-          </div>
-
-            <h4>Example</h4>
-            <div class="kss-examples">
-              <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
-                  <div class="kss-example-preview-wrapper">
-                    <img class="gif-player " src="/build/images/interactive/gif_player/test-static.png" data-gif-src="/build/images/interactive/gif_player/test.gif">
-
-                  </div>
-                </div>
-              </div>
-             
-            </div>
-            
-              <h4>Markup</h4>
-              <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;img class=&quot;gif-player &quot; src=&quot;/build/images/interactive/gif_player/test-static.png&quot; data-gif-src=&quot;/build/images/interactive/gif_player/test.gif&quot;&gt;
-</code></pre>
-              </div>
-
-            </section>
             <section id="kssref-interactive-hero-slideshow" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -854,108 +828,78 @@ option to reloop the gif.</p>
                   <div class="kss-example-preview-wrapper">
                     <div class="hero-slideshow  ">
     <div class="hero-slideshow__slide" data-title="" data-title-class="">
-      <div class="hero ">
+      <div class="special-hero ">
+        <div id="hero-one">
       
-          <div class="hero__background">
-            <div class="hero__background__inner" style="background-image: url(http://www.placecage.com/300/200);">
+      
+      
+      
+            <div class="special-hero__background">
+              <div class="special-hero__background-inner" style="background-image: url(http://www.placecage.com/1366/540);">
+              <!--[if lt IE 9]>
+                <img class="special-hero__background-fallback" src="http://www.placecage.com/1366/540">
+              <![endif]-->
+              </div>
             </div>
-          </div>
       
-          <div class="hero__content">
-            <div class="hero__content__inner content-container">
-                <h4 class=" ">
-                  
-                    Sub Title
-                  
-                </h4>
-      
-                <div class="hero__content__headline clearfix">
-                  <h1 class=" ">
-                    
-                      Big Headline String
-                    
-                  </h1>
-                </div>
-      
-      
-                <div class="hero__content__cta clearfix">
-                  <a class="cta cta--play " href="http://www/tableau.com">
-                    Call to Action
-                  </a>
-                </div>
-      
+            <div class="special-hero__content">
+              <div class="special-hero__content-inner content-container">
+                <h1>This is Slide One of a Hero Slidehsow</h1><p><a class='cta cta--play cta--secondary cta--light' href='#'>Call to Action!</a></p>
+              </div>
             </div>
-          </div>
+      
+        </div>
+      
       </div>
     </div>
     <div class="hero-slideshow__slide" data-title="" data-title-class="">
-      <div class="hero ">
+      <div class="special-hero ">
+        <div id="hero-two">
       
-          <div class="hero__background">
-            <div class="hero__background__inner" style="background-image: url(http://www.placecage.com/300/200);">
+      
+      
+      
+            <div class="special-hero__background">
+              <div class="special-hero__background-inner" style="background-image: url(http://www.placecage.com/1366/541);">
+              <!--[if lt IE 9]>
+                <img class="special-hero__background-fallback" src="http://www.placecage.com/1366/541">
+              <![endif]-->
+              </div>
             </div>
-          </div>
       
-          <div class="hero__content">
-            <div class="hero__content__inner content-container">
-                <h4 class=" ">
-                  
-                    Sub Title
-                  
-                </h4>
-      
-                <div class="hero__content__headline clearfix">
-                  <h1 class=" ">
-                    
-                      Big Headline String
-                    
-                  </h1>
-                </div>
-      
-      
-                <div class="hero__content__cta clearfix">
-                  <a class="cta cta--play " href="http://www/tableau.com">
-                    Call to Action
-                  </a>
-                </div>
-      
+            <div class="special-hero__content">
+              <div class="special-hero__content-inner content-container">
+                <h1>This is Slide One of a Hero Slidehsow</h1><p><a class='cta cta--play cta--secondary cta--light' href='#'>Call to Action!</a></p>
+              </div>
             </div>
-          </div>
+      
+        </div>
+      
       </div>
     </div>
     <div class="hero-slideshow__slide" data-title="" data-title-class="">
-      <div class="hero ">
+      <div class="special-hero ">
+        <div id="hero-two">
       
-          <div class="hero__background">
-            <div class="hero__background__inner" style="background-image: url(http://www.placecage.com/300/200);">
+      
+      
+      
+            <div class="special-hero__background">
+              <div class="special-hero__background-inner" style="background-image: url(http://www.placecage.com/1366/542);">
+              <!--[if lt IE 9]>
+                <img class="special-hero__background-fallback" src="http://www.placecage.com/1366/542">
+              <![endif]-->
+              </div>
             </div>
-          </div>
       
-          <div class="hero__content">
-            <div class="hero__content__inner content-container">
-                <h4 class=" ">
-                  
-                    Sub Title
-                  
-                </h4>
-      
-                <div class="hero__content__headline clearfix">
-                  <h1 class=" ">
-                    
-                      Big Headline String
-                    
-                  </h1>
-                </div>
-      
-      
-                <div class="hero__content__cta clearfix">
-                  <a class="cta cta--play " href="http://www/tableau.com">
-                    Call to Action
-                  </a>
-                </div>
-      
+            <div class="special-hero__content">
+              <div class="special-hero__content-inner content-container">
+                <h1>This is Slide One of a Hero Slidehsow</h1><p><a class='cta cta--play cta--secondary cta--light' href='#'>Call to Action!</a></p>
+              </div>
             </div>
-          </div>
+      
+        </div>
+      
       </div>
     </div>
 </div>
@@ -963,117 +907,238 @@ option to reloop the gif.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;hero-slideshow  &quot;&gt;
     &lt;div class=&quot;hero-slideshow__slide&quot; data-title=&quot;&quot; data-title-class=&quot;&quot;&gt;
-      &lt;div class=&quot;hero &quot;&gt;
+      &lt;div class=&quot;special-hero &quot;&gt;
+        &lt;div id=&quot;hero-one&quot;&gt;
       
-          &lt;div class=&quot;hero__background&quot;&gt;
-            &lt;div class=&quot;hero__background__inner&quot; style=&quot;background-image: url(http://www.placecage.com/300/200);&quot;&gt;
+      
+      
+      
+            &lt;div class=&quot;special-hero__background&quot;&gt;
+              &lt;div class=&quot;special-hero__background-inner&quot; style=&quot;background-image: url(http://www.placecage.com/1366/540);&quot;&gt;
+              &lt;!--[if lt IE 9]&gt;
+                &lt;img class=&quot;special-hero__background-fallback&quot; src=&quot;http://www.placecage.com/1366/540&quot;&gt;
+              &lt;![endif]--&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
       
-          &lt;div class=&quot;hero__content&quot;&gt;
-            &lt;div class=&quot;hero__content__inner content-container&quot;&gt;
-                &lt;h4 class=&quot; &quot;&gt;
-                  
-                    Sub Title
-                  
-                &lt;/h4&gt;
-      
-                &lt;div class=&quot;hero__content__headline clearfix&quot;&gt;
-                  &lt;h1 class=&quot; &quot;&gt;
-                    
-                      Big Headline String
-                    
-                  &lt;/h1&gt;
-                &lt;/div&gt;
-      
-      
-                &lt;div class=&quot;hero__content__cta clearfix&quot;&gt;
-                  &lt;a class=&quot;cta cta--play &quot; href=&quot;http://www/tableau.com&quot;&gt;
-                    Call to Action
-                  &lt;/a&gt;
-                &lt;/div&gt;
-      
+            &lt;div class=&quot;special-hero__content&quot;&gt;
+              &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
+                &lt;h1&gt;This is Slide One of a Hero Slidehsow&lt;/h1&gt;&lt;p&gt;&lt;a class=&#x27;cta cta--play cta--secondary cta--light&#x27; href=&#x27;#&#x27;&gt;Call to Action!&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
+      
+        &lt;/div&gt;
+      
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;hero-slideshow__slide&quot; data-title=&quot;&quot; data-title-class=&quot;&quot;&gt;
-      &lt;div class=&quot;hero &quot;&gt;
+      &lt;div class=&quot;special-hero &quot;&gt;
+        &lt;div id=&quot;hero-two&quot;&gt;
       
-          &lt;div class=&quot;hero__background&quot;&gt;
-            &lt;div class=&quot;hero__background__inner&quot; style=&quot;background-image: url(http://www.placecage.com/300/200);&quot;&gt;
+      
+      
+      
+            &lt;div class=&quot;special-hero__background&quot;&gt;
+              &lt;div class=&quot;special-hero__background-inner&quot; style=&quot;background-image: url(http://www.placecage.com/1366/541);&quot;&gt;
+              &lt;!--[if lt IE 9]&gt;
+                &lt;img class=&quot;special-hero__background-fallback&quot; src=&quot;http://www.placecage.com/1366/541&quot;&gt;
+              &lt;![endif]--&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
       
-          &lt;div class=&quot;hero__content&quot;&gt;
-            &lt;div class=&quot;hero__content__inner content-container&quot;&gt;
-                &lt;h4 class=&quot; &quot;&gt;
-                  
-                    Sub Title
-                  
-                &lt;/h4&gt;
-      
-                &lt;div class=&quot;hero__content__headline clearfix&quot;&gt;
-                  &lt;h1 class=&quot; &quot;&gt;
-                    
-                      Big Headline String
-                    
-                  &lt;/h1&gt;
-                &lt;/div&gt;
-      
-      
-                &lt;div class=&quot;hero__content__cta clearfix&quot;&gt;
-                  &lt;a class=&quot;cta cta--play &quot; href=&quot;http://www/tableau.com&quot;&gt;
-                    Call to Action
-                  &lt;/a&gt;
-                &lt;/div&gt;
-      
+            &lt;div class=&quot;special-hero__content&quot;&gt;
+              &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
+                &lt;h1&gt;This is Slide One of a Hero Slidehsow&lt;/h1&gt;&lt;p&gt;&lt;a class=&#x27;cta cta--play cta--secondary cta--light&#x27; href=&#x27;#&#x27;&gt;Call to Action!&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
+      
+        &lt;/div&gt;
+      
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;hero-slideshow__slide&quot; data-title=&quot;&quot; data-title-class=&quot;&quot;&gt;
-      &lt;div class=&quot;hero &quot;&gt;
+      &lt;div class=&quot;special-hero &quot;&gt;
+        &lt;div id=&quot;hero-two&quot;&gt;
       
-          &lt;div class=&quot;hero__background&quot;&gt;
-            &lt;div class=&quot;hero__background__inner&quot; style=&quot;background-image: url(http://www.placecage.com/300/200);&quot;&gt;
+      
+      
+      
+            &lt;div class=&quot;special-hero__background&quot;&gt;
+              &lt;div class=&quot;special-hero__background-inner&quot; style=&quot;background-image: url(http://www.placecage.com/1366/542);&quot;&gt;
+              &lt;!--[if lt IE 9]&gt;
+                &lt;img class=&quot;special-hero__background-fallback&quot; src=&quot;http://www.placecage.com/1366/542&quot;&gt;
+              &lt;![endif]--&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
       
-          &lt;div class=&quot;hero__content&quot;&gt;
-            &lt;div class=&quot;hero__content__inner content-container&quot;&gt;
-                &lt;h4 class=&quot; &quot;&gt;
-                  
-                    Sub Title
-                  
-                &lt;/h4&gt;
-      
-                &lt;div class=&quot;hero__content__headline clearfix&quot;&gt;
-                  &lt;h1 class=&quot; &quot;&gt;
-                    
-                      Big Headline String
-                    
-                  &lt;/h1&gt;
-                &lt;/div&gt;
-      
-      
-                &lt;div class=&quot;hero__content__cta clearfix&quot;&gt;
-                  &lt;a class=&quot;cta cta--play &quot; href=&quot;http://www/tableau.com&quot;&gt;
-                    Call to Action
-                  &lt;/a&gt;
-                &lt;/div&gt;
-      
+            &lt;div class=&quot;special-hero__content&quot;&gt;
+              &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
+                &lt;h1&gt;This is Slide One of a Hero Slidehsow&lt;/h1&gt;&lt;p&gt;&lt;a class=&#x27;cta cta--play cta--secondary cta--light&#x27; href=&#x27;#&#x27;&gt;Call to Action!&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
+      
+        &lt;/div&gt;
+      
       &lt;/div&gt;
     &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-interactive-loader" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-interactive-loader"> -->
+                Loader
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Loading animation</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="loader ">
+  <div class="loader__animation"></div>
+    <span class="loader__message">Loading...</span>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;loader &quot;&gt;
+  &lt;div class=&quot;loader__animation&quot;&gt;&lt;/div&gt;
+    &lt;span class=&quot;loader__message&quot;&gt;Loading...&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-interactive-loading-overlay" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-interactive-loading-overlay"> -->
+                Loading overlay
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Loading animation with overlay</p>
+<p>.loading-overlay--negative: Inversed overlay</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <button id="loading-overlay-trigger" class="cta cta--dark">Show loading overlay</button>
+
+<div id="loading-overlay-content" class="content-container">
+  <p>
+    Officiis, per do porta platea sunt eligendi laboriosam, delectus vulputate quasi repellendus, incididunt consequat fames magnam. Nesciunt illum, gravida quis! Euismod. Nunc, nullam nemo ad erat habitant excepturi morbi? Voluptatum ligula, expedita eaque aliquam natus. Donec! Eu sodales ullam? Eos nec consequuntur, officia pariatur wisi ridiculus mollitia eget nam quasi.
+  </p>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;button id=&quot;loading-overlay-trigger&quot; class=&quot;cta cta--dark&quot;&gt;Show loading overlay&lt;/button&gt;
+
+&lt;div id=&quot;loading-overlay-content&quot; class=&quot;content-container&quot;&gt;
+  &lt;p&gt;
+    Officiis, per do porta platea sunt eligendi laboriosam, delectus vulputate quasi repellendus, incididunt consequat fames magnam. Nesciunt illum, gravida quis! Euismod. Nunc, nullam nemo ad erat habitant excepturi morbi? Voluptatum ligula, expedita eaque aliquam natus. Donec! Eu sodales ullam? Eos nec consequuntur, officia pariatur wisi ridiculus mollitia eget nam quasi.
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-interactive-modal-message" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-interactive-modal-message"> -->
+                Modal Message
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Display a warning/error message to the user in a modal box.</p>
+<p>Please refrain from using this component for showing information and/or
+content. Use the &quot;Content reveal&quot; component instead.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <button id="show-modal-message" class="cta">Show message</button>
+<button id="show-loading-modal-message" class="cta">Show loading message</button>
+
+<div id="modal-message" class="modal-message ">
+  <div class="modal-message__dialog">
+    <div class="modal-message__icon"></div>
+    <div class="modal-message__content">
+      <p>Your request is taking longer than expected.</p><a id='close-modal-message' href='#'>Close</a>
+    </div>
+    <a href="#" class="modal-message__close"></a>
+  </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;button id=&quot;show-modal-message&quot; class=&quot;cta&quot;&gt;Show message&lt;/button&gt;
+&lt;button id=&quot;show-loading-modal-message&quot; class=&quot;cta&quot;&gt;Show loading message&lt;/button&gt;
+
+&lt;div id=&quot;modal-message&quot; class=&quot;modal-message &quot;&gt;
+  &lt;div class=&quot;modal-message__dialog&quot;&gt;
+    &lt;div class=&quot;modal-message__icon&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;modal-message__content&quot;&gt;
+      &lt;p&gt;Your request is taking longer than expected.&lt;/p&gt;&lt;a id=&#x27;close-modal-message&#x27; href=&#x27;#&#x27;&gt;Close&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;a href=&quot;#&quot; class=&quot;modal-message__close&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
               </div>
@@ -1107,9 +1172,9 @@ option to reloop the gif.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;progress-bar &quot;&gt;
@@ -1130,10 +1195,18 @@ option to reloop the gif.</p>
 
 
             <div class="kss-description">
-              <p>Simple tool to make content hidden and revealed when a trigger is clicked. It
-doesn&#39;t matter where on the page the trigger and target content are, but the
-trigger element must target the content via a <code>data-reveal-target=&quot;target-id&quot;</code>
-attribute. The <code>.reveal__content</code> container must have an <code>id</code>
+              <p>Simple tool to make content hidden and revealed when a trigger is clicked. The
+trigger element can be abywhere on the page and can have the following options
+set as data attributes:</p>
+<p><strong>Trigger Options:</strong></p>
+<ul>
+<li><code>data-reveal-target=&quot;[CONTENT ID]&quot;</code> - (required) - The ID of the container around the content to be revealed</li>
+<li><code>data-reveal-hide-text=&quot;[REVEAL HIDE TEXT]&quot;</code> - (optional) - Text to swap into the trigger link while the reveal is in the open state.</li>
+<li><code>data-reveal-close-link=&quot;false&quot;</code> - (optional) - Set this to disable the default close link within the reveal content container</li>
+<li><code>data-reveal-scroll=&quot;[trigger|target]&quot;</code> - (optional) - Smooth-scroll to either the top of the trigger or the target element when the content is revealed.</li>
+<li><code>data-reveal-media=&quot;video&quot;</code> - (optional) - Enable play/pause controle when opening/closing reveal content that contains a brightcove video.</li>
+</ul>
+<p>The <code>.reveal__content</code> container must have an <code>id</code>
 attribute that matches the <code>data-reveal-target</code>.</p>
 
             </div>
@@ -1157,9 +1230,9 @@ attribute that matches the <code>data-reveal-target</code>.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div id=&quot;curtain&quot;&gt;
@@ -1241,9 +1314,9 @@ attribute that matches the <code>data-reveal-target</code>.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-highlight &quot;&gt;
@@ -1312,49 +1385,73 @@ attribute that matches the <code>data-reveal-target</code>.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="social-share__wrapper">
-  <a class="social-share" href="#"><i class="icon icon--share"></i> Share</a>
+                    <div class="social-share">
+  <a class="social-share__toggle" href="#"><i class="icon icon--share"></i> Share</a>
 
   <div class="social-share__widgets">
-      <a href="#" class="social-share__widget social-share__widget--linkedin" data-social="linkedin">
-        <i class="icon icon--social-linkedin"></i>
-      </a>
-      <a href="#" class="social-share__widget social-share__widget--facebook" data-social="facebook">
-        <i class="icon icon--social-facebook"></i>
-      </a>
-      <a href="#" class="social-share__widget social-share__widget--twitter" data-social="twitter">
-        <i class="icon icon--social-twitter"></i>
-      </a>
-      <a href="#" class="social-share__widget social-share__widget--gplus" data-social="gplus">
-        <i class="icon icon--social-gplus"></i>
-      </a>
+      <div class="social-share__widget social-share__widget-linkedin" data-social="linkedin">
+        <div class="social-share__counter">210</div>
+        <a href="#" class="social-share__link social-share__link-linkedin">
+          <i class="icon icon--social-linkedin"></i>
+        </a>
+      </div>
+      <div class="social-share__widget social-share__widget-facebook" data-social="facebook">
+        <div class="social-share__counter">1.3K</div>
+        <a href="#" class="social-share__link social-share__link-facebook">
+          <i class="icon icon--social-facebook"></i>
+        </a>
+      </div>
+      <div class="social-share__widget social-share__widget-twitter" data-social="twitter">
+        <div class="social-share__counter">553</div>
+        <a href="#" class="social-share__link social-share__link-twitter">
+          <i class="icon icon--social-twitter"></i>
+        </a>
+      </div>
+      <div class="social-share__widget social-share__widget-gplus" data-social="gplus">
+        <div class="social-share__counter">10</div>
+        <a href="#" class="social-share__link social-share__link-gplus">
+          <i class="icon icon--social-gplus"></i>
+        </a>
+      </div>
   </div>
 </div>
 
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;social-share__wrapper&quot;&gt;
-  &lt;a class=&quot;social-share&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;icon icon--share&quot;&gt;&lt;/i&gt; Share&lt;/a&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;social-share&quot;&gt;
+  &lt;a class=&quot;social-share__toggle&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;icon icon--share&quot;&gt;&lt;/i&gt; Share&lt;/a&gt;
 
   &lt;div class=&quot;social-share__widgets&quot;&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--linkedin&quot; data-social=&quot;linkedin&quot;&gt;
-        &lt;i class=&quot;icon icon--social-linkedin&quot;&gt;&lt;/i&gt;
-      &lt;/a&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--facebook&quot; data-social=&quot;facebook&quot;&gt;
-        &lt;i class=&quot;icon icon--social-facebook&quot;&gt;&lt;/i&gt;
-      &lt;/a&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--twitter&quot; data-social=&quot;twitter&quot;&gt;
-        &lt;i class=&quot;icon icon--social-twitter&quot;&gt;&lt;/i&gt;
-      &lt;/a&gt;
-      &lt;a href=&quot;#&quot; class=&quot;social-share__widget social-share__widget--gplus&quot; data-social=&quot;gplus&quot;&gt;
-        &lt;i class=&quot;icon icon--social-gplus&quot;&gt;&lt;/i&gt;
-      &lt;/a&gt;
+      &lt;div class=&quot;social-share__widget social-share__widget-linkedin&quot; data-social=&quot;linkedin&quot;&gt;
+        &lt;div class=&quot;social-share__counter&quot;&gt;210&lt;/div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;social-share__link social-share__link-linkedin&quot;&gt;
+          &lt;i class=&quot;icon icon--social-linkedin&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;social-share__widget social-share__widget-facebook&quot; data-social=&quot;facebook&quot;&gt;
+        &lt;div class=&quot;social-share__counter&quot;&gt;1.3K&lt;/div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;social-share__link social-share__link-facebook&quot;&gt;
+          &lt;i class=&quot;icon icon--social-facebook&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;social-share__widget social-share__widget-twitter&quot; data-social=&quot;twitter&quot;&gt;
+        &lt;div class=&quot;social-share__counter&quot;&gt;553&lt;/div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;social-share__link social-share__link-twitter&quot;&gt;
+          &lt;i class=&quot;icon icon--social-twitter&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;social-share__widget social-share__widget-gplus&quot; data-social=&quot;gplus&quot;&gt;
+        &lt;div class=&quot;social-share__counter&quot;&gt;10&lt;/div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;social-share__link social-share__link-gplus&quot;&gt;
+          &lt;i class=&quot;icon icon--social-gplus&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -1399,7 +1496,7 @@ once they get scrolled to and are about to go out of view.</p>
                   </div>
                 </div>
               </div>
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -1423,7 +1520,7 @@ once they get scrolled to and are about to go out of view.</p>
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;grid--3&quot;&gt;
@@ -1491,9 +1588,9 @@ once they get scrolled to and are about to go out of view.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;tabs__wrapper&quot;&gt;
@@ -1797,9 +1894,9 @@ desktop, to on tablet, and one on mobile.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;teaser-slideshow&quot;&gt;
@@ -2066,7 +2163,7 @@ desktop, to on tablet, and one on mobile.</p>
 
             <h4>Examples</h4>
             <div class="kss-examples">
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -2106,7 +2203,7 @@ desktop, to on tablet, and one on mobile.</p>
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;a href=&quot;#&quot; class=&quot;tooltip [modifier class]&quot;&gt;
@@ -2150,9 +2247,9 @@ desktop, to on tablet, and one on mobile.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;global-notification&quot;&gt;
@@ -2193,9 +2290,9 @@ desktop, to on tablet, and one on mobile.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;button id=&quot;highlighter&quot; class=&quot;cta cta--dark&quot;&gt;Highlight me!&lt;/button&gt;
@@ -2209,7 +2306,7 @@ desktop, to on tablet, and one on mobile.</p>
   <footer class="kss-footer kss-clearfix">
     <p>
       © <a href="http://www.tableau.com" target="_blank">Tableau Software</a>. All Rights Reserved. <br>
-      Generated by <a href="https://github.com/kss-node/kss-node" target="_blank">kss-node</a>. 
+      Generated by <a href="https://github.com/kss-node/kss-node" target="_blank">kss-node</a>.
     </p>
   </footer>
 

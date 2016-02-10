@@ -68,6 +68,35 @@ jQuery(function ready($) {
 ;
 (function($){
   $(document).ready(function(){
+    var $content = $('#loading-overlay-content');
+
+    $('#loading-overlay-trigger').click(function () {
+      Components.loadingOverlay.show($content);
+    });
+  });
+}( jQuery ));
+;
+(function($) {
+  $(document).ready(function(){
+    $('#show-modal-message').click(function (e) {
+      e.preventDefault();
+      Components.modalMessage.show();
+    });
+
+    $('#show-loading-modal-message').click(function (e) {
+      e.preventDefault();
+      Components.modalMessage.show(null, 'loading');
+    });
+
+    $('#close-modal-message').click(function (e) {
+      e.preventDefault();
+      Components.modalMessage.close();
+    });
+  });
+}(jQuery));
+;
+(function($){
+  $(document).ready(function(){
     $('.progress-bar').moveProgressBar();
   });
 }( jQuery ));

@@ -12,10 +12,6 @@
   <meta name="description" content="">
   <meta name="generator" content="kss-node">
   <meta name="viewport" content="width=device-width">
-
-  <link href="//cloud.webtype.com/css/22656ecb-3391-46f0-80ba-dce1b9624199.css" rel="stylesheet" type="text/css" />
-  <link href='http://fonts.googleapis.com/css?family=Merriweather:300italic,300,700,700italic' rel='stylesheet' type='text/css'>
-
   <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
 <link rel="stylesheet" href="public/style.css">
 <link rel="stylesheet" href="build/css/styleguide.css">
@@ -111,6 +107,11 @@
                 <li class="kss-nav__menu-item">
                   <a href="section-forms.html#kssref-forms-validation">
                     Invalid Form Fields
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
+                  <a href="section-forms.html#kssref-forms-text-inline">
+                    Inline form elements.
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
@@ -243,7 +244,7 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
               </div>
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -377,7 +378,7 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;form [modifier class]&quot;&gt;
@@ -476,7 +477,7 @@ user can submit information through. Here&#39;s an example form:</p>
   <div class="form__fieldset">
     <div class="form__legend">More Legendary Fields</div>
 
-      <div class="form-field form-field--select has-float-label">
+      <div class="form-field has-float-label">
         <label class="form-field__label" for="sample-select">Select List</label>
 
         <select name="sample-select">
@@ -488,7 +489,7 @@ user can submit information through. Here&#39;s an example form:</p>
         </select>
       </div>
 
-      <div class="form-field form-field--select">
+      <div class="form-field">
         <label class="form-field__label" for="sample-select-2">Select List (No Placeholder)</label>
         <br>
         <select name="sample-select-2">
@@ -625,6 +626,24 @@ user can submit information through. Here&#39;s an example form:</p>
               <option value="2018">2018</option>
             </select>
           </div>
+
+          <div class="section section--padded-two">
+            <div class="form-field--text-inline clearfix">
+              <h3 class="display-inline-block">
+                The movie 
+              </h3>
+              <select>
+                <option value="0" selected="selected">pick a movie</option>
+                <option value="faceoff">Face Off</option>
+                <option value="conair">ConAir</option>
+                <option value="all">Everything</option>
+              </select>
+              <h3 class="display-inline-block">
+                will hurt your brain.
+              </h3>
+            </div>
+          </div>
+
         </div>
     </div>
   </div>
@@ -632,9 +651,9 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;form &quot;&gt;
@@ -679,7 +698,7 @@ user can submit information through. Here&#39;s an example form:</p>
   &lt;div class=&quot;form__fieldset&quot;&gt;
     &lt;div class=&quot;form__legend&quot;&gt;More Legendary Fields&lt;/div&gt;
 
-      &lt;div class=&quot;form-field form-field--select has-float-label&quot;&gt;
+      &lt;div class=&quot;form-field has-float-label&quot;&gt;
         &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select&quot;&gt;Select List&lt;/label&gt;
 
         &lt;select name=&quot;sample-select&quot;&gt;
@@ -691,7 +710,7 @@ user can submit information through. Here&#39;s an example form:</p>
         &lt;/select&gt;
       &lt;/div&gt;
 
-      &lt;div class=&quot;form-field form-field--select&quot;&gt;
+      &lt;div class=&quot;form-field&quot;&gt;
         &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select-2&quot;&gt;Select List (No Placeholder)&lt;/label&gt;
         &lt;br&gt;
         &lt;select name=&quot;sample-select-2&quot;&gt;
@@ -828,6 +847,24 @@ user can submit information through. Here&#39;s an example form:</p>
               &lt;option value=&quot;2018&quot;&gt;2018&lt;/option&gt;
             &lt;/select&gt;
           &lt;/div&gt;
+
+          &lt;div class=&quot;section section--padded-two&quot;&gt;
+            &lt;div class=&quot;form-field--text-inline clearfix&quot;&gt;
+              &lt;h3 class=&quot;display-inline-block&quot;&gt;
+                The movie 
+              &lt;/h3&gt;
+              &lt;select&gt;
+                &lt;option value=&quot;0&quot; selected=&quot;selected&quot;&gt;pick a movie&lt;/option&gt;
+                &lt;option value=&quot;faceoff&quot;&gt;Face Off&lt;/option&gt;
+                &lt;option value=&quot;conair&quot;&gt;ConAir&lt;/option&gt;
+                &lt;option value=&quot;all&quot;&gt;Everything&lt;/option&gt;
+              &lt;/select&gt;
+              &lt;h3 class=&quot;display-inline-block&quot;&gt;
+                will hurt your brain.
+              &lt;/h3&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
         &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -849,7 +886,7 @@ user can submit information through. Here&#39;s an example form:</p>
 
             <h4>Examples</h4>
             <div class="kss-examples">
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -903,7 +940,7 @@ user can submit information through. Here&#39;s an example form:</p>
   <div class="form__fieldset">
     <div class="form__legend">More Legendary Fields</div>
 
-      <div class="form-field form-field--select has-float-label">
+      <div class="form-field has-float-label">
         <label class="form-field__label" for="sample-select">Select List</label>
 
         <select name="sample-select">
@@ -915,7 +952,7 @@ user can submit information through. Here&#39;s an example form:</p>
         </select>
       </div>
 
-      <div class="form-field form-field--select">
+      <div class="form-field">
         <label class="form-field__label" for="sample-select-2">Select List (No Placeholder)</label>
         <br>
         <select name="sample-select-2">
@@ -1052,6 +1089,24 @@ user can submit information through. Here&#39;s an example form:</p>
               <option value="2018">2018</option>
             </select>
           </div>
+
+          <div class="section section--padded-two">
+            <div class="form-field--text-inline clearfix">
+              <h3 class="display-inline-block">
+                The movie 
+              </h3>
+              <select>
+                <option value="0" selected="selected">pick a movie</option>
+                <option value="faceoff">Face Off</option>
+                <option value="conair">ConAir</option>
+                <option value="all">Everything</option>
+              </select>
+              <h3 class="display-inline-block">
+                will hurt your brain.
+              </h3>
+            </div>
+          </div>
+
         </div>
     </div>
   </div>
@@ -1060,7 +1115,7 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;form [modifier class]&quot;&gt;
@@ -1105,7 +1160,7 @@ user can submit information through. Here&#39;s an example form:</p>
   &lt;div class=&quot;form__fieldset&quot;&gt;
     &lt;div class=&quot;form__legend&quot;&gt;More Legendary Fields&lt;/div&gt;
 
-      &lt;div class=&quot;form-field form-field--select has-float-label&quot;&gt;
+      &lt;div class=&quot;form-field has-float-label&quot;&gt;
         &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select&quot;&gt;Select List&lt;/label&gt;
 
         &lt;select name=&quot;sample-select&quot;&gt;
@@ -1117,7 +1172,7 @@ user can submit information through. Here&#39;s an example form:</p>
         &lt;/select&gt;
       &lt;/div&gt;
 
-      &lt;div class=&quot;form-field form-field--select&quot;&gt;
+      &lt;div class=&quot;form-field&quot;&gt;
         &lt;label class=&quot;form-field__label&quot; for=&quot;sample-select-2&quot;&gt;Select List (No Placeholder)&lt;/label&gt;
         &lt;br&gt;
         &lt;select name=&quot;sample-select-2&quot;&gt;
@@ -1254,6 +1309,24 @@ user can submit information through. Here&#39;s an example form:</p>
               &lt;option value=&quot;2018&quot;&gt;2018&lt;/option&gt;
             &lt;/select&gt;
           &lt;/div&gt;
+
+          &lt;div class=&quot;section section--padded-two&quot;&gt;
+            &lt;div class=&quot;form-field--text-inline clearfix&quot;&gt;
+              &lt;h3 class=&quot;display-inline-block&quot;&gt;
+                The movie 
+              &lt;/h3&gt;
+              &lt;select&gt;
+                &lt;option value=&quot;0&quot; selected=&quot;selected&quot;&gt;pick a movie&lt;/option&gt;
+                &lt;option value=&quot;faceoff&quot;&gt;Face Off&lt;/option&gt;
+                &lt;option value=&quot;conair&quot;&gt;ConAir&lt;/option&gt;
+                &lt;option value=&quot;all&quot;&gt;Everything&lt;/option&gt;
+              &lt;/select&gt;
+              &lt;h3 class=&quot;display-inline-block&quot;&gt;
+                will hurt your brain.
+              &lt;/h3&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
         &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -1279,7 +1352,7 @@ user can submit information through. Here&#39;s an example form:</p>
 
             <h4>Examples</h4>
             <div class="kss-examples">
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -1316,7 +1389,7 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;form&quot;&gt;
@@ -1341,6 +1414,24 @@ user can submit information through. Here&#39;s an example form:</p>
 &lt;/div&gt;
 </code></pre>
               </div>
+
+            </section>
+            <section id="kssref-forms-text-inline" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-forms-text-inline"> -->
+                Inline form elements.
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Form element that sits within lines of text content, currently only <code>&lt;select&gt;</code> elements.</p>
+
+            </div>
+          </div>
+
 
             </section>
             <section id="kssref-forms-confirmation" class="kss-section kss-section--depth-2">
@@ -1369,9 +1460,9 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;span class=&quot;confirmation&quot;&gt;This is a confirmation message&lt;/span&gt;
@@ -1414,7 +1505,7 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
               </div>
-             
+
                 <div class="kss-example">
                   <div class="kss-example-details">
                     <div class="kss-example-desc">
@@ -1436,7 +1527,7 @@ user can submit information through. Here&#39;s an example form:</p>
                   </div>
                 </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;form class=&quot;content-search [modifier class]&quot; autocomplete=&quot;off&quot;&gt;
@@ -1471,9 +1562,14 @@ search component will close the search results.</p>
             </div>
           </div>
 
-            <h4>Example</h4>
+            <h4>Examples</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
                     <div class="content-search contextual-search">
@@ -1511,9 +1607,55 @@ search component will close the search results.</p>
                   </div>
                 </div>
               </div>
-             
+
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>White input background variant for use on color backgrounds.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>.contextual-search--white</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="content-search contextual-search">
+  <div class="contextual-search__ui">
+    <form class="contextual-search__form" autocomplete="off">
+      <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+      <button class="content-search__button content-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+      <button class="content-search__button content-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--close-window-style2"></i></button>
+    </form>
+    <div class="contextual-search__results">
+      <a href="#row0" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Analytics</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row1" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Sheets API</div>
+        <div class="contextual-search__meta">2 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row2" class="contextual-search__results-row">
+        <div class="contextual-search__title">Good Storytelling with Data</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; DASHBOARDS &amp; STORIES</div>
+      </a>
+      <a href="#more" class="contextual-search__results-row contextual-search__more">
+        65 results for &quot;goo&quot; sitewide
+      </a>
+    </div>
+  </div>
+</div>
+
+<img src="https://cloud.githubusercontent.com/assets/153132/11155558/2140d822-89fb-11e5-9cef-5eaed5798b77.jpeg" alt="Optional image of Nicolas Cage">
+
+                    </div>
+                  </div>
+                </div>
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;content-search contextual-search&quot;&gt;
@@ -1603,9 +1745,9 @@ search component will close the search results.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;fancy-filters form-field&quot;&gt;
@@ -1700,9 +1842,9 @@ to see the example in action.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
-            
+
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;responsive-filter&quot;&gt;
@@ -1747,7 +1889,7 @@ to see the example in action.</p>
   <footer class="kss-footer kss-clearfix">
     <p>
       © <a href="http://www.tableau.com" target="_blank">Tableau Software</a>. All Rights Reserved. <br>
-      Generated by <a href="https://github.com/kss-node/kss-node" target="_blank">kss-node</a>. 
+      Generated by <a href="https://github.com/kss-node/kss-node" target="_blank">kss-node</a>.
     </p>
   </footer>
 

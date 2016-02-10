@@ -147,6 +147,155 @@ Components.utils.breakpoint = function (layout) {
       return false;
   }
 };
+
+/**
+ * Helper function to get the element's viewport center.
+ * @param $element
+ *
+ * @returns string
+ *  y position
+ */
+Components.utils.getElementViewPortCenter = function ($element) {
+  var scrollTop = $(window).scrollTop(),
+    scrollBot = scrollTop + $(window).height(),
+    elHeight = $element.outerHeight(),
+    elTop = $element.offset().top,
+    elBottom = elTop + elHeight,
+    elTopOffset = elTop < scrollTop ? scrollTop - elTop : 0,
+    elBottomOffset = elBottom > scrollBot ? scrollBot - elTop : elHeight;
+
+  // Return 50% if entire element is visible.
+  if (elTopOffset === 0 && elBottomOffset === elHeight) {
+    return '50%';
+  }
+
+  return Math.round(elTopOffset + ((elBottomOffset - elTopOffset) / 2)) + 'px';
+}
+;
+/**
+ * Content Flyout utility.
+ *
+ * Set up a content region that is hidden by default and "flies out" from the
+ * right side of the page when a trigger is clicked.
+ *
+ * Options:
+ *   triggers - Required - [jQuery Ojbect] - element(s) to be used as a trigger
+ *   contents - Optional - [jQuery Object] - element(s) to use as content wrapper
+ *   animation - Optional - [object] - animation settings for expanding/collapsing
+ *
+ * Usage:
+ *  $('.flyout-content-wrapper').contentFlyout({
+ *    triggers: $('.triggers-selector')
+ *  });
+ */
+
+(function ($) {
+  $.fn.contentFlyout = function(options) {
+    // Default settings
+    var settings = $.extend({
+      contents: $(this),
+      animation: {
+        duration: 1000,
+        easing: "easeInOutQuart"
+      }
+    }, options);
+
+    if (settings.triggers.length && settings.contents.length) {
+      // Run setup
+      setup();
+
+      settings.triggers.on('click.flyout', function(e) {
+        var trigger = this,
+        $target = $('#' + $(trigger).data('flyoutTarget')),
+        state = $target.data('flyoutState');
+
+        if (state == 'closed') {
+          setTimeout(function() {
+            showContent(trigger);
+          }, 1);
+        } else if (state == 'open') {
+          hideContent(trigger);
+        }
+        e.preventDefault();
+      });
+
+      $('.flyout__close-link').on('click.flyout', function(e) {
+        $(this).closest('.flyout__content').data('flyoutTrigger').trigger('click.flyout');
+        e.preventDefault();
+      });
+    }
+
+    // Show the target content
+    function showContent(trigger) {
+      var data = $(trigger).data(),
+      $target = $('#' + data.flyoutTarget),
+      $parent = $target.offsetParent(),
+      $slideout = $parent.find('.flyout__slideout'),
+      parentPadding = $parent.outerHeight() - $parent.height(),
+      offset = $('.sticky-wrapper .stuck').outerHeight(true),
+      scrollDown = data.flyoutScrollDown ? true : false;
+
+      $target.data('flyoutState', 'open');
+
+      // Adjust height of parent
+      $parent.animate({
+        height: $target.outerHeight(true) - parentPadding,
+      }, settings.animation);
+
+      $slideout.add($target).animate({
+        marginLeft: '-=100%',
+      }, settings.animation);
+
+      Components.utils.smoothScrollTop($parent, settings.animation.duration, offset, !scrollDown);
+    }
+
+    // Hide the target content
+    function hideContent(trigger) {
+      var data = $(trigger).data(),
+      $target = $('#' + data.flyoutTarget),
+      $parent = $target.offsetParent(),
+      $slideout = $parent.find('.flyout__slideout'),
+      slideoutHeight = $slideout.outerHeight(true);
+
+      $target.data('flyoutState', 'closed');
+
+      // Adjust height of parent
+      $parent.animate({
+        height: slideoutHeight,
+      }, settings.animation);
+
+      $slideout.add($target).animate({
+        marginLeft: '+=100%',
+      }, settings.animation);
+
+      // Reset height of $parent to inherit in case of screen resizing that would
+      // need to adjust the height.
+      setTimeout(function() {
+        $parent.css('height', 'inherit');
+      }, settings.animation.duration + 1);
+    }
+
+    // Hand-full of setup tasks
+    function setup() {
+      // Add flyout-state data
+      settings.contents.data('flyoutState', 'closed');
+
+      // Link content back to it's corresponding trigger
+      settings.triggers.each(function(index, el) {
+        var $target = $('#' + $(this).data('flyoutTarget'));
+        $target.data('flyoutTrigger', $(this));
+      });
+
+      // Set the relative parent to hide overflow
+      settings.contents.each(function(index, el) {
+        $(this).show();
+        $(this).offsetParent().css('overflow', 'hidden');
+      });
+    }
+
+    return this;
+  }
+})(jQuery);
 ;
 /**
  * Content Reveal utility.
@@ -225,14 +374,13 @@ Components.utils.breakpoint = function (layout) {
         $trigger.text(hideText);
       }
 
-      // Video players break when we display none so using a custom reimplementation
-      // of slideDown. See helpers.js.
+      // Swap content.
+      // NOTE: Video players break via display:none, thus custom function.
+      $curtain.slideHeight('up', customAnimation);
       $target.slideHeight('down', customAnimation);
 
-      $curtain.slideUp(customAnimation);
-
       if (media == "video") {
-        var videoObj = $target.find('.reveal-video--brightcove')[0],
+        var videoObj = $target.find('.video-js')[0],
             player = videojs(videoObj);
 
         setTimeout(function() {
@@ -282,12 +430,12 @@ Components.utils.breakpoint = function (layout) {
         $trigger.text(showText);
       }
 
+      // Swap content.
       $target.slideHeight('up', settings.animation);
-
-      $curtain.slideDown(settings.animation);
+      $curtain.slideHeight('down', settings.animation);
 
       if (media == "video") {
-        var player = videojs($target.find('.reveal-video--brightcove')[0]);
+        var player = videojs($target.find('.video-js')[0]);
         player.pause();
       }
 
@@ -301,6 +449,11 @@ Components.utils.breakpoint = function (layout) {
     function setup() {
       // Add reveal-state data
       settings.triggers.data('revealState', 'closed');
+
+      // Add a close icon to each content continer
+      if (settings.closeLink) {
+        settings.contents.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window-style2"></i></a>'));
+      }
 
       settings.triggers.each(function(index, el) {
         var $trigger = $(this),
@@ -316,8 +469,13 @@ Components.utils.breakpoint = function (layout) {
         }
 
         // Save original trigger text
-        if (typeof $trigger.data('revealHideText') !== undefined) {
+        if (typeof $trigger.data('revealHideText') !== 'undefined') {
           settings.triggers.data('revealShowText', showText);
+        }
+
+        // Remove close link if the data attribute is set to false.
+        if (settings.closeLink && $trigger.data('revealCloseLink') === false) {
+          $target.find('.reveal__close').remove();
         }
       });
 
@@ -333,11 +491,6 @@ Components.utils.breakpoint = function (layout) {
       //     $(this).css('margin-top', -$curtain.outerHeight(true));
       //   }
       // });
-
-      // Add a close icon to each content continer
-      if (settings.closeLink) {
-        settings.contents.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window-style2"></i></a>'));
-      }
     }
 
     function autoReveal() {
@@ -421,7 +574,7 @@ Components.utils.breakpoint = function (layout) {
   Plugin.prototype.init = function () {
     var _options = this.options,
         $radioGroups = this._element,
-        $selectContainer = $(_options.container);
+        $selectContainer = $radioGroups.find(_options.container);
 
     if (!$radioGroups.length) {
       return;
@@ -647,9 +800,8 @@ Components.utils.breakpoint = function (layout) {
  *  Helpful when needing to hide a video player while maintaining control via an
  *  API.
  *
- *  The element must have "overflow: hidden;" set in CSS for this to work properly.
- *  In order to have the element hidden by default, you mist also set "height: 0;"
- *  in CSS as well.
+ *  This function enforces "overflow: hidden" in order to work properly.
+ *  To hide the element by default, set "height: 0" in CSS as well.
  */
 
 (function ($) {
@@ -658,6 +810,9 @@ Components.utils.breakpoint = function (layout) {
     var $el = $(this);
 
     options = options || {duration: 400, easing: "swing"};
+
+    // Enforce height zero.
+    $el.css('overflow', 'hidden');
 
     if (direction === "down") {
       var $elClone = $el.clone().show().css({"height":"auto"}).appendTo($el.parent()),
@@ -671,7 +826,7 @@ Components.utils.breakpoint = function (layout) {
         },
         options.duration,
         options.easing,
-        function() {
+        function () {
           // Reset the height to auto to ensure the height remains accurate on viewport resizing
           $el.css('height', 'auto');
         }
@@ -732,6 +887,7 @@ Components.utils.breakpoint = function (layout) {
           var $link = $(this),
               $content = $('#' + $link.data('tab-content')),
               $wrapper = $link.closest(settings.wrapper),
+              $tabLinks = $wrapper.find(settings.tabLinks),
               $previousLink = $link.closest("ul").find('a.is-active'),
               $previousContent = $('#' + $previousLink.data('tab-content')),
               previousContentHeight = $previousContent.outerHeight(true),
@@ -742,7 +898,7 @@ Components.utils.breakpoint = function (layout) {
           $contentClone.remove();
 
           // Manage active class
-          settings.tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
+          $tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
           $link.add($content).addClass('is-active');
 
           // Animate the height transition between tabs
@@ -769,10 +925,12 @@ Components.utils.breakpoint = function (layout) {
       if (settings.triggers) {
         settings.triggers.on('click.tabs-trigger', function(e) {
           var $link = settings.tabLinks.filter('[data-tab-content="' + $(this).data('tab-content') + '"]'),
-              $content = $('#' + $(this).data('tab-content'));
+              $content = $('#' + $(this).data('tab-content')),
+              $wrapper = $link.closest(settings.wrapper),
+              $tabLinks = $wrapper.find(settings.tabLinks);
 
           // Manage active class
-          settings.tabLinks.add(settings.wrapper.find(settings.contents)).removeClass('is-active');
+          $tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
           $link.add($content).addClass('is-active');
         });
       }
@@ -783,9 +941,7 @@ Components.utils.breakpoint = function (layout) {
 }( jQuery ));
 ;
 /**
- * Simple content search behaviors.
- *
- * - Handle down/up arrow keys on pick list
+ * Content search behaviors.
  */
 
 // Loose augmentation pattern. Creates top-level Components variable if it
@@ -795,82 +951,95 @@ var Components = Components || {};
 // Create a base for this module's data and functions.
 Components.contentSearch = {};
 
-/**
- * DOM-ready callback.
- *
- * @param {Object} $
- *   jQuery
- */
-Components.contentSearch.ready = function ($) {
-  // Set up all the section search components on the page.
-  $('.content-search').not('.contextual-search').each(function () {
-    var $this = $(this);
+// Closure to extend behavior, provide privacy and state.
+(function (component, $) {
 
+  /**
+   * DOM-ready callback.
+   *
+   * @param {Object} $
+   *   jQuery
+   */
+  component.ready = function ($) {
+    // Initialize content search components, excluding contextual search.
+    $('.content-search').not('.contextual-search').each(function () {
+      component.initialize($(this));
+    });
+  };
+
+  /**
+   * Initialize component.
+   * - Binds contentSearch event handlers, and unbinds any existing ones.
+   */
+  component.initialize = function ($search) {
     // Attach keydown handler with context.
-    $this.find('.content-search__input').keydown(
-      $.proxy(Components.contentSearch.keydownHandler, $this)
+    $search.find('.content-search__input')
+      .off('keydown.contentSearch')
+      .on('keydown.contentSearch', $.proxy(Components.contentSearch.keydownHandler, $search)
     );
 
-    // Attach reset handler.
-    $this.find('.content-search__reset').click(function (event) {
-      // Allow overriding.
-      var $resetEvent = $.Event('contentSearch:reset');
-      $this.trigger($resetEvent);
-      if (!$resetEvent.isDefaultPrevented()) {
-        // Reset/empty the form, via AJAX.
-        Components.contentSearch.resetForm($this);
-      }
-    });
-  });
-};
+    // Attach reset click handler to component.
+    $search.find('.content-search__reset')
+      .off('click.contentSearch')
+      .on('click.contentSearch', function () {
+        // Allow overriding.
+        var resetEvent = $.Event('contentSearch:reset');
+        $search.trigger(resetEvent);
+        if (!resetEvent.isDefaultPrevented()) {
+          // Reset/empty the form, via AJAX.
+          component.resetForm($search);
+        }
+      });
+  };
 
-/**
- * Carry out the form reset.
- *
- * @param {jQuery Object} $search
- */
-Components.contentSearch.resetForm = function($search) {
-  $search.removeClass('has-suggestion');
-  $search.find('.content-search__input').val('');
-};
-
-/**
- * Carry out the form submit.
- *
- * @param {jQuery Object} $search
- */
-Components.contentSearch.submitForm = function($search) {
-  if ($search.find('.content-search__input').val() !== '') {
+  /**
+   * Carry out the form reset.
+   *
+   * @param {jQuery Object} $search
+   */
+  component.resetForm = function ($search) {
     $search.removeClass('has-suggestion');
-    $search.find('.content-search__submit').click();
-  }
-};
+    $search.find('.content-search__input').val('');
+  };
 
-/**
- * Keydown handler.
- *
- * @param {Object} event
- */
-Components.contentSearch.keydownHandler = function (event) {
-  var $search = $(this[0]),
-      $submitEvent = $.Event('contentSearch:submit');
+  /**
+   * Carry out the form submit.
+   *
+   * @param {jQuery Object} $search
+   */
+  component.submitForm = function ($search) {
+    if ($search.find('.content-search__input').val() !== '') {
+      $search.addClass('has-suggestion');
+      $search.find('.content-search__submit').click();
+    }
+  };
 
-  switch (event.which) {
-    case 13: // ENTER
-      $search.removeClass('has-suggestion');
-      // Allow overriding.
-      $(document).trigger($submitEvent);
-      // Submit the form, via AJAX.
-      if (!$submitEvent.isDefaultPrevented()) {
-        // Prevent any further events from occurring on the input.
-        $search.find('.content-search__input').prop('readonly', true)
-          .off('keyup keydown blur');
-        Tabia.contentSearch.submitForm($search);
-      }
-      event.preventDefault();
-      break;
-  }
-};
+  /**
+   * Keydown handler.
+   *
+   * @param {Object} event
+   */
+  component.keydownHandler = function (event) {
+    var $search = $(this[0]),
+        submitEvent = $.Event('contentSearch:submit');
+
+    switch (event.which) {
+      case 13: // ENTER
+        // Allow overriding.
+        $search.trigger(submitEvent);
+        // Submit the form, via AJAX.
+        if (!submitEvent.isDefaultPrevented()) {
+          // Prevent any further events from occurring on the input.
+          $search.find('.content-search__input').prop('readonly', true)
+            .off('keyup keydown blur');
+          Components.contentSearch.submitForm($search);
+        }
+        event.preventDefault();
+        break;
+    }
+  };
+
+})(Components.contentSearch, jQuery);
 
 // Attach our DOM-ready callback.
 jQuery(Components.contentSearch.ready);
@@ -1011,6 +1180,40 @@ $(document).on('initFloatLabels', function (e) {
 })(jQuery);
 ;
 /**
+ * Gif Player utility.
+ */
+(function($){
+  $(document).ready(function(){
+    var $gifs = $('.gif-player');
+
+    if ($gifs.length) {
+      $gifs.each(function(index, el) {
+        var $gif = $(this);
+
+        // Store the static image source
+        $gif.data('static-src', $gif.attr('src'));
+
+        // Lazy load in gifs so they start animating after brought into view.
+        // Switch back to placeholder when image has exited view.
+        //
+        // @todo store gif length in a data param and indicate when the gif is
+        // being animated vs static. Add a replay button once the loop ends
+        var inview = new Waypoint.Inview({
+          element: $gif[0],
+          entered: function(direction) {
+            $gif.attr('src', $gif.data('gif-src'));
+          },
+          exited: function(direction) {
+            $gif.attr('src', $gif.data('static-src'));
+          }
+        });
+
+      });
+    }
+  });
+})(jQuery);
+;
+/**
  * Custom Accordion implementation.
  */
 
@@ -1041,7 +1244,7 @@ $(document).on('initFloatLabels', function (e) {
     // Auto-scroll and expand accordions when linked to with a hash
     var hash = window.location.hash;
     if ($(hash).length && $(hash).closest('.accordion__item').length) {
-      $(hash).siblings('.accordion__title').trigger('click');
+      $(hash).parents('.accordion__title-wrapper').trigger('click');
     }
   });
 })(jQuery);
@@ -1103,147 +1306,17 @@ $(document).on('initFloatLabels', function (e) {
 })(jQuery);
 ;
 /**
- * Flyout content utility
+ * Flyout content component interaction
+ * See jquery.contentFlyout.js for details
  */
-(function($){
 
+(function ( $ ) {
   $(document).ready(function(){
-    var $triggers = $('.flyout__trigger'),
-        $contents = $('.flyout__content'),
-        animation = {
-          duration: 1000,
-          easing: 'easeInOutQuart'
-        };
-
-    if ($triggers.length && $contents.length) {
-      // Run setup
-      setup();
-
-      $triggers.on('click.flyout', function(e) {
-        var trigger = this,
-            $target = $('#' + $(trigger).data('flyoutTarget')),
-            state = $target.data('flyoutState');
-
-        if (state == 'closed') {
-          setTimeout(function() {
-            showContent(trigger);
-          }, 1);
-        } else if (state == 'open') {
-          hideContent(trigger);
-        }
-        e.preventDefault();
-      });
-
-      $('.flyout__close-link').on('click.flyout', function(e) {
-        $(this).closest('.flyout__content').data('flyoutTrigger').trigger('click.flyout');
-        e.preventDefault();
-      });
-    }
-
-
-    // Show the target content
-    function showContent(trigger) {
-      var data = $(trigger).data(),
-          $target = $('#' + data.flyoutTarget),
-          $parent = $target.offsetParent(),
-          $slideout = $parent.find('.flyout__slideout'),
-          parentPadding = $parent.outerHeight() - $parent.height(),
-          offset = $('.sticky-wrapper .stuck').outerHeight(true);
-
-      $target.data('flyoutState', 'open');
-
-      // Adjust height of parent
-      $parent.animate({
-        height: $target.outerHeight(true) - parentPadding,
-      }, animation);
-
-      $slideout.add($target).animate({
-        marginLeft: '-=100%',
-      }, animation);
-
-      Components.utils.smoothScrollTop($parent, animation.duration, offset, true);
-    }
-
-    // Hide the target content
-    function hideContent(trigger) {
-      var data = $(trigger).data(),
-          $target = $('#' + data.flyoutTarget),
-          $parent = $target.offsetParent(),
-          $slideout = $parent.find('.flyout__slideout'),
-          slideoutHeight = $slideout.outerHeight(true);
-
-      $target.data('flyoutState', 'closed');
-
-      // Adjust height of parent
-      $parent.animate({
-        height: slideoutHeight,
-      }, animation);
-
-      $slideout.add($target).animate({
-        marginLeft: '+=100%',
-      }, animation);
-
-      // Reset height of $parent to inherit in case of screen resizing that would
-      // need to adjust the height.
-      setTimeout(function() {
-        $parent.css('height', 'inherit');
-      }, animation.duration + 1);
-    }
-
-    // Hand-full of setup tasks
-    function setup() {
-      // Add flyout-state data
-      $contents.data('flyoutState', 'closed');
-
-      // Link content back to it's corresponding trigger
-      $triggers.each(function(index, el) {
-        var $target = $('#' + $(this).data('flyoutTarget'));
-        $target.data('flyoutTrigger', $(this));
-      });
-
-      // Set the relative parent to hide overflow
-      $contents.each(function(index, el) {
-        $(this).show();
-        $(this).offsetParent().css('overflow', 'hidden');
-      });
-    }
-
+    $('.flyout__content').contentFlyout({
+      triggers: $('.flyout__trigger')
+    });
   });
-})(jQuery);
-;
-/**
- * Gif Player utility.
- */
-(function($){
-  $(document).ready(function(){
-    var $gifs = $('.gif-player');
-
-    if ($gifs.length) {
-      $gifs.each(function(index, el) {
-        var $gif = $(this);
-
-        // Store the static image source
-        $gif.data('static-src', $gif.attr('src'));
-
-        // Lazy load in gifs so they start animating after brought into view.
-        // Switch back to placeholder when image has exited view.
-        //
-        // @todo store gif length in a data param and indicate when the gif is
-        // being animated vs static. Add a replay button once the loop ends
-        var inview = new Waypoint.Inview({
-          element: $gif[0],
-          entered: function(direction) {
-            $gif.attr('src', $gif.data('gif-src'));
-          },
-          exited: function(direction) {
-            $gif.attr('src', $gif.data('static-src'));
-          }
-        });
-
-      });
-    }
-  });
-})(jQuery);
+}( jQuery ));
 ;
 (function($) {
   $(document).ready(function() {
@@ -1284,6 +1357,162 @@ $(document).on('initFloatLabels', function (e) {
     }
   });
 })(jQuery);
+;
+/**
+ * Loading overlay behaviors.
+ *
+ * - Show a loading animation w/ overlay.
+ */
+
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a base for this module's data and functions.
+Components.loadingOverlay = {};
+
+// Closure to rename Components.modalMessage
+(function (component, $) {
+
+  /**
+   * Show loading overlay
+   *
+   * @param {string} $element
+   *   The element on which you want to show the loading animation.
+   * @param {string} message
+   *   Optional message to display in the loading overlay.
+   */
+  component.show = function ($element, message) {
+    var message = message || 'Loading...',
+        $overlay = $('<div class="loading-overlay">' +
+          '<div class="loader">' +
+          '<div class="loader__animation"></div>' +
+          '<div class="loader__message">' + message + '</div>' +
+          '</div>' +
+          '</div>'),
+        offsetY = Components.utils.getElementViewPortCenter($element);
+
+    $overlay.find('.loader').css('top', offsetY);
+    $overlay.prependTo($element)
+  };
+
+  /**
+   * Hide loading overlay
+   *
+   * @param {string} $element
+   *   The element on which you want to show the loading animation.
+   */
+  component.hide = function ($element) {
+    $element.find('.loading-overlay').remove();
+  };
+
+}(Components.loadingOverlay, jQuery));
+;
+/**
+ * Modal message behaviors.
+ *
+ * - Toggle .is-open state on component, e.g when showing modal message.
+ */
+
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a base for this module's data and functions.
+Components.modalMessage = {};
+
+// Closure to rename Components.modalMessage
+(function (component, $) {
+
+  /**
+   * Variables
+   */
+  component.modifiers = {
+    'loading': 'modal-message--loading'
+  };
+
+  /**
+   * DOM-ready callback.
+   *
+   * @param {Object} $
+   *   jQuery
+   */
+  component.ready = function () {
+    $('.modal-message, .modal-message__close').click(function (e) {
+      e.preventDefault();
+
+      if (e.target === this) {
+        $('.modal-message').removeClass('is-open');
+      }
+    });
+  };
+
+  /**
+   * Show modal message
+   *
+   * @param {string} message
+   *   Optional message you want to display.
+   * @param {string} type
+   *   Optional parameter to alter the style of the message box.
+   *   Example:
+   *   'loading' - Show a loading modal message.
+   */
+  component.show = function (message, type) {
+    var $modalMessage = $('.modal-message');
+
+    // Initialize our modal message;
+    if (!$modalMessage.length) {
+      $modalMessage = $('<div class="modal-message">' +
+        '<div class="modal-message__dialog">' +
+        '<div class="modal-message__icon"></div>' +
+        '<div class="modal-message__content"></div>' +
+        '<a href="#" class="modal-message__close"></a>' +
+        '</div>' +
+        '</div>');
+      $('body').append($modalMessage);
+    }
+
+    for (var key in component.modifiers) {
+      if (type === key) {
+        $modalMessage.addClass(component.modifiers[key]);
+      }
+      else {
+        $modalMessage.removeClass(component.modifiers[key]);
+      }
+    }
+
+    // Replace the content of our message.
+    if (message) {
+      component.update(message);
+    }
+
+    // Show our modal message.
+    if (!$modalMessage.hasClass('is-open')) {
+      $modalMessage.addClass('is-open');
+    }
+  };
+
+  /**
+   * Update message.
+   *
+   * @param {string} message
+   *   Message you want to display.
+   */
+  component.update = function (message) {
+    $('.modal-message__content').html(message);
+  };
+
+  /**
+   * Close modal message
+   */
+  component.close = function () {
+    $('.modal-message').removeClass('is-open');
+  };
+
+  // Dom ready handler.
+  $(component.ready);
+
+}(Components.modalMessage, jQuery));
 ;
 (function($) {
   $.fn.moveProgressBar = function (progress) {
@@ -1353,43 +1582,6 @@ $(document).on('initFloatLabels', function (e) {
 
       });
     }
-  });
-})(jQuery);
-;
-/**
- * Social share handling
- *
- * This is a simple hover based reveal for the social share display.
- */
-(function ($) {
-  $(document).ready(function () {
-    var $socialShare = $('.social-share__wrapper');
-
-    // Bail early if there aren't even any element.
-    if (!$socialShare.length) {
-      return;
-    }
-
-    // Utilize the slideHeight custom animation.
-    // @TODO change this out to contentReveal, would likely involve refactor.
-    $socialShare.each(function initSocialShare() {
-      var $this = $(this),
-          $widgets = $('.social-share__widgets'),
-          animation = {
-            duration: 500,
-            easing: "easeInOutQuart"
-          };
-
-      $this.hoverIntent(
-        function socialHoverOn() {
-          $widgets.slideHeight('down', animation);
-        },
-        function socialHoverOff() {
-          $widgets.slideHeight('up', animation);
-        }
-      );
-    });
-
   });
 })(jQuery);
 ;
@@ -1517,10 +1709,6 @@ $(document).on('initFloatLabels', function (e) {
         return;
       }
 
-      $readyChapters.next('.video-chapters__toggle-wrapper').find('.video-chapters__toggle').on('click.toggle', function(e) {
-        $(this).toggleClass('is-open');
-      });
-
       $readyChapters.find('.video-chapters__chapter').on('click.chapter', function triggerVideoChapter (e) {
         var $this = $(this),
             timestamp = $this.data('timestamp');
@@ -1611,22 +1799,50 @@ $(document).on('initFloatLabels', function (e) {
       // utility to handle throttling and waiting on a small delay before
       // showing the drawer (essentially hoverintent)
       $both.hover(function () {
-        $both.doTimeout( 'open', 200, function() {
+        $both.doTimeout('open', 200, function() {
           $both.addClass('is-open');
         });
       }, function () {
-        $both.doTimeout( 'open', 200, function() {
+        $both.doTimeout('open', 200, function() {
           $both.removeClass('is-open');
         });
       });
+
+      // Touch-only device interaction: first click (tap) opens the drawers.
+      // Subsequent clicks follows UA default behavior (i.e. follows the top-
+      // level link). But, only on desktop menu style!
+      $link.on('touchstart.global-nav', function (e) {
+        // Ignore if not desktop breakpoint.
+        if (!Components.utils.breakpoint('desktop')) {
+          return;
+        }
+        // If not already open, prevent following the link, and stop
+        // propagation so that our sister document touch handler doesn't close
+        // the drawers immediately.
+        if (!$link.hasClass('is-open')) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        $expandableLinks.add($drawers).removeClass('is-open');
+        $both.addClass('is-open');
+      });
     });
 
-    $drawers.click(function(e) {
+    // Catch touch events bubbling "all the way up" as a trigger for closing the
+    // drawers (on mobile specifically).
+    $(document).on('touchstart.global-nav', function () {
+      $expandableLinks.add($drawers).removeClass('is-open');
+    });
+
+    // Don't bubble up events beyond drawers.
+    // This prevents touch events inside the drawers from closing the drawers.
+    // @todo document why stopping click propagation is necessary.
+    $drawers.on('touchstart.global-nav click.global-nav', function(e) {
       e.stopPropagation();
     });
 
     // Tablet/mobile stuff.
-    $expandableLinks.on('click.nav', function(e) {
+    $expandableLinks.on('click.global-nav', function(e) {
       var $link = $(this),
           $drawer = $('#' + $link.data('drawer-id'));
 
@@ -1642,7 +1858,7 @@ $(document).on('initFloatLabels', function (e) {
       }
     });
 
-    $mobileDrawerClose.on('click.nav', function(e) {
+    $mobileDrawerClose.on('click.global-nav', function(e) {
       var $drawer = $(this).closest('.global-nav__drawer');
 
       closeDrawerMobile($drawer);
@@ -1797,15 +2013,15 @@ $(document).on('initFloatLabels', function (e) {
         offset: $subnav.outerHeight(true)
       });
 
-      // Handle scrolling of links on mobile
+      // Handle scrolling of links on mobile if they are present.
       if ($linksWrapper.length) {
         mobileScroll();
+        $(window).on('resize orientationchange', _.debounce(mobileScroll, 100));
       }
-      $(window).on('resize orientationchange', _.debounce(mobileScroll, 100));
 
       // Smooth Scroll for anchor links
       // @TODO generalize and separate from this component
-      $links.find('a').click(function(e) {
+      $links.find('a').not('.subnav__cta').click(function(e) {
         var element = $(this).attr('href'),
             offset = $subnav.outerHeight(true) - 1;
 
@@ -1881,21 +2097,36 @@ Components.topicNav.init = function ($) {
 
   // Custom tweaks
   $('.topic-nav__toggle').on('click.topic-nav', function (e) {
-    var $parentNav = $(this).closest('.topic-nav');
+    var $parentNav = $(this).closest('.topic-nav'),
+        $drawersContainer = $(this).closest('.topic-nav').find('.topic-nav__drawers');
 
     if ($(this).data('revealState') === 'open') {
       $parentNav.find('.topic-nav__tabs a').eq(0).trigger('click').addClass('is-active');
+
+      // @todo Change out the setTimeout
+      // Wrapped in a setTimeout because an instant toggle means drawer content can show up and
+      // overlap content on lower z-index before the animation completes.
+      setTimeout(function () {
+        $drawersContainer.addClass('is-open');
+      }, 1000);
     }
     else {
       $parentNav.find('.topic-nav__tabs a').removeClass('is-active');
+      $drawersContainer.removeClass('is-open');
     }
   });
 
   $('.topic-nav__tabs a').on('click.topic-nav', function (e) {
-    var $toggle = $(this).closest('.topic-nav').find('.topic-nav__toggle');
+    var $toggle = $(this).closest('.topic-nav').find('.topic-nav__toggle'),
+        $drawersContainer = $(this).closest('.topic-nav').find('.topic-nav__drawers');
 
     if ($toggle.data('revealState') === 'closed') {
       $toggle.trigger('click.reveal');
+
+      // @todo Change out the setTimeout
+      setTimeout(function () {
+        $drawersContainer.addClass('is-open');
+      }, 1000);
     }
   });
 
