@@ -384,8 +384,11 @@ Components.utils.getElementViewPortCenter = function ($element) {
             player = videojs(videoObj);
 
         setTimeout(function() {
-          player.play();
-        }, customAnimation.duration/2);
+          // Ensure player is ready before calling .play()
+          player.ready(function () {
+            player.play();
+          });
+        }, customAnimation.duration / 2);
       }
 
       // Scroll when reveal is clicked open.
@@ -496,7 +499,8 @@ Components.utils.getElementViewPortCenter = function ($element) {
     function autoReveal() {
       var hash = window.location.hash;
 
-      if (hash.length && settings.contents.is(hash)) {
+      // If the hash exists (e.g. #something) and it matches using jQuery selection.
+      if (hash.length > 1 && settings.contents.is(hash)) {
         var $trigger = $(hash).data('revealTrigger');
 
         // Prevent scrolling to the anchor...
@@ -883,20 +887,23 @@ Components.utils.getElementViewPortCenter = function ($element) {
 
     if (settings.tabLinks.length && settings.contents.length) {
       settings.tabLinks.on('click.tabs', function(e) {
+        var $link = $(this),
+            $content = $('#' + $link.data('tab-content')),
+            $wrapper = $link.closest(settings.wrapper),
+            $tabLinks = $wrapper.find(settings.tabLinks),
+            $previousLink = $link.closest("ul").find('a.is-active'),
+            $previousContent = $('#' + $previousLink.data('tab-content')),
+            previousContentHeight = $previousContent.outerHeight(true),
+            $flyoutContainer = $content.closest('.flyout__content'),
+            $contentClone = $content.clone().show().css({"height":"auto"}).appendTo($content.parent()),
+            contentHeight = $contentClone.outerHeight(true),
+            scrollBehavior = $wrapper.data('tabs-scroll'),
+            scrollOffset = $('.sticky-wrapper .stuck').outerHeight(true),
+            $scrollTarget;
+
+        $contentClone.remove();
+
         if (!$(this).hasClass('is-active')) {
-          var $link = $(this),
-              $content = $('#' + $link.data('tab-content')),
-              $wrapper = $link.closest(settings.wrapper),
-              $tabLinks = $wrapper.find(settings.tabLinks),
-              $previousLink = $link.closest("ul").find('a.is-active'),
-              $previousContent = $('#' + $previousLink.data('tab-content')),
-              previousContentHeight = $previousContent.outerHeight(true),
-              $flyoutContainer = $content.closest('.flyout__content'),
-              $contentClone = $content.clone().show().css({"height":"auto"}).appendTo($content.parent()),
-              contentHeight = $contentClone.outerHeight(true);
-
-          $contentClone.remove();
-
           // Manage active class
           $tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
           $link.add($content).addClass('is-active');
@@ -919,6 +926,23 @@ Components.utils.getElementViewPortCenter = function ($element) {
             }, settings.animation);
           }
         }
+
+        // Handling scrolling behaviors
+        if (scrollBehavior) {
+          switch (scrollBehavior) {
+            case 'wrapper':
+              $scrollTarget = $wrapper;
+              break;
+            case 'content':
+              $scrollTarget = $content;
+              break;
+            default:
+              $scrollTarget = $('#' + scrollBehavior);
+              break;
+          }
+          Components.utils.smoothScrollTop($scrollTarget, settings.animation.duration, scrollOffset, false);
+        }
+
         e.preventDefault();
       });
 
@@ -1439,10 +1463,9 @@ Components.modalMessage = {};
    */
   component.ready = function () {
     $('.modal-message, .modal-message__close').click(function (e) {
-      e.preventDefault();
-
       if (e.target === this) {
         $('.modal-message').removeClass('is-open');
+        e.preventDefault();
       }
     });
   };
@@ -2021,7 +2044,7 @@ Components.modalMessage = {};
 
       // Smooth Scroll for anchor links
       // @TODO generalize and separate from this component
-      $links.find('a').not('.subnav__cta').click(function(e) {
+      $links.find('a').not('.subnav__cta a').click(function(e) {
         var element = $(this).attr('href'),
             offset = $subnav.outerHeight(true) - 1;
 

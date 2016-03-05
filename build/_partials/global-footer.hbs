@@ -1,0 +1,34 @@
+<footer class="global-footer section section--padded-one bg--dark-gray-3">
+  <nav class="content-container content-container--wide">
+    <div class="global-footer__first clearfix">
+      {{#if languages}}
+      <div class="global-footer__language">
+        <span class="selected">English</span>
+        <ul class="global-footer__language__options plain-list">
+          {{#each languages}}
+            <li{{#if selected}} class="selected"{{/if}}><a href="#">{{ language }}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+
+      <div class="global-footer__menu">
+        {{# menu}}
+          {{> link-list}}
+        {{/ menu}}
+      </div>
+    </div>
+
+    <div class="global-footer__second clearfix">
+      <div class="global-footer__social">
+        {{# social}}
+          {{> link-list}}
+        {{/ social}}
+      </div>
+      <div class="copy-right text--label text--medium-body">
+        <p>{{{ copyright }}}</p>
+      </div>
+    </div>
+
+  </nav>
+</footer>

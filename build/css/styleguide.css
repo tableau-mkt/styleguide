@@ -154,7 +154,7 @@ Markup: icon.hbs
 .icon--offline-snapshots - offline-snapshots icon
 .icon--online-classes - online-classes icon
 .icon--people - people icon
-.icon--play-button - play-button icon
+.icon--play - play icon
 .icon--poll - poll icon
 .icon--proven-roadmap - proven-roadmap icon
 .icon--query-without-code - query-without-code icon
@@ -164,6 +164,7 @@ Markup: icon.hbs
 .icon--quotes-open-style2 - quotes-open-style2 icon
 .icon--quotes-open - quotes-open icon
 .icon--refresh - refresh icon
+.icon--reminder - reminder icon
 .icon--report-abuse - report-abuse icon
 .icon--reseller - reseller icon
 .icon--results-up - results-up icon
@@ -213,8 +214,8 @@ Style Guide: media.icons
 */
 @font-face {
   font-family: "tableau-icons";
-  src: url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.eot?cf839e9381cc021cac38c15807a79376");
-  src: url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.woff?cf839e9381cc021cac38c15807a79376") format("woff"), url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.ttf?cf839e9381cc021cac38c15807a79376") format("truetype");
+  src: url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.eot?bac10f67f434a62d449488624b887c75");
+  src: url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.woff?bac10f67f434a62d449488624b887c75") format("woff"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.ttf?bac10f67f434a62d449488624b887c75") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -472,7 +473,7 @@ body.kss .kss-example-preview .pager .pager__endcap.pager__endcap--last a:after 
 .icon--people:before {
   content: "\f14f"; }
 
-.icon--play-button:before {
+.icon--play:before {
   content: "\f150"; }
 
 .icon--poll:before {
@@ -502,137 +503,140 @@ body.kss .kss-example-preview .pager .pager__endcap.pager__endcap--last a:after 
 .icon--refresh:before {
   content: "\f159"; }
 
-.icon--report-abuse:before {
+.icon--reminder:before {
   content: "\f15a"; }
 
-.icon--reseller:before {
+.icon--report-abuse:before {
   content: "\f15b"; }
 
-.icon--results-up:before {
+.icon--reseller:before {
   content: "\f15c"; }
 
-.icon--scalable:before {
+.icon--results-up:before {
   content: "\f15d"; }
 
-.icon--search:before {
+.icon--scalable:before {
   content: "\f15e"; }
 
-.icon--security:before {
+.icon--search:before {
   content: "\f15f"; }
 
-.icon--self-suffiency:before {
+.icon--security:before {
   content: "\f160"; }
 
-.icon--server-admin:before {
+.icon--self-suffiency:before {
   content: "\f161"; }
 
-.icon--settings:before {
+.icon--server-admin:before {
   content: "\f162"; }
 
-.icon--share-secure:before {
+.icon--settings:before {
   content: "\f163"; }
 
-.icon--share-style2:before {
+.icon--share-secure:before {
   content: "\f164"; }
 
-.icon--share:before {
+.icon--share-style2:before {
   content: "\f165"; }
 
-.icon--social-facebook:before {
+.icon--share:before {
   content: "\f166"; }
 
-.icon--social-gplus:before {
+.icon--social-facebook:before {
   content: "\f167"; }
 
-.icon--social-instagram:before {
+.icon--social-gplus:before {
   content: "\f168"; }
 
-.icon--social-linkedin:before {
+.icon--social-instagram:before {
   content: "\f169"; }
 
-.icon--social-rss:before {
+.icon--social-linkedin:before {
   content: "\f16a"; }
 
-.icon--social-twitter:before {
+.icon--social-rss:before {
   content: "\f16b"; }
 
-.icon--solutions:before {
+.icon--social-twitter:before {
   content: "\f16c"; }
 
-.icon--space:before {
+.icon--solutions:before {
   content: "\f16d"; }
 
-.icon--subscriptions:before {
+.icon--space:before {
   content: "\f16e"; }
 
-.icon--support-faq:before {
+.icon--subscriptions:before {
   content: "\f16f"; }
 
-.icon--support-services:before {
+.icon--support-faq:before {
   content: "\f170"; }
 
-.icon--tableau-desktop:before {
+.icon--support-services:before {
   content: "\f171"; }
 
-.icon--tableau-logo:before {
+.icon--tableau-desktop:before {
   content: "\f172"; }
 
-.icon--tableau-online:before {
+.icon--tableau-logo:before {
   content: "\f173"; }
 
-.icon--tableau-public:before {
+.icon--tableau-online:before {
   content: "\f174"; }
 
-.icon--tableau-reader:before {
+.icon--tableau-public:before {
   content: "\f175"; }
 
-.icon--tableau-server:before {
+.icon--tableau-reader:before {
   content: "\f176"; }
 
-.icon--tailor-content:before {
+.icon--tableau-server:before {
   content: "\f177"; }
 
-.icon--talk-bubble:before {
+.icon--tailor-content:before {
   content: "\f178"; }
 
-.icon--technology:before {
+.icon--talk-bubble:before {
   content: "\f179"; }
 
-.icon--unanswered:before {
+.icon--technology:before {
   content: "\f17a"; }
 
-.icon--up-to-date:before {
+.icon--unanswered:before {
   content: "\f17b"; }
 
-.icon--upload:before {
+.icon--up-to-date:before {
   content: "\f17c"; }
 
-.icon--user-groups:before {
+.icon--upload:before {
   content: "\f17d"; }
 
-.icon--view-less:before {
+.icon--user-groups:before {
   content: "\f17e"; }
 
-.icon--view-more:before {
+.icon--view-less:before {
   content: "\f17f"; }
 
-.icon--whitepaper:before {
+.icon--view-more:before {
   content: "\f180"; }
 
-.icon--wikis:before {
+.icon--whitepaper:before {
   content: "\f181"; }
 
-.icon--windows:before {
+.icon--wikis:before {
   content: "\f182"; }
 
-.icon--workbook-library:before {
+.icon--windows:before {
   content: "\f183"; }
 
-.icon--write:before {
+.icon--workbook-library:before {
   content: "\f184"; }
 
-.icon--youtube:before {
+.icon--write:before {
   content: "\f185"; }
+
+.icon--youtube:before {
+  content: "\f186"; }
 
 body.kss .kss-example-preview {
   /*
@@ -727,7 +731,7 @@ Markup: icon.hbs
 .icon--offline-snapshots - offline-snapshots icon
 .icon--online-classes - online-classes icon
 .icon--people - people icon
-.icon--play-button - play-button icon
+.icon--play - play icon
 .icon--poll - poll icon
 .icon--proven-roadmap - proven-roadmap icon
 .icon--query-without-code - query-without-code icon
@@ -737,6 +741,7 @@ Markup: icon.hbs
 .icon--quotes-open-style2 - quotes-open-style2 icon
 .icon--quotes-open - quotes-open icon
 .icon--refresh - refresh icon
+.icon--reminder - reminder icon
 .icon--report-abuse - report-abuse icon
 .icon--reseller - reseller icon
 .icon--results-up - results-up icon
@@ -1690,7 +1695,7 @@ Field with a label.
 
 Markup: detail-field.hbs
 
-Weight: 60
+Weight: 70
 
 .detail-field--secondary - Secondary "sidebar" field.
 
@@ -1719,7 +1724,7 @@ subtitle.
 
 Markup: hero.hbs
 
-Weight: 100
+Weight: 20
 
 Style guide: compound.hero
 */
@@ -1728,7 +1733,7 @@ Location
 
 Details about a geo-graphic location, with a map.
 
-Weight: 50
+Weight: 60
 
 Markup: location.hbs
 
@@ -1741,7 +1746,7 @@ Display special messages to the user. Recommend putting multiple messages in `<l
 
 Markup: messages.hbs
 
-Weight: 10
+Weight: 50
 
 Nodefault: true
 
@@ -1758,7 +1763,7 @@ Stylized quoted text such as a pull quote or testimonial.
 
 Markup: quote.hbs
 
-Weight: 20
+Weight: 10
 
 Style Guide: compound.quote
 */
@@ -1892,6 +1897,7 @@ Weight: 10
 
 Style guide: forms.content-search
 */
+  /** @todo Add modifier to searches within heros **/
   /*
 Contextual Search
 
@@ -1915,6 +1921,7 @@ Weight: 15
 
 Style guide: forms.contextual-search
 */
+  /** @todo Add modifier to searches within heros **/
   /*
 Fancy Radios
 
@@ -2234,7 +2241,11 @@ Style guide: interactive.sticky
   /*
 Content Tabs
 
-Tabbed content sections where one section is visible at a time.
+Tabbed content sections where one section is visible at a time. The following
+options can be set via data attributes on the wrapper element:
+
+**Wrapper Options:**
+* `data-tabs-scroll="[wrapper|content]"` - (optional) - Smooth-scroll to either the top of the tabs wrapper or the target content when tabs are clicked.
 
 Markup: tabs.hbs
 
@@ -3207,8 +3218,8 @@ Style guide: typography.text-stat
 @font-face {
   body.kss .kss-example-preview {
     font-family: "tableau-icons";
-    src: url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.eot?cf839e9381cc021cac38c15807a79376");
-    src: url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.woff?cf839e9381cc021cac38c15807a79376") format("woff"), url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.ttf?cf839e9381cc021cac38c15807a79376") format("truetype");
+    src: url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.eot?bac10f67f434a62d449488624b887c75");
+    src: url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.woff?bac10f67f434a62d449488624b887c75") format("woff"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.ttf?bac10f67f434a62d449488624b887c75") format("truetype");
     font-weight: normal;
     font-style: normal; } }
   body.kss .kss-example-preview .icon, body.kss .kss-example-preview .cta.cta--arrow:after, body.kss .kss-example-preview .cta.cta--play:after, body.kss .kss-example-preview .cta.cta--download:after, body.kss .kss-example-preview .link:before, body.kss .kss-example-preview .topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .video-chapters__toggle:before, body.kss .kss-example-preview .link:after, body.kss .kss-example-preview .topic-link:after, body.kss .kss-example-preview .video-chapters__toggle-wrapper .video-chapters__toggle:after, body.kss .kss-example-preview .global-nav__top .global-nav__search-toggle, body.kss .kss-example-preview .global-nav__top .global-nav__search:before, body.kss .kss-example-preview .global-nav__top .global-nav__search .global-nav__search-close, body.kss .kss-example-preview .global-nav__top .global-nav__primary-menu li a.expandable:after, body.kss .kss-example-preview .pager .pager__endcap.pager__endcap--first a:before,
@@ -3385,7 +3396,7 @@ Style guide: typography.text-stat
     content: "\f14e"; }
   body.kss .kss-example-preview .icon--people:before {
     content: "\f14f"; }
-  body.kss .kss-example-preview .icon--play-button:before {
+  body.kss .kss-example-preview .icon--play:before {
     content: "\f150"; }
   body.kss .kss-example-preview .icon--poll:before {
     content: "\f151"; }
@@ -3405,94 +3416,96 @@ Style guide: typography.text-stat
     content: "\f158"; }
   body.kss .kss-example-preview .icon--refresh:before {
     content: "\f159"; }
-  body.kss .kss-example-preview .icon--report-abuse:before {
+  body.kss .kss-example-preview .icon--reminder:before {
     content: "\f15a"; }
-  body.kss .kss-example-preview .icon--reseller:before {
+  body.kss .kss-example-preview .icon--report-abuse:before {
     content: "\f15b"; }
-  body.kss .kss-example-preview .icon--results-up:before {
+  body.kss .kss-example-preview .icon--reseller:before {
     content: "\f15c"; }
-  body.kss .kss-example-preview .icon--scalable:before {
+  body.kss .kss-example-preview .icon--results-up:before {
     content: "\f15d"; }
-  body.kss .kss-example-preview .icon--search:before {
+  body.kss .kss-example-preview .icon--scalable:before {
     content: "\f15e"; }
-  body.kss .kss-example-preview .icon--security:before {
+  body.kss .kss-example-preview .icon--search:before {
     content: "\f15f"; }
-  body.kss .kss-example-preview .icon--self-suffiency:before {
+  body.kss .kss-example-preview .icon--security:before {
     content: "\f160"; }
-  body.kss .kss-example-preview .icon--server-admin:before {
+  body.kss .kss-example-preview .icon--self-suffiency:before {
     content: "\f161"; }
-  body.kss .kss-example-preview .icon--settings:before {
+  body.kss .kss-example-preview .icon--server-admin:before {
     content: "\f162"; }
-  body.kss .kss-example-preview .icon--share-secure:before {
+  body.kss .kss-example-preview .icon--settings:before {
     content: "\f163"; }
-  body.kss .kss-example-preview .icon--share-style2:before {
+  body.kss .kss-example-preview .icon--share-secure:before {
     content: "\f164"; }
-  body.kss .kss-example-preview .icon--share:before {
+  body.kss .kss-example-preview .icon--share-style2:before {
     content: "\f165"; }
-  body.kss .kss-example-preview .icon--social-facebook:before {
+  body.kss .kss-example-preview .icon--share:before {
     content: "\f166"; }
-  body.kss .kss-example-preview .icon--social-gplus:before {
+  body.kss .kss-example-preview .icon--social-facebook:before {
     content: "\f167"; }
-  body.kss .kss-example-preview .icon--social-instagram:before {
+  body.kss .kss-example-preview .icon--social-gplus:before {
     content: "\f168"; }
-  body.kss .kss-example-preview .icon--social-linkedin:before {
+  body.kss .kss-example-preview .icon--social-instagram:before {
     content: "\f169"; }
-  body.kss .kss-example-preview .icon--social-rss:before {
+  body.kss .kss-example-preview .icon--social-linkedin:before {
     content: "\f16a"; }
-  body.kss .kss-example-preview .icon--social-twitter:before {
+  body.kss .kss-example-preview .icon--social-rss:before {
     content: "\f16b"; }
-  body.kss .kss-example-preview .icon--solutions:before {
+  body.kss .kss-example-preview .icon--social-twitter:before {
     content: "\f16c"; }
-  body.kss .kss-example-preview .icon--space:before {
+  body.kss .kss-example-preview .icon--solutions:before {
     content: "\f16d"; }
-  body.kss .kss-example-preview .icon--subscriptions:before {
+  body.kss .kss-example-preview .icon--space:before {
     content: "\f16e"; }
-  body.kss .kss-example-preview .icon--support-faq:before {
+  body.kss .kss-example-preview .icon--subscriptions:before {
     content: "\f16f"; }
-  body.kss .kss-example-preview .icon--support-services:before {
+  body.kss .kss-example-preview .icon--support-faq:before {
     content: "\f170"; }
-  body.kss .kss-example-preview .icon--tableau-desktop:before {
+  body.kss .kss-example-preview .icon--support-services:before {
     content: "\f171"; }
-  body.kss .kss-example-preview .icon--tableau-logo:before {
+  body.kss .kss-example-preview .icon--tableau-desktop:before {
     content: "\f172"; }
-  body.kss .kss-example-preview .icon--tableau-online:before {
+  body.kss .kss-example-preview .icon--tableau-logo:before {
     content: "\f173"; }
-  body.kss .kss-example-preview .icon--tableau-public:before {
+  body.kss .kss-example-preview .icon--tableau-online:before {
     content: "\f174"; }
-  body.kss .kss-example-preview .icon--tableau-reader:before {
+  body.kss .kss-example-preview .icon--tableau-public:before {
     content: "\f175"; }
-  body.kss .kss-example-preview .icon--tableau-server:before {
+  body.kss .kss-example-preview .icon--tableau-reader:before {
     content: "\f176"; }
-  body.kss .kss-example-preview .icon--tailor-content:before {
+  body.kss .kss-example-preview .icon--tableau-server:before {
     content: "\f177"; }
-  body.kss .kss-example-preview .icon--talk-bubble:before {
+  body.kss .kss-example-preview .icon--tailor-content:before {
     content: "\f178"; }
-  body.kss .kss-example-preview .icon--technology:before {
+  body.kss .kss-example-preview .icon--talk-bubble:before {
     content: "\f179"; }
-  body.kss .kss-example-preview .icon--unanswered:before {
+  body.kss .kss-example-preview .icon--technology:before {
     content: "\f17a"; }
-  body.kss .kss-example-preview .icon--up-to-date:before {
+  body.kss .kss-example-preview .icon--unanswered:before {
     content: "\f17b"; }
-  body.kss .kss-example-preview .icon--upload:before {
+  body.kss .kss-example-preview .icon--up-to-date:before {
     content: "\f17c"; }
-  body.kss .kss-example-preview .icon--user-groups:before {
+  body.kss .kss-example-preview .icon--upload:before {
     content: "\f17d"; }
-  body.kss .kss-example-preview .icon--view-less:before {
+  body.kss .kss-example-preview .icon--user-groups:before {
     content: "\f17e"; }
-  body.kss .kss-example-preview .icon--view-more:before {
+  body.kss .kss-example-preview .icon--view-less:before {
     content: "\f17f"; }
-  body.kss .kss-example-preview .icon--whitepaper:before {
+  body.kss .kss-example-preview .icon--view-more:before {
     content: "\f180"; }
-  body.kss .kss-example-preview .icon--wikis:before {
+  body.kss .kss-example-preview .icon--whitepaper:before {
     content: "\f181"; }
-  body.kss .kss-example-preview .icon--windows:before {
+  body.kss .kss-example-preview .icon--wikis:before {
     content: "\f182"; }
-  body.kss .kss-example-preview .icon--workbook-library:before {
+  body.kss .kss-example-preview .icon--windows:before {
     content: "\f183"; }
-  body.kss .kss-example-preview .icon--write:before {
+  body.kss .kss-example-preview .icon--workbook-library:before {
     content: "\f184"; }
-  body.kss .kss-example-preview .icon--youtube:before {
+  body.kss .kss-example-preview .icon--write:before {
     content: "\f185"; }
+  body.kss .kss-example-preview .icon--youtube:before {
+    content: "\f186"; }
   body.kss .kss-example-preview body {
     margin: 0; }
   body.kss .kss-example-preview form,
@@ -3635,7 +3648,7 @@ Style guide: typography.text-stat
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.6;
+    opacity: 0.75;
     background-color: #333; }
   body.kss .kss-example-preview .overlay-dark img {
     display: block;
@@ -4003,7 +4016,7 @@ Style guide: typography.text-stat
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.6;
+    opacity: 0.75;
     background-color: #333; }
   body.kss .kss-example-preview .overlay-dark img {
     display: block;
@@ -4428,17 +4441,17 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .link.link--arrow-before:before, body.kss .kss-example-preview .link--arrow-before.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--arrow-before.video-chapters__toggle:before {
       content: ""; }
     body.kss .kss-example-preview .link.link--expand:before, body.kss .kss-example-preview .link--expand.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .video-chapters__toggle:before {
-      content: ""; }
+      content: ""; }
     body.kss .kss-example-preview .link.link--collapse:before, body.kss .kss-example-preview .link--collapse.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--collapse.video-chapters__toggle:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .video-chapters__toggle.is-open:before {
-      content: ""; }
+      content: ""; }
     body.kss .kss-example-preview .link.link--share:before, body.kss .kss-example-preview .link--share.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--share.video-chapters__toggle:before {
-      content: ""; }
+      content: ""; }
     body.kss .kss-example-preview .link.link--close:after, body.kss .kss-example-preview .link--close.topic-link:after, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--close.video-chapters__toggle:after {
       content: ""; }
     body.kss .kss-example-preview .link.link--download:before, body.kss .kss-example-preview .link--download.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--download.video-chapters__toggle:before {
       content: ""; }
     body.kss .kss-example-preview .link.link--social-twitter:before, body.kss .kss-example-preview .link--social-twitter.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--social-twitter.video-chapters__toggle:before {
-      content: ""; }
+      content: ""; }
     body.kss .kss-example-preview .link.link--people:before, body.kss .kss-example-preview .link--people.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--people.video-chapters__toggle:before {
       content: ""; }
     body.kss .kss-example-preview .link.link--calendar:before, body.kss .kss-example-preview .link--calendar.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--calendar.video-chapters__toggle:before {
@@ -4460,9 +4473,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .link.link--newsletter:before, body.kss .kss-example-preview .link--newsletter.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--newsletter.video-chapters__toggle:before {
       content: ""; }
     body.kss .kss-example-preview .link.link--settings:before, body.kss .kss-example-preview .link--settings.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--settings.video-chapters__toggle:before {
-      content: ""; }
+      content: ""; }
     body.kss .kss-example-preview .link.link--upload:before, body.kss .kss-example-preview .link--upload.topic-link:before, body.kss .kss-example-preview .video-chapters__toggle-wrapper .link--upload.video-chapters__toggle:before {
-      content: ""; }
+      content: ""; }
   body.kss .kss-example-preview .topic-link > a {
     color: #333; }
     body.kss .kss-example-preview .topic-link > a:hover {
@@ -4481,7 +4494,8 @@ Style guide: typography.text-stat
     margin-bottom: 20px;
     border-bottom: 1px solid #dedede; }
     body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items {
-      font-family: "Benton Sans Light", Helvetica, sans-serif; }
+      font-family: "Benton Sans Light", Helvetica, sans-serif;
+      color: inherit; }
     @media (max-width: 639px) {
       body.kss .kss-example-preview .detail-field.detail-field--secondary {
         color: #333; } }
@@ -5009,13 +5023,34 @@ Style guide: typography.text-stat
         width: 3px;
         height: 90%;
         background: #e8762c; }
+  @media (max-width: 639px) {
+    body.kss .kss-example-preview .webform-client-form .form__control,
+    body.kss .kss-example-preview .webform-client-form .form__field,
+    body.kss .kss-example-preview .webform-client-form input[type="text"],
+    body.kss .kss-example-preview .webform-client-form input[type="search"],
+    body.kss .kss-example-preview .webform-client-form input[type="tel"],
+    body.kss .kss-example-preview .webform-client-form input[type="password"],
+    body.kss .kss-example-preview .webform-client-form input[type="number"],
+    body.kss .kss-example-preview .webform-client-form input[type="email"],
+    body.kss .kss-example-preview .webform-client-form select,
+    body.kss .kss-example-preview .webform-client-form textarea,
+    body.kss .kss-example-preview .webform-client-form .form__button {
+      width: 100%; } }
+  body.kss .kss-example-preview .user-register-form .form__legend,
+  body.kss .kss-example-preview .tableau-premium-access-button-form .form__legend {
+    padding: 0.5em 0; }
+  body.kss .kss-example-preview .user-register-form .form-field--checkbox,
+  body.kss .kss-example-preview .user-register-form .form-field--radio,
+  body.kss .kss-example-preview .tableau-premium-access-button-form .form-field--checkbox,
+  body.kss .kss-example-preview .tableau-premium-access-button-form .form-field--radio {
+    margin-bottom: 1em; }
   body.kss .kss-example-preview fieldset,
   body.kss .kss-example-preview .form__intro,
   body.kss .kss-example-preview .form__fieldset {
     margin-bottom: 1.5em; }
   body.kss .kss-example-preview legend,
   body.kss .kss-example-preview .form__legend {
-    padding-bottom: 1em; }
+    padding-bottom: 0.5em; }
   body.kss .kss-example-preview .form--centered .form__control,
   body.kss .kss-example-preview .form--centered .form__field,
   body.kss .kss-example-preview .form--centered input[type="text"],
@@ -5280,8 +5315,6 @@ Style guide: typography.text-stat
       color: #777; }
     body.kss .kss-example-preview .form--negative .form__legend {
       color: #fff; }
-      body.kss .kss-example-preview .form--negative .form__legend:before {
-        background: #999; }
     body.kss .kss-example-preview .form--negative .form-field__label,
     body.kss .kss-example-preview .form--negative .form-field__description {
       font-family: "Benton Sans Medium", Helvetica, sans-serif; }
@@ -5309,6 +5342,9 @@ Style guide: typography.text-stat
   body.kss .kss-example-preview .lt-ie9 .form__button,
   body.kss .kss-example-preview .lt-ie9 input[type="submit"] {
     display: inline-block; }
+  body.kss .kss-example-preview .lt-ie11 input.placeholder,
+  body.kss .kss-example-preview .lt-ie11 textarea.placeholder {
+    color: #999; }
   @media (min-width: 961px) {
     body.kss .kss-example-preview .responsive-filter .responsive-filter__select {
       display: none; } }
@@ -5325,7 +5361,6 @@ Style guide: typography.text-stat
       border: 1px solid #dedede;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
   body.kss .kss-example-preview .image {
-    display: table;
     clear: both; }
     body.kss .kss-example-preview .image.image--left {
       float: left; }
@@ -5334,9 +5369,6 @@ Style guide: typography.text-stat
       margin-right: auto; }
     body.kss .kss-example-preview .image.image--right {
       float: right; }
-    body.kss .kss-example-preview .image .caption--image {
-      display: table-caption;
-      caption-side: bottom; }
   body.kss .kss-example-preview .thumbnail {
     position: relative;
     display: inline-block;
@@ -5612,8 +5644,7 @@ Style guide: typography.text-stat
       width: 400px;
       padding: 1em;
       color: #333;
-      background-color: #fff;
-      border: 2px solid #dedede; }
+      background-color: #fff; }
     body.kss .kss-example-preview .modal-message .modal-message__icon {
       float: left;
       padding-right: 2em; }
@@ -6078,7 +6109,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--white h4, body.kss .kss-example-preview .bg--white .heading--h4,
     body.kss .kss-example-preview .bg--white h5, body.kss .kss-example-preview .bg--white .heading--h5, body.kss .kss-example-preview .bg--white .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .bg--white .detail-field__label, body.kss .kss-example-preview .bg--white .detail-field .field__label, body.kss .kss-example-preview .detail-field .bg--white .field__label,
     body.kss .kss-example-preview .bg--white .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--white .field-label, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .detail-field__items, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .field__items, body.kss .kss-example-preview .bg--white .location .location__general, body.kss .kss-example-preview .location .bg--white .location__general, body.kss .kss-example-preview .bg--white h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--white .field-label, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .detail-field__items, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .field__items, body.kss .kss-example-preview .bg--white .location .location__general, body.kss .kss-example-preview .location .bg--white .location__general, body.kss .kss-example-preview .bg--white .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--white .form__legend,
+    body.kss .kss-example-preview .bg--white .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--white .form__legend, body.kss .kss-example-preview .bg--white h2.block__title,
     body.kss .kss-example-preview .bg--white h6, body.kss .kss-example-preview .bg--white .heading--h6 {
       color: #000; }
       body.kss .kss-example-preview .bg--white h1 a, body.kss .kss-example-preview .bg--white .heading--huge a, body.kss .kss-example-preview .bg--white .heading--h1 a,
@@ -6088,7 +6121,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--white h4 a, body.kss .kss-example-preview .bg--white .heading--h4 a,
       body.kss .kss-example-preview .bg--white h5 a, body.kss .kss-example-preview .bg--white .heading--h5 a, body.kss .kss-example-preview .bg--white .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .bg--white .detail-field__label a, body.kss .kss-example-preview .bg--white .detail-field .field__label a, body.kss .kss-example-preview .detail-field .bg--white .field__label a,
       body.kss .kss-example-preview .bg--white .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--white .field-label a, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .detail-field__items a, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .field__items a, body.kss .kss-example-preview .bg--white .location .location__general a, body.kss .kss-example-preview .location .bg--white .location__general a, body.kss .kss-example-preview .bg--white h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--white .field-label a, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .detail-field__items a, body.kss .kss-example-preview .bg--white .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--white .field__items a, body.kss .kss-example-preview .bg--white .location .location__general a, body.kss .kss-example-preview .location .bg--white .location__general a, body.kss .kss-example-preview .bg--white .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--white .form__legend a,
+      body.kss .kss-example-preview .bg--white .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--white .form__legend a, body.kss .kss-example-preview .bg--white h2.block__title a,
       body.kss .kss-example-preview .bg--white h6 a, body.kss .kss-example-preview .bg--white .heading--h6 a {
         color: #000; }
   body.kss .kss-example-preview .bg--light-gray-1 {
@@ -6101,7 +6136,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--light-gray-1 h4, body.kss .kss-example-preview .bg--light-gray-1 .heading--h4,
     body.kss .kss-example-preview .bg--light-gray-1 h5, body.kss .kss-example-preview .bg--light-gray-1 .heading--h5, body.kss .kss-example-preview .bg--light-gray-1 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .bg--light-gray-1 .detail-field__label, body.kss .kss-example-preview .bg--light-gray-1 .detail-field .field__label, body.kss .kss-example-preview .detail-field .bg--light-gray-1 .field__label,
     body.kss .kss-example-preview .bg--light-gray-1 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--light-gray-1 .field-label, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .field__items, body.kss .kss-example-preview .bg--light-gray-1 .location .location__general, body.kss .kss-example-preview .location .bg--light-gray-1 .location__general, body.kss .kss-example-preview .bg--light-gray-1 h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--light-gray-1 .field-label, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .field__items, body.kss .kss-example-preview .bg--light-gray-1 .location .location__general, body.kss .kss-example-preview .location .bg--light-gray-1 .location__general, body.kss .kss-example-preview .bg--light-gray-1 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--light-gray-1 .form__legend,
+    body.kss .kss-example-preview .bg--light-gray-1 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--light-gray-1 .form__legend, body.kss .kss-example-preview .bg--light-gray-1 h2.block__title,
     body.kss .kss-example-preview .bg--light-gray-1 h6, body.kss .kss-example-preview .bg--light-gray-1 .heading--h6 {
       color: #000; }
       body.kss .kss-example-preview .bg--light-gray-1 h1 a, body.kss .kss-example-preview .bg--light-gray-1 .heading--huge a, body.kss .kss-example-preview .bg--light-gray-1 .heading--h1 a,
@@ -6111,7 +6148,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--light-gray-1 h4 a, body.kss .kss-example-preview .bg--light-gray-1 .heading--h4 a,
       body.kss .kss-example-preview .bg--light-gray-1 h5 a, body.kss .kss-example-preview .bg--light-gray-1 .heading--h5 a, body.kss .kss-example-preview .bg--light-gray-1 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .bg--light-gray-1 .detail-field__label a, body.kss .kss-example-preview .bg--light-gray-1 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .bg--light-gray-1 .field__label a,
       body.kss .kss-example-preview .bg--light-gray-1 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--light-gray-1 .field-label a, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items a, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .field__items a, body.kss .kss-example-preview .bg--light-gray-1 .location .location__general a, body.kss .kss-example-preview .location .bg--light-gray-1 .location__general a, body.kss .kss-example-preview .bg--light-gray-1 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--light-gray-1 .field-label a, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items a, body.kss .kss-example-preview .bg--light-gray-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-1 .field__items a, body.kss .kss-example-preview .bg--light-gray-1 .location .location__general a, body.kss .kss-example-preview .location .bg--light-gray-1 .location__general a, body.kss .kss-example-preview .bg--light-gray-1 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--light-gray-1 .form__legend a,
+      body.kss .kss-example-preview .bg--light-gray-1 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--light-gray-1 .form__legend a, body.kss .kss-example-preview .bg--light-gray-1 h2.block__title a,
       body.kss .kss-example-preview .bg--light-gray-1 h6 a, body.kss .kss-example-preview .bg--light-gray-1 .heading--h6 a {
         color: #000; }
   body.kss .kss-example-preview .bg--light-gray-2 {
@@ -6124,7 +6163,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--light-gray-2 h4, body.kss .kss-example-preview .bg--light-gray-2 .heading--h4,
     body.kss .kss-example-preview .bg--light-gray-2 h5, body.kss .kss-example-preview .bg--light-gray-2 .heading--h5, body.kss .kss-example-preview .bg--light-gray-2 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .bg--light-gray-2 .detail-field__label, body.kss .kss-example-preview .bg--light-gray-2 .detail-field .field__label, body.kss .kss-example-preview .detail-field .bg--light-gray-2 .field__label,
     body.kss .kss-example-preview .bg--light-gray-2 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--light-gray-2 .field-label, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .field__items, body.kss .kss-example-preview .bg--light-gray-2 .location .location__general, body.kss .kss-example-preview .location .bg--light-gray-2 .location__general, body.kss .kss-example-preview .bg--light-gray-2 h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--light-gray-2 .field-label, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .field__items, body.kss .kss-example-preview .bg--light-gray-2 .location .location__general, body.kss .kss-example-preview .location .bg--light-gray-2 .location__general, body.kss .kss-example-preview .bg--light-gray-2 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--light-gray-2 .form__legend,
+    body.kss .kss-example-preview .bg--light-gray-2 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--light-gray-2 .form__legend, body.kss .kss-example-preview .bg--light-gray-2 h2.block__title,
     body.kss .kss-example-preview .bg--light-gray-2 h6, body.kss .kss-example-preview .bg--light-gray-2 .heading--h6 {
       color: #000; }
       body.kss .kss-example-preview .bg--light-gray-2 h1 a, body.kss .kss-example-preview .bg--light-gray-2 .heading--huge a, body.kss .kss-example-preview .bg--light-gray-2 .heading--h1 a,
@@ -6134,7 +6175,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--light-gray-2 h4 a, body.kss .kss-example-preview .bg--light-gray-2 .heading--h4 a,
       body.kss .kss-example-preview .bg--light-gray-2 h5 a, body.kss .kss-example-preview .bg--light-gray-2 .heading--h5 a, body.kss .kss-example-preview .bg--light-gray-2 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .bg--light-gray-2 .detail-field__label a, body.kss .kss-example-preview .bg--light-gray-2 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .bg--light-gray-2 .field__label a,
       body.kss .kss-example-preview .bg--light-gray-2 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--light-gray-2 .field-label a, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items a, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .field__items a, body.kss .kss-example-preview .bg--light-gray-2 .location .location__general a, body.kss .kss-example-preview .location .bg--light-gray-2 .location__general a, body.kss .kss-example-preview .bg--light-gray-2 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--light-gray-2 .field-label a, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items a, body.kss .kss-example-preview .bg--light-gray-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--light-gray-2 .field__items a, body.kss .kss-example-preview .bg--light-gray-2 .location .location__general a, body.kss .kss-example-preview .location .bg--light-gray-2 .location__general a, body.kss .kss-example-preview .bg--light-gray-2 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--light-gray-2 .form__legend a,
+      body.kss .kss-example-preview .bg--light-gray-2 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--light-gray-2 .form__legend a, body.kss .kss-example-preview .bg--light-gray-2 h2.block__title a,
       body.kss .kss-example-preview .bg--light-gray-2 h6 a, body.kss .kss-example-preview .bg--light-gray-2 .heading--h6 a {
         color: #000; }
   body.kss .kss-example-preview .bg--dark-gray-1, body.kss .kss-example-preview .subnav {
@@ -6150,7 +6193,11 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--dark-gray-1 .detail-field .field-label,
     body.kss .kss-example-preview .detail-field .bg--dark-gray-1 .field-label,
     body.kss .kss-example-preview .subnav .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .subnav .field-label, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .detail-field__items, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .field__items, body.kss .kss-example-preview .bg--dark-gray-1 .location .location__general, body.kss .kss-example-preview .location .bg--dark-gray-1 .location__general, body.kss .kss-example-preview .subnav .location .location__general, body.kss .kss-example-preview .location .subnav .location__general, body.kss .kss-example-preview .bg--dark-gray-1 h2.block__title, body.kss .kss-example-preview .subnav h2.block__title,
+    body.kss .kss-example-preview .detail-field .subnav .field-label, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .detail-field__items, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .field__items, body.kss .kss-example-preview .bg--dark-gray-1 .location .location__general, body.kss .kss-example-preview .location .bg--dark-gray-1 .location__general, body.kss .kss-example-preview .subnav .location .location__general, body.kss .kss-example-preview .location .subnav .location__general, body.kss .kss-example-preview .bg--dark-gray-1 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--dark-gray-1 .form__legend, body.kss .kss-example-preview .subnav .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .subnav .form__legend,
+    body.kss .kss-example-preview .bg--dark-gray-1 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--dark-gray-1 .form__legend,
+    body.kss .kss-example-preview .subnav .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .subnav .form__legend, body.kss .kss-example-preview .bg--dark-gray-1 h2.block__title, body.kss .kss-example-preview .subnav h2.block__title,
     body.kss .kss-example-preview .bg--dark-gray-1 h6, body.kss .kss-example-preview .subnav h6, body.kss .kss-example-preview .bg--dark-gray-1 .heading--h6, body.kss .kss-example-preview .subnav .heading--h6 {
       color: #fff; }
       body.kss .kss-example-preview .bg--dark-gray-1 h1 a, body.kss .kss-example-preview .subnav h1 a, body.kss .kss-example-preview .bg--dark-gray-1 .heading--huge a, body.kss .kss-example-preview .subnav .heading--huge a, body.kss .kss-example-preview .bg--dark-gray-1 .heading--h1 a, body.kss .kss-example-preview .subnav .heading--h1 a,
@@ -6163,7 +6210,11 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--dark-gray-1 .detail-field .field-label a,
       body.kss .kss-example-preview .detail-field .bg--dark-gray-1 .field-label a,
       body.kss .kss-example-preview .subnav .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .subnav .field-label a, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items a, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .detail-field__items a, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items a, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .field__items a, body.kss .kss-example-preview .bg--dark-gray-1 .location .location__general a, body.kss .kss-example-preview .location .bg--dark-gray-1 .location__general a, body.kss .kss-example-preview .subnav .location .location__general a, body.kss .kss-example-preview .location .subnav .location__general a, body.kss .kss-example-preview .bg--dark-gray-1 h2.block__title a, body.kss .kss-example-preview .subnav h2.block__title a,
+      body.kss .kss-example-preview .detail-field .subnav .field-label a, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items a, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .detail-field__items a, body.kss .kss-example-preview .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items a, body.kss .kss-example-preview .subnav .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .subnav .field__items a, body.kss .kss-example-preview .bg--dark-gray-1 .location .location__general a, body.kss .kss-example-preview .location .bg--dark-gray-1 .location__general a, body.kss .kss-example-preview .subnav .location .location__general a, body.kss .kss-example-preview .location .subnav .location__general a, body.kss .kss-example-preview .bg--dark-gray-1 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--dark-gray-1 .form__legend a, body.kss .kss-example-preview .subnav .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .subnav .form__legend a,
+      body.kss .kss-example-preview .bg--dark-gray-1 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--dark-gray-1 .form__legend a,
+      body.kss .kss-example-preview .subnav .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .subnav .form__legend a, body.kss .kss-example-preview .bg--dark-gray-1 h2.block__title a, body.kss .kss-example-preview .subnav h2.block__title a,
       body.kss .kss-example-preview .bg--dark-gray-1 h6 a, body.kss .kss-example-preview .subnav h6 a, body.kss .kss-example-preview .bg--dark-gray-1 .heading--h6 a, body.kss .kss-example-preview .subnav .heading--h6 a {
         color: #fff; }
   body.kss .kss-example-preview .bg--dark-gray-2 {
@@ -6176,7 +6227,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--dark-gray-2 h4, body.kss .kss-example-preview .bg--dark-gray-2 .heading--h4,
     body.kss .kss-example-preview .bg--dark-gray-2 h5, body.kss .kss-example-preview .bg--dark-gray-2 .heading--h5, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .detail-field__label, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field .field__label, body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .field__label,
     body.kss .kss-example-preview .bg--dark-gray-2 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .field-label, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items, body.kss .kss-example-preview .bg--dark-gray-2 .location .location__general, body.kss .kss-example-preview .location .bg--dark-gray-2 .location__general, body.kss .kss-example-preview .bg--dark-gray-2 h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .field-label, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items, body.kss .kss-example-preview .bg--dark-gray-2 .location .location__general, body.kss .kss-example-preview .location .bg--dark-gray-2 .location__general, body.kss .kss-example-preview .bg--dark-gray-2 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--dark-gray-2 .form__legend,
+    body.kss .kss-example-preview .bg--dark-gray-2 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--dark-gray-2 .form__legend, body.kss .kss-example-preview .bg--dark-gray-2 h2.block__title,
     body.kss .kss-example-preview .bg--dark-gray-2 h6, body.kss .kss-example-preview .bg--dark-gray-2 .heading--h6 {
       color: #fff; }
       body.kss .kss-example-preview .bg--dark-gray-2 h1 a, body.kss .kss-example-preview .bg--dark-gray-2 .heading--huge a, body.kss .kss-example-preview .bg--dark-gray-2 .heading--h1 a,
@@ -6186,7 +6239,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--dark-gray-2 h4 a, body.kss .kss-example-preview .bg--dark-gray-2 .heading--h4 a,
       body.kss .kss-example-preview .bg--dark-gray-2 h5 a, body.kss .kss-example-preview .bg--dark-gray-2 .heading--h5 a, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .detail-field__label a, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .field__label a,
       body.kss .kss-example-preview .bg--dark-gray-2 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .field-label a, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items a, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items a, body.kss .kss-example-preview .bg--dark-gray-2 .location .location__general a, body.kss .kss-example-preview .location .bg--dark-gray-2 .location__general a, body.kss .kss-example-preview .bg--dark-gray-2 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--dark-gray-2 .field-label a, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items a, body.kss .kss-example-preview .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items a, body.kss .kss-example-preview .bg--dark-gray-2 .location .location__general a, body.kss .kss-example-preview .location .bg--dark-gray-2 .location__general a, body.kss .kss-example-preview .bg--dark-gray-2 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--dark-gray-2 .form__legend a,
+      body.kss .kss-example-preview .bg--dark-gray-2 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--dark-gray-2 .form__legend a, body.kss .kss-example-preview .bg--dark-gray-2 h2.block__title a,
       body.kss .kss-example-preview .bg--dark-gray-2 h6 a, body.kss .kss-example-preview .bg--dark-gray-2 .heading--h6 a {
         color: #fff; }
   body.kss .kss-example-preview .bg--dark-gray-3, body.kss .kss-example-preview .bg--media-shade {
@@ -6202,7 +6257,11 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--dark-gray-3 .detail-field .field-label,
     body.kss .kss-example-preview .detail-field .bg--dark-gray-3 .field-label,
     body.kss .kss-example-preview .bg--media-shade .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--media-shade .field-label, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .detail-field__items, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .field__items, body.kss .kss-example-preview .bg--dark-gray-3 .location .location__general, body.kss .kss-example-preview .location .bg--dark-gray-3 .location__general, body.kss .kss-example-preview .bg--media-shade .location .location__general, body.kss .kss-example-preview .location .bg--media-shade .location__general, body.kss .kss-example-preview .bg--dark-gray-3 h2.block__title, body.kss .kss-example-preview .bg--media-shade h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--media-shade .field-label, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .detail-field__items, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .field__items, body.kss .kss-example-preview .bg--dark-gray-3 .location .location__general, body.kss .kss-example-preview .location .bg--dark-gray-3 .location__general, body.kss .kss-example-preview .bg--media-shade .location .location__general, body.kss .kss-example-preview .location .bg--media-shade .location__general, body.kss .kss-example-preview .bg--dark-gray-3 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--dark-gray-3 .form__legend, body.kss .kss-example-preview .bg--media-shade .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--media-shade .form__legend,
+    body.kss .kss-example-preview .bg--dark-gray-3 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--dark-gray-3 .form__legend,
+    body.kss .kss-example-preview .bg--media-shade .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--media-shade .form__legend, body.kss .kss-example-preview .bg--dark-gray-3 h2.block__title, body.kss .kss-example-preview .bg--media-shade h2.block__title,
     body.kss .kss-example-preview .bg--dark-gray-3 h6, body.kss .kss-example-preview .bg--media-shade h6, body.kss .kss-example-preview .bg--dark-gray-3 .heading--h6, body.kss .kss-example-preview .bg--media-shade .heading--h6 {
       color: #fff; }
       body.kss .kss-example-preview .bg--dark-gray-3 h1 a, body.kss .kss-example-preview .bg--media-shade h1 a, body.kss .kss-example-preview .bg--dark-gray-3 .heading--huge a, body.kss .kss-example-preview .bg--media-shade .heading--huge a, body.kss .kss-example-preview .bg--dark-gray-3 .heading--h1 a, body.kss .kss-example-preview .bg--media-shade .heading--h1 a,
@@ -6215,7 +6274,11 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--dark-gray-3 .detail-field .field-label a,
       body.kss .kss-example-preview .detail-field .bg--dark-gray-3 .field-label a,
       body.kss .kss-example-preview .bg--media-shade .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--media-shade .field-label a, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items a, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .detail-field__items a, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items a, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .field__items a, body.kss .kss-example-preview .bg--dark-gray-3 .location .location__general a, body.kss .kss-example-preview .location .bg--dark-gray-3 .location__general a, body.kss .kss-example-preview .bg--media-shade .location .location__general a, body.kss .kss-example-preview .location .bg--media-shade .location__general a, body.kss .kss-example-preview .bg--dark-gray-3 h2.block__title a, body.kss .kss-example-preview .bg--media-shade h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--media-shade .field-label a, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items a, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .detail-field__items a, body.kss .kss-example-preview .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items a, body.kss .kss-example-preview .bg--media-shade .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--media-shade .field__items a, body.kss .kss-example-preview .bg--dark-gray-3 .location .location__general a, body.kss .kss-example-preview .location .bg--dark-gray-3 .location__general a, body.kss .kss-example-preview .bg--media-shade .location .location__general a, body.kss .kss-example-preview .location .bg--media-shade .location__general a, body.kss .kss-example-preview .bg--dark-gray-3 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--dark-gray-3 .form__legend a, body.kss .kss-example-preview .bg--media-shade .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--media-shade .form__legend a,
+      body.kss .kss-example-preview .bg--dark-gray-3 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--dark-gray-3 .form__legend a,
+      body.kss .kss-example-preview .bg--media-shade .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--media-shade .form__legend a, body.kss .kss-example-preview .bg--dark-gray-3 h2.block__title a, body.kss .kss-example-preview .bg--media-shade h2.block__title a,
       body.kss .kss-example-preview .bg--dark-gray-3 h6 a, body.kss .kss-example-preview .bg--media-shade h6 a, body.kss .kss-example-preview .bg--dark-gray-3 .heading--h6 a, body.kss .kss-example-preview .bg--media-shade .heading--h6 a {
         color: #fff; }
   body.kss .kss-example-preview .bg--about-featured {
@@ -6228,7 +6291,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--about-featured h4, body.kss .kss-example-preview .bg--about-featured .heading--h4,
     body.kss .kss-example-preview .bg--about-featured h5, body.kss .kss-example-preview .bg--about-featured .heading--h5, body.kss .kss-example-preview .bg--about-featured .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .bg--about-featured .detail-field__label, body.kss .kss-example-preview .bg--about-featured .detail-field .field__label, body.kss .kss-example-preview .detail-field .bg--about-featured .field__label,
     body.kss .kss-example-preview .bg--about-featured .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--about-featured .field-label, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .detail-field__items, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .field__items, body.kss .kss-example-preview .bg--about-featured .location .location__general, body.kss .kss-example-preview .location .bg--about-featured .location__general, body.kss .kss-example-preview .bg--about-featured h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--about-featured .field-label, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .detail-field__items, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .field__items, body.kss .kss-example-preview .bg--about-featured .location .location__general, body.kss .kss-example-preview .location .bg--about-featured .location__general, body.kss .kss-example-preview .bg--about-featured .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--about-featured .form__legend,
+    body.kss .kss-example-preview .bg--about-featured .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--about-featured .form__legend, body.kss .kss-example-preview .bg--about-featured h2.block__title,
     body.kss .kss-example-preview .bg--about-featured h6, body.kss .kss-example-preview .bg--about-featured .heading--h6 {
       color: #fff; }
       body.kss .kss-example-preview .bg--about-featured h1 a, body.kss .kss-example-preview .bg--about-featured .heading--huge a, body.kss .kss-example-preview .bg--about-featured .heading--h1 a,
@@ -6238,7 +6303,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--about-featured h4 a, body.kss .kss-example-preview .bg--about-featured .heading--h4 a,
       body.kss .kss-example-preview .bg--about-featured h5 a, body.kss .kss-example-preview .bg--about-featured .heading--h5 a, body.kss .kss-example-preview .bg--about-featured .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .bg--about-featured .detail-field__label a, body.kss .kss-example-preview .bg--about-featured .detail-field .field__label a, body.kss .kss-example-preview .detail-field .bg--about-featured .field__label a,
       body.kss .kss-example-preview .bg--about-featured .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--about-featured .field-label a, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .detail-field__items a, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .field__items a, body.kss .kss-example-preview .bg--about-featured .location .location__general a, body.kss .kss-example-preview .location .bg--about-featured .location__general a, body.kss .kss-example-preview .bg--about-featured h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--about-featured .field-label a, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .detail-field__items a, body.kss .kss-example-preview .bg--about-featured .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--about-featured .field__items a, body.kss .kss-example-preview .bg--about-featured .location .location__general a, body.kss .kss-example-preview .location .bg--about-featured .location__general a, body.kss .kss-example-preview .bg--about-featured .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--about-featured .form__legend a,
+      body.kss .kss-example-preview .bg--about-featured .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--about-featured .form__legend a, body.kss .kss-example-preview .bg--about-featured h2.block__title a,
       body.kss .kss-example-preview .bg--about-featured h6 a, body.kss .kss-example-preview .bg--about-featured .heading--h6 a {
         color: #fff; }
   body.kss .kss-example-preview .bg--data-sources, body.kss .kss-example-preview .card.card--quote {
@@ -6254,7 +6321,11 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--data-sources .detail-field .field-label,
     body.kss .kss-example-preview .detail-field .bg--data-sources .field-label,
     body.kss .kss-example-preview .card.card--quote .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .card.card--quote .field-label, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .detail-field__items, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .detail-field__items, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .field__items, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .field__items, body.kss .kss-example-preview .bg--data-sources .location .location__general, body.kss .kss-example-preview .location .bg--data-sources .location__general, body.kss .kss-example-preview .card.card--quote .location .location__general, body.kss .kss-example-preview .location .card.card--quote .location__general, body.kss .kss-example-preview .bg--data-sources h2.block__title, body.kss .kss-example-preview .card.card--quote h2.block__title,
+    body.kss .kss-example-preview .detail-field .card.card--quote .field-label, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .detail-field__items, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .detail-field__items, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .field__items, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .field__items, body.kss .kss-example-preview .bg--data-sources .location .location__general, body.kss .kss-example-preview .location .bg--data-sources .location__general, body.kss .kss-example-preview .card.card--quote .location .location__general, body.kss .kss-example-preview .location .card.card--quote .location__general, body.kss .kss-example-preview .bg--data-sources .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--data-sources .form__legend, body.kss .kss-example-preview .card.card--quote .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .card.card--quote .form__legend,
+    body.kss .kss-example-preview .bg--data-sources .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--data-sources .form__legend,
+    body.kss .kss-example-preview .card.card--quote .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .card.card--quote .form__legend, body.kss .kss-example-preview .bg--data-sources h2.block__title, body.kss .kss-example-preview .card.card--quote h2.block__title,
     body.kss .kss-example-preview .bg--data-sources h6, body.kss .kss-example-preview .card.card--quote h6, body.kss .kss-example-preview .bg--data-sources .heading--h6, body.kss .kss-example-preview .card.card--quote .heading--h6 {
       color: #fff; }
       body.kss .kss-example-preview .bg--data-sources h1 a, body.kss .kss-example-preview .card.card--quote h1 a, body.kss .kss-example-preview .bg--data-sources .heading--huge a, body.kss .kss-example-preview .card.card--quote .heading--huge a, body.kss .kss-example-preview .bg--data-sources .heading--h1 a, body.kss .kss-example-preview .card.card--quote .heading--h1 a,
@@ -6267,7 +6338,11 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--data-sources .detail-field .field-label a,
       body.kss .kss-example-preview .detail-field .bg--data-sources .field-label a,
       body.kss .kss-example-preview .card.card--quote .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .card.card--quote .field-label a, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .detail-field__items a, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .detail-field__items a, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .field__items a, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .field__items a, body.kss .kss-example-preview .bg--data-sources .location .location__general a, body.kss .kss-example-preview .location .bg--data-sources .location__general a, body.kss .kss-example-preview .card.card--quote .location .location__general a, body.kss .kss-example-preview .location .card.card--quote .location__general a, body.kss .kss-example-preview .bg--data-sources h2.block__title a, body.kss .kss-example-preview .card.card--quote h2.block__title a,
+      body.kss .kss-example-preview .detail-field .card.card--quote .field-label a, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .detail-field__items a, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .detail-field__items a, body.kss .kss-example-preview .bg--data-sources .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--data-sources .field__items a, body.kss .kss-example-preview .card.card--quote .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .card.card--quote .field__items a, body.kss .kss-example-preview .bg--data-sources .location .location__general a, body.kss .kss-example-preview .location .bg--data-sources .location__general a, body.kss .kss-example-preview .card.card--quote .location .location__general a, body.kss .kss-example-preview .location .card.card--quote .location__general a, body.kss .kss-example-preview .bg--data-sources .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--data-sources .form__legend a, body.kss .kss-example-preview .card.card--quote .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .card.card--quote .form__legend a,
+      body.kss .kss-example-preview .bg--data-sources .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--data-sources .form__legend a,
+      body.kss .kss-example-preview .card.card--quote .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .card.card--quote .form__legend a, body.kss .kss-example-preview .bg--data-sources h2.block__title a, body.kss .kss-example-preview .card.card--quote h2.block__title a,
       body.kss .kss-example-preview .bg--data-sources h6 a, body.kss .kss-example-preview .card.card--quote h6 a, body.kss .kss-example-preview .bg--data-sources .heading--h6 a, body.kss .kss-example-preview .card.card--quote .heading--h6 a {
         color: #fff; }
   body.kss .kss-example-preview .bg--nav-drawer-gray-1 {
@@ -6280,7 +6355,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--nav-drawer-gray-1 h4, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--h4,
     body.kss .kss-example-preview .bg--nav-drawer-gray-1 h5, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--h5, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .detail-field__label, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field .field__label, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .field__label,
     body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .field-label, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .location .location__general, body.kss .kss-example-preview .location .bg--nav-drawer-gray-1 .location__general, body.kss .kss-example-preview .bg--nav-drawer-gray-1 h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .field-label, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .location .location__general, body.kss .kss-example-preview .location .bg--nav-drawer-gray-1 .location__general, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--nav-drawer-gray-1 .form__legend,
+    body.kss .kss-example-preview .bg--nav-drawer-gray-1 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--nav-drawer-gray-1 .form__legend, body.kss .kss-example-preview .bg--nav-drawer-gray-1 h2.block__title,
     body.kss .kss-example-preview .bg--nav-drawer-gray-1 h6, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--h6 {
       color: #000; }
       body.kss .kss-example-preview .bg--nav-drawer-gray-1 h1 a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--huge a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--h1 a,
@@ -6290,7 +6367,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--nav-drawer-gray-1 h4 a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--h4 a,
       body.kss .kss-example-preview .bg--nav-drawer-gray-1 h5 a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--h5 a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .detail-field__label a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .field__label a,
       body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .field-label a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .location .location__general a, body.kss .kss-example-preview .location .bg--nav-drawer-gray-1 .location__general a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-1 .field-label a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .location .location__general a, body.kss .kss-example-preview .location .bg--nav-drawer-gray-1 .location__general a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--nav-drawer-gray-1 .form__legend a,
+      body.kss .kss-example-preview .bg--nav-drawer-gray-1 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--nav-drawer-gray-1 .form__legend a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 h2.block__title a,
       body.kss .kss-example-preview .bg--nav-drawer-gray-1 h6 a, body.kss .kss-example-preview .bg--nav-drawer-gray-1 .heading--h6 a {
         color: #000; }
   body.kss .kss-example-preview .bg--nav-drawer-gray-2 {
@@ -6303,7 +6382,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .bg--nav-drawer-gray-2 h4, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--h4,
     body.kss .kss-example-preview .bg--nav-drawer-gray-2 h5, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--h5, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .detail-field__label, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field .field__label, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .field__label,
     body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .field-label, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .location .location__general, body.kss .kss-example-preview .location .bg--nav-drawer-gray-2 .location__general, body.kss .kss-example-preview .bg--nav-drawer-gray-2 h2.block__title,
+    body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .field-label, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .location .location__general, body.kss .kss-example-preview .location .bg--nav-drawer-gray-2 .location__general, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .bg--nav-drawer-gray-2 .form__legend,
+    body.kss .kss-example-preview .bg--nav-drawer-gray-2 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .bg--nav-drawer-gray-2 .form__legend, body.kss .kss-example-preview .bg--nav-drawer-gray-2 h2.block__title,
     body.kss .kss-example-preview .bg--nav-drawer-gray-2 h6, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--h6 {
       color: #000; }
       body.kss .kss-example-preview .bg--nav-drawer-gray-2 h1 a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--huge a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--h1 a,
@@ -6313,7 +6394,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .bg--nav-drawer-gray-2 h4 a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--h4 a,
       body.kss .kss-example-preview .bg--nav-drawer-gray-2 h5 a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--h5 a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .detail-field__label a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .field__label a,
       body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .field-label a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .location .location__general a, body.kss .kss-example-preview .location .bg--nav-drawer-gray-2 .location__general a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .bg--nav-drawer-gray-2 .field-label a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .location .location__general a, body.kss .kss-example-preview .location .bg--nav-drawer-gray-2 .location__general a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .bg--nav-drawer-gray-2 .form__legend a,
+      body.kss .kss-example-preview .bg--nav-drawer-gray-2 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .bg--nav-drawer-gray-2 .form__legend a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 h2.block__title a,
       body.kss .kss-example-preview .bg--nav-drawer-gray-2 h6 a, body.kss .kss-example-preview .bg--nav-drawer-gray-2 .heading--h6 a {
         color: #000; }
   body.kss .kss-example-preview .bg--media-shade {
@@ -7147,8 +7230,7 @@ Style guide: typography.text-stat
   @media (min-width: 640px) and (max-width: 960px) {
     body.kss .kss-example-preview .cross-reference-3 .cross-reference-3__title {
       text-align: center; }
-      body.kss .kss-example-preview .cross-reference-3 .cross-reference-3__title .heading-highlight:before, body.kss .kss-example-preview .cross-reference-3 .cross-reference-3__title legend:before,
-      body.kss .kss-example-preview .cross-reference-3 .cross-reference-3__title .form__legend:before {
+      body.kss .kss-example-preview .cross-reference-3 .cross-reference-3__title .heading-highlight:before {
         left: 50%;
         margin-left: -25px; }
     body.kss .kss-example-preview .cross-reference-3 .cross-reference-3__title,
@@ -7346,7 +7428,9 @@ Style guide: typography.text-stat
     color: #787878; }
   body.kss .kss-example-preview .video-playlist__play {
     display: table-cell;
-    width: 2em; }
+    width: 1.5em;
+    font-size: 1.25em;
+    color: #e8762c; }
   body.kss .kss-example-preview .video-playlist__title {
     display: table-cell;
     padding: 0.5em 0; }
@@ -7576,7 +7660,7 @@ Style guide: typography.text-stat
       font-size: 0;
       color: #333; }
       body.kss .kss-example-preview .global-nav__top .global-nav__search-toggle:before {
-        content: "";
+        content: "";
         cursor: pointer;
         font-size: 20px; }
     body.kss .kss-example-preview .global-nav__top .global-nav__search {
@@ -7584,7 +7668,7 @@ Style guide: typography.text-stat
       position: absolute;
       z-index: 10001; }
       body.kss .kss-example-preview .global-nav__top .global-nav__search:before {
-        content: "";
+        content: "";
         position: absolute;
         display: block;
         cursor: pointer;
@@ -8289,7 +8373,6 @@ Style guide: typography.text-stat
   body.kss .kss-example-preview .icon--database,
   body.kss .kss-example-preview .icon--diagram,
   body.kss .kss-example-preview .icon--management,
-  body.kss .kss-example-preview .icon--play-orange,
   body.kss .kss-example-preview .icon--statistics,
   body.kss .kss-example-preview .icon--expand,
   body.kss .kss-example-preview .icon--collapse,
@@ -8299,8 +8382,6 @@ Style guide: typography.text-stat
   body.kss .kss-example-preview .icon--slideshow-next-dark,
   body.kss .kss-example-preview .icon--magnifying-glass {
     display: inline-block; }
-  body.kss .kss-example-preview .icon--play-orange:before {
-    content: url(../images/shame/icons/icon-play-orange.png); }
   body.kss .kss-example-preview .icon--circle-filled-orange:before {
     content: url(../images/shame/icons/icon-circle-filled-orange.png); }
   body.kss .kss-example-preview .icon--product-mobile:before {
@@ -8483,7 +8564,7 @@ Style guide: typography.text-stat
       width: 20%;
       float: left;
       margin-right: 6.66667%; }
-      @media (min-width: 640px) {
+      @media (max-width: 960px) {
         body.kss .kss-example-preview .person-teaser .person-teaser__image {
           width: 14.89362%;
           float: left;
@@ -8493,7 +8574,7 @@ Style guide: typography.text-stat
       float: left;
       margin-left: 0;
       margin-right: -100%; }
-      @media (min-width: 640px) {
+      @media (max-width: 960px) {
         body.kss .kss-example-preview .person-teaser .person-teaser__info {
           width: 31.91489%;
           float: left;
@@ -8593,15 +8674,7 @@ Style guide: typography.text-stat
   @media (min-width: 640px) and (max-width: 960px) {
     body.kss .kss-example-preview .teaser-item.grid--tablet-half {
       margin-bottom: 2em; } }
-  body.kss .kss-example-preview .block-liftigniter-widget-learn-recs-li .content {
-    min-height: 100px; }
-  body.kss .kss-example-preview #li-recommendation-learn-recs-li {
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    margin: 0; }
   body.kss .kss-example-preview .text-teaser-item .text-teaser-item__title a {
-    font-family: "Merriweather", serif;
     color: #787878; }
   body.kss .kss-example-preview body,
   body.kss .kss-example-preview .text--body-base, body.kss .kss-example-preview .contextual-search .contextual-search__title,
@@ -8678,7 +8751,11 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--negative .detail-field .field-label,
     body.kss .kss-example-preview .detail-field .text--negative .field-label,
     body.kss .kss-example-preview .tooltip .tooltip__text .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .tooltip .tooltip__text .field-label, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .detail-field__items, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .field__items, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items, body.kss .kss-example-preview .text--negative .location .location__general, body.kss .kss-example-preview .location .text--negative .location__general, body.kss .kss-example-preview .tooltip .tooltip__text .location .location__general, body.kss .kss-example-preview .location .tooltip .tooltip__text .location__general, body.kss .kss-example-preview .text--negative h2.block__title, body.kss .kss-example-preview .tooltip .tooltip__text h2.block__title,
+    body.kss .kss-example-preview .detail-field .tooltip .tooltip__text .field-label, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .detail-field__items, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .field__items, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items, body.kss .kss-example-preview .text--negative .location .location__general, body.kss .kss-example-preview .location .text--negative .location__general, body.kss .kss-example-preview .tooltip .tooltip__text .location .location__general, body.kss .kss-example-preview .location .tooltip .tooltip__text .location__general, body.kss .kss-example-preview .text--negative .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--negative .form__legend, body.kss .kss-example-preview .tooltip .tooltip__text .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .tooltip .tooltip__text .form__legend,
+    body.kss .kss-example-preview .text--negative .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--negative .form__legend,
+    body.kss .kss-example-preview .tooltip .tooltip__text .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .tooltip .tooltip__text .form__legend, body.kss .kss-example-preview .text--negative h2.block__title, body.kss .kss-example-preview .tooltip .tooltip__text h2.block__title,
     body.kss .kss-example-preview .text--negative h6, body.kss .kss-example-preview .tooltip .tooltip__text h6, body.kss .kss-example-preview .text--negative .heading--h6, body.kss .kss-example-preview .tooltip .tooltip__text .heading--h6 {
       color: #fff; }
       body.kss .kss-example-preview .text--negative h1 a, body.kss .kss-example-preview .tooltip .tooltip__text h1 a, body.kss .kss-example-preview .text--negative .heading--huge a, body.kss .kss-example-preview .tooltip .tooltip__text .heading--huge a, body.kss .kss-example-preview .text--negative .heading--h1 a, body.kss .kss-example-preview .tooltip .tooltip__text .heading--h1 a,
@@ -8691,7 +8768,11 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--negative .detail-field .field-label a,
       body.kss .kss-example-preview .detail-field .text--negative .field-label a,
       body.kss .kss-example-preview .tooltip .tooltip__text .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .tooltip .tooltip__text .field-label a, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .detail-field__items a, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items a, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .field__items a, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items a, body.kss .kss-example-preview .text--negative .location .location__general a, body.kss .kss-example-preview .location .text--negative .location__general a, body.kss .kss-example-preview .tooltip .tooltip__text .location .location__general a, body.kss .kss-example-preview .location .tooltip .tooltip__text .location__general a, body.kss .kss-example-preview .text--negative h2.block__title a, body.kss .kss-example-preview .tooltip .tooltip__text h2.block__title a,
+      body.kss .kss-example-preview .detail-field .tooltip .tooltip__text .field-label a, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .detail-field__items a, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items a, body.kss .kss-example-preview .text--negative .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--negative .field__items a, body.kss .kss-example-preview .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items a, body.kss .kss-example-preview .text--negative .location .location__general a, body.kss .kss-example-preview .location .text--negative .location__general a, body.kss .kss-example-preview .tooltip .tooltip__text .location .location__general a, body.kss .kss-example-preview .location .tooltip .tooltip__text .location__general a, body.kss .kss-example-preview .text--negative .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--negative .form__legend a, body.kss .kss-example-preview .tooltip .tooltip__text .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .tooltip .tooltip__text .form__legend a,
+      body.kss .kss-example-preview .text--negative .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--negative .form__legend a,
+      body.kss .kss-example-preview .tooltip .tooltip__text .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .tooltip .tooltip__text .form__legend a, body.kss .kss-example-preview .text--negative h2.block__title a, body.kss .kss-example-preview .tooltip .tooltip__text h2.block__title a,
       body.kss .kss-example-preview .text--negative h6 a, body.kss .kss-example-preview .tooltip .tooltip__text h6 a, body.kss .kss-example-preview .text--negative .heading--h6 a, body.kss .kss-example-preview .tooltip .tooltip__text .heading--h6 a {
         color: #fff; }
   body.kss .kss-example-preview .text--light-body {
@@ -8703,7 +8784,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--light-body h4, body.kss .kss-example-preview .text--light-body .heading--h4,
     body.kss .kss-example-preview .text--light-body h5, body.kss .kss-example-preview .text--light-body .heading--h5, body.kss .kss-example-preview .text--light-body .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--light-body .detail-field__label, body.kss .kss-example-preview .text--light-body .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--light-body .field__label,
     body.kss .kss-example-preview .text--light-body .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--light-body .field-label, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .detail-field__items, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .field__items, body.kss .kss-example-preview .text--light-body .location .location__general, body.kss .kss-example-preview .location .text--light-body .location__general, body.kss .kss-example-preview .text--light-body h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--light-body .field-label, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .detail-field__items, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .field__items, body.kss .kss-example-preview .text--light-body .location .location__general, body.kss .kss-example-preview .location .text--light-body .location__general, body.kss .kss-example-preview .text--light-body .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--light-body .form__legend,
+    body.kss .kss-example-preview .text--light-body .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--light-body .form__legend, body.kss .kss-example-preview .text--light-body h2.block__title,
     body.kss .kss-example-preview .text--light-body h6, body.kss .kss-example-preview .text--light-body .heading--h6 {
       color: #bbb; }
       body.kss .kss-example-preview .text--light-body h1 a, body.kss .kss-example-preview .text--light-body .heading--huge a, body.kss .kss-example-preview .text--light-body .heading--h1 a,
@@ -8713,7 +8796,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--light-body h4 a, body.kss .kss-example-preview .text--light-body .heading--h4 a,
       body.kss .kss-example-preview .text--light-body h5 a, body.kss .kss-example-preview .text--light-body .heading--h5 a, body.kss .kss-example-preview .text--light-body .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--light-body .detail-field__label a, body.kss .kss-example-preview .text--light-body .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--light-body .field__label a,
       body.kss .kss-example-preview .text--light-body .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--light-body .field-label a, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .detail-field__items a, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .field__items a, body.kss .kss-example-preview .text--light-body .location .location__general a, body.kss .kss-example-preview .location .text--light-body .location__general a, body.kss .kss-example-preview .text--light-body h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--light-body .field-label a, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .detail-field__items a, body.kss .kss-example-preview .text--light-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--light-body .field__items a, body.kss .kss-example-preview .text--light-body .location .location__general a, body.kss .kss-example-preview .location .text--light-body .location__general a, body.kss .kss-example-preview .text--light-body .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--light-body .form__legend a,
+      body.kss .kss-example-preview .text--light-body .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--light-body .form__legend a, body.kss .kss-example-preview .text--light-body h2.block__title a,
       body.kss .kss-example-preview .text--light-body h6 a, body.kss .kss-example-preview .text--light-body .heading--h6 a {
         color: #bbb; }
   body.kss .kss-example-preview .text--medium-body {
@@ -8725,7 +8810,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--medium-body h4, body.kss .kss-example-preview .text--medium-body .heading--h4,
     body.kss .kss-example-preview .text--medium-body h5, body.kss .kss-example-preview .text--medium-body .heading--h5, body.kss .kss-example-preview .text--medium-body .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--medium-body .detail-field__label, body.kss .kss-example-preview .text--medium-body .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--medium-body .field__label,
     body.kss .kss-example-preview .text--medium-body .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--medium-body .field-label, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items, body.kss .kss-example-preview .text--medium-body .location .location__general, body.kss .kss-example-preview .location .text--medium-body .location__general, body.kss .kss-example-preview .text--medium-body h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--medium-body .field-label, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items, body.kss .kss-example-preview .text--medium-body .location .location__general, body.kss .kss-example-preview .location .text--medium-body .location__general, body.kss .kss-example-preview .text--medium-body .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--medium-body .form__legend,
+    body.kss .kss-example-preview .text--medium-body .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--medium-body .form__legend, body.kss .kss-example-preview .text--medium-body h2.block__title,
     body.kss .kss-example-preview .text--medium-body h6, body.kss .kss-example-preview .text--medium-body .heading--h6 {
       color: #787878; }
       body.kss .kss-example-preview .text--medium-body h1 a, body.kss .kss-example-preview .text--medium-body .heading--huge a, body.kss .kss-example-preview .text--medium-body .heading--h1 a,
@@ -8735,7 +8822,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--medium-body h4 a, body.kss .kss-example-preview .text--medium-body .heading--h4 a,
       body.kss .kss-example-preview .text--medium-body h5 a, body.kss .kss-example-preview .text--medium-body .heading--h5 a, body.kss .kss-example-preview .text--medium-body .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--medium-body .detail-field__label a, body.kss .kss-example-preview .text--medium-body .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--medium-body .field__label a,
       body.kss .kss-example-preview .text--medium-body .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--medium-body .field-label a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items a, body.kss .kss-example-preview .text--medium-body .location .location__general a, body.kss .kss-example-preview .location .text--medium-body .location__general a, body.kss .kss-example-preview .text--medium-body h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--medium-body .field-label a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items a, body.kss .kss-example-preview .text--medium-body .location .location__general a, body.kss .kss-example-preview .location .text--medium-body .location__general a, body.kss .kss-example-preview .text--medium-body .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--medium-body .form__legend a,
+      body.kss .kss-example-preview .text--medium-body .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--medium-body .form__legend a, body.kss .kss-example-preview .text--medium-body h2.block__title a,
       body.kss .kss-example-preview .text--medium-body h6 a, body.kss .kss-example-preview .text--medium-body .heading--h6 a {
         color: #787878; }
   body.kss .kss-example-preview .text--dark-body {
@@ -8747,7 +8836,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--dark-body h4, body.kss .kss-example-preview .text--dark-body .heading--h4,
     body.kss .kss-example-preview .text--dark-body h5, body.kss .kss-example-preview .text--dark-body .heading--h5, body.kss .kss-example-preview .text--dark-body .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--dark-body .detail-field__label, body.kss .kss-example-preview .text--dark-body .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--dark-body .field__label,
     body.kss .kss-example-preview .text--dark-body .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--dark-body .field-label, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .detail-field__items, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .field__items, body.kss .kss-example-preview .text--dark-body .location .location__general, body.kss .kss-example-preview .location .text--dark-body .location__general, body.kss .kss-example-preview .text--dark-body h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--dark-body .field-label, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .detail-field__items, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .field__items, body.kss .kss-example-preview .text--dark-body .location .location__general, body.kss .kss-example-preview .location .text--dark-body .location__general, body.kss .kss-example-preview .text--dark-body .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--dark-body .form__legend,
+    body.kss .kss-example-preview .text--dark-body .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--dark-body .form__legend, body.kss .kss-example-preview .text--dark-body h2.block__title,
     body.kss .kss-example-preview .text--dark-body h6, body.kss .kss-example-preview .text--dark-body .heading--h6 {
       color: #333; }
       body.kss .kss-example-preview .text--dark-body h1 a, body.kss .kss-example-preview .text--dark-body .heading--huge a, body.kss .kss-example-preview .text--dark-body .heading--h1 a,
@@ -8757,7 +8848,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--dark-body h4 a, body.kss .kss-example-preview .text--dark-body .heading--h4 a,
       body.kss .kss-example-preview .text--dark-body h5 a, body.kss .kss-example-preview .text--dark-body .heading--h5 a, body.kss .kss-example-preview .text--dark-body .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--dark-body .detail-field__label a, body.kss .kss-example-preview .text--dark-body .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--dark-body .field__label a,
       body.kss .kss-example-preview .text--dark-body .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--dark-body .field-label a, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .detail-field__items a, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .field__items a, body.kss .kss-example-preview .text--dark-body .location .location__general a, body.kss .kss-example-preview .location .text--dark-body .location__general a, body.kss .kss-example-preview .text--dark-body h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--dark-body .field-label a, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .detail-field__items a, body.kss .kss-example-preview .text--dark-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--dark-body .field__items a, body.kss .kss-example-preview .text--dark-body .location .location__general a, body.kss .kss-example-preview .location .text--dark-body .location__general a, body.kss .kss-example-preview .text--dark-body .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--dark-body .form__legend a,
+      body.kss .kss-example-preview .text--dark-body .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--dark-body .form__legend a, body.kss .kss-example-preview .text--dark-body h2.block__title a,
       body.kss .kss-example-preview .text--dark-body h6 a, body.kss .kss-example-preview .text--dark-body .heading--h6 a {
         color: #333; }
   body.kss .kss-example-preview .text--link {
@@ -8769,7 +8862,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--link h4, body.kss .kss-example-preview .text--link .heading--h4,
     body.kss .kss-example-preview .text--link h5, body.kss .kss-example-preview .text--link .heading--h5, body.kss .kss-example-preview .text--link .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--link .detail-field__label, body.kss .kss-example-preview .text--link .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--link .field__label,
     body.kss .kss-example-preview .text--link .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--link .field-label, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .detail-field__items, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .field__items, body.kss .kss-example-preview .text--link .location .location__general, body.kss .kss-example-preview .location .text--link .location__general, body.kss .kss-example-preview .text--link h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--link .field-label, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .detail-field__items, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .field__items, body.kss .kss-example-preview .text--link .location .location__general, body.kss .kss-example-preview .location .text--link .location__general, body.kss .kss-example-preview .text--link .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--link .form__legend,
+    body.kss .kss-example-preview .text--link .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--link .form__legend, body.kss .kss-example-preview .text--link h2.block__title,
     body.kss .kss-example-preview .text--link h6, body.kss .kss-example-preview .text--link .heading--h6 {
       color: #e8762c; }
       body.kss .kss-example-preview .text--link h1 a, body.kss .kss-example-preview .text--link .heading--huge a, body.kss .kss-example-preview .text--link .heading--h1 a,
@@ -8779,7 +8874,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--link h4 a, body.kss .kss-example-preview .text--link .heading--h4 a,
       body.kss .kss-example-preview .text--link h5 a, body.kss .kss-example-preview .text--link .heading--h5 a, body.kss .kss-example-preview .text--link .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--link .detail-field__label a, body.kss .kss-example-preview .text--link .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--link .field__label a,
       body.kss .kss-example-preview .text--link .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--link .field-label a, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .detail-field__items a, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .field__items a, body.kss .kss-example-preview .text--link .location .location__general a, body.kss .kss-example-preview .location .text--link .location__general a, body.kss .kss-example-preview .text--link h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--link .field-label a, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .detail-field__items a, body.kss .kss-example-preview .text--link .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--link .field__items a, body.kss .kss-example-preview .text--link .location .location__general a, body.kss .kss-example-preview .location .text--link .location__general a, body.kss .kss-example-preview .text--link .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--link .form__legend a,
+      body.kss .kss-example-preview .text--link .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--link .form__legend a, body.kss .kss-example-preview .text--link h2.block__title a,
       body.kss .kss-example-preview .text--link h6 a, body.kss .kss-example-preview .text--link .heading--h6 a {
         color: #e8762c; }
   body.kss .kss-example-preview .text--headlines {
@@ -8791,7 +8888,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--headlines h4, body.kss .kss-example-preview .text--headlines .heading--h4,
     body.kss .kss-example-preview .text--headlines h5, body.kss .kss-example-preview .text--headlines .heading--h5, body.kss .kss-example-preview .text--headlines .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--headlines .detail-field__label, body.kss .kss-example-preview .text--headlines .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--headlines .field__label,
     body.kss .kss-example-preview .text--headlines .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--headlines .field-label, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .detail-field__items, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .field__items, body.kss .kss-example-preview .text--headlines .location .location__general, body.kss .kss-example-preview .location .text--headlines .location__general, body.kss .kss-example-preview .text--headlines h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--headlines .field-label, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .detail-field__items, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .field__items, body.kss .kss-example-preview .text--headlines .location .location__general, body.kss .kss-example-preview .location .text--headlines .location__general, body.kss .kss-example-preview .text--headlines .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--headlines .form__legend,
+    body.kss .kss-example-preview .text--headlines .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--headlines .form__legend, body.kss .kss-example-preview .text--headlines h2.block__title,
     body.kss .kss-example-preview .text--headlines h6, body.kss .kss-example-preview .text--headlines .heading--h6 {
       color: #000; }
       body.kss .kss-example-preview .text--headlines h1 a, body.kss .kss-example-preview .text--headlines .heading--huge a, body.kss .kss-example-preview .text--headlines .heading--h1 a,
@@ -8801,7 +8900,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--headlines h4 a, body.kss .kss-example-preview .text--headlines .heading--h4 a,
       body.kss .kss-example-preview .text--headlines h5 a, body.kss .kss-example-preview .text--headlines .heading--h5 a, body.kss .kss-example-preview .text--headlines .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--headlines .detail-field__label a, body.kss .kss-example-preview .text--headlines .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--headlines .field__label a,
       body.kss .kss-example-preview .text--headlines .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--headlines .field-label a, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .detail-field__items a, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .field__items a, body.kss .kss-example-preview .text--headlines .location .location__general a, body.kss .kss-example-preview .location .text--headlines .location__general a, body.kss .kss-example-preview .text--headlines h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--headlines .field-label a, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .detail-field__items a, body.kss .kss-example-preview .text--headlines .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--headlines .field__items a, body.kss .kss-example-preview .text--headlines .location .location__general a, body.kss .kss-example-preview .location .text--headlines .location__general a, body.kss .kss-example-preview .text--headlines .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--headlines .form__legend a,
+      body.kss .kss-example-preview .text--headlines .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--headlines .form__legend a, body.kss .kss-example-preview .text--headlines h2.block__title a,
       body.kss .kss-example-preview .text--headlines h6 a, body.kss .kss-example-preview .text--headlines .heading--h6 a {
         color: #000; }
   body.kss .kss-example-preview .text--nav-items {
@@ -8813,7 +8914,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--nav-items h4, body.kss .kss-example-preview .text--nav-items .heading--h4,
     body.kss .kss-example-preview .text--nav-items h5, body.kss .kss-example-preview .text--nav-items .heading--h5, body.kss .kss-example-preview .text--nav-items .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--nav-items .detail-field__label, body.kss .kss-example-preview .text--nav-items .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--nav-items .field__label,
     body.kss .kss-example-preview .text--nav-items .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--nav-items .field-label, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .detail-field__items, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .field__items, body.kss .kss-example-preview .text--nav-items .location .location__general, body.kss .kss-example-preview .location .text--nav-items .location__general, body.kss .kss-example-preview .text--nav-items h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--nav-items .field-label, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .detail-field__items, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .field__items, body.kss .kss-example-preview .text--nav-items .location .location__general, body.kss .kss-example-preview .location .text--nav-items .location__general, body.kss .kss-example-preview .text--nav-items .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--nav-items .form__legend,
+    body.kss .kss-example-preview .text--nav-items .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--nav-items .form__legend, body.kss .kss-example-preview .text--nav-items h2.block__title,
     body.kss .kss-example-preview .text--nav-items h6, body.kss .kss-example-preview .text--nav-items .heading--h6 {
       color: #212535; }
       body.kss .kss-example-preview .text--nav-items h1 a, body.kss .kss-example-preview .text--nav-items .heading--huge a, body.kss .kss-example-preview .text--nav-items .heading--h1 a,
@@ -8823,7 +8926,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--nav-items h4 a, body.kss .kss-example-preview .text--nav-items .heading--h4 a,
       body.kss .kss-example-preview .text--nav-items h5 a, body.kss .kss-example-preview .text--nav-items .heading--h5 a, body.kss .kss-example-preview .text--nav-items .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--nav-items .detail-field__label a, body.kss .kss-example-preview .text--nav-items .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--nav-items .field__label a,
       body.kss .kss-example-preview .text--nav-items .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--nav-items .field-label a, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .detail-field__items a, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .field__items a, body.kss .kss-example-preview .text--nav-items .location .location__general a, body.kss .kss-example-preview .location .text--nav-items .location__general a, body.kss .kss-example-preview .text--nav-items h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--nav-items .field-label a, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .detail-field__items a, body.kss .kss-example-preview .text--nav-items .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--nav-items .field__items a, body.kss .kss-example-preview .text--nav-items .location .location__general a, body.kss .kss-example-preview .location .text--nav-items .location__general a, body.kss .kss-example-preview .text--nav-items .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--nav-items .form__legend a,
+      body.kss .kss-example-preview .text--nav-items .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--nav-items .form__legend a, body.kss .kss-example-preview .text--nav-items h2.block__title a,
       body.kss .kss-example-preview .text--nav-items h6 a, body.kss .kss-example-preview .text--nav-items .heading--h6 a {
         color: #212535; }
   body.kss .kss-example-preview .text--data-sources {
@@ -8835,7 +8940,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--data-sources h4, body.kss .kss-example-preview .text--data-sources .heading--h4,
     body.kss .kss-example-preview .text--data-sources h5, body.kss .kss-example-preview .text--data-sources .heading--h5, body.kss .kss-example-preview .text--data-sources .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--data-sources .detail-field__label, body.kss .kss-example-preview .text--data-sources .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--data-sources .field__label,
     body.kss .kss-example-preview .text--data-sources .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--data-sources .field-label, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .detail-field__items, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .field__items, body.kss .kss-example-preview .text--data-sources .location .location__general, body.kss .kss-example-preview .location .text--data-sources .location__general, body.kss .kss-example-preview .text--data-sources h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--data-sources .field-label, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .detail-field__items, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .field__items, body.kss .kss-example-preview .text--data-sources .location .location__general, body.kss .kss-example-preview .location .text--data-sources .location__general, body.kss .kss-example-preview .text--data-sources .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--data-sources .form__legend,
+    body.kss .kss-example-preview .text--data-sources .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--data-sources .form__legend, body.kss .kss-example-preview .text--data-sources h2.block__title,
     body.kss .kss-example-preview .text--data-sources h6, body.kss .kss-example-preview .text--data-sources .heading--h6 {
       color: #a3b9cb; }
       body.kss .kss-example-preview .text--data-sources h1 a, body.kss .kss-example-preview .text--data-sources .heading--huge a, body.kss .kss-example-preview .text--data-sources .heading--h1 a,
@@ -8845,7 +8952,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--data-sources h4 a, body.kss .kss-example-preview .text--data-sources .heading--h4 a,
       body.kss .kss-example-preview .text--data-sources h5 a, body.kss .kss-example-preview .text--data-sources .heading--h5 a, body.kss .kss-example-preview .text--data-sources .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--data-sources .detail-field__label a, body.kss .kss-example-preview .text--data-sources .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--data-sources .field__label a,
       body.kss .kss-example-preview .text--data-sources .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--data-sources .field-label a, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .detail-field__items a, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .field__items a, body.kss .kss-example-preview .text--data-sources .location .location__general a, body.kss .kss-example-preview .location .text--data-sources .location__general a, body.kss .kss-example-preview .text--data-sources h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--data-sources .field-label a, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .detail-field__items a, body.kss .kss-example-preview .text--data-sources .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--data-sources .field__items a, body.kss .kss-example-preview .text--data-sources .location .location__general a, body.kss .kss-example-preview .location .text--data-sources .location__general a, body.kss .kss-example-preview .text--data-sources .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--data-sources .form__legend a,
+      body.kss .kss-example-preview .text--data-sources .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--data-sources .form__legend a, body.kss .kss-example-preview .text--data-sources h2.block__title a,
       body.kss .kss-example-preview .text--data-sources h6 a, body.kss .kss-example-preview .text--data-sources .heading--h6 a {
         color: #a3b9cb; }
   body.kss .kss-example-preview .text--stories {
@@ -8857,7 +8966,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--stories h4, body.kss .kss-example-preview .text--stories .heading--h4,
     body.kss .kss-example-preview .text--stories h5, body.kss .kss-example-preview .text--stories .heading--h5, body.kss .kss-example-preview .text--stories .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--stories .detail-field__label, body.kss .kss-example-preview .text--stories .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--stories .field__label,
     body.kss .kss-example-preview .text--stories .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--stories .field-label, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .detail-field__items, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .field__items, body.kss .kss-example-preview .text--stories .location .location__general, body.kss .kss-example-preview .location .text--stories .location__general, body.kss .kss-example-preview .text--stories h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--stories .field-label, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .detail-field__items, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .field__items, body.kss .kss-example-preview .text--stories .location .location__general, body.kss .kss-example-preview .location .text--stories .location__general, body.kss .kss-example-preview .text--stories .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--stories .form__legend,
+    body.kss .kss-example-preview .text--stories .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--stories .form__legend, body.kss .kss-example-preview .text--stories h2.block__title,
     body.kss .kss-example-preview .text--stories h6, body.kss .kss-example-preview .text--stories .heading--h6 {
       color: #847094; }
       body.kss .kss-example-preview .text--stories h1 a, body.kss .kss-example-preview .text--stories .heading--huge a, body.kss .kss-example-preview .text--stories .heading--h1 a,
@@ -8867,7 +8978,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--stories h4 a, body.kss .kss-example-preview .text--stories .heading--h4 a,
       body.kss .kss-example-preview .text--stories h5 a, body.kss .kss-example-preview .text--stories .heading--h5 a, body.kss .kss-example-preview .text--stories .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--stories .detail-field__label a, body.kss .kss-example-preview .text--stories .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--stories .field__label a,
       body.kss .kss-example-preview .text--stories .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--stories .field-label a, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .detail-field__items a, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .field__items a, body.kss .kss-example-preview .text--stories .location .location__general a, body.kss .kss-example-preview .location .text--stories .location__general a, body.kss .kss-example-preview .text--stories h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--stories .field-label a, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .detail-field__items a, body.kss .kss-example-preview .text--stories .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--stories .field__items a, body.kss .kss-example-preview .text--stories .location .location__general a, body.kss .kss-example-preview .location .text--stories .location__general a, body.kss .kss-example-preview .text--stories .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--stories .form__legend a,
+      body.kss .kss-example-preview .text--stories .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--stories .form__legend a, body.kss .kss-example-preview .text--stories h2.block__title a,
       body.kss .kss-example-preview .text--stories h6 a, body.kss .kss-example-preview .text--stories .heading--h6 a {
         color: #847094; }
   body.kss .kss-example-preview .text--learning {
@@ -8879,7 +8992,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--learning h4, body.kss .kss-example-preview .text--learning .heading--h4,
     body.kss .kss-example-preview .text--learning h5, body.kss .kss-example-preview .text--learning .heading--h5, body.kss .kss-example-preview .text--learning .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--learning .detail-field__label, body.kss .kss-example-preview .text--learning .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--learning .field__label,
     body.kss .kss-example-preview .text--learning .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--learning .field-label, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .detail-field__items, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .field__items, body.kss .kss-example-preview .text--learning .location .location__general, body.kss .kss-example-preview .location .text--learning .location__general, body.kss .kss-example-preview .text--learning h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--learning .field-label, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .detail-field__items, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .field__items, body.kss .kss-example-preview .text--learning .location .location__general, body.kss .kss-example-preview .location .text--learning .location__general, body.kss .kss-example-preview .text--learning .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--learning .form__legend,
+    body.kss .kss-example-preview .text--learning .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--learning .form__legend, body.kss .kss-example-preview .text--learning h2.block__title,
     body.kss .kss-example-preview .text--learning h6, body.kss .kss-example-preview .text--learning .heading--h6 {
       color: #6f99a5; }
       body.kss .kss-example-preview .text--learning h1 a, body.kss .kss-example-preview .text--learning .heading--huge a, body.kss .kss-example-preview .text--learning .heading--h1 a,
@@ -8889,7 +9004,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--learning h4 a, body.kss .kss-example-preview .text--learning .heading--h4 a,
       body.kss .kss-example-preview .text--learning h5 a, body.kss .kss-example-preview .text--learning .heading--h5 a, body.kss .kss-example-preview .text--learning .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--learning .detail-field__label a, body.kss .kss-example-preview .text--learning .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--learning .field__label a,
       body.kss .kss-example-preview .text--learning .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--learning .field-label a, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .detail-field__items a, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .field__items a, body.kss .kss-example-preview .text--learning .location .location__general a, body.kss .kss-example-preview .location .text--learning .location__general a, body.kss .kss-example-preview .text--learning h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--learning .field-label a, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .detail-field__items a, body.kss .kss-example-preview .text--learning .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--learning .field__items a, body.kss .kss-example-preview .text--learning .location .location__general a, body.kss .kss-example-preview .location .text--learning .location__general a, body.kss .kss-example-preview .text--learning .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--learning .form__legend a,
+      body.kss .kss-example-preview .text--learning .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--learning .form__legend a, body.kss .kss-example-preview .text--learning h2.block__title a,
       body.kss .kss-example-preview .text--learning h6 a, body.kss .kss-example-preview .text--learning .heading--h6 a {
         color: #6f99a5; }
   body.kss .kss-example-preview .text--highlight {
@@ -8901,7 +9018,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--highlight h4, body.kss .kss-example-preview .text--highlight .heading--h4,
     body.kss .kss-example-preview .text--highlight h5, body.kss .kss-example-preview .text--highlight .heading--h5, body.kss .kss-example-preview .text--highlight .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--highlight .detail-field__label, body.kss .kss-example-preview .text--highlight .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--highlight .field__label,
     body.kss .kss-example-preview .text--highlight .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--highlight .field-label, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .detail-field__items, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .field__items, body.kss .kss-example-preview .text--highlight .location .location__general, body.kss .kss-example-preview .location .text--highlight .location__general, body.kss .kss-example-preview .text--highlight h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--highlight .field-label, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .detail-field__items, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .field__items, body.kss .kss-example-preview .text--highlight .location .location__general, body.kss .kss-example-preview .location .text--highlight .location__general, body.kss .kss-example-preview .text--highlight .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--highlight .form__legend,
+    body.kss .kss-example-preview .text--highlight .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--highlight .form__legend, body.kss .kss-example-preview .text--highlight h2.block__title,
     body.kss .kss-example-preview .text--highlight h6, body.kss .kss-example-preview .text--highlight .heading--h6 {
       color: #53bd92; }
       body.kss .kss-example-preview .text--highlight h1 a, body.kss .kss-example-preview .text--highlight .heading--huge a, body.kss .kss-example-preview .text--highlight .heading--h1 a,
@@ -8911,7 +9030,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--highlight h4 a, body.kss .kss-example-preview .text--highlight .heading--h4 a,
       body.kss .kss-example-preview .text--highlight h5 a, body.kss .kss-example-preview .text--highlight .heading--h5 a, body.kss .kss-example-preview .text--highlight .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--highlight .detail-field__label a, body.kss .kss-example-preview .text--highlight .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--highlight .field__label a,
       body.kss .kss-example-preview .text--highlight .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--highlight .field-label a, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .detail-field__items a, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .field__items a, body.kss .kss-example-preview .text--highlight .location .location__general a, body.kss .kss-example-preview .location .text--highlight .location__general a, body.kss .kss-example-preview .text--highlight h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--highlight .field-label a, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .detail-field__items a, body.kss .kss-example-preview .text--highlight .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--highlight .field__items a, body.kss .kss-example-preview .text--highlight .location .location__general a, body.kss .kss-example-preview .location .text--highlight .location__general a, body.kss .kss-example-preview .text--highlight .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--highlight .form__legend a,
+      body.kss .kss-example-preview .text--highlight .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--highlight .form__legend a, body.kss .kss-example-preview .text--highlight h2.block__title a,
       body.kss .kss-example-preview .text--highlight h6 a, body.kss .kss-example-preview .text--highlight .heading--h6 a {
         color: #53bd92; }
   body.kss .kss-example-preview .text--mission-1 {
@@ -8923,7 +9044,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--mission-1 h4, body.kss .kss-example-preview .text--mission-1 .heading--h4,
     body.kss .kss-example-preview .text--mission-1 h5, body.kss .kss-example-preview .text--mission-1 .heading--h5, body.kss .kss-example-preview .text--mission-1 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--mission-1 .detail-field__label, body.kss .kss-example-preview .text--mission-1 .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--mission-1 .field__label,
     body.kss .kss-example-preview .text--mission-1 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--mission-1 .field-label, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .detail-field__items, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .field__items, body.kss .kss-example-preview .text--mission-1 .location .location__general, body.kss .kss-example-preview .location .text--mission-1 .location__general, body.kss .kss-example-preview .text--mission-1 h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--mission-1 .field-label, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .detail-field__items, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .field__items, body.kss .kss-example-preview .text--mission-1 .location .location__general, body.kss .kss-example-preview .location .text--mission-1 .location__general, body.kss .kss-example-preview .text--mission-1 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--mission-1 .form__legend,
+    body.kss .kss-example-preview .text--mission-1 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--mission-1 .form__legend, body.kss .kss-example-preview .text--mission-1 h2.block__title,
     body.kss .kss-example-preview .text--mission-1 h6, body.kss .kss-example-preview .text--mission-1 .heading--h6 {
       color: #316cc8; }
       body.kss .kss-example-preview .text--mission-1 h1 a, body.kss .kss-example-preview .text--mission-1 .heading--huge a, body.kss .kss-example-preview .text--mission-1 .heading--h1 a,
@@ -8933,7 +9056,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--mission-1 h4 a, body.kss .kss-example-preview .text--mission-1 .heading--h4 a,
       body.kss .kss-example-preview .text--mission-1 h5 a, body.kss .kss-example-preview .text--mission-1 .heading--h5 a, body.kss .kss-example-preview .text--mission-1 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--mission-1 .detail-field__label a, body.kss .kss-example-preview .text--mission-1 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--mission-1 .field__label a,
       body.kss .kss-example-preview .text--mission-1 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--mission-1 .field-label a, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .detail-field__items a, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .field__items a, body.kss .kss-example-preview .text--mission-1 .location .location__general a, body.kss .kss-example-preview .location .text--mission-1 .location__general a, body.kss .kss-example-preview .text--mission-1 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--mission-1 .field-label a, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .detail-field__items a, body.kss .kss-example-preview .text--mission-1 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-1 .field__items a, body.kss .kss-example-preview .text--mission-1 .location .location__general a, body.kss .kss-example-preview .location .text--mission-1 .location__general a, body.kss .kss-example-preview .text--mission-1 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--mission-1 .form__legend a,
+      body.kss .kss-example-preview .text--mission-1 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--mission-1 .form__legend a, body.kss .kss-example-preview .text--mission-1 h2.block__title a,
       body.kss .kss-example-preview .text--mission-1 h6 a, body.kss .kss-example-preview .text--mission-1 .heading--h6 a {
         color: #316cc8; }
   body.kss .kss-example-preview .text--mission-2 {
@@ -8945,7 +9070,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--mission-2 h4, body.kss .kss-example-preview .text--mission-2 .heading--h4,
     body.kss .kss-example-preview .text--mission-2 h5, body.kss .kss-example-preview .text--mission-2 .heading--h5, body.kss .kss-example-preview .text--mission-2 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--mission-2 .detail-field__label, body.kss .kss-example-preview .text--mission-2 .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--mission-2 .field__label,
     body.kss .kss-example-preview .text--mission-2 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--mission-2 .field-label, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .detail-field__items, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .field__items, body.kss .kss-example-preview .text--mission-2 .location .location__general, body.kss .kss-example-preview .location .text--mission-2 .location__general, body.kss .kss-example-preview .text--mission-2 h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--mission-2 .field-label, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .detail-field__items, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .field__items, body.kss .kss-example-preview .text--mission-2 .location .location__general, body.kss .kss-example-preview .location .text--mission-2 .location__general, body.kss .kss-example-preview .text--mission-2 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--mission-2 .form__legend,
+    body.kss .kss-example-preview .text--mission-2 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--mission-2 .form__legend, body.kss .kss-example-preview .text--mission-2 h2.block__title,
     body.kss .kss-example-preview .text--mission-2 h6, body.kss .kss-example-preview .text--mission-2 .heading--h6 {
       color: #7dcdf1; }
       body.kss .kss-example-preview .text--mission-2 h1 a, body.kss .kss-example-preview .text--mission-2 .heading--huge a, body.kss .kss-example-preview .text--mission-2 .heading--h1 a,
@@ -8955,7 +9082,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--mission-2 h4 a, body.kss .kss-example-preview .text--mission-2 .heading--h4 a,
       body.kss .kss-example-preview .text--mission-2 h5 a, body.kss .kss-example-preview .text--mission-2 .heading--h5 a, body.kss .kss-example-preview .text--mission-2 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--mission-2 .detail-field__label a, body.kss .kss-example-preview .text--mission-2 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--mission-2 .field__label a,
       body.kss .kss-example-preview .text--mission-2 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--mission-2 .field-label a, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .detail-field__items a, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .field__items a, body.kss .kss-example-preview .text--mission-2 .location .location__general a, body.kss .kss-example-preview .location .text--mission-2 .location__general a, body.kss .kss-example-preview .text--mission-2 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--mission-2 .field-label a, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .detail-field__items a, body.kss .kss-example-preview .text--mission-2 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-2 .field__items a, body.kss .kss-example-preview .text--mission-2 .location .location__general a, body.kss .kss-example-preview .location .text--mission-2 .location__general a, body.kss .kss-example-preview .text--mission-2 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--mission-2 .form__legend a,
+      body.kss .kss-example-preview .text--mission-2 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--mission-2 .form__legend a, body.kss .kss-example-preview .text--mission-2 h2.block__title a,
       body.kss .kss-example-preview .text--mission-2 h6 a, body.kss .kss-example-preview .text--mission-2 .heading--h6 a {
         color: #7dcdf1; }
   body.kss .kss-example-preview .text--mission-3 {
@@ -8967,7 +9096,9 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .text--mission-3 h4, body.kss .kss-example-preview .text--mission-3 .heading--h4,
     body.kss .kss-example-preview .text--mission-3 h5, body.kss .kss-example-preview .text--mission-3 .heading--h5, body.kss .kss-example-preview .text--mission-3 .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--mission-3 .detail-field__label, body.kss .kss-example-preview .text--mission-3 .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--mission-3 .field__label,
     body.kss .kss-example-preview .text--mission-3 .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--mission-3 .field-label, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .detail-field__items, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .field__items, body.kss .kss-example-preview .text--mission-3 .location .location__general, body.kss .kss-example-preview .location .text--mission-3 .location__general, body.kss .kss-example-preview .text--mission-3 h2.block__title,
+    body.kss .kss-example-preview .detail-field .text--mission-3 .field-label, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .detail-field__items, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .field__items, body.kss .kss-example-preview .text--mission-3 .location .location__general, body.kss .kss-example-preview .location .text--mission-3 .location__general, body.kss .kss-example-preview .text--mission-3 .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--mission-3 .form__legend,
+    body.kss .kss-example-preview .text--mission-3 .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--mission-3 .form__legend, body.kss .kss-example-preview .text--mission-3 h2.block__title,
     body.kss .kss-example-preview .text--mission-3 h6, body.kss .kss-example-preview .text--mission-3 .heading--h6 {
       color: #5facce; }
       body.kss .kss-example-preview .text--mission-3 h1 a, body.kss .kss-example-preview .text--mission-3 .heading--huge a, body.kss .kss-example-preview .text--mission-3 .heading--h1 a,
@@ -8977,7 +9108,9 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .text--mission-3 h4 a, body.kss .kss-example-preview .text--mission-3 .heading--h4 a,
       body.kss .kss-example-preview .text--mission-3 h5 a, body.kss .kss-example-preview .text--mission-3 .heading--h5 a, body.kss .kss-example-preview .text--mission-3 .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--mission-3 .detail-field__label a, body.kss .kss-example-preview .text--mission-3 .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--mission-3 .field__label a,
       body.kss .kss-example-preview .text--mission-3 .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--mission-3 .field-label a, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .detail-field__items a, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .field__items a, body.kss .kss-example-preview .text--mission-3 .location .location__general a, body.kss .kss-example-preview .location .text--mission-3 .location__general a, body.kss .kss-example-preview .text--mission-3 h2.block__title a,
+      body.kss .kss-example-preview .detail-field .text--mission-3 .field-label a, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .detail-field__items a, body.kss .kss-example-preview .text--mission-3 .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--mission-3 .field__items a, body.kss .kss-example-preview .text--mission-3 .location .location__general a, body.kss .kss-example-preview .location .text--mission-3 .location__general a, body.kss .kss-example-preview .text--mission-3 .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--mission-3 .form__legend a,
+      body.kss .kss-example-preview .text--mission-3 .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--mission-3 .form__legend a, body.kss .kss-example-preview .text--mission-3 h2.block__title a,
       body.kss .kss-example-preview .text--mission-3 h6 a, body.kss .kss-example-preview .text--mission-3 .heading--h6 a {
         color: #5facce; }
   body.kss .kss-example-preview .text--large-copy, body.kss .kss-example-preview .global-nav__top .global-nav__search #autocomplete, body.kss .kss-example-preview .global-nav .ui-autocomplete, body.kss .kss-example-preview .global-nav__top .global-nav__search input[type='text'],
@@ -9026,12 +9159,39 @@ Style guide: typography.text-stat
   body.kss .kss-example-preview .form__legend,
   body.kss .kss-example-preview h4, body.kss .kss-example-preview .heading--h4,
   body.kss .kss-example-preview h5, body.kss .kss-example-preview .heading--h5, body.kss .kss-example-preview .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .field__label,
-  body.kss .kss-example-preview .detail-field .field-label, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .location .location__general, body.kss .kss-example-preview h2.block__title,
+  body.kss .kss-example-preview .detail-field .field-label, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .location .location__general, body.kss .kss-example-preview .user-register-form .form__legend,
+  body.kss .kss-example-preview .tableau-premium-access-button-form .form__legend, body.kss .kss-example-preview h2.block__title,
   body.kss .kss-example-preview h6, body.kss .kss-example-preview .heading--h6 {
     margin: .5em 0;
     font-family: "Benton Sans Thin", Helvetica, sans-serif;
     font-weight: 100;
     line-height: 1.2; }
+    body.kss .kss-example-preview h1 b, body.kss .kss-example-preview .heading--huge b,
+    body.kss .kss-example-preview h1 strong, body.kss .kss-example-preview .heading--huge strong, body.kss .kss-example-preview .heading--h1 b,
+    body.kss .kss-example-preview .heading--h1 strong,
+    body.kss .kss-example-preview h2 b,
+    body.kss .kss-example-preview h2 strong, body.kss .kss-example-preview .heading--h2 b,
+    body.kss .kss-example-preview .heading--h2 strong,
+    body.kss .kss-example-preview h3 b,
+    body.kss .kss-example-preview h3 strong, body.kss .kss-example-preview .heading--h3 b, body.kss .kss-example-preview legend b,
+    body.kss .kss-example-preview .form__legend b,
+    body.kss .kss-example-preview .heading--h3 strong, body.kss .kss-example-preview legend strong,
+    body.kss .kss-example-preview .form__legend strong,
+    body.kss .kss-example-preview h4 b,
+    body.kss .kss-example-preview h4 strong, body.kss .kss-example-preview .heading--h4 b,
+    body.kss .kss-example-preview .heading--h4 strong,
+    body.kss .kss-example-preview h5 b,
+    body.kss .kss-example-preview h5 strong, body.kss .kss-example-preview .heading--h5 b, body.kss .kss-example-preview .detail-field .detail-field__label b, body.kss .kss-example-preview .detail-field .field__label b,
+    body.kss .kss-example-preview .detail-field .field-label b, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items b, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items b, body.kss .kss-example-preview .location .location__general b, body.kss .kss-example-preview .user-register-form .form__legend b,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .form__legend b, body.kss .kss-example-preview h2.block__title b,
+    body.kss .kss-example-preview .heading--h5 strong, body.kss .kss-example-preview .detail-field .detail-field__label strong, body.kss .kss-example-preview .detail-field .field__label strong,
+    body.kss .kss-example-preview .detail-field .field-label strong, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items strong, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items strong, body.kss .kss-example-preview .location .location__general strong, body.kss .kss-example-preview .user-register-form .form__legend strong,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .form__legend strong, body.kss .kss-example-preview h2.block__title strong,
+    body.kss .kss-example-preview h6 b,
+    body.kss .kss-example-preview h6 strong, body.kss .kss-example-preview .heading--h6 b,
+    body.kss .kss-example-preview .heading--h6 strong {
+      font-family: "Benton Sans Light", Helvetica, sans-serif;
+      font-weight: 400; }
   body.kss .kss-example-preview h1, body.kss .kss-example-preview .heading--huge, body.kss .kss-example-preview .heading--h1 {
     font-size: 3em;
     line-height: 1.25;
@@ -9065,6 +9225,13 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview h3 a, body.kss .kss-example-preview .heading--h3 a, body.kss .kss-example-preview legend a,
     body.kss .kss-example-preview .form__legend a {
       color: #333; }
+    body.kss .kss-example-preview h3 b,
+    body.kss .kss-example-preview h3 strong, body.kss .kss-example-preview .heading--h3 b, body.kss .kss-example-preview legend b,
+    body.kss .kss-example-preview .form__legend b,
+    body.kss .kss-example-preview .heading--h3 strong, body.kss .kss-example-preview legend strong,
+    body.kss .kss-example-preview .form__legend strong {
+      font-family: "Benton Sans Book", Helvetica, sans-serif;
+      font-weight: 400; }
     @media (max-width: 639px) {
       body.kss .kss-example-preview h3, body.kss .kss-example-preview .heading--h3, body.kss .kss-example-preview legend,
       body.kss .kss-example-preview .form__legend {
@@ -9075,6 +9242,11 @@ Style guide: typography.text-stat
     color: #333; }
     body.kss .kss-example-preview h4 a, body.kss .kss-example-preview .heading--h4 a {
       color: #333; }
+    body.kss .kss-example-preview h4 b,
+    body.kss .kss-example-preview h4 strong, body.kss .kss-example-preview .heading--h4 b,
+    body.kss .kss-example-preview .heading--h4 strong {
+      font-family: "Benton Sans Medium", Helvetica, sans-serif;
+      font-weight: 400; }
     @media (min-width: 640px) and (max-width: 960px) {
       body.kss .kss-example-preview h4, body.kss .kss-example-preview .heading--h4 {
         font-size: 1.25em; } }
@@ -9082,14 +9254,16 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview h4, body.kss .kss-example-preview .heading--h4 {
         font-size: 1.125em; } }
   body.kss .kss-example-preview h5, body.kss .kss-example-preview .heading--h5, body.kss .kss-example-preview .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .field__label,
-  body.kss .kss-example-preview .detail-field .field-label, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .location .location__general, body.kss .kss-example-preview h2.block__title {
+  body.kss .kss-example-preview .detail-field .field-label, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .location .location__general, body.kss .kss-example-preview .user-register-form .form__legend,
+  body.kss .kss-example-preview .tableau-premium-access-button-form .form__legend, body.kss .kss-example-preview h2.block__title {
     font-size: 1.25em;
     font-family: "Benton Sans Light", Helvetica, sans-serif;
     color: #333;
     line-height: 1.5;
     -webkit-font-smoothing: auto; }
     body.kss .kss-example-preview h5 a, body.kss .kss-example-preview .heading--h5 a, body.kss .kss-example-preview .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .field__label a,
-    body.kss .kss-example-preview .detail-field .field-label a, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .location .location__general a, body.kss .kss-example-preview h2.block__title a {
+    body.kss .kss-example-preview .detail-field .field-label a, body.kss .kss-example-preview .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .location .location__general a, body.kss .kss-example-preview .user-register-form .form__legend a,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .form__legend a, body.kss .kss-example-preview h2.block__title a {
       color: #333; }
   body.kss .kss-example-preview h6, body.kss .kss-example-preview .heading--h6 {
     font-size: 1em; }
@@ -9102,12 +9276,10 @@ Style guide: typography.text-stat
     @media (max-width: 639px) {
       body.kss .kss-example-preview .heading--huge {
         font-size: 3em; } }
-  body.kss .kss-example-preview .heading-highlight, body.kss .kss-example-preview legend,
-  body.kss .kss-example-preview .form__legend {
+  body.kss .kss-example-preview .heading-highlight {
     position: relative;
     padding-top: 30px; }
-    body.kss .kss-example-preview .heading-highlight:before, body.kss .kss-example-preview legend:before,
-    body.kss .kss-example-preview .form__legend:before {
+    body.kss .kss-example-preview .heading-highlight:before {
       content: "";
       display: block;
       position: absolute;
@@ -9115,14 +9287,11 @@ Style guide: typography.text-stat
       height: 3px;
       top: 0;
       background: #23529c; }
-    body.kss .kss-example-preview .heading-highlight.heading-highlight--negative:before, body.kss .kss-example-preview legend.heading-highlight--negative:before,
-    body.kss .kss-example-preview .heading-highlight--negative.form__legend:before {
+    body.kss .kss-example-preview .heading-highlight.heading-highlight--negative:before {
       background: #fff; }
-    body.kss .kss-example-preview .heading-highlight.heading-highlight--mission:before, body.kss .kss-example-preview legend.heading-highlight--mission:before,
-    body.kss .kss-example-preview .heading-highlight--mission.form__legend:before {
+    body.kss .kss-example-preview .heading-highlight.heading-highlight--mission:before {
       background: #316cc8; }
-    body.kss .kss-example-preview .heading-highlight.heading-highlight--gray:before, body.kss .kss-example-preview legend.heading-highlight--gray:before,
-    body.kss .kss-example-preview .heading-highlight--gray.form__legend:before {
+    body.kss .kss-example-preview .heading-highlight.heading-highlight--gray:before {
       background: #cdcdcd; }
   body.kss .kss-example-preview .text-stat {
     margin: 0;

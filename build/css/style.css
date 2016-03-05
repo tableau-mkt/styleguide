@@ -154,7 +154,7 @@ Markup: icon.hbs
 .icon--offline-snapshots - offline-snapshots icon
 .icon--online-classes - online-classes icon
 .icon--people - people icon
-.icon--play-button - play-button icon
+.icon--play - play icon
 .icon--poll - poll icon
 .icon--proven-roadmap - proven-roadmap icon
 .icon--query-without-code - query-without-code icon
@@ -164,6 +164,7 @@ Markup: icon.hbs
 .icon--quotes-open-style2 - quotes-open-style2 icon
 .icon--quotes-open - quotes-open icon
 .icon--refresh - refresh icon
+.icon--reminder - reminder icon
 .icon--report-abuse - report-abuse icon
 .icon--reseller - reseller icon
 .icon--results-up - results-up icon
@@ -213,8 +214,8 @@ Style Guide: media.icons
 */
 @font-face {
   font-family: "tableau-icons";
-  src: url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.eot?cf839e9381cc021cac38c15807a79376");
-  src: url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.woff?cf839e9381cc021cac38c15807a79376") format("woff"), url("../fonts/tableau-icons-cf839e9381cc021cac38c15807a79376.ttf?cf839e9381cc021cac38c15807a79376") format("truetype");
+  src: url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.eot?bac10f67f434a62d449488624b887c75");
+  src: url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.woff?bac10f67f434a62d449488624b887c75") format("woff"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.ttf?bac10f67f434a62d449488624b887c75") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -472,7 +473,7 @@ Style Guide: media.icons
 .icon--people:before {
   content: "\f14f"; }
 
-.icon--play-button:before {
+.icon--play:before {
   content: "\f150"; }
 
 .icon--poll:before {
@@ -502,137 +503,140 @@ Style Guide: media.icons
 .icon--refresh:before {
   content: "\f159"; }
 
-.icon--report-abuse:before {
+.icon--reminder:before {
   content: "\f15a"; }
 
-.icon--reseller:before {
+.icon--report-abuse:before {
   content: "\f15b"; }
 
-.icon--results-up:before {
+.icon--reseller:before {
   content: "\f15c"; }
 
-.icon--scalable:before {
+.icon--results-up:before {
   content: "\f15d"; }
 
-.icon--search:before {
+.icon--scalable:before {
   content: "\f15e"; }
 
-.icon--security:before {
+.icon--search:before {
   content: "\f15f"; }
 
-.icon--self-suffiency:before {
+.icon--security:before {
   content: "\f160"; }
 
-.icon--server-admin:before {
+.icon--self-suffiency:before {
   content: "\f161"; }
 
-.icon--settings:before {
+.icon--server-admin:before {
   content: "\f162"; }
 
-.icon--share-secure:before {
+.icon--settings:before {
   content: "\f163"; }
 
-.icon--share-style2:before {
+.icon--share-secure:before {
   content: "\f164"; }
 
-.icon--share:before {
+.icon--share-style2:before {
   content: "\f165"; }
 
-.icon--social-facebook:before {
+.icon--share:before {
   content: "\f166"; }
 
-.icon--social-gplus:before {
+.icon--social-facebook:before {
   content: "\f167"; }
 
-.icon--social-instagram:before {
+.icon--social-gplus:before {
   content: "\f168"; }
 
-.icon--social-linkedin:before {
+.icon--social-instagram:before {
   content: "\f169"; }
 
-.icon--social-rss:before {
+.icon--social-linkedin:before {
   content: "\f16a"; }
 
-.icon--social-twitter:before {
+.icon--social-rss:before {
   content: "\f16b"; }
 
-.icon--solutions:before {
+.icon--social-twitter:before {
   content: "\f16c"; }
 
-.icon--space:before {
+.icon--solutions:before {
   content: "\f16d"; }
 
-.icon--subscriptions:before {
+.icon--space:before {
   content: "\f16e"; }
 
-.icon--support-faq:before {
+.icon--subscriptions:before {
   content: "\f16f"; }
 
-.icon--support-services:before {
+.icon--support-faq:before {
   content: "\f170"; }
 
-.icon--tableau-desktop:before {
+.icon--support-services:before {
   content: "\f171"; }
 
-.icon--tableau-logo:before {
+.icon--tableau-desktop:before {
   content: "\f172"; }
 
-.icon--tableau-online:before {
+.icon--tableau-logo:before {
   content: "\f173"; }
 
-.icon--tableau-public:before {
+.icon--tableau-online:before {
   content: "\f174"; }
 
-.icon--tableau-reader:before {
+.icon--tableau-public:before {
   content: "\f175"; }
 
-.icon--tableau-server:before {
+.icon--tableau-reader:before {
   content: "\f176"; }
 
-.icon--tailor-content:before {
+.icon--tableau-server:before {
   content: "\f177"; }
 
-.icon--talk-bubble:before {
+.icon--tailor-content:before {
   content: "\f178"; }
 
-.icon--technology:before {
+.icon--talk-bubble:before {
   content: "\f179"; }
 
-.icon--unanswered:before {
+.icon--technology:before {
   content: "\f17a"; }
 
-.icon--up-to-date:before {
+.icon--unanswered:before {
   content: "\f17b"; }
 
-.icon--upload:before {
+.icon--up-to-date:before {
   content: "\f17c"; }
 
-.icon--user-groups:before {
+.icon--upload:before {
   content: "\f17d"; }
 
-.icon--view-less:before {
+.icon--user-groups:before {
   content: "\f17e"; }
 
-.icon--view-more:before {
+.icon--view-less:before {
   content: "\f17f"; }
 
-.icon--whitepaper:before {
+.icon--view-more:before {
   content: "\f180"; }
 
-.icon--wikis:before {
+.icon--whitepaper:before {
   content: "\f181"; }
 
-.icon--windows:before {
+.icon--wikis:before {
   content: "\f182"; }
 
-.icon--workbook-library:before {
+.icon--windows:before {
   content: "\f183"; }
 
-.icon--write:before {
+.icon--workbook-library:before {
   content: "\f184"; }
 
-.icon--youtube:before {
+.icon--write:before {
   content: "\f185"; }
+
+.icon--youtube:before {
+  content: "\f186"; }
 
 /* generated with grunt-sass-globbing */
 /*
@@ -1109,7 +1113,7 @@ textarea[disabled="disabled"] {
   left: 0;
   height: 100%;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.75;
   background-color: #333; }
 
 .overlay-dark img {
@@ -1881,7 +1885,7 @@ textarea[disabled="disabled"] {
   left: 0;
   height: 100%;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.75;
   background-color: #333; }
 
 .overlay-dark img {
@@ -2742,17 +2746,17 @@ Style guide: buttons-links.link-formatted
   .link.link--arrow-before:before, .link--arrow-before.topic-link:before, .video-chapters__toggle-wrapper .link--arrow-before.video-chapters__toggle:before {
     content: ""; }
   .link.link--expand:before, .link--expand.topic-link:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before {
-    content: ""; }
+    content: ""; }
   .link.link--collapse:before, .link--collapse.topic-link:before, .video-chapters__toggle-wrapper .link--collapse.video-chapters__toggle:before, .video-chapters__toggle-wrapper .video-chapters__toggle.is-open:before {
-    content: ""; }
+    content: ""; }
   .link.link--share:before, .link--share.topic-link:before, .video-chapters__toggle-wrapper .link--share.video-chapters__toggle:before {
-    content: ""; }
+    content: ""; }
   .link.link--close:after, .link--close.topic-link:after, .video-chapters__toggle-wrapper .link--close.video-chapters__toggle:after {
     content: ""; }
   .link.link--download:before, .link--download.topic-link:before, .video-chapters__toggle-wrapper .link--download.video-chapters__toggle:before {
     content: ""; }
   .link.link--social-twitter:before, .link--social-twitter.topic-link:before, .video-chapters__toggle-wrapper .link--social-twitter.video-chapters__toggle:before {
-    content: ""; }
+    content: ""; }
   .link.link--people:before, .link--people.topic-link:before, .video-chapters__toggle-wrapper .link--people.video-chapters__toggle:before {
     content: ""; }
   .link.link--calendar:before, .link--calendar.topic-link:before, .video-chapters__toggle-wrapper .link--calendar.video-chapters__toggle:before {
@@ -2774,9 +2778,9 @@ Style guide: buttons-links.link-formatted
   .link.link--newsletter:before, .link--newsletter.topic-link:before, .video-chapters__toggle-wrapper .link--newsletter.video-chapters__toggle:before {
     content: ""; }
   .link.link--settings:before, .link--settings.topic-link:before, .video-chapters__toggle-wrapper .link--settings.video-chapters__toggle:before {
-    content: ""; }
+    content: ""; }
   .link.link--upload:before, .link--upload.topic-link:before, .video-chapters__toggle-wrapper .link--upload.video-chapters__toggle:before {
-    content: ""; }
+    content: ""; }
 
 .topic-link > a {
   color: #333; }
@@ -2811,7 +2815,7 @@ Field with a label.
 
 Markup: detail-field.hbs
 
-Weight: 60
+Weight: 70
 
 .detail-field--secondary - Secondary "sidebar" field.
 
@@ -2822,7 +2826,8 @@ Styleguide: compound.detail-field
   margin-bottom: 20px;
   border-bottom: 1px solid #dedede; }
   .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items {
-    font-family: "Benton Sans Light", Helvetica, sans-serif; }
+    font-family: "Benton Sans Light", Helvetica, sans-serif;
+    color: inherit; }
   @media (max-width: 639px) {
     .detail-field.detail-field--secondary {
       color: #333; } }
@@ -2936,7 +2941,7 @@ subtitle.
 
 Markup: hero.hbs
 
-Weight: 100
+Weight: 20
 
 Style guide: compound.hero
 */
@@ -2962,7 +2967,7 @@ Location
 
 Details about a geo-graphic location, with a map.
 
-Weight: 50
+Weight: 60
 
 Markup: location.hbs
 
@@ -2992,7 +2997,7 @@ Display special messages to the user. Recommend putting multiple messages in `<l
 
 Markup: messages.hbs
 
-Weight: 10
+Weight: 50
 
 Nodefault: true
 
@@ -3021,7 +3026,7 @@ Stylized quoted text such as a pull quote or testimonial.
 
 Markup: quote.hbs
 
-Weight: 20
+Weight: 10
 
 Style Guide: compound.quote
 */
@@ -3388,6 +3393,7 @@ Style guide: forms.content-search
   .content-search.content-search--white {
     background: #fff; }
 
+/** @todo Add modifier to searches within heros **/
 .bg--light-gray-1 .content-search {
   background: #fff; }
 
@@ -3533,6 +3539,7 @@ Style guide: forms.contextual-search
   .contextual-search.contextual-search--white .contextual-search__ui {
     background: #fff; }
 
+/** @todo Add modifier to searches within heros **/
 .bg--light-gray-1 .contextual-search__ui {
   background: #fff; }
 
@@ -3616,6 +3623,30 @@ Weight: 100
       height: 90%;
       background: #e8762c; }
 
+@media (max-width: 639px) {
+  .webform-client-form .form__control,
+  .webform-client-form .form__field,
+  .webform-client-form input[type="text"],
+  .webform-client-form input[type="search"],
+  .webform-client-form input[type="tel"],
+  .webform-client-form input[type="password"],
+  .webform-client-form input[type="number"],
+  .webform-client-form input[type="email"],
+  .webform-client-form select,
+  .webform-client-form textarea,
+  .webform-client-form .form__button {
+    width: 100%; } }
+
+.user-register-form .form__legend,
+.tableau-premium-access-button-form .form__legend {
+  padding: 0.5em 0; }
+
+.user-register-form .form-field--checkbox,
+.user-register-form .form-field--radio,
+.tableau-premium-access-button-form .form-field--checkbox,
+.tableau-premium-access-button-form .form-field--radio {
+  margin-bottom: 1em; }
+
 /*
 Base Form Styles
 
@@ -3638,7 +3669,7 @@ fieldset,
 
 legend,
 .form__legend {
-  padding-bottom: 1em; }
+  padding-bottom: 0.5em; }
 
 .form--centered .form__control,
 .form--centered .form__field,
@@ -3949,8 +3980,6 @@ Style guide: forms.fields-dark
     color: #777; }
   .form--negative .form__legend {
     color: #fff; }
-    .form--negative .form__legend:before {
-      background: #999; }
   .form--negative .form-field__label,
   .form--negative .form-field__description {
     font-family: "Benton Sans Medium", Helvetica, sans-serif; }
@@ -4017,6 +4046,10 @@ Style guide: forms.confirmation
 .lt-ie9 .form__button,
 .lt-ie9 input[type="submit"] {
   display: inline-block; }
+
+.lt-ie11 input.placeholder,
+.lt-ie11 textarea.placeholder {
+  color: #999; }
 
 /*
 Responsive Filters
@@ -4089,7 +4122,6 @@ Markup: image.hbs
 Style guide: images.image
 */
 .image {
-  display: table;
   clear: both; }
   .image.image--left {
     float: left; }
@@ -4098,9 +4130,6 @@ Style guide: images.image
     margin-right: auto; }
   .image.image--right {
     float: right; }
-  .image .caption--image {
-    display: table-caption;
-    caption-side: bottom; }
 
 /*
 Thumbnail Image
@@ -4498,8 +4527,7 @@ Style guide: interactive.modal-message
     width: 400px;
     padding: 1em;
     color: #333;
-    background-color: #fff;
-    border: 2px solid #dedede; }
+    background-color: #fff; }
   .modal-message .modal-message__icon {
     float: left;
     padding-right: 2em; }
@@ -4950,7 +4978,11 @@ Style guide: interactive.sticky
 /*
 Content Tabs
 
-Tabbed content sections where one section is visible at a time.
+Tabbed content sections where one section is visible at a time. The following
+options can be set via data attributes on the wrapper element:
+
+**Wrapper Options:**
+* `data-tabs-scroll="[wrapper|content]"` - (optional) - Smooth-scroll to either the top of the tabs wrapper or the target content when tabs are clicked.
 
 Markup: tabs.hbs
 
@@ -5196,7 +5228,9 @@ Style guide: layout.colored
   .bg--white h4, .bg--white .heading--h4,
   .bg--white h5, .bg--white .heading--h5, .bg--white .detail-field .detail-field__label, .detail-field .bg--white .detail-field__label, .bg--white .detail-field .field__label, .detail-field .bg--white .field__label, .bg--white
   .detail-field .field-label,
-  .detail-field .bg--white .field-label, .bg--white .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--white .detail-field__items, .bg--white .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--white .field__items, .bg--white .location .location__general, .location .bg--white .location__general, .bg--white h2.block__title,
+  .detail-field .bg--white .field-label, .bg--white .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--white .detail-field__items, .bg--white .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--white .field__items, .bg--white .location .location__general, .location .bg--white .location__general, .bg--white .user-register-form .form__legend, .user-register-form .bg--white .form__legend, .bg--white
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--white .form__legend, .bg--white h2.block__title,
   .bg--white h6, .bg--white .heading--h6 {
     color: #000; }
     .bg--white h1 a, .bg--white .heading--huge a, .bg--white .heading--h1 a,
@@ -5206,7 +5240,9 @@ Style guide: layout.colored
     .bg--white h4 a, .bg--white .heading--h4 a,
     .bg--white h5 a, .bg--white .heading--h5 a, .bg--white .detail-field .detail-field__label a, .detail-field .bg--white .detail-field__label a, .bg--white .detail-field .field__label a, .detail-field .bg--white .field__label a, .bg--white
     .detail-field .field-label a,
-    .detail-field .bg--white .field-label a, .bg--white .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--white .detail-field__items a, .bg--white .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--white .field__items a, .bg--white .location .location__general a, .location .bg--white .location__general a, .bg--white h2.block__title a,
+    .detail-field .bg--white .field-label a, .bg--white .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--white .detail-field__items a, .bg--white .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--white .field__items a, .bg--white .location .location__general a, .location .bg--white .location__general a, .bg--white .user-register-form .form__legend a, .user-register-form .bg--white .form__legend a, .bg--white
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--white .form__legend a, .bg--white h2.block__title a,
     .bg--white h6 a, .bg--white .heading--h6 a {
       color: #000; }
 
@@ -5220,7 +5256,9 @@ Style guide: layout.colored
   .bg--light-gray-1 h4, .bg--light-gray-1 .heading--h4,
   .bg--light-gray-1 h5, .bg--light-gray-1 .heading--h5, .bg--light-gray-1 .detail-field .detail-field__label, .detail-field .bg--light-gray-1 .detail-field__label, .bg--light-gray-1 .detail-field .field__label, .detail-field .bg--light-gray-1 .field__label, .bg--light-gray-1
   .detail-field .field-label,
-  .detail-field .bg--light-gray-1 .field-label, .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items, .bg--light-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--light-gray-1 .field__items, .bg--light-gray-1 .location .location__general, .location .bg--light-gray-1 .location__general, .bg--light-gray-1 h2.block__title,
+  .detail-field .bg--light-gray-1 .field-label, .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items, .bg--light-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--light-gray-1 .field__items, .bg--light-gray-1 .location .location__general, .location .bg--light-gray-1 .location__general, .bg--light-gray-1 .user-register-form .form__legend, .user-register-form .bg--light-gray-1 .form__legend, .bg--light-gray-1
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--light-gray-1 .form__legend, .bg--light-gray-1 h2.block__title,
   .bg--light-gray-1 h6, .bg--light-gray-1 .heading--h6 {
     color: #000; }
     .bg--light-gray-1 h1 a, .bg--light-gray-1 .heading--huge a, .bg--light-gray-1 .heading--h1 a,
@@ -5230,7 +5268,9 @@ Style guide: layout.colored
     .bg--light-gray-1 h4 a, .bg--light-gray-1 .heading--h4 a,
     .bg--light-gray-1 h5 a, .bg--light-gray-1 .heading--h5 a, .bg--light-gray-1 .detail-field .detail-field__label a, .detail-field .bg--light-gray-1 .detail-field__label a, .bg--light-gray-1 .detail-field .field__label a, .detail-field .bg--light-gray-1 .field__label a, .bg--light-gray-1
     .detail-field .field-label a,
-    .detail-field .bg--light-gray-1 .field-label a, .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items a, .bg--light-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--light-gray-1 .field__items a, .bg--light-gray-1 .location .location__general a, .location .bg--light-gray-1 .location__general a, .bg--light-gray-1 h2.block__title a,
+    .detail-field .bg--light-gray-1 .field-label a, .bg--light-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--light-gray-1 .detail-field__items a, .bg--light-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--light-gray-1 .field__items a, .bg--light-gray-1 .location .location__general a, .location .bg--light-gray-1 .location__general a, .bg--light-gray-1 .user-register-form .form__legend a, .user-register-form .bg--light-gray-1 .form__legend a, .bg--light-gray-1
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--light-gray-1 .form__legend a, .bg--light-gray-1 h2.block__title a,
     .bg--light-gray-1 h6 a, .bg--light-gray-1 .heading--h6 a {
       color: #000; }
 
@@ -5244,7 +5284,9 @@ Style guide: layout.colored
   .bg--light-gray-2 h4, .bg--light-gray-2 .heading--h4,
   .bg--light-gray-2 h5, .bg--light-gray-2 .heading--h5, .bg--light-gray-2 .detail-field .detail-field__label, .detail-field .bg--light-gray-2 .detail-field__label, .bg--light-gray-2 .detail-field .field__label, .detail-field .bg--light-gray-2 .field__label, .bg--light-gray-2
   .detail-field .field-label,
-  .detail-field .bg--light-gray-2 .field-label, .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items, .bg--light-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--light-gray-2 .field__items, .bg--light-gray-2 .location .location__general, .location .bg--light-gray-2 .location__general, .bg--light-gray-2 h2.block__title,
+  .detail-field .bg--light-gray-2 .field-label, .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items, .bg--light-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--light-gray-2 .field__items, .bg--light-gray-2 .location .location__general, .location .bg--light-gray-2 .location__general, .bg--light-gray-2 .user-register-form .form__legend, .user-register-form .bg--light-gray-2 .form__legend, .bg--light-gray-2
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--light-gray-2 .form__legend, .bg--light-gray-2 h2.block__title,
   .bg--light-gray-2 h6, .bg--light-gray-2 .heading--h6 {
     color: #000; }
     .bg--light-gray-2 h1 a, .bg--light-gray-2 .heading--huge a, .bg--light-gray-2 .heading--h1 a,
@@ -5254,7 +5296,9 @@ Style guide: layout.colored
     .bg--light-gray-2 h4 a, .bg--light-gray-2 .heading--h4 a,
     .bg--light-gray-2 h5 a, .bg--light-gray-2 .heading--h5 a, .bg--light-gray-2 .detail-field .detail-field__label a, .detail-field .bg--light-gray-2 .detail-field__label a, .bg--light-gray-2 .detail-field .field__label a, .detail-field .bg--light-gray-2 .field__label a, .bg--light-gray-2
     .detail-field .field-label a,
-    .detail-field .bg--light-gray-2 .field-label a, .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items a, .bg--light-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--light-gray-2 .field__items a, .bg--light-gray-2 .location .location__general a, .location .bg--light-gray-2 .location__general a, .bg--light-gray-2 h2.block__title a,
+    .detail-field .bg--light-gray-2 .field-label a, .bg--light-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--light-gray-2 .detail-field__items a, .bg--light-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--light-gray-2 .field__items a, .bg--light-gray-2 .location .location__general a, .location .bg--light-gray-2 .location__general a, .bg--light-gray-2 .user-register-form .form__legend a, .user-register-form .bg--light-gray-2 .form__legend a, .bg--light-gray-2
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--light-gray-2 .form__legend a, .bg--light-gray-2 h2.block__title a,
     .bg--light-gray-2 h6 a, .bg--light-gray-2 .heading--h6 a {
       color: #000; }
 
@@ -5271,7 +5315,11 @@ Style guide: layout.colored
   .detail-field .field-label,
   .detail-field .bg--dark-gray-1 .field-label, .subnav
   .detail-field .field-label,
-  .detail-field .subnav .field-label, .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items, .subnav .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .subnav .detail-field__items, .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items, .subnav .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .subnav .field__items, .bg--dark-gray-1 .location .location__general, .location .bg--dark-gray-1 .location__general, .subnav .location .location__general, .location .subnav .location__general, .bg--dark-gray-1 h2.block__title, .subnav h2.block__title,
+  .detail-field .subnav .field-label, .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items, .subnav .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .subnav .detail-field__items, .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items, .subnav .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .subnav .field__items, .bg--dark-gray-1 .location .location__general, .location .bg--dark-gray-1 .location__general, .subnav .location .location__general, .location .subnav .location__general, .bg--dark-gray-1 .user-register-form .form__legend, .user-register-form .bg--dark-gray-1 .form__legend, .subnav .user-register-form .form__legend, .user-register-form .subnav .form__legend, .bg--dark-gray-1
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--dark-gray-1 .form__legend, .subnav
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .subnav .form__legend, .bg--dark-gray-1 h2.block__title, .subnav h2.block__title,
   .bg--dark-gray-1 h6, .subnav h6, .bg--dark-gray-1 .heading--h6, .subnav .heading--h6 {
     color: #fff; }
     .bg--dark-gray-1 h1 a, .subnav h1 a, .bg--dark-gray-1 .heading--huge a, .subnav .heading--huge a, .bg--dark-gray-1 .heading--h1 a, .subnav .heading--h1 a,
@@ -5284,7 +5332,11 @@ Style guide: layout.colored
     .detail-field .field-label a,
     .detail-field .bg--dark-gray-1 .field-label a, .subnav
     .detail-field .field-label a,
-    .detail-field .subnav .field-label a, .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items a, .subnav .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .subnav .detail-field__items a, .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items a, .subnav .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .subnav .field__items a, .bg--dark-gray-1 .location .location__general a, .location .bg--dark-gray-1 .location__general a, .subnav .location .location__general a, .location .subnav .location__general a, .bg--dark-gray-1 h2.block__title a, .subnav h2.block__title a,
+    .detail-field .subnav .field-label a, .bg--dark-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--dark-gray-1 .detail-field__items a, .subnav .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .subnav .detail-field__items a, .bg--dark-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--dark-gray-1 .field__items a, .subnav .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .subnav .field__items a, .bg--dark-gray-1 .location .location__general a, .location .bg--dark-gray-1 .location__general a, .subnav .location .location__general a, .location .subnav .location__general a, .bg--dark-gray-1 .user-register-form .form__legend a, .user-register-form .bg--dark-gray-1 .form__legend a, .subnav .user-register-form .form__legend a, .user-register-form .subnav .form__legend a, .bg--dark-gray-1
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--dark-gray-1 .form__legend a, .subnav
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .subnav .form__legend a, .bg--dark-gray-1 h2.block__title a, .subnav h2.block__title a,
     .bg--dark-gray-1 h6 a, .subnav h6 a, .bg--dark-gray-1 .heading--h6 a, .subnav .heading--h6 a {
       color: #fff; }
 
@@ -5298,7 +5350,9 @@ Style guide: layout.colored
   .bg--dark-gray-2 h4, .bg--dark-gray-2 .heading--h4,
   .bg--dark-gray-2 h5, .bg--dark-gray-2 .heading--h5, .bg--dark-gray-2 .detail-field .detail-field__label, .detail-field .bg--dark-gray-2 .detail-field__label, .bg--dark-gray-2 .detail-field .field__label, .detail-field .bg--dark-gray-2 .field__label, .bg--dark-gray-2
   .detail-field .field-label,
-  .detail-field .bg--dark-gray-2 .field-label, .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items, .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items, .bg--dark-gray-2 .location .location__general, .location .bg--dark-gray-2 .location__general, .bg--dark-gray-2 h2.block__title,
+  .detail-field .bg--dark-gray-2 .field-label, .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items, .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items, .bg--dark-gray-2 .location .location__general, .location .bg--dark-gray-2 .location__general, .bg--dark-gray-2 .user-register-form .form__legend, .user-register-form .bg--dark-gray-2 .form__legend, .bg--dark-gray-2
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--dark-gray-2 .form__legend, .bg--dark-gray-2 h2.block__title,
   .bg--dark-gray-2 h6, .bg--dark-gray-2 .heading--h6 {
     color: #fff; }
     .bg--dark-gray-2 h1 a, .bg--dark-gray-2 .heading--huge a, .bg--dark-gray-2 .heading--h1 a,
@@ -5308,7 +5362,9 @@ Style guide: layout.colored
     .bg--dark-gray-2 h4 a, .bg--dark-gray-2 .heading--h4 a,
     .bg--dark-gray-2 h5 a, .bg--dark-gray-2 .heading--h5 a, .bg--dark-gray-2 .detail-field .detail-field__label a, .detail-field .bg--dark-gray-2 .detail-field__label a, .bg--dark-gray-2 .detail-field .field__label a, .detail-field .bg--dark-gray-2 .field__label a, .bg--dark-gray-2
     .detail-field .field-label a,
-    .detail-field .bg--dark-gray-2 .field-label a, .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items a, .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items a, .bg--dark-gray-2 .location .location__general a, .location .bg--dark-gray-2 .location__general a, .bg--dark-gray-2 h2.block__title a,
+    .detail-field .bg--dark-gray-2 .field-label a, .bg--dark-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--dark-gray-2 .detail-field__items a, .bg--dark-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--dark-gray-2 .field__items a, .bg--dark-gray-2 .location .location__general a, .location .bg--dark-gray-2 .location__general a, .bg--dark-gray-2 .user-register-form .form__legend a, .user-register-form .bg--dark-gray-2 .form__legend a, .bg--dark-gray-2
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--dark-gray-2 .form__legend a, .bg--dark-gray-2 h2.block__title a,
     .bg--dark-gray-2 h6 a, .bg--dark-gray-2 .heading--h6 a {
       color: #fff; }
 
@@ -5325,7 +5381,11 @@ Style guide: layout.colored
   .detail-field .field-label,
   .detail-field .bg--dark-gray-3 .field-label, .bg--media-shade
   .detail-field .field-label,
-  .detail-field .bg--media-shade .field-label, .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items, .bg--media-shade .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--media-shade .detail-field__items, .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items, .bg--media-shade .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--media-shade .field__items, .bg--dark-gray-3 .location .location__general, .location .bg--dark-gray-3 .location__general, .bg--media-shade .location .location__general, .location .bg--media-shade .location__general, .bg--dark-gray-3 h2.block__title, .bg--media-shade h2.block__title,
+  .detail-field .bg--media-shade .field-label, .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items, .bg--media-shade .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--media-shade .detail-field__items, .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items, .bg--media-shade .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--media-shade .field__items, .bg--dark-gray-3 .location .location__general, .location .bg--dark-gray-3 .location__general, .bg--media-shade .location .location__general, .location .bg--media-shade .location__general, .bg--dark-gray-3 .user-register-form .form__legend, .user-register-form .bg--dark-gray-3 .form__legend, .bg--media-shade .user-register-form .form__legend, .user-register-form .bg--media-shade .form__legend, .bg--dark-gray-3
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--dark-gray-3 .form__legend, .bg--media-shade
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--media-shade .form__legend, .bg--dark-gray-3 h2.block__title, .bg--media-shade h2.block__title,
   .bg--dark-gray-3 h6, .bg--media-shade h6, .bg--dark-gray-3 .heading--h6, .bg--media-shade .heading--h6 {
     color: #fff; }
     .bg--dark-gray-3 h1 a, .bg--media-shade h1 a, .bg--dark-gray-3 .heading--huge a, .bg--media-shade .heading--huge a, .bg--dark-gray-3 .heading--h1 a, .bg--media-shade .heading--h1 a,
@@ -5338,7 +5398,11 @@ Style guide: layout.colored
     .detail-field .field-label a,
     .detail-field .bg--dark-gray-3 .field-label a, .bg--media-shade
     .detail-field .field-label a,
-    .detail-field .bg--media-shade .field-label a, .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items a, .bg--media-shade .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--media-shade .detail-field__items a, .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items a, .bg--media-shade .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--media-shade .field__items a, .bg--dark-gray-3 .location .location__general a, .location .bg--dark-gray-3 .location__general a, .bg--media-shade .location .location__general a, .location .bg--media-shade .location__general a, .bg--dark-gray-3 h2.block__title a, .bg--media-shade h2.block__title a,
+    .detail-field .bg--media-shade .field-label a, .bg--dark-gray-3 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--dark-gray-3 .detail-field__items a, .bg--media-shade .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--media-shade .detail-field__items a, .bg--dark-gray-3 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--dark-gray-3 .field__items a, .bg--media-shade .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--media-shade .field__items a, .bg--dark-gray-3 .location .location__general a, .location .bg--dark-gray-3 .location__general a, .bg--media-shade .location .location__general a, .location .bg--media-shade .location__general a, .bg--dark-gray-3 .user-register-form .form__legend a, .user-register-form .bg--dark-gray-3 .form__legend a, .bg--media-shade .user-register-form .form__legend a, .user-register-form .bg--media-shade .form__legend a, .bg--dark-gray-3
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--dark-gray-3 .form__legend a, .bg--media-shade
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--media-shade .form__legend a, .bg--dark-gray-3 h2.block__title a, .bg--media-shade h2.block__title a,
     .bg--dark-gray-3 h6 a, .bg--media-shade h6 a, .bg--dark-gray-3 .heading--h6 a, .bg--media-shade .heading--h6 a {
       color: #fff; }
 
@@ -5352,7 +5416,9 @@ Style guide: layout.colored
   .bg--about-featured h4, .bg--about-featured .heading--h4,
   .bg--about-featured h5, .bg--about-featured .heading--h5, .bg--about-featured .detail-field .detail-field__label, .detail-field .bg--about-featured .detail-field__label, .bg--about-featured .detail-field .field__label, .detail-field .bg--about-featured .field__label, .bg--about-featured
   .detail-field .field-label,
-  .detail-field .bg--about-featured .field-label, .bg--about-featured .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--about-featured .detail-field__items, .bg--about-featured .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--about-featured .field__items, .bg--about-featured .location .location__general, .location .bg--about-featured .location__general, .bg--about-featured h2.block__title,
+  .detail-field .bg--about-featured .field-label, .bg--about-featured .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--about-featured .detail-field__items, .bg--about-featured .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--about-featured .field__items, .bg--about-featured .location .location__general, .location .bg--about-featured .location__general, .bg--about-featured .user-register-form .form__legend, .user-register-form .bg--about-featured .form__legend, .bg--about-featured
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--about-featured .form__legend, .bg--about-featured h2.block__title,
   .bg--about-featured h6, .bg--about-featured .heading--h6 {
     color: #fff; }
     .bg--about-featured h1 a, .bg--about-featured .heading--huge a, .bg--about-featured .heading--h1 a,
@@ -5362,7 +5428,9 @@ Style guide: layout.colored
     .bg--about-featured h4 a, .bg--about-featured .heading--h4 a,
     .bg--about-featured h5 a, .bg--about-featured .heading--h5 a, .bg--about-featured .detail-field .detail-field__label a, .detail-field .bg--about-featured .detail-field__label a, .bg--about-featured .detail-field .field__label a, .detail-field .bg--about-featured .field__label a, .bg--about-featured
     .detail-field .field-label a,
-    .detail-field .bg--about-featured .field-label a, .bg--about-featured .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--about-featured .detail-field__items a, .bg--about-featured .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--about-featured .field__items a, .bg--about-featured .location .location__general a, .location .bg--about-featured .location__general a, .bg--about-featured h2.block__title a,
+    .detail-field .bg--about-featured .field-label a, .bg--about-featured .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--about-featured .detail-field__items a, .bg--about-featured .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--about-featured .field__items a, .bg--about-featured .location .location__general a, .location .bg--about-featured .location__general a, .bg--about-featured .user-register-form .form__legend a, .user-register-form .bg--about-featured .form__legend a, .bg--about-featured
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--about-featured .form__legend a, .bg--about-featured h2.block__title a,
     .bg--about-featured h6 a, .bg--about-featured .heading--h6 a {
       color: #fff; }
 
@@ -5379,7 +5447,11 @@ Style guide: layout.colored
   .detail-field .field-label,
   .detail-field .bg--data-sources .field-label, .card.card--quote
   .detail-field .field-label,
-  .detail-field .card.card--quote .field-label, .bg--data-sources .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--data-sources .detail-field__items, .card.card--quote .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .card.card--quote .detail-field__items, .bg--data-sources .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--data-sources .field__items, .card.card--quote .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .card.card--quote .field__items, .bg--data-sources .location .location__general, .location .bg--data-sources .location__general, .card.card--quote .location .location__general, .location .card.card--quote .location__general, .bg--data-sources h2.block__title, .card.card--quote h2.block__title,
+  .detail-field .card.card--quote .field-label, .bg--data-sources .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--data-sources .detail-field__items, .card.card--quote .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .card.card--quote .detail-field__items, .bg--data-sources .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--data-sources .field__items, .card.card--quote .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .card.card--quote .field__items, .bg--data-sources .location .location__general, .location .bg--data-sources .location__general, .card.card--quote .location .location__general, .location .card.card--quote .location__general, .bg--data-sources .user-register-form .form__legend, .user-register-form .bg--data-sources .form__legend, .card.card--quote .user-register-form .form__legend, .user-register-form .card.card--quote .form__legend, .bg--data-sources
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--data-sources .form__legend, .card.card--quote
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .card.card--quote .form__legend, .bg--data-sources h2.block__title, .card.card--quote h2.block__title,
   .bg--data-sources h6, .card.card--quote h6, .bg--data-sources .heading--h6, .card.card--quote .heading--h6 {
     color: #fff; }
     .bg--data-sources h1 a, .card.card--quote h1 a, .bg--data-sources .heading--huge a, .card.card--quote .heading--huge a, .bg--data-sources .heading--h1 a, .card.card--quote .heading--h1 a,
@@ -5392,7 +5464,11 @@ Style guide: layout.colored
     .detail-field .field-label a,
     .detail-field .bg--data-sources .field-label a, .card.card--quote
     .detail-field .field-label a,
-    .detail-field .card.card--quote .field-label a, .bg--data-sources .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--data-sources .detail-field__items a, .card.card--quote .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .card.card--quote .detail-field__items a, .bg--data-sources .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--data-sources .field__items a, .card.card--quote .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .card.card--quote .field__items a, .bg--data-sources .location .location__general a, .location .bg--data-sources .location__general a, .card.card--quote .location .location__general a, .location .card.card--quote .location__general a, .bg--data-sources h2.block__title a, .card.card--quote h2.block__title a,
+    .detail-field .card.card--quote .field-label a, .bg--data-sources .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--data-sources .detail-field__items a, .card.card--quote .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .card.card--quote .detail-field__items a, .bg--data-sources .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--data-sources .field__items a, .card.card--quote .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .card.card--quote .field__items a, .bg--data-sources .location .location__general a, .location .bg--data-sources .location__general a, .card.card--quote .location .location__general a, .location .card.card--quote .location__general a, .bg--data-sources .user-register-form .form__legend a, .user-register-form .bg--data-sources .form__legend a, .card.card--quote .user-register-form .form__legend a, .user-register-form .card.card--quote .form__legend a, .bg--data-sources
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--data-sources .form__legend a, .card.card--quote
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .card.card--quote .form__legend a, .bg--data-sources h2.block__title a, .card.card--quote h2.block__title a,
     .bg--data-sources h6 a, .card.card--quote h6 a, .bg--data-sources .heading--h6 a, .card.card--quote .heading--h6 a {
       color: #fff; }
 
@@ -5406,7 +5482,9 @@ Style guide: layout.colored
   .bg--nav-drawer-gray-1 h4, .bg--nav-drawer-gray-1 .heading--h4,
   .bg--nav-drawer-gray-1 h5, .bg--nav-drawer-gray-1 .heading--h5, .bg--nav-drawer-gray-1 .detail-field .detail-field__label, .detail-field .bg--nav-drawer-gray-1 .detail-field__label, .bg--nav-drawer-gray-1 .detail-field .field__label, .detail-field .bg--nav-drawer-gray-1 .field__label, .bg--nav-drawer-gray-1
   .detail-field .field-label,
-  .detail-field .bg--nav-drawer-gray-1 .field-label, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items, .bg--nav-drawer-gray-1 .location .location__general, .location .bg--nav-drawer-gray-1 .location__general, .bg--nav-drawer-gray-1 h2.block__title,
+  .detail-field .bg--nav-drawer-gray-1 .field-label, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items, .bg--nav-drawer-gray-1 .location .location__general, .location .bg--nav-drawer-gray-1 .location__general, .bg--nav-drawer-gray-1 .user-register-form .form__legend, .user-register-form .bg--nav-drawer-gray-1 .form__legend, .bg--nav-drawer-gray-1
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--nav-drawer-gray-1 .form__legend, .bg--nav-drawer-gray-1 h2.block__title,
   .bg--nav-drawer-gray-1 h6, .bg--nav-drawer-gray-1 .heading--h6 {
     color: #000; }
     .bg--nav-drawer-gray-1 h1 a, .bg--nav-drawer-gray-1 .heading--huge a, .bg--nav-drawer-gray-1 .heading--h1 a,
@@ -5416,7 +5494,9 @@ Style guide: layout.colored
     .bg--nav-drawer-gray-1 h4 a, .bg--nav-drawer-gray-1 .heading--h4 a,
     .bg--nav-drawer-gray-1 h5 a, .bg--nav-drawer-gray-1 .heading--h5 a, .bg--nav-drawer-gray-1 .detail-field .detail-field__label a, .detail-field .bg--nav-drawer-gray-1 .detail-field__label a, .bg--nav-drawer-gray-1 .detail-field .field__label a, .detail-field .bg--nav-drawer-gray-1 .field__label a, .bg--nav-drawer-gray-1
     .detail-field .field-label a,
-    .detail-field .bg--nav-drawer-gray-1 .field-label a, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items a, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items a, .bg--nav-drawer-gray-1 .location .location__general a, .location .bg--nav-drawer-gray-1 .location__general a, .bg--nav-drawer-gray-1 h2.block__title a,
+    .detail-field .bg--nav-drawer-gray-1 .field-label a, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .detail-field__items a, .bg--nav-drawer-gray-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-1 .field__items a, .bg--nav-drawer-gray-1 .location .location__general a, .location .bg--nav-drawer-gray-1 .location__general a, .bg--nav-drawer-gray-1 .user-register-form .form__legend a, .user-register-form .bg--nav-drawer-gray-1 .form__legend a, .bg--nav-drawer-gray-1
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--nav-drawer-gray-1 .form__legend a, .bg--nav-drawer-gray-1 h2.block__title a,
     .bg--nav-drawer-gray-1 h6 a, .bg--nav-drawer-gray-1 .heading--h6 a {
       color: #000; }
 
@@ -5430,7 +5510,9 @@ Style guide: layout.colored
   .bg--nav-drawer-gray-2 h4, .bg--nav-drawer-gray-2 .heading--h4,
   .bg--nav-drawer-gray-2 h5, .bg--nav-drawer-gray-2 .heading--h5, .bg--nav-drawer-gray-2 .detail-field .detail-field__label, .detail-field .bg--nav-drawer-gray-2 .detail-field__label, .bg--nav-drawer-gray-2 .detail-field .field__label, .detail-field .bg--nav-drawer-gray-2 .field__label, .bg--nav-drawer-gray-2
   .detail-field .field-label,
-  .detail-field .bg--nav-drawer-gray-2 .field-label, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items, .bg--nav-drawer-gray-2 .location .location__general, .location .bg--nav-drawer-gray-2 .location__general, .bg--nav-drawer-gray-2 h2.block__title,
+  .detail-field .bg--nav-drawer-gray-2 .field-label, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items, .bg--nav-drawer-gray-2 .location .location__general, .location .bg--nav-drawer-gray-2 .location__general, .bg--nav-drawer-gray-2 .user-register-form .form__legend, .user-register-form .bg--nav-drawer-gray-2 .form__legend, .bg--nav-drawer-gray-2
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .bg--nav-drawer-gray-2 .form__legend, .bg--nav-drawer-gray-2 h2.block__title,
   .bg--nav-drawer-gray-2 h6, .bg--nav-drawer-gray-2 .heading--h6 {
     color: #000; }
     .bg--nav-drawer-gray-2 h1 a, .bg--nav-drawer-gray-2 .heading--huge a, .bg--nav-drawer-gray-2 .heading--h1 a,
@@ -5440,7 +5522,9 @@ Style guide: layout.colored
     .bg--nav-drawer-gray-2 h4 a, .bg--nav-drawer-gray-2 .heading--h4 a,
     .bg--nav-drawer-gray-2 h5 a, .bg--nav-drawer-gray-2 .heading--h5 a, .bg--nav-drawer-gray-2 .detail-field .detail-field__label a, .detail-field .bg--nav-drawer-gray-2 .detail-field__label a, .bg--nav-drawer-gray-2 .detail-field .field__label a, .detail-field .bg--nav-drawer-gray-2 .field__label a, .bg--nav-drawer-gray-2
     .detail-field .field-label a,
-    .detail-field .bg--nav-drawer-gray-2 .field-label a, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items a, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items a, .bg--nav-drawer-gray-2 .location .location__general a, .location .bg--nav-drawer-gray-2 .location__general a, .bg--nav-drawer-gray-2 h2.block__title a,
+    .detail-field .bg--nav-drawer-gray-2 .field-label a, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .detail-field__items a, .bg--nav-drawer-gray-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .bg--nav-drawer-gray-2 .field__items a, .bg--nav-drawer-gray-2 .location .location__general a, .location .bg--nav-drawer-gray-2 .location__general a, .bg--nav-drawer-gray-2 .user-register-form .form__legend a, .user-register-form .bg--nav-drawer-gray-2 .form__legend a, .bg--nav-drawer-gray-2
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .bg--nav-drawer-gray-2 .form__legend a, .bg--nav-drawer-gray-2 h2.block__title a,
     .bg--nav-drawer-gray-2 h6 a, .bg--nav-drawer-gray-2 .heading--h6 a {
       color: #000; }
 
@@ -6609,8 +6693,7 @@ Style guide: lists.cross-reference-3
 @media (min-width: 640px) and (max-width: 960px) {
   .cross-reference-3 .cross-reference-3__title {
     text-align: center; }
-    .cross-reference-3 .cross-reference-3__title .heading-highlight:before, .cross-reference-3 .cross-reference-3__title legend:before, .cross-reference-3 .cross-reference-3__title
-    .form__legend:before {
+    .cross-reference-3 .cross-reference-3__title .heading-highlight:before {
       left: 50%;
       margin-left: -25px; }
   .cross-reference-3 .cross-reference-3__title,
@@ -6939,7 +7022,9 @@ Weight: 90
 
 .video-playlist__play {
   display: table-cell;
-  width: 2em; }
+  width: 1.5em;
+  font-size: 1.25em;
+  color: #e8762c; }
 
 .video-playlist__title {
   display: table-cell;
@@ -7280,7 +7365,7 @@ Style guide: navigation.global
     font-size: 0;
     color: #333; }
     .global-nav__top .global-nav__search-toggle:before {
-      content: "";
+      content: "";
       cursor: pointer;
       font-size: 20px; }
   .global-nav__top .global-nav__search {
@@ -7288,7 +7373,7 @@ Style guide: navigation.global
     position: absolute;
     z-index: 10001; }
     .global-nav__top .global-nav__search:before {
-      content: "";
+      content: "";
       position: absolute;
       display: block;
       cursor: pointer;
@@ -8080,7 +8165,6 @@ Image based icons
 .icon--database,
 .icon--diagram,
 .icon--management,
-.icon--play-orange,
 .icon--statistics,
 .icon--expand,
 .icon--collapse,
@@ -8090,9 +8174,6 @@ Image based icons
 .icon--slideshow-next-dark,
 .icon--magnifying-glass {
   display: inline-block; }
-
-.icon--play-orange:before {
-  content: url(../images/shame/icons/icon-play-orange.png); }
 
 .icon--circle-filled-orange:before {
   content: url(../images/shame/icons/icon-circle-filled-orange.png); }
@@ -8374,7 +8455,7 @@ Style guide: teasers.person-teaser
     width: 20%;
     float: left;
     margin-right: 6.66667%; }
-    @media (min-width: 640px) {
+    @media (max-width: 960px) {
       .person-teaser .person-teaser__image {
         width: 14.89362%;
         float: left;
@@ -8384,7 +8465,7 @@ Style guide: teasers.person-teaser
     float: left;
     margin-left: 0;
     margin-right: -100%; }
-    @media (min-width: 640px) {
+    @media (max-width: 960px) {
       .person-teaser .person-teaser__info {
         width: 31.91489%;
         float: left;
@@ -8527,15 +8608,6 @@ Style guide: teasers.teaser-item
   .teaser-item.grid--tablet-half {
     margin-bottom: 2em; } }
 
-.block-liftigniter-widget-learn-recs-li .content {
-  min-height: 100px; }
-
-#li-recommendation-learn-recs-li {
-  overflow: hidden;
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-
 /*
 Text Teaser Item
 
@@ -8549,7 +8621,6 @@ Markup: text_teaser.hbs
 Style guide: teasers.text_teaser
 */
 .text-teaser-item .text-teaser-item__title a {
-  font-family: "Merriweather", serif;
   color: #787878; }
 
 /*
@@ -8765,7 +8836,11 @@ Style guide: typography.colors
   .detail-field .field-label,
   .detail-field .text--negative .field-label, .tooltip .tooltip__text
   .detail-field .field-label,
-  .detail-field .tooltip .tooltip__text .field-label, .text--negative .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--negative .detail-field__items, .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items, .text--negative .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--negative .field__items, .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items, .text--negative .location .location__general, .location .text--negative .location__general, .tooltip .tooltip__text .location .location__general, .location .tooltip .tooltip__text .location__general, .text--negative h2.block__title, .tooltip .tooltip__text h2.block__title,
+  .detail-field .tooltip .tooltip__text .field-label, .text--negative .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--negative .detail-field__items, .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items, .text--negative .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--negative .field__items, .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items, .text--negative .location .location__general, .location .text--negative .location__general, .tooltip .tooltip__text .location .location__general, .location .tooltip .tooltip__text .location__general, .text--negative .user-register-form .form__legend, .user-register-form .text--negative .form__legend, .tooltip .tooltip__text .user-register-form .form__legend, .user-register-form .tooltip .tooltip__text .form__legend, .text--negative
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--negative .form__legend, .tooltip .tooltip__text
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .tooltip .tooltip__text .form__legend, .text--negative h2.block__title, .tooltip .tooltip__text h2.block__title,
   .text--negative h6, .tooltip .tooltip__text h6, .text--negative .heading--h6, .tooltip .tooltip__text .heading--h6 {
     color: #fff; }
     .text--negative h1 a, .tooltip .tooltip__text h1 a, .text--negative .heading--huge a, .tooltip .tooltip__text .heading--huge a, .text--negative .heading--h1 a, .tooltip .tooltip__text .heading--h1 a,
@@ -8778,7 +8853,11 @@ Style guide: typography.colors
     .detail-field .field-label a,
     .detail-field .text--negative .field-label a, .tooltip .tooltip__text
     .detail-field .field-label a,
-    .detail-field .tooltip .tooltip__text .field-label a, .text--negative .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--negative .detail-field__items a, .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items a, .text--negative .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--negative .field__items a, .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items a, .text--negative .location .location__general a, .location .text--negative .location__general a, .tooltip .tooltip__text .location .location__general a, .location .tooltip .tooltip__text .location__general a, .text--negative h2.block__title a, .tooltip .tooltip__text h2.block__title a,
+    .detail-field .tooltip .tooltip__text .field-label a, .text--negative .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--negative .detail-field__items a, .tooltip .tooltip__text .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .tooltip .tooltip__text .detail-field__items a, .text--negative .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--negative .field__items a, .tooltip .tooltip__text .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .tooltip .tooltip__text .field__items a, .text--negative .location .location__general a, .location .text--negative .location__general a, .tooltip .tooltip__text .location .location__general a, .location .tooltip .tooltip__text .location__general a, .text--negative .user-register-form .form__legend a, .user-register-form .text--negative .form__legend a, .tooltip .tooltip__text .user-register-form .form__legend a, .user-register-form .tooltip .tooltip__text .form__legend a, .text--negative
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--negative .form__legend a, .tooltip .tooltip__text
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .tooltip .tooltip__text .form__legend a, .text--negative h2.block__title a, .tooltip .tooltip__text h2.block__title a,
     .text--negative h6 a, .tooltip .tooltip__text h6 a, .text--negative .heading--h6 a, .tooltip .tooltip__text .heading--h6 a {
       color: #fff; }
 
@@ -8791,7 +8870,9 @@ Style guide: typography.colors
   .text--light-body h4, .text--light-body .heading--h4,
   .text--light-body h5, .text--light-body .heading--h5, .text--light-body .detail-field .detail-field__label, .detail-field .text--light-body .detail-field__label, .text--light-body .detail-field .field__label, .detail-field .text--light-body .field__label, .text--light-body
   .detail-field .field-label,
-  .detail-field .text--light-body .field-label, .text--light-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--light-body .detail-field__items, .text--light-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--light-body .field__items, .text--light-body .location .location__general, .location .text--light-body .location__general, .text--light-body h2.block__title,
+  .detail-field .text--light-body .field-label, .text--light-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--light-body .detail-field__items, .text--light-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--light-body .field__items, .text--light-body .location .location__general, .location .text--light-body .location__general, .text--light-body .user-register-form .form__legend, .user-register-form .text--light-body .form__legend, .text--light-body
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--light-body .form__legend, .text--light-body h2.block__title,
   .text--light-body h6, .text--light-body .heading--h6 {
     color: #bbb; }
     .text--light-body h1 a, .text--light-body .heading--huge a, .text--light-body .heading--h1 a,
@@ -8801,7 +8882,9 @@ Style guide: typography.colors
     .text--light-body h4 a, .text--light-body .heading--h4 a,
     .text--light-body h5 a, .text--light-body .heading--h5 a, .text--light-body .detail-field .detail-field__label a, .detail-field .text--light-body .detail-field__label a, .text--light-body .detail-field .field__label a, .detail-field .text--light-body .field__label a, .text--light-body
     .detail-field .field-label a,
-    .detail-field .text--light-body .field-label a, .text--light-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--light-body .detail-field__items a, .text--light-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--light-body .field__items a, .text--light-body .location .location__general a, .location .text--light-body .location__general a, .text--light-body h2.block__title a,
+    .detail-field .text--light-body .field-label a, .text--light-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--light-body .detail-field__items a, .text--light-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--light-body .field__items a, .text--light-body .location .location__general a, .location .text--light-body .location__general a, .text--light-body .user-register-form .form__legend a, .user-register-form .text--light-body .form__legend a, .text--light-body
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--light-body .form__legend a, .text--light-body h2.block__title a,
     .text--light-body h6 a, .text--light-body .heading--h6 a {
       color: #bbb; }
 
@@ -8814,7 +8897,9 @@ Style guide: typography.colors
   .text--medium-body h4, .text--medium-body .heading--h4,
   .text--medium-body h5, .text--medium-body .heading--h5, .text--medium-body .detail-field .detail-field__label, .detail-field .text--medium-body .detail-field__label, .text--medium-body .detail-field .field__label, .detail-field .text--medium-body .field__label, .text--medium-body
   .detail-field .field-label,
-  .detail-field .text--medium-body .field-label, .text--medium-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--medium-body .detail-field__items, .text--medium-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--medium-body .field__items, .text--medium-body .location .location__general, .location .text--medium-body .location__general, .text--medium-body h2.block__title,
+  .detail-field .text--medium-body .field-label, .text--medium-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--medium-body .detail-field__items, .text--medium-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--medium-body .field__items, .text--medium-body .location .location__general, .location .text--medium-body .location__general, .text--medium-body .user-register-form .form__legend, .user-register-form .text--medium-body .form__legend, .text--medium-body
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--medium-body .form__legend, .text--medium-body h2.block__title,
   .text--medium-body h6, .text--medium-body .heading--h6 {
     color: #787878; }
     .text--medium-body h1 a, .text--medium-body .heading--huge a, .text--medium-body .heading--h1 a,
@@ -8824,7 +8909,9 @@ Style guide: typography.colors
     .text--medium-body h4 a, .text--medium-body .heading--h4 a,
     .text--medium-body h5 a, .text--medium-body .heading--h5 a, .text--medium-body .detail-field .detail-field__label a, .detail-field .text--medium-body .detail-field__label a, .text--medium-body .detail-field .field__label a, .detail-field .text--medium-body .field__label a, .text--medium-body
     .detail-field .field-label a,
-    .detail-field .text--medium-body .field-label a, .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, .text--medium-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--medium-body .field__items a, .text--medium-body .location .location__general a, .location .text--medium-body .location__general a, .text--medium-body h2.block__title a,
+    .detail-field .text--medium-body .field-label a, .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, .text--medium-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--medium-body .field__items a, .text--medium-body .location .location__general a, .location .text--medium-body .location__general a, .text--medium-body .user-register-form .form__legend a, .user-register-form .text--medium-body .form__legend a, .text--medium-body
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--medium-body .form__legend a, .text--medium-body h2.block__title a,
     .text--medium-body h6 a, .text--medium-body .heading--h6 a {
       color: #787878; }
 
@@ -8837,7 +8924,9 @@ Style guide: typography.colors
   .text--dark-body h4, .text--dark-body .heading--h4,
   .text--dark-body h5, .text--dark-body .heading--h5, .text--dark-body .detail-field .detail-field__label, .detail-field .text--dark-body .detail-field__label, .text--dark-body .detail-field .field__label, .detail-field .text--dark-body .field__label, .text--dark-body
   .detail-field .field-label,
-  .detail-field .text--dark-body .field-label, .text--dark-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--dark-body .detail-field__items, .text--dark-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--dark-body .field__items, .text--dark-body .location .location__general, .location .text--dark-body .location__general, .text--dark-body h2.block__title,
+  .detail-field .text--dark-body .field-label, .text--dark-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--dark-body .detail-field__items, .text--dark-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--dark-body .field__items, .text--dark-body .location .location__general, .location .text--dark-body .location__general, .text--dark-body .user-register-form .form__legend, .user-register-form .text--dark-body .form__legend, .text--dark-body
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--dark-body .form__legend, .text--dark-body h2.block__title,
   .text--dark-body h6, .text--dark-body .heading--h6 {
     color: #333; }
     .text--dark-body h1 a, .text--dark-body .heading--huge a, .text--dark-body .heading--h1 a,
@@ -8847,7 +8936,9 @@ Style guide: typography.colors
     .text--dark-body h4 a, .text--dark-body .heading--h4 a,
     .text--dark-body h5 a, .text--dark-body .heading--h5 a, .text--dark-body .detail-field .detail-field__label a, .detail-field .text--dark-body .detail-field__label a, .text--dark-body .detail-field .field__label a, .detail-field .text--dark-body .field__label a, .text--dark-body
     .detail-field .field-label a,
-    .detail-field .text--dark-body .field-label a, .text--dark-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--dark-body .detail-field__items a, .text--dark-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--dark-body .field__items a, .text--dark-body .location .location__general a, .location .text--dark-body .location__general a, .text--dark-body h2.block__title a,
+    .detail-field .text--dark-body .field-label a, .text--dark-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--dark-body .detail-field__items a, .text--dark-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--dark-body .field__items a, .text--dark-body .location .location__general a, .location .text--dark-body .location__general a, .text--dark-body .user-register-form .form__legend a, .user-register-form .text--dark-body .form__legend a, .text--dark-body
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--dark-body .form__legend a, .text--dark-body h2.block__title a,
     .text--dark-body h6 a, .text--dark-body .heading--h6 a {
       color: #333; }
 
@@ -8860,7 +8951,9 @@ Style guide: typography.colors
   .text--link h4, .text--link .heading--h4,
   .text--link h5, .text--link .heading--h5, .text--link .detail-field .detail-field__label, .detail-field .text--link .detail-field__label, .text--link .detail-field .field__label, .detail-field .text--link .field__label, .text--link
   .detail-field .field-label,
-  .detail-field .text--link .field-label, .text--link .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--link .detail-field__items, .text--link .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--link .field__items, .text--link .location .location__general, .location .text--link .location__general, .text--link h2.block__title,
+  .detail-field .text--link .field-label, .text--link .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--link .detail-field__items, .text--link .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--link .field__items, .text--link .location .location__general, .location .text--link .location__general, .text--link .user-register-form .form__legend, .user-register-form .text--link .form__legend, .text--link
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--link .form__legend, .text--link h2.block__title,
   .text--link h6, .text--link .heading--h6 {
     color: #e8762c; }
     .text--link h1 a, .text--link .heading--huge a, .text--link .heading--h1 a,
@@ -8870,7 +8963,9 @@ Style guide: typography.colors
     .text--link h4 a, .text--link .heading--h4 a,
     .text--link h5 a, .text--link .heading--h5 a, .text--link .detail-field .detail-field__label a, .detail-field .text--link .detail-field__label a, .text--link .detail-field .field__label a, .detail-field .text--link .field__label a, .text--link
     .detail-field .field-label a,
-    .detail-field .text--link .field-label a, .text--link .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--link .detail-field__items a, .text--link .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--link .field__items a, .text--link .location .location__general a, .location .text--link .location__general a, .text--link h2.block__title a,
+    .detail-field .text--link .field-label a, .text--link .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--link .detail-field__items a, .text--link .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--link .field__items a, .text--link .location .location__general a, .location .text--link .location__general a, .text--link .user-register-form .form__legend a, .user-register-form .text--link .form__legend a, .text--link
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--link .form__legend a, .text--link h2.block__title a,
     .text--link h6 a, .text--link .heading--h6 a {
       color: #e8762c; }
 
@@ -8883,7 +8978,9 @@ Style guide: typography.colors
   .text--headlines h4, .text--headlines .heading--h4,
   .text--headlines h5, .text--headlines .heading--h5, .text--headlines .detail-field .detail-field__label, .detail-field .text--headlines .detail-field__label, .text--headlines .detail-field .field__label, .detail-field .text--headlines .field__label, .text--headlines
   .detail-field .field-label,
-  .detail-field .text--headlines .field-label, .text--headlines .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--headlines .detail-field__items, .text--headlines .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--headlines .field__items, .text--headlines .location .location__general, .location .text--headlines .location__general, .text--headlines h2.block__title,
+  .detail-field .text--headlines .field-label, .text--headlines .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--headlines .detail-field__items, .text--headlines .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--headlines .field__items, .text--headlines .location .location__general, .location .text--headlines .location__general, .text--headlines .user-register-form .form__legend, .user-register-form .text--headlines .form__legend, .text--headlines
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--headlines .form__legend, .text--headlines h2.block__title,
   .text--headlines h6, .text--headlines .heading--h6 {
     color: #000; }
     .text--headlines h1 a, .text--headlines .heading--huge a, .text--headlines .heading--h1 a,
@@ -8893,7 +8990,9 @@ Style guide: typography.colors
     .text--headlines h4 a, .text--headlines .heading--h4 a,
     .text--headlines h5 a, .text--headlines .heading--h5 a, .text--headlines .detail-field .detail-field__label a, .detail-field .text--headlines .detail-field__label a, .text--headlines .detail-field .field__label a, .detail-field .text--headlines .field__label a, .text--headlines
     .detail-field .field-label a,
-    .detail-field .text--headlines .field-label a, .text--headlines .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--headlines .detail-field__items a, .text--headlines .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--headlines .field__items a, .text--headlines .location .location__general a, .location .text--headlines .location__general a, .text--headlines h2.block__title a,
+    .detail-field .text--headlines .field-label a, .text--headlines .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--headlines .detail-field__items a, .text--headlines .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--headlines .field__items a, .text--headlines .location .location__general a, .location .text--headlines .location__general a, .text--headlines .user-register-form .form__legend a, .user-register-form .text--headlines .form__legend a, .text--headlines
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--headlines .form__legend a, .text--headlines h2.block__title a,
     .text--headlines h6 a, .text--headlines .heading--h6 a {
       color: #000; }
 
@@ -8906,7 +9005,9 @@ Style guide: typography.colors
   .text--nav-items h4, .text--nav-items .heading--h4,
   .text--nav-items h5, .text--nav-items .heading--h5, .text--nav-items .detail-field .detail-field__label, .detail-field .text--nav-items .detail-field__label, .text--nav-items .detail-field .field__label, .detail-field .text--nav-items .field__label, .text--nav-items
   .detail-field .field-label,
-  .detail-field .text--nav-items .field-label, .text--nav-items .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--nav-items .detail-field__items, .text--nav-items .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--nav-items .field__items, .text--nav-items .location .location__general, .location .text--nav-items .location__general, .text--nav-items h2.block__title,
+  .detail-field .text--nav-items .field-label, .text--nav-items .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--nav-items .detail-field__items, .text--nav-items .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--nav-items .field__items, .text--nav-items .location .location__general, .location .text--nav-items .location__general, .text--nav-items .user-register-form .form__legend, .user-register-form .text--nav-items .form__legend, .text--nav-items
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--nav-items .form__legend, .text--nav-items h2.block__title,
   .text--nav-items h6, .text--nav-items .heading--h6 {
     color: #212535; }
     .text--nav-items h1 a, .text--nav-items .heading--huge a, .text--nav-items .heading--h1 a,
@@ -8916,7 +9017,9 @@ Style guide: typography.colors
     .text--nav-items h4 a, .text--nav-items .heading--h4 a,
     .text--nav-items h5 a, .text--nav-items .heading--h5 a, .text--nav-items .detail-field .detail-field__label a, .detail-field .text--nav-items .detail-field__label a, .text--nav-items .detail-field .field__label a, .detail-field .text--nav-items .field__label a, .text--nav-items
     .detail-field .field-label a,
-    .detail-field .text--nav-items .field-label a, .text--nav-items .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--nav-items .detail-field__items a, .text--nav-items .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--nav-items .field__items a, .text--nav-items .location .location__general a, .location .text--nav-items .location__general a, .text--nav-items h2.block__title a,
+    .detail-field .text--nav-items .field-label a, .text--nav-items .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--nav-items .detail-field__items a, .text--nav-items .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--nav-items .field__items a, .text--nav-items .location .location__general a, .location .text--nav-items .location__general a, .text--nav-items .user-register-form .form__legend a, .user-register-form .text--nav-items .form__legend a, .text--nav-items
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--nav-items .form__legend a, .text--nav-items h2.block__title a,
     .text--nav-items h6 a, .text--nav-items .heading--h6 a {
       color: #212535; }
 
@@ -8929,7 +9032,9 @@ Style guide: typography.colors
   .text--data-sources h4, .text--data-sources .heading--h4,
   .text--data-sources h5, .text--data-sources .heading--h5, .text--data-sources .detail-field .detail-field__label, .detail-field .text--data-sources .detail-field__label, .text--data-sources .detail-field .field__label, .detail-field .text--data-sources .field__label, .text--data-sources
   .detail-field .field-label,
-  .detail-field .text--data-sources .field-label, .text--data-sources .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--data-sources .detail-field__items, .text--data-sources .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--data-sources .field__items, .text--data-sources .location .location__general, .location .text--data-sources .location__general, .text--data-sources h2.block__title,
+  .detail-field .text--data-sources .field-label, .text--data-sources .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--data-sources .detail-field__items, .text--data-sources .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--data-sources .field__items, .text--data-sources .location .location__general, .location .text--data-sources .location__general, .text--data-sources .user-register-form .form__legend, .user-register-form .text--data-sources .form__legend, .text--data-sources
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--data-sources .form__legend, .text--data-sources h2.block__title,
   .text--data-sources h6, .text--data-sources .heading--h6 {
     color: #a3b9cb; }
     .text--data-sources h1 a, .text--data-sources .heading--huge a, .text--data-sources .heading--h1 a,
@@ -8939,7 +9044,9 @@ Style guide: typography.colors
     .text--data-sources h4 a, .text--data-sources .heading--h4 a,
     .text--data-sources h5 a, .text--data-sources .heading--h5 a, .text--data-sources .detail-field .detail-field__label a, .detail-field .text--data-sources .detail-field__label a, .text--data-sources .detail-field .field__label a, .detail-field .text--data-sources .field__label a, .text--data-sources
     .detail-field .field-label a,
-    .detail-field .text--data-sources .field-label a, .text--data-sources .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--data-sources .detail-field__items a, .text--data-sources .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--data-sources .field__items a, .text--data-sources .location .location__general a, .location .text--data-sources .location__general a, .text--data-sources h2.block__title a,
+    .detail-field .text--data-sources .field-label a, .text--data-sources .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--data-sources .detail-field__items a, .text--data-sources .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--data-sources .field__items a, .text--data-sources .location .location__general a, .location .text--data-sources .location__general a, .text--data-sources .user-register-form .form__legend a, .user-register-form .text--data-sources .form__legend a, .text--data-sources
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--data-sources .form__legend a, .text--data-sources h2.block__title a,
     .text--data-sources h6 a, .text--data-sources .heading--h6 a {
       color: #a3b9cb; }
 
@@ -8952,7 +9059,9 @@ Style guide: typography.colors
   .text--stories h4, .text--stories .heading--h4,
   .text--stories h5, .text--stories .heading--h5, .text--stories .detail-field .detail-field__label, .detail-field .text--stories .detail-field__label, .text--stories .detail-field .field__label, .detail-field .text--stories .field__label, .text--stories
   .detail-field .field-label,
-  .detail-field .text--stories .field-label, .text--stories .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--stories .detail-field__items, .text--stories .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--stories .field__items, .text--stories .location .location__general, .location .text--stories .location__general, .text--stories h2.block__title,
+  .detail-field .text--stories .field-label, .text--stories .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--stories .detail-field__items, .text--stories .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--stories .field__items, .text--stories .location .location__general, .location .text--stories .location__general, .text--stories .user-register-form .form__legend, .user-register-form .text--stories .form__legend, .text--stories
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--stories .form__legend, .text--stories h2.block__title,
   .text--stories h6, .text--stories .heading--h6 {
     color: #847094; }
     .text--stories h1 a, .text--stories .heading--huge a, .text--stories .heading--h1 a,
@@ -8962,7 +9071,9 @@ Style guide: typography.colors
     .text--stories h4 a, .text--stories .heading--h4 a,
     .text--stories h5 a, .text--stories .heading--h5 a, .text--stories .detail-field .detail-field__label a, .detail-field .text--stories .detail-field__label a, .text--stories .detail-field .field__label a, .detail-field .text--stories .field__label a, .text--stories
     .detail-field .field-label a,
-    .detail-field .text--stories .field-label a, .text--stories .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--stories .detail-field__items a, .text--stories .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--stories .field__items a, .text--stories .location .location__general a, .location .text--stories .location__general a, .text--stories h2.block__title a,
+    .detail-field .text--stories .field-label a, .text--stories .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--stories .detail-field__items a, .text--stories .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--stories .field__items a, .text--stories .location .location__general a, .location .text--stories .location__general a, .text--stories .user-register-form .form__legend a, .user-register-form .text--stories .form__legend a, .text--stories
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--stories .form__legend a, .text--stories h2.block__title a,
     .text--stories h6 a, .text--stories .heading--h6 a {
       color: #847094; }
 
@@ -8975,7 +9086,9 @@ Style guide: typography.colors
   .text--learning h4, .text--learning .heading--h4,
   .text--learning h5, .text--learning .heading--h5, .text--learning .detail-field .detail-field__label, .detail-field .text--learning .detail-field__label, .text--learning .detail-field .field__label, .detail-field .text--learning .field__label, .text--learning
   .detail-field .field-label,
-  .detail-field .text--learning .field-label, .text--learning .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--learning .detail-field__items, .text--learning .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--learning .field__items, .text--learning .location .location__general, .location .text--learning .location__general, .text--learning h2.block__title,
+  .detail-field .text--learning .field-label, .text--learning .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--learning .detail-field__items, .text--learning .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--learning .field__items, .text--learning .location .location__general, .location .text--learning .location__general, .text--learning .user-register-form .form__legend, .user-register-form .text--learning .form__legend, .text--learning
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--learning .form__legend, .text--learning h2.block__title,
   .text--learning h6, .text--learning .heading--h6 {
     color: #6f99a5; }
     .text--learning h1 a, .text--learning .heading--huge a, .text--learning .heading--h1 a,
@@ -8985,7 +9098,9 @@ Style guide: typography.colors
     .text--learning h4 a, .text--learning .heading--h4 a,
     .text--learning h5 a, .text--learning .heading--h5 a, .text--learning .detail-field .detail-field__label a, .detail-field .text--learning .detail-field__label a, .text--learning .detail-field .field__label a, .detail-field .text--learning .field__label a, .text--learning
     .detail-field .field-label a,
-    .detail-field .text--learning .field-label a, .text--learning .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--learning .detail-field__items a, .text--learning .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--learning .field__items a, .text--learning .location .location__general a, .location .text--learning .location__general a, .text--learning h2.block__title a,
+    .detail-field .text--learning .field-label a, .text--learning .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--learning .detail-field__items a, .text--learning .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--learning .field__items a, .text--learning .location .location__general a, .location .text--learning .location__general a, .text--learning .user-register-form .form__legend a, .user-register-form .text--learning .form__legend a, .text--learning
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--learning .form__legend a, .text--learning h2.block__title a,
     .text--learning h6 a, .text--learning .heading--h6 a {
       color: #6f99a5; }
 
@@ -8998,7 +9113,9 @@ Style guide: typography.colors
   .text--highlight h4, .text--highlight .heading--h4,
   .text--highlight h5, .text--highlight .heading--h5, .text--highlight .detail-field .detail-field__label, .detail-field .text--highlight .detail-field__label, .text--highlight .detail-field .field__label, .detail-field .text--highlight .field__label, .text--highlight
   .detail-field .field-label,
-  .detail-field .text--highlight .field-label, .text--highlight .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--highlight .detail-field__items, .text--highlight .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--highlight .field__items, .text--highlight .location .location__general, .location .text--highlight .location__general, .text--highlight h2.block__title,
+  .detail-field .text--highlight .field-label, .text--highlight .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--highlight .detail-field__items, .text--highlight .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--highlight .field__items, .text--highlight .location .location__general, .location .text--highlight .location__general, .text--highlight .user-register-form .form__legend, .user-register-form .text--highlight .form__legend, .text--highlight
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--highlight .form__legend, .text--highlight h2.block__title,
   .text--highlight h6, .text--highlight .heading--h6 {
     color: #53bd92; }
     .text--highlight h1 a, .text--highlight .heading--huge a, .text--highlight .heading--h1 a,
@@ -9008,7 +9125,9 @@ Style guide: typography.colors
     .text--highlight h4 a, .text--highlight .heading--h4 a,
     .text--highlight h5 a, .text--highlight .heading--h5 a, .text--highlight .detail-field .detail-field__label a, .detail-field .text--highlight .detail-field__label a, .text--highlight .detail-field .field__label a, .detail-field .text--highlight .field__label a, .text--highlight
     .detail-field .field-label a,
-    .detail-field .text--highlight .field-label a, .text--highlight .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--highlight .detail-field__items a, .text--highlight .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--highlight .field__items a, .text--highlight .location .location__general a, .location .text--highlight .location__general a, .text--highlight h2.block__title a,
+    .detail-field .text--highlight .field-label a, .text--highlight .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--highlight .detail-field__items a, .text--highlight .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--highlight .field__items a, .text--highlight .location .location__general a, .location .text--highlight .location__general a, .text--highlight .user-register-form .form__legend a, .user-register-form .text--highlight .form__legend a, .text--highlight
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--highlight .form__legend a, .text--highlight h2.block__title a,
     .text--highlight h6 a, .text--highlight .heading--h6 a {
       color: #53bd92; }
 
@@ -9021,7 +9140,9 @@ Style guide: typography.colors
   .text--mission-1 h4, .text--mission-1 .heading--h4,
   .text--mission-1 h5, .text--mission-1 .heading--h5, .text--mission-1 .detail-field .detail-field__label, .detail-field .text--mission-1 .detail-field__label, .text--mission-1 .detail-field .field__label, .detail-field .text--mission-1 .field__label, .text--mission-1
   .detail-field .field-label,
-  .detail-field .text--mission-1 .field-label, .text--mission-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--mission-1 .detail-field__items, .text--mission-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--mission-1 .field__items, .text--mission-1 .location .location__general, .location .text--mission-1 .location__general, .text--mission-1 h2.block__title,
+  .detail-field .text--mission-1 .field-label, .text--mission-1 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--mission-1 .detail-field__items, .text--mission-1 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--mission-1 .field__items, .text--mission-1 .location .location__general, .location .text--mission-1 .location__general, .text--mission-1 .user-register-form .form__legend, .user-register-form .text--mission-1 .form__legend, .text--mission-1
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--mission-1 .form__legend, .text--mission-1 h2.block__title,
   .text--mission-1 h6, .text--mission-1 .heading--h6 {
     color: #316cc8; }
     .text--mission-1 h1 a, .text--mission-1 .heading--huge a, .text--mission-1 .heading--h1 a,
@@ -9031,7 +9152,9 @@ Style guide: typography.colors
     .text--mission-1 h4 a, .text--mission-1 .heading--h4 a,
     .text--mission-1 h5 a, .text--mission-1 .heading--h5 a, .text--mission-1 .detail-field .detail-field__label a, .detail-field .text--mission-1 .detail-field__label a, .text--mission-1 .detail-field .field__label a, .detail-field .text--mission-1 .field__label a, .text--mission-1
     .detail-field .field-label a,
-    .detail-field .text--mission-1 .field-label a, .text--mission-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--mission-1 .detail-field__items a, .text--mission-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--mission-1 .field__items a, .text--mission-1 .location .location__general a, .location .text--mission-1 .location__general a, .text--mission-1 h2.block__title a,
+    .detail-field .text--mission-1 .field-label a, .text--mission-1 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--mission-1 .detail-field__items a, .text--mission-1 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--mission-1 .field__items a, .text--mission-1 .location .location__general a, .location .text--mission-1 .location__general a, .text--mission-1 .user-register-form .form__legend a, .user-register-form .text--mission-1 .form__legend a, .text--mission-1
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--mission-1 .form__legend a, .text--mission-1 h2.block__title a,
     .text--mission-1 h6 a, .text--mission-1 .heading--h6 a {
       color: #316cc8; }
 
@@ -9044,7 +9167,9 @@ Style guide: typography.colors
   .text--mission-2 h4, .text--mission-2 .heading--h4,
   .text--mission-2 h5, .text--mission-2 .heading--h5, .text--mission-2 .detail-field .detail-field__label, .detail-field .text--mission-2 .detail-field__label, .text--mission-2 .detail-field .field__label, .detail-field .text--mission-2 .field__label, .text--mission-2
   .detail-field .field-label,
-  .detail-field .text--mission-2 .field-label, .text--mission-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--mission-2 .detail-field__items, .text--mission-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--mission-2 .field__items, .text--mission-2 .location .location__general, .location .text--mission-2 .location__general, .text--mission-2 h2.block__title,
+  .detail-field .text--mission-2 .field-label, .text--mission-2 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--mission-2 .detail-field__items, .text--mission-2 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--mission-2 .field__items, .text--mission-2 .location .location__general, .location .text--mission-2 .location__general, .text--mission-2 .user-register-form .form__legend, .user-register-form .text--mission-2 .form__legend, .text--mission-2
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--mission-2 .form__legend, .text--mission-2 h2.block__title,
   .text--mission-2 h6, .text--mission-2 .heading--h6 {
     color: #7dcdf1; }
     .text--mission-2 h1 a, .text--mission-2 .heading--huge a, .text--mission-2 .heading--h1 a,
@@ -9054,7 +9179,9 @@ Style guide: typography.colors
     .text--mission-2 h4 a, .text--mission-2 .heading--h4 a,
     .text--mission-2 h5 a, .text--mission-2 .heading--h5 a, .text--mission-2 .detail-field .detail-field__label a, .detail-field .text--mission-2 .detail-field__label a, .text--mission-2 .detail-field .field__label a, .detail-field .text--mission-2 .field__label a, .text--mission-2
     .detail-field .field-label a,
-    .detail-field .text--mission-2 .field-label a, .text--mission-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--mission-2 .detail-field__items a, .text--mission-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--mission-2 .field__items a, .text--mission-2 .location .location__general a, .location .text--mission-2 .location__general a, .text--mission-2 h2.block__title a,
+    .detail-field .text--mission-2 .field-label a, .text--mission-2 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--mission-2 .detail-field__items a, .text--mission-2 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--mission-2 .field__items a, .text--mission-2 .location .location__general a, .location .text--mission-2 .location__general a, .text--mission-2 .user-register-form .form__legend a, .user-register-form .text--mission-2 .form__legend a, .text--mission-2
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--mission-2 .form__legend a, .text--mission-2 h2.block__title a,
     .text--mission-2 h6 a, .text--mission-2 .heading--h6 a {
       color: #7dcdf1; }
 
@@ -9067,7 +9194,9 @@ Style guide: typography.colors
   .text--mission-3 h4, .text--mission-3 .heading--h4,
   .text--mission-3 h5, .text--mission-3 .heading--h5, .text--mission-3 .detail-field .detail-field__label, .detail-field .text--mission-3 .detail-field__label, .text--mission-3 .detail-field .field__label, .detail-field .text--mission-3 .field__label, .text--mission-3
   .detail-field .field-label,
-  .detail-field .text--mission-3 .field-label, .text--mission-3 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--mission-3 .detail-field__items, .text--mission-3 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--mission-3 .field__items, .text--mission-3 .location .location__general, .location .text--mission-3 .location__general, .text--mission-3 h2.block__title,
+  .detail-field .text--mission-3 .field-label, .text--mission-3 .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--mission-3 .detail-field__items, .text--mission-3 .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--mission-3 .field__items, .text--mission-3 .location .location__general, .location .text--mission-3 .location__general, .text--mission-3 .user-register-form .form__legend, .user-register-form .text--mission-3 .form__legend, .text--mission-3
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .text--mission-3 .form__legend, .text--mission-3 h2.block__title,
   .text--mission-3 h6, .text--mission-3 .heading--h6 {
     color: #5facce; }
     .text--mission-3 h1 a, .text--mission-3 .heading--huge a, .text--mission-3 .heading--h1 a,
@@ -9077,7 +9206,9 @@ Style guide: typography.colors
     .text--mission-3 h4 a, .text--mission-3 .heading--h4 a,
     .text--mission-3 h5 a, .text--mission-3 .heading--h5 a, .text--mission-3 .detail-field .detail-field__label a, .detail-field .text--mission-3 .detail-field__label a, .text--mission-3 .detail-field .field__label a, .detail-field .text--mission-3 .field__label a, .text--mission-3
     .detail-field .field-label a,
-    .detail-field .text--mission-3 .field-label a, .text--mission-3 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--mission-3 .detail-field__items a, .text--mission-3 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--mission-3 .field__items a, .text--mission-3 .location .location__general a, .location .text--mission-3 .location__general a, .text--mission-3 h2.block__title a,
+    .detail-field .text--mission-3 .field-label a, .text--mission-3 .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--mission-3 .detail-field__items a, .text--mission-3 .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--mission-3 .field__items a, .text--mission-3 .location .location__general a, .location .text--mission-3 .location__general a, .text--mission-3 .user-register-form .form__legend a, .user-register-form .text--mission-3 .form__legend a, .text--mission-3
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .text--mission-3 .form__legend a, .text--mission-3 h2.block__title a,
     .text--mission-3 h6 a, .text--mission-3 .heading--h6 a {
       color: #5facce; }
 
@@ -9160,12 +9291,39 @@ h3, .heading--h3, legend,
 .form__legend,
 h4, .heading--h4,
 h5, .heading--h5, .detail-field .detail-field__label, .detail-field .field__label,
-.detail-field .field-label, .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items, .location .location__general, h2.block__title,
+.detail-field .field-label, .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items, .location .location__general, .user-register-form .form__legend,
+.tableau-premium-access-button-form .form__legend, h2.block__title,
 h6, .heading--h6 {
   margin: .5em 0;
   font-family: "Benton Sans Thin", Helvetica, sans-serif;
   font-weight: 100;
   line-height: 1.2; }
+  h1 b, .heading--huge b,
+  h1 strong, .heading--huge strong, .heading--h1 b,
+  .heading--h1 strong,
+  h2 b,
+  h2 strong, .heading--h2 b,
+  .heading--h2 strong,
+  h3 b,
+  h3 strong, .heading--h3 b, legend b,
+  .form__legend b,
+  .heading--h3 strong, legend strong,
+  .form__legend strong,
+  h4 b,
+  h4 strong, .heading--h4 b,
+  .heading--h4 strong,
+  h5 b,
+  h5 strong, .heading--h5 b, .detail-field .detail-field__label b, .detail-field .field__label b,
+  .detail-field .field-label b, .detail-field.detail-field--secondary .detail-field__items b, .detail-field.detail-field--secondary .field__items b, .location .location__general b, .user-register-form .form__legend b,
+  .tableau-premium-access-button-form .form__legend b, h2.block__title b,
+  .heading--h5 strong, .detail-field .detail-field__label strong, .detail-field .field__label strong,
+  .detail-field .field-label strong, .detail-field.detail-field--secondary .detail-field__items strong, .detail-field.detail-field--secondary .field__items strong, .location .location__general strong, .user-register-form .form__legend strong,
+  .tableau-premium-access-button-form .form__legend strong, h2.block__title strong,
+  h6 b,
+  h6 strong, .heading--h6 b,
+  .heading--h6 strong {
+    font-family: "Benton Sans Light", Helvetica, sans-serif;
+    font-weight: 400; }
 
 h1, .heading--huge, .heading--h1 {
   font-size: 3em;
@@ -9202,6 +9360,13 @@ h3, .heading--h3, legend,
   h3 a, .heading--h3 a, legend a,
   .form__legend a {
     color: #333; }
+  h3 b,
+  h3 strong, .heading--h3 b, legend b,
+  .form__legend b,
+  .heading--h3 strong, legend strong,
+  .form__legend strong {
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-weight: 400; }
   @media (max-width: 639px) {
     h3, .heading--h3, legend,
     .form__legend {
@@ -9213,6 +9378,11 @@ h4, .heading--h4 {
   color: #333; }
   h4 a, .heading--h4 a {
     color: #333; }
+  h4 b,
+  h4 strong, .heading--h4 b,
+  .heading--h4 strong {
+    font-family: "Benton Sans Medium", Helvetica, sans-serif;
+    font-weight: 400; }
   @media (min-width: 640px) and (max-width: 960px) {
     h4, .heading--h4 {
       font-size: 1.25em; } }
@@ -9221,14 +9391,16 @@ h4, .heading--h4 {
       font-size: 1.125em; } }
 
 h5, .heading--h5, .detail-field .detail-field__label, .detail-field .field__label,
-.detail-field .field-label, .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items, .location .location__general, h2.block__title {
+.detail-field .field-label, .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .field__items, .location .location__general, .user-register-form .form__legend,
+.tableau-premium-access-button-form .form__legend, h2.block__title {
   font-size: 1.25em;
   font-family: "Benton Sans Light", Helvetica, sans-serif;
   color: #333;
   line-height: 1.5;
   -webkit-font-smoothing: auto; }
   h5 a, .heading--h5 a, .detail-field .detail-field__label a, .detail-field .field__label a,
-  .detail-field .field-label a, .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .field__items a, .location .location__general a, h2.block__title a {
+  .detail-field .field-label a, .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .field__items a, .location .location__general a, .user-register-form .form__legend a,
+  .tableau-premium-access-button-form .form__legend a, h2.block__title a {
     color: #333; }
 
 h6, .heading--h6 {
@@ -9290,12 +9462,10 @@ Bgcolor: #eee
 
 Style guide: typography.heading-highlight
 */
-.heading-highlight, legend,
-.form__legend {
+.heading-highlight {
   position: relative;
   padding-top: 30px; }
-  .heading-highlight:before, legend:before,
-  .form__legend:before {
+  .heading-highlight:before {
     content: "";
     display: block;
     position: absolute;
@@ -9303,14 +9473,11 @@ Style guide: typography.heading-highlight
     height: 3px;
     top: 0;
     background: #23529c; }
-  .heading-highlight.heading-highlight--negative:before, legend.heading-highlight--negative:before,
-  .heading-highlight--negative.form__legend:before {
+  .heading-highlight.heading-highlight--negative:before {
     background: #fff; }
-  .heading-highlight.heading-highlight--mission:before, legend.heading-highlight--mission:before,
-  .heading-highlight--mission.form__legend:before {
+  .heading-highlight.heading-highlight--mission:before {
     background: #316cc8; }
-  .heading-highlight.heading-highlight--gray:before, legend.heading-highlight--gray:before,
-  .heading-highlight--gray.form__legend:before {
+  .heading-highlight.heading-highlight--gray:before {
     background: #cdcdcd; }
 
 /*
