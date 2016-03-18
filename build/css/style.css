@@ -3489,7 +3489,8 @@ Style guide: forms.contextual-search
   .contextual-search .contextual-search__results {
     display: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    text-align: left; }
   .contextual-search.is-open .contextual-search__results {
     display: block; }
   .contextual-search .contextual-search__results-row {
@@ -3794,7 +3795,7 @@ Style guide: forms.fields
     opacity: 0;
     left: 0.7em;
     top: 0.5em; }
-    .form-field.has-float-label .form-field__label.is-active {
+    .form-field.has-float-label .form-field__label.is-active, .form-field.has-float-label .form-field__label.is-msie {
       pointer-events: all;
       display: block;
       -webkit-transform: translateY(-0.2em);
@@ -3915,6 +3916,9 @@ input:-ms-input-placeholder {
 input::placeholder {
   color: #999; }
 
+.has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
+  color: transparent; }
+
 @media (max-width: 639px) {
   input {
     text-align: center; } }
@@ -3969,7 +3973,7 @@ Style guide: forms.fields-dark
   .form--negative input[type="email"],
   .form--negative select,
   .form--negative textarea {
-    background: #ebebeb; }
+    background-color: #ebebeb; }
   .form--negative input::-webkit-input-placeholder {
     color: #777; }
   .form--negative input::-moz-placeholder {
@@ -3978,6 +3982,12 @@ Style guide: forms.fields-dark
     color: #777; }
   .form--negative input::placeholder {
     color: #777; }
+  .form--negative .has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
+    color: transparent; }
+  .form--negative .has-float-label select.is-empty {
+    color: #777; }
+    .form--negative .has-float-label select.is-empty option {
+      color: #333; }
   .form--negative .form__legend {
     color: #fff; }
   .form--negative .form-field__label,
@@ -4047,8 +4057,9 @@ Style guide: forms.confirmation
 .lt-ie9 input[type="submit"] {
   display: inline-block; }
 
-.lt-ie11 input.placeholder,
-.lt-ie11 textarea.placeholder {
+.lt-ie10 input.placeholder,
+.lt-ie10 input.pac-placeholder,
+.lt-ie10 textarea.placeholder {
   color: #999; }
 
 /*
@@ -7190,123 +7201,116 @@ Weight: 50
 
 Style Guide: navigation.footer
 */
-.global-footer .global-footer__language,
-.global-footer .global-footer__menu {
-  float: left; }
-
-.global-footer .global-footer__first {
-  float: left;
-  width: 60%;
-  padding-top: 22px; }
-
-.global-footer .global-footer__second {
-  float: right;
-  width: 40%;
-  text-align: right; }
-
-.global-footer .global-footer__language {
-  position: relative;
-  margin-right: 1em;
-  padding: 2px 16px;
-  cursor: pointer;
-  background: #333; }
-  .global-footer .global-footer__language:after {
-    content: "";
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 5px;
-    border-top: 5px solid #fff;
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
-    transition: -webkit-transform 0.5s;
-    transition: transform 0.5s;
-    transition: transform 0.5s, -webkit-transform 0.5s; }
-  .global-footer .global-footer__language .global-footer__language__options {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    max-height: 0;
-    overflow: hidden;
-    background: #333;
-    transition: max-height 0.5s ease-out; }
-    .global-footer .global-footer__language .global-footer__language__options .selected {
-      display: none; }
-    .global-footer .global-footer__language .global-footer__language__options a {
-      display: inline-block;
-      width: 100%;
-      box-sizing: border-box;
-      padding: 2px 16px;
-      color: #bbb; }
-  .global-footer .global-footer__language:hover:after {
-    -webkit-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-            transform: rotate(180deg); }
-  .global-footer .global-footer__language:hover .global-footer__language__options {
-    max-height: 240px; }
-
-.global-footer .global-footer__menu li {
-  padding: 0 1em;
-  line-height: 30px; }
-  .global-footer .global-footer__menu li a {
-    color: #bbb;
-    font-family: "Benton Sans Book", Helvetica, sans-serif; }
-
-.global-footer .global-footer__social li a {
-  color: #bbb;
-  font-size: 1.2em;
-  padding-left: 1em;
-  text-decoration: none; }
-
-@media (max-width: 960px) {
-  .global-footer .global-footer__first {
-    width: 65%; }
-  .global-footer .global-footer__second {
-    width: 35%; }
-  .global-footer .global-footer__menu li {
-    padding: 0 .5em; } }
-
-@media (max-width: 639px) {
-  .global-footer .global-footer__first,
-  .global-footer .global-footer__second {
-    float: none;
-    width: auto;
-    text-align: center; }
-  .global-footer .global-footer__language {
-    float: none;
-    margin-right: 0; }
-    .global-footer .global-footer__language .global-footer__language__options {
-      width: 100%; }
+.global-footer {
+  padding-top: 2em;
+  padding-bottom: 2em; }
+  .global-footer .global-footer__language,
   .global-footer .global-footer__menu {
-    float: none;
-    margin: 2em 0 1em; }
-  .global-footer .global-footer__social li a {
-    padding: .5em; } }
-
-/**
- * Make sure the footer sticks to the bottom of the page on desktop and tablet
- * where the height of the footer is static
- */
-@media (min-width: 640px) {
-  html {
+    float: left;
+    margin-bottom: 1em; }
+  .global-footer .global-footer__first {
+    float: left;
+    width: 60%; }
+  .global-footer .global-footer__second {
+    float: right;
+    width: 40%;
+    text-align: right; }
+  .global-footer .global-footer__language {
     position: relative;
-    min-height: 100%; }
-  body {
-    margin-bottom: 150px;
-    /* Outer height of the footer */ }
-  .global-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 118px;
-    width: 100%; } }
-
-@media (min-width: 961px) {
-  body {
-    margin: 0 0 110px;
-    /* Outer height of the footer */ }
-  .global-footer {
-    height: 78px; } }
+    margin-right: 1em;
+    padding: 2px 16px;
+    cursor: pointer;
+    background: #333; }
+    .global-footer .global-footer__language:after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 5px;
+      border-top: 5px solid #fff;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      transition: -webkit-transform 0.5s;
+      transition: transform 0.5s;
+      transition: transform 0.5s, -webkit-transform 0.5s; }
+    .global-footer .global-footer__language .global-footer__language__options {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      max-height: 0;
+      overflow: hidden;
+      background: #333;
+      transition: max-height 0.5s ease-out; }
+      .global-footer .global-footer__language .global-footer__language__options .selected {
+        display: none; }
+      .global-footer .global-footer__language .global-footer__language__options a {
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 2px 16px;
+        color: #bbb; }
+    .global-footer .global-footer__language:hover:after {
+      -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+              transform: rotate(180deg); }
+    .global-footer .global-footer__language:hover .global-footer__language__options {
+      max-height: 240px; }
+  .global-footer .global-footer__menu li {
+    padding: 0 1em;
+    line-height: 30px; }
+    .global-footer .global-footer__menu li a {
+      color: #bbb;
+      font-family: "Benton Sans Book", Helvetica, sans-serif; }
+  .global-footer .global-footer__links {
+    clear: both; }
+    .global-footer .global-footer__links li {
+      padding: 0 2em 0 0;
+      line-height: 30px; }
+    .global-footer .global-footer__links a {
+      color: #787878; }
+  .global-footer .global-footer__social {
+    margin-bottom: 1em; }
+    .global-footer .global-footer__social li {
+      line-height: 30px; }
+    .global-footer .global-footer__social a {
+      color: #bbb;
+      font-size: 1.2em;
+      padding-left: 1em;
+      text-decoration: none; }
+  .global-footer .global-footer__copyright {
+    padding-top: 3px; }
+  .global-footer p.copy-right {
+    margin: 0; }
+  @media (max-width: 960px) {
+    .global-footer .global-footer__first {
+      width: 65%; }
+    .global-footer .global-footer__second {
+      width: 35%; }
+    .global-footer .global-footer__menu li {
+      padding: 0 .5em; }
+    .global-footer .global-footer__links li {
+      padding: 0 1em 0 0; } }
+  @media (max-width: 639px) {
+    .global-footer {
+      padding-top: 1em;
+      padding-bottom: 1em; }
+      .global-footer .global-footer__first,
+      .global-footer .global-footer__second {
+        float: none;
+        width: auto;
+        text-align: center; }
+      .global-footer .global-footer__language {
+        float: none;
+        margin-right: 0; }
+        .global-footer .global-footer__language .global-footer__language__options {
+          width: 100%; }
+      .global-footer .global-footer__menu {
+        float: none;
+        margin: 1em 0 0; }
+      .global-footer .global-footer__links {
+        margin-bottom: 1em; }
+      .global-footer .global-footer__social li a {
+        padding: .5em; } }
 
 .global-nav__top .global-nav__search h2.element-invisible {
   width: 0; }
@@ -8654,7 +8658,8 @@ body,
   line-height: 1.88;
   -webkit-font-smoothing: antialiased; }
 
-.text--body-small, .location .location__address, .modal-message .modal-message__content, .tooltip .tooltip__text, .video-playlist__title, .global-footer .global-footer__first, .global-nav__top .global-nav__primary-menu, .global-nav__drawers .sub-nav__item-description,
+.text--body-small, .location .location__address, .modal-message .modal-message__content, .tooltip .tooltip__text, .video-playlist__title, .global-footer .global-footer__language,
+.global-footer .global-footer__menu, .global-nav__top .global-nav__primary-menu, .global-nav__drawers .sub-nav__item-description,
 .global-nav__drawers .global-nav__drawer-link-list, .card.card--summary .card__summary, .person-teaser .person-teaser__bio, .teaser-item .teaser-item__description, .caption {
   font-size: 0.875em;
   line-height: 1.86; }
@@ -8888,31 +8893,51 @@ Style guide: typography.colors
     .text--light-body h6 a, .text--light-body .heading--h6 a {
       color: #bbb; }
 
-.text--medium-body {
+.text--medium-body, .global-footer .global-footer__links, .global-footer .global-footer__copyright {
   color: #787878 !important; }
-  .text--medium-body h1, .text--medium-body .heading--huge, .text--medium-body .heading--h1,
-  .text--medium-body h2, .text--medium-body .heading--h2,
-  .text--medium-body h3, .text--medium-body .heading--h3, .text--medium-body legend, .text--medium-body
+  .text--medium-body h1, .global-footer .global-footer__links h1, .global-footer .global-footer__copyright h1, .text--medium-body .heading--huge, .global-footer .global-footer__links .heading--huge, .global-footer .global-footer__copyright .heading--huge, .text--medium-body .heading--h1, .global-footer .global-footer__links .heading--h1, .global-footer .global-footer__copyright .heading--h1,
+  .text--medium-body h2, .global-footer .global-footer__links h2, .global-footer .global-footer__copyright h2, .text--medium-body .heading--h2, .global-footer .global-footer__links .heading--h2, .global-footer .global-footer__copyright .heading--h2,
+  .text--medium-body h3, .global-footer .global-footer__links h3, .global-footer .global-footer__copyright h3, .text--medium-body .heading--h3, .global-footer .global-footer__links .heading--h3, .global-footer .global-footer__copyright .heading--h3, .text--medium-body legend, .global-footer .global-footer__links legend, .global-footer .global-footer__copyright legend, .text--medium-body
+  .form__legend, .global-footer .global-footer__links
+  .form__legend, .global-footer .global-footer__copyright
   .form__legend,
-  .text--medium-body h4, .text--medium-body .heading--h4,
-  .text--medium-body h5, .text--medium-body .heading--h5, .text--medium-body .detail-field .detail-field__label, .detail-field .text--medium-body .detail-field__label, .text--medium-body .detail-field .field__label, .detail-field .text--medium-body .field__label, .text--medium-body
+  .text--medium-body h4, .global-footer .global-footer__links h4, .global-footer .global-footer__copyright h4, .text--medium-body .heading--h4, .global-footer .global-footer__links .heading--h4, .global-footer .global-footer__copyright .heading--h4,
+  .text--medium-body h5, .global-footer .global-footer__links h5, .global-footer .global-footer__copyright h5, .text--medium-body .heading--h5, .global-footer .global-footer__links .heading--h5, .global-footer .global-footer__copyright .heading--h5, .text--medium-body .detail-field .detail-field__label, .detail-field .text--medium-body .detail-field__label, .global-footer .global-footer__links .detail-field .detail-field__label, .detail-field .global-footer .global-footer__links .detail-field__label, .global-footer .global-footer__copyright .detail-field .detail-field__label, .detail-field .global-footer .global-footer__copyright .detail-field__label, .text--medium-body .detail-field .field__label, .detail-field .text--medium-body .field__label, .global-footer .global-footer__links .detail-field .field__label, .detail-field .global-footer .global-footer__links .field__label, .global-footer .global-footer__copyright .detail-field .field__label, .detail-field .global-footer .global-footer__copyright .field__label, .text--medium-body
   .detail-field .field-label,
-  .detail-field .text--medium-body .field-label, .text--medium-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--medium-body .detail-field__items, .text--medium-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--medium-body .field__items, .text--medium-body .location .location__general, .location .text--medium-body .location__general, .text--medium-body .user-register-form .form__legend, .user-register-form .text--medium-body .form__legend, .text--medium-body
+  .detail-field .text--medium-body .field-label, .global-footer .global-footer__links
+  .detail-field .field-label,
+  .detail-field .global-footer .global-footer__links .field-label, .global-footer .global-footer__copyright
+  .detail-field .field-label,
+  .detail-field .global-footer .global-footer__copyright .field-label, .text--medium-body .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .text--medium-body .detail-field__items, .global-footer .global-footer__links .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .global-footer .global-footer__links .detail-field__items, .global-footer .global-footer__copyright .detail-field.detail-field--secondary .detail-field__items, .detail-field.detail-field--secondary .global-footer .global-footer__copyright .detail-field__items, .text--medium-body .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .text--medium-body .field__items, .global-footer .global-footer__links .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .global-footer .global-footer__links .field__items, .global-footer .global-footer__copyright .detail-field.detail-field--secondary .field__items, .detail-field.detail-field--secondary .global-footer .global-footer__copyright .field__items, .text--medium-body .location .location__general, .location .text--medium-body .location__general, .global-footer .global-footer__links .location .location__general, .location .global-footer .global-footer__links .location__general, .global-footer .global-footer__copyright .location .location__general, .location .global-footer .global-footer__copyright .location__general, .text--medium-body .user-register-form .form__legend, .user-register-form .text--medium-body .form__legend, .global-footer .global-footer__links .user-register-form .form__legend, .user-register-form .global-footer .global-footer__links .form__legend, .global-footer .global-footer__copyright .user-register-form .form__legend, .user-register-form .global-footer .global-footer__copyright .form__legend, .text--medium-body
   .tableau-premium-access-button-form .form__legend,
-  .tableau-premium-access-button-form .text--medium-body .form__legend, .text--medium-body h2.block__title,
-  .text--medium-body h6, .text--medium-body .heading--h6 {
+  .tableau-premium-access-button-form .text--medium-body .form__legend, .global-footer .global-footer__links
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .global-footer .global-footer__links .form__legend, .global-footer .global-footer__copyright
+  .tableau-premium-access-button-form .form__legend,
+  .tableau-premium-access-button-form .global-footer .global-footer__copyright .form__legend, .text--medium-body h2.block__title, .global-footer .global-footer__links h2.block__title, .global-footer .global-footer__copyright h2.block__title,
+  .text--medium-body h6, .global-footer .global-footer__links h6, .global-footer .global-footer__copyright h6, .text--medium-body .heading--h6, .global-footer .global-footer__links .heading--h6, .global-footer .global-footer__copyright .heading--h6 {
     color: #787878; }
-    .text--medium-body h1 a, .text--medium-body .heading--huge a, .text--medium-body .heading--h1 a,
-    .text--medium-body h2 a, .text--medium-body .heading--h2 a,
-    .text--medium-body h3 a, .text--medium-body .heading--h3 a, .text--medium-body legend a, .text--medium-body
+    .text--medium-body h1 a, .global-footer .global-footer__links h1 a, .global-footer .global-footer__copyright h1 a, .text--medium-body .heading--huge a, .global-footer .global-footer__links .heading--huge a, .global-footer .global-footer__copyright .heading--huge a, .text--medium-body .heading--h1 a, .global-footer .global-footer__links .heading--h1 a, .global-footer .global-footer__copyright .heading--h1 a,
+    .text--medium-body h2 a, .global-footer .global-footer__links h2 a, .global-footer .global-footer__copyright h2 a, .text--medium-body .heading--h2 a, .global-footer .global-footer__links .heading--h2 a, .global-footer .global-footer__copyright .heading--h2 a,
+    .text--medium-body h3 a, .global-footer .global-footer__links h3 a, .global-footer .global-footer__copyright h3 a, .text--medium-body .heading--h3 a, .global-footer .global-footer__links .heading--h3 a, .global-footer .global-footer__copyright .heading--h3 a, .text--medium-body legend a, .global-footer .global-footer__links legend a, .global-footer .global-footer__copyright legend a, .text--medium-body
+    .form__legend a, .global-footer .global-footer__links
+    .form__legend a, .global-footer .global-footer__copyright
     .form__legend a,
-    .text--medium-body h4 a, .text--medium-body .heading--h4 a,
-    .text--medium-body h5 a, .text--medium-body .heading--h5 a, .text--medium-body .detail-field .detail-field__label a, .detail-field .text--medium-body .detail-field__label a, .text--medium-body .detail-field .field__label a, .detail-field .text--medium-body .field__label a, .text--medium-body
+    .text--medium-body h4 a, .global-footer .global-footer__links h4 a, .global-footer .global-footer__copyright h4 a, .text--medium-body .heading--h4 a, .global-footer .global-footer__links .heading--h4 a, .global-footer .global-footer__copyright .heading--h4 a,
+    .text--medium-body h5 a, .global-footer .global-footer__links h5 a, .global-footer .global-footer__copyright h5 a, .text--medium-body .heading--h5 a, .global-footer .global-footer__links .heading--h5 a, .global-footer .global-footer__copyright .heading--h5 a, .text--medium-body .detail-field .detail-field__label a, .detail-field .text--medium-body .detail-field__label a, .global-footer .global-footer__links .detail-field .detail-field__label a, .detail-field .global-footer .global-footer__links .detail-field__label a, .global-footer .global-footer__copyright .detail-field .detail-field__label a, .detail-field .global-footer .global-footer__copyright .detail-field__label a, .text--medium-body .detail-field .field__label a, .detail-field .text--medium-body .field__label a, .global-footer .global-footer__links .detail-field .field__label a, .detail-field .global-footer .global-footer__links .field__label a, .global-footer .global-footer__copyright .detail-field .field__label a, .detail-field .global-footer .global-footer__copyright .field__label a, .text--medium-body
     .detail-field .field-label a,
-    .detail-field .text--medium-body .field-label a, .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, .text--medium-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--medium-body .field__items a, .text--medium-body .location .location__general a, .location .text--medium-body .location__general a, .text--medium-body .user-register-form .form__legend a, .user-register-form .text--medium-body .form__legend a, .text--medium-body
+    .detail-field .text--medium-body .field-label a, .global-footer .global-footer__links
+    .detail-field .field-label a,
+    .detail-field .global-footer .global-footer__links .field-label a, .global-footer .global-footer__copyright
+    .detail-field .field-label a,
+    .detail-field .global-footer .global-footer__copyright .field-label a, .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, .global-footer .global-footer__links .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .global-footer .global-footer__links .detail-field__items a, .global-footer .global-footer__copyright .detail-field.detail-field--secondary .detail-field__items a, .detail-field.detail-field--secondary .global-footer .global-footer__copyright .detail-field__items a, .text--medium-body .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .text--medium-body .field__items a, .global-footer .global-footer__links .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .global-footer .global-footer__links .field__items a, .global-footer .global-footer__copyright .detail-field.detail-field--secondary .field__items a, .detail-field.detail-field--secondary .global-footer .global-footer__copyright .field__items a, .text--medium-body .location .location__general a, .location .text--medium-body .location__general a, .global-footer .global-footer__links .location .location__general a, .location .global-footer .global-footer__links .location__general a, .global-footer .global-footer__copyright .location .location__general a, .location .global-footer .global-footer__copyright .location__general a, .text--medium-body .user-register-form .form__legend a, .user-register-form .text--medium-body .form__legend a, .global-footer .global-footer__links .user-register-form .form__legend a, .user-register-form .global-footer .global-footer__links .form__legend a, .global-footer .global-footer__copyright .user-register-form .form__legend a, .user-register-form .global-footer .global-footer__copyright .form__legend a, .text--medium-body
     .tableau-premium-access-button-form .form__legend a,
-    .tableau-premium-access-button-form .text--medium-body .form__legend a, .text--medium-body h2.block__title a,
-    .text--medium-body h6 a, .text--medium-body .heading--h6 a {
+    .tableau-premium-access-button-form .text--medium-body .form__legend a, .global-footer .global-footer__links
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .global-footer .global-footer__links .form__legend a, .global-footer .global-footer__copyright
+    .tableau-premium-access-button-form .form__legend a,
+    .tableau-premium-access-button-form .global-footer .global-footer__copyright .form__legend a, .text--medium-body h2.block__title a, .global-footer .global-footer__links h2.block__title a, .global-footer .global-footer__copyright h2.block__title a,
+    .text--medium-body h6 a, .global-footer .global-footer__links h6 a, .global-footer .global-footer__copyright h6 a, .text--medium-body .heading--h6 a, .global-footer .global-footer__links .heading--h6 a, .global-footer .global-footer__copyright .heading--h6 a {
       color: #787878; }
 
 .text--dark-body {
@@ -9254,7 +9279,7 @@ Style guide: typography.other
 .form-field.fancy-filters .fancy-filters__group-label,
 .fancy-filters label,
 .fancy-filters .form-field__label,
-.fancy-filters .fancy-filters__group-label, .loader .loader__message, .loading-overlay .loader__message, .social-share .social-share__toggle, .social-share .social-share__counter, .tabs__tabs .tabs__tab-link, .eyebrow-badge--date .eyebrow-badge__label, .label-tag, .agenda-list__item .agenda__time, .comparison-list .comparison-list__subhead td, .table-list thead th, .tags-list, .video-chapters__chapter, .video-playlist__length, .video-playlist-sidebar__topic-label, .video-playlist-sidebar__all, .pager .pager__endcap, .person-teaser .person-teaser__job-title, .teaser-item .teaser-item__label, .text-teaser-item .text-teaser-item__type {
+.fancy-filters .fancy-filters__group-label, .loader .loader__message, .loading-overlay .loader__message, .social-share .social-share__toggle, .social-share .social-share__counter, .tabs__tabs .tabs__tab-link, .eyebrow-badge--date .eyebrow-badge__label, .label-tag, .agenda-list__item .agenda__time, .comparison-list .comparison-list__subhead td, .table-list thead th, .tags-list, .video-chapters__chapter, .video-playlist__length, .video-playlist-sidebar__topic-label, .video-playlist-sidebar__all, .global-footer .global-footer__links, .global-footer .global-footer__copyright, .pager .pager__endcap, .person-teaser .person-teaser__job-title, .teaser-item .teaser-item__label, .text-teaser-item .text-teaser-item__type {
   font-family: "Benton Sans Book", Helvetica, sans-serif;
   font-size: 0.6875em;
   letter-spacing: 1px;
@@ -9266,7 +9291,7 @@ Style guide: typography.other
     .form-field.fancy-filters .fancy-filters__group-label,
     .fancy-filters label,
     .fancy-filters .form-field__label,
-    .fancy-filters .fancy-filters__group-label, .loader .loader__message, .loading-overlay .loader__message, .social-share .social-share__toggle, .social-share .social-share__counter, .tabs__tabs .tabs__tab-link, .eyebrow-badge--date .eyebrow-badge__label, .label-tag, .agenda-list__item .agenda__time, .comparison-list .comparison-list__subhead td, .table-list thead th, .tags-list, .video-chapters__chapter, .video-playlist__length, .video-playlist-sidebar__topic-label, .video-playlist-sidebar__all, .pager .pager__endcap, .person-teaser .person-teaser__job-title, .teaser-item .teaser-item__label, .text-teaser-item .text-teaser-item__type {
+    .fancy-filters .fancy-filters__group-label, .loader .loader__message, .loading-overlay .loader__message, .social-share .social-share__toggle, .social-share .social-share__counter, .tabs__tabs .tabs__tab-link, .eyebrow-badge--date .eyebrow-badge__label, .label-tag, .agenda-list__item .agenda__time, .comparison-list .comparison-list__subhead td, .table-list thead th, .tags-list, .video-chapters__chapter, .video-playlist__length, .video-playlist-sidebar__topic-label, .video-playlist-sidebar__all, .global-footer .global-footer__links, .global-footer .global-footer__copyright, .pager .pager__endcap, .person-teaser .person-teaser__job-title, .teaser-item .teaser-item__label, .text-teaser-item .text-teaser-item__type {
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .text--border, .text-teaser-item .text-teaser-item__type {

@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <title>Tableau Styleguide</title>
-  <!-- <title></title> -->
+  <!-- <title>Tableau Components</title> -->
 
   <meta name="description" content="">
   <meta name="generator" content="kss-node">
@@ -27,7 +27,7 @@
     </div>
     <div class="kss-right">
       <h1>Styleguide</h1>
-      <!-- <h1></h1> -->
+      <!-- <h1>Tableau Components</h1> -->
     </div>
   </header>
 
@@ -721,6 +721,20 @@ components in this section to show how a basic page should be laid out.</p>
 
   <hr class="divider divider--gradient">
 
+    <section class="hero " >
+      <div class="content-container">
+          <p class="hero__eyebrow">
+            Section Name
+          </p>
+          <h1 class="hero__title">
+            Page Title
+          </h1>
+          <h5 class="hero__subtitle">
+            A short subtitle explaining more detail about the contents of this page.
+          </h5>
+      </div>
+    </section>
+
   <section class="section">
     <div class="content-container">
       <h2>This is a Page Section</h2>
@@ -748,8 +762,8 @@ components in this section to show how a basic page should be laid out.</p>
       </div>
     </div>
   </section>
-  
-    <footer class="global-footer section section--padded-one bg--dark-gray-3">
+
+    <footer class="global-footer section section--padded-two bg--dark-gray-3">
       <nav class="content-container content-container--wide">
         <div class="global-footer__first clearfix">
           <div class="global-footer__language">
@@ -782,6 +796,9 @@ components in this section to show how a basic page should be laid out.</p>
                   </li>
               </ul>
           </div>
+    
+          <div class="global-footer__links">
+          </div>
         </div>
     
         <div class="global-footer__second clearfix">
@@ -798,8 +815,8 @@ components in this section to show how a basic page should be laid out.</p>
                   </li>
               </ul>
           </div>
-          <div class="copy-right text--label text--medium-body">
-            <p>© 2003-2015 Tableau Software. All Rights Reserved</p>
+          <div class="global-footer__copyright">
+            © 2003-2015 Tableau Software. All Rights Reserved
           </div>
         </div>
     
@@ -1325,6 +1342,20 @@ components in this section to show how a basic page should be laid out.</p>
 
   &lt;hr class=&quot;divider divider--gradient&quot;&gt;
 
+    &lt;section class=&quot;hero &quot; &gt;
+      &lt;div class=&quot;content-container&quot;&gt;
+          &lt;p class=&quot;hero__eyebrow&quot;&gt;
+            Section Name
+          &lt;/p&gt;
+          &lt;h1 class=&quot;hero__title&quot;&gt;
+            Page Title
+          &lt;/h1&gt;
+          &lt;h5 class=&quot;hero__subtitle&quot;&gt;
+            A short subtitle explaining more detail about the contents of this page.
+          &lt;/h5&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
   &lt;section class=&quot;section&quot;&gt;
     &lt;div class=&quot;content-container&quot;&gt;
       &lt;h2&gt;This is a Page Section&lt;/h2&gt;
@@ -1352,8 +1383,8 @@ components in this section to show how a basic page should be laid out.</p>
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/section&gt;
-  
-    &lt;footer class=&quot;global-footer section section--padded-one bg--dark-gray-3&quot;&gt;
+
+    &lt;footer class=&quot;global-footer section section--padded-two bg--dark-gray-3&quot;&gt;
       &lt;nav class=&quot;content-container content-container--wide&quot;&gt;
         &lt;div class=&quot;global-footer__first clearfix&quot;&gt;
           &lt;div class=&quot;global-footer__language&quot;&gt;
@@ -1386,6 +1417,9 @@ components in this section to show how a basic page should be laid out.</p>
                   &lt;/li&gt;
               &lt;/ul&gt;
           &lt;/div&gt;
+    
+          &lt;div class=&quot;global-footer__links&quot;&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
     
         &lt;div class=&quot;global-footer__second clearfix&quot;&gt;
@@ -1402,8 +1436,8 @@ components in this section to show how a basic page should be laid out.</p>
                   &lt;/li&gt;
               &lt;/ul&gt;
           &lt;/div&gt;
-          &lt;div class=&quot;copy-right text--label text--medium-body&quot;&gt;
-            &lt;p&gt;© 2003-2015 Tableau Software. All Rights Reserved&lt;/p&gt;
+          &lt;div class=&quot;global-footer__copyright&quot;&gt;
+            © 2003-2015 Tableau Software. All Rights Reserved
           &lt;/div&gt;
         &lt;/div&gt;
     
@@ -1543,7 +1577,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
                 </div>
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="padded-box bg--dark-gray-2">
+                    <div class="padding-one bg--dark-gray-2">
   <p>
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   </p>
@@ -1551,11 +1585,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 <hr class="spacer [modifier class]">
 
-<div class="padded-box bg--dark-gray-2">
+<div class="padding-one bg--dark-gray-2">
   <p>
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   </p>
 </div>
+
                   </div>
                 </div>
               </div>
@@ -1571,7 +1606,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <div class="padded-box bg--dark-gray-2">
+                      <div class="padding-one bg--dark-gray-2">
   <p>
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   </p>
@@ -1579,11 +1614,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 <hr class="spacer spacer--one">
 
-<div class="padded-box bg--dark-gray-2">
+<div class="padding-one bg--dark-gray-2">
   <p>
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   </p>
 </div>
+
                     </div>
                   </div>
                 </div>
@@ -1598,7 +1634,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <div class="padded-box bg--dark-gray-2">
+                      <div class="padding-one bg--dark-gray-2">
   <p>
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   </p>
@@ -1606,11 +1642,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 <hr class="spacer spacer--two">
 
-<div class="padded-box bg--dark-gray-2">
+<div class="padding-one bg--dark-gray-2">
   <p>
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   </p>
 </div>
+
                     </div>
                   </div>
                 </div>
@@ -1625,7 +1662,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <div class="padded-box bg--dark-gray-2">
+                      <div class="padding-one bg--dark-gray-2">
   <p>
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   </p>
@@ -1633,11 +1670,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 <hr class="spacer spacer--three">
 
-<div class="padded-box bg--dark-gray-2">
+<div class="padding-one bg--dark-gray-2">
   <p>
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   </p>
 </div>
+
                     </div>
                   </div>
                 </div>
@@ -1652,7 +1690,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <div class="padded-box bg--dark-gray-2">
+                      <div class="padding-one bg--dark-gray-2">
   <p>
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   </p>
@@ -1660,11 +1698,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 <hr class="spacer spacer--four">
 
-<div class="padded-box bg--dark-gray-2">
+<div class="padding-one bg--dark-gray-2">
   <p>
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   </p>
 </div>
+
                     </div>
                   </div>
                 </div>
@@ -1679,7 +1718,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <div class="padded-box bg--dark-gray-2">
+                      <div class="padding-one bg--dark-gray-2">
   <p>
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   </p>
@@ -1687,11 +1726,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 <hr class="spacer spacer--five">
 
-<div class="padded-box bg--dark-gray-2">
+<div class="padding-one bg--dark-gray-2">
   <p>
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   </p>
 </div>
+
                     </div>
                   </div>
                 </div>
@@ -1706,7 +1746,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
-                      <div class="padded-box bg--dark-gray-2">
+                      <div class="padding-one bg--dark-gray-2">
   <p>
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   </p>
@@ -1714,11 +1754,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 <hr class="spacer spacer--six">
 
-<div class="padded-box bg--dark-gray-2">
+<div class="padding-one bg--dark-gray-2">
   <p>
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   </p>
 </div>
+
                     </div>
                   </div>
                 </div>
@@ -1726,7 +1767,7 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;padded-box bg--dark-gray-2&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;padding-one bg--dark-gray-2&quot;&gt;
   &lt;p&gt;
     Maxime. Temporibus minim atque ullamcorper, aptent, necessitatibus lacinia tempor volutpat irure torquent! Voluptas inventore!
   &lt;/p&gt;
@@ -1734,11 +1775,12 @@ dempnstrate the amount of space that will be added with each modifier.</p>
 
 &lt;hr class=&quot;spacer [modifier class]&quot;&gt;
 
-&lt;div class=&quot;padded-box bg--dark-gray-2&quot;&gt;
+&lt;div class=&quot;padding-one bg--dark-gray-2&quot;&gt;
   &lt;p&gt;
     Repellat porro repudiandae nam, officia elit sodales lorem! Molestias minima! Imperdiet maiores class lectus quae lacus, amet varius doloremque interdum.
   &lt;/p&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
               </div>
 
             </section>
@@ -3068,6 +3110,13 @@ and content.</p>
     </p>
   </footer>
 
+  <div class="kss-examples">
+    <div class="kss-focus-ui">
+      <div class="kss-focus-ui__close">Full screen preview. Click to close.</div>
+    </div>
+    <div class="kss-focus-preview"></div>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="public/kss.js"></script>
   <script src="public/prettify.js"></script>
@@ -3081,6 +3130,7 @@ and content.</p>
 <script src="build/js/scripts.js"></script>
 <script src="build/js/styleguide.js"></script>
 <script src="//localhost:1234/livereload.js"></script>
+<script src="public/focus.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
 </body>

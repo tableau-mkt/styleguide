@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <title>Tableau Styleguide</title>
-  <!-- <title></title> -->
+  <!-- <title>Tableau Components</title> -->
 
   <meta name="description" content="">
   <meta name="generator" content="kss-node">
@@ -27,7 +27,7 @@
     </div>
     <div class="kss-right">
       <h1>Styleguide</h1>
-      <!-- <h1></h1> -->
+      <!-- <h1>Tableau Components</h1> -->
     </div>
   </header>
 
@@ -136,7 +136,7 @@ relative to the renamed folder rather than <code>/build/</code>.</p>
 <h4 id="include-css-in-lt-head-gt-">Include CSS in &lt;head&gt;</h4>
 <div class="kss-markup">
 <pre class="prettyprint lang-html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/build/vendor/slick.js/slick/slick.css&quot; media=&quot;all&quot; /&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;/build/css/style.css&quot; media=&quot;all&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/build/css/style.min.css&quot; media=&quot;all&quot; /&gt;
 </code></pre>
 </div>
 
@@ -176,7 +176,40 @@ that they match the structure and classes of the component in the style guide.</
 classes where needed or doesn&#39;t allow for manipulation of HTML output, there&#39;s
 some more involved options that involve customizing the component library. For
 more information on this, see the Development section below and the linked
-developemnt documentation.</p>
+development documentation.</p>
+<h2 id="encapsulated-styles">Encapsulated styles</h2>
+<p>If, for some reason, the style guide styles interfere with existing base styles
+on the platform the style guide is being integrated on and only certain regions
+of the page use components from the style guide, the included
+<code>styles.encapsulated.css</code> can be used. This will allow you to specify particular
+regions of the site such as the global navigation area where style guide styles
+are applied rather than including the styles globally on the site.</p>
+<p>We strongly encourage integrating the full style guide as described above in
+order to guarantee more consistency between platforms. This encapsulated version
+should only be used when absolutely required in order not to break existing
+styles that are still necessary.</p>
+<h3 id="usage">Usage</h3>
+<ul>
+<li>Include the encapsulated stylesheet rather than the base style.css<div class="kss-markup">
+<pre class="prettyprint lang-html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/build/css/style.encapsulated.min.css&quot; media=&quot;all&quot; /&gt;
+</code></pre>
+</div></li>
+<li>If the components being used have a javascript component (such as global
+navigation), include the javascript files above as well.</li>
+<li>In order to specify a region of the page that inherits style guide styles,
+wrap the region in a div with a <code>tableau-styles</code> class. Example:<div class="kss-markup">
+<pre class="prettyprint lang-html"><code>&lt;div class=&quot;tableau-styles&quot;&gt;
+  &lt;div class=&quot;global-nav&quot;&gt;
+    &lt;!-- Global Nav Component markup here --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+</li>
+</ul>
+<p><strong>Note:</strong> The <code>tableau-styles</code> wrapper must be a <em>wrapper around</em> any components
+rather than a class added to a component itself.</p>
 <h2 id="release-notes-bug-reports">Release Notes &amp; Bug Reports</h2>
 <p>When we release new features, bug fixes, or any other changes to this project,
 we provide notes detailing all changes made. Use these to inform your testing
@@ -204,6 +237,13 @@ access, please request it from <a href="mailto:marketing-webteam@tableau.com?sub
     </p>
   </footer>
 
+  <div class="kss-examples">
+    <div class="kss-focus-ui">
+      <div class="kss-focus-ui__close">Full screen preview. Click to close.</div>
+    </div>
+    <div class="kss-focus-preview"></div>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="public/kss.js"></script>
   <script src="public/prettify.js"></script>
@@ -217,6 +257,7 @@ access, please request it from <a href="mailto:marketing-webteam@tableau.com?sub
 <script src="build/js/scripts.js"></script>
 <script src="build/js/styleguide.js"></script>
 <script src="//localhost:1234/livereload.js"></script>
+<script src="public/focus.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
 </body>

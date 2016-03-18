@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <title>Tableau Styleguide</title>
-  <!-- <title></title> -->
+  <!-- <title>Tableau Components</title> -->
 
   <meta name="description" content="">
   <meta name="generator" content="kss-node">
@@ -27,7 +27,7 @@
     </div>
     <div class="kss-right">
       <h1>Styleguide</h1>
-      <!-- <h1></h1> -->
+      <!-- <h1>Tableau Components</h1> -->
     </div>
   </header>
 
@@ -1773,7 +1773,7 @@ for consuming the content for the global footer via ajax.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <footer class="global-footer section section--padded-one bg--dark-gray-3">
+                    <footer class="global-footer section section--padded-two bg--dark-gray-3">
   <nav class="content-container content-container--wide">
     <div class="global-footer__first clearfix">
       <div class="global-footer__language">
@@ -1796,13 +1796,27 @@ for consuming the content for the global footer via ajax.</p>
                   <a href=""  class="">Blog</a>
               </li>
               <li>
-                  <a href=""  class="">Partners</a>
+                  <a href=""  class="">Academic</a>
+              </li>
+              <li>
+                  <a href=""  class="">Careers</a>
               </li>
               <li>
                   <a href=""  class="">Contact Us</a>
               </li>
+          </ul>
+      </div>
+
+      <div class="global-footer__links">
+          <ul class="link-list link-list--inline ">
               <li>
-                  <a href=""  class="">Legal & Privacy</a>
+                  <a href=""  class="">Legal</a>
+              </li>
+              <li>
+                  <a href=""  class="">Privacy</a>
+              </li>
+              <li>
+                  <a href=""  class="">Uninstall</a>
               </li>
           </ul>
       </div>
@@ -1822,8 +1836,8 @@ for consuming the content for the global footer via ajax.</p>
               </li>
           </ul>
       </div>
-      <div class="copy-right text--label text--medium-body">
-        <p>© 2003-2015 Tableau Software. All Rights Reserved</p>
+      <div class="global-footer__copyright">
+        © 2003-2016 Tableau Software. All Rights Reserved
       </div>
     </div>
 
@@ -1838,7 +1852,7 @@ for consuming the content for the global footer via ajax.</p>
 
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;footer class=&quot;global-footer section section--padded-one bg--dark-gray-3&quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;footer class=&quot;global-footer section section--padded-two bg--dark-gray-3&quot;&gt;
   &lt;nav class=&quot;content-container content-container--wide&quot;&gt;
     &lt;div class=&quot;global-footer__first clearfix&quot;&gt;
       &lt;div class=&quot;global-footer__language&quot;&gt;
@@ -1861,13 +1875,27 @@ for consuming the content for the global footer via ajax.</p>
                   &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Blog&lt;/a&gt;
               &lt;/li&gt;
               &lt;li&gt;
-                  &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Partners&lt;/a&gt;
+                  &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Academic&lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                  &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Careers&lt;/a&gt;
               &lt;/li&gt;
               &lt;li&gt;
                   &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Contact Us&lt;/a&gt;
               &lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;global-footer__links&quot;&gt;
+          &lt;ul class=&quot;link-list link-list--inline &quot;&gt;
               &lt;li&gt;
-                  &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Legal &amp; Privacy&lt;/a&gt;
+                  &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Legal&lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                  &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Privacy&lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                  &lt;a href=&quot;&quot;  class=&quot;&quot;&gt;Uninstall&lt;/a&gt;
               &lt;/li&gt;
           &lt;/ul&gt;
       &lt;/div&gt;
@@ -1887,8 +1915,8 @@ for consuming the content for the global footer via ajax.</p>
               &lt;/li&gt;
           &lt;/ul&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;copy-right text--label text--medium-body&quot;&gt;
-        &lt;p&gt;© 2003-2015 Tableau Software. All Rights Reserved&lt;/p&gt;
+      &lt;div class=&quot;global-footer__copyright&quot;&gt;
+        © 2003-2016 Tableau Software. All Rights Reserved
       &lt;/div&gt;
     &lt;/div&gt;
 
@@ -1908,6 +1936,13 @@ for consuming the content for the global footer via ajax.</p>
     </p>
   </footer>
 
+  <div class="kss-examples">
+    <div class="kss-focus-ui">
+      <div class="kss-focus-ui__close">Full screen preview. Click to close.</div>
+    </div>
+    <div class="kss-focus-preview"></div>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="public/kss.js"></script>
   <script src="public/prettify.js"></script>
@@ -1921,6 +1956,7 @@ for consuming the content for the global footer via ajax.</p>
 <script src="build/js/scripts.js"></script>
 <script src="build/js/styleguide.js"></script>
 <script src="//localhost:1234/livereload.js"></script>
+<script src="public/focus.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
 </body>

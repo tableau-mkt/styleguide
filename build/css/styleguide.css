@@ -2752,10 +2752,6 @@ Weight: 50
 
 Style Guide: navigation.footer
 */
-  /**
- * Make sure the footer sticks to the bottom of the page on desktop and tablet
- * where the height of the footer is static
- */
   /*
 Global Navigation
 
@@ -4907,7 +4903,8 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .contextual-search .contextual-search__results {
       display: none;
       margin: 0;
-      padding: 0; }
+      padding: 0;
+      text-align: left; }
     body.kss .kss-example-preview .contextual-search.is-open .contextual-search__results {
       display: block; }
     body.kss .kss-example-preview .contextual-search .contextual-search__results-row {
@@ -5158,7 +5155,7 @@ Style guide: typography.text-stat
       opacity: 0;
       left: 0.7em;
       top: 0.5em; }
-      body.kss .kss-example-preview .form-field.has-float-label .form-field__label.is-active {
+      body.kss .kss-example-preview .form-field.has-float-label .form-field__label.is-active, body.kss .kss-example-preview .form-field.has-float-label .form-field__label.is-msie {
         pointer-events: all;
         display: block;
         -webkit-transform: translateY(-0.2em);
@@ -5269,6 +5266,8 @@ Style guide: typography.text-stat
     color: #999; }
   body.kss .kss-example-preview input::placeholder {
     color: #999; }
+  body.kss .kss-example-preview .has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
+    color: transparent; }
   @media (max-width: 639px) {
     body.kss .kss-example-preview input {
       text-align: center; } }
@@ -5304,7 +5303,7 @@ Style guide: typography.text-stat
     body.kss .kss-example-preview .form--negative input[type="email"],
     body.kss .kss-example-preview .form--negative select,
     body.kss .kss-example-preview .form--negative textarea {
-      background: #ebebeb; }
+      background-color: #ebebeb; }
     body.kss .kss-example-preview .form--negative input::-webkit-input-placeholder {
       color: #777; }
     body.kss .kss-example-preview .form--negative input::-moz-placeholder {
@@ -5313,6 +5312,12 @@ Style guide: typography.text-stat
       color: #777; }
     body.kss .kss-example-preview .form--negative input::placeholder {
       color: #777; }
+    body.kss .kss-example-preview .form--negative .has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
+      color: transparent; }
+    body.kss .kss-example-preview .form--negative .has-float-label select.is-empty {
+      color: #777; }
+      body.kss .kss-example-preview .form--negative .has-float-label select.is-empty option {
+        color: #333; }
     body.kss .kss-example-preview .form--negative .form__legend {
       color: #fff; }
     body.kss .kss-example-preview .form--negative .form-field__label,
@@ -5342,8 +5347,9 @@ Style guide: typography.text-stat
   body.kss .kss-example-preview .lt-ie9 .form__button,
   body.kss .kss-example-preview .lt-ie9 input[type="submit"] {
     display: inline-block; }
-  body.kss .kss-example-preview .lt-ie11 input.placeholder,
-  body.kss .kss-example-preview .lt-ie11 textarea.placeholder {
+  body.kss .kss-example-preview .lt-ie10 input.placeholder,
+  body.kss .kss-example-preview .lt-ie10 input.pac-placeholder,
+  body.kss .kss-example-preview .lt-ie10 textarea.placeholder {
     color: #999; }
   @media (min-width: 961px) {
     body.kss .kss-example-preview .responsive-filter .responsive-filter__select {
@@ -7516,110 +7522,116 @@ Style guide: typography.text-stat
         font-size: 5em; } }
   body.kss .kss-example-preview .icon--accent {
     color: #23529c; }
-  body.kss .kss-example-preview .global-footer .global-footer__language,
-  body.kss .kss-example-preview .global-footer .global-footer__menu {
-    float: left; }
-  body.kss .kss-example-preview .global-footer .global-footer__first {
-    float: left;
-    width: 60%;
-    padding-top: 22px; }
-  body.kss .kss-example-preview .global-footer .global-footer__second {
-    float: right;
-    width: 40%;
-    text-align: right; }
-  body.kss .kss-example-preview .global-footer .global-footer__language {
-    position: relative;
-    margin-right: 1em;
-    padding: 2px 16px;
-    cursor: pointer;
-    background: #333; }
-    body.kss .kss-example-preview .global-footer .global-footer__language:after {
-      content: "";
-      display: inline-block;
-      width: 0;
-      height: 0;
-      margin-left: 5px;
-      border-top: 5px solid #fff;
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
-      transition: -webkit-transform 0.5s;
-      transition: transform 0.5s;
-      transition: transform 0.5s, -webkit-transform 0.5s; }
-    body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options {
-      position: absolute;
-      bottom: 100%;
-      left: 0;
-      max-height: 0;
-      overflow: hidden;
-      background: #333;
-      transition: max-height 0.5s ease-out; }
-      body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options .selected {
-        display: none; }
-      body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options a {
-        display: inline-block;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 2px 16px;
-        color: #bbb; }
-    body.kss .kss-example-preview .global-footer .global-footer__language:hover:after {
-      -webkit-transform: rotate(180deg);
-          -ms-transform: rotate(180deg);
-              transform: rotate(180deg); }
-    body.kss .kss-example-preview .global-footer .global-footer__language:hover .global-footer__language__options {
-      max-height: 240px; }
-  body.kss .kss-example-preview .global-footer .global-footer__menu li {
-    padding: 0 1em;
-    line-height: 30px; }
-    body.kss .kss-example-preview .global-footer .global-footer__menu li a {
-      color: #bbb;
-      font-family: "Benton Sans Book", Helvetica, sans-serif; }
-  body.kss .kss-example-preview .global-footer .global-footer__social li a {
-    color: #bbb;
-    font-size: 1.2em;
-    padding-left: 1em;
-    text-decoration: none; }
-  @media (max-width: 960px) {
-    body.kss .kss-example-preview .global-footer .global-footer__first {
-      width: 65%; }
-    body.kss .kss-example-preview .global-footer .global-footer__second {
-      width: 35%; }
-    body.kss .kss-example-preview .global-footer .global-footer__menu li {
-      padding: 0 .5em; } }
-  @media (max-width: 639px) {
-    body.kss .kss-example-preview .global-footer .global-footer__first,
-    body.kss .kss-example-preview .global-footer .global-footer__second {
-      float: none;
-      width: auto;
-      text-align: center; }
-    body.kss .kss-example-preview .global-footer .global-footer__language {
-      float: none;
-      margin-right: 0; }
-      body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options {
-        width: 100%; }
+  body.kss .kss-example-preview .global-footer {
+    padding-top: 2em;
+    padding-bottom: 2em; }
+    body.kss .kss-example-preview .global-footer .global-footer__language,
     body.kss .kss-example-preview .global-footer .global-footer__menu {
-      float: none;
-      margin: 2em 0 1em; }
-    body.kss .kss-example-preview .global-footer .global-footer__social li a {
-      padding: .5em; } }
-  @media (min-width: 640px) {
-    body.kss .kss-example-preview html {
+      float: left;
+      margin-bottom: 1em; }
+    body.kss .kss-example-preview .global-footer .global-footer__first {
+      float: left;
+      width: 60%; }
+    body.kss .kss-example-preview .global-footer .global-footer__second {
+      float: right;
+      width: 40%;
+      text-align: right; }
+    body.kss .kss-example-preview .global-footer .global-footer__language {
       position: relative;
-      min-height: 100%; }
-    body.kss .kss-example-preview body {
-      margin-bottom: 150px;
-      /* Outer height of the footer */ }
-    body.kss .kss-example-preview .global-footer {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 118px;
-      width: 100%; } }
-  @media (min-width: 961px) {
-    body.kss .kss-example-preview body {
-      margin: 0 0 110px;
-      /* Outer height of the footer */ }
-    body.kss .kss-example-preview .global-footer {
-      height: 78px; } }
+      margin-right: 1em;
+      padding: 2px 16px;
+      cursor: pointer;
+      background: #333; }
+      body.kss .kss-example-preview .global-footer .global-footer__language:after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 5px;
+        border-top: 5px solid #fff;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+        transition: transform 0.5s, -webkit-transform 0.5s; }
+      body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        max-height: 0;
+        overflow: hidden;
+        background: #333;
+        transition: max-height 0.5s ease-out; }
+        body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options .selected {
+          display: none; }
+        body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options a {
+          display: inline-block;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 2px 16px;
+          color: #bbb; }
+      body.kss .kss-example-preview .global-footer .global-footer__language:hover:after {
+        -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+                transform: rotate(180deg); }
+      body.kss .kss-example-preview .global-footer .global-footer__language:hover .global-footer__language__options {
+        max-height: 240px; }
+    body.kss .kss-example-preview .global-footer .global-footer__menu li {
+      padding: 0 1em;
+      line-height: 30px; }
+      body.kss .kss-example-preview .global-footer .global-footer__menu li a {
+        color: #bbb;
+        font-family: "Benton Sans Book", Helvetica, sans-serif; }
+    body.kss .kss-example-preview .global-footer .global-footer__links {
+      clear: both; }
+      body.kss .kss-example-preview .global-footer .global-footer__links li {
+        padding: 0 2em 0 0;
+        line-height: 30px; }
+      body.kss .kss-example-preview .global-footer .global-footer__links a {
+        color: #787878; }
+    body.kss .kss-example-preview .global-footer .global-footer__social {
+      margin-bottom: 1em; }
+      body.kss .kss-example-preview .global-footer .global-footer__social li {
+        line-height: 30px; }
+      body.kss .kss-example-preview .global-footer .global-footer__social a {
+        color: #bbb;
+        font-size: 1.2em;
+        padding-left: 1em;
+        text-decoration: none; }
+    body.kss .kss-example-preview .global-footer .global-footer__copyright {
+      padding-top: 3px; }
+    body.kss .kss-example-preview .global-footer p.copy-right {
+      margin: 0; }
+    @media (max-width: 960px) {
+      body.kss .kss-example-preview .global-footer .global-footer__first {
+        width: 65%; }
+      body.kss .kss-example-preview .global-footer .global-footer__second {
+        width: 35%; }
+      body.kss .kss-example-preview .global-footer .global-footer__menu li {
+        padding: 0 .5em; }
+      body.kss .kss-example-preview .global-footer .global-footer__links li {
+        padding: 0 1em 0 0; } }
+    @media (max-width: 639px) {
+      body.kss .kss-example-preview .global-footer {
+        padding-top: 1em;
+        padding-bottom: 1em; }
+        body.kss .kss-example-preview .global-footer .global-footer__first,
+        body.kss .kss-example-preview .global-footer .global-footer__second {
+          float: none;
+          width: auto;
+          text-align: center; }
+        body.kss .kss-example-preview .global-footer .global-footer__language {
+          float: none;
+          margin-right: 0; }
+          body.kss .kss-example-preview .global-footer .global-footer__language .global-footer__language__options {
+            width: 100%; }
+        body.kss .kss-example-preview .global-footer .global-footer__menu {
+          float: none;
+          margin: 1em 0 0; }
+        body.kss .kss-example-preview .global-footer .global-footer__links {
+          margin-bottom: 1em; }
+        body.kss .kss-example-preview .global-footer .global-footer__social li a {
+          padding: .5em; } }
   body.kss .kss-example-preview .global-nav__top .global-nav__search h2.element-invisible {
     width: 0; }
   body.kss .kss-example-preview .global-nav__top .global-nav__search input[type='search'] {
@@ -8686,7 +8698,8 @@ Style guide: typography.text-stat
     color: #333;
     line-height: 1.88;
     -webkit-font-smoothing: antialiased; }
-  body.kss .kss-example-preview .text--body-small, body.kss .kss-example-preview .location .location__address, body.kss .kss-example-preview .modal-message .modal-message__content, body.kss .kss-example-preview .tooltip .tooltip__text, body.kss .kss-example-preview .video-playlist__title, body.kss .kss-example-preview .global-footer .global-footer__first, body.kss .kss-example-preview .global-nav__top .global-nav__primary-menu, body.kss .kss-example-preview .global-nav__drawers .sub-nav__item-description,
+  body.kss .kss-example-preview .text--body-small, body.kss .kss-example-preview .location .location__address, body.kss .kss-example-preview .modal-message .modal-message__content, body.kss .kss-example-preview .tooltip .tooltip__text, body.kss .kss-example-preview .video-playlist__title, body.kss .kss-example-preview .global-footer .global-footer__language,
+  body.kss .kss-example-preview .global-footer .global-footer__menu, body.kss .kss-example-preview .global-nav__top .global-nav__primary-menu, body.kss .kss-example-preview .global-nav__drawers .sub-nav__item-description,
   body.kss .kss-example-preview .global-nav__drawers .global-nav__drawer-link-list, body.kss .kss-example-preview .card.card--summary .card__summary, body.kss .kss-example-preview .person-teaser .person-teaser__bio, body.kss .kss-example-preview .teaser-item .teaser-item__description, body.kss .kss-example-preview .caption {
     font-size: 0.875em;
     line-height: 1.86; }
@@ -8801,31 +8814,51 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .tableau-premium-access-button-form .text--light-body .form__legend a, body.kss .kss-example-preview .text--light-body h2.block__title a,
       body.kss .kss-example-preview .text--light-body h6 a, body.kss .kss-example-preview .text--light-body .heading--h6 a {
         color: #bbb; }
-  body.kss .kss-example-preview .text--medium-body {
+  body.kss .kss-example-preview .text--medium-body, body.kss .kss-example-preview .global-footer .global-footer__links, body.kss .kss-example-preview .global-footer .global-footer__copyright {
     color: #787878 !important; }
-    body.kss .kss-example-preview .text--medium-body h1, body.kss .kss-example-preview .text--medium-body .heading--huge, body.kss .kss-example-preview .text--medium-body .heading--h1,
-    body.kss .kss-example-preview .text--medium-body h2, body.kss .kss-example-preview .text--medium-body .heading--h2,
-    body.kss .kss-example-preview .text--medium-body h3, body.kss .kss-example-preview .text--medium-body .heading--h3, body.kss .kss-example-preview .text--medium-body legend,
+    body.kss .kss-example-preview .text--medium-body h1, body.kss .kss-example-preview .global-footer .global-footer__links h1, body.kss .kss-example-preview .global-footer .global-footer__copyright h1, body.kss .kss-example-preview .text--medium-body .heading--huge, body.kss .kss-example-preview .global-footer .global-footer__links .heading--huge, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--huge, body.kss .kss-example-preview .text--medium-body .heading--h1, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h1, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h1,
+    body.kss .kss-example-preview .text--medium-body h2, body.kss .kss-example-preview .global-footer .global-footer__links h2, body.kss .kss-example-preview .global-footer .global-footer__copyright h2, body.kss .kss-example-preview .text--medium-body .heading--h2, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h2, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h2,
+    body.kss .kss-example-preview .text--medium-body h3, body.kss .kss-example-preview .global-footer .global-footer__links h3, body.kss .kss-example-preview .global-footer .global-footer__copyright h3, body.kss .kss-example-preview .text--medium-body .heading--h3, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h3, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h3, body.kss .kss-example-preview .text--medium-body legend, body.kss .kss-example-preview .global-footer .global-footer__links legend, body.kss .kss-example-preview .global-footer .global-footer__copyright legend,
     body.kss .kss-example-preview .text--medium-body .form__legend,
-    body.kss .kss-example-preview .text--medium-body h4, body.kss .kss-example-preview .text--medium-body .heading--h4,
-    body.kss .kss-example-preview .text--medium-body h5, body.kss .kss-example-preview .text--medium-body .heading--h5, body.kss .kss-example-preview .text--medium-body .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--medium-body .detail-field__label, body.kss .kss-example-preview .text--medium-body .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--medium-body .field__label,
+    body.kss .kss-example-preview .global-footer .global-footer__links .form__legend,
+    body.kss .kss-example-preview .global-footer .global-footer__copyright .form__legend,
+    body.kss .kss-example-preview .text--medium-body h4, body.kss .kss-example-preview .global-footer .global-footer__links h4, body.kss .kss-example-preview .global-footer .global-footer__copyright h4, body.kss .kss-example-preview .text--medium-body .heading--h4, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h4, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h4,
+    body.kss .kss-example-preview .text--medium-body h5, body.kss .kss-example-preview .global-footer .global-footer__links h5, body.kss .kss-example-preview .global-footer .global-footer__copyright h5, body.kss .kss-example-preview .text--medium-body .heading--h5, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h5, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h5, body.kss .kss-example-preview .text--medium-body .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .text--medium-body .detail-field__label, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .global-footer .global-footer__links .detail-field__label, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field .detail-field__label, body.kss .kss-example-preview .detail-field .global-footer .global-footer__copyright .detail-field__label, body.kss .kss-example-preview .text--medium-body .detail-field .field__label, body.kss .kss-example-preview .detail-field .text--medium-body .field__label, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field .field__label, body.kss .kss-example-preview .detail-field .global-footer .global-footer__links .field__label, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field .field__label, body.kss .kss-example-preview .detail-field .global-footer .global-footer__copyright .field__label,
     body.kss .kss-example-preview .text--medium-body .detail-field .field-label,
-    body.kss .kss-example-preview .detail-field .text--medium-body .field-label, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items, body.kss .kss-example-preview .text--medium-body .location .location__general, body.kss .kss-example-preview .location .text--medium-body .location__general, body.kss .kss-example-preview .text--medium-body .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--medium-body .form__legend,
+    body.kss .kss-example-preview .detail-field .text--medium-body .field-label,
+    body.kss .kss-example-preview .global-footer .global-footer__links .detail-field .field-label,
+    body.kss .kss-example-preview .detail-field .global-footer .global-footer__links .field-label,
+    body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field .field-label,
+    body.kss .kss-example-preview .detail-field .global-footer .global-footer__copyright .field-label, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__links .detail-field__items, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field.detail-field--secondary .detail-field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__copyright .detail-field__items, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__links .field__items, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field.detail-field--secondary .field__items, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__copyright .field__items, body.kss .kss-example-preview .text--medium-body .location .location__general, body.kss .kss-example-preview .location .text--medium-body .location__general, body.kss .kss-example-preview .global-footer .global-footer__links .location .location__general, body.kss .kss-example-preview .location .global-footer .global-footer__links .location__general, body.kss .kss-example-preview .global-footer .global-footer__copyright .location .location__general, body.kss .kss-example-preview .location .global-footer .global-footer__copyright .location__general, body.kss .kss-example-preview .text--medium-body .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .text--medium-body .form__legend, body.kss .kss-example-preview .global-footer .global-footer__links .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .global-footer .global-footer__links .form__legend, body.kss .kss-example-preview .global-footer .global-footer__copyright .user-register-form .form__legend, body.kss .kss-example-preview .user-register-form .global-footer .global-footer__copyright .form__legend,
     body.kss .kss-example-preview .text--medium-body .tableau-premium-access-button-form .form__legend,
-    body.kss .kss-example-preview .tableau-premium-access-button-form .text--medium-body .form__legend, body.kss .kss-example-preview .text--medium-body h2.block__title,
-    body.kss .kss-example-preview .text--medium-body h6, body.kss .kss-example-preview .text--medium-body .heading--h6 {
+    body.kss .kss-example-preview .tableau-premium-access-button-form .text--medium-body .form__legend,
+    body.kss .kss-example-preview .global-footer .global-footer__links .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .global-footer .global-footer__links .form__legend,
+    body.kss .kss-example-preview .global-footer .global-footer__copyright .tableau-premium-access-button-form .form__legend,
+    body.kss .kss-example-preview .tableau-premium-access-button-form .global-footer .global-footer__copyright .form__legend, body.kss .kss-example-preview .text--medium-body h2.block__title, body.kss .kss-example-preview .global-footer .global-footer__links h2.block__title, body.kss .kss-example-preview .global-footer .global-footer__copyright h2.block__title,
+    body.kss .kss-example-preview .text--medium-body h6, body.kss .kss-example-preview .global-footer .global-footer__links h6, body.kss .kss-example-preview .global-footer .global-footer__copyright h6, body.kss .kss-example-preview .text--medium-body .heading--h6, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h6, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h6 {
       color: #787878; }
-      body.kss .kss-example-preview .text--medium-body h1 a, body.kss .kss-example-preview .text--medium-body .heading--huge a, body.kss .kss-example-preview .text--medium-body .heading--h1 a,
-      body.kss .kss-example-preview .text--medium-body h2 a, body.kss .kss-example-preview .text--medium-body .heading--h2 a,
-      body.kss .kss-example-preview .text--medium-body h3 a, body.kss .kss-example-preview .text--medium-body .heading--h3 a, body.kss .kss-example-preview .text--medium-body legend a,
+      body.kss .kss-example-preview .text--medium-body h1 a, body.kss .kss-example-preview .global-footer .global-footer__links h1 a, body.kss .kss-example-preview .global-footer .global-footer__copyright h1 a, body.kss .kss-example-preview .text--medium-body .heading--huge a, body.kss .kss-example-preview .global-footer .global-footer__links .heading--huge a, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--huge a, body.kss .kss-example-preview .text--medium-body .heading--h1 a, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h1 a, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h1 a,
+      body.kss .kss-example-preview .text--medium-body h2 a, body.kss .kss-example-preview .global-footer .global-footer__links h2 a, body.kss .kss-example-preview .global-footer .global-footer__copyright h2 a, body.kss .kss-example-preview .text--medium-body .heading--h2 a, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h2 a, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h2 a,
+      body.kss .kss-example-preview .text--medium-body h3 a, body.kss .kss-example-preview .global-footer .global-footer__links h3 a, body.kss .kss-example-preview .global-footer .global-footer__copyright h3 a, body.kss .kss-example-preview .text--medium-body .heading--h3 a, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h3 a, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h3 a, body.kss .kss-example-preview .text--medium-body legend a, body.kss .kss-example-preview .global-footer .global-footer__links legend a, body.kss .kss-example-preview .global-footer .global-footer__copyright legend a,
       body.kss .kss-example-preview .text--medium-body .form__legend a,
-      body.kss .kss-example-preview .text--medium-body h4 a, body.kss .kss-example-preview .text--medium-body .heading--h4 a,
-      body.kss .kss-example-preview .text--medium-body h5 a, body.kss .kss-example-preview .text--medium-body .heading--h5 a, body.kss .kss-example-preview .text--medium-body .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--medium-body .detail-field__label a, body.kss .kss-example-preview .text--medium-body .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--medium-body .field__label a,
+      body.kss .kss-example-preview .global-footer .global-footer__links .form__legend a,
+      body.kss .kss-example-preview .global-footer .global-footer__copyright .form__legend a,
+      body.kss .kss-example-preview .text--medium-body h4 a, body.kss .kss-example-preview .global-footer .global-footer__links h4 a, body.kss .kss-example-preview .global-footer .global-footer__copyright h4 a, body.kss .kss-example-preview .text--medium-body .heading--h4 a, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h4 a, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h4 a,
+      body.kss .kss-example-preview .text--medium-body h5 a, body.kss .kss-example-preview .global-footer .global-footer__links h5 a, body.kss .kss-example-preview .global-footer .global-footer__copyright h5 a, body.kss .kss-example-preview .text--medium-body .heading--h5 a, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h5 a, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h5 a, body.kss .kss-example-preview .text--medium-body .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .text--medium-body .detail-field__label a, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .global-footer .global-footer__links .detail-field__label a, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field .detail-field__label a, body.kss .kss-example-preview .detail-field .global-footer .global-footer__copyright .detail-field__label a, body.kss .kss-example-preview .text--medium-body .detail-field .field__label a, body.kss .kss-example-preview .detail-field .text--medium-body .field__label a, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field .field__label a, body.kss .kss-example-preview .detail-field .global-footer .global-footer__links .field__label a, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field .field__label a, body.kss .kss-example-preview .detail-field .global-footer .global-footer__copyright .field__label a,
       body.kss .kss-example-preview .text--medium-body .detail-field .field-label a,
-      body.kss .kss-example-preview .detail-field .text--medium-body .field-label a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items a, body.kss .kss-example-preview .text--medium-body .location .location__general a, body.kss .kss-example-preview .location .text--medium-body .location__general a, body.kss .kss-example-preview .text--medium-body .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--medium-body .form__legend a,
+      body.kss .kss-example-preview .detail-field .text--medium-body .field-label a,
+      body.kss .kss-example-preview .global-footer .global-footer__links .detail-field .field-label a,
+      body.kss .kss-example-preview .detail-field .global-footer .global-footer__links .field-label a,
+      body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field .field-label a,
+      body.kss .kss-example-preview .detail-field .global-footer .global-footer__copyright .field-label a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .detail-field__items a, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__links .detail-field__items a, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field.detail-field--secondary .detail-field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__copyright .detail-field__items a, body.kss .kss-example-preview .text--medium-body .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .text--medium-body .field__items a, body.kss .kss-example-preview .global-footer .global-footer__links .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__links .field__items a, body.kss .kss-example-preview .global-footer .global-footer__copyright .detail-field.detail-field--secondary .field__items a, body.kss .kss-example-preview .detail-field.detail-field--secondary .global-footer .global-footer__copyright .field__items a, body.kss .kss-example-preview .text--medium-body .location .location__general a, body.kss .kss-example-preview .location .text--medium-body .location__general a, body.kss .kss-example-preview .global-footer .global-footer__links .location .location__general a, body.kss .kss-example-preview .location .global-footer .global-footer__links .location__general a, body.kss .kss-example-preview .global-footer .global-footer__copyright .location .location__general a, body.kss .kss-example-preview .location .global-footer .global-footer__copyright .location__general a, body.kss .kss-example-preview .text--medium-body .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .text--medium-body .form__legend a, body.kss .kss-example-preview .global-footer .global-footer__links .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .global-footer .global-footer__links .form__legend a, body.kss .kss-example-preview .global-footer .global-footer__copyright .user-register-form .form__legend a, body.kss .kss-example-preview .user-register-form .global-footer .global-footer__copyright .form__legend a,
       body.kss .kss-example-preview .text--medium-body .tableau-premium-access-button-form .form__legend a,
-      body.kss .kss-example-preview .tableau-premium-access-button-form .text--medium-body .form__legend a, body.kss .kss-example-preview .text--medium-body h2.block__title a,
-      body.kss .kss-example-preview .text--medium-body h6 a, body.kss .kss-example-preview .text--medium-body .heading--h6 a {
+      body.kss .kss-example-preview .tableau-premium-access-button-form .text--medium-body .form__legend a,
+      body.kss .kss-example-preview .global-footer .global-footer__links .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .global-footer .global-footer__links .form__legend a,
+      body.kss .kss-example-preview .global-footer .global-footer__copyright .tableau-premium-access-button-form .form__legend a,
+      body.kss .kss-example-preview .tableau-premium-access-button-form .global-footer .global-footer__copyright .form__legend a, body.kss .kss-example-preview .text--medium-body h2.block__title a, body.kss .kss-example-preview .global-footer .global-footer__links h2.block__title a, body.kss .kss-example-preview .global-footer .global-footer__copyright h2.block__title a,
+      body.kss .kss-example-preview .text--medium-body h6 a, body.kss .kss-example-preview .global-footer .global-footer__links h6 a, body.kss .kss-example-preview .global-footer .global-footer__copyright h6 a, body.kss .kss-example-preview .text--medium-body .heading--h6 a, body.kss .kss-example-preview .global-footer .global-footer__links .heading--h6 a, body.kss .kss-example-preview .global-footer .global-footer__copyright .heading--h6 a {
         color: #787878; }
   body.kss .kss-example-preview .text--dark-body {
     color: #333 !important; }
@@ -9134,7 +9167,7 @@ Style guide: typography.text-stat
   body.kss .kss-example-preview .form-field.fancy-filters .fancy-filters__group-label,
   body.kss .kss-example-preview .fancy-filters label,
   body.kss .kss-example-preview .fancy-filters .form-field__label,
-  body.kss .kss-example-preview .fancy-filters .fancy-filters__group-label, body.kss .kss-example-preview .loader .loader__message, body.kss .kss-example-preview .loading-overlay .loader__message, body.kss .kss-example-preview .social-share .social-share__toggle, body.kss .kss-example-preview .social-share .social-share__counter, body.kss .kss-example-preview .tabs__tabs .tabs__tab-link, body.kss .kss-example-preview .eyebrow-badge--date .eyebrow-badge__label, body.kss .kss-example-preview .label-tag, body.kss .kss-example-preview .agenda-list__item .agenda__time, body.kss .kss-example-preview .comparison-list .comparison-list__subhead td, body.kss .kss-example-preview .table-list thead th, body.kss .kss-example-preview .tags-list, body.kss .kss-example-preview .video-chapters__chapter, body.kss .kss-example-preview .video-playlist__length, body.kss .kss-example-preview .video-playlist-sidebar__topic-label, body.kss .kss-example-preview .video-playlist-sidebar__all, body.kss .kss-example-preview .pager .pager__endcap, body.kss .kss-example-preview .person-teaser .person-teaser__job-title, body.kss .kss-example-preview .teaser-item .teaser-item__label, body.kss .kss-example-preview .text-teaser-item .text-teaser-item__type {
+  body.kss .kss-example-preview .fancy-filters .fancy-filters__group-label, body.kss .kss-example-preview .loader .loader__message, body.kss .kss-example-preview .loading-overlay .loader__message, body.kss .kss-example-preview .social-share .social-share__toggle, body.kss .kss-example-preview .social-share .social-share__counter, body.kss .kss-example-preview .tabs__tabs .tabs__tab-link, body.kss .kss-example-preview .eyebrow-badge--date .eyebrow-badge__label, body.kss .kss-example-preview .label-tag, body.kss .kss-example-preview .agenda-list__item .agenda__time, body.kss .kss-example-preview .comparison-list .comparison-list__subhead td, body.kss .kss-example-preview .table-list thead th, body.kss .kss-example-preview .tags-list, body.kss .kss-example-preview .video-chapters__chapter, body.kss .kss-example-preview .video-playlist__length, body.kss .kss-example-preview .video-playlist-sidebar__topic-label, body.kss .kss-example-preview .video-playlist-sidebar__all, body.kss .kss-example-preview .global-footer .global-footer__links, body.kss .kss-example-preview .global-footer .global-footer__copyright, body.kss .kss-example-preview .pager .pager__endcap, body.kss .kss-example-preview .person-teaser .person-teaser__job-title, body.kss .kss-example-preview .teaser-item .teaser-item__label, body.kss .kss-example-preview .text-teaser-item .text-teaser-item__type {
     font-family: "Benton Sans Book", Helvetica, sans-serif;
     font-size: 0.6875em;
     letter-spacing: 1px;
@@ -9147,7 +9180,7 @@ Style guide: typography.text-stat
       body.kss .kss-example-preview .form-field.fancy-filters .fancy-filters__group-label,
       body.kss .kss-example-preview .fancy-filters label,
       body.kss .kss-example-preview .fancy-filters .form-field__label,
-      body.kss .kss-example-preview .fancy-filters .fancy-filters__group-label, body.kss .kss-example-preview .loader .loader__message, body.kss .kss-example-preview .loading-overlay .loader__message, body.kss .kss-example-preview .social-share .social-share__toggle, body.kss .kss-example-preview .social-share .social-share__counter, body.kss .kss-example-preview .tabs__tabs .tabs__tab-link, body.kss .kss-example-preview .eyebrow-badge--date .eyebrow-badge__label, body.kss .kss-example-preview .label-tag, body.kss .kss-example-preview .agenda-list__item .agenda__time, body.kss .kss-example-preview .comparison-list .comparison-list__subhead td, body.kss .kss-example-preview .table-list thead th, body.kss .kss-example-preview .tags-list, body.kss .kss-example-preview .video-chapters__chapter, body.kss .kss-example-preview .video-playlist__length, body.kss .kss-example-preview .video-playlist-sidebar__topic-label, body.kss .kss-example-preview .video-playlist-sidebar__all, body.kss .kss-example-preview .pager .pager__endcap, body.kss .kss-example-preview .person-teaser .person-teaser__job-title, body.kss .kss-example-preview .teaser-item .teaser-item__label, body.kss .kss-example-preview .text-teaser-item .text-teaser-item__type {
+      body.kss .kss-example-preview .fancy-filters .fancy-filters__group-label, body.kss .kss-example-preview .loader .loader__message, body.kss .kss-example-preview .loading-overlay .loader__message, body.kss .kss-example-preview .social-share .social-share__toggle, body.kss .kss-example-preview .social-share .social-share__counter, body.kss .kss-example-preview .tabs__tabs .tabs__tab-link, body.kss .kss-example-preview .eyebrow-badge--date .eyebrow-badge__label, body.kss .kss-example-preview .label-tag, body.kss .kss-example-preview .agenda-list__item .agenda__time, body.kss .kss-example-preview .comparison-list .comparison-list__subhead td, body.kss .kss-example-preview .table-list thead th, body.kss .kss-example-preview .tags-list, body.kss .kss-example-preview .video-chapters__chapter, body.kss .kss-example-preview .video-playlist__length, body.kss .kss-example-preview .video-playlist-sidebar__topic-label, body.kss .kss-example-preview .video-playlist-sidebar__all, body.kss .kss-example-preview .global-footer .global-footer__links, body.kss .kss-example-preview .global-footer .global-footer__copyright, body.kss .kss-example-preview .pager .pager__endcap, body.kss .kss-example-preview .person-teaser .person-teaser__job-title, body.kss .kss-example-preview .teaser-item .teaser-item__label, body.kss .kss-example-preview .text-teaser-item .text-teaser-item__type {
         -webkit-font-smoothing: subpixel-antialiased; } }
   body.kss .kss-example-preview .text--border, body.kss .kss-example-preview .text-teaser-item .text-teaser-item__type {
     border-bottom: 1px dotted #dedede;
