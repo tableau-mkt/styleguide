@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'Benton Sans Thin';
   src: local("Benton Sans Thin");
@@ -219,7 +218,8 @@ Style Guide: media.icons
   font-weight: normal;
   font-style: normal; }
 
-.icon, .cta.cta--arrow:after, .cta.cta--play:after, .cta.cta--download:after, .link:before, .topic-link:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before, .link:after, .topic-link:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after, .global-nav__top .global-nav__search-toggle, .global-nav__top .global-nav__search:before, .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__primary-menu li a.expandable:after, .pager .pager__endcap.pager__endcap--first a:before,
+.icon, .cta.cta--arrow:after, .cta.cta--play:after, .cta.cta--download:after, .link:before, .topic-link:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before, .link:after, .topic-link:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after, .ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next, fieldset.collapsible .form__legend a:before, .global-nav__top .global-nav__search-toggle, .global-nav__top .global-nav__search:before, .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .pager .pager__endcap.pager__endcap--first a:before,
 .pager .pager__endcap.pager__endcap--previous a:before,
 .pager .pager__endcap.pager__endcap--next a:after,
 .pager .pager__endcap.pager__endcap--last a:after {
@@ -1060,6 +1060,9 @@ most common proportions for video players.
 .line-height-zero {
   line-height: 0; }
 
+.line-height-condensed {
+  line-height: 1.2; }
+
 .overflow-hidden {
   overflow: hidden; }
 
@@ -1120,6 +1123,24 @@ textarea[disabled="disabled"] {
   display: block;
   margin: 0 auto; }
 
+#page .animated-stripes {
+  background-size: 30px 30px;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  -webkit-animation: animated-stripes 3s linear infinite;
+          animation: animated-stripes 3s linear infinite; }
+
+@-webkit-keyframes animated-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 60px 0; } }
+
+@keyframes animated-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 60px 0; } }
+
 /**
  * Placeholders
  *
@@ -1138,7 +1159,7 @@ textarea[disabled="disabled"] {
   display: inline-block; }
 
 .clearfix:after, .feature-highlight:after, .lt-ie11 .feature-highlight:after,
-.no-flexbox .feature-highlight:after, .location:after, .content-search #autocomplete li:after, .contextual-search .contextual-search__results-row:after, .form-field:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .gallery-grid:after, .feature-list .feature-list__feature:after, .table-list tbody tr:after, .global-nav__drawers .sub-nav__item:after, .large-teaser .large-teaser__thumbnail:after, .person-teaser:after {
+.no-flexbox .feature-highlight:after, .location:after, .content-search #autocomplete li:after, .contextual-search .contextual-search__results-row:after, .form-field:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .gallery-grid:after, .feature-list .feature-list__feature:after, .table-list tbody tr:after, .large-teaser .large-teaser__thumbnail:after, .person-teaser:after {
   content: "";
   display: table;
   clear: both; }
@@ -1158,7 +1179,9 @@ select {
       -ms-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-.absolute-centered, .loading-overlay .loader, .modal-message .modal-message__dialog, .slick-prev .icon:before, .slick-prev .link:before, .slick-prev .topic-link:before, .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .slick-prev .global-nav__top .global-nav__search-toggle:before, .global-nav__top .slick-prev .global-nav__search-toggle:before, .slick-prev .global-nav__top .global-nav__search:before, .global-nav__top .slick-prev .global-nav__search:before, .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .slick-prev a:before, .slick-prev
+.absolute-centered, .loading-overlay .loader, .modal-message .modal-message__dialog, .slick-prev .icon:before, .slick-prev .link:before, .slick-prev .topic-link:before, .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .slick-prev .ui-datepicker .ui-datepicker-prev:before, .ui-datepicker .slick-prev .ui-datepicker-prev:before, .slick-prev
+.ui-datepicker .ui-datepicker-next:before,
+.ui-datepicker .slick-prev .ui-datepicker-next:before, .slick-prev fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .slick-prev a:before, .slick-prev .global-nav__top .global-nav__search-toggle:before, .global-nav__top .slick-prev .global-nav__search-toggle:before, .slick-prev .global-nav__top .global-nav__search:before, .global-nav__top .slick-prev .global-nav__search:before, .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .slick-prev a:before, .slick-prev
 .pager .pager__endcap.pager__endcap--previous a:before,
 .pager .pager__endcap.pager__endcap--previous .slick-prev a:before,
 .slick-next .icon:before,
@@ -1166,6 +1189,14 @@ select {
 .slick-next .topic-link:before,
 .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper
 .slick-next .video-chapters__toggle:before,
+.slick-next .ui-datepicker .ui-datepicker-prev:before, .ui-datepicker
+.slick-next .ui-datepicker-prev:before,
+.slick-next
+.ui-datepicker .ui-datepicker-next:before,
+.ui-datepicker
+.slick-next .ui-datepicker-next:before,
+.slick-next fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend
+.slick-next a:before,
 .slick-next .global-nav__top .global-nav__search-toggle:before, .global-nav__top
 .slick-next .global-nav__search-toggle:before,
 .slick-next .global-nav__top .global-nav__search:before, .global-nav__top
@@ -1220,6 +1251,12 @@ select {
   position: relative;
   height: 0;
   overflow: hidden; }
+
+.location .location__comma:after {
+  content: ','; }
+
+.location .location__comma:last-of-type:after {
+  content: ''; }
 
 /**
  * Spacing
@@ -1832,6 +1869,9 @@ most common proportions for video players.
 .line-height-zero {
   line-height: 0; }
 
+.line-height-condensed {
+  line-height: 1.2; }
+
 .overflow-hidden {
   overflow: hidden; }
 
@@ -1892,6 +1932,18 @@ textarea[disabled="disabled"] {
   display: block;
   margin: 0 auto; }
 
+#page .animated-stripes {
+  background-size: 30px 30px;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  -webkit-animation: animated-stripes 3s linear infinite;
+          animation: animated-stripes 3s linear infinite; }
+
+@keyframes animated-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 60px 0; } }
+
 /**
  * Placeholders
  *
@@ -1910,7 +1962,7 @@ textarea[disabled="disabled"] {
   display: inline-block; }
 
 .clearfix:after, .feature-highlight:after, .lt-ie11 .feature-highlight:after,
-.no-flexbox .feature-highlight:after, .location:after, .content-search #autocomplete li:after, .contextual-search .contextual-search__results-row:after, .form-field:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .gallery-grid:after, .feature-list .feature-list__feature:after, .table-list tbody tr:after, .global-nav__drawers .sub-nav__item:after, .large-teaser .large-teaser__thumbnail:after, .person-teaser:after {
+.no-flexbox .feature-highlight:after, .location:after, .content-search #autocomplete li:after, .contextual-search .contextual-search__results-row:after, .form-field:after, .tabs__tab-content:after, .topic-nav .topic-nav__drawer:after, .content-container:after, .gallery-grid:after, .feature-list .feature-list__feature:after, .table-list tbody tr:after, .large-teaser .large-teaser__thumbnail:after, .person-teaser:after {
   content: "";
   display: table;
   clear: both; }
@@ -1930,7 +1982,9 @@ select {
       -ms-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-.absolute-centered, .loading-overlay .loader, .modal-message .modal-message__dialog, .slick-prev .icon:before, .slick-prev .link:before, .slick-prev .topic-link:before, .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .slick-prev .global-nav__top .global-nav__search-toggle:before, .global-nav__top .slick-prev .global-nav__search-toggle:before, .slick-prev .global-nav__top .global-nav__search:before, .global-nav__top .slick-prev .global-nav__search:before, .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .slick-prev a:before, .slick-prev
+.absolute-centered, .loading-overlay .loader, .modal-message .modal-message__dialog, .slick-prev .icon:before, .slick-prev .link:before, .slick-prev .topic-link:before, .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .slick-prev .ui-datepicker .ui-datepicker-prev:before, .ui-datepicker .slick-prev .ui-datepicker-prev:before, .slick-prev
+.ui-datepicker .ui-datepicker-next:before,
+.ui-datepicker .slick-prev .ui-datepicker-next:before, .slick-prev fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .slick-prev a:before, .slick-prev .global-nav__top .global-nav__search-toggle:before, .global-nav__top .slick-prev .global-nav__search-toggle:before, .slick-prev .global-nav__top .global-nav__search:before, .global-nav__top .slick-prev .global-nav__search:before, .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .slick-prev a:before, .slick-prev
 .pager .pager__endcap.pager__endcap--previous a:before,
 .pager .pager__endcap.pager__endcap--previous .slick-prev a:before,
 .slick-next .icon:before,
@@ -1938,6 +1992,14 @@ select {
 .slick-next .topic-link:before,
 .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper
 .slick-next .video-chapters__toggle:before,
+.slick-next .ui-datepicker .ui-datepicker-prev:before, .ui-datepicker
+.slick-next .ui-datepicker-prev:before,
+.slick-next
+.ui-datepicker .ui-datepicker-next:before,
+.ui-datepicker
+.slick-next .ui-datepicker-next:before,
+.slick-next fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend
+.slick-next a:before,
 .slick-next .global-nav__top .global-nav__search-toggle:before, .global-nav__top
 .slick-next .global-nav__search-toggle:before,
 .slick-next .global-nav__top .global-nav__search:before, .global-nav__top
@@ -1992,6 +2054,12 @@ select {
   position: relative;
   height: 0;
   overflow: hidden; }
+
+.location .location__comma:after {
+  content: ','; }
+
+.location .location__comma:last-of-type:after {
+  content: ''; }
 
 /**
  * Spacing
@@ -2456,6 +2524,39 @@ Style guide: buttons-links.anchor_link
   text-decoration: none; }
 
 /*
+App Links
+
+Links to mobile app stores to download the apps on a mobile device.
+
+Markup: app-links.hbs
+
+Weight: 30
+
+.app-links--centered - Centered links
+
+Style guide: buttons-links.app-links
+*/
+.app-links {
+  margin: 1em 0; }
+  .app-links .app-links__link {
+    vertical-align: middle;
+    line-height: 0; }
+  @media (min-width: 640px) {
+    .app-links .app-links__link {
+      display: inline-block;
+      margin-left: 1em; }
+      .app-links .app-links__link:first-child {
+        margin-left: 0; } }
+  @media (max-width: 639px) {
+    .app-links {
+      text-align: center; }
+      .app-links .app-links__link {
+        display: block;
+        margin: 0.5em 0; } }
+  .app-links.app-links--centered {
+    text-align: center; }
+
+/*
 Primary CTA
 
 Primary CTA buttons (Solid) should be used when a single or important page
@@ -2583,11 +2684,11 @@ Style guide: buttons-links.cta
     font-size: 2em;
     text-decoration: none; }
   .cta.cta--arrow:after {
-    content: ""; }
+    content: "\f112"; }
   .cta.cta--play:after {
-    content: ""; }
+    content: "\f150"; }
   .cta.cta--download:after {
-    content: "";
+    content: "\f135";
     font-size: 1.5em; }
 
 @media (max-width: 639px) {
@@ -2598,84 +2699,6 @@ Style guide: buttons-links.cta
       margin-left: 0; }
   button.cta {
     width: 100%; } }
-
-/*
-Data Source Link
-
-DEPRECATED
-
-A large CTA-style link specifically for linking to data sources.
-
-Markup: data-source-link.hbs
-
-Hidden: true
-
-.data-source-link--desktop - Desktop colored Data Source Link.
-.data-source-link--server - Server colored Data Source Link.
-.data-source-link--online - Online colored Data Source Link.
-.data-source-link--public - Public colored Data Source Link.
-.data-source-link--reader - Reader colored Data Source Link.
-.data-source-link--mobile - Mobile colored Data Source Link.
-
-Style guide: buttons-links.data-source
-*/
-.data-source-link {
-  position: relative;
-  display: inline-block;
-  float: left;
-  width: 66px;
-  height: 66px;
-  padding: 15px;
-  margin: 0 2em 2em 0;
-  border: 2px solid #e8762c;
-  background: transparent;
-  color: #e8762c;
-  text-align: center;
-  transition: color .5s, border .5s; }
-  .data-source-link:hover, .data-source-link:focus {
-    background: transparent;
-    text-decoration: none; }
-  .data-source-link .data-source-link__number {
-    font-family: "Benton Sans Thin", Helvetica, sans-serif;
-    font-weight: 100;
-    font-size: 3.125em;
-    line-height: 66px; }
-  .data-source-link .data-source-link__label {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding-top: .5em; }
-  .data-source-link:active {
-    border-color: #c92434;
-    background: transparent;
-    color: #c92434; }
-  .data-source-link.data-source-link--orange {
-    border-color: #e8762c;
-    color: #e8762c; }
-    .data-source-link.data-source-link--orange:hover, .data-source-link.data-source-link--orange:focus {
-      border-color: #ea8442;
-      color: #ea8442; }
-  .data-source-link.data-source-link--light {
-    border-color: #fff;
-    color: #fff; }
-    .data-source-link.data-source-link--light:hover, .data-source-link.data-source-link--light:focus {
-      border-color: #fff;
-      color: #fff; }
-  .data-source-link.data-source-link--dark {
-    border-color: #333;
-    color: #333; }
-    .data-source-link.data-source-link--dark:hover, .data-source-link.data-source-link--dark:focus {
-      border-color: #444;
-      color: #444; }
-  @media (min-width: 640px) {
-    .data-source-link + ul {
-      margin-left: 120px;
-      margin-top: 0; } }
-  @media (max-width: 639px) {
-    .data-source-link {
-      float: none;
-      margin: 0 0 2em 0; } }
 
 /*
 Base Text Link
@@ -2742,45 +2765,45 @@ Style guide: buttons-links.link-formatted
     padding-right: 0;
     padding-left: 0.5em; }
   .link.link--arrow:after, .link--arrow.topic-link:after, .video-chapters__toggle-wrapper .link--arrow.video-chapters__toggle:after {
-    content: ""; }
+    content: "\f112"; }
   .link.link--arrow-before:before, .link--arrow-before.topic-link:before, .video-chapters__toggle-wrapper .link--arrow-before.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f10e"; }
   .link.link--expand:before, .link--expand.topic-link:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before {
-    content: ""; }
+    content: "\f180"; }
   .link.link--collapse:before, .link--collapse.topic-link:before, .video-chapters__toggle-wrapper .link--collapse.video-chapters__toggle:before, .video-chapters__toggle-wrapper .video-chapters__toggle.is-open:before {
-    content: ""; }
+    content: "\f17f"; }
   .link.link--share:before, .link--share.topic-link:before, .video-chapters__toggle-wrapper .link--share.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f166"; }
   .link.link--close:after, .link--close.topic-link:after, .video-chapters__toggle-wrapper .link--close.video-chapters__toggle:after {
-    content: ""; }
+    content: "\f12a"; }
   .link.link--download:before, .link--download.topic-link:before, .video-chapters__toggle-wrapper .link--download.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f135"; }
   .link.link--social-twitter:before, .link--social-twitter.topic-link:before, .video-chapters__toggle-wrapper .link--social-twitter.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f16c"; }
   .link.link--people:before, .link--people.topic-link:before, .video-chapters__toggle-wrapper .link--people.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f14f"; }
   .link.link--calendar:before, .link--calendar.topic-link:before, .video-chapters__toggle-wrapper .link--calendar.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f11d"; }
   .link.link--adobe-pdf:before, .link--adobe-pdf.topic-link:before, .video-chapters__toggle-wrapper .link--adobe-pdf.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f102"; }
   .link.link--community:before, .link--community.topic-link:before, .video-chapters__toggle-wrapper .link--community.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f12d"; }
   .link.link--email:before, .link--email.topic-link:before, .video-chapters__toggle-wrapper .link--email.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f137"; }
   .link.link--export:before, .link--export.topic-link:before, .video-chapters__toggle-wrapper .link--export.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f139"; }
   .link.link--globe:before, .link--globe.topic-link:before, .video-chapters__toggle-wrapper .link--globe.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f13e"; }
   .link.link--invite-people:before, .link--invite-people.topic-link:before, .video-chapters__toggle-wrapper .link--invite-people.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f140"; }
   .link.link--link:after, .link--link.topic-link:after, .video-chapters__toggle-wrapper .link--link.video-chapters__toggle:after {
-    content: ""; }
+    content: "\f143"; }
   .link.link--newsletter:before, .link--newsletter.topic-link:before, .video-chapters__toggle-wrapper .link--newsletter.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f14a"; }
   .link.link--settings:before, .link--settings.topic-link:before, .video-chapters__toggle-wrapper .link--settings.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f163"; }
   .link.link--upload:before, .link--upload.topic-link:before, .video-chapters__toggle-wrapper .link--upload.video-chapters__toggle:before {
-    content: ""; }
+    content: "\f17d"; }
 
 .topic-link > a {
   color: #333; }
@@ -2843,6 +2866,7 @@ Markup: feature-highlight.hbs
 Weight: 40
 
 .feature-highlight--image-left - Image on the left side
+.feature-highlight--half - Both image and copy take up half of the content width
 
 Style guide: compound.feature-highlight
 */
@@ -2876,7 +2900,21 @@ Style guide: compound.feature-highlight
     .feature-highlight.feature-highlight--image-left .feature-highlight__copy {
       -webkit-order: 2;
           -ms-flex-order: 2;
-              order: 2; } }
+              order: 2; }
+    .feature-highlight.feature-highlight--half .feature-highlight__image {
+      width: 48%;
+      margin-left: 2%;
+      margin-right: 0; }
+    .feature-highlight.feature-highlight--half .feature-highlight__copy {
+      width: 48%;
+      margin-right: 2%;
+      margin-left: 0; }
+    .feature-highlight.feature-highlight--half.feature-highlight--image-left .feature-highlight__image {
+      margin-right: 2%;
+      margin-left: 0; }
+    .feature-highlight.feature-highlight--half.feature-highlight--image-left .feature-highlight__copy {
+      margin-left: 2%;
+      margin-right: 0; } }
 
 @media (min-width: 961px) {
   .feature-highlight .feature-highlight__image {
@@ -2887,6 +2925,18 @@ Style guide: compound.feature-highlight
   .feature-highlight .feature-highlight__copy {
     width: 25%; } }
 
+/*
+Feature Highlight with Reveal
+
+A side-by-side text blurb and image highlighting a feature or important key
+piece of content. Reveals content (e.g. video) when link or image is clicked.
+
+Markup: feature-highlight--reveal.hbs
+
+Weight: 41
+
+Style guide: compound.feature-highlight--reveal
+*/
 .lt-ie11 .feature-highlight,
 .no-flexbox .feature-highlight {
   display: block; }
@@ -3196,7 +3246,7 @@ Style guide: compound.special-hero
     .special-hero {
       background-color: #fff;
       color: #333; }
-      .special-hero h1, .special-hero .heading--huge, .special-hero h4.heading--label {
+      .special-hero h1, .special-hero .heading--huge {
         color: #333; }
       .special-hero .special-hero__content {
         padding: 0 0 2em 0;
@@ -3214,6 +3264,42 @@ Style guide: compound.special-hero
             background-color: transparent;
             border-color: #333;
             color: #333; } }
+
+/*
+Special Hero w/ Fluid Height
+
+A Special hero with a fluid height. This Special hero version does not support
+video backgrounds.
+
+Markup: special-hero--fluid-height.hbs
+
+Weight: 31
+
+Style guide: compound.special-hero--fluid-height
+*/
+.special-hero.special-hero--fluid-height .special-hero__content {
+  position: relative;
+  top: inherit;
+  height: auto;
+  width: auto;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+@media (max-width: 639px) {
+  .special-hero.special-hero--fluid-height {
+    color: #fff; }
+    .special-hero.special-hero--fluid-height h1, .special-hero.special-hero--fluid-height .heading--huge {
+      color: #fff; }
+    .special-hero.special-hero--fluid-height .special-hero__content .cta.cta--light {
+      background-color: #fff;
+      color: #333; }
+      .special-hero.special-hero--fluid-height .special-hero__content .cta.cta--light.cta--secondary {
+        background-color: transparent;
+        border-color: #fff;
+        color: #fff; } }
 
 /*
 Global Nav Ajax Consumption
@@ -3276,8 +3362,13 @@ $(document).ready(function() {
     $.ajax({
       url: protocol + '://' + domain + '/' + lang_map[lang] + 'ajax/megamenu' +
       '/jsonp/' + 'tabAjaxMegaMenu',
-      type: 'POST',
-      dataType: 'jsonp'
+      dataType: 'jsonp',
+      // Set a static callback and explicitly set caching to true to ensure
+      // we don't cache bust ourselves into oblivion. Without these set,
+      // a random callback name is generated and a timestamp is appended to
+      // every request.
+      jsonpCallback: 'jsonpMegamenuCallback',
+      cache: true
   });
 }
 ```
@@ -3316,6 +3407,53 @@ Markup: ajax_consumption.hbs
 
 Style guide: documentation.global-nav-ajax
 */
+/*
+Breakpoints
+
+We use several different breakpoints in order to responsively alter components and layouts for different screen sizes.
+
+* Desktop - any viewport wider than `960px`
+* Tablet - any viewport with a maximum width of `960px` AND minimum width of `640px`
+* Mobile - any viewport narrower than `640px`
+
+We provide several helper classes and SASS shortcuts for utilizing breakpoints in either markup or in component styles. Use the demo example below to identify the applicable SASS variables or helper classes. To use the demo, expand it into full-screen mode and then resize your browser to trigger the different breakpoints.
+
+
+#### Using helper classes:
+```
+<div class="{helper-class}">
+  <p> Content only shown/hidden in specified viewport(s)</p>
+</div>
+```
+
+#### Using SASS variables
+```
+@include breakpoint({$sass-variable}) {
+  // Styles only applied in specified viewport(s)
+}
+```
+
+Markup: breakpoints.hbs
+
+Nocode: true
+
+Style guide: documentation.breakpoints
+*/
+.docs-breakpoints-only {
+  padding: 8em 1em;
+  text-align: center; }
+  @media (min-width: 961px) {
+    .docs-breakpoints-only {
+      background: red; } }
+  @media (min-width: 640px) and (max-width: 960px) {
+    .docs-breakpoints-only {
+      background: green;
+      color: #fff; } }
+  @media (max-width: 639px) {
+    .docs-breakpoints-only {
+      background: blue;
+      color: #fff; } }
+
 /*
 Content Search
 
@@ -3545,6 +3683,96 @@ Style guide: forms.contextual-search
   background: #fff; }
 
 /*
+Datepicker
+
+A calendar widget used for selecting a date in a form. Uses jQuery UI's
+datepicker widget.
+
+**Note:** These styles will apply to any jQuery UI datepicker widget, but the
+styles assume that jQuery UI's default styles are not included.
+
+Markup: datepicker.hbs
+
+Nocode: true
+
+Style guide: forms.datepicker
+*/
+.ui-datepicker {
+  display: none;
+  padding: 1em;
+  max-width: 250px;
+  border: 1px solid #dedede;
+  background-color: #fff;
+  line-height: 1;
+  font-family: "Benton Sans Book", Helvetica, sans-serif; }
+  .ui-datepicker a:hover,
+  .ui-datepicker td:hover a {
+    color: #e8762c; }
+  .ui-datepicker .ui-datepicker-header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 1em;
+    text-align: center; }
+  .ui-datepicker .ui-datepicker-prev,
+  .ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    cursor: pointer; }
+    .ui-datepicker .ui-datepicker-prev.ui-state-disabled,
+    .ui-datepicker .ui-datepicker-next.ui-state-disabled {
+      display: none; }
+  .ui-datepicker .ui-datepicker-prev {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    left: 0; }
+    .ui-datepicker .ui-datepicker-prev:before {
+      content: "\f10b"; }
+  .ui-datepicker .ui-datepicker-next {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+    right: 0; }
+    .ui-datepicker .ui-datepicker-next:before {
+      content: "\f10f"; }
+  .ui-datepicker .ui-icon {
+    display: none; }
+  .ui-datepicker .ui-datepicker-title {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+  .ui-datepicker select {
+    display: inline-block; }
+  .ui-datepicker select.ui-datepicker-month {
+    margin-right: .5em; }
+  .ui-datepicker .ui-datepicker-calendar {
+    table-layout: fixed;
+    width: 100%; }
+    .ui-datepicker .ui-datepicker-calendar th,
+    .ui-datepicker .ui-datepicker-calendar td {
+      padding: .25em 0;
+      text-align: center;
+      font-weight: normal; }
+    .ui-datepicker .ui-datepicker-calendar td:hover {
+      background-color: #ebebeb;
+      cursor: pointer; }
+    .ui-datepicker .ui-datepicker-calendar td a {
+      text-decoration: none; }
+    .ui-datepicker .ui-datepicker-calendar .ui-datepicker-today {
+      border: 1px solid #dedede;
+      background: #fafafa; }
+    .ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
+      background-color: #fff;
+      cursor: default; }
+
+/*
 Fancy Radios
 
 Radio option groups, with a custom <code>:checked</code> state.
@@ -3553,7 +3781,7 @@ Markup: fancy-filters.hbs
 
 Style guide: forms.fancy-filters
 
-Weight: 100
+Weight: 20
 */
 .form-field.fancy-filters .fancy-filters__filter,
 .fancy-filters .fancy-filters__filter {
@@ -3624,6 +3852,71 @@ Weight: 100
       height: 90%;
       background: #e8762c; }
 
+.pac-container {
+  z-index: 100000; }
+
+/*
+Flyout Form
+
+This component is used o display forms that don't have a place in the layout of
+a page, but are instead kept "off-canvas" untill summoned by the user. This
+component should only be employed when the form is a secondary function or the
+final action of a page. For example, if a page houses lots of content about a
+campaign/subject that the user should read before they are asked to fill out the
+form, this would be an appropriate use. The form should be triggered by clicking
+a link or CTA within the content of the page.
+
+A link to trigger the form should have an href of `#form`
+
+**@todo:** A link can pre-populate fields of the form with query params
+
+Markup: flyout-form.hbs
+
+Style guide: forms.flyout-form
+*/
+.flyout-form__page-wrapper {
+  width: 100%; }
+  .flyout-form__page-wrapper.is-open {
+    cursor: pointer; }
+    .flyout-form__page-wrapper.is-open a,
+    .flyout-form__page-wrapper.is-open button,
+    .flyout-form__page-wrapper.is-open input {
+      pointer-events: none; }
+
+.flyout-form {
+  display: none; }
+
+.no-js .flyout-form {
+  display: inherit;
+  padding: 4em 0;
+  background: #1b1b1b;
+  color: #fff; }
+  .no-js .flyout-form h3 {
+    color: #fff; }
+  .no-js .flyout-form .flyout-form__close-wrapper {
+    display: none; }
+
+.js .flyout-form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 80%;
+  z-index: 99999;
+  overflow: auto;
+  padding: 2em;
+  box-sizing: border-box;
+  background: rgba(27, 27, 27, 0.9);
+  color: #fff; }
+  .js .flyout-form h3 {
+    color: #fff; }
+  .js .flyout-form .flyout-form__close-wrapper {
+    margin-bottom: 2em;
+    text-align: right; }
+  @media (max-width: 639px) {
+    .js .flyout-form {
+      width: 100%; } }
+
 @media (max-width: 639px) {
   .webform-client-form .form__control,
   .webform-client-form .form__field,
@@ -3638,6 +3931,11 @@ Weight: 100
   .webform-client-form .form__button {
     width: 100%; } }
 
+.webform-client-form .webform-datepicker .form__field,
+.webform-client-form .webform-datepicker select {
+  display: inline-block;
+  width: inherit; }
+
 .user-register-form .form__legend,
 .tableau-premium-access-button-form .form__legend {
   padding: 0.5em 0; }
@@ -3647,6 +3945,17 @@ Weight: 100
 .tableau-premium-access-button-form .form-field--checkbox,
 .tableau-premium-access-button-form .form-field--radio {
   margin-bottom: 1em; }
+
+fieldset.collapsible {
+  min-height: 2em;
+  margin-bottom: 1em; }
+  fieldset.collapsible .form__legend a {
+    color: #fff; }
+    fieldset.collapsible .form__legend a:before {
+      content: "\f17f";
+      text-decoration: none; }
+  fieldset.collapsible.collapsed .form__legend a:before {
+    content: "\f180"; }
 
 /*
 Base Form Styles
@@ -3663,6 +3972,10 @@ Weight: 0
 
 Style guide: forms.base
 */
+.form--fade {
+  -webkit-animation: animFadeIn 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+          animation: animFadeIn 1.5s cubic-bezier(0.77, 0, 0.175, 1); }
+
 fieldset,
 .form__intro,
 .form__fieldset {
@@ -3740,6 +4053,7 @@ legend,
 .form--centered select,
 .form--centered textarea,
 .form--centered .form__button,
+.form--centered fieldset,
 .form--sized .form__intro,
 .form--sized .form__control,
 .form--sized .form__field,
@@ -3751,8 +4065,14 @@ legend,
 .form--sized input[type="email"],
 .form--sized select,
 .form--sized textarea,
-.form--sized .form__button {
+.form--sized .form__button,
+.form--sized fieldset {
   max-width: 432px; }
+
+.form--centered fieldset,
+.form--sized fieldset {
+  margin-left: auto;
+  margin-right: auto; }
 
 /*
 Form Fields
@@ -3883,6 +4203,17 @@ textarea {
   textarea:focus {
     border-color: #0076A3; }
 
+/*
+Inline form elements
+
+Form elements that are arranged horizontally in a line.
+
+Markup: form_inline.hbs
+
+Weight: 3
+
+Style guide: forms.inline
+*/
 .form-field--inline {
   display: inline-block; }
   .form-field--inline .form-field__control,
@@ -3892,9 +4223,30 @@ textarea {
   .form-field--inline input[type="password"],
   .form-field--inline input[type="number"],
   .form-field--inline input[type="email"],
+  .form-field--inline input[type="submit"],
   .form-field--inline select,
-  .form-field--inline textarea {
+  .form-field--inline textarea,
+  .form-field--inline button {
     display: inline-block; }
+
+.form-field--text-inline {
+  display: inline-block;
+  margin: 0; }
+  .form-field--text-inline select {
+    display: inline-block;
+    margin: 0 0.25em;
+    padding: 0.25em 2em 0.25em 0.5em;
+    font-size: 1.5em;
+    color: #6f99a5; }
+  .form-field--text-inline .form-field {
+    margin: 0; }
+
+@media (max-width: 639px) {
+  .form-field--text-inline select {
+    display: block;
+    width: 100%;
+    margin: 0;
+    font-size: 1.25em; } }
 
 .form-field--checkbox,
 .form-field--radio {
@@ -3904,16 +4256,20 @@ textarea {
 .form-field--radio .form-field__label {
   color: inherit; }
 
-input::-webkit-input-placeholder {
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   color: #999; }
 
-input::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   color: #999; }
 
-input:-ms-input-placeholder {
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
   color: #999; }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #999; }
 
 .has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
@@ -3974,13 +4330,17 @@ Style guide: forms.fields-dark
   .form--negative select,
   .form--negative textarea {
     background-color: #ebebeb; }
-  .form--negative input::-webkit-input-placeholder {
+  .form--negative input::-webkit-input-placeholder,
+  .form--negative textarea::-webkit-input-placeholder {
     color: #777; }
-  .form--negative input::-moz-placeholder {
+  .form--negative input::-moz-placeholder,
+  .form--negative textarea::-moz-placeholder {
     color: #777; }
-  .form--negative input:-ms-input-placeholder {
+  .form--negative input:-ms-input-placeholder,
+  .form--negative textarea:-ms-input-placeholder {
     color: #777; }
-  .form--negative input::placeholder {
+  .form--negative input::placeholder,
+  .form--negative textarea::placeholder {
     color: #777; }
   .form--negative .has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
     color: transparent; }
@@ -4015,34 +4375,6 @@ Style guide: forms.validation
   color: #c92434; }
 
 /*
-Inline form elements.
-
-Form element that sits within lines of text content, currently only `<select>` elements.
-
-Weight: 3
-
-Style guide: forms.text-inline
-*/
-.form-field--text-inline {
-  display: inline-block;
-  margin: 0; }
-  .form-field--text-inline select {
-    display: inline-block;
-    margin: 0 0.25em;
-    padding: 0.25em 2em 0.25em 0.5em;
-    font-size: 1.5em;
-    color: #6f99a5; }
-  .form-field--text-inline .form-field {
-    margin: 0; }
-
-@media (max-width: 639px) {
-  .form-field--text-inline select {
-    display: block;
-    width: 100%;
-    margin: 0;
-    font-size: 1.25em; } }
-
-/*
 Confirmation Messages
 
 Nothing to see here yet...
@@ -4053,6 +4385,21 @@ Weight: 4
 
 Style guide: forms.confirmation
 */
+@-webkit-keyframes animFadeIn {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes animFadeIn {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 .lt-ie9 .form__button,
 .lt-ie9 input[type="submit"] {
   display: inline-block; }
@@ -4061,6 +4408,123 @@ Style guide: forms.confirmation
 .lt-ie10 input.pac-placeholder,
 .lt-ie10 textarea.placeholder {
   color: #999; }
+
+.form-compact {
+  background-color: #fff; }
+  .form-compact .form-actions,
+  .form-compact .fieldset-wrapper,
+  .form-compact .form-wrapper {
+    display: inline-block; }
+  .form-compact .form-field__description,
+  .form-compact .form-field.has-float-label .form-field__label.is-active {
+    display: none; }
+  .form-compact .form-field__control {
+    max-width: 300px; }
+  .form-compact .cta {
+    display: none !important;
+    /* @todo Remove !important with #200 */ }
+  .form-compact input[type="submit"] {
+    display: inline-block !important;
+    /* @todo Remove !important with #200 */ }
+
+.form-compact-wrapper .messaging.suffix a {
+  color: #333;
+  /* @todo Change to $text-link with #160 */ }
+
+html.js .form-compact .cta {
+  display: inline-block !important;
+  /* @todo Remove !important with #200 */ }
+
+html.js .form-compact input[type="submit"] {
+  display: none !important;
+  /* @todo Remove !important with #200 */ }
+
+/*
+Compact form
+
+Small, single element form.
+
+Markup: form-compact.hbs
+
+Weight: 30
+
+Style guide: forms.form-compact
+*/
+.form-compact {
+  display: inline-block;
+  border: #e8762c 1px solid;
+  padding: 0;
+  /* Prevent yellow autofill background in Chrome. */ }
+  .form-compact .cta,
+  .form-compact .form-field,
+  .form-compact .form-field__control {
+    border: none;
+    margin: 0; }
+  .form-compact .form-field.form-field--inline .form-field__control {
+    padding: 0.75em 0.5em 0 0.5em; }
+  .form-compact .cta {
+    vertical-align: top;
+    display: inline-block; }
+  .form-compact .form__fieldset {
+    display: inline-block; }
+  .form-compact .form__intro {
+    display: none; }
+  .form-compact input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px #fff inset; }
+  @media (max-width: 639px) {
+    .form-compact .form-field.form-field--inline .form-field__control {
+      padding-bottom: 0.75em;
+      text-align: center; } }
+
+/*
+Form icon button
+
+Place an icon inside a form button. Use a modifier and HTML markup to set the alignment: `.form-icon-button--left` and `.form-icon-button--right`
+
+Nodefault: true
+
+Markup: form-icon-button.hbs
+
+Weight: 28
+
+.form-icon-button--right - Icon placed on the right.
+
+Style guide: forms.icon-button
+*/
+.form-icon-button {
+  padding-top: 12px;
+  padding-bottom: 12px; }
+  .form-icon-button .icon, .form-icon-button .cta.cta--arrow:after, .form-icon-button .cta.cta--play:after, .form-icon-button .cta.cta--download:after, .form-icon-button .link:before, .form-icon-button .topic-link:before, .form-icon-button .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .form-icon-button .video-chapters__toggle:before, .form-icon-button .link:after, .form-icon-button .topic-link:after, .form-icon-button .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .form-icon-button .video-chapters__toggle:after, .form-icon-button .ui-datepicker .ui-datepicker-prev, .ui-datepicker .form-icon-button .ui-datepicker-prev, .form-icon-button
+  .ui-datepicker .ui-datepicker-next,
+  .ui-datepicker .form-icon-button .ui-datepicker-next, .form-icon-button fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .form-icon-button a:before, .form-icon-button .global-nav__top .global-nav__search-toggle, .global-nav__top .form-icon-button .global-nav__search-toggle, .form-icon-button .global-nav__top .global-nav__search:before, .global-nav__top .form-icon-button .global-nav__search:before, .form-icon-button .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .form-icon-button .global-nav__search-close, .form-icon-button .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .form-icon-button a:after, .form-icon-button .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__top .global-nav__primary-menu ul li .form-icon-button a.expandable:after, .form-icon-button .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .form-icon-button a:after, .form-icon-button .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .form-icon-button a:before, .form-icon-button
+  .pager .pager__endcap.pager__endcap--previous a:before,
+  .pager .pager__endcap.pager__endcap--previous .form-icon-button a:before, .form-icon-button
+  .pager .pager__endcap.pager__endcap--next a:after,
+  .pager .pager__endcap.pager__endcap--next .form-icon-button a:after, .form-icon-button
+  .pager .pager__endcap.pager__endcap--last a:after,
+  .pager .pager__endcap.pager__endcap--last .form-icon-button a:after {
+    font-size: 2em;
+    text-decoration: none; }
+  .form-icon-button.form-icon-button--left .icon, .form-icon-button.form-icon-button--left .cta.cta--arrow:after, .form-icon-button.form-icon-button--left .cta.cta--play:after, .form-icon-button.form-icon-button--left .cta.cta--download:after, .form-icon-button.form-icon-button--left .link:before, .form-icon-button.form-icon-button--left .topic-link:before, .form-icon-button.form-icon-button--left .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--left .video-chapters__toggle:before, .form-icon-button.form-icon-button--left .link:after, .form-icon-button.form-icon-button--left .topic-link:after, .form-icon-button.form-icon-button--left .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--left .video-chapters__toggle:after, .form-icon-button.form-icon-button--left .ui-datepicker .ui-datepicker-prev, .ui-datepicker .form-icon-button.form-icon-button--left .ui-datepicker-prev, .form-icon-button.form-icon-button--left
+  .ui-datepicker .ui-datepicker-next,
+  .ui-datepicker .form-icon-button.form-icon-button--left .ui-datepicker-next, .form-icon-button.form-icon-button--left fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .form-icon-button.form-icon-button--left a:before, .form-icon-button.form-icon-button--left .global-nav__top .global-nav__search-toggle, .global-nav__top .form-icon-button.form-icon-button--left .global-nav__search-toggle, .form-icon-button.form-icon-button--left .global-nav__top .global-nav__search:before, .global-nav__top .form-icon-button.form-icon-button--left .global-nav__search:before, .form-icon-button.form-icon-button--left .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .form-icon-button.form-icon-button--left .global-nav__search-close, .form-icon-button.form-icon-button--left .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .form-icon-button.form-icon-button--left a:after, .form-icon-button.form-icon-button--left .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__top .global-nav__primary-menu ul li .form-icon-button.form-icon-button--left a.expandable:after, .form-icon-button.form-icon-button--left .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .form-icon-button.form-icon-button--left a:after, .form-icon-button.form-icon-button--left .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .form-icon-button.form-icon-button--left a:before, .form-icon-button.form-icon-button--left
+  .pager .pager__endcap.pager__endcap--previous a:before,
+  .pager .pager__endcap.pager__endcap--previous .form-icon-button.form-icon-button--left a:before, .form-icon-button.form-icon-button--left
+  .pager .pager__endcap.pager__endcap--next a:after,
+  .pager .pager__endcap.pager__endcap--next .form-icon-button.form-icon-button--left a:after, .form-icon-button.form-icon-button--left
+  .pager .pager__endcap.pager__endcap--last a:after,
+  .pager .pager__endcap.pager__endcap--last .form-icon-button.form-icon-button--left a:after {
+    padding-right: 0.5em; }
+  .form-icon-button.form-icon-button--right .icon, .form-icon-button.form-icon-button--right .cta.cta--arrow:after, .form-icon-button.form-icon-button--right .cta.cta--play:after, .form-icon-button.form-icon-button--right .cta.cta--download:after, .form-icon-button.form-icon-button--right .link:before, .form-icon-button.form-icon-button--right .topic-link:before, .form-icon-button.form-icon-button--right .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--right .video-chapters__toggle:before, .form-icon-button.form-icon-button--right .link:after, .form-icon-button.form-icon-button--right .topic-link:after, .form-icon-button.form-icon-button--right .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--right .video-chapters__toggle:after, .form-icon-button.form-icon-button--right .ui-datepicker .ui-datepicker-prev, .ui-datepicker .form-icon-button.form-icon-button--right .ui-datepicker-prev, .form-icon-button.form-icon-button--right
+  .ui-datepicker .ui-datepicker-next,
+  .ui-datepicker .form-icon-button.form-icon-button--right .ui-datepicker-next, .form-icon-button.form-icon-button--right fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .form-icon-button.form-icon-button--right a:before, .form-icon-button.form-icon-button--right .global-nav__top .global-nav__search-toggle, .global-nav__top .form-icon-button.form-icon-button--right .global-nav__search-toggle, .form-icon-button.form-icon-button--right .global-nav__top .global-nav__search:before, .global-nav__top .form-icon-button.form-icon-button--right .global-nav__search:before, .form-icon-button.form-icon-button--right .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .form-icon-button.form-icon-button--right .global-nav__search-close, .form-icon-button.form-icon-button--right .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .form-icon-button.form-icon-button--right a:after, .form-icon-button.form-icon-button--right .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__top .global-nav__primary-menu ul li .form-icon-button.form-icon-button--right a.expandable:after, .form-icon-button.form-icon-button--right .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .form-icon-button.form-icon-button--right a:after, .form-icon-button.form-icon-button--right .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .form-icon-button.form-icon-button--right a:before, .form-icon-button.form-icon-button--right
+  .pager .pager__endcap.pager__endcap--previous a:before,
+  .pager .pager__endcap.pager__endcap--previous .form-icon-button.form-icon-button--right a:before, .form-icon-button.form-icon-button--right
+  .pager .pager__endcap.pager__endcap--next a:after,
+  .pager .pager__endcap.pager__endcap--next .form-icon-button.form-icon-button--right a:after, .form-icon-button.form-icon-button--right
+  .pager .pager__endcap.pager__endcap--last a:after,
+  .pager .pager__endcap.pager__endcap--last .form-icon-button.form-icon-button--right a:after {
+    padding-left: 0.5em; }
 
 /*
 Responsive Filters
@@ -4075,7 +4539,7 @@ Markup: responsive-filter.hbs
 
 Style Guide: forms.responsive-filter
 
-Weight: 100
+Weight: 22
 */
 @media (min-width: 961px) {
   .responsive-filter .responsive-filter__select {
@@ -4168,7 +4632,7 @@ Style guide: images.thumbnail
     -ms-transform: scale(1.04);
     transform: scale(1.04); }
   .thumbnail.thumbnail--play:after {
-    content: "";
+    content: "\f150";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -4213,11 +4677,11 @@ Style guide: interactive.accordion
     font-family: "tableau-icons";
     display: inline-block;
     left: 1em;
-    content: "";
+    content: "\f120";
     font-size: 2.5em;
     color: #dedede; }
   .accordion__item.open .accordion__title-wrapper:before {
-    content: ""; }
+    content: "\f126"; }
   .accordion__content-wrapper {
     padding: 0 2.5em 0 7em; } }
 
@@ -4233,11 +4697,11 @@ Style guide: interactive.accordion
       font-family: "tableau-icons";
       display: inline-block;
       right: 1em;
-      content: "";
+      content: "\f120";
       font-size: 2.5em;
       color: #dedede; }
   .accordion__item.open .accordion__title-wrapper:after {
-    content: ""; }
+    content: "\f126"; }
   .accordion__content-wrapper {
     padding: 0 1em; } }
 
@@ -4294,6 +4758,25 @@ Style guide: interactive.context-switcher
         display: none; }
 
 /*
+Fadable
+
+Fade-in effect over invisible defaults, like personalization (no baked-in interactions).
+
+Markup: fadable.hbs
+
+Nocode: true
+
+Style Guide: interactive.fadable
+*/
+.fadable {
+  opacity: 1; }
+  .fadable.fadable--faded-out {
+    opacity: 0; }
+  .fadable.fadable--faded-in {
+    transition: opacity 0.5s linear;
+    opacity: 1; }
+
+/*
 Content Flyout
 
 Simple tool to make content hidden and flyout when a trigger is clicked.
@@ -4301,6 +4784,8 @@ Simple tool to make content hidden and flyout when a trigger is clicked.
 **Trigger Options:**
 * `data-flyout-target="[CONTENT ID]"` - (required) - The ID of the container around the flyout content
 * `data-flyout-scroll-down="true"` - (optional) - Whether or not clicking this trigger should scroll down to the top of the flyout content container. Useful when the trigger referencing a flyout section lower down on the page
+
+**Note:** The `<div class="relative">` wrapper in the markup example below is only required when there isn't already a natural relative parent such as a Section wrapper.
 
 Markup: flyout.hbs
 
@@ -4406,7 +4891,7 @@ Style guide: interactive.global-notification
     top: 0.4em;
     right: 1.25em;
     cursor: pointer;
-    content: "";
+    content: "\f12a";
     font-family: "tableau-icons";
     font-size: 1.5em;
     color: #fff; }
@@ -4553,7 +5038,7 @@ Style guide: interactive.modal-message
     right: 0.5em;
     cursor: pointer;
     color: #333;
-    content: "";
+    content: "\f12a";
     font-family: "tableau-icons";
     font-size: 1.5em; }
   .modal-message.modal-message--loading .modal-message__icon {
@@ -4604,7 +5089,7 @@ Style guide: interactive.progress-bar
 Content Reveal
 
 Simple tool to make content hidden and revealed when a trigger is clicked. The
-trigger element can be abywhere on the page and can have the following options
+trigger element can be anywhere on the page and can have the following options
 set as data attributes:
 
 **Trigger Options:**
@@ -4757,7 +5242,9 @@ Style Guide: interactive.search-highlight
   color: transparent;
   border: none;
   outline: none; }
-  .slick-prev .icon:before, .slick-prev .link:before, .slick-prev .topic-link:before, .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .slick-prev .global-nav__top .global-nav__search-toggle:before, .global-nav__top .slick-prev .global-nav__search-toggle:before, .slick-prev .global-nav__top .global-nav__search:before, .global-nav__top .slick-prev .global-nav__search:before, .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .slick-prev a:before, .slick-prev
+  .slick-prev .icon:before, .slick-prev .link:before, .slick-prev .topic-link:before, .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .slick-prev .ui-datepicker .ui-datepicker-prev:before, .ui-datepicker .slick-prev .ui-datepicker-prev:before, .slick-prev
+  .ui-datepicker .ui-datepicker-next:before,
+  .ui-datepicker .slick-prev .ui-datepicker-next:before, .slick-prev fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .slick-prev a:before, .slick-prev .global-nav__top .global-nav__search-toggle:before, .global-nav__top .slick-prev .global-nav__search-toggle:before, .slick-prev .global-nav__top .global-nav__search:before, .global-nav__top .slick-prev .global-nav__search:before, .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .slick-prev a:before, .slick-prev
   .pager .pager__endcap.pager__endcap--previous a:before,
   .pager .pager__endcap.pager__endcap--previous .slick-prev a:before,
   .slick-next .icon:before,
@@ -4765,6 +5252,14 @@ Style Guide: interactive.search-highlight
   .slick-next .topic-link:before,
   .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper
   .slick-next .video-chapters__toggle:before,
+  .slick-next .ui-datepicker .ui-datepicker-prev:before, .ui-datepicker
+  .slick-next .ui-datepicker-prev:before,
+  .slick-next
+  .ui-datepicker .ui-datepicker-next:before,
+  .ui-datepicker
+  .slick-next .ui-datepicker-next:before,
+  .slick-next fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend
+  .slick-next a:before,
   .slick-next .global-nav__top .global-nav__search-toggle:before, .global-nav__top
   .slick-next .global-nav__search-toggle:before,
   .slick-next .global-nav__top .global-nav__search:before, .global-nav__top
@@ -4807,7 +5302,9 @@ Style guide: interactive.social-share
     pointer-events: none; }
     .social-share .social-share__toggle:hover {
       text-decoration: none; }
-    .social-share .social-share__toggle .icon, .social-share .social-share__toggle .cta.cta--arrow:after, .social-share .social-share__toggle .cta.cta--play:after, .social-share .social-share__toggle .cta.cta--download:after, .social-share .social-share__toggle .link:before, .social-share .social-share__toggle .topic-link:before, .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:before, .social-share .social-share__toggle .link:after, .social-share .social-share__toggle .topic-link:after, .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:after, .social-share .social-share__toggle .global-nav__top .global-nav__search-toggle, .global-nav__top .social-share .social-share__toggle .global-nav__search-toggle, .social-share .social-share__toggle .global-nav__top .global-nav__search:before, .global-nav__top .social-share .social-share__toggle .global-nav__search:before, .social-share .social-share__toggle .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .social-share .social-share__toggle .global-nav__search-close, .social-share .social-share__toggle .global-nav__top .global-nav__primary-menu li a.expandable:after, .global-nav__top .global-nav__primary-menu li .social-share .social-share__toggle a.expandable:after, .social-share .social-share__toggle .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .social-share .social-share__toggle a:before, .social-share .social-share__toggle
+    .social-share .social-share__toggle .icon, .social-share .social-share__toggle .cta.cta--arrow:after, .social-share .social-share__toggle .cta.cta--play:after, .social-share .social-share__toggle .cta.cta--download:after, .social-share .social-share__toggle .link:before, .social-share .social-share__toggle .topic-link:before, .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:before, .social-share .social-share__toggle .link:after, .social-share .social-share__toggle .topic-link:after, .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:after, .social-share .social-share__toggle .ui-datepicker .ui-datepicker-prev, .ui-datepicker .social-share .social-share__toggle .ui-datepicker-prev, .social-share .social-share__toggle
+    .ui-datepicker .ui-datepicker-next,
+    .ui-datepicker .social-share .social-share__toggle .ui-datepicker-next, .social-share .social-share__toggle fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .social-share .social-share__toggle a:before, .social-share .social-share__toggle .global-nav__top .global-nav__search-toggle, .global-nav__top .social-share .social-share__toggle .global-nav__search-toggle, .social-share .social-share__toggle .global-nav__top .global-nav__search:before, .global-nav__top .social-share .social-share__toggle .global-nav__search:before, .social-share .social-share__toggle .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .social-share .social-share__toggle .global-nav__search-close, .social-share .social-share__toggle .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .social-share .social-share__toggle a:after, .social-share .social-share__toggle .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__top .global-nav__primary-menu ul li .social-share .social-share__toggle a.expandable:after, .social-share .social-share__toggle .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .social-share .social-share__toggle a:after, .social-share .social-share__toggle .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .social-share .social-share__toggle a:before, .social-share .social-share__toggle
     .pager .pager__endcap.pager__endcap--previous a:before,
     .pager .pager__endcap.pager__endcap--previous .social-share .social-share__toggle a:before, .social-share .social-share__toggle
     .pager .pager__endcap.pager__endcap--next a:after,
@@ -6595,7 +7092,9 @@ Style guide: lists.cross-reference-1
 .cross-reference-1 .cross-reference-1__title {
   margin-top: 0; }
 
-.cross-reference-1 .cross-reference-1__image .icon, .cross-reference-1 .cross-reference-1__image .cta.cta--arrow:after, .cross-reference-1 .cross-reference-1__image .cta.cta--play:after, .cross-reference-1 .cross-reference-1__image .cta.cta--download:after, .cross-reference-1 .cross-reference-1__image .link:before, .cross-reference-1 .cross-reference-1__image .topic-link:before, .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:before, .cross-reference-1 .cross-reference-1__image .link:after, .cross-reference-1 .cross-reference-1__image .topic-link:after, .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:after, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search-toggle, .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search-toggle, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search:before, .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search:before, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .cross-reference-1 .cross-reference-1__image .global-nav__search-close, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__primary-menu li a.expandable:after, .global-nav__top .global-nav__primary-menu li .cross-reference-1 .cross-reference-1__image a.expandable:after, .cross-reference-1 .cross-reference-1__image .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .cross-reference-1 .cross-reference-1__image a:before, .cross-reference-1 .cross-reference-1__image
+.cross-reference-1 .cross-reference-1__image .icon, .cross-reference-1 .cross-reference-1__image .cta.cta--arrow:after, .cross-reference-1 .cross-reference-1__image .cta.cta--play:after, .cross-reference-1 .cross-reference-1__image .cta.cta--download:after, .cross-reference-1 .cross-reference-1__image .link:before, .cross-reference-1 .cross-reference-1__image .topic-link:before, .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:before, .cross-reference-1 .cross-reference-1__image .link:after, .cross-reference-1 .cross-reference-1__image .topic-link:after, .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:after, .cross-reference-1 .cross-reference-1__image .ui-datepicker .ui-datepicker-prev, .ui-datepicker .cross-reference-1 .cross-reference-1__image .ui-datepicker-prev, .cross-reference-1 .cross-reference-1__image
+.ui-datepicker .ui-datepicker-next,
+.ui-datepicker .cross-reference-1 .cross-reference-1__image .ui-datepicker-next, .cross-reference-1 .cross-reference-1__image fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .cross-reference-1 .cross-reference-1__image a:before, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search-toggle, .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search-toggle, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search:before, .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search:before, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .cross-reference-1 .cross-reference-1__image .global-nav__search-close, .cross-reference-1 .cross-reference-1__image .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .cross-reference-1 .cross-reference-1__image a:after, .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__top .global-nav__primary-menu ul li .cross-reference-1 .cross-reference-1__image a.expandable:after, .cross-reference-1 .cross-reference-1__image .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .cross-reference-1 .cross-reference-1__image a:after, .cross-reference-1 .cross-reference-1__image .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .cross-reference-1 .cross-reference-1__image a:before, .cross-reference-1 .cross-reference-1__image
 .pager .pager__endcap.pager__endcap--previous a:before,
 .pager .pager__endcap.pager__endcap--previous .cross-reference-1 .cross-reference-1__image a:before, .cross-reference-1 .cross-reference-1__image
 .pager .pager__endcap.pager__endcap--next a:after,
@@ -6608,21 +7107,22 @@ Style guide: lists.cross-reference-1
 
 @media (min-width: 640px) {
   .cross-reference-1 {
-    width: 82.97872%;
-    float: left;
-    margin-right: 2.12766%;
-    margin-left: 8.51064%; }
+    margin-left: 8.51064%;
+    margin-right: 8.51064%;
+    text-align: center; }
     .cross-reference-1 .cross-reference-1__image,
     .cross-reference-1 .cross-reference-1__copy {
-      float: left; }
+      display: inline-block; }
     .cross-reference-1 .cross-reference-1__image {
-      width: 140px;
-      margin-right: -140px;
+      width: 100px;
+      margin-right: -105px;
+      vertical-align: top;
       line-height: 0;
       text-align: right; }
     .cross-reference-1 .cross-reference-1__copy {
-      margin-left: 140px;
-      padding-left: 2.12766%; }
+      margin-left: 105px;
+      padding-left: 2.12766%;
+      text-align: left; }
     .cross-reference-1 .cross-reference-1__link {
       margin: 0; } }
 
@@ -6641,7 +7141,9 @@ Weight: 50
 
 Style guide: lists.cross-reference-2
 */
-.cross-reference-2 .cross-reference-2__image .icon, .cross-reference-2 .cross-reference-2__image .cta.cta--arrow:after, .cross-reference-2 .cross-reference-2__image .cta.cta--play:after, .cross-reference-2 .cross-reference-2__image .cta.cta--download:after, .cross-reference-2 .cross-reference-2__image .link:before, .cross-reference-2 .cross-reference-2__image .topic-link:before, .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:before, .cross-reference-2 .cross-reference-2__image .link:after, .cross-reference-2 .cross-reference-2__image .topic-link:after, .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:after, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search-toggle, .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search-toggle, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search:before, .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search:before, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .cross-reference-2 .cross-reference-2__image .global-nav__search-close, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__primary-menu li a.expandable:after, .global-nav__top .global-nav__primary-menu li .cross-reference-2 .cross-reference-2__image a.expandable:after, .cross-reference-2 .cross-reference-2__image .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .cross-reference-2 .cross-reference-2__image a:before, .cross-reference-2 .cross-reference-2__image
+.cross-reference-2 .cross-reference-2__image .icon, .cross-reference-2 .cross-reference-2__image .cta.cta--arrow:after, .cross-reference-2 .cross-reference-2__image .cta.cta--play:after, .cross-reference-2 .cross-reference-2__image .cta.cta--download:after, .cross-reference-2 .cross-reference-2__image .link:before, .cross-reference-2 .cross-reference-2__image .topic-link:before, .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:before, .cross-reference-2 .cross-reference-2__image .link:after, .cross-reference-2 .cross-reference-2__image .topic-link:after, .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:after, .cross-reference-2 .cross-reference-2__image .ui-datepicker .ui-datepicker-prev, .ui-datepicker .cross-reference-2 .cross-reference-2__image .ui-datepicker-prev, .cross-reference-2 .cross-reference-2__image
+.ui-datepicker .ui-datepicker-next,
+.ui-datepicker .cross-reference-2 .cross-reference-2__image .ui-datepicker-next, .cross-reference-2 .cross-reference-2__image fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .cross-reference-2 .cross-reference-2__image a:before, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search-toggle, .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search-toggle, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search:before, .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search:before, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .cross-reference-2 .cross-reference-2__image .global-nav__search-close, .cross-reference-2 .cross-reference-2__image .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .cross-reference-2 .cross-reference-2__image a:after, .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__top .global-nav__primary-menu ul li .cross-reference-2 .cross-reference-2__image a.expandable:after, .cross-reference-2 .cross-reference-2__image .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .cross-reference-2 .cross-reference-2__image a:after, .cross-reference-2 .cross-reference-2__image .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .cross-reference-2 .cross-reference-2__image a:before, .cross-reference-2 .cross-reference-2__image
 .pager .pager__endcap.pager__endcap--previous a:before,
 .pager .pager__endcap.pager__endcap--previous .cross-reference-2 .cross-reference-2__image a:before, .cross-reference-2 .cross-reference-2__image
 .pager .pager__endcap.pager__endcap--next a:after,
@@ -6653,17 +7155,21 @@ Style guide: lists.cross-reference-2
   text-decoration: none; }
 
 @media (min-width: 961px) {
+  .cross-reference-2 .cross-reference-2__item {
+    text-align: center; }
   .cross-reference-2 .cross-reference-2__image,
   .cross-reference-2 .cross-reference-2__copy {
-    float: left; }
+    display: inline-block; }
   .cross-reference-2 .cross-reference-2__image {
     width: 80px;
-    margin-right: -80px;
+    margin-right: -85px;
+    vertical-align: top;
     line-height: 0;
-    text-align: center; }
+    text-align: right; }
   .cross-reference-2 .cross-reference-2__copy {
-    margin-left: 80px;
-    padding-left: 4.25532%; }
+    margin-left: 85px;
+    padding-left: 4.25532%;
+    text-align: left; }
   .cross-reference-2 .cross-reference-2__title {
     margin-top: 0; }
   .cross-reference-2 .cross-reference-2__link {
@@ -7102,7 +7608,7 @@ Weight: 91
       height: 100%; } }
   .video-playlist-sidebar .video-playlist__item.is-active .video-playlist__title:before {
     font-family: "tableau-icons";
-    content: "";
+    content: "\f150";
     position: absolute;
     display: inline-block;
     top: 50%;
@@ -7128,7 +7634,9 @@ Markup: icon-formatted.hbs
 
 Style guide: media.icon-formatted
 */
-.icon--big, .feature-list .feature-list__feature .feature-list__icon .icon, .feature-list .feature-list__feature .feature-list__icon .cta.cta--arrow:after, .feature-list .feature-list__feature .feature-list__icon .cta.cta--play:after, .feature-list .feature-list__feature .feature-list__icon .cta.cta--download:after, .feature-list .feature-list__feature .feature-list__icon .link:before, .feature-list .feature-list__feature .feature-list__icon .topic-link:before, .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:before, .feature-list .feature-list__feature .feature-list__icon .link:after, .feature-list .feature-list__feature .feature-list__icon .topic-link:after, .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:after, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search-toggle, .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search-toggle, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search:before, .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search:before, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .feature-list .feature-list__feature .feature-list__icon .global-nav__search-close, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__primary-menu li a.expandable:after, .global-nav__top .global-nav__primary-menu li .feature-list .feature-list__feature .feature-list__icon a.expandable:after, .feature-list .feature-list__feature .feature-list__icon .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .feature-list .feature-list__feature .feature-list__icon a:before, .feature-list .feature-list__feature .feature-list__icon
+.icon--big, .feature-list .feature-list__feature .feature-list__icon .icon, .feature-list .feature-list__feature .feature-list__icon .cta.cta--arrow:after, .feature-list .feature-list__feature .feature-list__icon .cta.cta--play:after, .feature-list .feature-list__feature .feature-list__icon .cta.cta--download:after, .feature-list .feature-list__feature .feature-list__icon .link:before, .feature-list .feature-list__feature .feature-list__icon .topic-link:before, .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:before, .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:before, .feature-list .feature-list__feature .feature-list__icon .link:after, .feature-list .feature-list__feature .feature-list__icon .topic-link:after, .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:after, .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:after, .feature-list .feature-list__feature .feature-list__icon .ui-datepicker .ui-datepicker-prev, .ui-datepicker .feature-list .feature-list__feature .feature-list__icon .ui-datepicker-prev, .feature-list .feature-list__feature .feature-list__icon
+.ui-datepicker .ui-datepicker-next,
+.ui-datepicker .feature-list .feature-list__feature .feature-list__icon .ui-datepicker-next, .feature-list .feature-list__feature .feature-list__icon fieldset.collapsible .form__legend a:before, fieldset.collapsible .form__legend .feature-list .feature-list__feature .feature-list__icon a:before, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search-toggle, .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search-toggle, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search:before, .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search:before, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search .global-nav__search-close, .global-nav__top .global-nav__search .feature-list .feature-list__feature .feature-list__icon .global-nav__search-close, .feature-list .feature-list__feature .feature-list__icon .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .feature-list .feature-list__feature .feature-list__icon a:after, .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .global-nav__top .global-nav__primary-menu ul li .feature-list .feature-list__feature .feature-list__icon a.expandable:after, .feature-list .feature-list__feature .feature-list__icon .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .feature-list .feature-list__feature .feature-list__icon a:after, .feature-list .feature-list__feature .feature-list__icon .pager .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap.pager__endcap--first .feature-list .feature-list__feature .feature-list__icon a:before, .feature-list .feature-list__feature .feature-list__icon
 .pager .pager__endcap.pager__endcap--previous a:before,
 .pager .pager__endcap.pager__endcap--previous .feature-list .feature-list__feature .feature-list__icon a:before, .feature-list .feature-list__feature .feature-list__icon
 .pager .pager__endcap.pager__endcap--next a:after,
@@ -7369,7 +7877,7 @@ Style guide: navigation.global
     font-size: 0;
     color: #333; }
     .global-nav__top .global-nav__search-toggle:before {
-      content: "";
+      content: "\f15f";
       cursor: pointer;
       font-size: 20px; }
   .global-nav__top .global-nav__search {
@@ -7377,7 +7885,7 @@ Style guide: navigation.global
     position: absolute;
     z-index: 10001; }
     .global-nav__top .global-nav__search:before {
-      content: "";
+      content: "\f15f";
       position: absolute;
       display: block;
       cursor: pointer;
@@ -7421,7 +7929,7 @@ Style guide: navigation.global
       font-size: 1.6em;
       color: #333; }
       .global-nav__top .global-nav__search .global-nav__search-close:after {
-        content: ""; }
+        content: "\f12a"; }
 
 .global-nav .ui-autocomplete {
   display: block;
@@ -7438,6 +7946,9 @@ Style guide: navigation.global
   .global-nav .ui-autocomplete .ui-state-focus {
     background: #333;
     color: #fff; }
+
+.global-nav__drawer-secondary .sub-nav__item-description {
+  display: none; }
 
 @media (min-width: 961px) {
   .global-nav__top .global-nav__logo,
@@ -7541,7 +8052,11 @@ Style guide: navigation.global
     position: relative;
     z-index: 10000;
     width: 100%;
-    background: #f0f0f0; }
+    background: #f0f0f0;
+    /**
+     * Note: sub-nav__item should not be confused with the subnav component. It just
+     * happened to be named this way early on in the building of these styles.
+     */ }
     .global-nav__drawers .global-nav__drawer-controls {
       display: none; }
     .global-nav__drawers .global-nav__drawer {
@@ -7597,12 +8112,32 @@ Style guide: navigation.global
       .global-nav__drawers .global-nav__drawer-secondary > * {
         z-index: 2;
         position: relative; }
-      .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item-title,
-      .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item-description {
+      .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item-title {
+        position: relative;
         margin: 0;
-        line-height: 1.5; }
+        font-size: 1.25em;
+        line-height: 1.5;
+        font-family: "Benton Sans Light", Helvetica, sans-serif;
+        color: #333;
+        -webkit-font-smoothing: auto; }
       .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item {
-        margin-top: .75em; } }
+        border-bottom: 1px solid #c7c7c7; }
+        .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item:last-child {
+          border-bottom: 0; }
+        .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a {
+          display: block;
+          padding: 0.5em 2em 0.5em 0; }
+          .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after {
+            position: absolute;
+            top: 0.75em;
+            right: 0.5em;
+            color: #e8762c;
+            content: "\f124"; }
+          .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:hover:after {
+            text-decoration: none; }
+        .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail a:after,
+        .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail + .sub-nav__item-title a:after {
+          display: none; } }
 
 @media (max-width: 960px) {
   .global-nav__top {
@@ -7647,25 +8182,22 @@ Style guide: navigation.global
           -ms-flex-order: 1;
               order: 1;
       padding-top: 1.5em; }
-      .global-nav__top .global-nav__primary-menu li {
-        display: block;
+      .global-nav__top .global-nav__primary-menu ul {
         padding: 0 1em; }
-        .global-nav__top .global-nav__primary-menu li a {
+        .global-nav__top .global-nav__primary-menu ul li {
           display: block;
-          padding: 6px 0.5em;
-          border-bottom: 1px solid #ddd;
-          color: #212535;
-          font-family: "Benton Sans Light", Helvetica, sans-serif;
-          font-size: 1.5em;
-          color: #333; }
-        .global-nav__top .global-nav__primary-menu li a.expandable:after {
-          content: "";
-          float: right;
-          margin-top: 0.7em;
-          font-size: 0.75em;
-          text-decoration: none; }
-        .global-nav__top .global-nav__primary-menu li:last-child a {
-          border-bottom: 0; }
+          margin: 0;
+          padding: 0 1em;
+          border-bottom: 1px solid #ddd; }
+          .global-nav__top .global-nav__primary-menu ul li a.expandable:after {
+            content: "\f125";
+            float: right;
+            margin-top: 0.7em;
+            padding: 6px 0;
+            font-size: 0.75em;
+            text-decoration: none; }
+          .global-nav__top .global-nav__primary-menu ul li:last-child {
+            border-bottom: 0; }
     .global-nav__top .global-nav__secondary-menu {
       -webkit-order: 2;
           -ms-flex-order: 2;
@@ -7702,6 +8234,17 @@ Style guide: navigation.global
           line-height: 64px; }
     .global-nav__top.global-nav--search-shown .global-nav__search {
       pointer-events: inherit; }
+  .global-nav__primary-menu a,
+  .global-nav__drawer-primary .sub-nav__item a,
+  .global-nav__drawer-secondary .sub-nav__item a {
+    display: block;
+    padding: 6px 0;
+    color: #212535;
+    font-family: "Benton Sans Light", Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 21px;
+    line-height: 1.875;
+    -webkit-font-smoothing: antialiased; }
   .global-nav__drawers {
     position: absolute;
     z-index: 10000;
@@ -7721,13 +8264,39 @@ Style guide: navigation.global
       background: #ddd; }
     .global-nav__drawers .content-container {
       padding: 0; }
+    .global-nav__drawers .sub-nav__item {
+      border-bottom: 1px solid #ddd; }
     .global-nav__drawers .global-nav__drawer-controls {
       padding: 1em 2em 0; }
     .global-nav__drawers .global-nav__drawer-primary,
     .global-nav__drawers .global-nav__drawer-secondary {
-      padding: 2em; }
+      padding: 1em; }
+      .global-nav__drawers .global-nav__drawer-primary .sub-nav__item,
+      .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item {
+        padding: 0 1em;
+        border-bottom-color: #c7c7c7; }
+        .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after,
+        .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after {
+          content: "\f10f";
+          position: absolute;
+          top: 0.75em;
+          right: 0.5em; }
+        .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:hover:after,
+        .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:hover:after {
+          text-decoration: none; }
+        .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .thumbnail,
+        .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail {
+          display: block;
+          padding-top: 1em; }
+          .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .thumbnail img,
+          .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail img {
+            display: block; }
+          .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .thumbnail a:after,
+          .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail a:after {
+            display: none; }
     .global-nav__drawers .global-nav__drawer-primary {
-      padding-top: 1em; }
+      padding-top: 1em;
+      padding-bottom: 0; }
     .global-nav__drawers .global-nav__drawer-primary,
     .global-nav__drawers .global-nav__drawer-secondary,
     .global-nav__drawers .sub-nav__item {
@@ -7735,17 +8304,21 @@ Style guide: navigation.global
       float: none;
       clear: both;
       margin: 0; }
-    .global-nav__drawers .sub-nav__item {
-      border-bottom: 1px solid #ddd; }
-      .global-nav__drawers .sub-nav__item:last-child {
+    .global-nav__drawers .global-nav__drawer-secondary {
+      padding-top: 0; }
+      .global-nav__drawers .global-nav__drawer-secondary > h3 {
+        display: none; }
+      .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item:last-child {
         border-bottom: 0; }
-      .global-nav__drawers .sub-nav__item .sub-nav__item-title {
-        margin: .5em 0;
-        padding: 0; }
-        .global-nav__drawers .sub-nav__item .sub-nav__item-title:before {
-          display: none; }
-    .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item {
-      border-bottom-color: #bbb; } }
+    .global-nav__drawers .sub-nav__item-description {
+      display: none; }
+    .global-nav__drawers .sub-nav__item-title {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      font-weight: 100; }
+      .global-nav__drawers .sub-nav__item-title:before {
+        display: none; } }
 
 @media (min-width: 640px) and (max-width: 960px) {
   .global-nav__top .global-nav__primary-menu li {
@@ -7760,19 +8333,6 @@ Style guide: navigation.global
     margin-right: 0;
     box-sizing: border-box;
     text-align: center; }
-  .global-nav__drawers .sub-nav__item .sub-nav__item-title {
-    width: 31.91489%;
-    float: left;
-    margin-right: 2.12766%; }
-  .global-nav__drawers .sub-nav__item .sub-nav__item-title--tablet-full {
-    width: 100%;
-    float: left;
-    margin-left: 0;
-    margin-right: 0; }
-  .global-nav__drawers .sub-nav__item .sub-nav__item-description {
-    width: 65.95745%;
-    float: right;
-    margin-right: 0; }
   .global-nav__drawers .sub-nav__item .global-nav__drawer-link-list ul,
   .global-nav__drawers .sub-nav__item .global-nav__drawer-link-list ol {
     -webkit-column-count: 2;
@@ -7868,16 +8428,16 @@ Style guide: navigation.pager
     height: 1.3em;
     text-decoration: none; }
   .pager .pager__endcap.pager__endcap--first a:before {
-    content: "";
+    content: "\f10e";
     padding-right: 0.5em; }
   .pager .pager__endcap.pager__endcap--previous a:before {
-    content: "";
+    content: "\f10e";
     padding-right: 0.5em; }
   .pager .pager__endcap.pager__endcap--next a:after {
-    content: "";
+    content: "\f112";
     padding-left: 0.5em; }
   .pager .pager__endcap.pager__endcap--last a:after {
-    content: "";
+    content: "\f112";
     padding-left: 0.5em; }
   .pager .pager__page {
     margin: 0 .1em; }
@@ -8659,8 +9219,7 @@ body,
   -webkit-font-smoothing: antialiased; }
 
 .text--body-small, .location .location__address, .modal-message .modal-message__content, .tooltip .tooltip__text, .video-playlist__title, .global-footer .global-footer__language,
-.global-footer .global-footer__menu, .global-nav__top .global-nav__primary-menu, .global-nav__drawers .sub-nav__item-description,
-.global-nav__drawers .global-nav__drawer-link-list, .card.card--summary .card__summary, .person-teaser .person-teaser__bio, .teaser-item .teaser-item__description, .caption {
+.global-footer .global-footer__menu, .global-nav__top .global-nav__primary-menu, .global-nav__drawers .global-nav__drawer-link-list, .card.card--summary .card__summary, .person-teaser .person-teaser__bio, .teaser-item .teaser-item__description, .caption {
   font-size: 0.875em;
   line-height: 1.86; }
 
@@ -9479,11 +10038,8 @@ Markup: heading-highlight.hbs
 
 Weight: 50
 
-Bgcolor: #eee
-
-.heading-highlight--negative - White colored highlight
+.heading-highlight--gray - Gray colored highlight.
 .heading-highlight--mission - Mission blue colored highlight
-.heading-highlight--gray - Mission blue colored highlight
 
 Style guide: typography.heading-highlight
 */
@@ -9498,8 +10054,6 @@ Style guide: typography.heading-highlight
     height: 3px;
     top: 0;
     background: #23529c; }
-  .heading-highlight.heading-highlight--negative:before {
-    background: #fff; }
   .heading-highlight.heading-highlight--mission:before {
     background: #316cc8; }
   .heading-highlight.heading-highlight--gray:before {

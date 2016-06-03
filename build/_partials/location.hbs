@@ -1,6 +1,8 @@
 <div class="location">
   <h5 class="location__general">
-    {{ city }}{{#if state}}, {{ state }}{{/if}}{{#if country}}, {{ country }}{{/if}}
+    {{#if city}}<span class="location__comma">{{ city }}</span>{{/if}}
+    {{#if state}}<span class="location__comma">{{ state }}</span>{{/if}}
+    {{#if country}}<span class="location__comma">{{ country }}</span>{{/if}}
   </h5>
   {{#if mapImg}}
   <img class="location__map-image" src={{ mapImg.src }} alt="{{ mapImg.alt }}" width="{{ mapImg.width }}" height="{{ mapImg.height }}">
@@ -12,11 +14,19 @@
       {{#if address}}
         <p>{{{ address }}}</p>
       {{/if}}
-      <p>{{#if city}}{{ city }}{{/if}}{{#if state}}, {{ state }}{{/if}}{{#if zip}} {{ zip }}{{/if}}</p>
+      <p>
+        {{#if city}}<span class="location__comma">{{ city }}</span>{{/if}}
+        {{#if state}}<span class="location__comma">{{ state }}</span>{{/if}}
+        {{#if zip}} {{ zip }}{{/if}}
+      </p>
     {{else}}
       {{#if address}}
         <p>{{{ address }}}</p>
-        <p>{{#if city}}{{ city }}{{/if}}{{#if state}}, {{ state }}{{/if}}{{#if zip}} {{ zip }}{{/if}}</p>
+        <p>
+          {{#if city}}<span class="location__comma">{{ city }}</span>{{/if}}
+          {{#if state}}<span class="location__comma">{{ state }}</span>{{/if}}
+          {{#if zip}} {{ zip }}{{/if}}
+        </p>
       {{/if}}
     {{/if}}
     <p>

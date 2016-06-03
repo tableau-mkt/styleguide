@@ -110,6 +110,11 @@
           </a>
           <ul class="kss-nav__menu-child">
                 <li class="kss-nav__menu-item">
+                  <a href="section-documentation.html#kssref-documentation-breakpoints">
+                    Breakpoints
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-documentation.html#kssref-documentation-global-nav-ajax">
                     Global Nav Ajax Consumption
                   </a>
@@ -139,6 +144,83 @@
 
 
             </div>
+            <section id="kssref-documentation-breakpoints" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-documentation-breakpoints"> -->
+                Breakpoints
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>We use several different breakpoints in order to responsively alter components and layouts for different screen sizes.</p>
+<ul>
+<li>Desktop - any viewport wider than <code>960px</code></li>
+<li>Tablet - any viewport with a maximum width of <code>960px</code> AND minimum width of <code>640px</code></li>
+<li>Mobile - any viewport narrower than <code>640px</code></li>
+</ul>
+<p>We provide several helper classes and SASS shortcuts for utilizing breakpoints in either markup or in component styles. Use the demo example below to identify the applicable SASS variables or helper classes. To use the demo, expand it into full-screen mode and then resize your browser to trigger the different breakpoints.</p>
+<h4 id="using-helper-classes-">Using helper classes:</h4>
+<pre><code>&lt;div class=&quot;{helper-class}&quot;&gt;
+  &lt;p&gt; Content only shown/hidden in specified viewport(s)&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><h4 id="using-sass-variables">Using SASS variables</h4>
+<pre><code>@include breakpoint({$sass-variable}) {
+  // Styles only applied in specified viewport(s)
+}
+</code></pre>
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="docs-breakpoints-only">
+  <div>
+    <h1 class="desktop-show">Desktop</h1>
+    <h1 class="tablet-show mobile-hide text--negative">Tablet</h1>
+    <h1 class="mobile-show text--negative">Mobile</h1>
+  </div>
+
+  <p>
+    <strong>Viewport width:</strong>
+    <code class="desktop-show">Infinity - 961px</code>
+    <code class="tablet-show mobile-hide">960px - 640px</code>
+    <code class="mobile-show">639px - 0px</code>
+  </p>
+
+  <p>
+    <strong>Helper classes:</strong>
+    <code class="mobile-hide">mobile-hide</code>
+    <code class="mobile-show">mobile-show</code>
+    <code class="tablet-hide">tablet-hide</code>
+    <code class="tablet-show">tablet-show</code>
+    <code class="desktop-hide">desktop-hide</code>
+    <code class="desktop-show">desktop-show</code>
+  </p>
+
+  <p>
+    <strong>SASS variable(s):</strong>
+    <code class="desktop-show">$desktop-only</code>
+    <code class="mobile-hide">$tablet-min</code>
+    <code class="desktop-hide">$tablet-max</code>
+    <code class="tablet-show mobile-hide">$tablet-only</code>
+    <code class="mobile-show">$mobile-only</code>
+  </p>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+            </section>
             <section id="kssref-documentation-global-nav-ajax" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -204,8 +286,13 @@ the new website goes live.) </strong></p>
     $.ajax({
       url: protocol + &#39;://&#39; + domain + &#39;/&#39; + lang_map[lang] + &#39;ajax/megamenu&#39; +
       &#39;/jsonp/&#39; + &#39;tabAjaxMegaMenu&#39;,
-      type: &#39;POST&#39;,
-      dataType: &#39;jsonp&#39;
+      dataType: &#39;jsonp&#39;,
+      // Set a static callback and explicitly set caching to true to ensure
+      // we don&#39;t cache bust ourselves into oblivion. Without these set,
+      // a random callback name is generated and a timestamp is appended to
+      // every request.
+      jsonpCallback: &#39;jsonpMegamenuCallback&#39;,
+      cache: true
   });
 }
 </code></pre><p>This javascript file (part of the styleguide) includes the callback function

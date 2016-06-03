@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'Benton Sans Thin';
   src: local("Benton Sans Thin");
@@ -219,7 +218,8 @@ Style Guide: media.icons
   font-weight: normal;
   font-style: normal; }
 
-.icon, .tableau-styles .cta.cta--arrow:after, .tableau-styles .cta.cta--play:after, .tableau-styles .cta.cta--download:after, .tableau-styles .link:before, .tableau-styles .topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .link:after, .tableau-styles .topic-link:after, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__primary-menu li a.expandable:after, .tableau-styles .pager .pager__endcap.pager__endcap--first a:before,
+.icon, .tableau-styles .cta.cta--arrow:after, .tableau-styles .cta.cta--play:after, .tableau-styles .cta.cta--download:after, .tableau-styles .link:before, .tableau-styles .topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .link:after, .tableau-styles .topic-link:after, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .ui-datepicker .ui-datepicker-prev,
+.tableau-styles .ui-datepicker .ui-datepicker-next, .tableau-styles fieldset.collapsible .form__legend a:before, .tableau-styles .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .pager .pager__endcap.pager__endcap--first a:before,
 .tableau-styles .pager .pager__endcap.pager__endcap--previous a:before,
 .tableau-styles .pager .pager__endcap.pager__endcap--next a:after,
 .tableau-styles .pager .pager__endcap.pager__endcap--last a:after {
@@ -1588,6 +1588,19 @@ Weight: 15
 Style guide: buttons-links.anchor_link
 */
   /*
+App Links
+
+Links to mobile app stores to download the apps on a mobile device.
+
+Markup: app-links.hbs
+
+Weight: 30
+
+.app-links--centered - Centered links
+
+Style guide: buttons-links.app-links
+*/
+  /*
 Primary CTA
 
 Primary CTA buttons (Solid) should be used when a single or important page
@@ -1611,26 +1624,6 @@ Bgcolor: #F7F9FB
 .cta--full-width - Full width CTA that fills the width of it's container.
 
 Style guide: buttons-links.cta
-*/
-  /*
-Data Source Link
-
-DEPRECATED
-
-A large CTA-style link specifically for linking to data sources.
-
-Markup: data-source-link.hbs
-
-Hidden: true
-
-.data-source-link--desktop - Desktop colored Data Source Link.
-.data-source-link--server - Server colored Data Source Link.
-.data-source-link--online - Online colored Data Source Link.
-.data-source-link--public - Public colored Data Source Link.
-.data-source-link--reader - Reader colored Data Source Link.
-.data-source-link--mobile - Mobile colored Data Source Link.
-
-Style guide: buttons-links.data-source
 */
   /*
 Base Text Link
@@ -1712,8 +1705,21 @@ Markup: feature-highlight.hbs
 Weight: 40
 
 .feature-highlight--image-left - Image on the left side
+.feature-highlight--half - Both image and copy take up half of the content width
 
 Style guide: compound.feature-highlight
+*/
+  /*
+Feature Highlight with Reveal
+
+A side-by-side text blurb and image highlighting a feature or important key
+piece of content. Reveals content (e.g. video) when link or image is clicked.
+
+Markup: feature-highlight--reveal.hbs
+
+Weight: 41
+
+Style guide: compound.feature-highlight--reveal
 */
   /*
 Basic Hero
@@ -1784,6 +1790,18 @@ Weight: 30
 Style guide: compound.special-hero
 */
   /*
+Special Hero w/ Fluid Height
+
+A Special hero with a fluid height. This Special hero version does not support
+video backgrounds.
+
+Markup: special-hero--fluid-height.hbs
+
+Weight: 31
+
+Style guide: compound.special-hero--fluid-height
+*/
+  /*
 Global Nav Ajax Consumption
 
 This section explains how to consume the header and footer through AJAX. We
@@ -1844,8 +1862,13 @@ $(document).ready(function() {
     $.ajax({
       url: protocol + '://' + domain + '/' + lang_map[lang] + 'ajax/megamenu' +
       '/jsonp/' + 'tabAjaxMegaMenu',
-      type: 'POST',
-      dataType: 'jsonp'
+      dataType: 'jsonp',
+      // Set a static callback and explicitly set caching to true to ensure
+      // we don't cache bust ourselves into oblivion. Without these set,
+      // a random callback name is generated and a timestamp is appended to
+      // every request.
+      jsonpCallback: 'jsonpMegamenuCallback',
+      cache: true
   });
 }
 ```
@@ -1883,6 +1906,38 @@ Weight: 100
 Markup: ajax_consumption.hbs
 
 Style guide: documentation.global-nav-ajax
+*/
+  /*
+Breakpoints
+
+We use several different breakpoints in order to responsively alter components and layouts for different screen sizes.
+
+* Desktop - any viewport wider than `960px`
+* Tablet - any viewport with a maximum width of `960px` AND minimum width of `640px`
+* Mobile - any viewport narrower than `640px`
+
+We provide several helper classes and SASS shortcuts for utilizing breakpoints in either markup or in component styles. Use the demo example below to identify the applicable SASS variables or helper classes. To use the demo, expand it into full-screen mode and then resize your browser to trigger the different breakpoints.
+
+
+#### Using helper classes:
+```
+<div class="{helper-class}">
+  <p> Content only shown/hidden in specified viewport(s)</p>
+</div>
+```
+
+#### Using SASS variables
+```
+@include breakpoint({$sass-variable}) {
+  // Styles only applied in specified viewport(s)
+}
+```
+
+Markup: breakpoints.hbs
+
+Nocode: true
+
+Style guide: documentation.breakpoints
 */
   /*
 Content Search
@@ -1923,6 +1978,21 @@ Style guide: forms.contextual-search
 */
   /** @todo Add modifier to searches within heros **/
   /*
+Datepicker
+
+A calendar widget used for selecting a date in a form. Uses jQuery UI's
+datepicker widget.
+
+**Note:** These styles will apply to any jQuery UI datepicker widget, but the
+styles assume that jQuery UI's default styles are not included.
+
+Markup: datepicker.hbs
+
+Nocode: true
+
+Style guide: forms.datepicker
+*/
+  /*
 Fancy Radios
 
 Radio option groups, with a custom <code>:checked</code> state.
@@ -1931,7 +2001,26 @@ Markup: fancy-filters.hbs
 
 Style guide: forms.fancy-filters
 
-Weight: 100
+Weight: 20
+*/
+  /*
+Flyout Form
+
+This component is used o display forms that don't have a place in the layout of
+a page, but are instead kept "off-canvas" untill summoned by the user. This
+component should only be employed when the form is a secondary function or the
+final action of a page. For example, if a page houses lots of content about a
+campaign/subject that the user should read before they are asked to fill out the
+form, this would be an appropriate use. The form should be triggered by clicking
+a link or CTA within the content of the page.
+
+A link to trigger the form should have an href of `#form`
+
+**@todo:** A link can pre-populate fields of the form with query params
+
+Markup: flyout-form.hbs
+
+Style guide: forms.flyout-form
 */
   /*
 Base Form Styles
@@ -1958,6 +2047,17 @@ Markup: form_fields.hbs
 Weight: 1
 
 Style guide: forms.fields
+*/
+  /*
+Inline form elements
+
+Form elements that are arranged horizontally in a line.
+
+Markup: form_inline.hbs
+
+Weight: 3
+
+Style guide: forms.inline
 */
   /*
 Form on Dark Backgrounds
@@ -1990,15 +2090,6 @@ Weight: 2
 Style guide: forms.validation
 */
   /*
-Inline form elements.
-
-Form element that sits within lines of text content, currently only `<select>` elements.
-
-Weight: 3
-
-Style guide: forms.text-inline
-*/
-  /*
 Confirmation Messages
 
 Nothing to see here yet...
@@ -2008,6 +2099,32 @@ Markup: form_confirmation.hbs
 Weight: 4
 
 Style guide: forms.confirmation
+*/
+  /*
+Compact form
+
+Small, single element form.
+
+Markup: form-compact.hbs
+
+Weight: 30
+
+Style guide: forms.form-compact
+*/
+  /*
+Form icon button
+
+Place an icon inside a form button. Use a modifier and HTML markup to set the alignment: `.form-icon-button--left` and `.form-icon-button--right`
+
+Nodefault: true
+
+Markup: form-icon-button.hbs
+
+Weight: 28
+
+.form-icon-button--right - Icon placed on the right.
+
+Style guide: forms.icon-button
 */
   /*
 Responsive Filters
@@ -2022,7 +2139,7 @@ Markup: responsive-filter.hbs
 
 Style Guide: forms.responsive-filter
 
-Weight: 100
+Weight: 22
 */
   /*
 Gif Player
@@ -2092,6 +2209,17 @@ Markup: context-switcher.hbs
 Style guide: interactive.context-switcher
 */
   /*
+Fadable
+
+Fade-in effect over invisible defaults, like personalization (no baked-in interactions).
+
+Markup: fadable.hbs
+
+Nocode: true
+
+Style Guide: interactive.fadable
+*/
+  /*
 Content Flyout
 
 Simple tool to make content hidden and flyout when a trigger is clicked.
@@ -2099,6 +2227,8 @@ Simple tool to make content hidden and flyout when a trigger is clicked.
 **Trigger Options:**
 * `data-flyout-target="[CONTENT ID]"` - (required) - The ID of the container around the flyout content
 * `data-flyout-scroll-down="true"` - (optional) - Whether or not clicking this trigger should scroll down to the top of the flyout content container. Useful when the trigger referencing a flyout section lower down on the page
+
+**Note:** The `<div class="relative">` wrapper in the markup example below is only required when there isn't already a natural relative parent such as a Section wrapper.
 
 Markup: flyout.hbs
 
@@ -2178,7 +2308,7 @@ Style guide: interactive.progress-bar
 Content Reveal
 
 Simple tool to make content hidden and revealed when a trigger is clicked. The
-trigger element can be abywhere on the page and can have the following options
+trigger element can be anywhere on the page and can have the following options
 set as data attributes:
 
 **Trigger Options:**
@@ -3117,11 +3247,8 @@ Markup: heading-highlight.hbs
 
 Weight: 50
 
-Bgcolor: #eee
-
-.heading-highlight--negative - White colored highlight
+.heading-highlight--gray - Gray colored highlight.
 .heading-highlight--mission - Mission blue colored highlight
-.heading-highlight--gray - Mission blue colored highlight
 
 Style guide: typography.heading-highlight
 */
@@ -3218,7 +3345,8 @@ Style guide: typography.text-stat
     src: url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.woff?bac10f67f434a62d449488624b887c75") format("woff"), url("../fonts/tableau-icons-bac10f67f434a62d449488624b887c75.ttf?bac10f67f434a62d449488624b887c75") format("truetype");
     font-weight: normal;
     font-style: normal; } }
-  .tableau-styles .icon, .tableau-styles .cta.cta--arrow:after, .tableau-styles .cta.cta--play:after, .tableau-styles .cta.cta--download:after, .tableau-styles .link:before, .tableau-styles .topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .link:after, .tableau-styles .topic-link:after, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__primary-menu li a.expandable:after, .tableau-styles .pager .pager__endcap.pager__endcap--first a:before,
+  .tableau-styles .icon, .tableau-styles .cta.cta--arrow:after, .tableau-styles .cta.cta--play:after, .tableau-styles .cta.cta--download:after, .tableau-styles .link:before, .tableau-styles .topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .link:after, .tableau-styles .topic-link:after, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .ui-datepicker .ui-datepicker-prev,
+  .tableau-styles .ui-datepicker .ui-datepicker-next, .tableau-styles fieldset.collapsible .form__legend a:before, .tableau-styles .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .pager .pager__endcap.pager__endcap--first a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--next a:after,
   .tableau-styles .pager .pager__endcap.pager__endcap--last a:after {
@@ -3600,6 +3728,8 @@ Style guide: typography.text-stat
     float: left; }
   .tableau-styles .line-height-zero {
     line-height: 0; }
+  .tableau-styles .line-height-condensed {
+    line-height: 1.2; }
   .tableau-styles .overflow-hidden {
     overflow: hidden; }
   .tableau-styles .overflow-touch-scroll {
@@ -3649,6 +3779,23 @@ Style guide: typography.text-stat
   .tableau-styles .overlay-dark img {
     display: block;
     margin: 0 auto; }
+  .tableau-styles #page .animated-stripes {
+    background-size: 30px 30px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    -webkit-animation: animated-stripes 3s linear infinite;
+            animation: animated-stripes 3s linear infinite; }
+
+@-webkit-keyframes animated-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 60px 0; } }
+
+@keyframes animated-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 60px 0; } }
   .tableau-styles .plain-list, .tableau-styles .inline-list, .tableau-styles .tabs__tabs, .tableau-styles .link-list.link-list--inline, .tableau-styles .link-list--inline.video-playlist, .tableau-styles .tags-list, .tableau-styles .pager, .tableau-styles .topic-nav .topic-nav__tabs, .tableau-styles .context-switcher .context-switcher__list, .tableau-styles .agenda-list, .tableau-styles .link-list.link-list--plain, .tableau-styles .link-list.video-chapters, .tableau-styles .video-chapters.video-playlist, .tableau-styles .video-playlist, .tableau-styles .topic-nav .topic-nav__topic-list {
     margin: 0;
     padding: 0;
@@ -3660,7 +3807,7 @@ Style guide: typography.text-stat
   .tableau-styles .inline-list > li, .tableau-styles .tabs__tabs > li, .tableau-styles .link-list.link-list--inline > li, .tableau-styles .link-list--inline.video-playlist > li, .tableau-styles .tags-list > li, .tableau-styles .pager > li, .tableau-styles .topic-nav .topic-nav__tabs > li {
     display: inline-block; }
   .tableau-styles .clearfix:after, .tableau-styles .feature-highlight:after, .tableau-styles .lt-ie11 .feature-highlight:after,
-  .tableau-styles .no-flexbox .feature-highlight:after, .tableau-styles .location:after, .tableau-styles .content-search #autocomplete li:after, .tableau-styles .contextual-search .contextual-search__results-row:after, .tableau-styles .form-field:after, .tableau-styles .tabs__tab-content:after, .tableau-styles .topic-nav .topic-nav__drawer:after, .tableau-styles .content-container:after, .tableau-styles .gallery-grid:after, .tableau-styles .feature-list .feature-list__feature:after, .tableau-styles .table-list tbody tr:after, .tableau-styles .global-nav__drawers .sub-nav__item:after, .tableau-styles .large-teaser .large-teaser__thumbnail:after, .tableau-styles .person-teaser:after {
+  .tableau-styles .no-flexbox .feature-highlight:after, .tableau-styles .location:after, .tableau-styles .content-search #autocomplete li:after, .tableau-styles .contextual-search .contextual-search__results-row:after, .tableau-styles .form-field:after, .tableau-styles .tabs__tab-content:after, .tableau-styles .topic-nav .topic-nav__drawer:after, .tableau-styles .content-container:after, .tableau-styles .gallery-grid:after, .tableau-styles .feature-list .feature-list__feature:after, .tableau-styles .table-list tbody tr:after, .tableau-styles .large-teaser .large-teaser__thumbnail:after, .tableau-styles .person-teaser:after {
     content: "";
     display: table;
     clear: both; }
@@ -3677,10 +3824,14 @@ Style guide: typography.text-stat
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%); }
-  .tableau-styles .absolute-centered, .tableau-styles .loading-overlay .loader, .tableau-styles .modal-message .modal-message__dialog, .tableau-styles .slick-prev .icon:before, .tableau-styles .slick-prev .link:before, .tableau-styles .slick-prev .topic-link:before, .tableau-styles .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search-toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-prev a:before,
+  .tableau-styles .absolute-centered, .tableau-styles .loading-overlay .loader, .tableau-styles .modal-message .modal-message__dialog, .tableau-styles .slick-prev .icon:before, .tableau-styles .slick-prev .link:before, .tableau-styles .slick-prev .topic-link:before, .tableau-styles .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .tableau-styles .slick-prev .ui-datepicker .ui-datepicker-prev:before, .tableau-styles .ui-datepicker .slick-prev .ui-datepicker-prev:before,
+  .tableau-styles .slick-prev .ui-datepicker .ui-datepicker-next:before,
+  .tableau-styles .ui-datepicker .slick-prev .ui-datepicker-next:before, .tableau-styles .slick-prev fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .slick-prev a:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search-toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-prev a:before,
   .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous .slick-prev a:before,
-  .tableau-styles .slick-next .icon:before, .tableau-styles .slick-next .link:before, .tableau-styles .slick-next .topic-link:before, .tableau-styles .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-next .video-chapters__toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-next .global-nav__search-toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-next .global-nav__search:before, .tableau-styles .slick-next .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-next .global-nav__search-close:before, .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-next a:before,
+  .tableau-styles .slick-next .icon:before, .tableau-styles .slick-next .link:before, .tableau-styles .slick-next .topic-link:before, .tableau-styles .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-next .video-chapters__toggle:before, .tableau-styles .slick-next .ui-datepicker .ui-datepicker-prev:before, .tableau-styles .ui-datepicker .slick-next .ui-datepicker-prev:before,
+  .tableau-styles .slick-next .ui-datepicker .ui-datepicker-next:before,
+  .tableau-styles .ui-datepicker .slick-next .ui-datepicker-next:before, .tableau-styles .slick-next fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .slick-next a:before, .tableau-styles .slick-next .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-next .global-nav__search-toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-next .global-nav__search:before, .tableau-styles .slick-next .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-next .global-nav__search-close:before, .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-next a:before,
   .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous .slick-next a:before {
     position: absolute;
@@ -3710,6 +3861,10 @@ Style guide: typography.text-stat
     position: relative;
     height: 0;
     overflow: hidden; }
+  .tableau-styles .location .location__comma:after {
+    content: ','; }
+  .tableau-styles .location .location__comma:last-of-type:after {
+    content: ''; }
   .tableau-styles .margin-none {
     margin: 0em !important; }
   .tableau-styles .margin-top-none {
@@ -3968,6 +4123,8 @@ Style guide: typography.text-stat
     float: left; }
   .tableau-styles .line-height-zero {
     line-height: 0; }
+  .tableau-styles .line-height-condensed {
+    line-height: 1.2; }
   .tableau-styles .overflow-hidden {
     overflow: hidden; }
   .tableau-styles .overflow-touch-scroll {
@@ -4017,6 +4174,17 @@ Style guide: typography.text-stat
   .tableau-styles .overlay-dark img {
     display: block;
     margin: 0 auto; }
+  .tableau-styles #page .animated-stripes {
+    background-size: 30px 30px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    -webkit-animation: animated-stripes 3s linear infinite;
+            animation: animated-stripes 3s linear infinite; }
+
+@keyframes animated-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 60px 0; } }
   .tableau-styles .plain-list, .tableau-styles .inline-list, .tableau-styles .tabs__tabs, .tableau-styles .link-list.link-list--inline, .tableau-styles .link-list--inline.video-playlist, .tableau-styles .tags-list, .tableau-styles .pager, .tableau-styles .topic-nav .topic-nav__tabs, .tableau-styles .context-switcher .context-switcher__list, .tableau-styles .agenda-list, .tableau-styles .link-list.link-list--plain, .tableau-styles .link-list.video-chapters, .tableau-styles .video-chapters.video-playlist, .tableau-styles .video-playlist, .tableau-styles .topic-nav .topic-nav__topic-list {
     margin: 0;
     padding: 0;
@@ -4028,7 +4196,7 @@ Style guide: typography.text-stat
   .tableau-styles .inline-list > li, .tableau-styles .tabs__tabs > li, .tableau-styles .link-list.link-list--inline > li, .tableau-styles .link-list--inline.video-playlist > li, .tableau-styles .tags-list > li, .tableau-styles .pager > li, .tableau-styles .topic-nav .topic-nav__tabs > li {
     display: inline-block; }
   .tableau-styles .clearfix:after, .tableau-styles .feature-highlight:after, .tableau-styles .lt-ie11 .feature-highlight:after,
-  .tableau-styles .no-flexbox .feature-highlight:after, .tableau-styles .location:after, .tableau-styles .content-search #autocomplete li:after, .tableau-styles .contextual-search .contextual-search__results-row:after, .tableau-styles .form-field:after, .tableau-styles .tabs__tab-content:after, .tableau-styles .topic-nav .topic-nav__drawer:after, .tableau-styles .content-container:after, .tableau-styles .gallery-grid:after, .tableau-styles .feature-list .feature-list__feature:after, .tableau-styles .table-list tbody tr:after, .tableau-styles .global-nav__drawers .sub-nav__item:after, .tableau-styles .large-teaser .large-teaser__thumbnail:after, .tableau-styles .person-teaser:after {
+  .tableau-styles .no-flexbox .feature-highlight:after, .tableau-styles .location:after, .tableau-styles .content-search #autocomplete li:after, .tableau-styles .contextual-search .contextual-search__results-row:after, .tableau-styles .form-field:after, .tableau-styles .tabs__tab-content:after, .tableau-styles .topic-nav .topic-nav__drawer:after, .tableau-styles .content-container:after, .tableau-styles .gallery-grid:after, .tableau-styles .feature-list .feature-list__feature:after, .tableau-styles .table-list tbody tr:after, .tableau-styles .large-teaser .large-teaser__thumbnail:after, .tableau-styles .person-teaser:after {
     content: "";
     display: table;
     clear: both; }
@@ -4045,10 +4213,14 @@ Style guide: typography.text-stat
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%); }
-  .tableau-styles .absolute-centered, .tableau-styles .loading-overlay .loader, .tableau-styles .modal-message .modal-message__dialog, .tableau-styles .slick-prev .icon:before, .tableau-styles .slick-prev .link:before, .tableau-styles .slick-prev .topic-link:before, .tableau-styles .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search-toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-prev a:before,
+  .tableau-styles .absolute-centered, .tableau-styles .loading-overlay .loader, .tableau-styles .modal-message .modal-message__dialog, .tableau-styles .slick-prev .icon:before, .tableau-styles .slick-prev .link:before, .tableau-styles .slick-prev .topic-link:before, .tableau-styles .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .tableau-styles .slick-prev .ui-datepicker .ui-datepicker-prev:before, .tableau-styles .ui-datepicker .slick-prev .ui-datepicker-prev:before,
+  .tableau-styles .slick-prev .ui-datepicker .ui-datepicker-next:before,
+  .tableau-styles .ui-datepicker .slick-prev .ui-datepicker-next:before, .tableau-styles .slick-prev fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .slick-prev a:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search-toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-prev a:before,
   .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous .slick-prev a:before,
-  .tableau-styles .slick-next .icon:before, .tableau-styles .slick-next .link:before, .tableau-styles .slick-next .topic-link:before, .tableau-styles .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-next .video-chapters__toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-next .global-nav__search-toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-next .global-nav__search:before, .tableau-styles .slick-next .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-next .global-nav__search-close:before, .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-next a:before,
+  .tableau-styles .slick-next .icon:before, .tableau-styles .slick-next .link:before, .tableau-styles .slick-next .topic-link:before, .tableau-styles .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-next .video-chapters__toggle:before, .tableau-styles .slick-next .ui-datepicker .ui-datepicker-prev:before, .tableau-styles .ui-datepicker .slick-next .ui-datepicker-prev:before,
+  .tableau-styles .slick-next .ui-datepicker .ui-datepicker-next:before,
+  .tableau-styles .ui-datepicker .slick-next .ui-datepicker-next:before, .tableau-styles .slick-next fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .slick-next a:before, .tableau-styles .slick-next .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-next .global-nav__search-toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-next .global-nav__search:before, .tableau-styles .slick-next .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-next .global-nav__search-close:before, .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-next a:before,
   .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous .slick-next a:before {
     position: absolute;
@@ -4078,6 +4250,10 @@ Style guide: typography.text-stat
     position: relative;
     height: 0;
     overflow: hidden; }
+  .tableau-styles .location .location__comma:after {
+    content: ','; }
+  .tableau-styles .location .location__comma:last-of-type:after {
+    content: ''; }
   .tableau-styles .margin-none {
     margin: 0em !important; }
   .tableau-styles .margin-top-none {
@@ -4240,6 +4416,25 @@ Style guide: typography.text-stat
     padding-bottom: 4em !important; }
   .tableau-styles .anchor-link {
     text-decoration: none; }
+  .tableau-styles .app-links {
+    margin: 1em 0; }
+    .tableau-styles .app-links .app-links__link {
+      vertical-align: middle;
+      line-height: 0; }
+    @media (min-width: 640px) {
+      .tableau-styles .app-links .app-links__link {
+        display: inline-block;
+        margin-left: 1em; }
+        .tableau-styles .app-links .app-links__link:first-child {
+          margin-left: 0; } }
+    @media (max-width: 639px) {
+      .tableau-styles .app-links {
+        text-align: center; }
+        .tableau-styles .app-links .app-links__link {
+          display: block;
+          margin: 0.5em 0; } }
+    .tableau-styles .app-links.app-links--centered {
+      text-align: center; }
   .tableau-styles .cta {
     display: inline-block;
     margin: .5em 0;
@@ -4343,11 +4538,11 @@ Style guide: typography.text-stat
       font-size: 2em;
       text-decoration: none; }
     .tableau-styles .cta.cta--arrow:after {
-      content: ""; }
+      content: "\f112"; }
     .tableau-styles .cta.cta--play:after {
-      content: ""; }
+      content: "\f150"; }
     .tableau-styles .cta.cta--download:after {
-      content: "";
+      content: "\f135";
       font-size: 1.5em; }
   @media (max-width: 639px) {
     .tableau-styles .cta {
@@ -4357,63 +4552,6 @@ Style guide: typography.text-stat
         margin-left: 0; }
     .tableau-styles button.cta {
       width: 100%; } }
-  .tableau-styles .data-source-link {
-    position: relative;
-    display: inline-block;
-    float: left;
-    width: 66px;
-    height: 66px;
-    padding: 15px;
-    margin: 0 2em 2em 0;
-    border: 2px solid #e8762c;
-    background: transparent;
-    color: #e8762c;
-    text-align: center;
-    transition: color .5s, border .5s; }
-    .tableau-styles .data-source-link:hover, .tableau-styles .data-source-link:focus {
-      background: transparent;
-      text-decoration: none; }
-    .tableau-styles .data-source-link .data-source-link__number {
-      font-family: "Benton Sans Thin", Helvetica, sans-serif;
-      font-weight: 100;
-      font-size: 3.125em;
-      line-height: 66px; }
-    .tableau-styles .data-source-link .data-source-link__label {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding-top: .5em; }
-    .tableau-styles .data-source-link:active {
-      border-color: #c92434;
-      background: transparent;
-      color: #c92434; }
-    .tableau-styles .data-source-link.data-source-link--orange {
-      border-color: #e8762c;
-      color: #e8762c; }
-      .tableau-styles .data-source-link.data-source-link--orange:hover, .tableau-styles .data-source-link.data-source-link--orange:focus {
-        border-color: #ea8442;
-        color: #ea8442; }
-    .tableau-styles .data-source-link.data-source-link--light {
-      border-color: #fff;
-      color: #fff; }
-      .tableau-styles .data-source-link.data-source-link--light:hover, .tableau-styles .data-source-link.data-source-link--light:focus {
-        border-color: #fff;
-        color: #fff; }
-    .tableau-styles .data-source-link.data-source-link--dark {
-      border-color: #333;
-      color: #333; }
-      .tableau-styles .data-source-link.data-source-link--dark:hover, .tableau-styles .data-source-link.data-source-link--dark:focus {
-        border-color: #444;
-        color: #444; }
-    @media (min-width: 640px) {
-      .tableau-styles .data-source-link + ul {
-        margin-left: 120px;
-        margin-top: 0; } }
-    @media (max-width: 639px) {
-      .tableau-styles .data-source-link {
-        float: none;
-        margin: 0 0 2em 0; } }
   .tableau-styles a {
     text-decoration: none;
     color: #e8762c; }
@@ -4433,45 +4571,45 @@ Style guide: typography.text-stat
       padding-right: 0;
       padding-left: 0.5em; }
     .tableau-styles .link.link--arrow:after, .tableau-styles .link--arrow.topic-link:after, .tableau-styles .video-chapters__toggle-wrapper .link--arrow.video-chapters__toggle:after {
-      content: ""; }
+      content: "\f112"; }
     .tableau-styles .link.link--arrow-before:before, .tableau-styles .link--arrow-before.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--arrow-before.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f10e"; }
     .tableau-styles .link.link--expand:before, .tableau-styles .link--expand.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle:before {
-      content: ""; }
+      content: "\f180"; }
     .tableau-styles .link.link--collapse:before, .tableau-styles .link--collapse.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--collapse.video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .video-chapters__toggle.is-open:before {
-      content: ""; }
+      content: "\f17f"; }
     .tableau-styles .link.link--share:before, .tableau-styles .link--share.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--share.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f166"; }
     .tableau-styles .link.link--close:after, .tableau-styles .link--close.topic-link:after, .tableau-styles .video-chapters__toggle-wrapper .link--close.video-chapters__toggle:after {
-      content: ""; }
+      content: "\f12a"; }
     .tableau-styles .link.link--download:before, .tableau-styles .link--download.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--download.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f135"; }
     .tableau-styles .link.link--social-twitter:before, .tableau-styles .link--social-twitter.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--social-twitter.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f16c"; }
     .tableau-styles .link.link--people:before, .tableau-styles .link--people.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--people.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f14f"; }
     .tableau-styles .link.link--calendar:before, .tableau-styles .link--calendar.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--calendar.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f11d"; }
     .tableau-styles .link.link--adobe-pdf:before, .tableau-styles .link--adobe-pdf.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--adobe-pdf.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f102"; }
     .tableau-styles .link.link--community:before, .tableau-styles .link--community.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--community.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f12d"; }
     .tableau-styles .link.link--email:before, .tableau-styles .link--email.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--email.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f137"; }
     .tableau-styles .link.link--export:before, .tableau-styles .link--export.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--export.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f139"; }
     .tableau-styles .link.link--globe:before, .tableau-styles .link--globe.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--globe.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f13e"; }
     .tableau-styles .link.link--invite-people:before, .tableau-styles .link--invite-people.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--invite-people.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f140"; }
     .tableau-styles .link.link--link:after, .tableau-styles .link--link.topic-link:after, .tableau-styles .video-chapters__toggle-wrapper .link--link.video-chapters__toggle:after {
-      content: ""; }
+      content: "\f143"; }
     .tableau-styles .link.link--newsletter:before, .tableau-styles .link--newsletter.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--newsletter.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f14a"; }
     .tableau-styles .link.link--settings:before, .tableau-styles .link--settings.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--settings.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f163"; }
     .tableau-styles .link.link--upload:before, .tableau-styles .link--upload.topic-link:before, .tableau-styles .video-chapters__toggle-wrapper .link--upload.video-chapters__toggle:before {
-      content: ""; }
+      content: "\f17d"; }
   .tableau-styles .topic-link > a {
     color: #333; }
     .tableau-styles .topic-link > a:hover {
@@ -4525,7 +4663,21 @@ Style guide: typography.text-stat
       .tableau-styles .feature-highlight.feature-highlight--image-left .feature-highlight__copy {
         -webkit-order: 2;
             -ms-flex-order: 2;
-                order: 2; } }
+                order: 2; }
+      .tableau-styles .feature-highlight.feature-highlight--half .feature-highlight__image {
+        width: 48%;
+        margin-left: 2%;
+        margin-right: 0; }
+      .tableau-styles .feature-highlight.feature-highlight--half .feature-highlight__copy {
+        width: 48%;
+        margin-right: 2%;
+        margin-left: 0; }
+      .tableau-styles .feature-highlight.feature-highlight--half.feature-highlight--image-left .feature-highlight__image {
+        margin-right: 2%;
+        margin-left: 0; }
+      .tableau-styles .feature-highlight.feature-highlight--half.feature-highlight--image-left .feature-highlight__copy {
+        margin-left: 2%;
+        margin-right: 0; } }
   @media (min-width: 961px) {
     .tableau-styles .feature-highlight .feature-highlight__image {
       width: 80%;
@@ -4753,7 +4905,7 @@ Style guide: typography.text-stat
       .tableau-styles .special-hero {
         background-color: #fff;
         color: #333; }
-        .tableau-styles .special-hero h1, .tableau-styles .special-hero .heading--huge, .tableau-styles .special-hero h4.heading--label {
+        .tableau-styles .special-hero h1, .tableau-styles .special-hero .heading--huge {
           color: #333; }
         .tableau-styles .special-hero .special-hero__content {
           padding: 0 0 2em 0;
@@ -4771,6 +4923,42 @@ Style guide: typography.text-stat
               background-color: transparent;
               border-color: #333;
               color: #333; } }
+  .tableau-styles .special-hero.special-hero--fluid-height .special-hero__content {
+    position: relative;
+    top: inherit;
+    height: auto;
+    width: auto;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  @media (max-width: 639px) {
+    .tableau-styles .special-hero.special-hero--fluid-height {
+      color: #fff; }
+      .tableau-styles .special-hero.special-hero--fluid-height h1, .tableau-styles .special-hero.special-hero--fluid-height .heading--huge {
+        color: #fff; }
+      .tableau-styles .special-hero.special-hero--fluid-height .special-hero__content .cta.cta--light {
+        background-color: #fff;
+        color: #333; }
+        .tableau-styles .special-hero.special-hero--fluid-height .special-hero__content .cta.cta--light.cta--secondary {
+          background-color: transparent;
+          border-color: #fff;
+          color: #fff; } }
+  .tableau-styles .docs-breakpoints-only {
+    padding: 8em 1em;
+    text-align: center; }
+    @media (min-width: 961px) {
+      .tableau-styles .docs-breakpoints-only {
+        background: red; } }
+    @media (min-width: 640px) and (max-width: 960px) {
+      .tableau-styles .docs-breakpoints-only {
+        background: green;
+        color: #fff; } }
+    @media (max-width: 639px) {
+      .tableau-styles .docs-breakpoints-only {
+        background: blue;
+        color: #fff; } }
   .tableau-styles .content-search {
     position: relative;
     margin: 2em auto;
@@ -4955,6 +5143,80 @@ Style guide: typography.text-stat
       background: #fff; }
   .tableau-styles .bg--light-gray-1 .contextual-search__ui {
     background: #fff; }
+  .tableau-styles .ui-datepicker {
+    display: none;
+    padding: 1em;
+    max-width: 250px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    line-height: 1;
+    font-family: "Benton Sans Book", Helvetica, sans-serif; }
+    .tableau-styles .ui-datepicker a:hover,
+    .tableau-styles .ui-datepicker td:hover a {
+      color: #e8762c; }
+    .tableau-styles .ui-datepicker .ui-datepicker-header {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      position: relative;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      margin-bottom: 1em;
+      text-align: center; }
+    .tableau-styles .ui-datepicker .ui-datepicker-prev,
+    .tableau-styles .ui-datepicker .ui-datepicker-next {
+      position: absolute;
+      cursor: pointer; }
+      .tableau-styles .ui-datepicker .ui-datepicker-prev.ui-state-disabled,
+      .tableau-styles .ui-datepicker .ui-datepicker-next.ui-state-disabled {
+        display: none; }
+    .tableau-styles .ui-datepicker .ui-datepicker-prev {
+      -webkit-order: 1;
+          -ms-flex-order: 1;
+              order: 1;
+      left: 0; }
+      .tableau-styles .ui-datepicker .ui-datepicker-prev:before {
+        content: "\f10b"; }
+    .tableau-styles .ui-datepicker .ui-datepicker-next {
+      -webkit-order: 3;
+          -ms-flex-order: 3;
+              order: 3;
+      right: 0; }
+      .tableau-styles .ui-datepicker .ui-datepicker-next:before {
+        content: "\f10f"; }
+    .tableau-styles .ui-datepicker .ui-icon {
+      display: none; }
+    .tableau-styles .ui-datepicker .ui-datepicker-title {
+      -webkit-order: 2;
+          -ms-flex-order: 2;
+              order: 2; }
+    .tableau-styles .ui-datepicker select {
+      display: inline-block; }
+    .tableau-styles .ui-datepicker select.ui-datepicker-month {
+      margin-right: .5em; }
+    .tableau-styles .ui-datepicker .ui-datepicker-calendar {
+      table-layout: fixed;
+      width: 100%; }
+      .tableau-styles .ui-datepicker .ui-datepicker-calendar th,
+      .tableau-styles .ui-datepicker .ui-datepicker-calendar td {
+        padding: .25em 0;
+        text-align: center;
+        font-weight: normal; }
+      .tableau-styles .ui-datepicker .ui-datepicker-calendar td:hover {
+        background-color: #ebebeb;
+        cursor: pointer; }
+      .tableau-styles .ui-datepicker .ui-datepicker-calendar td a {
+        text-decoration: none; }
+      .tableau-styles .ui-datepicker .ui-datepicker-calendar .ui-datepicker-today {
+        border: 1px solid #dedede;
+        background: #fafafa; }
+      .tableau-styles .ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
+        background-color: #fff;
+        cursor: default; }
   .tableau-styles .form-field.fancy-filters .fancy-filters__filter,
   .tableau-styles .fancy-filters .fancy-filters__filter {
     position: relative;
@@ -5020,6 +5282,47 @@ Style guide: typography.text-stat
         width: 3px;
         height: 90%;
         background: #e8762c; }
+  .tableau-styles .pac-container {
+    z-index: 100000; }
+  .tableau-styles .flyout-form__page-wrapper {
+    width: 100%; }
+    .tableau-styles .flyout-form__page-wrapper.is-open {
+      cursor: pointer; }
+      .tableau-styles .flyout-form__page-wrapper.is-open a,
+      .tableau-styles .flyout-form__page-wrapper.is-open button,
+      .tableau-styles .flyout-form__page-wrapper.is-open input {
+        pointer-events: none; }
+  .tableau-styles .flyout-form {
+    display: none; }
+  .tableau-styles .no-js .flyout-form {
+    display: inherit;
+    padding: 4em 0;
+    background: #1b1b1b;
+    color: #fff; }
+    .tableau-styles .no-js .flyout-form h3 {
+      color: #fff; }
+    .tableau-styles .no-js .flyout-form .flyout-form__close-wrapper {
+      display: none; }
+  .tableau-styles .js .flyout-form {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 80%;
+    z-index: 99999;
+    overflow: auto;
+    padding: 2em;
+    box-sizing: border-box;
+    background: rgba(27, 27, 27, 0.9);
+    color: #fff; }
+    .tableau-styles .js .flyout-form h3 {
+      color: #fff; }
+    .tableau-styles .js .flyout-form .flyout-form__close-wrapper {
+      margin-bottom: 2em;
+      text-align: right; }
+    @media (max-width: 639px) {
+      .tableau-styles .js .flyout-form {
+        width: 100%; } }
   @media (max-width: 639px) {
     .tableau-styles .webform-client-form .form__control,
     .tableau-styles .webform-client-form .form__field,
@@ -5033,6 +5336,10 @@ Style guide: typography.text-stat
     .tableau-styles .webform-client-form textarea,
     .tableau-styles .webform-client-form .form__button {
       width: 100%; } }
+  .tableau-styles .webform-client-form .webform-datepicker .form__field,
+  .tableau-styles .webform-client-form .webform-datepicker select {
+    display: inline-block;
+    width: inherit; }
   .tableau-styles .user-register-form .form__legend,
   .tableau-styles .tableau-premium-access-button-form .form__legend {
     padding: 0.5em 0; }
@@ -5041,6 +5348,19 @@ Style guide: typography.text-stat
   .tableau-styles .tableau-premium-access-button-form .form-field--checkbox,
   .tableau-styles .tableau-premium-access-button-form .form-field--radio {
     margin-bottom: 1em; }
+  .tableau-styles fieldset.collapsible {
+    min-height: 2em;
+    margin-bottom: 1em; }
+    .tableau-styles fieldset.collapsible .form__legend a {
+      color: #fff; }
+      .tableau-styles fieldset.collapsible .form__legend a:before {
+        content: "\f17f";
+        text-decoration: none; }
+    .tableau-styles fieldset.collapsible.collapsed .form__legend a:before {
+      content: "\f180"; }
+  .tableau-styles .form--fade {
+    -webkit-animation: animFadeIn 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+            animation: animFadeIn 1.5s cubic-bezier(0.77, 0, 0.175, 1); }
   .tableau-styles fieldset,
   .tableau-styles .form__intro,
   .tableau-styles .form__fieldset {
@@ -5112,6 +5432,7 @@ Style guide: typography.text-stat
   .tableau-styles .form--centered select,
   .tableau-styles .form--centered textarea,
   .tableau-styles .form--centered .form__button,
+  .tableau-styles .form--centered fieldset,
   .tableau-styles .form--sized .form__intro,
   .tableau-styles .form--sized .form__control,
   .tableau-styles .form--sized .form__field,
@@ -5123,8 +5444,13 @@ Style guide: typography.text-stat
   .tableau-styles .form--sized input[type="email"],
   .tableau-styles .form--sized select,
   .tableau-styles .form--sized textarea,
-  .tableau-styles .form--sized .form__button {
+  .tableau-styles .form--sized .form__button,
+  .tableau-styles .form--sized fieldset {
     max-width: 432px; }
+  .tableau-styles .form--centered fieldset,
+  .tableau-styles .form--sized fieldset {
+    margin-left: auto;
+    margin-right: auto; }
   .tableau-styles .form-field {
     position: relative;
     margin-bottom: 1em; }
@@ -5249,22 +5575,45 @@ Style guide: typography.text-stat
     .tableau-styles .form-field--inline input[type="password"],
     .tableau-styles .form-field--inline input[type="number"],
     .tableau-styles .form-field--inline input[type="email"],
+    .tableau-styles .form-field--inline input[type="submit"],
     .tableau-styles .form-field--inline select,
-    .tableau-styles .form-field--inline textarea {
+    .tableau-styles .form-field--inline textarea,
+    .tableau-styles .form-field--inline button {
       display: inline-block; }
+  .tableau-styles .form-field--text-inline {
+    display: inline-block;
+    margin: 0; }
+    .tableau-styles .form-field--text-inline select {
+      display: inline-block;
+      margin: 0 0.25em;
+      padding: 0.25em 2em 0.25em 0.5em;
+      font-size: 1.5em;
+      color: #6f99a5; }
+    .tableau-styles .form-field--text-inline .form-field {
+      margin: 0; }
+  @media (max-width: 639px) {
+    .tableau-styles .form-field--text-inline select {
+      display: block;
+      width: 100%;
+      margin: 0;
+      font-size: 1.25em; } }
   .tableau-styles .form-field--checkbox,
   .tableau-styles .form-field--radio {
     margin-bottom: 0; }
   .tableau-styles .form-field--checkbox .form-field__label,
   .tableau-styles .form-field--radio .form-field__label {
     color: inherit; }
-  .tableau-styles input::-webkit-input-placeholder {
+  .tableau-styles input::-webkit-input-placeholder,
+  .tableau-styles textarea::-webkit-input-placeholder {
     color: #999; }
-  .tableau-styles input::-moz-placeholder {
+  .tableau-styles input::-moz-placeholder,
+  .tableau-styles textarea::-moz-placeholder {
     color: #999; }
-  .tableau-styles input:-ms-input-placeholder {
+  .tableau-styles input:-ms-input-placeholder,
+  .tableau-styles textarea:-ms-input-placeholder {
     color: #999; }
-  .tableau-styles input::placeholder {
+  .tableau-styles input::placeholder,
+  .tableau-styles textarea::placeholder {
     color: #999; }
   .tableau-styles .has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
     color: transparent; }
@@ -5304,13 +5653,17 @@ Style guide: typography.text-stat
     .tableau-styles .form--negative select,
     .tableau-styles .form--negative textarea {
       background-color: #ebebeb; }
-    .tableau-styles .form--negative input::-webkit-input-placeholder {
+    .tableau-styles .form--negative input::-webkit-input-placeholder,
+    .tableau-styles .form--negative textarea::-webkit-input-placeholder {
       color: #777; }
-    .tableau-styles .form--negative input::-moz-placeholder {
+    .tableau-styles .form--negative input::-moz-placeholder,
+    .tableau-styles .form--negative textarea::-moz-placeholder {
       color: #777; }
-    .tableau-styles .form--negative input:-ms-input-placeholder {
+    .tableau-styles .form--negative input:-ms-input-placeholder,
+    .tableau-styles .form--negative textarea:-ms-input-placeholder {
       color: #777; }
-    .tableau-styles .form--negative input::placeholder {
+    .tableau-styles .form--negative input::placeholder,
+    .tableau-styles .form--negative textarea::placeholder {
       color: #777; }
     .tableau-styles .form--negative .has-float-label input.has-duplicate-placeholder:-ms-input-placeholder {
       color: transparent; }
@@ -5327,23 +5680,22 @@ Style guide: typography.text-stat
       font-family: "Benton Sans Book", Helvetica, sans-serif; }
   .tableau-styles .form-field--invalid {
     color: #c92434; }
-  .tableau-styles .form-field--text-inline {
-    display: inline-block;
-    margin: 0; }
-    .tableau-styles .form-field--text-inline select {
-      display: inline-block;
-      margin: 0 0.25em;
-      padding: 0.25em 2em 0.25em 0.5em;
-      font-size: 1.5em;
-      color: #6f99a5; }
-    .tableau-styles .form-field--text-inline .form-field {
-      margin: 0; }
-  @media (max-width: 639px) {
-    .tableau-styles .form-field--text-inline select {
-      display: block;
-      width: 100%;
-      margin: 0;
-      font-size: 1.25em; } }
+
+@-webkit-keyframes animFadeIn {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes animFadeIn {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
   .tableau-styles .lt-ie9 .form__button,
   .tableau-styles .lt-ie9 input[type="submit"] {
     display: inline-block; }
@@ -5351,6 +5703,91 @@ Style guide: typography.text-stat
   .tableau-styles .lt-ie10 input.pac-placeholder,
   .tableau-styles .lt-ie10 textarea.placeholder {
     color: #999; }
+  .tableau-styles .form-compact {
+    background-color: #fff; }
+    .tableau-styles .form-compact .form-actions,
+    .tableau-styles .form-compact .fieldset-wrapper,
+    .tableau-styles .form-compact .form-wrapper {
+      display: inline-block; }
+    .tableau-styles .form-compact .form-field__description,
+    .tableau-styles .form-compact .form-field.has-float-label .form-field__label.is-active {
+      display: none; }
+    .tableau-styles .form-compact .form-field__control {
+      max-width: 300px; }
+    .tableau-styles .form-compact .cta {
+      display: none !important;
+      /* @todo Remove !important with #200 */ }
+    .tableau-styles .form-compact input[type="submit"] {
+      display: inline-block !important;
+      /* @todo Remove !important with #200 */ }
+  .tableau-styles .form-compact-wrapper .messaging.suffix a {
+    color: #333;
+    /* @todo Change to $text-link with #160 */ }
+  .tableau-styles html.js .form-compact .cta {
+    display: inline-block !important;
+    /* @todo Remove !important with #200 */ }
+  .tableau-styles html.js .form-compact input[type="submit"] {
+    display: none !important;
+    /* @todo Remove !important with #200 */ }
+  .tableau-styles .form-compact {
+    display: inline-block;
+    border: #e8762c 1px solid;
+    padding: 0;
+    /* Prevent yellow autofill background in Chrome. */ }
+    .tableau-styles .form-compact .cta,
+    .tableau-styles .form-compact .form-field,
+    .tableau-styles .form-compact .form-field__control {
+      border: none;
+      margin: 0; }
+    .tableau-styles .form-compact .form-field.form-field--inline .form-field__control {
+      padding: 0.75em 0.5em 0 0.5em; }
+    .tableau-styles .form-compact .cta {
+      vertical-align: top;
+      display: inline-block; }
+    .tableau-styles .form-compact .form__fieldset {
+      display: inline-block; }
+    .tableau-styles .form-compact .form__intro {
+      display: none; }
+    .tableau-styles .form-compact input:-webkit-autofill {
+      box-shadow: 0 0 0px 1000px #fff inset; }
+    @media (max-width: 639px) {
+      .tableau-styles .form-compact .form-field.form-field--inline .form-field__control {
+        padding-bottom: 0.75em;
+        text-align: center; } }
+  .tableau-styles .form-icon-button {
+    padding-top: 12px;
+    padding-bottom: 12px; }
+    .tableau-styles .form-icon-button .icon, .tableau-styles .form-icon-button .cta.cta--arrow:after, .tableau-styles .form-icon-button .cta.cta--play:after, .tableau-styles .form-icon-button .cta.cta--download:after, .tableau-styles .form-icon-button .link:before, .tableau-styles .form-icon-button .topic-link:before, .tableau-styles .form-icon-button .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .form-icon-button .video-chapters__toggle:before, .tableau-styles .form-icon-button .link:after, .tableau-styles .form-icon-button .topic-link:after, .tableau-styles .form-icon-button .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .form-icon-button .video-chapters__toggle:after, .tableau-styles .form-icon-button .ui-datepicker .ui-datepicker-prev, .tableau-styles .ui-datepicker .form-icon-button .ui-datepicker-prev,
+    .tableau-styles .form-icon-button .ui-datepicker .ui-datepicker-next,
+    .tableau-styles .ui-datepicker .form-icon-button .ui-datepicker-next, .tableau-styles .form-icon-button fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .form-icon-button a:before, .tableau-styles .form-icon-button .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .form-icon-button .global-nav__search-toggle, .tableau-styles .form-icon-button .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .form-icon-button .global-nav__search:before, .tableau-styles .form-icon-button .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .form-icon-button .global-nav__search-close, .tableau-styles .form-icon-button .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .form-icon-button a:after, .tableau-styles .form-icon-button .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li .form-icon-button a.expandable:after, .tableau-styles .form-icon-button .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .form-icon-button a:after, .tableau-styles .form-icon-button .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .form-icon-button a:before,
+    .tableau-styles .form-icon-button .pager .pager__endcap.pager__endcap--previous a:before,
+    .tableau-styles .pager .pager__endcap.pager__endcap--previous .form-icon-button a:before,
+    .tableau-styles .form-icon-button .pager .pager__endcap.pager__endcap--next a:after,
+    .tableau-styles .pager .pager__endcap.pager__endcap--next .form-icon-button a:after,
+    .tableau-styles .form-icon-button .pager .pager__endcap.pager__endcap--last a:after,
+    .tableau-styles .pager .pager__endcap.pager__endcap--last .form-icon-button a:after {
+      font-size: 2em;
+      text-decoration: none; }
+    .tableau-styles .form-icon-button.form-icon-button--left .icon, .tableau-styles .form-icon-button.form-icon-button--left .cta.cta--arrow:after, .tableau-styles .form-icon-button.form-icon-button--left .cta.cta--play:after, .tableau-styles .form-icon-button.form-icon-button--left .cta.cta--download:after, .tableau-styles .form-icon-button.form-icon-button--left .link:before, .tableau-styles .form-icon-button.form-icon-button--left .topic-link:before, .tableau-styles .form-icon-button.form-icon-button--left .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--left .video-chapters__toggle:before, .tableau-styles .form-icon-button.form-icon-button--left .link:after, .tableau-styles .form-icon-button.form-icon-button--left .topic-link:after, .tableau-styles .form-icon-button.form-icon-button--left .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--left .video-chapters__toggle:after, .tableau-styles .form-icon-button.form-icon-button--left .ui-datepicker .ui-datepicker-prev, .tableau-styles .ui-datepicker .form-icon-button.form-icon-button--left .ui-datepicker-prev,
+    .tableau-styles .form-icon-button.form-icon-button--left .ui-datepicker .ui-datepicker-next,
+    .tableau-styles .ui-datepicker .form-icon-button.form-icon-button--left .ui-datepicker-next, .tableau-styles .form-icon-button.form-icon-button--left fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .form-icon-button.form-icon-button--left a:before, .tableau-styles .form-icon-button.form-icon-button--left .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .form-icon-button.form-icon-button--left .global-nav__search-toggle, .tableau-styles .form-icon-button.form-icon-button--left .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .form-icon-button.form-icon-button--left .global-nav__search:before, .tableau-styles .form-icon-button.form-icon-button--left .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .form-icon-button.form-icon-button--left .global-nav__search-close, .tableau-styles .form-icon-button.form-icon-button--left .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .form-icon-button.form-icon-button--left a:after, .tableau-styles .form-icon-button.form-icon-button--left .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li .form-icon-button.form-icon-button--left a.expandable:after, .tableau-styles .form-icon-button.form-icon-button--left .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .form-icon-button.form-icon-button--left a:after, .tableau-styles .form-icon-button.form-icon-button--left .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .form-icon-button.form-icon-button--left a:before,
+    .tableau-styles .form-icon-button.form-icon-button--left .pager .pager__endcap.pager__endcap--previous a:before,
+    .tableau-styles .pager .pager__endcap.pager__endcap--previous .form-icon-button.form-icon-button--left a:before,
+    .tableau-styles .form-icon-button.form-icon-button--left .pager .pager__endcap.pager__endcap--next a:after,
+    .tableau-styles .pager .pager__endcap.pager__endcap--next .form-icon-button.form-icon-button--left a:after,
+    .tableau-styles .form-icon-button.form-icon-button--left .pager .pager__endcap.pager__endcap--last a:after,
+    .tableau-styles .pager .pager__endcap.pager__endcap--last .form-icon-button.form-icon-button--left a:after {
+      padding-right: 0.5em; }
+    .tableau-styles .form-icon-button.form-icon-button--right .icon, .tableau-styles .form-icon-button.form-icon-button--right .cta.cta--arrow:after, .tableau-styles .form-icon-button.form-icon-button--right .cta.cta--play:after, .tableau-styles .form-icon-button.form-icon-button--right .cta.cta--download:after, .tableau-styles .form-icon-button.form-icon-button--right .link:before, .tableau-styles .form-icon-button.form-icon-button--right .topic-link:before, .tableau-styles .form-icon-button.form-icon-button--right .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--right .video-chapters__toggle:before, .tableau-styles .form-icon-button.form-icon-button--right .link:after, .tableau-styles .form-icon-button.form-icon-button--right .topic-link:after, .tableau-styles .form-icon-button.form-icon-button--right .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .form-icon-button.form-icon-button--right .video-chapters__toggle:after, .tableau-styles .form-icon-button.form-icon-button--right .ui-datepicker .ui-datepicker-prev, .tableau-styles .ui-datepicker .form-icon-button.form-icon-button--right .ui-datepicker-prev,
+    .tableau-styles .form-icon-button.form-icon-button--right .ui-datepicker .ui-datepicker-next,
+    .tableau-styles .ui-datepicker .form-icon-button.form-icon-button--right .ui-datepicker-next, .tableau-styles .form-icon-button.form-icon-button--right fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .form-icon-button.form-icon-button--right a:before, .tableau-styles .form-icon-button.form-icon-button--right .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .form-icon-button.form-icon-button--right .global-nav__search-toggle, .tableau-styles .form-icon-button.form-icon-button--right .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .form-icon-button.form-icon-button--right .global-nav__search:before, .tableau-styles .form-icon-button.form-icon-button--right .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .form-icon-button.form-icon-button--right .global-nav__search-close, .tableau-styles .form-icon-button.form-icon-button--right .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .form-icon-button.form-icon-button--right a:after, .tableau-styles .form-icon-button.form-icon-button--right .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li .form-icon-button.form-icon-button--right a.expandable:after, .tableau-styles .form-icon-button.form-icon-button--right .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .form-icon-button.form-icon-button--right a:after, .tableau-styles .form-icon-button.form-icon-button--right .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .form-icon-button.form-icon-button--right a:before,
+    .tableau-styles .form-icon-button.form-icon-button--right .pager .pager__endcap.pager__endcap--previous a:before,
+    .tableau-styles .pager .pager__endcap.pager__endcap--previous .form-icon-button.form-icon-button--right a:before,
+    .tableau-styles .form-icon-button.form-icon-button--right .pager .pager__endcap.pager__endcap--next a:after,
+    .tableau-styles .pager .pager__endcap.pager__endcap--next .form-icon-button.form-icon-button--right a:after,
+    .tableau-styles .form-icon-button.form-icon-button--right .pager .pager__endcap.pager__endcap--last a:after,
+    .tableau-styles .pager .pager__endcap.pager__endcap--last .form-icon-button.form-icon-button--right a:after {
+      padding-left: 0.5em; }
   @media (min-width: 961px) {
     .tableau-styles .responsive-filter .responsive-filter__select {
       display: none; } }
@@ -5390,7 +5827,7 @@ Style guide: typography.text-stat
       -ms-transform: scale(1.04);
       transform: scale(1.04); }
     .tableau-styles .thumbnail.thumbnail--play:after {
-      content: "";
+      content: "\f150";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -5422,11 +5859,11 @@ Style guide: typography.text-stat
       font-family: "tableau-icons";
       display: inline-block;
       left: 1em;
-      content: "";
+      content: "\f120";
       font-size: 2.5em;
       color: #dedede; }
     .tableau-styles .accordion__item.open .accordion__title-wrapper:before {
-      content: ""; }
+      content: "\f126"; }
     .tableau-styles .accordion__content-wrapper {
       padding: 0 2.5em 0 7em; } }
   @media (max-width: 639px) {
@@ -5441,11 +5878,11 @@ Style guide: typography.text-stat
         font-family: "tableau-icons";
         display: inline-block;
         right: 1em;
-        content: "";
+        content: "\f120";
         font-size: 2.5em;
         color: #dedede; }
     .tableau-styles .accordion__item.open .accordion__title-wrapper:after {
-      content: ""; }
+      content: "\f126"; }
     .tableau-styles .accordion__content-wrapper {
       padding: 0 1em; } }
   .tableau-styles .context-switcher {
@@ -5490,6 +5927,13 @@ Style guide: typography.text-stat
           color: #333; }
         .tableau-styles .context-switcher .context-switcher__list li.selected {
           display: none; }
+  .tableau-styles .fadable {
+    opacity: 1; }
+    .tableau-styles .fadable.fadable--faded-out {
+      opacity: 0; }
+    .tableau-styles .fadable.fadable--faded-in {
+      transition: opacity 0.5s linear;
+      opacity: 1; }
   .tableau-styles .flyout__slideout {
     width: 100%;
     overflow: inherit; }
@@ -5566,7 +6010,7 @@ Style guide: typography.text-stat
       top: 0.4em;
       right: 1.25em;
       cursor: pointer;
-      content: "";
+      content: "\f12a";
       font-family: "tableau-icons";
       font-size: 1.5em;
       color: #fff; }
@@ -5665,7 +6109,7 @@ Style guide: typography.text-stat
       right: 0.5em;
       cursor: pointer;
       color: #333;
-      content: "";
+      content: "\f12a";
       font-family: "tableau-icons";
       font-size: 1.5em; }
     .tableau-styles .modal-message.modal-message--loading .modal-message__icon {
@@ -5815,10 +6259,14 @@ Style guide: typography.text-stat
     color: transparent;
     border: none;
     outline: none; }
-    .tableau-styles .slick-prev .icon:before, .tableau-styles .slick-prev .link:before, .tableau-styles .slick-prev .topic-link:before, .tableau-styles .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search-toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-prev a:before,
+    .tableau-styles .slick-prev .icon:before, .tableau-styles .slick-prev .link:before, .tableau-styles .slick-prev .topic-link:before, .tableau-styles .slick-prev .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-prev .video-chapters__toggle:before, .tableau-styles .slick-prev .ui-datepicker .ui-datepicker-prev:before, .tableau-styles .ui-datepicker .slick-prev .ui-datepicker-prev:before,
+    .tableau-styles .slick-prev .ui-datepicker .ui-datepicker-next:before,
+    .tableau-styles .ui-datepicker .slick-prev .ui-datepicker-next:before, .tableau-styles .slick-prev fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .slick-prev a:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search-toggle:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-prev .global-nav__search:before, .tableau-styles .slick-prev .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-prev .global-nav__search-close:before, .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-prev a:before,
     .tableau-styles .slick-prev .pager .pager__endcap.pager__endcap--previous a:before,
     .tableau-styles .pager .pager__endcap.pager__endcap--previous .slick-prev a:before,
-    .tableau-styles .slick-next .icon:before, .tableau-styles .slick-next .link:before, .tableau-styles .slick-next .topic-link:before, .tableau-styles .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-next .video-chapters__toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-next .global-nav__search-toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-next .global-nav__search:before, .tableau-styles .slick-next .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-next .global-nav__search-close:before, .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-next a:before,
+    .tableau-styles .slick-next .icon:before, .tableau-styles .slick-next .link:before, .tableau-styles .slick-next .topic-link:before, .tableau-styles .slick-next .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .slick-next .video-chapters__toggle:before, .tableau-styles .slick-next .ui-datepicker .ui-datepicker-prev:before, .tableau-styles .ui-datepicker .slick-next .ui-datepicker-prev:before,
+    .tableau-styles .slick-next .ui-datepicker .ui-datepicker-next:before,
+    .tableau-styles .ui-datepicker .slick-next .ui-datepicker-next:before, .tableau-styles .slick-next fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .slick-next a:before, .tableau-styles .slick-next .global-nav__top .global-nav__search-toggle:before, .tableau-styles .global-nav__top .slick-next .global-nav__search-toggle:before, .tableau-styles .slick-next .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .slick-next .global-nav__search:before, .tableau-styles .slick-next .global-nav__top .global-nav__search .global-nav__search-close:before, .tableau-styles .global-nav__top .global-nav__search .slick-next .global-nav__search-close:before, .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .slick-next a:before,
     .tableau-styles .slick-next .pager .pager__endcap.pager__endcap--previous a:before,
     .tableau-styles .pager .pager__endcap.pager__endcap--previous .slick-next a:before {
       cursor: pointer;
@@ -5839,7 +6287,9 @@ Style guide: typography.text-stat
       pointer-events: none; }
       .tableau-styles .social-share .social-share__toggle:hover {
         text-decoration: none; }
-      .tableau-styles .social-share .social-share__toggle .icon, .tableau-styles .social-share .social-share__toggle .cta.cta--arrow:after, .tableau-styles .social-share .social-share__toggle .cta.cta--play:after, .tableau-styles .social-share .social-share__toggle .cta.cta--download:after, .tableau-styles .social-share .social-share__toggle .link:before, .tableau-styles .social-share .social-share__toggle .topic-link:before, .tableau-styles .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:before, .tableau-styles .social-share .social-share__toggle .link:after, .tableau-styles .social-share .social-share__toggle .topic-link:after, .tableau-styles .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:after, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .social-share .social-share__toggle .global-nav__search-toggle, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .social-share .social-share__toggle .global-nav__search:before, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .social-share .social-share__toggle .global-nav__search-close, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__primary-menu li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu li .social-share .social-share__toggle a.expandable:after, .tableau-styles .social-share .social-share__toggle .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .social-share .social-share__toggle a:before,
+      .tableau-styles .social-share .social-share__toggle .icon, .tableau-styles .social-share .social-share__toggle .cta.cta--arrow:after, .tableau-styles .social-share .social-share__toggle .cta.cta--play:after, .tableau-styles .social-share .social-share__toggle .cta.cta--download:after, .tableau-styles .social-share .social-share__toggle .link:before, .tableau-styles .social-share .social-share__toggle .topic-link:before, .tableau-styles .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:before, .tableau-styles .social-share .social-share__toggle .link:after, .tableau-styles .social-share .social-share__toggle .topic-link:after, .tableau-styles .social-share .social-share__toggle .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .social-share .social-share__toggle .video-chapters__toggle:after, .tableau-styles .social-share .social-share__toggle .ui-datepicker .ui-datepicker-prev, .tableau-styles .ui-datepicker .social-share .social-share__toggle .ui-datepicker-prev,
+      .tableau-styles .social-share .social-share__toggle .ui-datepicker .ui-datepicker-next,
+      .tableau-styles .ui-datepicker .social-share .social-share__toggle .ui-datepicker-next, .tableau-styles .social-share .social-share__toggle fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .social-share .social-share__toggle a:before, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .social-share .social-share__toggle .global-nav__search-toggle, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .social-share .social-share__toggle .global-nav__search:before, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .social-share .social-share__toggle .global-nav__search-close, .tableau-styles .social-share .social-share__toggle .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .social-share .social-share__toggle a:after, .tableau-styles .social-share .social-share__toggle .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li .social-share .social-share__toggle a.expandable:after, .tableau-styles .social-share .social-share__toggle .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .social-share .social-share__toggle a:after, .tableau-styles .social-share .social-share__toggle .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .social-share .social-share__toggle a:before,
       .tableau-styles .social-share .social-share__toggle .pager .pager__endcap.pager__endcap--previous a:before,
       .tableau-styles .pager .pager__endcap.pager__endcap--previous .social-share .social-share__toggle a:before,
       .tableau-styles .social-share .social-share__toggle .pager .pager__endcap.pager__endcap--next a:after,
@@ -7158,7 +7608,9 @@ Style guide: typography.text-stat
         width: 100%; } }
   .tableau-styles .cross-reference-1 .cross-reference-1__title {
     margin-top: 0; }
-  .tableau-styles .cross-reference-1 .cross-reference-1__image .icon, .tableau-styles .cross-reference-1 .cross-reference-1__image .cta.cta--arrow:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .cta.cta--play:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .cta.cta--download:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .link:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .topic-link:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .link:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .topic-link:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search-toggle, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .cross-reference-1 .cross-reference-1__image .global-nav__search-close, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__primary-menu li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu li .cross-reference-1 .cross-reference-1__image a.expandable:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .cross-reference-1 .cross-reference-1__image a:before,
+  .tableau-styles .cross-reference-1 .cross-reference-1__image .icon, .tableau-styles .cross-reference-1 .cross-reference-1__image .cta.cta--arrow:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .cta.cta--play:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .cta.cta--download:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .link:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .topic-link:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .link:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .topic-link:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-1 .cross-reference-1__image .video-chapters__toggle:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .ui-datepicker .ui-datepicker-prev, .tableau-styles .ui-datepicker .cross-reference-1 .cross-reference-1__image .ui-datepicker-prev,
+  .tableau-styles .cross-reference-1 .cross-reference-1__image .ui-datepicker .ui-datepicker-next,
+  .tableau-styles .ui-datepicker .cross-reference-1 .cross-reference-1__image .ui-datepicker-next, .tableau-styles .cross-reference-1 .cross-reference-1__image fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .cross-reference-1 .cross-reference-1__image a:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search-toggle, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .cross-reference-1 .cross-reference-1__image .global-nav__search:before, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .cross-reference-1 .cross-reference-1__image .global-nav__search-close, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .cross-reference-1 .cross-reference-1__image a:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li .cross-reference-1 .cross-reference-1__image a.expandable:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .cross-reference-1 .cross-reference-1__image a:after, .tableau-styles .cross-reference-1 .cross-reference-1__image .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .cross-reference-1 .cross-reference-1__image a:before,
   .tableau-styles .cross-reference-1 .cross-reference-1__image .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous .cross-reference-1 .cross-reference-1__image a:before,
   .tableau-styles .cross-reference-1 .cross-reference-1__image .pager .pager__endcap.pager__endcap--next a:after,
@@ -7170,27 +7622,30 @@ Style guide: typography.text-stat
     text-decoration: none; }
   @media (min-width: 640px) {
     .tableau-styles .cross-reference-1 {
-      width: 82.97872%;
-      float: left;
-      margin-right: 2.12766%;
-      margin-left: 8.51064%; }
+      margin-left: 8.51064%;
+      margin-right: 8.51064%;
+      text-align: center; }
       .tableau-styles .cross-reference-1 .cross-reference-1__image,
       .tableau-styles .cross-reference-1 .cross-reference-1__copy {
-        float: left; }
+        display: inline-block; }
       .tableau-styles .cross-reference-1 .cross-reference-1__image {
-        width: 140px;
-        margin-right: -140px;
+        width: 100px;
+        margin-right: -105px;
+        vertical-align: top;
         line-height: 0;
         text-align: right; }
       .tableau-styles .cross-reference-1 .cross-reference-1__copy {
-        margin-left: 140px;
-        padding-left: 2.12766%; }
+        margin-left: 105px;
+        padding-left: 2.12766%;
+        text-align: left; }
       .tableau-styles .cross-reference-1 .cross-reference-1__link {
         margin: 0; } }
   @media (max-width: 639px) {
     .tableau-styles .cross-reference-1 {
       text-align: center; } }
-  .tableau-styles .cross-reference-2 .cross-reference-2__image .icon, .tableau-styles .cross-reference-2 .cross-reference-2__image .cta.cta--arrow:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .cta.cta--play:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .cta.cta--download:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .link:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .topic-link:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .link:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .topic-link:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search-toggle, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .cross-reference-2 .cross-reference-2__image .global-nav__search-close, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__primary-menu li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu li .cross-reference-2 .cross-reference-2__image a.expandable:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .cross-reference-2 .cross-reference-2__image a:before,
+  .tableau-styles .cross-reference-2 .cross-reference-2__image .icon, .tableau-styles .cross-reference-2 .cross-reference-2__image .cta.cta--arrow:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .cta.cta--play:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .cta.cta--download:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .link:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .topic-link:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .link:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .topic-link:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .cross-reference-2 .cross-reference-2__image .video-chapters__toggle:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .ui-datepicker .ui-datepicker-prev, .tableau-styles .ui-datepicker .cross-reference-2 .cross-reference-2__image .ui-datepicker-prev,
+  .tableau-styles .cross-reference-2 .cross-reference-2__image .ui-datepicker .ui-datepicker-next,
+  .tableau-styles .ui-datepicker .cross-reference-2 .cross-reference-2__image .ui-datepicker-next, .tableau-styles .cross-reference-2 .cross-reference-2__image fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .cross-reference-2 .cross-reference-2__image a:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search-toggle, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .cross-reference-2 .cross-reference-2__image .global-nav__search:before, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .cross-reference-2 .cross-reference-2__image .global-nav__search-close, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .cross-reference-2 .cross-reference-2__image a:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li .cross-reference-2 .cross-reference-2__image a.expandable:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .cross-reference-2 .cross-reference-2__image a:after, .tableau-styles .cross-reference-2 .cross-reference-2__image .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .cross-reference-2 .cross-reference-2__image a:before,
   .tableau-styles .cross-reference-2 .cross-reference-2__image .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous .cross-reference-2 .cross-reference-2__image a:before,
   .tableau-styles .cross-reference-2 .cross-reference-2__image .pager .pager__endcap.pager__endcap--next a:after,
@@ -7201,17 +7656,21 @@ Style guide: typography.text-stat
     color: #bbb;
     text-decoration: none; }
   @media (min-width: 961px) {
+    .tableau-styles .cross-reference-2 .cross-reference-2__item {
+      text-align: center; }
     .tableau-styles .cross-reference-2 .cross-reference-2__image,
     .tableau-styles .cross-reference-2 .cross-reference-2__copy {
-      float: left; }
+      display: inline-block; }
     .tableau-styles .cross-reference-2 .cross-reference-2__image {
       width: 80px;
-      margin-right: -80px;
+      margin-right: -85px;
+      vertical-align: top;
       line-height: 0;
-      text-align: center; }
+      text-align: right; }
     .tableau-styles .cross-reference-2 .cross-reference-2__copy {
-      margin-left: 80px;
-      padding-left: 4.25532%; }
+      margin-left: 85px;
+      padding-left: 4.25532%;
+      text-align: left; }
     .tableau-styles .cross-reference-2 .cross-reference-2__title {
       margin-top: 0; }
     .tableau-styles .cross-reference-2 .cross-reference-2__link {
@@ -7481,7 +7940,7 @@ Style guide: typography.text-stat
         height: 100%; } }
     .tableau-styles .video-playlist-sidebar .video-playlist__item.is-active .video-playlist__title:before {
       font-family: "tableau-icons";
-      content: "";
+      content: "\f150";
       position: absolute;
       display: inline-block;
       top: 50%;
@@ -7491,7 +7950,9 @@ Style guide: typography.text-stat
       left: 0.5em;
       font-size: 1.25em;
       color: #e8762c; }
-  .tableau-styles .icon--big, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .icon, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .cta.cta--arrow:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .cta.cta--play:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .cta.cta--download:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .link:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .topic-link:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .link:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .topic-link:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search-toggle, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .feature-list .feature-list__feature .feature-list__icon .global-nav__search-close, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__primary-menu li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu li .feature-list .feature-list__feature .feature-list__icon a.expandable:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .feature-list .feature-list__feature .feature-list__icon a:before,
+  .tableau-styles .icon--big, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .icon, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .cta.cta--arrow:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .cta.cta--play:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .cta.cta--download:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .link:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .topic-link:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:before, .tableau-styles .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .link:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .topic-link:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle-wrapper .video-chapters__toggle:after, .tableau-styles .video-chapters__toggle-wrapper .feature-list .feature-list__feature .feature-list__icon .video-chapters__toggle:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .ui-datepicker .ui-datepicker-prev, .tableau-styles .ui-datepicker .feature-list .feature-list__feature .feature-list__icon .ui-datepicker-prev,
+  .tableau-styles .feature-list .feature-list__feature .feature-list__icon .ui-datepicker .ui-datepicker-next,
+  .tableau-styles .ui-datepicker .feature-list .feature-list__feature .feature-list__icon .ui-datepicker-next, .tableau-styles .feature-list .feature-list__feature .feature-list__icon fieldset.collapsible .form__legend a:before, .tableau-styles fieldset.collapsible .form__legend .feature-list .feature-list__feature .feature-list__icon a:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search-toggle, .tableau-styles .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search-toggle, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search:before, .tableau-styles .global-nav__top .feature-list .feature-list__feature .feature-list__icon .global-nav__search:before, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__search .global-nav__search-close, .tableau-styles .global-nav__top .global-nav__search .feature-list .feature-list__feature .feature-list__icon .global-nav__search-close, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .feature-list .feature-list__feature .feature-list__icon a:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__top .global-nav__primary-menu ul li a.expandable:after, .tableau-styles .global-nav__top .global-nav__primary-menu ul li .feature-list .feature-list__feature .feature-list__icon a.expandable:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after, .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .feature-list .feature-list__feature .feature-list__icon a:after, .tableau-styles .feature-list .feature-list__feature .feature-list__icon .pager .pager__endcap.pager__endcap--first a:before, .tableau-styles .pager .pager__endcap.pager__endcap--first .feature-list .feature-list__feature .feature-list__icon a:before,
   .tableau-styles .feature-list .feature-list__feature .feature-list__icon .pager .pager__endcap.pager__endcap--previous a:before,
   .tableau-styles .pager .pager__endcap.pager__endcap--previous .feature-list .feature-list__feature .feature-list__icon a:before,
   .tableau-styles .feature-list .feature-list__feature .feature-list__icon .pager .pager__endcap.pager__endcap--next a:after,
@@ -7672,7 +8133,7 @@ Style guide: typography.text-stat
       font-size: 0;
       color: #333; }
       .tableau-styles .global-nav__top .global-nav__search-toggle:before {
-        content: "";
+        content: "\f15f";
         cursor: pointer;
         font-size: 20px; }
     .tableau-styles .global-nav__top .global-nav__search {
@@ -7680,7 +8141,7 @@ Style guide: typography.text-stat
       position: absolute;
       z-index: 10001; }
       .tableau-styles .global-nav__top .global-nav__search:before {
-        content: "";
+        content: "\f15f";
         position: absolute;
         display: block;
         cursor: pointer;
@@ -7724,7 +8185,7 @@ Style guide: typography.text-stat
         font-size: 1.6em;
         color: #333; }
         .tableau-styles .global-nav__top .global-nav__search .global-nav__search-close:after {
-          content: ""; }
+          content: "\f12a"; }
   .tableau-styles .global-nav .ui-autocomplete {
     display: block;
     position: absolute;
@@ -7740,6 +8201,8 @@ Style guide: typography.text-stat
     .tableau-styles .global-nav .ui-autocomplete .ui-state-focus {
       background: #333;
       color: #fff; }
+  .tableau-styles .global-nav__drawer-secondary .sub-nav__item-description {
+    display: none; }
   @media (min-width: 961px) {
     .tableau-styles .global-nav__top .global-nav__logo,
     .tableau-styles .global-nav__top .global-nav__primary-menu,
@@ -7840,7 +8303,11 @@ Style guide: typography.text-stat
       position: relative;
       z-index: 10000;
       width: 100%;
-      background: #f0f0f0; }
+      background: #f0f0f0;
+      /**
+     * Note: sub-nav__item should not be confused with the subnav component. It just
+     * happened to be named this way early on in the building of these styles.
+     */ }
       .tableau-styles .global-nav__drawers .global-nav__drawer-controls {
         display: none; }
       .tableau-styles .global-nav__drawers .global-nav__drawer {
@@ -7895,12 +8362,32 @@ Style guide: typography.text-stat
         .tableau-styles .global-nav__drawers .global-nav__drawer-secondary > * {
           z-index: 2;
           position: relative; }
-        .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item-title,
-        .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item-description {
+        .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item-title {
+          position: relative;
           margin: 0;
-          line-height: 1.5; }
+          font-size: 1.25em;
+          line-height: 1.5;
+          font-family: "Benton Sans Light", Helvetica, sans-serif;
+          color: #333;
+          -webkit-font-smoothing: auto; }
         .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item {
-          margin-top: .75em; } }
+          border-bottom: 1px solid #c7c7c7; }
+          .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item:last-child {
+            border-bottom: 0; }
+          .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a {
+            display: block;
+            padding: 0.5em 2em 0.5em 0; }
+            .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after {
+              position: absolute;
+              top: 0.75em;
+              right: 0.5em;
+              color: #e8762c;
+              content: "\f124"; }
+            .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:hover:after {
+              text-decoration: none; }
+          .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail a:after,
+          .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail + .sub-nav__item-title a:after {
+            display: none; } }
   @media (max-width: 960px) {
     .tableau-styles .global-nav__top {
       padding-top: 1em;
@@ -7944,25 +8431,22 @@ Style guide: typography.text-stat
             -ms-flex-order: 1;
                 order: 1;
         padding-top: 1.5em; }
-        .tableau-styles .global-nav__top .global-nav__primary-menu li {
-          display: block;
+        .tableau-styles .global-nav__top .global-nav__primary-menu ul {
           padding: 0 1em; }
-          .tableau-styles .global-nav__top .global-nav__primary-menu li a {
+          .tableau-styles .global-nav__top .global-nav__primary-menu ul li {
             display: block;
-            padding: 6px 0.5em;
-            border-bottom: 1px solid #ddd;
-            color: #212535;
-            font-family: "Benton Sans Light", Helvetica, sans-serif;
-            font-size: 1.5em;
-            color: #333; }
-          .tableau-styles .global-nav__top .global-nav__primary-menu li a.expandable:after {
-            content: "";
-            float: right;
-            margin-top: 0.7em;
-            font-size: 0.75em;
-            text-decoration: none; }
-          .tableau-styles .global-nav__top .global-nav__primary-menu li:last-child a {
-            border-bottom: 0; }
+            margin: 0;
+            padding: 0 1em;
+            border-bottom: 1px solid #ddd; }
+            .tableau-styles .global-nav__top .global-nav__primary-menu ul li a.expandable:after {
+              content: "\f125";
+              float: right;
+              margin-top: 0.7em;
+              padding: 6px 0;
+              font-size: 0.75em;
+              text-decoration: none; }
+            .tableau-styles .global-nav__top .global-nav__primary-menu ul li:last-child {
+              border-bottom: 0; }
       .tableau-styles .global-nav__top .global-nav__secondary-menu {
         -webkit-order: 2;
             -ms-flex-order: 2;
@@ -7999,6 +8483,17 @@ Style guide: typography.text-stat
             line-height: 64px; }
       .tableau-styles .global-nav__top.global-nav--search-shown .global-nav__search {
         pointer-events: inherit; }
+    .tableau-styles .global-nav__primary-menu a,
+    .tableau-styles .global-nav__drawer-primary .sub-nav__item a,
+    .tableau-styles .global-nav__drawer-secondary .sub-nav__item a {
+      display: block;
+      padding: 6px 0;
+      color: #212535;
+      font-family: "Benton Sans Light", Helvetica, sans-serif;
+      font-weight: 100;
+      font-size: 21px;
+      line-height: 1.875;
+      -webkit-font-smoothing: antialiased; }
     .tableau-styles .global-nav__drawers {
       position: absolute;
       z-index: 10000;
@@ -8018,13 +8513,39 @@ Style guide: typography.text-stat
         background: #ddd; }
       .tableau-styles .global-nav__drawers .content-container {
         padding: 0; }
+      .tableau-styles .global-nav__drawers .sub-nav__item {
+        border-bottom: 1px solid #ddd; }
       .tableau-styles .global-nav__drawers .global-nav__drawer-controls {
         padding: 1em 2em 0; }
       .tableau-styles .global-nav__drawers .global-nav__drawer-primary,
       .tableau-styles .global-nav__drawers .global-nav__drawer-secondary {
-        padding: 2em; }
+        padding: 1em; }
+        .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item,
+        .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item {
+          padding: 0 1em;
+          border-bottom-color: #c7c7c7; }
+          .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:after,
+          .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:after {
+            content: "\f10f";
+            position: absolute;
+            top: 0.75em;
+            right: 0.5em; }
+          .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item a:hover:after,
+          .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item a:hover:after {
+            text-decoration: none; }
+          .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .thumbnail,
+          .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail {
+            display: block;
+            padding-top: 1em; }
+            .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .thumbnail img,
+            .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail img {
+              display: block; }
+            .tableau-styles .global-nav__drawers .global-nav__drawer-primary .sub-nav__item .thumbnail a:after,
+            .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item .thumbnail a:after {
+              display: none; }
       .tableau-styles .global-nav__drawers .global-nav__drawer-primary {
-        padding-top: 1em; }
+        padding-top: 1em;
+        padding-bottom: 0; }
       .tableau-styles .global-nav__drawers .global-nav__drawer-primary,
       .tableau-styles .global-nav__drawers .global-nav__drawer-secondary,
       .tableau-styles .global-nav__drawers .sub-nav__item {
@@ -8032,17 +8553,21 @@ Style guide: typography.text-stat
         float: none;
         clear: both;
         margin: 0; }
-      .tableau-styles .global-nav__drawers .sub-nav__item {
-        border-bottom: 1px solid #ddd; }
-        .tableau-styles .global-nav__drawers .sub-nav__item:last-child {
+      .tableau-styles .global-nav__drawers .global-nav__drawer-secondary {
+        padding-top: 0; }
+        .tableau-styles .global-nav__drawers .global-nav__drawer-secondary > h3 {
+          display: none; }
+        .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item:last-child {
           border-bottom: 0; }
-        .tableau-styles .global-nav__drawers .sub-nav__item .sub-nav__item-title {
-          margin: .5em 0;
-          padding: 0; }
-          .tableau-styles .global-nav__drawers .sub-nav__item .sub-nav__item-title:before {
-            display: none; }
-      .tableau-styles .global-nav__drawers .global-nav__drawer-secondary .sub-nav__item {
-        border-bottom-color: #bbb; } }
+      .tableau-styles .global-nav__drawers .sub-nav__item-description {
+        display: none; }
+      .tableau-styles .global-nav__drawers .sub-nav__item-title {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        font-weight: 100; }
+        .tableau-styles .global-nav__drawers .sub-nav__item-title:before {
+          display: none; } }
   @media (min-width: 640px) and (max-width: 960px) {
     .tableau-styles .global-nav__top .global-nav__primary-menu li {
       padding: 0 2em; }
@@ -8056,18 +8581,6 @@ Style guide: typography.text-stat
       margin-right: 0;
       box-sizing: border-box;
       text-align: center; }
-    .tableau-styles .global-nav__drawers .sub-nav__item .sub-nav__item-title {
-      width: 31.91489%;
-      float: left;
-      margin-right: 2.12766%; }
-    .tableau-styles .global-nav__drawers .sub-nav__item .sub-nav__item-title--tablet-full {
-      width: 100%;
-      float: left;
-      margin-left: 0;
-      margin-right: 0; }
-    .tableau-styles .global-nav__drawers .sub-nav__item .sub-nav__item-description {
-      width: 65.95745%;
-      margin-right: 0; }
     .tableau-styles .global-nav__drawers .sub-nav__item .global-nav__drawer-link-list ul,
     .tableau-styles .global-nav__drawers .sub-nav__item .global-nav__drawer-link-list ol {
       -webkit-column-count: 2;
@@ -8138,16 +8651,16 @@ Style guide: typography.text-stat
       height: 1.3em;
       text-decoration: none; }
     .tableau-styles .pager .pager__endcap.pager__endcap--first a:before {
-      content: "";
+      content: "\f10e";
       padding-right: 0.5em; }
     .tableau-styles .pager .pager__endcap.pager__endcap--previous a:before {
-      content: "";
+      content: "\f10e";
       padding-right: 0.5em; }
     .tableau-styles .pager .pager__endcap.pager__endcap--next a:after {
-      content: "";
+      content: "\f112";
       padding-left: 0.5em; }
     .tableau-styles .pager .pager__endcap.pager__endcap--last a:after {
-      content: "";
+      content: "\f112";
       padding-left: 0.5em; }
     .tableau-styles .pager .pager__page {
       margin: 0 .1em; }
@@ -8699,8 +9212,7 @@ Style guide: typography.text-stat
     line-height: 1.88;
     -webkit-font-smoothing: antialiased; }
   .tableau-styles .text--body-small, .tableau-styles .location .location__address, .tableau-styles .modal-message .modal-message__content, .tableau-styles .tooltip .tooltip__text, .tableau-styles .video-playlist__title, .tableau-styles .global-footer .global-footer__language,
-  .tableau-styles .global-footer .global-footer__menu, .tableau-styles .global-nav__top .global-nav__primary-menu, .tableau-styles .global-nav__drawers .sub-nav__item-description,
-  .tableau-styles .global-nav__drawers .global-nav__drawer-link-list, .tableau-styles .card.card--summary .card__summary, .tableau-styles .person-teaser .person-teaser__bio, .tableau-styles .teaser-item .teaser-item__description, .tableau-styles .caption {
+  .tableau-styles .global-footer .global-footer__menu, .tableau-styles .global-nav__top .global-nav__primary-menu, .tableau-styles .global-nav__drawers .global-nav__drawer-link-list, .tableau-styles .card.card--summary .card__summary, .tableau-styles .person-teaser .person-teaser__bio, .tableau-styles .teaser-item .teaser-item__description, .tableau-styles .caption {
     font-size: 0.875em;
     line-height: 1.86; }
   .tableau-styles .text--body-medium, .tableau-styles .person-teaser .person-teaser__name {
@@ -9320,8 +9832,6 @@ Style guide: typography.text-stat
       height: 3px;
       top: 0;
       background: #23529c; }
-    .tableau-styles .heading-highlight.heading-highlight--negative:before {
-      background: #fff; }
     .tableau-styles .heading-highlight.heading-highlight--mission:before {
       background: #316cc8; }
     .tableau-styles .heading-highlight.heading-highlight--gray:before {

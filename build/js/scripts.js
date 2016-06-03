@@ -171,6 +171,21 @@ Components.utils.getElementViewPortCenter = function ($element) {
 
   return Math.round(elTopOffset + ((elBottomOffset - elTopOffset) / 2)) + 'px';
 }
+
+/**
+ * Helper function to decide the duration of an animation
+ * @param {integer} distance - The distance needed to travel (such as height of an element that is expanding)
+ * @param {integer} speed - Pixels per second. Defaults to 1000
+ *
+ * @returns integer
+ *  miliseconds for animation dration
+ */
+Components.utils.animationDuration = function (distance, speed) {
+  // Set default speed of 1000 px per second
+  var speed = speed || 1000;
+
+  return (distance/speed) * 1000;
+}
 ;
 /**
  * Content Flyout utility.
@@ -179,8 +194,12 @@ Components.utils.getElementViewPortCenter = function ($element) {
  * right side of the page when a trigger is clicked.
  *
  * Options:
- *   triggers - Required - [jQuery Ojbect] - element(s) to be used as a trigger
+ *   triggers - Required - [jQuery Object] - element(s) to be used as a trigger
+ *   slideout - Required - [jQuery Object] - element to slide off screen when content flys in
  *   contents - Optional - [jQuery Object] - element(s) to use as content wrapper
+ *   closeLinks - Optional - [jQuery Object] - element(s) to be used to trigger colsing flyout
+ *   scroll - Optional - [boolean] - whether the page should scroll up to the flyout content if needed
+ *   stayOnTop - Optional - [boolean] - Whether the flyout content should go ontop rather than push slideout content
  *   animation - Optional - [object] - animation settings for expanding/collapsing
  *
  * Usage:
@@ -190,111 +209,190 @@ Components.utils.getElementViewPortCenter = function ($element) {
  */
 
 (function ($) {
-  $.fn.contentFlyout = function(options) {
-    // Default settings
-    var settings = $.extend({
-      contents: $(this),
-      animation: {
-        duration: 1000,
-        easing: "easeInOutQuart"
+
+  // Set plugin method name and defaults
+  var pluginName = 'contentFlyout',
+      defaults = {
+        animation: {
+          duration: 1000,
+          easing: "easeInOutQuart"
+        },
+        scroll: true,
+        stayOnTop: false
+      };
+
+
+  // plugin constructor
+  function Plugin (element, options) {
+    // Set up internals for tracking, just in case.
+    this._name = pluginName;
+    this._defaults = defaults;
+    this.element = $(element);
+
+    // Use the init options.
+    this.options = $.extend({}, defaults, options);
+
+    // Do it now.
+    this.init();
+  }
+
+  // Show the target content
+  Plugin.prototype.showContent = function(trigger) {
+    var data = $(trigger).length ? $(trigger).data() : {},
+        $target = data.flyoutTarget ? $('#' + data.flyoutTarget) : this.element,
+        $parent = $target.offsetParent(),
+        $slideout = $parent.find(this.options.slideout),
+        parentPadding = $parent.outerHeight() - $parent.height(),
+        offset = $('.sticky-wrapper .stuck').outerHeight(true),
+        scrollDown = data.flyoutScrollDown,
+        distance = Math.round($target.outerWidth() / $parent.width() * 100),
+        $moving;
+
+    $target.data('flyoutState', 'open');
+
+    // Adjust height of parent, as long as it's not the body or html element.
+    if (!$parent.is('body, html')) {
+      $parent.animate({
+        height: $target.outerHeight(true) - parentPadding,
+      }, this.options.animation);
+    }
+
+    if (this.options.stayOnTop) {
+      $moving = $target;
+    }
+    else {
+      $moving = $target.add($slideout);
+    }
+
+    // @TODO investigate rewriting this using just classes and CSS transitions.
+    $moving.animate({
+      marginLeft: '-=' + distance + '%',
+    }, this.options.animation);
+
+    $target.add($slideout).addClass('is-open');
+
+    if (this.options.scroll) {
+      Components.utils.smoothScrollTop($parent, this.options.animation.duration, offset, !scrollDown);
+    }
+  };
+
+  // Hide the target content
+  Plugin.prototype.hideContent = function(trigger) {
+    var data = $(trigger).length ? $(trigger).data() : {},
+        $target = data.flyoutTarget ? $('#' + data.flyoutTarget) : this.element,
+        $parent = $target.offsetParent(),
+        $slideout = $parent.find(this.options.slideout),
+        slideoutHeight = $slideout.outerHeight(true),
+        distance = Math.round($target.outerWidth() / $parent.width() * 100),
+        $moving;
+
+    $target.data('flyoutState', 'closed');
+
+    // Adjust height of parent, as long as it's not the body or html element.
+    if (!$parent.is('body, html')) {
+      $parent.animate({
+        height: slideoutHeight,
+      }, this.options.animation);
+    }
+
+    if (this.options.stayOnTop) {
+      $moving = $target;
+    }
+    else {
+      $moving = $target.add($slideout);
+    }
+
+    // @TODO investigate rewriting this using just classes and CSS transitions.
+    $moving.animate({
+      marginLeft: '+=' + distance + '%',
+    }, this.options.animation);
+
+    $target.add($slideout).removeClass('is-open');
+
+    // Reset height of $parent to inherit in case of screen resizing that would
+    // need to adjust the height.
+    setTimeout(function() {
+      $parent.css('height', 'inherit');
+    }, this.options.animation.duration + 1);
+  };
+
+  // Hand-full of setup tasks
+  Plugin.prototype.init = function () {
+    var _this = this,
+        $triggers = $();
+
+    // Link content back to it's corresponding trigger
+    _this.options.triggers.each(function(index, el) {
+      var $target = $('#' + $(this).data('flyoutTarget'));
+
+      // Only pay attention if the target is the correct one.
+      if (_this.element.is($target)) {
+        $triggers = $triggers.add($(this));
+        $target.data('flyoutTrigger', $(this));
       }
-    }, options);
+    });
 
-    if (settings.triggers.length && settings.contents.length) {
-      // Run setup
-      setup();
+    if ($triggers.length && _this.element.length) {
+      // Add flyout-state data
+      _this.element.data('flyoutState', 'closed');
 
-      settings.triggers.on('click.flyout', function(e) {
+
+      // Set the relative parent to hide overflow
+      _this.element.each(function(index, el) {
+        $(this).show();
+
+        if (!$(this).offsetParent().is('body, html')) {
+          $(this).offsetParent().css('overflow', 'hidden');
+        }
+        else {
+          $(this).offsetParent().css('overflow-x', 'hidden');
+        }
+      });
+
+      // Handle opening the flyout when a trigger is clicked.
+      $triggers.on('click.flyout', function(e) {
         var trigger = this,
-        $target = $('#' + $(trigger).data('flyoutTarget')),
-        state = $target.data('flyoutState');
+            $target = $('#' + $(trigger).data('flyoutTarget')),
+            state = $target.data('flyoutState');
 
-        if (state == 'closed') {
+        // Set the speed of the animation to be consistent regardless of viewport.
+        _this.options.animation.duration = Components.utils.animationDuration($target.outerWidth(), 1500);
+
+        if (state === 'closed') {
           setTimeout(function() {
-            showContent(trigger);
+            _this.showContent(trigger);
           }, 1);
-        } else if (state == 'open') {
-          hideContent(trigger);
         }
         e.preventDefault();
       });
 
-      $('.flyout__close-link').on('click.flyout', function(e) {
-        $(this).closest('.flyout__content').data('flyoutTrigger').trigger('click.flyout');
+      // Handle closing the flyout when a close link is clicked.
+      _this.options.closeLinks.on('click.flyout', function(e) {
+        var $parent = $(this).closest(_this.element),
+            state = $parent.data('flyoutState');
+
+        // Double-check that the flyout is open and it's the correct flyout.
+        if (_this.element.is($parent) && state === 'open') {
+          _this.hideContent($parent.data('flyoutTrigger'));
+        }
         e.preventDefault();
       });
     }
+  };
 
-    // Show the target content
-    function showContent(trigger) {
-      var data = $(trigger).data(),
-      $target = $('#' + data.flyoutTarget),
-      $parent = $target.offsetParent(),
-      $slideout = $parent.find('.flyout__slideout'),
-      parentPadding = $parent.outerHeight() - $parent.height(),
-      offset = $('.sticky-wrapper .stuck').outerHeight(true),
-      scrollDown = data.flyoutScrollDown ? true : false;
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[pluginName] = function (options) {
+    return this.each(function initPlugin() {
+      var plugin = new Plugin(this, options);
+      // Allow the plugin to be instantiated more than once. Event handlers
+      // will be re-bound to avoid issues.
+      $.data(this, 'plugin_' + pluginName, plugin);
 
-      $target.data('flyoutState', 'open');
-
-      // Adjust height of parent
-      $parent.animate({
-        height: $target.outerHeight(true) - parentPadding,
-      }, settings.animation);
-
-      $slideout.add($target).animate({
-        marginLeft: '-=100%',
-      }, settings.animation);
-
-      Components.utils.smoothScrollTop($parent, settings.animation.duration, offset, !scrollDown);
-    }
-
-    // Hide the target content
-    function hideContent(trigger) {
-      var data = $(trigger).data(),
-      $target = $('#' + data.flyoutTarget),
-      $parent = $target.offsetParent(),
-      $slideout = $parent.find('.flyout__slideout'),
-      slideoutHeight = $slideout.outerHeight(true);
-
-      $target.data('flyoutState', 'closed');
-
-      // Adjust height of parent
-      $parent.animate({
-        height: slideoutHeight,
-      }, settings.animation);
-
-      $slideout.add($target).animate({
-        marginLeft: '+=100%',
-      }, settings.animation);
-
-      // Reset height of $parent to inherit in case of screen resizing that would
-      // need to adjust the height.
-      setTimeout(function() {
-        $parent.css('height', 'inherit');
-      }, settings.animation.duration + 1);
-    }
-
-    // Hand-full of setup tasks
-    function setup() {
-      // Add flyout-state data
-      settings.contents.data('flyoutState', 'closed');
-
-      // Link content back to it's corresponding trigger
-      settings.triggers.each(function(index, el) {
-        var $target = $('#' + $(this).data('flyoutTarget'));
-        $target.data('flyoutTrigger', $(this));
-      });
-
-      // Set the relative parent to hide overflow
-      settings.contents.each(function(index, el) {
-        $(this).show();
-        $(this).offsetParent().css('overflow', 'hidden');
-      });
-    }
-
-    return this;
-  }
+      // Expose the plugin so methods can be called externally
+      //   Ex. $(element).contentFlyout.showContent();
+      this.contentFlyout = plugin;
+    });
+  };
 })(jQuery);
 ;
 /**
@@ -370,7 +468,7 @@ Components.utils.getElementViewPortCenter = function ($element) {
       customAnimation = customAnimation || settings.animation;
 
       $trigger.data('revealState', 'open').addClass('is-open');
-      if (hideText != "") {
+      if (hideText !== "") {
         $trigger.text(hideText);
       }
 
@@ -513,7 +611,7 @@ Components.utils.getElementViewPortCenter = function ($element) {
     }
 
     return this;
-  }
+  };
 })(jQuery);
 ;
 'use strict';
@@ -827,7 +925,7 @@ Components.utils.getElementViewPortCenter = function ($element) {
     $el.css('overflow', 'hidden');
 
     if (direction === "down") {
-      var $elClone = $el.clone().show().css({"height":"auto"}).appendTo($el.parent()),
+      var $elClone = $el.clone().css({"height":"auto"}).appendTo($el.parent()),
           elHeight = $elClone.outerHeight(true);
 
       // Removing clone needed for calculating height.
@@ -1030,7 +1128,6 @@ Components.contentSearch = {};
    * @param {jQuery Object} $search
    */
   component.resetForm = function ($search) {
-    $search.removeClass('has-suggestion');
     $search.find('.content-search__input').val('');
   };
 
@@ -1041,7 +1138,6 @@ Components.contentSearch = {};
    */
   component.submitForm = function ($search) {
     if ($search.find('.content-search__input').val() !== '') {
-      $search.addClass('has-suggestion');
       $search.find('.content-search__submit').click();
     }
   };
@@ -1169,6 +1265,87 @@ Components.contextualSearch.select = function (direction) {
 
 // Attach our DOM-ready callback.
 jQuery(Components.contextualSearch.ready);
+;
+/**
+ * Flyout Form component interaction
+ * See jquery.contentFlyout.js for details
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var fragment = 'form',
+        $formWrapper = $('.flyout-form'),
+        $triggers = $('a[href*="#' + fragment + '"], .flyout-form__trigger'),
+        $closeLink = $formWrapper.find('.flyout-form__close'),
+        $pageWrapper = '<div class="flyout-form__page-wrapper"></div>';
+
+    // Make sure a flyout form exists before proceding.
+    if ($formWrapper.length && $triggers.length) {
+      // Add a wrapper around the page body.
+      $('body').wrapInner($pageWrapper);
+      $pageWrapper = $('.flyout-form__page-wrapper');
+
+      // Move the form wrapper to after the page wrapper.
+      $pageWrapper.after($formWrapper);
+
+      // If a jQuery UI datepicker makes its way inside $pageWrapper, move it
+      // outside to avoid issues with clicking the widget closing the form.
+      if ($pageWrapper.find('.ui-datepicker').length) {
+        $formWrapper.after($pageWrapper.find('.ui-datepicker'));
+      }
+
+      // If a close button doesn't already exist, add it.
+      if (!$closeLink.length) {
+        $closeLinkWrapper = $('<div class="flyout-form__close-wrapper">');
+        $closeLink = $('<a href="#" class="flyout-form__close link link--close">Close</a>');
+        $closeLinkWrapper.prepend($closeLink);
+        $formWrapper.prepend($closeLinkWrapper);
+      }
+
+      // Set the reveal target on the triggers (used by contentFlyout plugin).
+      $triggers.data('flyoutTarget', fragment);
+
+      // Flyout Magic using contentFlyout plugin
+      $formWrapper.contentFlyout({
+        triggers: $triggers,
+        slideout: $pageWrapper,
+        stayOnTop: true,
+        closeLinks: $closeLink,
+        scroll: false
+      });
+
+      // When open, clicking the page wrapper should close the flyout.
+      $pageWrapper.on('click.flyout', function(e) {
+        if ($(this).hasClass('is-open')) {
+          $formWrapper[0].contentFlyout.hideContent();
+          e.preventDefault();
+        }
+      });
+
+      // Show form on load if the ULR contains the fragment.
+      if (window.location.hash === '#' + fragment) {
+        // Make sure to only "click" the first trigger."
+        $formWrapper[0].contentFlyout.showContent();
+      }
+
+      // Close form on hitting Escape key
+      $(document).keyup(function(e) {
+        if (e.keyCode == 27 && $formWrapper.hasClass('is-open')) { // escape key maps to keycode `27`
+          $formWrapper[0].contentFlyout.hideContent();
+        }
+      });
+
+      // Auto-focus on the first field of the form when it's revealed.
+      $triggers.on('click.flyout', function(e) {
+        // Make sure we're actually listening to a click on the trigger link
+        // rather than a JS event trigger.
+        if ($(e.toElement).is($triggers)) {
+          $formWrapper.find('input:visible').first().focus();
+        }
+      });
+    }
+  });
+}( jQuery ));
 ;
 // Loose augmentation pattern. Creates top-level Components variable if it
 // doesn't already exist.
@@ -1345,7 +1522,9 @@ $(document).on('initFloatLabels', function (e) {
 (function ( $ ) {
   $(document).ready(function(){
     $('.flyout__content').contentFlyout({
-      triggers: $('.flyout__trigger')
+      triggers: $('.flyout__trigger'),
+      slideout: $('.flyout__slideout'),
+      closeLinks: $('.flyout__close-link')
     });
   });
 }( jQuery ));

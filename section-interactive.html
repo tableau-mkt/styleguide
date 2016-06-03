@@ -110,6 +110,11 @@
                   </a>
                 </li>
                 <li class="kss-nav__menu-item">
+                  <a href="section-interactive.html#kssref-interactive-fadable">
+                    Fadable
+                  </a>
+                </li>
+                <li class="kss-nav__menu-item">
                   <a href="section-interactive.html#kssref-interactive-flyout">
                     Content Flyout
                   </a>
@@ -418,6 +423,40 @@ content.</p>
               </div>
 
             </section>
+            <section id="kssref-interactive-fadable" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-interactive-fadable"> -->
+                Fadable
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>Fade-in effect over invisible defaults, like personalization (no baked-in interactions).</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="fadable fadable--faded-out">
+  This was faded in
+</div>
+<button class="fadable-toggle">Toggle (Fade In)</button>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+            </section>
             <section id="kssref-interactive-flyout" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -435,6 +474,7 @@ content.</p>
 <li><code>data-flyout-target=&quot;[CONTENT ID]&quot;</code> - (required) - The ID of the container around the flyout content</li>
 <li><code>data-flyout-scroll-down=&quot;true&quot;</code> - (optional) - Whether or not clicking this trigger should scroll down to the top of the flyout content container. Useful when the trigger referencing a flyout section lower down on the page</li>
 </ul>
+<p><strong>Note:</strong> The <code>&lt;div class=&quot;relative&quot;&gt;</code> wrapper in the markup example below is only required when there isn&#39;t already a natural relative parent such as a Section wrapper.</p>
 
             </div>
           </div>
@@ -444,19 +484,21 @@ content.</p>
               <div class="kss-example kss-example__default">
                 <div class="kss-example-preview">
                   <div class="kss-example-preview-wrapper">
-                    <div class="flyout__slideout">
-  <p>
-      <a href="#" class="flyout__trigger cta" data-flyout-target="flyout-container">Flyout Content</a>
-  </p>
-</div>
-
-<div class="flyout__content bg--data-sources" id="flyout-container">
-  <div class="flyout__close-wrapper">
-    <a href="#" class="link flyout__close-link" href="#">Close &#9587;</a>
+                    <div class="relative">
+  <div class="flyout__slideout">
+    <p>
+        <a href="#" class="flyout__trigger cta" data-flyout-target="flyout-container">Flyout Content</a>
+    </p>
   </div>
-  <div class="content-container">
-    <div class="clearfix"></div>
-    <p>Pulvinar cupidatat numquam nisl nascetur officia massa fugiat eros aliqua, iste! Corporis ducimus nisl possimus lorem, in corrupti maecenas voluptatum, arcu hymenaeos? Vel quod wisi placerat delectus animi ducimus vero? Aliquet imperdiet cras, ullam expedita, lorem phasellus minus senectus? Tortor curae nunc, mus esse maiores, adipisci aliquam ante, ullamcorper mattis.</p> <p>Morbi quasi risus saepe. Cupiditate inceptos, aliquid. In sunt. Habitasse excepturi faucibus, suscipit delectus fugiat, aute! Donec elementum luctus officiis. Netus reiciendis officiis netus, aut quod nunc sociosqu pretium placeat, ex fuga nemo, nulla, magna voluptate nobis iaculis quam mollit voluptatum ea viverra gravida erat quasi curabitur dolores, pulvinar, aliquip.</p>
+
+  <div class="flyout__content bg--data-sources" id="flyout-container">
+    <div class="flyout__close-wrapper">
+      <a href="#" class="link flyout__close-link" href="#">Close &#9587;</a>
+    </div>
+    <div class="content-container">
+      <div class="clearfix"></div>
+      <p>Pulvinar cupidatat numquam nisl nascetur officia massa fugiat eros aliqua, iste! Corporis ducimus nisl possimus lorem, in corrupti maecenas voluptatum, arcu hymenaeos? Vel quod wisi placerat delectus animi ducimus vero? Aliquet imperdiet cras, ullam expedita, lorem phasellus minus senectus? Tortor curae nunc, mus esse maiores, adipisci aliquam ante, ullamcorper mattis.</p> <p>Morbi quasi risus saepe. Cupiditate inceptos, aliquid. In sunt. Habitasse excepturi faucibus, suscipit delectus fugiat, aute! Donec elementum luctus officiis. Netus reiciendis officiis netus, aut quod nunc sociosqu pretium placeat, ex fuga nemo, nulla, magna voluptate nobis iaculis quam mollit voluptatum ea viverra gravida erat quasi curabitur dolores, pulvinar, aliquip.</p>
+    </div>
   </div>
 </div>
 
@@ -468,19 +510,21 @@ content.</p>
 
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;flyout__slideout&quot;&gt;
-  &lt;p&gt;
-      &lt;a href=&quot;#&quot; class=&quot;flyout__trigger cta&quot; data-flyout-target=&quot;flyout-container&quot;&gt;Flyout Content&lt;/a&gt;
-  &lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;flyout__content bg--data-sources&quot; id=&quot;flyout-container&quot;&gt;
-  &lt;div class=&quot;flyout__close-wrapper&quot;&gt;
-    &lt;a href=&quot;#&quot; class=&quot;link flyout__close-link&quot; href=&quot;#&quot;&gt;Close &amp;#9587;&lt;/a&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;relative&quot;&gt;
+  &lt;div class=&quot;flyout__slideout&quot;&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flyout__trigger cta&quot; data-flyout-target=&quot;flyout-container&quot;&gt;Flyout Content&lt;/a&gt;
+    &lt;/p&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;content-container&quot;&gt;
-    &lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;
-    &lt;p&gt;Pulvinar cupidatat numquam nisl nascetur officia massa fugiat eros aliqua, iste! Corporis ducimus nisl possimus lorem, in corrupti maecenas voluptatum, arcu hymenaeos? Vel quod wisi placerat delectus animi ducimus vero? Aliquet imperdiet cras, ullam expedita, lorem phasellus minus senectus? Tortor curae nunc, mus esse maiores, adipisci aliquam ante, ullamcorper mattis.&lt;/p&gt; &lt;p&gt;Morbi quasi risus saepe. Cupiditate inceptos, aliquid. In sunt. Habitasse excepturi faucibus, suscipit delectus fugiat, aute! Donec elementum luctus officiis. Netus reiciendis officiis netus, aut quod nunc sociosqu pretium placeat, ex fuga nemo, nulla, magna voluptate nobis iaculis quam mollit voluptatum ea viverra gravida erat quasi curabitur dolores, pulvinar, aliquip.&lt;/p&gt;
+
+  &lt;div class=&quot;flyout__content bg--data-sources&quot; id=&quot;flyout-container&quot;&gt;
+    &lt;div class=&quot;flyout__close-wrapper&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;link flyout__close-link&quot; href=&quot;#&quot;&gt;Close &amp;#9587;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;content-container&quot;&gt;
+      &lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;
+      &lt;p&gt;Pulvinar cupidatat numquam nisl nascetur officia massa fugiat eros aliqua, iste! Corporis ducimus nisl possimus lorem, in corrupti maecenas voluptatum, arcu hymenaeos? Vel quod wisi placerat delectus animi ducimus vero? Aliquet imperdiet cras, ullam expedita, lorem phasellus minus senectus? Tortor curae nunc, mus esse maiores, adipisci aliquam ante, ullamcorper mattis.&lt;/p&gt; &lt;p&gt;Morbi quasi risus saepe. Cupiditate inceptos, aliquid. In sunt. Habitasse excepturi faucibus, suscipit delectus fugiat, aute! Donec elementum luctus officiis. Netus reiciendis officiis netus, aut quod nunc sociosqu pretium placeat, ex fuga nemo, nulla, magna voluptate nobis iaculis quam mollit voluptatum ea viverra gravida erat quasi curabitur dolores, pulvinar, aliquip.&lt;/p&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -842,11 +886,11 @@ content.</p>
               </div>
             </div>
       
-            <div class="special-hero__content">
-              <div class="special-hero__content-inner content-container">
+          <div class="special-hero__content">
+            <div class="special-hero__content-inner content-container">
                 <h1>This is Slide One of a Hero Slidehsow</h1><p><a class='cta cta--play cta--secondary cta--light' href='#'>Call to Action!</a></p>
-              </div>
             </div>
+          </div>
       
         </div>
       
@@ -867,11 +911,11 @@ content.</p>
               </div>
             </div>
       
-            <div class="special-hero__content">
-              <div class="special-hero__content-inner content-container">
+          <div class="special-hero__content">
+            <div class="special-hero__content-inner content-container">
                 <h1>This is Slide One of a Hero Slidehsow</h1><p><a class='cta cta--play cta--secondary cta--light' href='#'>Call to Action!</a></p>
-              </div>
             </div>
+          </div>
       
         </div>
       
@@ -892,11 +936,11 @@ content.</p>
               </div>
             </div>
       
-            <div class="special-hero__content">
-              <div class="special-hero__content-inner content-container">
+          <div class="special-hero__content">
+            <div class="special-hero__content-inner content-container">
                 <h1>This is Slide One of a Hero Slidehsow</h1><p><a class='cta cta--play cta--secondary cta--light' href='#'>Call to Action!</a></p>
-              </div>
             </div>
+          </div>
       
         </div>
       
@@ -928,11 +972,11 @@ content.</p>
               &lt;/div&gt;
             &lt;/div&gt;
       
-            &lt;div class=&quot;special-hero__content&quot;&gt;
-              &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
+          &lt;div class=&quot;special-hero__content&quot;&gt;
+            &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
                 &lt;h1&gt;This is Slide One of a Hero Slidehsow&lt;/h1&gt;&lt;p&gt;&lt;a class=&#x27;cta cta--play cta--secondary cta--light&#x27; href=&#x27;#&#x27;&gt;Call to Action!&lt;/a&gt;&lt;/p&gt;
-              &lt;/div&gt;
             &lt;/div&gt;
+          &lt;/div&gt;
       
         &lt;/div&gt;
       
@@ -953,11 +997,11 @@ content.</p>
               &lt;/div&gt;
             &lt;/div&gt;
       
-            &lt;div class=&quot;special-hero__content&quot;&gt;
-              &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
+          &lt;div class=&quot;special-hero__content&quot;&gt;
+            &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
                 &lt;h1&gt;This is Slide One of a Hero Slidehsow&lt;/h1&gt;&lt;p&gt;&lt;a class=&#x27;cta cta--play cta--secondary cta--light&#x27; href=&#x27;#&#x27;&gt;Call to Action!&lt;/a&gt;&lt;/p&gt;
-              &lt;/div&gt;
             &lt;/div&gt;
+          &lt;/div&gt;
       
         &lt;/div&gt;
       
@@ -978,11 +1022,11 @@ content.</p>
               &lt;/div&gt;
             &lt;/div&gt;
       
-            &lt;div class=&quot;special-hero__content&quot;&gt;
-              &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
+          &lt;div class=&quot;special-hero__content&quot;&gt;
+            &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
                 &lt;h1&gt;This is Slide One of a Hero Slidehsow&lt;/h1&gt;&lt;p&gt;&lt;a class=&#x27;cta cta--play cta--secondary cta--light&#x27; href=&#x27;#&#x27;&gt;Call to Action!&lt;/a&gt;&lt;/p&gt;
-              &lt;/div&gt;
             &lt;/div&gt;
+          &lt;/div&gt;
       
         &lt;/div&gt;
       
@@ -1196,7 +1240,7 @@ content. Use the &quot;Content reveal&quot; component instead.</p>
 
             <div class="kss-description">
               <p>Simple tool to make content hidden and revealed when a trigger is clicked. The
-trigger element can be abywhere on the page and can have the following options
+trigger element can be anywhere on the page and can have the following options
 set as data attributes:</p>
 <p><strong>Trigger Options:</strong></p>
 <ul>

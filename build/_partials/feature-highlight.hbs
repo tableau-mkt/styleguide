@@ -1,11 +1,9 @@
-<div class="feature-highlight {{ modifier_class }}">
+<div class="feature-highlight {{ modifier_class }}" {{#if reveal}} id="{{ reveal.curtainId }}"{{/if}}>
 
   <div class="feature-highlight__image">
-    {{#if image.preview}}
-      {{> gif-player image}}
-    {{else}}
-      <img src="{{ image.src }}" alt="{{ image.alt }}" />
-    {{/if}}
+    {{#with thumbnail}}
+      <img src="{{ src }}" alt="{{ alt }}" />
+    {{/with}}
   </div>
 
   <div class="feature-highlight__copy">
@@ -15,6 +13,12 @@
 
     {{#if copy}}
       {{{ copy }}}
+    {{/if}}
+
+    {{#if link}}
+      {{#with link}}
+        {{> link-formatted}}
+      {{/with}}
     {{/if}}
   </div>
 </div>

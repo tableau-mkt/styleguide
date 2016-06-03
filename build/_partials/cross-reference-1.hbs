@@ -1,7 +1,12 @@
 <div class="cross-reference-1">
   <div class="cross-reference-1__image">
     <a href="{{ link.href }}">
-      <img src="{{ image.src }}" title="{{ image.alt }}">
+      {{#if image}}
+        <img src="{{ image.src }}" title="{{ image.alt }}">
+      {{/if}}
+      {{#if icon}}
+        <i class="icon icon--{{ icon }}"></i>
+      {{/if}}
     </a>
   </div>
 

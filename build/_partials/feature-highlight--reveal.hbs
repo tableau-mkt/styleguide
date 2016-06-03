@@ -1,0 +1,37 @@
+<div class="feature-highlight feature-highlight--reveal {{ modifier_class }}" {{#if reveal}} id="{{ reveal.curtainId }}"{{/if}}>
+
+  <div class="feature-highlight__image">
+    <div class="thumbnail {{ thumbnail.modifier_class }}">
+      <a href="#" class="reveal__trigger {{ reveal.classes }}" data-reveal-target="{{ reveal.contentId }}" data-reveal-media="{{ reveal.media }}" data-reveal-type="{{ reveal.type }}" data-reveal-curtain="{{ reveal.curtainId }}">{{ reveal.text }}
+        <img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" />
+      </a>
+    </div>
+  </div>
+
+  <div class="feature-highlight__copy">
+    {{#if heading}}
+      <h3 class="heading-highlight">{{ heading }}</h3>
+    {{/if}}
+
+    {{#if copy}}
+      {{{ copy }}}
+    {{/if}}
+
+    {{#if link}}
+      <a href="#" class="link {{ link.modifier_class }} reveal__trigger {{ reveal.classes }}" data-reveal-target="{{ reveal.contentId }}" data-reveal-media="{{ reveal.media }}" data-reveal-type="{{ reveal.type }}" data-reveal-curtain="{{ reveal.curtainId }}">{{ link.text }}</a>
+    {{/if}}
+  </div>
+</div>
+
+<div class="reveal__content" id="{{ reveal.contentId }}">
+  {{#if reveal.vid}}
+    <div style="display: block; position: relative; max-width: 100%;">
+      <div style="display: block; padding-top: 56%;">
+        <video data-video-id="{{reveal.vid}}" data-account="3798483592001" data-player="ad8b15bd-b737-4c9b-a550-53c61ac31107" data-embed="default" class="video-js" controls="" style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
+        <script src="//players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js"></script>
+      </div>
+    </div>
+  {{else}}
+    {{{ reveal.revealContent }}}
+  {{/if}}
+</div>
