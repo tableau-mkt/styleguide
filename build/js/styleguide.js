@@ -221,6 +221,24 @@ jQuery(function ready($) {
 })(jQuery);
 ;
 /**
+ * Styleguide only script for randomizing the card wall cards.
+ */
+jQuery(function domReady($) {
+  $('.card-wall').before('<a href="#" class="js-card-wall-random">Shuffle</a>');
+
+  $('.js-card-wall-random').on('click', function (e) {
+    var $cardWall = $('.card-wall'),
+        cardWall = $cardWall[0];
+    for (var i = cardWall.children.length; i >= 0; i--) {
+      cardWall.appendChild(cardWall.children[Math.random() * i | 0]);
+    }
+    $cardWall.masonry('reloadItems');
+    $cardWall.masonry();
+    e.preventDefault();
+  });
+});
+;
+/**
  * Video playlist script for demo purposes only.
  */
 (function ($, window) {
@@ -278,3 +296,33 @@ jQuery(function ($) {
     return false;
   });
 });
+;
+/**
+ * News Interstitial interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var id = $('.news-banner').attr('id');
+
+    $.removeCookie('news-banner-' + id);
+  });
+}( jQuery ));
+;
+/**
+ * News Interstitial interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var $interstitials = $('.news-interstitial'),
+        id = $interstitials.attr('id'),
+        $closeLink = $interstitials.find('.news-interstitial__close a');
+
+    // Temporary logic to force the interstitial in the URL.
+    if (window.location.hash === '#interstitial-dark') {
+      $interstitials.removeClass('is-active');
+      $interstitials.filter('.news-interstitial--dark').addClass('is-active');
+    }
+  });
+}( jQuery ));

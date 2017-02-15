@@ -33,6 +33,7 @@
 
   <div class="kss-main kss-clearfix">
     <nav class="kss-nav kss-left">
+      <input class="typeahead" type="text" placeholder="Search components">
       <ul class="kss-nav__menu">
         <li class="kss-nav__menu-item">
           <a href="./">
@@ -84,51 +85,56 @@
             Compound
           </a>
           <ul class="kss-nav__menu-child">
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-quote">
-                    Quote
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-hero">
-                    Basic Hero
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-special-hero">
-                    Special Hero
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-special-hero--fluid-height">
-                    Special Hero w/ Fluid Height
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-feature-highlight">
-                    Feature Highlight
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-feature-highlight--reveal">
-                    Feature Highlight with Reveal
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-messages">
-                    Messages
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-location">
-                    Location
-                  </a>
-                </li>
-                <li class="kss-nav__menu-item">
-                  <a href="section-compound.html#kssref-compound-detail-field">
-                    Detail Field
-                  </a>
-                </li>
+              <li class="kss-nav__menu-item ">
+                <a href="section-compound.html#kssref-compound">
+                  Compound
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-comments">
+                  Comments
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-quote">
+                  Quote
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-hero">
+                  Basic Hero
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-special-hero">
+                  Special Hero
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-special-hero--fluid-height">
+                  Special Hero w/ Fluid Height
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-feature-highlight">
+                  Feature Highlight
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-messages">
+                  Messages
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-location">
+                  Location
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-compound.html#kssref-compound-detail-field">
+                  Detail Field
+                </a>
+              </li>
           </ul>
         </li>
         <li class="kss-nav__menu-item">
@@ -156,6 +162,11 @@
             Documentation
           </a>
         </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-test-components.html">
+            Test Components
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -179,6 +190,110 @@
 
 
             </div>
+            <section id="kssref-compound-comments" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-compound-comments"> -->
+                Comments
+              <!-- </a> -->
+            </h3>
+
+
+            <div class="kss-description">
+              <p>A list of comments with comment threading.</p>
+
+            </div>
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="comments">
+    <div class="comment">
+      <div class="comment__info">
+        <p class="comment__submitted">
+          Submitted by Nicolas Cage on September 28, 2016 - 7:10am
+        </p>
+      </div>
+
+      <div class="comment__content">
+        <p>I think that 'Ghost Rider: Spirit of Vengeance' was mentally taxing, if only because I had to go to a Christmas party shortly after I had wrapped photography in Romania at two in the morning as the Ghost Rider. The invitation had a Christmas ornament on it with Ghost Rider's face on it as a tree.</p>
+      </div>
+
+      <ul class="comment__links">
+        <li><a href="#">reply</a></li>
+      </ul>
+    </div>
+      <div class="comment--indented">
+    <div class="comment">
+        <mark class="comment__new">new</mark>
+      <div class="comment__info">
+        <p class="comment__submitted">
+          Submitted by Cage Fan on September 28, 2016 - 7:12am
+        </p>
+      </div>
+
+      <div class="comment__content">
+        <p>Voluptate hac aspernatur impedit alias deleniti mus nostrud ullamcorper ultrices sociis lacinia. Sapien penatibus nostra ullam mattis nostra, nonummy error eveniet delectus! Vel! Mauris. Minus! Voluptate curabitur vel? Conubia consectetur imperdiet laborum? Dolorem donec maiores porro suscipit temporibus ac assumenda. Proin donec cursus vitae platea feugiat quod repudiandae, diam, imperdiet.</p>
+      </div>
+
+      <ul class="comment__links">
+        <li><a href="#">reply</a></li>
+      </ul>
+    </div>
+      </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;comments&quot;&gt;
+    &lt;div class=&quot;comment&quot;&gt;
+      &lt;div class=&quot;comment__info&quot;&gt;
+        &lt;p class=&quot;comment__submitted&quot;&gt;
+          Submitted by Nicolas Cage on September 28, 2016 - 7:10am
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;comment__content&quot;&gt;
+        &lt;p&gt;I think that &#x27;Ghost Rider: Spirit of Vengeance&#x27; was mentally taxing, if only because I had to go to a Christmas party shortly after I had wrapped photography in Romania at two in the morning as the Ghost Rider. The invitation had a Christmas ornament on it with Ghost Rider&#x27;s face on it as a tree.&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;ul class=&quot;comment__links&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;reply&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+      &lt;div class=&quot;comment--indented&quot;&gt;
+    &lt;div class=&quot;comment&quot;&gt;
+        &lt;mark class=&quot;comment__new&quot;&gt;new&lt;/mark&gt;
+      &lt;div class=&quot;comment__info&quot;&gt;
+        &lt;p class=&quot;comment__submitted&quot;&gt;
+          Submitted by Cage Fan on September 28, 2016 - 7:12am
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;comment__content&quot;&gt;
+        &lt;p&gt;Voluptate hac aspernatur impedit alias deleniti mus nostrud ullamcorper ultrices sociis lacinia. Sapien penatibus nostra ullam mattis nostra, nonummy error eveniet delectus! Vel! Mauris. Minus! Voluptate curabitur vel? Conubia consectetur imperdiet laborum? Dolorem donec maiores porro suscipit temporibus ac assumenda. Proin donec cursus vitae platea feugiat quod repudiandae, diam, imperdiet.&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;ul class=&quot;comment__links&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;reply&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+      &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
             <section id="kssref-compound-quote" class="kss-section kss-section--depth-2">
 
           <div class="kss-style">
@@ -198,7 +313,7 @@
             <h4>Example</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
+                <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
                     <div class="quote ">
   <p class="quote__text">Tableau is the best thing that ever happened to us. We've spent 90 percent of our time on the data and 10 percent on the tool. We had a significant ROI.</p>
@@ -248,7 +363,7 @@ subtitle.</p>
             <h4>Example</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
+                <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
                     <section class="hero " >
   <div class="content-container">
@@ -315,12 +430,17 @@ that need to stand on their own.</p>
             </div>
           </div>
 
-            <h4>Example</h4>
+            <h4>Examples</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
-                    <div class="special-hero ">
+                    <div class="special-hero [modifier class]">
   <div id="hero-text">
 
       <div class="special-hero__video">
@@ -360,11 +480,111 @@ that need to stand on their own.</p>
                 </div>
               </div>
 
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Adjust colors for light backgrounds.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>special-hero--light</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="special-hero special-hero--light">
+  <div id="hero-text">
+
+      <div class="special-hero__video">
+        <div class="special-hero__video-inner bg-cover" style="background-image: url(http://www.placecage.com/g/1366/540);">
+          <![if gt IE 8]>
+          <video data-video-id="4673566717001" data-account="3798483592001" data-player="68382327-2210-45c8-920a-a606cbb6de49" data-embed="default" class="video-js" poster="http://www.placecage.com/g/1366/540" loop autoplay>
+          </video>
+          <script src="//players.brightcove.net/3798483592001/68382327-2210-45c8-920a-a606cbb6de49_default/index.min.js"></script>
+          <![endif]>
+        </div>
+      </div>
+
+      <div class="special-hero__background">
+        <div class="special-hero__background-inner" style="background-image: url(http://www.placecage.com/g/1366/540);">
+        <!--[if lt IE 9]>
+          <img class="special-hero__background-fallback" src="http://www.placecage.com/g/1366/540">
+        <![endif]-->
+        </div>
+      </div>
+
+    <div class="special-hero__content">
+      <div class="special-hero__content-inner content-container">
+          <h1 class="special-hero__title">Answer questions as fast<br class='tablet-hide'>as you can think of them<br class='tablet-hide'>with <strong>Tableau Desktop.</strong></h1>
+          <h5 class="special-hero__subtitle">Share your vsual analytics in minutes with Tableau Online</h5>
+          <p><a class='cta cta--play reveal__trigger cta--secondary cta--light' href='#' data-reveal-target='video' data-reveal-media='video' data-reveal-curtain='hero-text'>See it in action</a></p><p>  <a href='/products/trial' class='link  link--arrow'>Try it for Free</a></p>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="reveal__content" id="video">
+      <div style='display: block; position: relative; max-width: 100%;'><div style='display: block; padding-top: 56%;'> <video data-video-id='4354312127001' data-account='3798483592001' data-player='default' data-embed='default' class='video-js vjs--tableau reveal-video--brightcove' style='width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;'></video><script src='//players.brightcove.net/3798483592001/default_default/index.min.js'></script></div></div>
+    </div>
+</div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>A taller background image.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>special-hero--tall</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="special-hero special-hero--tall">
+  <div id="hero-text">
+
+      <div class="special-hero__video">
+        <div class="special-hero__video-inner bg-cover" style="background-image: url(http://www.placecage.com/g/1366/540);">
+          <![if gt IE 8]>
+          <video data-video-id="4673566717001" data-account="3798483592001" data-player="68382327-2210-45c8-920a-a606cbb6de49" data-embed="default" class="video-js" poster="http://www.placecage.com/g/1366/540" loop autoplay>
+          </video>
+          <script src="//players.brightcove.net/3798483592001/68382327-2210-45c8-920a-a606cbb6de49_default/index.min.js"></script>
+          <![endif]>
+        </div>
+      </div>
+
+      <div class="special-hero__background">
+        <div class="special-hero__background-inner" style="background-image: url(http://www.placecage.com/g/1366/540);">
+        <!--[if lt IE 9]>
+          <img class="special-hero__background-fallback" src="http://www.placecage.com/g/1366/540">
+        <![endif]-->
+        </div>
+      </div>
+
+    <div class="special-hero__content">
+      <div class="special-hero__content-inner content-container">
+          <h1 class="special-hero__title">Answer questions as fast<br class='tablet-hide'>as you can think of them<br class='tablet-hide'>with <strong>Tableau Desktop.</strong></h1>
+          <h5 class="special-hero__subtitle">Share your vsual analytics in minutes with Tableau Online</h5>
+          <p><a class='cta cta--play reveal__trigger cta--secondary cta--light' href='#' data-reveal-target='video' data-reveal-media='video' data-reveal-curtain='hero-text'>See it in action</a></p><p>  <a href='/products/trial' class='link  link--arrow'>Try it for Free</a></p>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="reveal__content" id="video">
+      <div style='display: block; position: relative; max-width: 100%;'><div style='display: block; padding-top: 56%;'> <video data-video-id='4354312127001' data-account='3798483592001' data-player='default' data-embed='default' class='video-js vjs--tableau reveal-video--brightcove' style='width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;'></video><script src='//players.brightcove.net/3798483592001/default_default/index.min.js'></script></div></div>
+    </div>
+</div>
+
+                    </div>
+                  </div>
+                </div>
             </div>
 
               <h4>Markup</h4>
               <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;special-hero &quot;&gt;
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;special-hero [modifier class]&quot;&gt;
   &lt;div id=&quot;hero-text&quot;&gt;
 
       &lt;div class=&quot;special-hero__video&quot;&gt;
@@ -423,29 +643,29 @@ video backgrounds.</p>
             <h4>Example</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
+                <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
                     <div class="special-hero special-hero--fluid-height ">
   <div id="hero-id">
-    <div class="special-hero__content" style="background-image: url(http://www.placecage.com/g/1366/540);">
+    <div class="special-hero__content" style="background-image: url(https://www.placecage.com/g/1366/540);">
       <div class="special-hero__content-inner content-container">
           <h1 class="special-hero__title">Answer questions as fast as you can think of them with <strong>Tableau Desktop.</strong></h1>
           <h5 class="special-hero__subtitle">Share your vsual analytics in minutes with Tableau Online</h5>
-          <p><a class='cta cta--play reveal__trigger cta--secondary cta--light' href='#' data-reveal-target='video-reveal' data-reveal-media='video' data-reveal-curtain='hero-id'>See it in action</a></p><p>  <a href='/products/trial' class='link  link--arrow'>Try it for Free</a></p>
+          <p><a class='cta cta--play reveal__trigger cta--secondary cta--light' href='#' data-reveal-target='hero-reveal' data-reveal-media='video' data-reveal-curtain='hero-id'>See it in action</a></p><p>  <a href='/products/trial' class='link  link--arrow'>Try it for Free</a></p>
       </div>
     </div>
   </div>
 
-  <div class="reveal__content" id="video-reveal">
-    <div class="content-container">
-        <div style="display: block; position: relative; max-width: 100%;">
-          <div style="display: block; padding-top: 56%;">
-            <video data-video-id="4243191431001" data-account="3798483592001" data-player="ad8b15bd-b737-4c9b-a550-53c61ac31107" data-embed="default" class="video-js" controls="" style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
-            <script src="//players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js"></script>
+    <div class="reveal__content" id="hero-reveal">
+      <div class="clearfix content-container">
+          <div style="display: block; position: relative; max-width: 100%;">
+            <div style="display: block; padding-top: 56%;">
+              <video data-video-id="4243191431001" data-account="" data-player="" data-embed="" class="video-js" controls="" style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
+              <script src="//players.brightcove.net//_/index.min.js"></script>
+            </div>
           </div>
-        </div>
+      </div>
     </div>
-  </div>
 </div>
 
                   </div>
@@ -458,25 +678,25 @@ video backgrounds.</p>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;special-hero special-hero--fluid-height &quot;&gt;
   &lt;div id=&quot;hero-id&quot;&gt;
-    &lt;div class=&quot;special-hero__content&quot; style=&quot;background-image: url(http://www.placecage.com/g/1366/540);&quot;&gt;
+    &lt;div class=&quot;special-hero__content&quot; style=&quot;background-image: url(https://www.placecage.com/g/1366/540);&quot;&gt;
       &lt;div class=&quot;special-hero__content-inner content-container&quot;&gt;
           &lt;h1 class=&quot;special-hero__title&quot;&gt;Answer questions as fast as you can think of them with &lt;strong&gt;Tableau Desktop.&lt;/strong&gt;&lt;/h1&gt;
           &lt;h5 class=&quot;special-hero__subtitle&quot;&gt;Share your vsual analytics in minutes with Tableau Online&lt;/h5&gt;
-          &lt;p&gt;&lt;a class=&#x27;cta cta--play reveal__trigger cta--secondary cta--light&#x27; href=&#x27;#&#x27; data-reveal-target=&#x27;video-reveal&#x27; data-reveal-media=&#x27;video&#x27; data-reveal-curtain=&#x27;hero-id&#x27;&gt;See it in action&lt;/a&gt;&lt;/p&gt;&lt;p&gt;  &lt;a href=&#x27;/products/trial&#x27; class=&#x27;link  link--arrow&#x27;&gt;Try it for Free&lt;/a&gt;&lt;/p&gt;
+          &lt;p&gt;&lt;a class=&#x27;cta cta--play reveal__trigger cta--secondary cta--light&#x27; href=&#x27;#&#x27; data-reveal-target=&#x27;hero-reveal&#x27; data-reveal-media=&#x27;video&#x27; data-reveal-curtain=&#x27;hero-id&#x27;&gt;See it in action&lt;/a&gt;&lt;/p&gt;&lt;p&gt;  &lt;a href=&#x27;/products/trial&#x27; class=&#x27;link  link--arrow&#x27;&gt;Try it for Free&lt;/a&gt;&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;div class=&quot;reveal__content&quot; id=&quot;video-reveal&quot;&gt;
-    &lt;div class=&quot;content-container&quot;&gt;
-        &lt;div style=&quot;display: block; position: relative; max-width: 100%;&quot;&gt;
-          &lt;div style=&quot;display: block; padding-top: 56%;&quot;&gt;
-            &lt;video data-video-id=&quot;4243191431001&quot; data-account=&quot;3798483592001&quot; data-player=&quot;ad8b15bd-b737-4c9b-a550-53c61ac31107&quot; data-embed=&quot;default&quot; class=&quot;video-js&quot; controls=&quot;&quot; style=&quot;width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;&quot;&gt;&lt;/video&gt;
-            &lt;script src=&quot;//players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js&quot;&gt;&lt;/script&gt;
+    &lt;div class=&quot;reveal__content&quot; id=&quot;hero-reveal&quot;&gt;
+      &lt;div class=&quot;clearfix content-container&quot;&gt;
+          &lt;div style=&quot;display: block; position: relative; max-width: 100%;&quot;&gt;
+            &lt;div style=&quot;display: block; padding-top: 56%;&quot;&gt;
+              &lt;video data-video-id=&quot;4243191431001&quot; data-account=&quot;&quot; data-player=&quot;&quot; data-embed=&quot;&quot; class=&quot;video-js&quot; controls=&quot;&quot; style=&quot;width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;&quot;&gt;&lt;/video&gt;
+              &lt;script src=&quot;//players.brightcove.net//_/index.min.js&quot;&gt;&lt;/script&gt;
+            &lt;/div&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
               </div>
@@ -507,22 +727,26 @@ piece of content.</p>
                     <h6>Default styling</h6>
                   </div>
                 </div>
-                <div class="kss-example-preview">
+                <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
                     <div class="feature-highlight [modifier class]" >
-
   <div class="feature-highlight__image">
-      <img src="build/images/images/gif_player/test.gif" alt="Gif Player Test" />
+      <div class="thumbnail ">
+        <a href="#"  >
+          <img src="https://www.placecage.com/1000/600" alt="" />
+        </a>
+      </div>
   </div>
 
   <div class="feature-highlight__copy">
-      <h3 class="heading-highlight">Get insight fast. It&#x27;s easy.</h3>
+      <h3 class="heading-highlight">Get insight fast. It's easy.</h3>
 
       <p>Use your natural ability to see patterns and trends. Follow your train of thought as you shift between views with drag and drop technology. Get more results with less effort.</p>
 
-        <a href="#"  class="link link--arrow">Start a free trial</a>
+      <a href="#" class="link link--arrow">Start a free trial</a>
   </div>
 </div>
+
 
                   </div>
                 </div>
@@ -534,25 +758,29 @@ piece of content.</p>
                       <p>Image on the left side</p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.feature-highlight--image-left</code></p>
+                      <p><code>feature-highlight--image-left</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
                       <div class="feature-highlight feature-highlight--image-left" >
-
   <div class="feature-highlight__image">
-      <img src="build/images/images/gif_player/test.gif" alt="Gif Player Test" />
+      <div class="thumbnail ">
+        <a href="#"  >
+          <img src="https://www.placecage.com/1000/600" alt="" />
+        </a>
+      </div>
   </div>
 
   <div class="feature-highlight__copy">
-      <h3 class="heading-highlight">Get insight fast. It&#x27;s easy.</h3>
+      <h3 class="heading-highlight">Get insight fast. It's easy.</h3>
 
       <p>Use your natural ability to see patterns and trends. Follow your train of thought as you shift between views with drag and drop technology. Get more results with less effort.</p>
 
-        <a href="#"  class="link link--arrow">Start a free trial</a>
+      <a href="#" class="link link--arrow">Start a free trial</a>
   </div>
 </div>
+
 
                     </div>
                   </div>
@@ -563,25 +791,29 @@ piece of content.</p>
                       <p>Both image and copy take up half of the content width</p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.feature-highlight--half</code></p>
+                      <p><code>feature-highlight--half</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview">
                     <div class="kss-example-preview-wrapper">
                       <div class="feature-highlight feature-highlight--half" >
-
   <div class="feature-highlight__image">
-      <img src="build/images/images/gif_player/test.gif" alt="Gif Player Test" />
+      <div class="thumbnail ">
+        <a href="#"  >
+          <img src="https://www.placecage.com/1000/600" alt="" />
+        </a>
+      </div>
   </div>
 
   <div class="feature-highlight__copy">
-      <h3 class="heading-highlight">Get insight fast. It&#x27;s easy.</h3>
+      <h3 class="heading-highlight">Get insight fast. It's easy.</h3>
 
       <p>Use your natural ability to see patterns and trends. Follow your train of thought as you shift between views with drag and drop technology. Get more results with less effort.</p>
 
-        <a href="#"  class="link link--arrow">Start a free trial</a>
+      <a href="#" class="link link--arrow">Start a free trial</a>
   </div>
 </div>
+
 
                     </div>
                   </div>
@@ -591,108 +823,23 @@ piece of content.</p>
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;feature-highlight [modifier class]&quot; &gt;
-
   &lt;div class=&quot;feature-highlight__image&quot;&gt;
-      &lt;img src=&quot;build/images/images/gif_player/test.gif&quot; alt=&quot;Gif Player Test&quot; /&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;feature-highlight__copy&quot;&gt;
-      &lt;h3 class=&quot;heading-highlight&quot;&gt;Get insight fast. It&amp;#x27;s easy.&lt;/h3&gt;
-
-      &lt;p&gt;Use your natural ability to see patterns and trends. Follow your train of thought as you shift between views with drag and drop technology. Get more results with less effort.&lt;/p&gt;
-
-        &lt;a href=&quot;#&quot;  class=&quot;link link--arrow&quot;&gt;Start a free trial&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-              </div>
-
-            </section>
-            <section id="kssref-compound-feature-highlight--reveal" class="kss-section kss-section--depth-2">
-
-          <div class="kss-style">
-            <h3 class="kss-title kss-title--level-2">
-              <!-- <a class="kss-title__permalink" href="#kssref-compound-feature-highlight--reveal"> -->
-                Feature Highlight with Reveal
-              <!-- </a> -->
-            </h3>
-
-
-            <div class="kss-description">
-              <p>A side-by-side text blurb and image highlighting a feature or important key
-piece of content. Reveals content (e.g. video) when link or image is clicked.</p>
-
-            </div>
-          </div>
-
-            <h4>Example</h4>
-            <div class="kss-examples">
-              <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
-                  <div class="kss-example-preview-wrapper">
-                    <div class="feature-highlight feature-highlight--reveal "  id="feature-highlight-curtain">
-
-  <div class="feature-highlight__image">
-    <div class="thumbnail thumbnail--play">
-      <a href="#" class="reveal__trigger " data-reveal-target="feature-highlight-content-container" data-reveal-media="video" data-reveal-type="false" data-reveal-curtain="feature-highlight-curtain">
-        <img src="http://www.placecage.com/700/400" alt="" />
-      </a>
-    </div>
-  </div>
-
-  <div class="feature-highlight__copy">
-      <h3 class="heading-highlight">Get insight fast. It&#x27;s easy.</h3>
-
-      <p>Use your natural ability to see patterns and trends. Follow your train of thought as you shift between views with drag and drop technology. Get more results with less effort.</p>
-
-      <a href="#" class="link link--arrow reveal__trigger " data-reveal-target="feature-highlight-content-container" data-reveal-media="video" data-reveal-type="false" data-reveal-curtain="feature-highlight-curtain">Start a free trial</a>
-  </div>
-</div>
-
-<div class="reveal__content" id="feature-highlight-content-container">
-    <div style="display: block; position: relative; max-width: 100%;">
-      <div style="display: block; padding-top: 56%;">
-        <video data-video-id="4243191431001" data-account="3798483592001" data-player="ad8b15bd-b737-4c9b-a550-53c61ac31107" data-embed="default" class="video-js" controls="" style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
-        <script src="//players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js"></script>
-      </div>
-    </div>
-</div>
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-              <h4>Markup</h4>
-              <div class="kss-markup">
-                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;feature-highlight feature-highlight--reveal &quot;  id=&quot;feature-highlight-curtain&quot;&gt;
-
-  &lt;div class=&quot;feature-highlight__image&quot;&gt;
-    &lt;div class=&quot;thumbnail thumbnail--play&quot;&gt;
-      &lt;a href=&quot;#&quot; class=&quot;reveal__trigger &quot; data-reveal-target=&quot;feature-highlight-content-container&quot; data-reveal-media=&quot;video&quot; data-reveal-type=&quot;false&quot; data-reveal-curtain=&quot;feature-highlight-curtain&quot;&gt;
-        &lt;img src=&quot;http://www.placecage.com/700/400&quot; alt=&quot;&quot; /&gt;
-      &lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;feature-highlight__copy&quot;&gt;
-      &lt;h3 class=&quot;heading-highlight&quot;&gt;Get insight fast. It&amp;#x27;s easy.&lt;/h3&gt;
-
-      &lt;p&gt;Use your natural ability to see patterns and trends. Follow your train of thought as you shift between views with drag and drop technology. Get more results with less effort.&lt;/p&gt;
-
-      &lt;a href=&quot;#&quot; class=&quot;link link--arrow reveal__trigger &quot; data-reveal-target=&quot;feature-highlight-content-container&quot; data-reveal-media=&quot;video&quot; data-reveal-type=&quot;false&quot; data-reveal-curtain=&quot;feature-highlight-curtain&quot;&gt;Start a free trial&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;reveal__content&quot; id=&quot;feature-highlight-content-container&quot;&gt;
-    &lt;div style=&quot;display: block; position: relative; max-width: 100%;&quot;&gt;
-      &lt;div style=&quot;display: block; padding-top: 56%;&quot;&gt;
-        &lt;video data-video-id=&quot;4243191431001&quot; data-account=&quot;3798483592001&quot; data-player=&quot;ad8b15bd-b737-4c9b-a550-53c61ac31107&quot; data-embed=&quot;default&quot; class=&quot;video-js&quot; controls=&quot;&quot; style=&quot;width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;&quot;&gt;&lt;/video&gt;
-        &lt;script src=&quot;//players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js&quot;&gt;&lt;/script&gt;
+      &lt;div class=&quot;thumbnail &quot;&gt;
+        &lt;a href=&quot;#&quot;  &gt;
+          &lt;img src=&quot;https://www.placecage.com/1000/600&quot; alt=&quot;&quot; /&gt;
+        &lt;/a&gt;
       &lt;/div&gt;
-    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;feature-highlight__copy&quot;&gt;
+      &lt;h3 class=&quot;heading-highlight&quot;&gt;Get insight fast. It&#x27;s easy.&lt;/h3&gt;
+
+      &lt;p&gt;Use your natural ability to see patterns and trends. Follow your train of thought as you shift between views with drag and drop technology. Get more results with less effort.&lt;/p&gt;
+
+      &lt;a href=&quot;#&quot; class=&quot;link link--arrow&quot;&gt;Start a free trial&lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 </code></pre>
               </div>
 
@@ -722,7 +869,7 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
                       <p>Notice message (Default)</p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.messages--notice</code></p>
+                      <p><code>messages--notice</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview">
@@ -740,7 +887,7 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
                       <p>Error message</p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.messages--error</code></p>
+                      <p><code>messages--error</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview">
@@ -758,7 +905,7 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
                       <p>Warning Message</p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.messages--warning</code></p>
+                      <p><code>messages--warning</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview">
@@ -800,14 +947,17 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
             <h4>Example</h4>
             <div class="kss-examples">
               <div class="kss-example kss-example__default">
-                <div class="kss-example-preview">
+                <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
                     <div class="location">
-  <h5 class="location__general">
-    <span class="location__comma">Las Vegas</span>
-    <span class="location__comma">NV</span>
-    <span class="location__comma">US</span>
-  </h5>
+    <h5 class="location__general margin-bottom-none">
+      <span class="location__comma">Las Vegas</span>
+    </h5>
+    <div class="location__general-label">
+        <span class="location__comma">Nevada</span>
+        <span class="location__comma">United States</span>
+    </div>
+
   <img class="location__map-image" src=http://www.placecage.com/150/140 alt="" width="150" height="140">
   <div class="location__address">
       <p><strong>Bellagio</strong></p>
@@ -832,11 +982,14 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;location&quot;&gt;
-  &lt;h5 class=&quot;location__general&quot;&gt;
-    &lt;span class=&quot;location__comma&quot;&gt;Las Vegas&lt;/span&gt;
-    &lt;span class=&quot;location__comma&quot;&gt;NV&lt;/span&gt;
-    &lt;span class=&quot;location__comma&quot;&gt;US&lt;/span&gt;
-  &lt;/h5&gt;
+    &lt;h5 class=&quot;location__general margin-bottom-none&quot;&gt;
+      &lt;span class=&quot;location__comma&quot;&gt;Las Vegas&lt;/span&gt;
+    &lt;/h5&gt;
+    &lt;div class=&quot;location__general-label&quot;&gt;
+        &lt;span class=&quot;location__comma&quot;&gt;Nevada&lt;/span&gt;
+        &lt;span class=&quot;location__comma&quot;&gt;United States&lt;/span&gt;
+    &lt;/div&gt;
+
   &lt;img class=&quot;location__map-image&quot; src=http://www.placecage.com/150/140 alt=&quot;&quot; width=&quot;150&quot; height=&quot;140&quot;&gt;
   &lt;div class=&quot;location__address&quot;&gt;
       &lt;p&gt;&lt;strong&gt;Bellagio&lt;/strong&gt;&lt;/p&gt;
@@ -879,7 +1032,7 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
                     <h6>Default styling</h6>
                   </div>
                 </div>
-                <div class="kss-example-preview">
+                <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
                     <div class="detail-field [modifier class]">
   <span class="detail-field__label">Movies</span>
@@ -906,7 +1059,7 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
                       <p>Secondary &quot;sidebar&quot; field.</p>
                     </div>
                     <div class="kss-example-name">
-                      <p><code>.detail-field--secondary</code></p>
+                      <p><code>detail-field--secondary</code></p>
                     </div>
                   </div>
                   <div class="kss-example-preview">
@@ -969,10 +1122,11 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
   </div>
 
   <!-- SCRIPTS -->
-  <script src="public/kss.js"></script>
-  <script src="public/prettify.js"></script>
+  <script src="public/js/kss.js"></script>
+  <script src="public/js/prettify.js"></script>
   <script>
     prettyPrint();
+    window.styleguideSearchData = {"terms":["Colors template [colors.template]","Text Colors [colors.text]","Background Colors [colors.background]","Message colors [colors.messages]","Button Colors [colors.buttons]","Accent Colors [colors.accent]","Font Families [typography.fonts]","Headings Template [typography.heading-template]","Body Copy [typography.body-copy]","Caption [typography.caption]","Default Headings [typography.headings]","Special Heading Formats [typography.special-headings]","Formatted Text [typography.formatted]","Other Type Treatments [typography.other]","Text Colors [typography.colors]","Code Snippet [typography.code]","Heading Highlight [typography.heading-highlight]","Text Statistic [typography.text-stat]","Primary CTA [buttons-links.cta]","Topic Link [buttons-links.topic-link]","Anchor Link [buttons-links.anchor_link]","Base Text Link [buttons-links.link-base]","Formatted Text Links [buttons-links.link-formatted]","App Links [buttons-links.app-links]","\"Back To\" link [buttons-links.back-to-link]","Eyebrow Badge [labels.eyebrow-badge]","Tag Label [labels.tag]","Split Label [labels.split-label]","Gif Player [images.gif-player]","Image [images.image]","Image base styles [images.image-base]","Thumbnail Image [images.thumbnail]","Formatted Icons [media.icon-formatted]","Icons [media.icons]","Video Chapters Demo [media.video-chapters-demo]","Video Embed iframe [media.video-embed-iframe]","Video Embed in-page [media.video-embed-responsive]","Feature List [lists.feature-list]","Unordered List [lists.standard]","Link List [lists.link]","Tags List [lists.tags]","Table List [lists.table-list]","Teaser List [lists.teaser-list]","1-Up Cross Reference [lists.cross-reference-1]","2-Up Cross Reference [lists.cross-reference-2]","3-Up Cross Reference [lists.cross-reference-3]","Vertical Cross Reference [lists.cross-reference-vertical]","Agenda List [lists.agenda]","Comparison List [lists.comparison-list]","Video Chapters [lists.video-chapters]","Video Playlist [lists.video-playlist]","Video Playlist (Sidebar) [lists.video-playlist-sidebar]","Card Wall [lists.card-wall]","Large Teaser [teasers.large-teaser]","Basic Teaser Item [teasers.teaser-item]","Text Teaser Item [teasers.text_teaser]","Card Teaser [teasers.card]","Summary Teaser [teasers.summary-teaser]","Wide Card Teaser [teasers.card-wide]","Person Teaser [teasers.person-teaser]","Quote Card Teaser [teasers.card-quote]","Summary Card Teaser [teasers.card-summary]","Author Byline Teaser [teasers.author-byline]","Comments [compound.comments]","Quote [compound.quote]","Basic Hero [compound.hero]","Special Hero [compound.special-hero]","Special Hero w/ Fluid Height [compound.special-hero--fluid-height]","Feature Highlight [compound.feature-highlight]","Messages [compound.messages]","Location [compound.location]","Detail Field [compound.detail-field]","Base Form Styles [forms.base]","Datepicker [forms.datepicker]","Flyout Form [forms.flyout-form]","Form Fields [forms.fields]","Form on Dark Backgrounds [forms.fields-dark]","Invalid Form Fields [forms.validation]","Inline form elements [forms.inline]","Confirmation Messages [forms.confirmation]","Content Search [forms.content-search]","Contextual Search [forms.contextual-search]","Fancy Radios [forms.fancy-filters]","Responsive Filters [forms.responsive-filter]","Form icon button [forms.icon-button]","Compact form [forms.form-compact]","Global Navigation [navigation.global]","Hamburger [navigation.hamburger]","Pager [navigation.pager]","Simple Pager [navigation.pager-simple]","Section Navigation [navigation.section-nav]","Subnavigation [navigation.subnav]","Topic Navigation [navigation.topic-nav]","Global Footer [navigation.footer]","Accordion [interactive.accordion]","Reveal Helper [interactive.reveal-helper]","Content Tabs [interactive.tabs]","Content Reveal [interactive.reveal]","Content Flyout [interactive.flyout]","Scroll Reveal [interactive.scroll-reveal]","Tooltip [interactive.tooltip]","Social Share [interactive.social-share]","Search Highlight [interactive.search-highlight]","Progress bar [interactive.progress-bar]","Sticky elements [interactive.sticky]","Global Notification [interactive.global-notification]","Context Switcher [interactive.context-switcher]","Sonar indicator [interactive.sonar-indicator]","Loader [interactive.loader]","Loading overlay [interactive.loading-overlay]","Teaser Slideshow [interactive.teaser-slideshow]","Hero Slideshow [interactive.hero-slideshow]","Full Bleed Slideshow [interactive.fullbleed-slideshow]","Modal Message [interactive.modal-message]","Fadable [interactive.fadable]","Grids [layout.grids]","Gallery Grid [layout.gallery-grid]","Content Section [layout.section]","Content Container [layout.container]","Horizontal Dividers [layout.divider]","Vertical Dividers [layout.divider-vertical]","Vertical Spacer [layout.spacer]","Background Colors [layout.colored]","Background video [layout.bg-video]","Full Height Section [layout.full-height]","Basic Page Layout [layout.basic-page]","Table Grids [layout.table-grids]","Padded box [layout.padded]","Marginless Boxes [layout.marginless-box]","Breakpoints [documentation.breakpoints]","Global Nav Ajax Consumption [documentation.global-nav-ajax]","News Banner [test-components.news-banner]","News Interstitial [test-components.news-interstitial]","Product Links [test-components.product-links]"],"termToURI":{"Colors template [colors.template]":"section-colors.html#kssref-colors-template","Text Colors [colors.text]":"section-colors.html#kssref-colors-text","Background Colors [colors.background]":"section-colors.html#kssref-colors-background","Message colors [colors.messages]":"section-colors.html#kssref-colors-messages","Button Colors [colors.buttons]":"section-colors.html#kssref-colors-buttons","Accent Colors [colors.accent]":"section-colors.html#kssref-colors-accent","Font Families [typography.fonts]":"section-typography.html#kssref-typography-fonts","Headings Template [typography.heading-template]":"section-typography.html#kssref-typography-heading-template","Body Copy [typography.body-copy]":"section-typography.html#kssref-typography-body-copy","Caption [typography.caption]":"section-typography.html#kssref-typography-caption","Default Headings [typography.headings]":"section-typography.html#kssref-typography-headings","Special Heading Formats [typography.special-headings]":"section-typography.html#kssref-typography-special-headings","Formatted Text [typography.formatted]":"section-typography.html#kssref-typography-formatted","Other Type Treatments [typography.other]":"section-typography.html#kssref-typography-other","Text Colors [typography.colors]":"section-typography.html#kssref-typography-colors","Code Snippet [typography.code]":"section-typography.html#kssref-typography-code","Heading Highlight [typography.heading-highlight]":"section-typography.html#kssref-typography-heading-highlight","Text Statistic [typography.text-stat]":"section-typography.html#kssref-typography-text-stat","Primary CTA [buttons-links.cta]":"section-buttons-links.html#kssref-buttons-links-cta","Topic Link [buttons-links.topic-link]":"section-buttons-links.html#kssref-buttons-links-topic-link","Anchor Link [buttons-links.anchor_link]":"section-buttons-links.html#kssref-buttons-links-anchor_link","Base Text Link [buttons-links.link-base]":"section-buttons-links.html#kssref-buttons-links-link-base","Formatted Text Links [buttons-links.link-formatted]":"section-buttons-links.html#kssref-buttons-links-link-formatted","App Links [buttons-links.app-links]":"section-buttons-links.html#kssref-buttons-links-app-links","\"Back To\" link [buttons-links.back-to-link]":"section-buttons-links.html#kssref-buttons-links-back-to-link","Eyebrow Badge [labels.eyebrow-badge]":"section-labels.html#kssref-labels-eyebrow-badge","Tag Label [labels.tag]":"section-labels.html#kssref-labels-tag","Split Label [labels.split-label]":"section-labels.html#kssref-labels-split-label","Gif Player [images.gif-player]":"section-images.html#kssref-images-gif-player","Image [images.image]":"section-images.html#kssref-images-image","Image base styles [images.image-base]":"section-images.html#kssref-images-image-base","Thumbnail Image [images.thumbnail]":"section-images.html#kssref-images-thumbnail","Formatted Icons [media.icon-formatted]":"section-media.html#kssref-media-icon-formatted","Icons [media.icons]":"section-media.html#kssref-media-icons","Video Chapters Demo [media.video-chapters-demo]":"section-media.html#kssref-media-video-chapters-demo","Video Embed iframe [media.video-embed-iframe]":"section-media.html#kssref-media-video-embed-iframe","Video Embed in-page [media.video-embed-responsive]":"section-media.html#kssref-media-video-embed-responsive","Feature List [lists.feature-list]":"section-lists.html#kssref-lists-feature-list","Unordered List [lists.standard]":"section-lists.html#kssref-lists-standard","Link List [lists.link]":"section-lists.html#kssref-lists-link","Tags List [lists.tags]":"section-lists.html#kssref-lists-tags","Table List [lists.table-list]":"section-lists.html#kssref-lists-table-list","Teaser List [lists.teaser-list]":"section-lists.html#kssref-lists-teaser-list","1-Up Cross Reference [lists.cross-reference-1]":"section-lists.html#kssref-lists-cross-reference-1","2-Up Cross Reference [lists.cross-reference-2]":"section-lists.html#kssref-lists-cross-reference-2","3-Up Cross Reference [lists.cross-reference-3]":"section-lists.html#kssref-lists-cross-reference-3","Vertical Cross Reference [lists.cross-reference-vertical]":"section-lists.html#kssref-lists-cross-reference-vertical","Agenda List [lists.agenda]":"section-lists.html#kssref-lists-agenda","Comparison List [lists.comparison-list]":"section-lists.html#kssref-lists-comparison-list","Video Chapters [lists.video-chapters]":"section-lists.html#kssref-lists-video-chapters","Video Playlist [lists.video-playlist]":"section-lists.html#kssref-lists-video-playlist","Video Playlist (Sidebar) [lists.video-playlist-sidebar]":"section-lists.html#kssref-lists-video-playlist-sidebar","Card Wall [lists.card-wall]":"section-lists.html#kssref-lists-card-wall","Large Teaser [teasers.large-teaser]":"section-teasers.html#kssref-teasers-large-teaser","Basic Teaser Item [teasers.teaser-item]":"section-teasers.html#kssref-teasers-teaser-item","Text Teaser Item [teasers.text_teaser]":"section-teasers.html#kssref-teasers-text_teaser","Card Teaser [teasers.card]":"section-teasers.html#kssref-teasers-card","Summary Teaser [teasers.summary-teaser]":"section-teasers.html#kssref-teasers-summary-teaser","Wide Card Teaser [teasers.card-wide]":"section-teasers.html#kssref-teasers-card-wide","Person Teaser [teasers.person-teaser]":"section-teasers.html#kssref-teasers-person-teaser","Quote Card Teaser [teasers.card-quote]":"section-teasers.html#kssref-teasers-card-quote","Summary Card Teaser [teasers.card-summary]":"section-teasers.html#kssref-teasers-card-summary","Author Byline Teaser [teasers.author-byline]":"section-teasers.html#kssref-teasers-author-byline","Comments [compound.comments]":"section-compound.html#kssref-compound-comments","Quote [compound.quote]":"section-compound.html#kssref-compound-quote","Basic Hero [compound.hero]":"section-compound.html#kssref-compound-hero","Special Hero [compound.special-hero]":"section-compound.html#kssref-compound-special-hero","Special Hero w/ Fluid Height [compound.special-hero--fluid-height]":"section-compound.html#kssref-compound-special-hero--fluid-height","Feature Highlight [compound.feature-highlight]":"section-compound.html#kssref-compound-feature-highlight","Messages [compound.messages]":"section-compound.html#kssref-compound-messages","Location [compound.location]":"section-compound.html#kssref-compound-location","Detail Field [compound.detail-field]":"section-compound.html#kssref-compound-detail-field","Base Form Styles [forms.base]":"section-forms.html#kssref-forms-base","Datepicker [forms.datepicker]":"section-forms.html#kssref-forms-datepicker","Flyout Form [forms.flyout-form]":"section-forms.html#kssref-forms-flyout-form","Form Fields [forms.fields]":"section-forms.html#kssref-forms-fields","Form on Dark Backgrounds [forms.fields-dark]":"section-forms.html#kssref-forms-fields-dark","Invalid Form Fields [forms.validation]":"section-forms.html#kssref-forms-validation","Inline form elements [forms.inline]":"section-forms.html#kssref-forms-inline","Confirmation Messages [forms.confirmation]":"section-forms.html#kssref-forms-confirmation","Content Search [forms.content-search]":"section-forms.html#kssref-forms-content-search","Contextual Search [forms.contextual-search]":"section-forms.html#kssref-forms-contextual-search","Fancy Radios [forms.fancy-filters]":"section-forms.html#kssref-forms-fancy-filters","Responsive Filters [forms.responsive-filter]":"section-forms.html#kssref-forms-responsive-filter","Form icon button [forms.icon-button]":"section-forms.html#kssref-forms-icon-button","Compact form [forms.form-compact]":"section-forms.html#kssref-forms-form-compact","Global Navigation [navigation.global]":"section-navigation.html#kssref-navigation-global","Hamburger [navigation.hamburger]":"section-navigation.html#kssref-navigation-hamburger","Pager [navigation.pager]":"section-navigation.html#kssref-navigation-pager","Simple Pager [navigation.pager-simple]":"section-navigation.html#kssref-navigation-pager-simple","Section Navigation [navigation.section-nav]":"section-navigation.html#kssref-navigation-section-nav","Subnavigation [navigation.subnav]":"section-navigation.html#kssref-navigation-subnav","Topic Navigation [navigation.topic-nav]":"section-navigation.html#kssref-navigation-topic-nav","Global Footer [navigation.footer]":"section-navigation.html#kssref-navigation-footer","Accordion [interactive.accordion]":"section-interactive.html#kssref-interactive-accordion","Reveal Helper [interactive.reveal-helper]":"section-interactive.html#kssref-interactive-reveal-helper","Content Tabs [interactive.tabs]":"section-interactive.html#kssref-interactive-tabs","Content Reveal [interactive.reveal]":"section-interactive.html#kssref-interactive-reveal","Content Flyout [interactive.flyout]":"section-interactive.html#kssref-interactive-flyout","Scroll Reveal [interactive.scroll-reveal]":"section-interactive.html#kssref-interactive-scroll-reveal","Tooltip [interactive.tooltip]":"section-interactive.html#kssref-interactive-tooltip","Social Share [interactive.social-share]":"section-interactive.html#kssref-interactive-social-share","Search Highlight [interactive.search-highlight]":"section-interactive.html#kssref-interactive-search-highlight","Progress bar [interactive.progress-bar]":"section-interactive.html#kssref-interactive-progress-bar","Sticky elements [interactive.sticky]":"section-interactive.html#kssref-interactive-sticky","Global Notification [interactive.global-notification]":"section-interactive.html#kssref-interactive-global-notification","Context Switcher [interactive.context-switcher]":"section-interactive.html#kssref-interactive-context-switcher","Sonar indicator [interactive.sonar-indicator]":"section-interactive.html#kssref-interactive-sonar-indicator","Loader [interactive.loader]":"section-interactive.html#kssref-interactive-loader","Loading overlay [interactive.loading-overlay]":"section-interactive.html#kssref-interactive-loading-overlay","Teaser Slideshow [interactive.teaser-slideshow]":"section-interactive.html#kssref-interactive-teaser-slideshow","Hero Slideshow [interactive.hero-slideshow]":"section-interactive.html#kssref-interactive-hero-slideshow","Full Bleed Slideshow [interactive.fullbleed-slideshow]":"section-interactive.html#kssref-interactive-fullbleed-slideshow","Modal Message [interactive.modal-message]":"section-interactive.html#kssref-interactive-modal-message","Fadable [interactive.fadable]":"section-interactive.html#kssref-interactive-fadable","Grids [layout.grids]":"section-layout.html#kssref-layout-grids","Gallery Grid [layout.gallery-grid]":"section-layout.html#kssref-layout-gallery-grid","Content Section [layout.section]":"section-layout.html#kssref-layout-section","Content Container [layout.container]":"section-layout.html#kssref-layout-container","Horizontal Dividers [layout.divider]":"section-layout.html#kssref-layout-divider","Vertical Dividers [layout.divider-vertical]":"section-layout.html#kssref-layout-divider-vertical","Vertical Spacer [layout.spacer]":"section-layout.html#kssref-layout-spacer","Background Colors [layout.colored]":"section-layout.html#kssref-layout-colored","Background video [layout.bg-video]":"section-layout.html#kssref-layout-bg-video","Full Height Section [layout.full-height]":"section-layout.html#kssref-layout-full-height","Basic Page Layout [layout.basic-page]":"section-layout.html#kssref-layout-basic-page","Table Grids [layout.table-grids]":"section-layout.html#kssref-layout-table-grids","Padded box [layout.padded]":"section-layout.html#kssref-layout-padded","Marginless Boxes [layout.marginless-box]":"section-layout.html#kssref-layout-marginless-box","Breakpoints [documentation.breakpoints]":"section-documentation.html#kssref-documentation-breakpoints","Global Nav Ajax Consumption [documentation.global-nav-ajax]":"section-documentation.html#kssref-documentation-global-nav-ajax","News Banner [test-components.news-banner]":"section-test-components.html#kssref-test-components-news-banner","News Interstitial [test-components.news-interstitial]":"section-test-components.html#kssref-test-components-news-interstitial","Product Links [test-components.product-links]":"section-test-components.html#kssref-test-components-product-links"}};
   </script>
   <script src="https://players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js"></script>
 <script src="build/vendor/jquery/dist/jquery.min.js"></script>
@@ -981,7 +1135,9 @@ piece of content. Reveals content (e.g. video) when link or image is clicked.</p
 <script src="build/js/scripts.js"></script>
 <script src="build/js/styleguide.js"></script>
 <script src="//localhost:1234/livereload.js"></script>
-<script src="public/focus.js"></script>
+<script src="public/js/focus.js"></script>
+<script src="public/js/typeahead.jquery.min.js"></script>
+<script src="public/js/search.js"></script>
 
   <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
 </body>

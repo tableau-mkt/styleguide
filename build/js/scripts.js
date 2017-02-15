@@ -67,7 +67,7 @@ Components.utils.breakpoints = {
  * @param  {boolean} onlyUp         - Whether scroll should only happen if the scroll direction is up
  */
 Components.utils.smoothScrollTop = function ($element, duration, offset, onlyUp) {
-  duration = duration || 500;
+  duration = typeof duration === "number" ? duration : 500;
   offset = offset || 0;
   onlyUp = onlyUp || false;
 
@@ -234,19 +234,40 @@ Components.utils.animationDuration = function (distance, speed) {
 
     // Do it now.
     this.init();
+
+    // Fly out content automatically if there's a matching hash in the URL.
+    this.autoReveal();
   }
 
-  // Show the target content
-  Plugin.prototype.showContent = function(trigger) {
+  /**
+   * Show the target content based on the specified $trigger
+   *
+   * @param {jQuery Object} $trigger - The trigger link corresponding to the
+   * content to be displayed
+   * @param {Object} settings - Additional options to override defaults including:
+   *          {Object} animation - overrides to the default animation settings
+   *          {Boolean} scroll - Whether or not to scroll to the conent
+   *          {Boolean} scrollDown - Whether or not clicking this trigger should
+   *            scroll down to the top of the flyout content container.
+   */
+  Plugin.prototype.showContent = function(trigger, settings) {
     var data = $(trigger).length ? $(trigger).data() : {},
         $target = data.flyoutTarget ? $('#' + data.flyoutTarget) : this.element,
         $parent = $target.offsetParent(),
         $slideout = $parent.find(this.options.slideout),
+        href = $(trigger).length ? $(trigger).attr('href') : '',
         parentPadding = $parent.outerHeight() - $parent.height(),
-        offset = $('.sticky-wrapper .stuck').outerHeight(true),
-        scrollDown = data.flyoutScrollDown,
+        offset = $('.sticky-wrapper').outerHeight(true),
         distance = Math.round($target.outerWidth() / $parent.width() * 100),
-        $moving;
+        $moving,
+        defaultSettings = {
+          scroll: this.options.scroll,
+          scrollDown: data.flyoutScrollDown,
+          animation: this.options.animation
+        };
+
+    // Merge settings with defaults.
+    settings = $.extend({}, defaultSettings, settings);
 
     $target.data('flyoutState', 'open');
 
@@ -254,7 +275,7 @@ Components.utils.animationDuration = function (distance, speed) {
     if (!$parent.is('body, html')) {
       $parent.animate({
         height: $target.outerHeight(true) - parentPadding,
-      }, this.options.animation);
+      }, settings.animation);
     }
 
     if (this.options.stayOnTop) {
@@ -267,12 +288,17 @@ Components.utils.animationDuration = function (distance, speed) {
     // @TODO investigate rewriting this using just classes and CSS transitions.
     $moving.animate({
       marginLeft: '-=' + distance + '%',
-    }, this.options.animation);
+    }, settings.animation);
 
     $target.add($slideout).addClass('is-open');
 
-    if (this.options.scroll) {
-      Components.utils.smoothScrollTop($parent, this.options.animation.duration, offset, !scrollDown);
+    if (settings.scroll) {
+      Components.utils.smoothScrollTop($parent, settings.animation.duration, offset, !settings.scrollDown);
+    }
+
+    // Push the current state to the URL
+    if ((href.indexOf('#') === 0) && (href.length > 1) && (history.replaceState)) {
+      history.replaceState(undefined, undefined, href);
     }
   };
 
@@ -314,6 +340,39 @@ Components.utils.animationDuration = function (distance, speed) {
     setTimeout(function() {
       $parent.css('height', 'inherit');
     }, this.options.animation.duration + 1);
+
+    // Remove the current state from the URL
+    if ((window.location.hash.indexOf('#') === 0) && (history.replaceState)) {
+      history.replaceState(undefined, undefined, window.location.pathname);
+    }
+  };
+
+  // Automatically reveal content when the ID of the container is in the URL
+  // hash.
+  Plugin.prototype.autoReveal = function() {
+    var hash = window.location.hash,
+        $trigger;
+
+    // Avoid colliding with flyout form behavior.
+    if (hash === "#form") {
+      return;
+    }
+
+    // If the hash exists (e.g. #something) and it matches using jQuery selection.
+    if (hash.length > 1 && this.element.is(hash)) {
+      $trigger = $(hash).data('flyoutTrigger');
+
+      // Prevent scrolling to the anchor...
+      setTimeout(function() {
+        window.scrollTo(0, 0);
+      }, 1);
+
+      this.showContent($trigger, {
+        animation: {duration: 0},
+        scroll: true,
+        scrollDown: true
+      });
+    }
   };
 
   // Hand-full of setup tasks
@@ -323,12 +382,19 @@ Components.utils.animationDuration = function (distance, speed) {
 
     // Link content back to it's corresponding trigger
     _this.options.triggers.each(function(index, el) {
-      var $target = $('#' + $(this).data('flyoutTarget'));
+      var $trigger = $(this),
+          targetId = $trigger.data('flyoutTarget'),
+          $target = $('#' + targetId);
 
       // Only pay attention if the target is the correct one.
       if (_this.element.is($target)) {
-        $triggers = $triggers.add($(this));
-        $target.data('flyoutTrigger', $(this));
+        $triggers = $triggers.add($trigger);
+        $target.data('flyoutTrigger', $trigger);
+
+        // Set the trigger link's href if it isn't already set, excluding "#".
+        if ($trigger.attr('href').length <= 1) {
+          $trigger.attr('href', '#' + targetId);
+        }
       }
     });
 
@@ -402,161 +468,227 @@ Components.utils.animationDuration = function (distance, speed) {
  * element as the toggle to expand and collapse the content region.
  *
  * Options:
- *   triggers - Required - [jQuery Ojbect] - element(s) to be used as a trigger
- *   contents - Optional - [jQuery Object] - element(s) to use as content wrapper
- *   closeLink - Optional - [boolean] - whether a close link should be added
- *   animation - Optional - [object] - animation settings for expanding/collapsing
+ *    triggers - Required - [jQuery Object] - element(s) to be used as a trigger
+ *    contents - Optional - [jQuery Object] - element(s) to use as content wrapper
+ *    closeLink - Optional - [boolean] - whether a close link should be added
+ *    animation - Optional - [object] - animation settings for expanding/collapsing
  *
  * Usage:
- *  $('.contents-wrapper-selector').contentReveal({
- *    triggers: $('.triggers-selector')
- *  });
+ *    $('.content-wrapper').contentReveal({
+ *      triggers: $('.triggers-selector')
+ *    });
  *
- * @TODO: Can still use some cleanup and work to be a more agnostic plugin
+ * Available Methods:
+ *    showContent - Trigger a particular reveal content wrapper to show
+ *        Ex. $('.content-wrapper')[0].contentReveal.showContent();
+ *    hideContent - Trigger a particular reveal content wrapper to hide
+ *        Ex. $('.content-wrapper')[0].contentReveal.hideContent();
  */
 
 (function ($) {
-  $.fn.contentReveal = function(options) {
-    // Default settings
-    var settings = $.extend({
-      contents: $(this),
-      closeLink: true,
-      animation: {
-        duration: 1000,
-        easing: "easeInOutQuart"
+
+  // Set plugin method name and defaults
+  var pluginName = 'contentReveal',
+      defaults = {
+        animation: {
+          duration: 1000,
+          easing: "easeInOutQuart"
+        },
+        closeLink: true
+      };
+
+  // plugin constructor
+  function Plugin (element, options) {
+    // Set up internals for tracking, just in case.
+    this._name = pluginName;
+    this._defaults = defaults;
+    this.element = $(element);
+
+    // Use the init options.
+    this.options = $.extend({}, defaults, options);
+
+    // Do setup stuff.
+    this.init();
+
+    // Reveal content automatically if there's a matching hash in the URL.
+    this.autoReveal();
+  }
+
+  /**
+   * Reveal content based ont he passed in trigger link.
+   *
+   * @param {jQuery Object} $trigger - The link corresponding to the content to display
+   * @param {Object} settings - Additional options to override defaults including:
+   *          {Object} animation - overrides to the default animation settings
+   *          {String} scrollBehavior - how scrolling should be handled
+   *          {String} hideText - Text to swap into the trigger link while the
+   *            reveal is in the open state
+   *          {String} media - Type of media in the content container if special
+   *            handling is needed
+   *          {Boolean} expandToggle - Whether the trigger link has an expand icon
+   */
+  Plugin.prototype.showContent = function(trigger, settings) {
+    var $trigger = $(trigger).length ? $(trigger) : this.element.data('reveal-trigger'),
+        href = $trigger.attr('href'),
+        data = $trigger.data(),
+        $target = $('#' + data.revealTarget),
+        $curtain = $('#' + data.revealCurtain),
+        scrollOffset = $('.sticky-wrapper .stuck').outerHeight(true),
+        defaultSettings = {
+          animation: this.options.animation,
+          scrollBehavior: data.revealScroll,
+          hideText: data.revealHideText,
+          media: data.revealMedia,
+          expandToggle: data.revealExpandToggle
+        },
+        $scrollTarget,
+        videoObj,
+        player;
+
+    // Merge settings with defaults.
+    settings = $.extend({}, defaultSettings, settings);
+
+    $target.add($trigger).data('revealState', 'open').addClass('is-open');
+    if (settings.hideText) {
+      $trigger.text(settings.hideText);
+    }
+
+    // Swap content.
+    // NOTE: Video players break via display:none, thus custom function.
+    $curtain.slideHeight('up', settings.animation);
+    $target.slideHeight('down', settings.animation);
+
+    if (settings.media === 'video') {
+      videoObj = $target.find('.video-js')[0];
+      player = videojs(videoObj);
+
+      setTimeout(function() {
+        // Ensure player is ready before calling .play()
+        player.ready(function () {
+          player.play();
+        });
+      }, settings.animation.duration / 2);
+    }
+
+    // Scroll when reveal is clicked open.
+    if (settings.scrollBehavior) {
+      switch (settings.scrollBehavior) {
+        case 'trigger':
+          $scrollTarget = $trigger;
+          break;
+        case 'target':
+          $scrollTarget = $target;
+          break;
+        default:
+          $scrollTarget = $('#' + settings.scrollBehavior);
+          break;
       }
-    }, options);
+      Components.utils.smoothScrollTop($scrollTarget, settings.animation.duration, scrollOffset, false);
+    }
+    else if ($curtain.length) {
+      // Use curtain for scroll.
+      Components.utils.smoothScrollTop($curtain, settings.animation.duration, scrollOffset, true);
+    }
 
-    if (settings.triggers) {
-      // Run setup
-      setup();
+    // Special expand icon handling
+    if (settings.expandToggle) {
+      $trigger.addClass('link--collapse').removeClass('link--expand');
+    }
 
-      settings.triggers.on('click.reveal', function(e) {
-        var state = $(this).data('revealState');
+    // Push the current state to the URL
+    if ((href.indexOf('#') === 0) && (href.length > 1) && (history.replaceState)) {
+      history.replaceState(undefined, undefined, href);
+    }
+  };
 
-        if (state == 'closed') {
-          showContent(this);
-        } else if (state == 'open') {
-          hideContent(this);
-        }
-        e.preventDefault();
+  // Hide the target content
+  Plugin.prototype.hideContent = function(trigger) {
+    var $trigger = $(trigger).length ? $(trigger) : this.element.data('reveal-trigger'),
+        data = $trigger.data(),
+        $target = $('#' + data.revealTarget),
+        $curtain = $('#' + data.revealCurtain),
+        showText = data.revealShowText,
+        media = data.revealMedia,
+        expandToggle = data.revealExpandToggle,
+        player;
+
+    $target.add($trigger).data('revealState', 'closed').removeClass('is-open');
+
+    if (typeof showText !== 'undefined') {
+      $trigger.text(showText);
+    }
+
+    // Swap content.
+    $target.slideHeight('up', this.options.animation);
+    $curtain.slideHeight('down', this.options.animation);
+
+    if (media === 'video') {
+      player = videojs($target.find('.video-js')[0]);
+      player.pause();
+    }
+
+    // Special expand icon handling
+    if (expandToggle) {
+      $trigger.addClass('link--expand').removeClass('link--collapse');
+    }
+
+    // Remove the current state from the URL
+    if ((window.location.hash.indexOf('#') === 0) && (history.replaceState)) {
+      history.replaceState(undefined, undefined, window.location.pathname);
+    }
+  };
+
+  // Automatically reveal content when the ID of the container is in the URL
+  // hash.
+  Plugin.prototype.autoReveal = function() {
+    var hash = window.location.hash,
+        $trigger;
+
+    // If the hash exists (e.g. #something) and it matches using jQuery selection.
+    if (hash.length > 1 && this.element.is(hash)) {
+      $trigger = $(hash).data('revealTrigger');
+
+      this.showContent($trigger, {
+        animation: {duration:0},
+        scrollBehavior : "target"
       });
-
-      $('.reveal__close').on('click.reveal', function(e) {
-        hideContent($(this).parent('.reveal__content').data('revealTrigger'));
-        e.preventDefault();
-      });
-
-      // Trigger auto-reveal
-      autoReveal();
     }
+  };
 
-    // Show the target content
-    function showContent(trigger, customAnimation) {
-      var data = $(trigger).data(),
-          $trigger = $(trigger),
-          $target = $('#' + data.revealTarget),
-          $curtain = $('#' + data.revealCurtain),
-          hideText = data.revealHideText,
-          type = data.revealType,
-          media = data.revealMedia,
-          scrollBehavior = data.revealScroll,
-          $scrollTarget,
-          scrollOffset = $('.sticky-wrapper .stuck').outerHeight(true),
-          expandToggle = data.revealExpandToggle;
+  // Hand-full of setup tasks
+  Plugin.prototype.init = function () {
+    var _this = this,
+        $triggers = $();
 
-      customAnimation = customAnimation || settings.animation;
+    // Link content back to its corresponding trigger
+    _this.options.triggers.each(function() {
+      var $trigger = $(this),
+          targetId = $trigger.data('revealTarget'),
+          $target = $('#' + targetId);
 
-      $trigger.data('revealState', 'open').addClass('is-open');
-      if (hideText !== "") {
-        $trigger.text(hideText);
-      }
+      // Only pay attention if the target is the correct one.
+      if (_this.element.is($target)) {
+        $triggers = $triggers.add($trigger);
+        $target.data('revealTrigger', $trigger);
+        $target.data('revealState', 'closed');
 
-      // Swap content.
-      // NOTE: Video players break via display:none, thus custom function.
-      $curtain.slideHeight('up', customAnimation);
-      $target.slideHeight('down', customAnimation);
-
-      if (media == "video") {
-        var videoObj = $target.find('.video-js')[0],
-            player = videojs(videoObj);
-
-        setTimeout(function() {
-          // Ensure player is ready before calling .play()
-          player.ready(function () {
-            player.play();
-          });
-        }, customAnimation.duration / 2);
-      }
-
-      // Scroll when reveal is clicked open.
-      if (scrollBehavior) {
-        switch (scrollBehavior) {
-          case 'trigger':
-            $scrollTarget = $trigger;
-            break;
-          case 'target':
-            $scrollTarget = $target;
-            break;
-          default:
-            $scrollTarget = $('#' + scrollBehavior);
-            break;
+        // Set the trigger link's href if it isn't already set, excluding "#".
+        if ($trigger.attr('href').length <= 1) {
+          $trigger.attr('href', '#' + targetId);
         }
-        Components.utils.smoothScrollTop($scrollTarget, customAnimation.duration, scrollOffset, false);
       }
-      else if ($curtain.length) {
-        // Use curtain for scroll.
-        Components.utils.smoothScrollTop($curtain, customAnimation.duration, scrollOffset, true);
-      }
+    });
 
-      // Special expand icon handling
-      if (expandToggle) {
-        $trigger.addClass('link--collapse').removeClass('link--expand');
-      }
-    }
-
-    // Hide the target content
-    function hideContent(trigger) {
-      var $trigger = $(trigger),
-          data = $trigger.data(),
-          $target = $('#' + data.revealTarget),
-          $curtain = $('#' + data.revealCurtain),
-          showText = data.revealShowText,
-          media = data.revealMedia,
-          expandToggle = data.revealExpandToggle;
-
-      $trigger.data('revealState', 'closed').removeClass('is-open');
-
-      if (typeof showText !== 'undefined') {
-        $trigger.text(showText);
-      }
-
-      // Swap content.
-      $target.slideHeight('up', settings.animation);
-      $curtain.slideHeight('down', settings.animation);
-
-      if (media == "video") {
-        var player = videojs($target.find('.video-js')[0]);
-        player.pause();
-      }
-
-      // Special expand icon handling
-      if (expandToggle) {
-        $trigger.addClass('link--expand').removeClass('link--collapse');
-      }
-    }
-
-    // Hand-full of setup tasks
-    function setup() {
+    if ($triggers.length && _this.element.length) {
       // Add reveal-state data
-      settings.triggers.data('revealState', 'closed');
+      _this.element.data('revealState', 'closed');
 
       // Add a close icon to each content continer
-      if (settings.closeLink) {
-        settings.contents.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window-style2"></i></a>'));
+      if (_this.options.closeLink) {
+        _this.element.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window-style2"></i></a>'));
       }
 
-      settings.triggers.each(function(index, el) {
+      $triggers.each(function() {
         var $trigger = $(this),
             $target = $('#' + $trigger.data('revealTarget')),
             showText = $trigger.text();
@@ -571,46 +703,51 @@ Components.utils.animationDuration = function (distance, speed) {
 
         // Save original trigger text
         if (typeof $trigger.data('revealHideText') !== 'undefined') {
-          settings.triggers.data('revealShowText', showText);
+          $triggers.data('revealShowText', showText);
         }
 
         // Remove close link if the data attribute is set to false.
-        if (settings.closeLink && $trigger.data('revealCloseLink') === false) {
+        if (_this.options.closeLink && $trigger.data('revealCloseLink') === false) {
           $target.find('.reveal__close').remove();
         }
       });
 
-      // // Set initial margin on content if there is a curtain
-      // // @TODO this is for naimating the reveal as if the content is
-      // // stationary and the elements above and below are revealing it.
-      // // Currently, the content moves up as the curtain slides up.
-      // settings.contents.each(function(index, el) {
-      //   var data = $($(this).data('revealTrigger')).data(),
-      //       $curtain = $("#" + data.revealCurtain);
+      $triggers.on('click.reveal', function(e) {
+        var state = _this.element.data('revealState');
 
-      //   if ($curtain.length) {
-      //     $(this).css('margin-top', -$curtain.outerHeight(true));
-      //   }
-      // });
+        if (state === 'closed') {
+          _this.showContent(this);
+        } else if (state == 'open') {
+          _this.hideContent(this);
+        }
+        e.preventDefault();
+      });
+
+      $('.reveal__close').on('click.reveal', function(e) {
+        var $parent = $(this).closest(_this.element),
+            state = $parent.data('revealState');
+
+        // Double-check that the flyout is open and it's the correct flyout.
+        if (_this.element.is($parent) && state === 'open') {
+          _this.hideContent($parent.data('revealTrigger'));
+        }
+        e.preventDefault();
+      });
     }
+  };
 
-    function autoReveal() {
-      var hash = window.location.hash;
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[pluginName] = function (options) {
+    return this.each(function initPlugin() {
+      var plugin = new Plugin(this, options);
+      // Allow the plugin to be instantiated more than once. Event handlers
+      // will be re-bound to avoid issues.
+      $.data(this, 'plugin_' + pluginName, plugin);
 
-      // If the hash exists (e.g. #something) and it matches using jQuery selection.
-      if (hash.length > 1 && settings.contents.is(hash)) {
-        var $trigger = $(hash).data('revealTrigger');
-
-        // Prevent scrolling to the anchor...
-        setTimeout(function() {
-          window.scrollTo(0, 0);
-        }, 1);
-
-        showContent($trigger, {duration: 0});
-      }
-    }
-
-    return this;
+      // Expose the plugin so methods can be called externally
+      //   Ex. $(element).contentReveal.showContent();
+      this.contentReveal = plugin;
+    });
   };
 })(jQuery);
 ;
@@ -776,131 +913,127 @@ Components.utils.animationDuration = function (distance, speed) {
  * });
  */
 (function ($) {
-  $(document).ready(function () {
+  // Set plugin method name and defaults
+  var pluginName = 'floatLabel',
+      defaults = {
+        // In case you want to preserve labels as visible for no js, or old
+        // IE users.
+        wrapperInitClass: 'has-float-label',
+        // For a custom label selector, if you have multiple labels, for some
+        // reason.
+        labelSelector: false,
+        // Class given to label when its field has a non-null value. Toggled
+        // when the value is empty / falsy.
+        activeClass: 'is-active',
+        // Class given to input when it has an empty value.
+        emptyClass: 'is-empty',
+        // Class given to label when its field is focused. Toggled when it
+        // loses focus.
+        focusClass: 'has-focus',
+        // Class for lack of proper placeholder support.
+        badSupportClass: 'is-msie'
+      },
+      // Detect misbehaved user agents.
+      hasBadPlaceholderSupport = Boolean(window.navigator.userAgent.match(/(MSIE |Trident\/)/));
 
-    // Set plugin method name and defaults
-    var pluginName = 'floatLabel',
-        defaults = {
-          // In case you want to preserve labels as visible for no js, or old
-          // IE users.
-          wrapperInitClass: 'has-float-label',
-          // For a custom label selector, if you have multiple labels, for some
-          // reason.
-          labelSelector: false,
-          // Class given to label when its field has a non-null value. Toggled
-          // when the value is empty / falsy.
-          activeClass: 'is-active',
-          // Class given to input when it has an empty value.
-          emptyClass: 'is-empty',
-          // Class given to label when its field is focused. Toggled when it
-          // loses focus.
-          focusClass: 'has-focus',
-          // Class for lack of proper placeholder support.
-          badSupportClass: 'is-msie'
-        },
-        // Detect misbehaved user agents.
-        hasBadPlaceholderSupport = Boolean(window.navigator.userAgent.match(/(MSIE |Trident\/)/));
+  // plugin constructor
+  function Plugin (element, options) {
+    var $element = $(element);
 
-    // plugin constructor
-    function Plugin (element, options) {
-      var $element = $(element);
+    // Set up internals for tracking, just in case.
+    this._name = pluginName;
+    this._defaults = defaults;
+    this._element = $element;
 
-      // Set up internals for tracking, just in case.
-      this._name = pluginName;
-      this._defaults = defaults;
-      this._element = $element;
+    // Use the init options.
+    this.options = $.extend(true, defaults, options);
 
-      // Use the init options.
-      this.options = $.extend(true, defaults, options);
+    // Set up a couple of internals to keep track of input and label.
+    this._wrapper = $element;
+    this._input = this._findInput($element);
+    this._label = this._findLabel($element);
 
-      // Set up a couple of internals to keep track of input and label.
-      this._wrapper = $element;
-      this._input = this._findInput($element);
-      this._label = this._findLabel($element);
+    // Do it now.
+    this.init();
+  }
 
-      // Do it now.
-      this.init();
+  // Utility: find a input that we want to alter the label for.
+  Plugin.prototype._findInput = function($el) {
+    var $textInputs = $el.find('input, textarea').not('[type="checkbox"], [type="radio"]');
+    // The regular text input types.
+    if ($textInputs.length) {
+      return $textInputs;
+    }
+    // Try for select elements.
+    else {
+      return $el.find('select');
+    }
+  };
+
+  // Utility: find a label in the field wrapper element.
+  Plugin.prototype._findLabel = function(el) {
+    // If a custom selector is provided
+    if (this.options.labelSelector) {
+      return $(el).find(this.options.labelSelector);
     }
 
-    // Utility: find a input that we want to alter the label for.
-    Plugin.prototype._findInput = function($el) {
-      var $textInputs = $el.find('input, textarea').not('[type="checkbox"], [type="radio"]');
-      // The regular text input types.
-      if ($textInputs.length) {
-        return $textInputs;
-      }
-      // Try for select elements.
-      else {
-        return $el.find('select');
-      }
-    };
+    // Just try a label element.
+    return $(el).find('label');
+  };
 
-    // Utility: find a label in the field wrapper element.
-    Plugin.prototype._findLabel = function(el) {
-      // If a custom selector is provided
-      if (this.options.labelSelector) {
-        return $(el).find(this.options.labelSelector);
-      }
+  Plugin.prototype._checkValue = function () {
+    var isEmpty = this._input.val() === '' || this._input.val() === '_none';
 
-      // Just try a label element.
-      return $(el).find('label');
-    };
+    // Apply the correct classes based on value emptiness.
+    this._input.toggleClass(this.options.emptyClass, isEmpty);
+    this._label.toggleClass(this.options.activeClass, !isEmpty);
 
-    Plugin.prototype._checkValue = function () {
-      var isEmpty = this._input.val() === '' || this._input.val() === '_none';
+    // Apply the bad placeholder support classes if needed.
+    this._label.add(this._input)
+      .toggleClass(this.options.badSupportClass, hasBadPlaceholderSupport);
+  };
 
-      // Apply the correct classes based on value emptiness.
-      this._input.toggleClass(this.options.emptyClass, isEmpty);
-      this._label.toggleClass(this.options.activeClass, !isEmpty);
+  Plugin.prototype._onKeyUp = function () {
+    this._checkValue();
+  };
 
-      // Apply the bad placeholder support classes if needed.
-      this._label.add(this._input)
-        .toggleClass(this.options.badSupportClass, hasBadPlaceholderSupport);
-    };
+  Plugin.prototype._onFocus = function () {
+    this._label.addClass(this.options.focusClass);
+    this._onKeyUp();
+  };
 
-    Plugin.prototype._onKeyUp = function () {
-      this._checkValue();
-    };
+  Plugin.prototype._onBlur = function () {
+    this._label.removeClass(this.options.focusClass);
+    this._onKeyUp();
+  };
 
-    Plugin.prototype._onFocus = function () {
-      this._label.addClass(this.options.focusClass);
-      this._onKeyUp();
-    };
+  Plugin.prototype.init = function () {
+    // Mark the element as having been init'ed.
+    this._element.addClass(this.options.wrapperInitClass);
 
-    Plugin.prototype._onBlur = function () {
-      this._label.removeClass(this.options.focusClass);
-      this._onKeyUp();
-    };
+    // Check value for initial active class.
+    this._checkValue();
 
-    Plugin.prototype.init = function () {
-      // Mark the element as having been init'ed.
-      this._element.addClass(this.options.wrapperInitClass);
+    // Event bindings to the input element with floatLabels namespace.
+    this._input
+      .off('keyup.floatLabels change.floatLabels')
+      .on('keyup.floatLabels change.floatLabels', $.proxy(this._onKeyUp, this));
+    this._input
+      .off('blur.floatLabels')
+      .on('blur.floatLabels', $.proxy(this._onBlur, this));
+    this._input
+      .off('focus.floatLabels')
+      .on('focus.floatLabels', $.proxy(this._onFocus, this));
+  };
 
-      // Check value for initial active class.
-      this._checkValue();
-
-      // Event bindings to the input element with floatLabels namespace.
-      this._input
-        .off('keyup.floatLabels change.floatLabels')
-        .on('keyup.floatLabels change.floatLabels', $.proxy(this._onKeyUp, this));
-      this._input
-        .off('blur.floatLabels')
-        .on('blur.floatLabels', $.proxy(this._onBlur, this));
-      this._input
-        .off('focus.floatLabels')
-        .on('focus.floatLabels', $.proxy(this._onFocus, this));
-    };
-
-    // Lightweight constructor, preventing against multiple instantiations
-    $.fn[pluginName] = function (options) {
-      return this.each(function initPlugin() {
-        // Allow the plugin to be instantiated more than once. Event handlers
-        // will be re-bound to avoid issues.
-        $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
-      });
-    };
-
-  });
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[pluginName] = function (options) {
+    return this.each(function initPlugin() {
+      // Allow the plugin to be instantiated more than once. Event handlers
+      // will be re-bound to avoid issues.
+      $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+    });
+  };
 })(jQuery);
 ;
 /**
@@ -921,9 +1054,6 @@ Components.utils.animationDuration = function (distance, speed) {
 
     options = options || {duration: 400, easing: "swing"};
 
-    // Enforce height zero.
-    $el.css('overflow', 'hidden');
-
     if (direction === "down") {
       var $elClone = $el.clone().css({"height":"auto"}).appendTo($el.parent()),
           elHeight = $elClone.outerHeight(true);
@@ -938,12 +1068,19 @@ Components.utils.animationDuration = function (distance, speed) {
         options.easing,
         function () {
           // Reset the height to auto to ensure the height remains accurate on viewport resizing
-          $el.css('height', 'auto');
+          $el.css({
+            height: 'auto',
+            overflow: 'inherit'
+          });
         }
       );
     }
 
     if (direction === "up") {
+
+      // Enforce height zero.
+      $el.css('overflow', 'hidden');
+
       $el.animate({
         height: 0
       }, options);
@@ -961,114 +1098,248 @@ Components.utils.animationDuration = function (distance, speed) {
  * tabs are clicked.
  *
  * Options:
+ *   tabLinks - Required - [jQuery Object] - element(s) to be used as a trigger
  *   contents - Required - [jQuery Object] - element(s) to use as content wrapper
- *   tabLinks - Optional - [jQuery Ojbect] - element(s) to be used as a trigger
- *   wrapper  - Optional - [jQuery Object] - Wrapping element around contents
- *     and tabLinks. This defaults to .tabs__wrapper, but may be overidden for
- *     specific cases.
  *   triggers - Optional - [jQuery Object] - additional elements (other than tabs)
  *     used for triggering the display of specific tabs
  *   animation - Optional - [object] - animation settings for expanding/collapsing
  *
  * Usage:
- *   $('.tab-links-selector').tabs({
+ *   $('.tabs-wrapper-selector').tabs({
+ *     tabLinks: $('.tab-links-selector'),
  *     contents: $('.tab-contents-wrapper-selector'),
  *     triggers: $('.tab-triggers-selector')
  *   });
- *
- * @TODO: Can still use some cleanup and work to be a more agnostic plugin
  */
 
-(function ( $ ) {
-  $.fn.tabs = function(options) {
-    // Default settings
-    var settings = $.extend(true, {
-      tabLinks: $(this),
-      wrapper: $('.tabs__wrapper'),
-      animation: {
-        duration: 1000,
-        easing: "easeInOutQuart"
+(function ($) {
+
+  // Set plugin method name and defaults
+  var pluginName = 'tabs',
+      defaults = {
+        animation: {
+          duration: 1000,
+          easing: "easeInOutQuart"
+        }
+      };
+
+  // plugin constructor
+  function Plugin (element, options) {
+    // Set up internals for tracking, just in case.
+    this._name = pluginName;
+    this._defaults = defaults;
+    this.element = $(element);
+
+    // Use the init options.
+    this.options = $.extend({}, defaults, options);
+
+    // Limit tabLinks and contents down to only the the set within this instance.
+    this.options.tabLinks = this.element.find(this.options.tabLinks);
+    this.options.contents = this.element.find(this.options.contents);
+
+    // Do setup stuff.
+    this.init();
+
+    // Display tab automatically if there's a matching hash in the URL.
+    if (window.location.hash.length) {
+      this.autoReveal();
+    }
+  }
+
+  /**
+   * Brings a tab into view based on the corresponding tab link passed.
+   *
+   * @param {jQuery Object} $link - The link corresponding to the tab to display
+   * @param {Object} settings - Additional options to override defaults including:
+   *          {Object} animation - overrides to the default animation settings
+   *          {String} scrollBehavior - how scrolling should be handled
+   */
+  Plugin.prototype.showTab = function($link, settings) {
+    var $content = $('#' + $link.data('tab-content')),
+        $previousLink = $link.closest("ul").find('a.is-active'),
+        $previousContent = $('#' + $previousLink.data('tab-content')),
+        previousContentHeight = $previousContent.outerHeight(true),
+        $flyoutContainer = $content.closest('.flyout__content'),
+        href = $link.attr('href'),
+        $contentClone = $content.clone().show().css({"height":"auto"}).appendTo($content.parent()),
+        contentHeight = $contentClone.outerHeight(true),
+        scrollOffset = $('.sticky-wrapper .stuck').outerHeight(true),
+        defaultSettings = {
+          animation: this.options.animation,
+          scrollBehavior: this.element.data('tabs-scroll')
+        },
+        $scrollTarget,
+        $parent,
+        parentPadding,
+        flyoutHeight,
+        heightChange;
+
+    // Merge settings with defaults.
+    settings = $.extend({}, defaultSettings, settings);
+
+    $contentClone.remove();
+
+    if (!$link.hasClass('is-active')) {
+      // Manage active class
+      this.options.tabLinks.add(this.element.find(this.options.contents)).removeClass('is-active');
+      $link.add($content).addClass('is-active');
+
+      // Not in flyout? Add an animation complete handler to reset the height.
+      if (!$flyoutContainer.length && !settings.animation.complete) {
+        settings.animation.complete = function () {
+          $(this).css({height: 'auto'});
+        };
       }
-    }, options);
 
-    if (settings.tabLinks.length && settings.contents.length) {
-      settings.tabLinks.on('click.tabs', function(e) {
-        var $link = $(this),
-            $content = $('#' + $link.data('tab-content')),
-            $wrapper = $link.closest(settings.wrapper),
-            $tabLinks = $wrapper.find(settings.tabLinks),
-            $previousLink = $link.closest("ul").find('a.is-active'),
-            $previousContent = $('#' + $previousLink.data('tab-content')),
-            previousContentHeight = $previousContent.outerHeight(true),
-            $flyoutContainer = $content.closest('.flyout__content'),
-            $contentClone = $content.clone().show().css({"height":"auto"}).appendTo($content.parent()),
-            contentHeight = $contentClone.outerHeight(true),
-            scrollBehavior = $wrapper.data('tabs-scroll'),
-            scrollOffset = $('.sticky-wrapper .stuck').outerHeight(true),
-            $scrollTarget;
+      // Animate the height transition between tabs
+      $content.height(previousContentHeight).animate({
+        height: contentHeight
+      }, settings.animation);
 
-        $contentClone.remove();
+      // Manage flyout container if tabs are within a flyout
+      if ($flyoutContainer.length) {
+        $parent = $flyoutContainer.offsetParent();
+        parentPadding = $parent.outerHeight() - $parent.height();
+        flyoutHeight = $flyoutContainer.outerHeight(true);
+        heightChange = contentHeight - previousContentHeight;
 
-        if (!$(this).hasClass('is-active')) {
-          // Manage active class
-          $tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
-          $link.add($content).addClass('is-active');
-
-          // Animate the height transition between tabs
-          $content.height(previousContentHeight).animate({
-            height: contentHeight,
-          }, settings.animation);
-
-          // Manage flyout container if tabs are within a flyout
-          if ($flyoutContainer.length) {
-            var $parent = $flyoutContainer.offsetParent(),
-                parentPadding = $parent.outerHeight() - $parent.height(),
-                flyoutHeight = $flyoutContainer.outerHeight(true),
-                heightChange = contentHeight - previousContentHeight;
-
-            // Adjust height of parent
-            $parent.animate({
-              height: flyoutHeight - parentPadding + heightChange
-            }, settings.animation);
-          }
-        }
-
-        // Handling scrolling behaviors
-        if (scrollBehavior) {
-          switch (scrollBehavior) {
-            case 'wrapper':
-              $scrollTarget = $wrapper;
-              break;
-            case 'content':
-              $scrollTarget = $content;
-              break;
-            default:
-              $scrollTarget = $('#' + scrollBehavior);
-              break;
-          }
-          Components.utils.smoothScrollTop($scrollTarget, settings.animation.duration, scrollOffset, false);
-        }
-
-        e.preventDefault();
-      });
-
-      if (settings.triggers) {
-        settings.triggers.on('click.tabs-trigger', function(e) {
-          var $link = settings.tabLinks.filter('[data-tab-content="' + $(this).data('tab-content') + '"]'),
-              $content = $('#' + $(this).data('tab-content')),
-              $wrapper = $link.closest(settings.wrapper),
-              $tabLinks = $wrapper.find(settings.tabLinks);
-
-          // Manage active class
-          $tabLinks.add($wrapper.find(settings.contents)).removeClass('is-active');
-          $link.add($content).addClass('is-active');
-        });
+        // Adjust height of parent
+        $parent.animate({
+          height: flyoutHeight - parentPadding + heightChange
+        }, settings.animation);
       }
     }
 
-    return this;
-  }
-}( jQuery ));
+    // Handling scrolling behaviors
+    if (settings.scrollBehavior) {
+      switch (settings.scrollBehavior) {
+        case 'wrapper':
+          $scrollTarget = this.element;
+          break;
+        case 'content':
+          $scrollTarget = $content;
+          break;
+        default:
+          $scrollTarget = $('#' + settings.scrollBehavior);
+          break;
+      }
+
+      Components.utils.smoothScrollTop($scrollTarget, settings.animation.duration, scrollOffset, false);
+    }
+
+    // Push the current state to the URL
+    if ((href.indexOf('#')) === 0 && (href.length > 1) && (history.replaceState)) {
+      history.replaceState(undefined, undefined, href);
+    }
+  };
+
+  // Automatically reveal content when the ID of the container is in the URL
+  // hash.
+  Plugin.prototype.autoReveal = function() {
+    var hash = window.location.hash,
+        $tabLink = this.options.tabLinks.filter('[href=' + hash + ']'),
+        scroll = "wrapper",
+        $flyoutContainer,
+        $flyoutTrigger;
+
+    // Make sure the tab link exists and only run if it's within the current
+    // tabs wrapper.
+    if ($tabLink.length && this.element.find($tabLink).length) {
+      $flyoutContainer = $tabLink.closest('.flyout__content');
+      scroll = $flyoutContainer.length ? false : "wrapper";
+
+      // Show the correct tab with quick animation.
+      this.showTab($tabLink, {
+        animation: {duration:100},
+        scrollBehavior : scroll
+      });
+
+      // If the tab is inside a content flyout, make sure that the
+      // content flyout is opened.
+      if ($flyoutContainer.length && !$flyoutContainer.hasClass('is-open')) {
+        $flyoutTrigger = $flyoutContainer.data('flyout-trigger');
+        $flyoutContainer[0].contentFlyout.showContent($flyoutTrigger, {
+          animation: {duration: 0},
+          scroll: true,
+          scrollDown: true
+        });
+      }
+    }
+  };
+
+  // Hand-full of setup tasks
+  Plugin.prototype.init = function () {
+    var _this = this,
+        $flyoutContainer = _this.element.closest('.flyout__content');
+
+    if (_this.options.tabLinks.length && _this.options.contents.length) {
+
+      // Show tabs on click.
+      _this.options.tabLinks.on('click.tabs', function(e) {
+        _this.showTab($(this));
+        e.preventDefault();
+      });
+
+      // Set the link's href if it isn't already set.
+      _this.options.tabLinks.each(function(index, el) {
+        var tabId = $(el).data('tab-content'),
+            fragment = '#' + tabId,
+            $triggers;
+
+        // If we're within a flyout, prefix with the flyout's ID
+        if ($flyoutContainer.length) {
+          fragment = '#' + $flyoutContainer.attr('id') + '-' + tabId;
+        }
+
+        // If we have triggers, update those as well
+        if (_this.options.triggers) {
+          $triggers = _this.options.triggers.filter('[data-tab-content="' + tabId + '"]');
+        }
+
+        // Set the href for the tab as well as any triggers that target the
+        // same content.
+        if ($(el).attr('href').indexOf('#') === 0) {
+          $(el).add($triggers).attr('href', fragment);
+        }
+      });
+
+      // Handle other triggers displaying
+      if (_this.options.triggers) {
+        _this.options.triggers.on('click.tabs-trigger', function (e) {
+          var $link = _this.options.tabLinks.filter('[data-tab-content="' + $(this).data('tab-content') + '"]'),
+              $content = $('#' + $(this).data('tab-content'));
+
+          if ($link.length) {
+            // Manage active class
+            _this.options.tabLinks.add(_this.options.contents).removeClass('is-active');
+            $link.add($content).addClass('is-active');
+          }
+
+          // Push the current state to the URL
+          if (history.replaceState) {
+            history.replaceState(undefined, undefined, $link.attr('href'));
+          }
+
+          e.preventDefault();
+        });
+      }
+    }
+  };
+
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[pluginName] = function (options) {
+    return this.each(function initPlugin() {
+      var plugin = new Plugin(this, options);
+      // Allow the plugin to be instantiated more than once. Event handlers
+      // will be re-bound to avoid issues.
+      $.data(this, 'plugin_' + pluginName, plugin);
+
+      // Expose the plugin so methods can be called externally
+      //   Ex. element.tabs.showTab();
+      this.tabs = plugin;
+    });
+  };
+})(jQuery);
 ;
 /**
  * Content search behaviors.
@@ -1241,9 +1512,11 @@ Components.contextualSearch.keydownHandler = function (event) {
       $(this.element).removeClass('is-open');
       break;
     case 13: // ENTER
-      Components.contextualSearch.select(0);
-      this.$rows.get(this.selectionIndex).click();
       event.preventDefault();
+      Components.contextualSearch.select(0);
+      if (this.selectionIndex >= 0) {
+        this.$rows.get(this.selectionIndex).click();
+      }
       break;
   }
 };
@@ -1277,7 +1550,8 @@ jQuery(Components.contextualSearch.ready);
         $formWrapper = $('.flyout-form'),
         $triggers = $('a[href*="#' + fragment + '"], .flyout-form__trigger'),
         $closeLink = $formWrapper.find('.flyout-form__close'),
-        $pageWrapper = '<div class="flyout-form__page-wrapper"></div>';
+        $pageWrapper = '<div class="flyout-form__page-wrapper"></div>',
+        $inputs;
 
     // Make sure a flyout form exists before proceding.
     if ($formWrapper.length && $triggers.length) {
@@ -1334,6 +1608,18 @@ jQuery(Components.contextualSearch.ready);
           $formWrapper[0].contentFlyout.hideContent();
         }
       });
+
+      // Weird hack to handle iOS's wonky handling of scrolling fixed elements.
+      // Forcing a redraw of the form wrapper on blur of form inputs to fix the
+      // issue of the form not being scrollable after the keyboard is dismissed.
+      // More details here: https://github.com/tableau-mkt/www7/issues/3908
+      if ($.ua.os.name === "iOS") {
+        $formWrapper.find('input, textarea, select').blur(function(){
+          setTimeout(function() {
+            $formWrapper.hide().show(0);
+          }, 500);
+        });
+      }
 
       // Auto-focus on the first field of the form when it's revealed.
       $triggers.on('click.flyout', function(e) {
@@ -1437,6 +1723,7 @@ $(document).on('initFloatLabels', function (e) {
     $('.accordion .accordion__content-wrapper').not('.open .accordion__content-wrapper').hide();
     $('.accordion .accordion__title-wrapper').click( function(e) {
       var $this = $(this),
+          $parent = $this.parents('.accordion'),
           $openItems = $this.parent().siblings('.open');
 
       // Close other open items.
@@ -1448,6 +1735,8 @@ $(document).on('initFloatLabels', function (e) {
       $this.parents('.accordion__item').toggleClass('open');
 
       e.preventDefault();
+
+      $parent.trigger('accordion:after');
     });
 
     // Auto-scroll and expand accordions when linked to with a hash
@@ -1593,7 +1882,7 @@ Components.loadingOverlay = {};
    * @param {string} message
    *   Optional message to display in the loading overlay.
    */
-  component.show = function ($element, message) {
+  component.show = function ($element, message, modifier) {
     var message = message || 'Loading...',
         $overlay = $('<div class="loading-overlay">' +
           '<div class="loader">' +
@@ -1602,7 +1891,12 @@ Components.loadingOverlay = {};
           '</div>' +
           '</div>'),
         offsetY = Components.utils.getElementViewPortCenter($element);
-
+    
+    // Allow custom modifier.
+    if (modifier) {
+      $overlay.addClass(modifier);
+    }
+    
     $overlay.find('.loader').css('top', offsetY);
     $overlay.prependTo($element)
   };
@@ -1763,6 +2057,61 @@ Components.modalMessage = {};
   });
 }( jQuery ));
 ;
+/**
+ * Scroll Reveal component interaction
+ * See https://github.com/jlmakes/scrollreveal for documentation
+ */
+
+(function ( $ ) {
+  $(document).ready(function(){
+    var sequenceIntervalDefault = 100,
+        movementDistance = '200px',
+        defaultSettings = {
+          scale: 1,
+          distance: 0,
+          duration: 1200,
+          easing: 'cubic-bezier(0.77, 0, 0.175, 1)'
+        },
+        origins = ['left', 'right', 'top', 'bottom'];
+
+    // Initiate Scroll Reveal with some default settings.
+    window.scrollReveal = ScrollReveal(defaultSettings);
+
+    // Presets for the different origin modifiers (moving into place from
+    // specified direction).
+    for (var i = 0; i < origins.length; i++) {
+      scrollReveal.reveal('.scroll-reveal--' + origins[i], {
+        origin: origins[i],
+        distance: movementDistance
+      });
+
+      // Because these elements can potentially hang off the side of the page
+      // and cause horizontal scrolling, we have to hide overflow on section
+      // wrappers.
+      $('.scroll-reveal--' + origins[i]).parents('.section').css('overflow-x', 'hidden');
+    }
+
+    // Sequenced reveals based on the default interval set above or an interval
+    // specified in a data attribute on the container.
+    $('.scroll-reveal__sequence-container').each(function() {
+      var sequenceDelay = $(this).data('sequence-delay') || 0,
+          sequenceInterval = $(this).data('sequence-interval') || sequenceIntervalDefault;
+
+      $(this).find('.scroll-reveal--sequenced').each(function() {
+        scrollReveal.reveal(this, {
+          delay: sequenceDelay
+        });
+        sequenceDelay += sequenceInterval;
+      });
+    });
+
+    // Apply any options applied via data attributes
+    $('.scroll-reveal').each(function() {
+      scrollReveal.reveal(this, $(this).data());
+    });
+  });
+}( jQuery ));
+;
 /** 
  * Search Highlight utility.
  *
@@ -1795,29 +2144,40 @@ Components.modalMessage = {};
   });
 })(jQuery);
 ;
-(function($) {
-  $.fn.sonarPulse = function () {
+(function ($) {
+  $.fn.sonarPulse = function (options) {
     var $el = $(this),
-        padding = 0;
-        sonarPositionX = '10px',
-        sonarSelector = '.sonar-indicator',
-        $sonarElement = $('<div class="sonar-indicator"></div>');
+        defaults = {
+          sonarSelector: '.sonar-indicator',
+          $sonarElement: $('<div class="sonar-indicator"></div>'),
+          positionX: '10px',
+          timeout: 5000,
+          offset: 5
+        },
+        sonarPositionX,
+        padding;
+
+    // Extend defaults without overwriting them.
+    options = $.extend({}, defaults, options);
 
     // Try and place the sonar indicator without obstructing the element.
     if ($el.css('padding-left')) {
-      padding = parseInt($el.css('padding-left').replace("px", ""));
-      sonarPositionX = (padding/2) - 5 + 'px';
+      padding = parseInt($el.css('padding-left').replace('px', ''));
+      sonarPositionX = (padding / 2) - options.offset + 'px';
     }
-    $sonarElement.css('left', sonarPositionX);
-    $el.remove(sonarSelector).prepend($sonarElement);
+    options.$sonarElement.css('left', sonarPositionX);
+    $el.remove(options.sonarSelector).prepend(options.$sonarElement);
 
-    // Remove our sonar pulse after 5 seconds.
-    setTimeout(function()
-    {
-      $el.find(sonarSelector).remove();
-    }, 5000);
+    // If timeout is non-zero, remove after delay.
+    if (options.timeout > 0) {
+      // Remove our sonar pulse after 5 seconds.
+      setTimeout(function () {
+        $el.find(options.sonarSelector).remove();
+      }, options.timeout);
+    }
   };
 }(jQuery));
+
 ;
 (function($) {
   $(document).ready(function() {
@@ -1870,12 +2230,95 @@ Components.modalMessage = {};
 
 (function ( $ ) {
   $(document).ready(function() {
-    $('.tabs__tab-link').tabs({
+    $('.tabs__wrapper').tabs({
+      tabLinks: $('.tabs__tab-link'),
       contents: $('.tabs__tab-content'),
       triggers: $('.tabs__tab-trigger')
     });
   });
 }( jQuery ));
+;
+/**
+ * Card wall fixes for off-by-one errors.
+ */
+
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a base for this module's data and functions.
+Components.cardWall = {
+  isMasonryActive: true
+};
+
+// Closure to extend behavior, provide privacy and state.
+(function (component, $) {
+
+  /**
+   * jQuery ready callback.
+   */
+  component.ready = function ($) {
+    // Only if masonry and a card-wall element exists.
+    if (typeof $.fn.masonry !== 'function' || !$('.card-wall').length) {
+      return;
+    }
+
+    // Attach resize handler using underscore's debounce.
+    $(window).on('resize', component.resizeHandler);
+  };
+
+  /**
+   * Window resize handler.
+   */
+  component.resizeHandler = _.debounce(function() {
+    $('.card-wall .card').each(function () {
+      // Set the rounded up computed height to adjust for rounding errors.
+      $(this).height('auto');
+      $(this).height(Math.ceil($(this).height()));
+    });
+
+    // Check the breakpoint to decide whether to disable or re-enable and re-layout.
+    component.checkBreakpoint();
+  }, 100);
+
+  /**
+   * Check breakpoint to toggle Masonry.
+   */
+  component.checkBreakpoint = function () {
+    var $cardWall = $('.card-wall'),
+      masonryConfig = $cardWall.data('masonry');
+
+    // Disable masonry on mobile. Otherwise, re-enable it.
+    if (Components.utils.breakpoint('mobile')) {
+      // Needs to be disabled?
+      if (component.isMasonryActive) {
+        $cardWall.masonry('destroy');
+        // Flag that we've destroyed the masonry instance.
+        component.isMasonryActive = false;
+      }
+    }
+    else {
+      // Needs to be re-enabled?
+      if (!component.isMasonryActive) {
+        // Remove the existing data so that masonry doesn't blow up.
+        $cardWall.removeData('masonry');
+        // Initialize with the config we found on the data attribute.
+        $cardWall.masonry(masonryConfig);
+        // Flag that this masonry instance is active.
+        component.isMasonryActive = true;
+      }
+      else {
+        // Re-layout the masonry items since the instance is active.
+        $cardWall.masonry();
+      }
+    }
+  };
+
+})(Components.cardWall, jQuery);
+
+
+// Attach our DOM-ready callback.
+jQuery(Components.cardWall.ready);
 ;
 /**
  * Brightcove video chapter handling.
@@ -2200,6 +2643,49 @@ Components.modalMessage = {};
 })(jQuery);
 ;
 /**
+ * Interactions for Section Nav component.
+ */
+(function($) {
+  $(document).ready(function() {
+    var $nav = $('.section-nav'),
+        $title = $nav.find('.section-nav__title, .block__title'),
+        $menu = $nav.find('.section-nav__menu, .menu-block-wrapper > ul.menu'),
+        animation = {
+          duration: 500,
+          easing: "easeInOutQuart"
+        },
+        sticky;
+
+    if ($nav.length) {
+      // Handle opening/closing menu on mobile/tablet
+      $title.on('click', function(e) {
+        if (Components.utils.breakpoint('tablet') || Components.utils.breakpoint('mobile')) {
+          $nav.toggleClass('is-open');
+          $menu.slideToggle(animation);
+          e.preventDefault();
+        }
+      });
+
+      // Handle opening/closing menu on mobile/tablet
+      $nav.on('click', function(e) {
+        if (e.target === this && (Components.utils.breakpoint('tablet') || Components.utils.breakpoint('mobile'))) {
+          $nav.toggleClass('is-open');
+          $menu.slideToggle(animation);
+          e.preventDefault();
+        }
+      });
+
+      // Sticky nav on mobile/tablet
+      if (!Components.utils.breakpoint('desktop')) {
+        sticky = new Waypoint.Sticky({
+          element: $nav
+        });
+      }
+    }
+  });
+})(jQuery);
+;
+/**
  * Sidebar nav  interaction including scroll-aware highlighting
  */
 
@@ -2293,24 +2779,26 @@ Components.topicNav = {};
  * Topic Navigation DOM-ready callback.
  */
 Components.topicNav.init = function ($) {
+  var $tabLinks = $('.topic-nav__tabs a'),
+      $revealToggle = $('.topic-nav__toggle');
   // Tabs integration
-  $('.topic-nav__tabs a').tabs({
-    contents: $('.topic-nav__drawer'),
-    wrapper: $('.topic-nav')
+  $('.topic-nav').tabs({
+    tabLinks: $tabLinks,
+    contents: $('.topic-nav__drawer')
   });
 
   // contentReveal interaction
   $('.topic-nav__drawers').contentReveal({
-    triggers: $('.topic-nav__toggle'),
+    triggers: $revealToggle,
     closeLink: false
   });
 
   // Custom tweaks
-  $('.topic-nav__toggle').on('click.topic-nav', function (e) {
+  $revealToggle.on('click.topic-nav', function (e) {
     var $parentNav = $(this).closest('.topic-nav'),
         $drawersContainer = $(this).closest('.topic-nav').find('.topic-nav__drawers');
 
-    if ($(this).data('revealState') === 'open') {
+    if ($drawersContainer.data('revealState') === 'open') {
       $parentNav.find('.topic-nav__tabs a').eq(0).trigger('click').addClass('is-active');
 
       // @todo Change out the setTimeout
@@ -2326,17 +2814,25 @@ Components.topicNav.init = function ($) {
     }
   });
 
-  $('.topic-nav__tabs a').on('click.topic-nav', function (e) {
+  $tabLinks.on('click.topic-nav', function (e) {
     var $toggle = $(this).closest('.topic-nav').find('.topic-nav__toggle'),
         $drawersContainer = $(this).closest('.topic-nav').find('.topic-nav__drawers');
 
-    if ($toggle.data('revealState') === 'closed') {
+    if ($drawersContainer.data('revealState') === 'closed') {
       $toggle.trigger('click.reveal');
 
       // @todo Change out the setTimeout
       setTimeout(function () {
         $drawersContainer.addClass('is-open');
       }, 1000);
+    }
+  });
+
+  // Unset any IDs added by the tabs or content reveal plugins to avoid some
+  // funky behavior.
+  $tabLinks.add($revealToggle).each(function(index, el) {
+    if ($(el).attr('href').indexOf('#') === 0) {
+      $(el).attr('href', '#');
     }
   });
 
@@ -2362,3 +2858,96 @@ Components.topicNav.setActiveTab = function (topic) {
 
 // Bind DOM-ready callback.
 $(document).ready(Components.topicNav.init);
+;
+/**
+ * News Banner interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var $banner = $('.news-banner'),
+        $placeholder = $banner.clone(),
+        id = $banner.attr('id'),
+        $closeLink = $banner.find('.news-banner__close a'),
+        isDismissed = $.cookie('news-banner-' + id),
+        animation = {
+          duration: 500,
+          easing: "easeInOutQuart"
+        };
+
+    // Only show if the message hasn't been dismissed before or if it's forced
+    // with a URL fragment.
+    if (!isDismissed || window.location.hash === '#banner') {
+      $banner.add($placeholder).addClass('is-active');
+
+      // Use a clone of the banner as a placeholder to manage the height of the
+      // banner. This is necessary because the banner is fixed position and
+      // removed from the document flow. Avoids managing height with a resize
+      // event listener.
+      $placeholder.addClass('news-banner__clone');
+
+      $banner.after($placeholder);
+
+      // Short delay for a more prominent "entrance" and to help the background
+      // image load more before display.
+      $placeholder.delay(500).slideDown(animation);
+    }
+
+    // Close banner when close link is clicked.
+    $closeLink.click(function(e) {
+      // Animate the placeholder height to hide the banner and then make sure
+      // the banner and placeholder are completely hidden.
+      $placeholder.slideUp($.extend(animation, {
+        complete: function () {
+          $banner.add($placeholder).removeClass('is-active');
+        }
+      }));
+
+      // Set a cookie to indicate the user has dismissed the banner.
+      // Expires after 2 weeks to safe-guard against someone adding a new
+      // banner with an old ID.
+      $.cookie('news-banner-' + id, 1, { expires: 14 });
+
+      e.preventDefault();
+    });
+  });
+}( jQuery ));
+;
+/**
+ * News Interstitial interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var $interstitial = $('.news-interstitial'),
+        id = $interstitial.attr('id'),
+        $closeLink = $interstitial.find('.news-interstitial__close a'),
+        isDismissed = $.cookie('news-interstitial-' + id);
+
+    // Only show if the message hasn't been dismissed before or if it's forced
+    // with a URL fragment.
+    if (!isDismissed || window.location.hash === '#interstitial') {
+      $interstitial.first().addClass('is-active');
+    }
+
+    // Close interstitial when close link or background shade are clicked.
+    $interstitial.add($closeLink).click(function(e) {
+      if (e.target === this || e.target.parentElement === this) {
+        $interstitial.addClass('is-animating').removeClass('is-active');
+
+        // Wait till after the CSS animation is done before removing class.
+        // transitionend event isn't quite reliable enough so using setTimeout
+        setTimeout(function () {
+          $interstitial.removeClass('is-animating');
+        }, 500);
+
+        e.preventDefault();
+
+        // Set a cookie to indicate the user has dismissed the interstitial.
+        // Expires after 2 weeks to safe-guard against someone adding a new
+        // interstitial with an old ID.
+        $.cookie('news-interstitial-' + id, 1, { expires: 14 });
+      }
+    });
+  });
+}( jQuery ));

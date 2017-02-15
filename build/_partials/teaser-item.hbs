@@ -1,7 +1,7 @@
 <div class="teaser-item {{ modifier_class}} grid--{{ width }}">
   {{#if icon}}
     <div class="teaser-item__icon">
-      <a href="{{ url }}">
+      <a href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>
         <span class="icon--{{ icon }}"></span>
       </a>
     </div>
@@ -9,10 +9,10 @@
 
   {{#if thumbnail}}
     <div class="teaser-item__thumbnail">
-      <a href="{{ url }}">
-      {{#with thumbnail}}
-        {{> thumbnail }}
-      {{/with}}
+      <a href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>
+        {{#with thumbnail}}
+          {{> thumbnail }}
+        {{/with}}
       </a>
     </div>
   {{/if}}
@@ -26,7 +26,9 @@
 
     {{#if title}}
       <h5 class="teaser-item__title">
-        <a href="{{ url }}">{{{ title }}}</a>
+        <a href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>
+          {{{ title }}}
+        </a>
       </h5>
     {{/if}}
 

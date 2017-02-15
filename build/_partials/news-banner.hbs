@@ -1,0 +1,17 @@
+<div class="news-banner {{ modifier_class }}" id="{{ id }}" style="background-image:url({{ background }});">
+
+  <div class="news-banner__close">
+    <a href="#"><i class="icon icon--close-window-style2"></i></a>
+  </div>
+
+  <div class="news-banner__content">
+    <div class="content-container">
+      <h2>{{{ title }}}</h2>
+      <p>
+        {{#with cta}}
+          {{>cta}}
+        {{/with}}
+      </p>
+    </div>
+  </div>
+</div>
