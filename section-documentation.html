@@ -106,6 +106,11 @@
           </a>
         </li>
         <li class="kss-nav__menu-item">
+          <a href="section-search.html">
+            Search
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
           <a href="section-documentation.html">
             Documentation
           </a>
@@ -132,6 +137,11 @@
             Test Components
           </a>
         </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-helpers.html">
+            CSS Helpers
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -146,11 +156,11 @@
               <!-- </a> -->
             </h2>
 
-
             <div class="kss-description">
-              <p>More in-depth docementation for using complex components.</p>
+              <p>More in-depth documentation for using complex components.</p>
 
             </div>
+
           </div>
 
 
@@ -163,7 +173,6 @@
                 Breakpoints
               <!-- </a> -->
             </h3>
-
 
             <div class="kss-description">
               <p>We use several different breakpoints in order to responsively alter components and layouts for different screen sizes.</p>
@@ -183,6 +192,7 @@
 }
 </code></pre>
             </div>
+
           </div>
 
             <h4>Example</h4>
@@ -241,7 +251,6 @@
               <!-- </a> -->
             </h3>
 
-
             <div class="kss-description">
               <p>This section explains how to consume the header and footer through AJAX. We
 will expose the following items for consumption:</p>
@@ -257,80 +266,66 @@ approach works best for you. (<em>JSONP is a simple way to overcome
 browser restrictions when sending JSON responses from different domains from the client.</em>)</p>
 <p>The general goal of this approach is to alleviate the work in manually updating parts of the
 DOM as well as general consistency of the header/footer across multiple websites.</p>
-<h4 id="javascript">Javascript</h4>
+<h4 id="javascript">JavaScript</h4>
 <p>This example shows you how to easily consume the data with a simple AJAX call.</p>
 <p><strong>NOTE! This script is not included in the build! It is an example of how you
-can get the data with a few lines of javascript. When building this out on
-production, be sure to replace the domain with cdns.tblsft.com (i.e. after
-the new website goes live.) </strong></p>
-<pre><code>$(document).ready(function() {
-    // Declare some variables.
-    var domain = &#39;cdns.tblsft.com&#39;,
-        lang = $(&#39;html&#39;).attr(&#39;lang&#39;) || &#39;en&#39;,
-        lang_map = {
-          &#39;en&#39; : &#39;&#39;,
-          &#39;fr&#39; : &#39;fr-fr/&#39;,
-          &#39;de&#39; : &#39;de-de/&#39;,
-          &#39;pt-br&#39; : &#39;pt-br/&#39;,
-          &#39;es&#39; : &#39;es-es/&#39;,
-          &#39;zh-hans&#39; : &#39;zh-cn/&#39;,
-          &#39;ja&#39; : &#39;ja-jp/&#39;,
-          &#39;ko&#39; : &#39;ko-kr/&#39;
-        },
-        protocol = location.protocol&#39;;
+can get the data with a few lines of JavaScript.</strong></p>
+<pre><code>$(document).ready(function () {
+  // Declare some variables.
+  var domain = &#39;www.tableau.com&#39;,
+    lang = $(&#39;html&#39;).attr(&#39;lang&#39;) || &#39;en&#39;,
+    lang_map = {
+      &#39;en&#39;: &#39;&#39;,
+      &#39;fr&#39;: &#39;fr-fr/&#39;,
+      &#39;de&#39;: &#39;de-de/&#39;,
+      &#39;pt-br&#39;: &#39;pt-br/&#39;,
+      &#39;es&#39;: &#39;es-es/&#39;,
+      &#39;zh-hans&#39;: &#39;zh-cn/&#39;,
+      &#39;ja&#39;: &#39;ja-jp/&#39;,
+      &#39;ko&#39;: &#39;ko-kr/&#39;
+    },
+    protocol = location.protocol;
 
-    // An example of loading the menus via AJAX (json).
-    // Prepend the language if appropriate.
-    $.ajax({
-      url: protocol + &#39;://&#39; + domain + &#39;/&#39; + lang_map[lang] + &#39;ajax/megamenu&#39;,
-      type: &#39;GET&#39;,
-      dataType: &#39;json&#39;,
-      success: tabAjaxMegaMenu,
-      error: function (xhr, ajaxOptions, error) {
-        console.log(xhr.status);
-        console.log(error);
-      }
-    });
-
-    // An example of loading the menus via AJAX (jsonp).
-    // Prepend the language if appropriate.
-    $.ajax({
-      url: protocol + &#39;://&#39; + domain + &#39;/&#39; + lang_map[lang] + &#39;ajax/megamenu&#39; +
-      &#39;/jsonp/&#39; + &#39;tabAjaxMegaMenu&#39;,
-      dataType: &#39;jsonp&#39;,
-      // Set a static callback and explicitly set caching to true to ensure
-      // we don&#39;t cache bust ourselves into oblivion. Without these set,
-      // a random callback name is generated and a timestamp is appended to
-      // every request.
-      jsonpCallback: &#39;jsonpMegamenuCallback&#39;,
-      cache: true
+  // An example of loading the menus via AJAX (jsonp).
+  // Prepend the language if appropriate.
+  $.ajax({
+    url: protocol + &#39;//&#39; + domain + &#39;/&#39; + lang_map[lang] + &#39;ajax/megamenu&#39; +
+    &#39;/jsonp/&#39; + &#39;tabAjaxMegaMenu&#39;,
+    dataType: &#39;jsonp&#39;,
+    // Set a static callback and explicitly set caching to true to ensure
+    // we don&#39;t cache bust ourselves into oblivion. Without these set,
+    // a random callback name is generated and a timestamp is appended to
+    // every request.
+    jsonpCallback: &#39;jsonpMegamenuCallback&#39;,
+    cache: true
   });
-}
-</code></pre><p>This javascript file (part of the styleguide) includes the callback function
+});
+</code></pre><p>This JavaScript file (part of the styleguide) includes the callback function
 <strong>tabAjaxMegaMenu</strong> used in the example above. The code below will be
 responsible for replacing the DOM placeholders.</p>
-<pre><code>(function($) {
+<pre><code>(function ($) {
   // Callback function to insert the menu into the DOM.
-  window.tabAjaxMegaMenu = function(data) {
+  window.tabAjaxMegaMenu = function (data) {
     var commands = {
-    insert: function (response) {
-      $(response.selector)[response.method](response.data);
-    }
-  };
+      insert: function (response) {
+        $(response.selector)[response.method](response.data);
+      }
+    };
 
-  // Execute our commands.
+    // Execute our commands.
     for (var i in data) {
-    if (data[i][&#39;command&#39;] &amp;&amp; commands[data[i][&#39;command&#39;]]) {
-      commands[data[i][&#39;command&#39;]](data[i]);
+      if (data[i][&#39;command&#39;] &amp;&amp; commands[data[i][&#39;command&#39;]]) {
+        commands[data[i][&#39;command&#39;]](data[i]);
+      }
     }
-  }
 
-  // Trigger event when our menu has been loaded.
+    // Trigger event when our menu has been loaded.
     $(document).trigger(&#39;tabAjaxMegaMenu:ready&#39;);
   };
 })(jQuery);
 </code></pre>
             </div>
+
           </div>
 
             <h4>Example</h4>
@@ -339,7 +334,8 @@ responsible for replacing the DOM placeholders.</p>
                 <div class="kss-example-preview" style=" ">
                   <div class="kss-example-preview-wrapper">
                     <div class="wrapper">
-  <header class="global-nav">
+  <!-- Use data-www-search attribute to specify the search tab redirected to. -->
+  <header class="global-nav" data-www-search="all">
     <div class="global-nav__top content-container content-container--wide">
       <div class="relative clearfix">
         <div class="global-nav__logo">
@@ -365,13 +361,9 @@ responsible for replacing the DOM placeholders.</p>
             </div>
           </nav>
 
-          <div class="global-nav__search ">
-            <!-- Custom search submit handling required for the form to submit to the global search page. -->
+          <div class="global-nav__search">
             <input type="search" placeholder="Search" name="q">
             <a href="#" class="global-nav__search-close"></a>
-            <div id="predictive-container">
-              <ul id="predictive-terms"></ul>
-            </div>
           </div>
         </div>
 
@@ -428,7 +420,8 @@ responsible for replacing the DOM placeholders.</p>
               <h4>Markup</h4>
               <div class="kss-markup">
                 <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;wrapper&quot;&gt;
-  &lt;header class=&quot;global-nav&quot;&gt;
+  &lt;!-- Use data-www-search attribute to specify the search tab redirected to. --&gt;
+  &lt;header class=&quot;global-nav&quot; data-www-search=&quot;all&quot;&gt;
     &lt;div class=&quot;global-nav__top content-container content-container--wide&quot;&gt;
       &lt;div class=&quot;relative clearfix&quot;&gt;
         &lt;div class=&quot;global-nav__logo&quot;&gt;
@@ -454,13 +447,9 @@ responsible for replacing the DOM placeholders.</p>
             &lt;/div&gt;
           &lt;/nav&gt;
 
-          &lt;div class=&quot;global-nav__search &quot;&gt;
-            &lt;!-- Custom search submit handling required for the form to submit to the global search page. --&gt;
+          &lt;div class=&quot;global-nav__search&quot;&gt;
             &lt;input type=&quot;search&quot; placeholder=&quot;Search&quot; name=&quot;q&quot;&gt;
             &lt;a href=&quot;#&quot; class=&quot;global-nav__search-close&quot;&gt;&lt;/a&gt;
-            &lt;div id=&quot;predictive-container&quot;&gt;
-              &lt;ul id=&quot;predictive-terms&quot;&gt;&lt;/ul&gt;
-            &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
 
@@ -533,7 +522,7 @@ responsible for replacing the DOM placeholders.</p>
   <script src="public/js/prettify.js"></script>
   <script>
     prettyPrint();
-    window.styleguideSearchData = {"terms":["Colors template [colors.template]","Text Colors [colors.text]","Background Colors [colors.background]","Message colors [colors.messages]","Button Colors [colors.buttons]","Accent Colors [colors.accent]","Font Families [typography.fonts]","Headings Template [typography.heading-template]","Body Copy [typography.body-copy]","Caption [typography.caption]","Default Headings [typography.headings]","Special Heading Formats [typography.special-headings]","Formatted Text [typography.formatted]","Other Type Treatments [typography.other]","Text Colors [typography.colors]","Code Snippet [typography.code]","Heading Highlight [typography.heading-highlight]","Text Statistic [typography.text-stat]","Primary CTA [buttons-links.cta]","Topic Link [buttons-links.topic-link]","Anchor Link [buttons-links.anchor_link]","Base Text Link [buttons-links.link-base]","Formatted Text Links [buttons-links.link-formatted]","App Links [buttons-links.app-links]","\"Back To\" link [buttons-links.back-to-link]","Eyebrow Badge [labels.eyebrow-badge]","Tag Label [labels.tag]","Split Label [labels.split-label]","Gif Player [images.gif-player]","Image [images.image]","Image base styles [images.image-base]","Thumbnail Image [images.thumbnail]","Formatted Icons [media.icon-formatted]","Icons [media.icons]","Video Chapters Demo [media.video-chapters-demo]","Video Embed iframe [media.video-embed-iframe]","Video Embed in-page [media.video-embed-responsive]","Feature List [lists.feature-list]","Unordered List [lists.standard]","Link List [lists.link]","Tags List [lists.tags]","Table List [lists.table-list]","Teaser List [lists.teaser-list]","1-Up Cross Reference [lists.cross-reference-1]","2-Up Cross Reference [lists.cross-reference-2]","3-Up Cross Reference [lists.cross-reference-3]","Vertical Cross Reference [lists.cross-reference-vertical]","Agenda List [lists.agenda]","Comparison List [lists.comparison-list]","Video Chapters [lists.video-chapters]","Video Playlist [lists.video-playlist]","Video Playlist (Sidebar) [lists.video-playlist-sidebar]","Card Wall [lists.card-wall]","Large Teaser [teasers.large-teaser]","Basic Teaser Item [teasers.teaser-item]","Text Teaser Item [teasers.text_teaser]","Card Teaser [teasers.card]","Summary Teaser [teasers.summary-teaser]","Wide Card Teaser [teasers.card-wide]","Person Teaser [teasers.person-teaser]","Quote Card Teaser [teasers.card-quote]","Summary Card Teaser [teasers.card-summary]","Author Byline Teaser [teasers.author-byline]","Comments [compound.comments]","Quote [compound.quote]","Basic Hero [compound.hero]","Special Hero [compound.special-hero]","Special Hero w/ Fluid Height [compound.special-hero--fluid-height]","Feature Highlight [compound.feature-highlight]","Messages [compound.messages]","Location [compound.location]","Detail Field [compound.detail-field]","Base Form Styles [forms.base]","Datepicker [forms.datepicker]","Flyout Form [forms.flyout-form]","Form Fields [forms.fields]","Form on Dark Backgrounds [forms.fields-dark]","Invalid Form Fields [forms.validation]","Inline form elements [forms.inline]","Confirmation Messages [forms.confirmation]","Content Search [forms.content-search]","Contextual Search [forms.contextual-search]","Fancy Radios [forms.fancy-filters]","Responsive Filters [forms.responsive-filter]","Form icon button [forms.icon-button]","Compact form [forms.form-compact]","Global Navigation [navigation.global]","Hamburger [navigation.hamburger]","Pager [navigation.pager]","Simple Pager [navigation.pager-simple]","Section Navigation [navigation.section-nav]","Subnavigation [navigation.subnav]","Topic Navigation [navigation.topic-nav]","Global Footer [navigation.footer]","Accordion [interactive.accordion]","Reveal Helper [interactive.reveal-helper]","Content Tabs [interactive.tabs]","Content Reveal [interactive.reveal]","Content Flyout [interactive.flyout]","Scroll Reveal [interactive.scroll-reveal]","Tooltip [interactive.tooltip]","Social Share [interactive.social-share]","Search Highlight [interactive.search-highlight]","Progress bar [interactive.progress-bar]","Sticky elements [interactive.sticky]","Global Notification [interactive.global-notification]","Context Switcher [interactive.context-switcher]","Sonar indicator [interactive.sonar-indicator]","Loader [interactive.loader]","Loading overlay [interactive.loading-overlay]","Teaser Slideshow [interactive.teaser-slideshow]","Hero Slideshow [interactive.hero-slideshow]","Full Bleed Slideshow [interactive.fullbleed-slideshow]","Modal Message [interactive.modal-message]","Fadable [interactive.fadable]","Grids [layout.grids]","Gallery Grid [layout.gallery-grid]","Content Section [layout.section]","Content Container [layout.container]","Horizontal Dividers [layout.divider]","Vertical Dividers [layout.divider-vertical]","Vertical Spacer [layout.spacer]","Background Colors [layout.colored]","Background video [layout.bg-video]","Full Height Section [layout.full-height]","Basic Page Layout [layout.basic-page]","Table Grids [layout.table-grids]","Padded box [layout.padded]","Marginless Boxes [layout.marginless-box]","Breakpoints [documentation.breakpoints]","Global Nav Ajax Consumption [documentation.global-nav-ajax]","News Banner [test-components.news-banner]","News Interstitial [test-components.news-interstitial]","Product Links [test-components.product-links]"],"termToURI":{"Colors template [colors.template]":"section-colors.html#kssref-colors-template","Text Colors [colors.text]":"section-colors.html#kssref-colors-text","Background Colors [colors.background]":"section-colors.html#kssref-colors-background","Message colors [colors.messages]":"section-colors.html#kssref-colors-messages","Button Colors [colors.buttons]":"section-colors.html#kssref-colors-buttons","Accent Colors [colors.accent]":"section-colors.html#kssref-colors-accent","Font Families [typography.fonts]":"section-typography.html#kssref-typography-fonts","Headings Template [typography.heading-template]":"section-typography.html#kssref-typography-heading-template","Body Copy [typography.body-copy]":"section-typography.html#kssref-typography-body-copy","Caption [typography.caption]":"section-typography.html#kssref-typography-caption","Default Headings [typography.headings]":"section-typography.html#kssref-typography-headings","Special Heading Formats [typography.special-headings]":"section-typography.html#kssref-typography-special-headings","Formatted Text [typography.formatted]":"section-typography.html#kssref-typography-formatted","Other Type Treatments [typography.other]":"section-typography.html#kssref-typography-other","Text Colors [typography.colors]":"section-typography.html#kssref-typography-colors","Code Snippet [typography.code]":"section-typography.html#kssref-typography-code","Heading Highlight [typography.heading-highlight]":"section-typography.html#kssref-typography-heading-highlight","Text Statistic [typography.text-stat]":"section-typography.html#kssref-typography-text-stat","Primary CTA [buttons-links.cta]":"section-buttons-links.html#kssref-buttons-links-cta","Topic Link [buttons-links.topic-link]":"section-buttons-links.html#kssref-buttons-links-topic-link","Anchor Link [buttons-links.anchor_link]":"section-buttons-links.html#kssref-buttons-links-anchor_link","Base Text Link [buttons-links.link-base]":"section-buttons-links.html#kssref-buttons-links-link-base","Formatted Text Links [buttons-links.link-formatted]":"section-buttons-links.html#kssref-buttons-links-link-formatted","App Links [buttons-links.app-links]":"section-buttons-links.html#kssref-buttons-links-app-links","\"Back To\" link [buttons-links.back-to-link]":"section-buttons-links.html#kssref-buttons-links-back-to-link","Eyebrow Badge [labels.eyebrow-badge]":"section-labels.html#kssref-labels-eyebrow-badge","Tag Label [labels.tag]":"section-labels.html#kssref-labels-tag","Split Label [labels.split-label]":"section-labels.html#kssref-labels-split-label","Gif Player [images.gif-player]":"section-images.html#kssref-images-gif-player","Image [images.image]":"section-images.html#kssref-images-image","Image base styles [images.image-base]":"section-images.html#kssref-images-image-base","Thumbnail Image [images.thumbnail]":"section-images.html#kssref-images-thumbnail","Formatted Icons [media.icon-formatted]":"section-media.html#kssref-media-icon-formatted","Icons [media.icons]":"section-media.html#kssref-media-icons","Video Chapters Demo [media.video-chapters-demo]":"section-media.html#kssref-media-video-chapters-demo","Video Embed iframe [media.video-embed-iframe]":"section-media.html#kssref-media-video-embed-iframe","Video Embed in-page [media.video-embed-responsive]":"section-media.html#kssref-media-video-embed-responsive","Feature List [lists.feature-list]":"section-lists.html#kssref-lists-feature-list","Unordered List [lists.standard]":"section-lists.html#kssref-lists-standard","Link List [lists.link]":"section-lists.html#kssref-lists-link","Tags List [lists.tags]":"section-lists.html#kssref-lists-tags","Table List [lists.table-list]":"section-lists.html#kssref-lists-table-list","Teaser List [lists.teaser-list]":"section-lists.html#kssref-lists-teaser-list","1-Up Cross Reference [lists.cross-reference-1]":"section-lists.html#kssref-lists-cross-reference-1","2-Up Cross Reference [lists.cross-reference-2]":"section-lists.html#kssref-lists-cross-reference-2","3-Up Cross Reference [lists.cross-reference-3]":"section-lists.html#kssref-lists-cross-reference-3","Vertical Cross Reference [lists.cross-reference-vertical]":"section-lists.html#kssref-lists-cross-reference-vertical","Agenda List [lists.agenda]":"section-lists.html#kssref-lists-agenda","Comparison List [lists.comparison-list]":"section-lists.html#kssref-lists-comparison-list","Video Chapters [lists.video-chapters]":"section-lists.html#kssref-lists-video-chapters","Video Playlist [lists.video-playlist]":"section-lists.html#kssref-lists-video-playlist","Video Playlist (Sidebar) [lists.video-playlist-sidebar]":"section-lists.html#kssref-lists-video-playlist-sidebar","Card Wall [lists.card-wall]":"section-lists.html#kssref-lists-card-wall","Large Teaser [teasers.large-teaser]":"section-teasers.html#kssref-teasers-large-teaser","Basic Teaser Item [teasers.teaser-item]":"section-teasers.html#kssref-teasers-teaser-item","Text Teaser Item [teasers.text_teaser]":"section-teasers.html#kssref-teasers-text_teaser","Card Teaser [teasers.card]":"section-teasers.html#kssref-teasers-card","Summary Teaser [teasers.summary-teaser]":"section-teasers.html#kssref-teasers-summary-teaser","Wide Card Teaser [teasers.card-wide]":"section-teasers.html#kssref-teasers-card-wide","Person Teaser [teasers.person-teaser]":"section-teasers.html#kssref-teasers-person-teaser","Quote Card Teaser [teasers.card-quote]":"section-teasers.html#kssref-teasers-card-quote","Summary Card Teaser [teasers.card-summary]":"section-teasers.html#kssref-teasers-card-summary","Author Byline Teaser [teasers.author-byline]":"section-teasers.html#kssref-teasers-author-byline","Comments [compound.comments]":"section-compound.html#kssref-compound-comments","Quote [compound.quote]":"section-compound.html#kssref-compound-quote","Basic Hero [compound.hero]":"section-compound.html#kssref-compound-hero","Special Hero [compound.special-hero]":"section-compound.html#kssref-compound-special-hero","Special Hero w/ Fluid Height [compound.special-hero--fluid-height]":"section-compound.html#kssref-compound-special-hero--fluid-height","Feature Highlight [compound.feature-highlight]":"section-compound.html#kssref-compound-feature-highlight","Messages [compound.messages]":"section-compound.html#kssref-compound-messages","Location [compound.location]":"section-compound.html#kssref-compound-location","Detail Field [compound.detail-field]":"section-compound.html#kssref-compound-detail-field","Base Form Styles [forms.base]":"section-forms.html#kssref-forms-base","Datepicker [forms.datepicker]":"section-forms.html#kssref-forms-datepicker","Flyout Form [forms.flyout-form]":"section-forms.html#kssref-forms-flyout-form","Form Fields [forms.fields]":"section-forms.html#kssref-forms-fields","Form on Dark Backgrounds [forms.fields-dark]":"section-forms.html#kssref-forms-fields-dark","Invalid Form Fields [forms.validation]":"section-forms.html#kssref-forms-validation","Inline form elements [forms.inline]":"section-forms.html#kssref-forms-inline","Confirmation Messages [forms.confirmation]":"section-forms.html#kssref-forms-confirmation","Content Search [forms.content-search]":"section-forms.html#kssref-forms-content-search","Contextual Search [forms.contextual-search]":"section-forms.html#kssref-forms-contextual-search","Fancy Radios [forms.fancy-filters]":"section-forms.html#kssref-forms-fancy-filters","Responsive Filters [forms.responsive-filter]":"section-forms.html#kssref-forms-responsive-filter","Form icon button [forms.icon-button]":"section-forms.html#kssref-forms-icon-button","Compact form [forms.form-compact]":"section-forms.html#kssref-forms-form-compact","Global Navigation [navigation.global]":"section-navigation.html#kssref-navigation-global","Hamburger [navigation.hamburger]":"section-navigation.html#kssref-navigation-hamburger","Pager [navigation.pager]":"section-navigation.html#kssref-navigation-pager","Simple Pager [navigation.pager-simple]":"section-navigation.html#kssref-navigation-pager-simple","Section Navigation [navigation.section-nav]":"section-navigation.html#kssref-navigation-section-nav","Subnavigation [navigation.subnav]":"section-navigation.html#kssref-navigation-subnav","Topic Navigation [navigation.topic-nav]":"section-navigation.html#kssref-navigation-topic-nav","Global Footer [navigation.footer]":"section-navigation.html#kssref-navigation-footer","Accordion [interactive.accordion]":"section-interactive.html#kssref-interactive-accordion","Reveal Helper [interactive.reveal-helper]":"section-interactive.html#kssref-interactive-reveal-helper","Content Tabs [interactive.tabs]":"section-interactive.html#kssref-interactive-tabs","Content Reveal [interactive.reveal]":"section-interactive.html#kssref-interactive-reveal","Content Flyout [interactive.flyout]":"section-interactive.html#kssref-interactive-flyout","Scroll Reveal [interactive.scroll-reveal]":"section-interactive.html#kssref-interactive-scroll-reveal","Tooltip [interactive.tooltip]":"section-interactive.html#kssref-interactive-tooltip","Social Share [interactive.social-share]":"section-interactive.html#kssref-interactive-social-share","Search Highlight [interactive.search-highlight]":"section-interactive.html#kssref-interactive-search-highlight","Progress bar [interactive.progress-bar]":"section-interactive.html#kssref-interactive-progress-bar","Sticky elements [interactive.sticky]":"section-interactive.html#kssref-interactive-sticky","Global Notification [interactive.global-notification]":"section-interactive.html#kssref-interactive-global-notification","Context Switcher [interactive.context-switcher]":"section-interactive.html#kssref-interactive-context-switcher","Sonar indicator [interactive.sonar-indicator]":"section-interactive.html#kssref-interactive-sonar-indicator","Loader [interactive.loader]":"section-interactive.html#kssref-interactive-loader","Loading overlay [interactive.loading-overlay]":"section-interactive.html#kssref-interactive-loading-overlay","Teaser Slideshow [interactive.teaser-slideshow]":"section-interactive.html#kssref-interactive-teaser-slideshow","Hero Slideshow [interactive.hero-slideshow]":"section-interactive.html#kssref-interactive-hero-slideshow","Full Bleed Slideshow [interactive.fullbleed-slideshow]":"section-interactive.html#kssref-interactive-fullbleed-slideshow","Modal Message [interactive.modal-message]":"section-interactive.html#kssref-interactive-modal-message","Fadable [interactive.fadable]":"section-interactive.html#kssref-interactive-fadable","Grids [layout.grids]":"section-layout.html#kssref-layout-grids","Gallery Grid [layout.gallery-grid]":"section-layout.html#kssref-layout-gallery-grid","Content Section [layout.section]":"section-layout.html#kssref-layout-section","Content Container [layout.container]":"section-layout.html#kssref-layout-container","Horizontal Dividers [layout.divider]":"section-layout.html#kssref-layout-divider","Vertical Dividers [layout.divider-vertical]":"section-layout.html#kssref-layout-divider-vertical","Vertical Spacer [layout.spacer]":"section-layout.html#kssref-layout-spacer","Background Colors [layout.colored]":"section-layout.html#kssref-layout-colored","Background video [layout.bg-video]":"section-layout.html#kssref-layout-bg-video","Full Height Section [layout.full-height]":"section-layout.html#kssref-layout-full-height","Basic Page Layout [layout.basic-page]":"section-layout.html#kssref-layout-basic-page","Table Grids [layout.table-grids]":"section-layout.html#kssref-layout-table-grids","Padded box [layout.padded]":"section-layout.html#kssref-layout-padded","Marginless Boxes [layout.marginless-box]":"section-layout.html#kssref-layout-marginless-box","Breakpoints [documentation.breakpoints]":"section-documentation.html#kssref-documentation-breakpoints","Global Nav Ajax Consumption [documentation.global-nav-ajax]":"section-documentation.html#kssref-documentation-global-nav-ajax","News Banner [test-components.news-banner]":"section-test-components.html#kssref-test-components-news-banner","News Interstitial [test-components.news-interstitial]":"section-test-components.html#kssref-test-components-news-interstitial","Product Links [test-components.product-links]":"section-test-components.html#kssref-test-components-product-links"}};
+    window.styleguideSearchData = {"terms":["Colors template [colors.template]","Text Colors [colors.text]","Background Colors [colors.background]","Message colors [colors.messages]","Button Colors [colors.buttons]","Accent Colors [colors.accent]","Font Families [typography.fonts]","Headings Template [typography.heading-template]","Body Copy [typography.body-copy]","Caption [typography.caption]","Default Headings [typography.headings]","Special Heading Formats [typography.special-headings]","Formatted Text [typography.formatted]","Other Type Treatments [typography.other]","Text Colors [typography.colors]","Code Snippet [typography.code]","Heading Highlight [typography.heading-highlight]","Text Statistic [typography.text-stat]","Primary CTA [buttons-links.cta]","Topic Link [buttons-links.topic-link]","Anchor Link [buttons-links.anchor_link]","Base Text Link [buttons-links.link-base]","Formatted Text Links [buttons-links.link-formatted]","App Links [buttons-links.app-links]","\"Back To\" link [buttons-links.back-to-link]","Breadcrumb Links [buttons-links.breadcrumb-links]","Eyebrow Badge [labels.eyebrow-badge]","Tag Label [labels.tag]","Split Label [labels.split-label]","Gif Player [images.gif-player]","Image [images.image]","Image base styles [images.image-base]","Thumbnail Image [images.thumbnail]","Formatted Icons [media.icon-formatted]","Icons [media.icons]","Video Chapters Demo [media.video-chapters-demo]","Video Embed iframe [media.video-embed-iframe]","Video Embed in-page [media.video-embed-responsive]","Basic HTML Table [lists.basic-table]","Feature List [lists.feature-list]","Unordered List [lists.standard]","Link List [lists.link]","Tags List [lists.tags]","Table List [lists.table-list]","Teaser List [lists.teaser-list]","1-Up Cross Reference [lists.cross-reference-1]","2-Up Cross Reference [lists.cross-reference-2]","3-Up Cross Reference [lists.cross-reference-3]","Vertical Cross Reference [lists.cross-reference-vertical]","Agenda List [lists.agenda]","Comparison List [lists.comparison-list]","Video Chapters [lists.video-chapters]","Video Playlist [lists.video-playlist]","Video Playlist (Sidebar) [lists.video-playlist-sidebar]","Card Wall [lists.card-wall]","Large Teaser [teasers.large-teaser]","Basic Teaser Item [teasers.teaser-item]","Text Teaser Item [teasers.text_teaser]","Card Teaser [teasers.card]","Summary Teaser [teasers.summary-teaser]","Wide Card Teaser [teasers.card-wide]","Person Teaser [teasers.person-teaser]","Quote Card Teaser [teasers.card-quote]","Summary Card Teaser [teasers.card-summary]","Author Byline Teaser [teasers.author-byline]","Comments [compound.comments]","Quote [compound.quote]","Hero [compound.hero]","Fixed Height Hero [compound.hero-fixed-height]","Feature Highlight [compound.feature-highlight]","Messages [compound.messages]","Location [compound.location]","Detail Field [compound.detail-field]","Base Form Styles [forms.base]","Datepicker [forms.datepicker]","Flyout Form [forms.flyout-form]","Form Fields [forms.fields]","Form on Dark Backgrounds [forms.fields-dark]","Invalid Form Fields [forms.validation]","Inline form elements [forms.inline]","Confirmation Messages [forms.confirmation]","Fancy Radios [forms.fancy-filters]","Responsive Filters [forms.responsive-filter]","Form icon button [forms.icon-button]","Compact form [forms.form-compact]","Global Navigation [navigation.global]","Hamburger [navigation.hamburger]","Pager [navigation.pager]","Simple Pager [navigation.pager-simple]","Section Navigation [navigation.section-nav]","Subnavigation [navigation.subnav]","Topic Navigation [navigation.topic-nav]","Global Footer [navigation.footer]","Accordion [interactive.accordion]","Reveal Helper [interactive.reveal-helper]","Content Tabs [interactive.tabs]","Content Reveal [interactive.reveal]","Content Flyout [interactive.flyout]","Scroll Reveal [interactive.scroll-reveal]","Tooltip [interactive.tooltip]","Social Share [interactive.social-share]","Progress bar [interactive.progress-bar]","Sticky elements [interactive.sticky]","Global Notification [interactive.global-notification]","Context Switcher [interactive.context-switcher]","Sonar indicator [interactive.sonar-indicator]","Loader [interactive.loader]","Loading overlay [interactive.loading-overlay]","Teaser Slideshow [interactive.teaser-slideshow]","Hero Slideshow [interactive.hero-slideshow]","Full Bleed Slideshow [interactive.fullbleed-slideshow]","Modal Message [interactive.modal-message]","Fadable [interactive.fadable]","Grids [layout.grids]","Gallery Grid [layout.gallery-grid]","Content Section [layout.section]","Content Container [layout.container]","Horizontal Dividers [layout.divider]","Vertical Dividers [layout.divider-vertical]","Vertical Spacer [layout.spacer]","Background Colors [layout.colored]","Background video [layout.bg-video]","Full Height Section [layout.full-height]","Basic Page Layout [layout.basic-page]","Table Grids [layout.table-grids]","Padded box [layout.padded]","Marginless Boxes [layout.marginless-box]","Content Search [search.content-search]","Contextual Search [search.contextual-search]","Search Result [search.search-result]","Recommended Search Result [search.recommended-search-result]","Search Results List [search.search-results-list]","Search Facet [search.search-facet]","Search Facets [search.search-facets]","Search Breadcrumb [search.search-breadcrumb]","Search Highlight [search.search-highlight]","Breakpoints [documentation.breakpoints]","Global Nav Ajax Consumption [documentation.global-nav-ajax]","News Banner [test-components.news-banner]","News Interstitial [test-components.news-interstitial]","Product Links [test-components.product-links]","Hiding Elements [helpers.hiding]","Padding & Margins [helpers.spacing]","Borders [helpers.borders]","Text formatting helpers [helpers.text]","Responsive Iframe [helpers.responsive-iframe]","CSS position [helpers.position]","CSS display [helpers.display]","Centering Elements [helpers.centering]","List tweaks [helpers.lists]","Touch Scroll Handling [helpers.touch-scroll]","Miscellaneous Helpers [helpers.misc]"],"termToURI":{"Colors template [colors.template]":"section-colors.html#kssref-colors-template","Text Colors [colors.text]":"section-colors.html#kssref-colors-text","Background Colors [colors.background]":"section-colors.html#kssref-colors-background","Message colors [colors.messages]":"section-colors.html#kssref-colors-messages","Button Colors [colors.buttons]":"section-colors.html#kssref-colors-buttons","Accent Colors [colors.accent]":"section-colors.html#kssref-colors-accent","Font Families [typography.fonts]":"section-typography.html#kssref-typography-fonts","Headings Template [typography.heading-template]":"section-typography.html#kssref-typography-heading-template","Body Copy [typography.body-copy]":"section-typography.html#kssref-typography-body-copy","Caption [typography.caption]":"section-typography.html#kssref-typography-caption","Default Headings [typography.headings]":"section-typography.html#kssref-typography-headings","Special Heading Formats [typography.special-headings]":"section-typography.html#kssref-typography-special-headings","Formatted Text [typography.formatted]":"section-typography.html#kssref-typography-formatted","Other Type Treatments [typography.other]":"section-typography.html#kssref-typography-other","Text Colors [typography.colors]":"section-typography.html#kssref-typography-colors","Code Snippet [typography.code]":"section-typography.html#kssref-typography-code","Heading Highlight [typography.heading-highlight]":"section-typography.html#kssref-typography-heading-highlight","Text Statistic [typography.text-stat]":"section-typography.html#kssref-typography-text-stat","Primary CTA [buttons-links.cta]":"section-buttons-links.html#kssref-buttons-links-cta","Topic Link [buttons-links.topic-link]":"section-buttons-links.html#kssref-buttons-links-topic-link","Anchor Link [buttons-links.anchor_link]":"section-buttons-links.html#kssref-buttons-links-anchor_link","Base Text Link [buttons-links.link-base]":"section-buttons-links.html#kssref-buttons-links-link-base","Formatted Text Links [buttons-links.link-formatted]":"section-buttons-links.html#kssref-buttons-links-link-formatted","App Links [buttons-links.app-links]":"section-buttons-links.html#kssref-buttons-links-app-links","\"Back To\" link [buttons-links.back-to-link]":"section-buttons-links.html#kssref-buttons-links-back-to-link","Breadcrumb Links [buttons-links.breadcrumb-links]":"section-buttons-links.html#kssref-buttons-links-breadcrumb-links","Eyebrow Badge [labels.eyebrow-badge]":"section-labels.html#kssref-labels-eyebrow-badge","Tag Label [labels.tag]":"section-labels.html#kssref-labels-tag","Split Label [labels.split-label]":"section-labels.html#kssref-labels-split-label","Gif Player [images.gif-player]":"section-images.html#kssref-images-gif-player","Image [images.image]":"section-images.html#kssref-images-image","Image base styles [images.image-base]":"section-images.html#kssref-images-image-base","Thumbnail Image [images.thumbnail]":"section-images.html#kssref-images-thumbnail","Formatted Icons [media.icon-formatted]":"section-media.html#kssref-media-icon-formatted","Icons [media.icons]":"section-media.html#kssref-media-icons","Video Chapters Demo [media.video-chapters-demo]":"section-media.html#kssref-media-video-chapters-demo","Video Embed iframe [media.video-embed-iframe]":"section-media.html#kssref-media-video-embed-iframe","Video Embed in-page [media.video-embed-responsive]":"section-media.html#kssref-media-video-embed-responsive","Basic HTML Table [lists.basic-table]":"section-lists.html#kssref-lists-basic-table","Feature List [lists.feature-list]":"section-lists.html#kssref-lists-feature-list","Unordered List [lists.standard]":"section-lists.html#kssref-lists-standard","Link List [lists.link]":"section-lists.html#kssref-lists-link","Tags List [lists.tags]":"section-lists.html#kssref-lists-tags","Table List [lists.table-list]":"section-lists.html#kssref-lists-table-list","Teaser List [lists.teaser-list]":"section-lists.html#kssref-lists-teaser-list","1-Up Cross Reference [lists.cross-reference-1]":"section-lists.html#kssref-lists-cross-reference-1","2-Up Cross Reference [lists.cross-reference-2]":"section-lists.html#kssref-lists-cross-reference-2","3-Up Cross Reference [lists.cross-reference-3]":"section-lists.html#kssref-lists-cross-reference-3","Vertical Cross Reference [lists.cross-reference-vertical]":"section-lists.html#kssref-lists-cross-reference-vertical","Agenda List [lists.agenda]":"section-lists.html#kssref-lists-agenda","Comparison List [lists.comparison-list]":"section-lists.html#kssref-lists-comparison-list","Video Chapters [lists.video-chapters]":"section-lists.html#kssref-lists-video-chapters","Video Playlist [lists.video-playlist]":"section-lists.html#kssref-lists-video-playlist","Video Playlist (Sidebar) [lists.video-playlist-sidebar]":"section-lists.html#kssref-lists-video-playlist-sidebar","Card Wall [lists.card-wall]":"section-lists.html#kssref-lists-card-wall","Large Teaser [teasers.large-teaser]":"section-teasers.html#kssref-teasers-large-teaser","Basic Teaser Item [teasers.teaser-item]":"section-teasers.html#kssref-teasers-teaser-item","Text Teaser Item [teasers.text_teaser]":"section-teasers.html#kssref-teasers-text_teaser","Card Teaser [teasers.card]":"section-teasers.html#kssref-teasers-card","Summary Teaser [teasers.summary-teaser]":"section-teasers.html#kssref-teasers-summary-teaser","Wide Card Teaser [teasers.card-wide]":"section-teasers.html#kssref-teasers-card-wide","Person Teaser [teasers.person-teaser]":"section-teasers.html#kssref-teasers-person-teaser","Quote Card Teaser [teasers.card-quote]":"section-teasers.html#kssref-teasers-card-quote","Summary Card Teaser [teasers.card-summary]":"section-teasers.html#kssref-teasers-card-summary","Author Byline Teaser [teasers.author-byline]":"section-teasers.html#kssref-teasers-author-byline","Comments [compound.comments]":"section-compound.html#kssref-compound-comments","Quote [compound.quote]":"section-compound.html#kssref-compound-quote","Hero [compound.hero]":"section-compound.html#kssref-compound-hero","Fixed Height Hero [compound.hero-fixed-height]":"section-compound.html#kssref-compound-hero-fixed-height","Feature Highlight [compound.feature-highlight]":"section-compound.html#kssref-compound-feature-highlight","Messages [compound.messages]":"section-compound.html#kssref-compound-messages","Location [compound.location]":"section-compound.html#kssref-compound-location","Detail Field [compound.detail-field]":"section-compound.html#kssref-compound-detail-field","Base Form Styles [forms.base]":"section-forms.html#kssref-forms-base","Datepicker [forms.datepicker]":"section-forms.html#kssref-forms-datepicker","Flyout Form [forms.flyout-form]":"section-forms.html#kssref-forms-flyout-form","Form Fields [forms.fields]":"section-forms.html#kssref-forms-fields","Form on Dark Backgrounds [forms.fields-dark]":"section-forms.html#kssref-forms-fields-dark","Invalid Form Fields [forms.validation]":"section-forms.html#kssref-forms-validation","Inline form elements [forms.inline]":"section-forms.html#kssref-forms-inline","Confirmation Messages [forms.confirmation]":"section-forms.html#kssref-forms-confirmation","Fancy Radios [forms.fancy-filters]":"section-forms.html#kssref-forms-fancy-filters","Responsive Filters [forms.responsive-filter]":"section-forms.html#kssref-forms-responsive-filter","Form icon button [forms.icon-button]":"section-forms.html#kssref-forms-icon-button","Compact form [forms.form-compact]":"section-forms.html#kssref-forms-form-compact","Global Navigation [navigation.global]":"section-navigation.html#kssref-navigation-global","Hamburger [navigation.hamburger]":"section-navigation.html#kssref-navigation-hamburger","Pager [navigation.pager]":"section-navigation.html#kssref-navigation-pager","Simple Pager [navigation.pager-simple]":"section-navigation.html#kssref-navigation-pager-simple","Section Navigation [navigation.section-nav]":"section-navigation.html#kssref-navigation-section-nav","Subnavigation [navigation.subnav]":"section-navigation.html#kssref-navigation-subnav","Topic Navigation [navigation.topic-nav]":"section-navigation.html#kssref-navigation-topic-nav","Global Footer [navigation.footer]":"section-navigation.html#kssref-navigation-footer","Accordion [interactive.accordion]":"section-interactive.html#kssref-interactive-accordion","Reveal Helper [interactive.reveal-helper]":"section-interactive.html#kssref-interactive-reveal-helper","Content Tabs [interactive.tabs]":"section-interactive.html#kssref-interactive-tabs","Content Reveal [interactive.reveal]":"section-interactive.html#kssref-interactive-reveal","Content Flyout [interactive.flyout]":"section-interactive.html#kssref-interactive-flyout","Scroll Reveal [interactive.scroll-reveal]":"section-interactive.html#kssref-interactive-scroll-reveal","Tooltip [interactive.tooltip]":"section-interactive.html#kssref-interactive-tooltip","Social Share [interactive.social-share]":"section-interactive.html#kssref-interactive-social-share","Progress bar [interactive.progress-bar]":"section-interactive.html#kssref-interactive-progress-bar","Sticky elements [interactive.sticky]":"section-interactive.html#kssref-interactive-sticky","Global Notification [interactive.global-notification]":"section-interactive.html#kssref-interactive-global-notification","Context Switcher [interactive.context-switcher]":"section-interactive.html#kssref-interactive-context-switcher","Sonar indicator [interactive.sonar-indicator]":"section-interactive.html#kssref-interactive-sonar-indicator","Loader [interactive.loader]":"section-interactive.html#kssref-interactive-loader","Loading overlay [interactive.loading-overlay]":"section-interactive.html#kssref-interactive-loading-overlay","Teaser Slideshow [interactive.teaser-slideshow]":"section-interactive.html#kssref-interactive-teaser-slideshow","Hero Slideshow [interactive.hero-slideshow]":"section-interactive.html#kssref-interactive-hero-slideshow","Full Bleed Slideshow [interactive.fullbleed-slideshow]":"section-interactive.html#kssref-interactive-fullbleed-slideshow","Modal Message [interactive.modal-message]":"section-interactive.html#kssref-interactive-modal-message","Fadable [interactive.fadable]":"section-interactive.html#kssref-interactive-fadable","Grids [layout.grids]":"section-layout.html#kssref-layout-grids","Gallery Grid [layout.gallery-grid]":"section-layout.html#kssref-layout-gallery-grid","Content Section [layout.section]":"section-layout.html#kssref-layout-section","Content Container [layout.container]":"section-layout.html#kssref-layout-container","Horizontal Dividers [layout.divider]":"section-layout.html#kssref-layout-divider","Vertical Dividers [layout.divider-vertical]":"section-layout.html#kssref-layout-divider-vertical","Vertical Spacer [layout.spacer]":"section-layout.html#kssref-layout-spacer","Background Colors [layout.colored]":"section-layout.html#kssref-layout-colored","Background video [layout.bg-video]":"section-layout.html#kssref-layout-bg-video","Full Height Section [layout.full-height]":"section-layout.html#kssref-layout-full-height","Basic Page Layout [layout.basic-page]":"section-layout.html#kssref-layout-basic-page","Table Grids [layout.table-grids]":"section-layout.html#kssref-layout-table-grids","Padded box [layout.padded]":"section-layout.html#kssref-layout-padded","Marginless Boxes [layout.marginless-box]":"section-layout.html#kssref-layout-marginless-box","Content Search [search.content-search]":"section-search.html#kssref-search-content-search","Contextual Search [search.contextual-search]":"section-search.html#kssref-search-contextual-search","Search Result [search.search-result]":"section-search.html#kssref-search-search-result","Recommended Search Result [search.recommended-search-result]":"section-search.html#kssref-search-recommended-search-result","Search Results List [search.search-results-list]":"section-search.html#kssref-search-search-results-list","Search Facet [search.search-facet]":"section-search.html#kssref-search-search-facet","Search Facets [search.search-facets]":"section-search.html#kssref-search-search-facets","Search Breadcrumb [search.search-breadcrumb]":"section-search.html#kssref-search-search-breadcrumb","Search Highlight [search.search-highlight]":"section-search.html#kssref-search-search-highlight","Breakpoints [documentation.breakpoints]":"section-documentation.html#kssref-documentation-breakpoints","Global Nav Ajax Consumption [documentation.global-nav-ajax]":"section-documentation.html#kssref-documentation-global-nav-ajax","News Banner [test-components.news-banner]":"section-test-components.html#kssref-test-components-news-banner","News Interstitial [test-components.news-interstitial]":"section-test-components.html#kssref-test-components-news-interstitial","Product Links [test-components.product-links]":"section-test-components.html#kssref-test-components-product-links","Hiding Elements [helpers.hiding]":"section-helpers.html#kssref-helpers-hiding","Padding & Margins [helpers.spacing]":"section-helpers.html#kssref-helpers-spacing","Borders [helpers.borders]":"section-helpers.html#kssref-helpers-borders","Text formatting helpers [helpers.text]":"section-helpers.html#kssref-helpers-text","Responsive Iframe [helpers.responsive-iframe]":"section-helpers.html#kssref-helpers-responsive-iframe","CSS position [helpers.position]":"section-helpers.html#kssref-helpers-position","CSS display [helpers.display]":"section-helpers.html#kssref-helpers-display","Centering Elements [helpers.centering]":"section-helpers.html#kssref-helpers-centering","List tweaks [helpers.lists]":"section-helpers.html#kssref-helpers-lists","Touch Scroll Handling [helpers.touch-scroll]":"section-helpers.html#kssref-helpers-touch-scroll","Miscellaneous Helpers [helpers.misc]":"section-helpers.html#kssref-helpers-misc"}};
   </script>
   <script src="https://players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js"></script>
 <script src="build/vendor/jquery/dist/jquery.min.js"></script>

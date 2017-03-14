@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]>            <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IEMobile 7]>          <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (IE 7)&(!IEMobile)]>  <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>                <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Tableau Styleguide</title>
+  <!-- <title>Tableau Components</title> -->
+
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="build/vendor/slick.js/slick/slick.css">
+<link rel="stylesheet" href="public/style.css">
+<link rel="stylesheet" href="build/css/styleguide.css">
+
+</head>
+<body class="kss">
+
+  <header class="kss-header kss-clearfix">
+    <div class="kss-logo kss-left">
+      <a href="./">
+        <img src="public/images/logo.png" title="Tableau Software">
+      </a>
+    </div>
+    <div class="kss-right">
+      <h1>Styleguide</h1>
+      <!-- <h1>Tableau Components</h1> -->
+    </div>
+  </header>
+
+  <div class="kss-main kss-clearfix">
+    <nav class="kss-nav kss-left">
+      <input class="typeahead" type="text" placeholder="Search components">
+      <ul class="kss-nav__menu">
+        <li class="kss-nav__menu-item">
+          <a href="./">
+            Overview
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-colors.html">
+            Colors
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-typography.html">
+            Typography
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-buttons-links.html">
+            Buttons &amp; Links
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-labels.html">
+            Labels
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-images.html">
+            Images
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-media.html">
+            Media
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-lists.html">
+            Lists
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-teasers.html">
+            Teasers
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-compound.html">
+            Compound
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-forms.html">
+            Forms
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-navigation.html">
+            Navigation
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-interactive.html">
+            Interactive
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-layout.html">
+            Layout
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-search.html">
+            Search
+          </a>
+          <ul class="kss-nav__menu-child">
+              <li class="kss-nav__menu-item ">
+                <a href="section-search.html#kssref-search">
+                  Search
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-content-search">
+                  Content Search
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-contextual-search">
+                  Contextual Search
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-search-result">
+                  Search Result
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-recommended-search-result">
+                  Recommended Search Result
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-search-results-list">
+                  Search Results List
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-search-facet">
+                  Search Facet
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-search-facets">
+                  Search Facets
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-search-breadcrumb">
+                  Search Breadcrumb
+                </a>
+              </li>
+              <li class="kss-nav__menu-item js-depth-2">
+                <a href="section-search.html#kssref-search-search-highlight">
+                  Search Highlight
+                </a>
+              </li>
+          </ul>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-documentation.html">
+            Documentation
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-test-components.html">
+            Test Components
+          </a>
+        </li>
+        <li class="kss-nav__menu-item">
+          <a href="section-helpers.html">
+            CSS Helpers
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <article role="main" class="kss-content kss-right">
+
+            <div id="kssref-search" class="kss-section kss-section--depth-1">
+
+          <div class="kss-style">
+            <h2 class="kss-title kss-title--level-1">
+              <!-- <a class="kss-title__permalink" href="#kssref-search"> -->
+                Search
+              <!-- </a> -->
+            </h2>
+
+            <div class="kss-description">
+              <p>Components used for search inputs, search results, etc.</p>
+
+            </div>
+
+          </div>
+
+
+            </div>
+            <section id="kssref-search-content-search" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-content-search"> -->
+                Content Search
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>Search component for use within content (i.e. not header or footer)</p>
+
+            </div>
+
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <form class="content-search [modifier class]" autocomplete="off">
+  <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+  <button class="content-search__button content-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+  <button class="content-search__button content-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--close-window-style2"></i></button>
+</form>
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>White input background variant for use on color backgrounds.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>content-search--white</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <form class="content-search content-search--white" autocomplete="off">
+  <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+  <button class="content-search__button content-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+  <button class="content-search__button content-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--close-window-style2"></i></button>
+</form>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;form class=&quot;content-search [modifier class]&quot; autocomplete=&quot;off&quot;&gt;
+  &lt;input class=&quot;content-search__input&quot; type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
+  &lt;button class=&quot;content-search__button content-search__submit&quot; type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;button class=&quot;content-search__button content-search__reset&quot; type=&quot;reset&quot; name=&quot;exampleSearchReset&quot;&gt;&lt;i class=&quot;icon icon--close-window-style2&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-contextual-search" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-contextual-search"> -->
+                Contextual Search
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>Contextual search form for section-specific searches.</p>
+<p>Upon submitting (e.g., pressing ENTER or clicking the search submit icon) an
+intermediate search results list is shown in the context of the page (provided
+via AJAX).</p>
+<p>More results text, at the bottom of the intermediate search results list, allows
+you to continue to the full results page.</p>
+<p>Down/up arrow keys allow you to select a results row, and clicking outside the
+search component will close the search results.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="content-search contextual-search">
+  <div class="contextual-search__ui">
+    <form class="contextual-search__form" autocomplete="off">
+      <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+      <button class="content-search__button content-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+      <button class="content-search__button content-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--close-window-style2"></i></button>
+    </form>
+    <div class="contextual-search__results">
+      <a href="#row0" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Analytics</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row1" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Sheets API</div>
+        <div class="contextual-search__meta">2 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row2" class="contextual-search__results-row">
+        <div class="contextual-search__title">Good Storytelling with Data</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; DASHBOARDS &amp; STORIES</div>
+      </a>
+      <a href="#more" class="contextual-search__results-row contextual-search__more">
+        65 results for &quot;goo&quot; sitewide
+      </a>
+    </div>
+  </div>
+</div>
+
+<img src="https://cloud.githubusercontent.com/assets/153132/11155558/2140d822-89fb-11e5-9cef-5eaed5798b77.jpeg" alt="Optional image of Nicolas Cage">
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>White input background variant for use on color backgrounds.</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>contextual-search--white</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="content-search contextual-search">
+  <div class="contextual-search__ui">
+    <form class="contextual-search__form" autocomplete="off">
+      <input class="content-search__input" type="search" name="exampleSearch" placeholder="Search this section">
+      <button class="content-search__button content-search__submit" type="submit" name="exampleSearchSubmit"><i class="icon icon--search"></i></button>
+      <button class="content-search__button content-search__reset" type="reset" name="exampleSearchReset"><i class="icon icon--close-window-style2"></i></button>
+    </form>
+    <div class="contextual-search__results">
+      <a href="#row0" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Analytics</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row1" class="contextual-search__results-row">
+        <div class="contextual-search__title">Google Sheets API</div>
+        <div class="contextual-search__meta">2 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; CONNECTING TO DATA</div>
+      </a>
+      <a href="#row2" class="contextual-search__results-row">
+        <div class="contextual-search__title">Good Storytelling with Data</div>
+        <div class="contextual-search__meta">3 MIN</div>
+        <div class="contextual-search__category">TOPICS &gt; DASHBOARDS &amp; STORIES</div>
+      </a>
+      <a href="#more" class="contextual-search__results-row contextual-search__more">
+        65 results for &quot;goo&quot; sitewide
+      </a>
+    </div>
+  </div>
+</div>
+
+<img src="https://cloud.githubusercontent.com/assets/153132/11155558/2140d822-89fb-11e5-9cef-5eaed5798b77.jpeg" alt="Optional image of Nicolas Cage">
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;content-search contextual-search&quot;&gt;
+  &lt;div class=&quot;contextual-search__ui&quot;&gt;
+    &lt;form class=&quot;contextual-search__form&quot; autocomplete=&quot;off&quot;&gt;
+      &lt;input class=&quot;content-search__input&quot; type=&quot;search&quot; name=&quot;exampleSearch&quot; placeholder=&quot;Search this section&quot;&gt;
+      &lt;button class=&quot;content-search__button content-search__submit&quot; type=&quot;submit&quot; name=&quot;exampleSearchSubmit&quot;&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button class=&quot;content-search__button content-search__reset&quot; type=&quot;reset&quot; name=&quot;exampleSearchReset&quot;&gt;&lt;i class=&quot;icon icon--close-window-style2&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;div class=&quot;contextual-search__results&quot;&gt;
+      &lt;a href=&quot;#row0&quot; class=&quot;contextual-search__results-row&quot;&gt;
+        &lt;div class=&quot;contextual-search__title&quot;&gt;Google Analytics&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__meta&quot;&gt;3 MIN&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__category&quot;&gt;TOPICS &amp;gt; CONNECTING TO DATA&lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#row1&quot; class=&quot;contextual-search__results-row&quot;&gt;
+        &lt;div class=&quot;contextual-search__title&quot;&gt;Google Sheets API&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__meta&quot;&gt;2 MIN&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__category&quot;&gt;TOPICS &amp;gt; CONNECTING TO DATA&lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#row2&quot; class=&quot;contextual-search__results-row&quot;&gt;
+        &lt;div class=&quot;contextual-search__title&quot;&gt;Good Storytelling with Data&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__meta&quot;&gt;3 MIN&lt;/div&gt;
+        &lt;div class=&quot;contextual-search__category&quot;&gt;TOPICS &amp;gt; DASHBOARDS &amp;amp; STORIES&lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#more&quot; class=&quot;contextual-search__results-row contextual-search__more&quot;&gt;
+        65 results for &amp;quot;goo&amp;quot; sitewide
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/153132/11155558/2140d822-89fb-11e5-9cef-5eaed5798b77.jpeg&quot; alt=&quot;Optional image of Nicolas Cage&quot;&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-search-result" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-search-result"> -->
+                Search Result
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>A search result teaser.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="search-result ">
+
+  <h3 class="search-result__title">Drew Paul Doritos</h3>
+
+  <div class="search-result__summary">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+  </div>
+
+  <div class="breadcrumb-links">
+      <a href="#" class=" link">Support</a>
+      <a href="#" class=" link">Community</a>
+  </div>
+
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-result &quot;&gt;
+
+  &lt;h3 class=&quot;search-result__title&quot;&gt;Drew Paul Doritos&lt;/h3&gt;
+
+  &lt;div class=&quot;search-result__summary&quot;&gt;
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+  &lt;/div&gt;
+
+  &lt;div class=&quot;breadcrumb-links&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot; link&quot;&gt;Support&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot; link&quot;&gt;Community&lt;/a&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-recommended-search-result" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-recommended-search-result"> -->
+                Recommended Search Result
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>This search result is more pronounced, includes an image, and custom link text with arrow.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="recommended-search-result [modifier class]">
+
+  <div class="recommended-search-result__image">
+    <img src="http://www.placecage.com/c/500/500">
+  </div>
+
+  <div class="recommended-search-result__body">
+    <div class="recommended-search-result__label label-tag label-tag--purple">Recommended</div>
+
+    <h3 class="recommended-search-result__title">Drew Paul Doritos</h3>
+
+    <div class="recommended-search-result__summary">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+    </div>
+
+    <a href="#" class=" link link--arrow">You really want to see Drew Paul eating these chips</a>
+  </div>
+
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>Text-only (no image)</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>recommended-search-result--text-only</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="recommended-search-result recommended-search-result--text-only">
+
+  <div class="recommended-search-result__image">
+    <img src="http://www.placecage.com/c/500/500">
+  </div>
+
+  <div class="recommended-search-result__body">
+    <div class="recommended-search-result__label label-tag label-tag--purple">Recommended</div>
+
+    <h3 class="recommended-search-result__title">Drew Paul Doritos</h3>
+
+    <div class="recommended-search-result__summary">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+    </div>
+
+    <a href="#" class=" link link--arrow">You really want to see Drew Paul eating these chips</a>
+  </div>
+
+</div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;recommended-search-result [modifier class]&quot;&gt;
+
+  &lt;div class=&quot;recommended-search-result__image&quot;&gt;
+    &lt;img src=&quot;http://www.placecage.com/c/500/500&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;recommended-search-result__body&quot;&gt;
+    &lt;div class=&quot;recommended-search-result__label label-tag label-tag--purple&quot;&gt;Recommended&lt;/div&gt;
+
+    &lt;h3 class=&quot;recommended-search-result__title&quot;&gt;Drew Paul Doritos&lt;/h3&gt;
+
+    &lt;div class=&quot;recommended-search-result__summary&quot;&gt;
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+    &lt;/div&gt;
+
+    &lt;a href=&quot;#&quot; class=&quot; link link--arrow&quot;&gt;You really want to see Drew Paul eating these chips&lt;/a&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-search-results-list" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-search-results-list"> -->
+                Search Results List
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>A collection of search results.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                      <div class="recommended-search-result ">
+  
+    <div class="recommended-search-result__image">
+      <img src="http://www.placecage.com/c/500/500">
+    </div>
+  
+    <div class="recommended-search-result__body">
+      <div class="recommended-search-result__label label-tag label-tag--purple">Recommended</div>
+  
+      <h3 class="recommended-search-result__title">Drew Paul Doritos</h3>
+  
+      <div class="recommended-search-result__summary">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+      </div>
+  
+      <a href="#" class=" link link--arrow">You really want to see Drew Paul eating these chips</a>
+    </div>
+  
+  </div>
+
+  <div class="search-result ">
+  
+    <h3 class="search-result__title">Drew Paul Doritos</h3>
+  
+    <div class="search-result__summary">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+    </div>
+  
+    <div class="breadcrumb-links">
+        <a href="#" class=" link breadcrumb-links__link">About</a>
+        <a href="#" class=" link breadcrumb-links__link">Blog</a>
+    </div>
+  
+  </div>
+  <div class="search-result ">
+  
+    <h3 class="search-result__title">I See What You Did There</h3>
+  
+    <div class="search-result__summary">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+    </div>
+  
+    <div class="breadcrumb-links">
+        <a href="#" class=" link breadcrumb-links__link">Support</a>
+        <a href="#" class=" link breadcrumb-links__link">Community</a>
+    </div>
+  
+  </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">  &lt;div class=&quot;recommended-search-result &quot;&gt;
+  
+    &lt;div class=&quot;recommended-search-result__image&quot;&gt;
+      &lt;img src=&quot;http://www.placecage.com/c/500/500&quot;&gt;
+    &lt;/div&gt;
+  
+    &lt;div class=&quot;recommended-search-result__body&quot;&gt;
+      &lt;div class=&quot;recommended-search-result__label label-tag label-tag--purple&quot;&gt;Recommended&lt;/div&gt;
+  
+      &lt;h3 class=&quot;recommended-search-result__title&quot;&gt;Drew Paul Doritos&lt;/h3&gt;
+  
+      &lt;div class=&quot;recommended-search-result__summary&quot;&gt;
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+      &lt;/div&gt;
+  
+      &lt;a href=&quot;#&quot; class=&quot; link link--arrow&quot;&gt;You really want to see Drew Paul eating these chips&lt;/a&gt;
+    &lt;/div&gt;
+  
+  &lt;/div&gt;
+
+  &lt;div class=&quot;search-result &quot;&gt;
+  
+    &lt;h3 class=&quot;search-result__title&quot;&gt;Drew Paul Doritos&lt;/h3&gt;
+  
+    &lt;div class=&quot;search-result__summary&quot;&gt;
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+    &lt;/div&gt;
+  
+    &lt;div class=&quot;breadcrumb-links&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot; link breadcrumb-links__link&quot;&gt;About&lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot; link breadcrumb-links__link&quot;&gt;Blog&lt;/a&gt;
+    &lt;/div&gt;
+  
+  &lt;/div&gt;
+  &lt;div class=&quot;search-result &quot;&gt;
+  
+    &lt;h3 class=&quot;search-result__title&quot;&gt;I See What You Did There&lt;/h3&gt;
+  
+    &lt;div class=&quot;search-result__summary&quot;&gt;
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate, explicabo fugiat illum inventore iure maiores maxime mollitia necessitatibus nihil, optio quia recusandae repudiandae saepe similique sit tempora ut vel.
+    &lt;/div&gt;
+  
+    &lt;div class=&quot;breadcrumb-links&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot; link breadcrumb-links__link&quot;&gt;Support&lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot; link breadcrumb-links__link&quot;&gt;Community&lt;/a&gt;
+    &lt;/div&gt;
+  
+  &lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-search-facet" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-search-facet"> -->
+                Search Facet
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>A search facet selection widget.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Examples</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-details">
+                  <div class="kss-example-desc">
+                    <h6>Default styling</h6>
+                  </div>
+                </div>
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="search-facet coveo-facet-collapsed [modifier class]">
+  <div class="search-facet__header">Tableau Product</div>
+  <ul class="search-facet__list">
+    <li class="search-facet__item">
+      <input id="value1" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value1">Not Specified</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value2" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value2">Tableau Desktop</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value3" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value3">Tableau Server</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value4" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value4">Tableau Online</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value5" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value5">Tableau Public</label>
+    </li>
+  </ul>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="kss-example">
+                  <div class="kss-example-details">
+                    <div class="kss-example-desc">
+                      <p>empty / no options</p>
+                    </div>
+                    <div class="kss-example-name">
+                      <p><code>search-facet--empty</code></p>
+                    </div>
+                  </div>
+                  <div class="kss-example-preview">
+                    <div class="kss-example-preview-wrapper">
+                      <div class="search-facet coveo-facet-collapsed search-facet--empty">
+  <div class="search-facet__header">Tableau Product</div>
+  <ul class="search-facet__list">
+    <li class="search-facet__item">
+      <input id="value1" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value1">Not Specified</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value2" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value2">Tableau Desktop</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value3" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value3">Tableau Server</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value4" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value4">Tableau Online</label>
+    </li>
+    <li class="search-facet__item">
+      <input id="value5" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+      <label for="value5">Tableau Public</label>
+    </li>
+  </ul>
+</div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-facet coveo-facet-collapsed [modifier class]&quot;&gt;
+  &lt;div class=&quot;search-facet__header&quot;&gt;Tableau Product&lt;/div&gt;
+  &lt;ul class=&quot;search-facet__list&quot;&gt;
+    &lt;li class=&quot;search-facet__item&quot;&gt;
+      &lt;input id=&quot;value1&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+      &lt;label for=&quot;value1&quot;&gt;Not Specified&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;search-facet__item&quot;&gt;
+      &lt;input id=&quot;value2&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+      &lt;label for=&quot;value2&quot;&gt;Tableau Desktop&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;search-facet__item&quot;&gt;
+      &lt;input id=&quot;value3&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+      &lt;label for=&quot;value3&quot;&gt;Tableau Server&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;search-facet__item&quot;&gt;
+      &lt;input id=&quot;value4&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+      &lt;label for=&quot;value4&quot;&gt;Tableau Online&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;search-facet__item&quot;&gt;
+      &lt;input id=&quot;value5&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+      &lt;label for=&quot;value5&quot;&gt;Tableau Public&lt;/label&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-search-facets" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-search-facets"> -->
+                Search Facets
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>Layout for multiple Search Facet components.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="search-facets ">
+    <div class="search-facets__item">
+      <div class="search-facet coveo-facet-collapsed ">
+        <div class="search-facet__header">Tableau Product</div>
+        <ul class="search-facet__list">
+          <li class="search-facet__item">
+            <input id="value1" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value1">Not Specified</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value2" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value2">Tableau Desktop</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value3" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value3">Tableau Server</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value4" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value4">Tableau Online</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value5" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value5">Tableau Public</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="search-facets__item">
+      <div class="search-facet coveo-facet-collapsed ">
+        <div class="search-facet__header">Product Version</div>
+        <ul class="search-facet__list">
+          <li class="search-facet__item">
+            <input id="value6" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value6">10.2</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value7" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value7">10.1</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value8" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value8">10.0</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value9" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value9">9.3</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value10" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value10">0.2</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="search-facets__item">
+      <div class="search-facet coveo-facet-collapsed ">
+        <div class="search-facet__header">Operating System</div>
+        <ul class="search-facet__list">
+          <li class="search-facet__item">
+            <input id="value11" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value11">Not Specified</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value12" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value12">Windows</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value13" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value13">Mac</label>
+          </li>
+          <li class="search-facet__item">
+            <input id="value14" type="checkbox" class="search-facet__checkbox" form="dummy-form">
+            <label for="value14">Linux</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-facets &quot;&gt;
+    &lt;div class=&quot;search-facets__item&quot;&gt;
+      &lt;div class=&quot;search-facet coveo-facet-collapsed &quot;&gt;
+        &lt;div class=&quot;search-facet__header&quot;&gt;Tableau Product&lt;/div&gt;
+        &lt;ul class=&quot;search-facet__list&quot;&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value1&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value1&quot;&gt;Not Specified&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value2&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value2&quot;&gt;Tableau Desktop&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value3&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value3&quot;&gt;Tableau Server&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value4&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value4&quot;&gt;Tableau Online&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value5&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value5&quot;&gt;Tableau Public&lt;/label&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;search-facets__item&quot;&gt;
+      &lt;div class=&quot;search-facet coveo-facet-collapsed &quot;&gt;
+        &lt;div class=&quot;search-facet__header&quot;&gt;Product Version&lt;/div&gt;
+        &lt;ul class=&quot;search-facet__list&quot;&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value6&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value6&quot;&gt;10.2&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value7&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value7&quot;&gt;10.1&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value8&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value8&quot;&gt;10.0&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value9&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value9&quot;&gt;9.3&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value10&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value10&quot;&gt;0.2&lt;/label&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;search-facets__item&quot;&gt;
+      &lt;div class=&quot;search-facet coveo-facet-collapsed &quot;&gt;
+        &lt;div class=&quot;search-facet__header&quot;&gt;Operating System&lt;/div&gt;
+        &lt;ul class=&quot;search-facet__list&quot;&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value11&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value11&quot;&gt;Not Specified&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value12&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value12&quot;&gt;Windows&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value13&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value13&quot;&gt;Mac&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;search-facet__item&quot;&gt;
+            &lt;input id=&quot;value14&quot; type=&quot;checkbox&quot; class=&quot;search-facet__checkbox&quot; form=&quot;dummy-form&quot;&gt;
+            &lt;label for=&quot;value14&quot;&gt;Linux&lt;/label&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-search-breadcrumb" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-search-breadcrumb"> -->
+                Search Breadcrumb
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>Displays a summary of the filters currently active in the Coveo query.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview" style=" ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="search-breadcrumb ">
+  <div class="search-breadcrumb__items">
+    <div class="search-breadcrumb__item">
+      <div class="search-breadcrumb__item-title">Tableau Product:</div>
+      <div class="search-breadcrumb__item-values">
+        <div class="search-breadcrumb__item-value">
+          <div class="search-breadcrumb__item-caption">Not Specified</div><div class="search-breadcrumb__item-clear"></div>
+        </div>
+        <div class="search-breadcrumb__item-value">
+          <div class="search-breadcrumb__item-caption">Tableau Desktop</div><div class="search-breadcrumb__item-clear"></div>
+        </div>
+        <div class="search-breadcrumb__item-value">
+          <div class="search-breadcrumb__item-caption">Tableau Server</div><div class="search-breadcrumb__item-clear"></div>
+        </div>
+        <div class="search-breadcrumb__item-value">
+          <div class="search-breadcrumb__item-caption">Tableau Online</div><div class="search-breadcrumb__item-clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="search-breadcrumb__item">
+      <div class="search-breadcrumb__item-title">Operating System:</div>
+      <div class="search-breadcrumb__item-values">
+        <div class="search-breadcrumb__item-value">
+          <div class="search-breadcrumb__item-caption">Windows</div><div class="search-breadcrumb__item-clear"></div>
+        </div>
+        <div class="search-breadcrumb__item-value">
+          <div class="search-breadcrumb__item-caption">Mac</div><div class="search-breadcrumb__item-clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-breadcrumb__controls">
+    <div class="search-breadcrumb__clear-all">Clear All</div>
+  </div>
+</div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-breadcrumb &quot;&gt;
+  &lt;div class=&quot;search-breadcrumb__items&quot;&gt;
+    &lt;div class=&quot;search-breadcrumb__item&quot;&gt;
+      &lt;div class=&quot;search-breadcrumb__item-title&quot;&gt;Tableau Product:&lt;/div&gt;
+      &lt;div class=&quot;search-breadcrumb__item-values&quot;&gt;
+        &lt;div class=&quot;search-breadcrumb__item-value&quot;&gt;
+          &lt;div class=&quot;search-breadcrumb__item-caption&quot;&gt;Not Specified&lt;/div&gt;&lt;div class=&quot;search-breadcrumb__item-clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;search-breadcrumb__item-value&quot;&gt;
+          &lt;div class=&quot;search-breadcrumb__item-caption&quot;&gt;Tableau Desktop&lt;/div&gt;&lt;div class=&quot;search-breadcrumb__item-clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;search-breadcrumb__item-value&quot;&gt;
+          &lt;div class=&quot;search-breadcrumb__item-caption&quot;&gt;Tableau Server&lt;/div&gt;&lt;div class=&quot;search-breadcrumb__item-clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;search-breadcrumb__item-value&quot;&gt;
+          &lt;div class=&quot;search-breadcrumb__item-caption&quot;&gt;Tableau Online&lt;/div&gt;&lt;div class=&quot;search-breadcrumb__item-clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;search-breadcrumb__item&quot;&gt;
+      &lt;div class=&quot;search-breadcrumb__item-title&quot;&gt;Operating System:&lt;/div&gt;
+      &lt;div class=&quot;search-breadcrumb__item-values&quot;&gt;
+        &lt;div class=&quot;search-breadcrumb__item-value&quot;&gt;
+          &lt;div class=&quot;search-breadcrumb__item-caption&quot;&gt;Windows&lt;/div&gt;&lt;div class=&quot;search-breadcrumb__item-clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;search-breadcrumb__item-value&quot;&gt;
+          &lt;div class=&quot;search-breadcrumb__item-caption&quot;&gt;Mac&lt;/div&gt;&lt;div class=&quot;search-breadcrumb__item-clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;search-breadcrumb__controls&quot;&gt;
+    &lt;div class=&quot;search-breadcrumb__clear-all&quot;&gt;Clear All&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+            </section>
+            <section id="kssref-search-search-highlight" class="kss-section kss-section--depth-2">
+
+          <div class="kss-style">
+            <h3 class="kss-title kss-title--level-2">
+              <!-- <a class="kss-title__permalink" href="#kssref-search-search-highlight"> -->
+                Search Highlight
+              <!-- </a> -->
+            </h3>
+
+            <div class="kss-description">
+              <p>Searches through a list of items and highlights items that match the term.</p>
+
+            </div>
+
+          </div>
+
+            <h4>Example</h4>
+            <div class="kss-examples">
+              <div class="kss-example kss-example__default">
+                <div class="kss-example-preview" style="background: #F7F9FB; ">
+                  <div class="kss-example-preview-wrapper">
+                    <div class="search-highlight ">
+  <input type="search" data-content="test-content" data-highlight-class="text--bold"/>
+  <button><i class="icon icon--search"></i></button>
+</div>
+
+<div id="test-content">
+    <ul class=" ">
+        <li >
+          Actian Vectorwise 2.0 or later (Windows only)
+        </li>
+        <li >
+          Amazon Redshift
+        </li>
+        <li >
+          Amazon Elastic MapReduce
+        </li>
+        <li >
+          Cloudera Hadoop Hive and Impala; Hive CDH3u1, which includes Hive .71, or later; Impala 1.0 or later
+        </li>
+        <li >
+          DataStax Enterprise Edition 2.2 or later (Windows only)
+        </li>
+        <li >
+          EXASOL 4.2 or later (Windows only)
+        </li>
+        <li >
+          Firebird 2.1.4 or later
+        </li>
+        <li >
+          Google Analytics
+        </li>
+        <li >
+          Google BigQuery
+        </li>
+        <li >
+          Hortonworks Hadoop Hive 1.1 or later
+        </li>
+        <li >
+          HP Vertica 6.x or later
+        </li>
+    </ul>
+</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+              <h4>Markup</h4>
+              <div class="kss-markup">
+                <pre class="prettyprint lang-html"><code data-language="html">&lt;div class=&quot;search-highlight &quot;&gt;
+  &lt;input type=&quot;search&quot; data-content=&quot;test-content&quot; data-highlight-class=&quot;text--bold&quot;/&gt;
+  &lt;button&gt;&lt;i class=&quot;icon icon--search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;test-content&quot;&gt;
+    &lt;ul class=&quot; &quot;&gt;
+        &lt;li &gt;
+          Actian Vectorwise 2.0 or later (Windows only)
+        &lt;/li&gt;
+        &lt;li &gt;
+          Amazon Redshift
+        &lt;/li&gt;
+        &lt;li &gt;
+          Amazon Elastic MapReduce
+        &lt;/li&gt;
+        &lt;li &gt;
+          Cloudera Hadoop Hive and Impala; Hive CDH3u1, which includes Hive .71, or later; Impala 1.0 or later
+        &lt;/li&gt;
+        &lt;li &gt;
+          DataStax Enterprise Edition 2.2 or later (Windows only)
+        &lt;/li&gt;
+        &lt;li &gt;
+          EXASOL 4.2 or later (Windows only)
+        &lt;/li&gt;
+        &lt;li &gt;
+          Firebird 2.1.4 or later
+        &lt;/li&gt;
+        &lt;li &gt;
+          Google Analytics
+        &lt;/li&gt;
+        &lt;li &gt;
+          Google BigQuery
+        &lt;/li&gt;
+        &lt;li &gt;
+          Hortonworks Hadoop Hive 1.1 or later
+        &lt;/li&gt;
+        &lt;li &gt;
+          HP Vertica 6.x or later
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+
+            </section>
+    </article>
+  </div>
+
+  <footer class="kss-footer kss-clearfix">
+    <p>
+      © <a href="http://www.tableau.com" target="_blank">Tableau Software</a>. All Rights Reserved. <br>
+      Generated by <a href="https://github.com/kss-node/kss-node" target="_blank">kss-node</a>.
+    </p>
+  </footer>
+
+  <div class="kss-examples">
+    <div class="kss-focus-ui">
+      <div class="kss-focus-ui__close">Full screen preview. Click to close.</div>
+    </div>
+    <div class="kss-focus-preview"></div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="public/js/kss.js"></script>
+  <script src="public/js/prettify.js"></script>
+  <script>
+    prettyPrint();
+    window.styleguideSearchData = {"terms":["Colors template [colors.template]","Text Colors [colors.text]","Background Colors [colors.background]","Message colors [colors.messages]","Button Colors [colors.buttons]","Accent Colors [colors.accent]","Font Families [typography.fonts]","Headings Template [typography.heading-template]","Body Copy [typography.body-copy]","Caption [typography.caption]","Default Headings [typography.headings]","Special Heading Formats [typography.special-headings]","Formatted Text [typography.formatted]","Other Type Treatments [typography.other]","Text Colors [typography.colors]","Code Snippet [typography.code]","Heading Highlight [typography.heading-highlight]","Text Statistic [typography.text-stat]","Primary CTA [buttons-links.cta]","Topic Link [buttons-links.topic-link]","Anchor Link [buttons-links.anchor_link]","Base Text Link [buttons-links.link-base]","Formatted Text Links [buttons-links.link-formatted]","App Links [buttons-links.app-links]","\"Back To\" link [buttons-links.back-to-link]","Breadcrumb Links [buttons-links.breadcrumb-links]","Eyebrow Badge [labels.eyebrow-badge]","Tag Label [labels.tag]","Split Label [labels.split-label]","Gif Player [images.gif-player]","Image [images.image]","Image base styles [images.image-base]","Thumbnail Image [images.thumbnail]","Formatted Icons [media.icon-formatted]","Icons [media.icons]","Video Chapters Demo [media.video-chapters-demo]","Video Embed iframe [media.video-embed-iframe]","Video Embed in-page [media.video-embed-responsive]","Basic HTML Table [lists.basic-table]","Feature List [lists.feature-list]","Unordered List [lists.standard]","Link List [lists.link]","Tags List [lists.tags]","Table List [lists.table-list]","Teaser List [lists.teaser-list]","1-Up Cross Reference [lists.cross-reference-1]","2-Up Cross Reference [lists.cross-reference-2]","3-Up Cross Reference [lists.cross-reference-3]","Vertical Cross Reference [lists.cross-reference-vertical]","Agenda List [lists.agenda]","Comparison List [lists.comparison-list]","Video Chapters [lists.video-chapters]","Video Playlist [lists.video-playlist]","Video Playlist (Sidebar) [lists.video-playlist-sidebar]","Card Wall [lists.card-wall]","Large Teaser [teasers.large-teaser]","Basic Teaser Item [teasers.teaser-item]","Text Teaser Item [teasers.text_teaser]","Card Teaser [teasers.card]","Summary Teaser [teasers.summary-teaser]","Wide Card Teaser [teasers.card-wide]","Person Teaser [teasers.person-teaser]","Quote Card Teaser [teasers.card-quote]","Summary Card Teaser [teasers.card-summary]","Author Byline Teaser [teasers.author-byline]","Comments [compound.comments]","Quote [compound.quote]","Hero [compound.hero]","Fixed Height Hero [compound.hero-fixed-height]","Feature Highlight [compound.feature-highlight]","Messages [compound.messages]","Location [compound.location]","Detail Field [compound.detail-field]","Base Form Styles [forms.base]","Datepicker [forms.datepicker]","Flyout Form [forms.flyout-form]","Form Fields [forms.fields]","Form on Dark Backgrounds [forms.fields-dark]","Invalid Form Fields [forms.validation]","Inline form elements [forms.inline]","Confirmation Messages [forms.confirmation]","Fancy Radios [forms.fancy-filters]","Responsive Filters [forms.responsive-filter]","Form icon button [forms.icon-button]","Compact form [forms.form-compact]","Global Navigation [navigation.global]","Hamburger [navigation.hamburger]","Pager [navigation.pager]","Simple Pager [navigation.pager-simple]","Section Navigation [navigation.section-nav]","Subnavigation [navigation.subnav]","Topic Navigation [navigation.topic-nav]","Global Footer [navigation.footer]","Accordion [interactive.accordion]","Reveal Helper [interactive.reveal-helper]","Content Tabs [interactive.tabs]","Content Reveal [interactive.reveal]","Content Flyout [interactive.flyout]","Scroll Reveal [interactive.scroll-reveal]","Tooltip [interactive.tooltip]","Social Share [interactive.social-share]","Progress bar [interactive.progress-bar]","Sticky elements [interactive.sticky]","Global Notification [interactive.global-notification]","Context Switcher [interactive.context-switcher]","Sonar indicator [interactive.sonar-indicator]","Loader [interactive.loader]","Loading overlay [interactive.loading-overlay]","Teaser Slideshow [interactive.teaser-slideshow]","Hero Slideshow [interactive.hero-slideshow]","Full Bleed Slideshow [interactive.fullbleed-slideshow]","Modal Message [interactive.modal-message]","Fadable [interactive.fadable]","Grids [layout.grids]","Gallery Grid [layout.gallery-grid]","Content Section [layout.section]","Content Container [layout.container]","Horizontal Dividers [layout.divider]","Vertical Dividers [layout.divider-vertical]","Vertical Spacer [layout.spacer]","Background Colors [layout.colored]","Background video [layout.bg-video]","Full Height Section [layout.full-height]","Basic Page Layout [layout.basic-page]","Table Grids [layout.table-grids]","Padded box [layout.padded]","Marginless Boxes [layout.marginless-box]","Content Search [search.content-search]","Contextual Search [search.contextual-search]","Search Result [search.search-result]","Recommended Search Result [search.recommended-search-result]","Search Results List [search.search-results-list]","Search Facet [search.search-facet]","Search Facets [search.search-facets]","Search Breadcrumb [search.search-breadcrumb]","Search Highlight [search.search-highlight]","Breakpoints [documentation.breakpoints]","Global Nav Ajax Consumption [documentation.global-nav-ajax]","News Banner [test-components.news-banner]","News Interstitial [test-components.news-interstitial]","Product Links [test-components.product-links]","Hiding Elements [helpers.hiding]","Padding & Margins [helpers.spacing]","Borders [helpers.borders]","Text formatting helpers [helpers.text]","Responsive Iframe [helpers.responsive-iframe]","CSS position [helpers.position]","CSS display [helpers.display]","Centering Elements [helpers.centering]","List tweaks [helpers.lists]","Touch Scroll Handling [helpers.touch-scroll]","Miscellaneous Helpers [helpers.misc]"],"termToURI":{"Colors template [colors.template]":"section-colors.html#kssref-colors-template","Text Colors [colors.text]":"section-colors.html#kssref-colors-text","Background Colors [colors.background]":"section-colors.html#kssref-colors-background","Message colors [colors.messages]":"section-colors.html#kssref-colors-messages","Button Colors [colors.buttons]":"section-colors.html#kssref-colors-buttons","Accent Colors [colors.accent]":"section-colors.html#kssref-colors-accent","Font Families [typography.fonts]":"section-typography.html#kssref-typography-fonts","Headings Template [typography.heading-template]":"section-typography.html#kssref-typography-heading-template","Body Copy [typography.body-copy]":"section-typography.html#kssref-typography-body-copy","Caption [typography.caption]":"section-typography.html#kssref-typography-caption","Default Headings [typography.headings]":"section-typography.html#kssref-typography-headings","Special Heading Formats [typography.special-headings]":"section-typography.html#kssref-typography-special-headings","Formatted Text [typography.formatted]":"section-typography.html#kssref-typography-formatted","Other Type Treatments [typography.other]":"section-typography.html#kssref-typography-other","Text Colors [typography.colors]":"section-typography.html#kssref-typography-colors","Code Snippet [typography.code]":"section-typography.html#kssref-typography-code","Heading Highlight [typography.heading-highlight]":"section-typography.html#kssref-typography-heading-highlight","Text Statistic [typography.text-stat]":"section-typography.html#kssref-typography-text-stat","Primary CTA [buttons-links.cta]":"section-buttons-links.html#kssref-buttons-links-cta","Topic Link [buttons-links.topic-link]":"section-buttons-links.html#kssref-buttons-links-topic-link","Anchor Link [buttons-links.anchor_link]":"section-buttons-links.html#kssref-buttons-links-anchor_link","Base Text Link [buttons-links.link-base]":"section-buttons-links.html#kssref-buttons-links-link-base","Formatted Text Links [buttons-links.link-formatted]":"section-buttons-links.html#kssref-buttons-links-link-formatted","App Links [buttons-links.app-links]":"section-buttons-links.html#kssref-buttons-links-app-links","\"Back To\" link [buttons-links.back-to-link]":"section-buttons-links.html#kssref-buttons-links-back-to-link","Breadcrumb Links [buttons-links.breadcrumb-links]":"section-buttons-links.html#kssref-buttons-links-breadcrumb-links","Eyebrow Badge [labels.eyebrow-badge]":"section-labels.html#kssref-labels-eyebrow-badge","Tag Label [labels.tag]":"section-labels.html#kssref-labels-tag","Split Label [labels.split-label]":"section-labels.html#kssref-labels-split-label","Gif Player [images.gif-player]":"section-images.html#kssref-images-gif-player","Image [images.image]":"section-images.html#kssref-images-image","Image base styles [images.image-base]":"section-images.html#kssref-images-image-base","Thumbnail Image [images.thumbnail]":"section-images.html#kssref-images-thumbnail","Formatted Icons [media.icon-formatted]":"section-media.html#kssref-media-icon-formatted","Icons [media.icons]":"section-media.html#kssref-media-icons","Video Chapters Demo [media.video-chapters-demo]":"section-media.html#kssref-media-video-chapters-demo","Video Embed iframe [media.video-embed-iframe]":"section-media.html#kssref-media-video-embed-iframe","Video Embed in-page [media.video-embed-responsive]":"section-media.html#kssref-media-video-embed-responsive","Basic HTML Table [lists.basic-table]":"section-lists.html#kssref-lists-basic-table","Feature List [lists.feature-list]":"section-lists.html#kssref-lists-feature-list","Unordered List [lists.standard]":"section-lists.html#kssref-lists-standard","Link List [lists.link]":"section-lists.html#kssref-lists-link","Tags List [lists.tags]":"section-lists.html#kssref-lists-tags","Table List [lists.table-list]":"section-lists.html#kssref-lists-table-list","Teaser List [lists.teaser-list]":"section-lists.html#kssref-lists-teaser-list","1-Up Cross Reference [lists.cross-reference-1]":"section-lists.html#kssref-lists-cross-reference-1","2-Up Cross Reference [lists.cross-reference-2]":"section-lists.html#kssref-lists-cross-reference-2","3-Up Cross Reference [lists.cross-reference-3]":"section-lists.html#kssref-lists-cross-reference-3","Vertical Cross Reference [lists.cross-reference-vertical]":"section-lists.html#kssref-lists-cross-reference-vertical","Agenda List [lists.agenda]":"section-lists.html#kssref-lists-agenda","Comparison List [lists.comparison-list]":"section-lists.html#kssref-lists-comparison-list","Video Chapters [lists.video-chapters]":"section-lists.html#kssref-lists-video-chapters","Video Playlist [lists.video-playlist]":"section-lists.html#kssref-lists-video-playlist","Video Playlist (Sidebar) [lists.video-playlist-sidebar]":"section-lists.html#kssref-lists-video-playlist-sidebar","Card Wall [lists.card-wall]":"section-lists.html#kssref-lists-card-wall","Large Teaser [teasers.large-teaser]":"section-teasers.html#kssref-teasers-large-teaser","Basic Teaser Item [teasers.teaser-item]":"section-teasers.html#kssref-teasers-teaser-item","Text Teaser Item [teasers.text_teaser]":"section-teasers.html#kssref-teasers-text_teaser","Card Teaser [teasers.card]":"section-teasers.html#kssref-teasers-card","Summary Teaser [teasers.summary-teaser]":"section-teasers.html#kssref-teasers-summary-teaser","Wide Card Teaser [teasers.card-wide]":"section-teasers.html#kssref-teasers-card-wide","Person Teaser [teasers.person-teaser]":"section-teasers.html#kssref-teasers-person-teaser","Quote Card Teaser [teasers.card-quote]":"section-teasers.html#kssref-teasers-card-quote","Summary Card Teaser [teasers.card-summary]":"section-teasers.html#kssref-teasers-card-summary","Author Byline Teaser [teasers.author-byline]":"section-teasers.html#kssref-teasers-author-byline","Comments [compound.comments]":"section-compound.html#kssref-compound-comments","Quote [compound.quote]":"section-compound.html#kssref-compound-quote","Hero [compound.hero]":"section-compound.html#kssref-compound-hero","Fixed Height Hero [compound.hero-fixed-height]":"section-compound.html#kssref-compound-hero-fixed-height","Feature Highlight [compound.feature-highlight]":"section-compound.html#kssref-compound-feature-highlight","Messages [compound.messages]":"section-compound.html#kssref-compound-messages","Location [compound.location]":"section-compound.html#kssref-compound-location","Detail Field [compound.detail-field]":"section-compound.html#kssref-compound-detail-field","Base Form Styles [forms.base]":"section-forms.html#kssref-forms-base","Datepicker [forms.datepicker]":"section-forms.html#kssref-forms-datepicker","Flyout Form [forms.flyout-form]":"section-forms.html#kssref-forms-flyout-form","Form Fields [forms.fields]":"section-forms.html#kssref-forms-fields","Form on Dark Backgrounds [forms.fields-dark]":"section-forms.html#kssref-forms-fields-dark","Invalid Form Fields [forms.validation]":"section-forms.html#kssref-forms-validation","Inline form elements [forms.inline]":"section-forms.html#kssref-forms-inline","Confirmation Messages [forms.confirmation]":"section-forms.html#kssref-forms-confirmation","Fancy Radios [forms.fancy-filters]":"section-forms.html#kssref-forms-fancy-filters","Responsive Filters [forms.responsive-filter]":"section-forms.html#kssref-forms-responsive-filter","Form icon button [forms.icon-button]":"section-forms.html#kssref-forms-icon-button","Compact form [forms.form-compact]":"section-forms.html#kssref-forms-form-compact","Global Navigation [navigation.global]":"section-navigation.html#kssref-navigation-global","Hamburger [navigation.hamburger]":"section-navigation.html#kssref-navigation-hamburger","Pager [navigation.pager]":"section-navigation.html#kssref-navigation-pager","Simple Pager [navigation.pager-simple]":"section-navigation.html#kssref-navigation-pager-simple","Section Navigation [navigation.section-nav]":"section-navigation.html#kssref-navigation-section-nav","Subnavigation [navigation.subnav]":"section-navigation.html#kssref-navigation-subnav","Topic Navigation [navigation.topic-nav]":"section-navigation.html#kssref-navigation-topic-nav","Global Footer [navigation.footer]":"section-navigation.html#kssref-navigation-footer","Accordion [interactive.accordion]":"section-interactive.html#kssref-interactive-accordion","Reveal Helper [interactive.reveal-helper]":"section-interactive.html#kssref-interactive-reveal-helper","Content Tabs [interactive.tabs]":"section-interactive.html#kssref-interactive-tabs","Content Reveal [interactive.reveal]":"section-interactive.html#kssref-interactive-reveal","Content Flyout [interactive.flyout]":"section-interactive.html#kssref-interactive-flyout","Scroll Reveal [interactive.scroll-reveal]":"section-interactive.html#kssref-interactive-scroll-reveal","Tooltip [interactive.tooltip]":"section-interactive.html#kssref-interactive-tooltip","Social Share [interactive.social-share]":"section-interactive.html#kssref-interactive-social-share","Progress bar [interactive.progress-bar]":"section-interactive.html#kssref-interactive-progress-bar","Sticky elements [interactive.sticky]":"section-interactive.html#kssref-interactive-sticky","Global Notification [interactive.global-notification]":"section-interactive.html#kssref-interactive-global-notification","Context Switcher [interactive.context-switcher]":"section-interactive.html#kssref-interactive-context-switcher","Sonar indicator [interactive.sonar-indicator]":"section-interactive.html#kssref-interactive-sonar-indicator","Loader [interactive.loader]":"section-interactive.html#kssref-interactive-loader","Loading overlay [interactive.loading-overlay]":"section-interactive.html#kssref-interactive-loading-overlay","Teaser Slideshow [interactive.teaser-slideshow]":"section-interactive.html#kssref-interactive-teaser-slideshow","Hero Slideshow [interactive.hero-slideshow]":"section-interactive.html#kssref-interactive-hero-slideshow","Full Bleed Slideshow [interactive.fullbleed-slideshow]":"section-interactive.html#kssref-interactive-fullbleed-slideshow","Modal Message [interactive.modal-message]":"section-interactive.html#kssref-interactive-modal-message","Fadable [interactive.fadable]":"section-interactive.html#kssref-interactive-fadable","Grids [layout.grids]":"section-layout.html#kssref-layout-grids","Gallery Grid [layout.gallery-grid]":"section-layout.html#kssref-layout-gallery-grid","Content Section [layout.section]":"section-layout.html#kssref-layout-section","Content Container [layout.container]":"section-layout.html#kssref-layout-container","Horizontal Dividers [layout.divider]":"section-layout.html#kssref-layout-divider","Vertical Dividers [layout.divider-vertical]":"section-layout.html#kssref-layout-divider-vertical","Vertical Spacer [layout.spacer]":"section-layout.html#kssref-layout-spacer","Background Colors [layout.colored]":"section-layout.html#kssref-layout-colored","Background video [layout.bg-video]":"section-layout.html#kssref-layout-bg-video","Full Height Section [layout.full-height]":"section-layout.html#kssref-layout-full-height","Basic Page Layout [layout.basic-page]":"section-layout.html#kssref-layout-basic-page","Table Grids [layout.table-grids]":"section-layout.html#kssref-layout-table-grids","Padded box [layout.padded]":"section-layout.html#kssref-layout-padded","Marginless Boxes [layout.marginless-box]":"section-layout.html#kssref-layout-marginless-box","Content Search [search.content-search]":"section-search.html#kssref-search-content-search","Contextual Search [search.contextual-search]":"section-search.html#kssref-search-contextual-search","Search Result [search.search-result]":"section-search.html#kssref-search-search-result","Recommended Search Result [search.recommended-search-result]":"section-search.html#kssref-search-recommended-search-result","Search Results List [search.search-results-list]":"section-search.html#kssref-search-search-results-list","Search Facet [search.search-facet]":"section-search.html#kssref-search-search-facet","Search Facets [search.search-facets]":"section-search.html#kssref-search-search-facets","Search Breadcrumb [search.search-breadcrumb]":"section-search.html#kssref-search-search-breadcrumb","Search Highlight [search.search-highlight]":"section-search.html#kssref-search-search-highlight","Breakpoints [documentation.breakpoints]":"section-documentation.html#kssref-documentation-breakpoints","Global Nav Ajax Consumption [documentation.global-nav-ajax]":"section-documentation.html#kssref-documentation-global-nav-ajax","News Banner [test-components.news-banner]":"section-test-components.html#kssref-test-components-news-banner","News Interstitial [test-components.news-interstitial]":"section-test-components.html#kssref-test-components-news-interstitial","Product Links [test-components.product-links]":"section-test-components.html#kssref-test-components-product-links","Hiding Elements [helpers.hiding]":"section-helpers.html#kssref-helpers-hiding","Padding & Margins [helpers.spacing]":"section-helpers.html#kssref-helpers-spacing","Borders [helpers.borders]":"section-helpers.html#kssref-helpers-borders","Text formatting helpers [helpers.text]":"section-helpers.html#kssref-helpers-text","Responsive Iframe [helpers.responsive-iframe]":"section-helpers.html#kssref-helpers-responsive-iframe","CSS position [helpers.position]":"section-helpers.html#kssref-helpers-position","CSS display [helpers.display]":"section-helpers.html#kssref-helpers-display","Centering Elements [helpers.centering]":"section-helpers.html#kssref-helpers-centering","List tweaks [helpers.lists]":"section-helpers.html#kssref-helpers-lists","Touch Scroll Handling [helpers.touch-scroll]":"section-helpers.html#kssref-helpers-touch-scroll","Miscellaneous Helpers [helpers.misc]":"section-helpers.html#kssref-helpers-misc"}};
+  </script>
+  <script src="https://players.brightcove.net/3798483592001/ad8b15bd-b737-4c9b-a550-53c61ac31107_default/index.min.js"></script>
+<script src="build/vendor/jquery/dist/jquery.min.js"></script>
+<script src="build/vendor/jquery-ui/jquery-ui.min.js"></script>
+<script src="build/js/vendor.js"></script>
+<script src="build/js/scripts.js"></script>
+<script src="build/js/styleguide.js"></script>
+<script src="//localhost:1234/livereload.js"></script>
+<script src="public/js/focus.js"></script>
+<script src="public/js/typeahead.jquery.min.js"></script>
+<script src="public/js/search.js"></script>
+
+  <!-- Automatically generated using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
+</body>
+</html>

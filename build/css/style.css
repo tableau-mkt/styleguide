@@ -897,11 +897,30 @@ legend {
   margin: 0;
   padding: 0; }
 
-/**
- * Borders
- *
- * Add borders to a component or element with these helper classes.
- */
+/*
+Borders
+
+Add borders to a component or element.
+
+Weight: 16
+
+.border-none - Remove border from all sides
+.border-top-none - Remove border from top
+.border-right-none - Remove border from right
+.border-bottom-none - Remove border from bottom
+.border-left-none - Remove border from left
+.border-horz-none - Remove border from top and bottom
+.border-vert-none - Remove border from left and right
+.border - Add border to all sides
+.border-top - Add border to top
+.border-right - Add border to right
+.border-bottom - Add border to bottom
+.border-left - Add border to left
+.border-vert - Add border to top and bottom
+.border-horz - Add border to left and right
+
+Style guide: helpers.borders
+*/
 .border-none {
   border: 0; }
 
@@ -949,75 +968,88 @@ legend {
   border-bottom: 1px solid #dedede; }
 
 /*
-body.kss .kss-example-preview .border-none {
-  border: 'none';
-}
+Hiding Elements
 
-body.kss .kss-example-preview .border-top-none {
-  border-top: 'none';
-}
+Different methods of hiding elements in idfferent contexts
 
-body.kss .kss-example-preview .border-right-none {
-  border-right: 'none';
-}
+Weight: 10
 
-body.kss .kss-example-preview .border-bottom-none {
-  border-bottom: 'none';
-}
+.hide - Hide the element from being displayed in all breakpoints
+.mobile-hide - Hide the element from display only on the mobile breakpoint
+.mobile-show - Show element only on the mobile breakpoint
+.tablet-hide - Hide the element from display only on the tablet breakpoint
+.desktop-show - Show element only on the desktop breakpoint
+.desktop-hide - Hide the element from display only on the desktop breakpoint
+.tablet-show - Show element only on the tablet and mobile breakpoint
+.reveal-hidden - Set an element to an initially hidden state but to be revealed later.
 
-body.kss .kss-example-preview .border-left-none {
-  border-left: 'none';
-}
-
-body.kss .kss-example-preview .border-horz-none {
-  border-right: 'none';
-  border-left: 'none';
-}
-
-body.kss .kss-example-preview .border-vert-none {
-  border-top: 'none';
-  border-bottom: 'none';
-}
-
-body.kss .kss-example-preview .border {
-  border: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-top {
-  border-top: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-right {
-  border-right: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-bottom {
-  border-bottom: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-left {
-  border-left: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-vert {
-  border-right: 1px solid #dedede;
-  border-left: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-horz {
-  border-top: 1px solid #dedede;
-  border-bottom: 1px solid #dedede;
-}
+Style guide: helpers.hiding
 */
-/**
- * Helpers
- *
- * General helper styles that can be used to overcome various common issues.
- */
+.hide {
+  display: none; }
+
+@media (max-width: 639px) {
+  .mobile-hide {
+    display: none !important; } }
+
+@media (min-width: 640px) {
+  .mobile-show {
+    display: none !important; } }
+
+@media (max-width: 960px) {
+  .tablet-hide {
+    display: none !important; }
+  .desktop-show {
+    display: none !important; } }
+
+@media (min-width: 961px) {
+  .desktop-hide {
+    display: none !important; }
+  .tablet-show {
+    display: none !important; } }
+
 /*
-Proportionately resize iframes. Add class to a wrapper around the iframe. See
-also the responsive-placeholder mixin for custom sizes. These are just the two
-most common proportions for video players.
+Text formatting helpers
+
+Helpers for formatting text
+
+Weight: 20
+
+.line-height-zero - Zero out the lineheight of an element
+.line-height-condensed - Condensed line height.
+.mobile-center - Center element on mobile breakpoint
+.desktop-center - Center element on desktop breakpoint
+.underline-none - Use in cases where a link should not get an underline, e.g. on a navigation arrow.
+.hide-text - Hide inner text of an element
+
+Style guide: helpers.text
+*/
+.line-height-zero {
+  line-height: 0; }
+
+.line-height-condensed {
+  line-height: 1.2; }
+
+@media (max-width: 639px) {
+  .mobile-center {
+    text-align: center; } }
+
+@media (min-width: 961px) {
+  .desktop-center {
+    text-align: center; } }
+
+/*
+Responsive Iframe
+
+Proportionately resize iframes. Add class to a `<div>` wrapper around the
+iframe.
+
+Weight: 30
+
+.iframe-4-3 - For a 4:3 aspect ratio iframe
+.iframe-16-9 - For a 4:3 aspect ratio iframe
+
+Style guide: helpers.responsive-iframe
 */
 .iframe-4-3,
 .iframe-16-9 {
@@ -1037,12 +1069,47 @@ most common proportions for video players.
   padding-bottom: 56.25%;
   /* 16:9 */ }
 
+/*
+CSS position
+
+Setting simple CSS positioning properties
+
+Weight: 40
+
+.relative - Relatively position an element
+.absolute - Absolutely position an element
+.float-right - Float element to the right
+.float-left - Float element to the left
+
+Style guide: helpers.position
+*/
 .relative {
   position: relative; }
 
 .absolute {
   position: absolute; }
 
+.float-right {
+  float: right; }
+
+.float-left {
+  float: left; }
+
+/*
+CSS display
+
+Setting the CSS display property of an element
+
+Weight: 50
+
+.display-inline - Display an element as an inline element
+.display-inline-block - Display an element as an inline block element
+.display-block - Display an element as a block element
+.display-table - Display an element as a table
+.display-table-cell - Display an element as a table-cell
+
+Style guide: helpers.display
+*/
 .display-inline {
   display: inline; }
 
@@ -1059,12 +1126,24 @@ most common proportions for video players.
 .display-table-cell {
   display: table-cell; }
 
-.margin-zero {
-  margin: 0 !important; }
+/*
+Centering Elements
 
-.padding-zero {
-  padding: 0 !important; }
+Different helpers for horizontally and/or vertically centering different types
+of elements.
 
+Weight: 60
+
+.element-centered - Center a block-level element using auto margins.
+.inline-centered - Center an inline element.
+.vertical-align-middle  - Vertically aligns an element to the middle. Works well with display table-cell
+.vertical-centered - Vertically and horizontally center an element. This assumes the parent has some kind of defined height and has `position: relative;`
+.vertical-centered-flex - Vertically center an element using flexbox. Be aware this is unsupported in older browsers. Apply to the parent wrapper of elements that need vertical centering.
+.absolute-centered - Vertically and horizontally center an element. This assumes the parent has some kind of defined height and has `position: relative;`
+.flex-justified - Horizontally evenly space out elements
+
+Style guide: helpers.centering
+*/
 .element-centered {
   margin-left: auto;
   margin-right: auto; }
@@ -1105,21 +1184,34 @@ most common proportions for video players.
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
 
-.float-right {
-  float: right; }
+/*
+List tweaks
 
-.float-left {
-  float: left; }
+Modifying default styles of an HTML list
 
-.line-height-zero {
-  line-height: 0; }
+Weight: 70
 
-.line-height-condensed {
-  line-height: 1.2; }
+.plain-list - Remove default list style and spacing
+.inline-list - Same as .plain-list, but also makes list items inline-block
 
-.overflow-hidden {
-  overflow: hidden; }
+Style guide: helpers.lists
+ */
+/*
+Touch Scroll Handling
 
+Handlng for embedded content on touch devices and viewports narrower than the
+embed content. Allows the content of the wrapper with this class to scroll
+horizontally while not affecting the responsive layout of the rest of the page.
+Useful wrapper for Tableau embeds with a fixed width. Also automatically
+horizontally centers Tableau embeds on wider viewports.
+
+Weight: 80
+
+.overflow-touch-scroll - Allow wide embeds to scroll horizontally on narrow
+viewports
+
+Style guide: helpers.touch-scroll
+*/
 .overflow-touch-scroll {
   overflow-y: hidden;
   overflow-x: auto;
@@ -1130,13 +1222,29 @@ most common proportions for video players.
   .overflow-touch-scroll .tableauPlaceholder .tableauViz + div div {
     background-position-x: center !important; }
 
+/*
+Miscellaneous Helpers
+
+Several miscelaneous helper classes
+
+Weight: 90
+
+.clearfix - Clear floating of child elements
+.overflow-hidden - Set the overflow of an element to hidden
+.disabled - Fade opacity of disabled elements
+.bg-cover - Apply styles for a background image to cover the container
+.overlay-dark - Create a dark overlay element to mask the viewport
+.animated-stripes - Animated stripes for form-submit button progress indiacator.
+
+Style guide: helpers.misc
+*/
+.overflow-hidden {
+  overflow: hidden; }
+
 .clearfix:after {
   content: '';
   display: table;
   clear: both; }
-
-.hide {
-  display: none; }
 
 .disabled, input[disabled="disabled"],
 button[disabled="disabled"],
@@ -1148,30 +1256,6 @@ textarea[disabled="disabled"] {
 .bg-cover {
   background-size: cover;
   background-position: center; }
-
-@media (max-width: 639px) {
-  .mobile-hide {
-    display: none !important; }
-  .mobile-center {
-    text-align: center; } }
-
-@media (min-width: 640px) {
-  .mobile-show {
-    display: none !important; } }
-
-@media (max-width: 960px) {
-  .tablet-hide {
-    display: none !important; }
-  .desktop-show {
-    display: none !important; } }
-
-@media (min-width: 961px) {
-  .desktop-hide {
-    display: none !important; }
-  .tablet-show {
-    display: none !important; }
-  .desktop-center {
-    text-align: center; } }
 
 .overlay-dark:before {
   content: ' ';
@@ -1291,11 +1375,33 @@ select {
   height: 0;
   overflow: hidden; }
 
-/**
- * Spacing
- *
- * Add margin/padding to a component or element with shorthand classes.
- */
+/*
+Padding & Margins
+
+Add margin/padding to a component or element.The list of classes below is not
+exhaustive, but shows examples of all of the different variations of these
+helper classes. Each class is broken into 3 different fragments.
+
+* **Property** - { margin | padding } - The property to adjust
+* **Side(s)** - { top | right | bottom | left | horz | vert } - The side(s) to apply the padding or margin to. When a direction is left out the spacing applies to all sides.
+* **Multiplier** - { none | one | two | three | four } - The number of "em" units to apply
+
+The classes follow the format of `property-side-multiplier`
+
+Weight: 15
+
+.margin-none - Remove all margins
+.margin-top-none - Remove top margin
+.margin-one - Add 1em of margin to all sides
+.margin-left-two - Add 2em of margin to the left
+.margin-horz-three - Add 3em of margin to both the right and left
+.padding-none - Remove all padding
+.padding-bottom-one - Add 1em of padding to the bottom
+.padding-right-one - Add 1em of padding to the right
+.padding-vert-two - Add 2em of padding to both the top and bottom
+
+Style guide: helpers.spacing
+*/
 .margin-none {
   margin: 0em !important; }
 
@@ -1552,6 +1658,12 @@ select {
   padding-bottom: 3em !important;
 }
 */
+.margin-zero {
+  margin: 0 !important; }
+
+.padding-zero {
+  padding: 0 !important; }
+
 /* generated with grunt-sass-globbing */
 /*
 Colors
@@ -1714,11 +1826,30 @@ legend {
   margin: 0;
   padding: 0; }
 
-/**
- * Borders
- *
- * Add borders to a component or element with these helper classes.
- */
+/*
+Borders
+
+Add borders to a component or element.
+
+Weight: 16
+
+.border-none - Remove border from all sides
+.border-top-none - Remove border from top
+.border-right-none - Remove border from right
+.border-bottom-none - Remove border from bottom
+.border-left-none - Remove border from left
+.border-horz-none - Remove border from top and bottom
+.border-vert-none - Remove border from left and right
+.border - Add border to all sides
+.border-top - Add border to top
+.border-right - Add border to right
+.border-bottom - Add border to bottom
+.border-left - Add border to left
+.border-vert - Add border to top and bottom
+.border-horz - Add border to left and right
+
+Style guide: helpers.borders
+*/
 .border-none {
   border: 0; }
 
@@ -1766,75 +1897,88 @@ legend {
   border-bottom: 1px solid #dedede; }
 
 /*
-body.kss .kss-example-preview .border-none {
-  border: 'none';
-}
+Hiding Elements
 
-body.kss .kss-example-preview .border-top-none {
-  border-top: 'none';
-}
+Different methods of hiding elements in idfferent contexts
 
-body.kss .kss-example-preview .border-right-none {
-  border-right: 'none';
-}
+Weight: 10
 
-body.kss .kss-example-preview .border-bottom-none {
-  border-bottom: 'none';
-}
+.hide - Hide the element from being displayed in all breakpoints
+.mobile-hide - Hide the element from display only on the mobile breakpoint
+.mobile-show - Show element only on the mobile breakpoint
+.tablet-hide - Hide the element from display only on the tablet breakpoint
+.desktop-show - Show element only on the desktop breakpoint
+.desktop-hide - Hide the element from display only on the desktop breakpoint
+.tablet-show - Show element only on the tablet and mobile breakpoint
+.reveal-hidden - Set an element to an initially hidden state but to be revealed later.
 
-body.kss .kss-example-preview .border-left-none {
-  border-left: 'none';
-}
-
-body.kss .kss-example-preview .border-horz-none {
-  border-right: 'none';
-  border-left: 'none';
-}
-
-body.kss .kss-example-preview .border-vert-none {
-  border-top: 'none';
-  border-bottom: 'none';
-}
-
-body.kss .kss-example-preview .border {
-  border: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-top {
-  border-top: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-right {
-  border-right: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-bottom {
-  border-bottom: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-left {
-  border-left: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-vert {
-  border-right: 1px solid #dedede;
-  border-left: 1px solid #dedede;
-}
-
-body.kss .kss-example-preview .border-horz {
-  border-top: 1px solid #dedede;
-  border-bottom: 1px solid #dedede;
-}
+Style guide: helpers.hiding
 */
-/**
- * Helpers
- *
- * General helper styles that can be used to overcome various common issues.
- */
+.hide {
+  display: none; }
+
+@media (max-width: 639px) {
+  .mobile-hide {
+    display: none !important; } }
+
+@media (min-width: 640px) {
+  .mobile-show {
+    display: none !important; } }
+
+@media (max-width: 960px) {
+  .tablet-hide {
+    display: none !important; }
+  .desktop-show {
+    display: none !important; } }
+
+@media (min-width: 961px) {
+  .desktop-hide {
+    display: none !important; }
+  .tablet-show {
+    display: none !important; } }
+
 /*
-Proportionately resize iframes. Add class to a wrapper around the iframe. See
-also the responsive-placeholder mixin for custom sizes. These are just the two
-most common proportions for video players.
+Text formatting helpers
+
+Helpers for formatting text
+
+Weight: 20
+
+.line-height-zero - Zero out the lineheight of an element
+.line-height-condensed - Condensed line height.
+.mobile-center - Center element on mobile breakpoint
+.desktop-center - Center element on desktop breakpoint
+.underline-none - Use in cases where a link should not get an underline, e.g. on a navigation arrow.
+.hide-text - Hide inner text of an element
+
+Style guide: helpers.text
+*/
+.line-height-zero {
+  line-height: 0; }
+
+.line-height-condensed {
+  line-height: 1.2; }
+
+@media (max-width: 639px) {
+  .mobile-center {
+    text-align: center; } }
+
+@media (min-width: 961px) {
+  .desktop-center {
+    text-align: center; } }
+
+/*
+Responsive Iframe
+
+Proportionately resize iframes. Add class to a `<div>` wrapper around the
+iframe.
+
+Weight: 30
+
+.iframe-4-3 - For a 4:3 aspect ratio iframe
+.iframe-16-9 - For a 4:3 aspect ratio iframe
+
+Style guide: helpers.responsive-iframe
 */
 .iframe-4-3,
 .iframe-16-9 {
@@ -1854,12 +1998,47 @@ most common proportions for video players.
   padding-bottom: 56.25%;
   /* 16:9 */ }
 
+/*
+CSS position
+
+Setting simple CSS positioning properties
+
+Weight: 40
+
+.relative - Relatively position an element
+.absolute - Absolutely position an element
+.float-right - Float element to the right
+.float-left - Float element to the left
+
+Style guide: helpers.position
+*/
 .relative {
   position: relative; }
 
 .absolute {
   position: absolute; }
 
+.float-right {
+  float: right; }
+
+.float-left {
+  float: left; }
+
+/*
+CSS display
+
+Setting the CSS display property of an element
+
+Weight: 50
+
+.display-inline - Display an element as an inline element
+.display-inline-block - Display an element as an inline block element
+.display-block - Display an element as a block element
+.display-table - Display an element as a table
+.display-table-cell - Display an element as a table-cell
+
+Style guide: helpers.display
+*/
 .display-inline {
   display: inline; }
 
@@ -1876,12 +2055,24 @@ most common proportions for video players.
 .display-table-cell {
   display: table-cell; }
 
-.margin-zero {
-  margin: 0 !important; }
+/*
+Centering Elements
 
-.padding-zero {
-  padding: 0 !important; }
+Different helpers for horizontally and/or vertically centering different types
+of elements.
 
+Weight: 60
+
+.element-centered - Center a block-level element using auto margins.
+.inline-centered - Center an inline element.
+.vertical-align-middle  - Vertically aligns an element to the middle. Works well with display table-cell
+.vertical-centered - Vertically and horizontally center an element. This assumes the parent has some kind of defined height and has `position: relative;`
+.vertical-centered-flex - Vertically center an element using flexbox. Be aware this is unsupported in older browsers. Apply to the parent wrapper of elements that need vertical centering.
+.absolute-centered - Vertically and horizontally center an element. This assumes the parent has some kind of defined height and has `position: relative;`
+.flex-justified - Horizontally evenly space out elements
+
+Style guide: helpers.centering
+*/
 .element-centered {
   margin-left: auto;
   margin-right: auto; }
@@ -1922,21 +2113,34 @@ most common proportions for video players.
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
 
-.float-right {
-  float: right; }
+/*
+List tweaks
 
-.float-left {
-  float: left; }
+Modifying default styles of an HTML list
 
-.line-height-zero {
-  line-height: 0; }
+Weight: 70
 
-.line-height-condensed {
-  line-height: 1.2; }
+.plain-list - Remove default list style and spacing
+.inline-list - Same as .plain-list, but also makes list items inline-block
 
-.overflow-hidden {
-  overflow: hidden; }
+Style guide: helpers.lists
+ */
+/*
+Touch Scroll Handling
 
+Handlng for embedded content on touch devices and viewports narrower than the
+embed content. Allows the content of the wrapper with this class to scroll
+horizontally while not affecting the responsive layout of the rest of the page.
+Useful wrapper for Tableau embeds with a fixed width. Also automatically
+horizontally centers Tableau embeds on wider viewports.
+
+Weight: 80
+
+.overflow-touch-scroll - Allow wide embeds to scroll horizontally on narrow
+viewports
+
+Style guide: helpers.touch-scroll
+*/
 .overflow-touch-scroll {
   overflow-y: hidden;
   overflow-x: auto;
@@ -1947,13 +2151,29 @@ most common proportions for video players.
   .overflow-touch-scroll .tableauPlaceholder .tableauViz + div div {
     background-position-x: center !important; }
 
+/*
+Miscellaneous Helpers
+
+Several miscelaneous helper classes
+
+Weight: 90
+
+.clearfix - Clear floating of child elements
+.overflow-hidden - Set the overflow of an element to hidden
+.disabled - Fade opacity of disabled elements
+.bg-cover - Apply styles for a background image to cover the container
+.overlay-dark - Create a dark overlay element to mask the viewport
+.animated-stripes - Animated stripes for form-submit button progress indiacator.
+
+Style guide: helpers.misc
+*/
+.overflow-hidden {
+  overflow: hidden; }
+
 .clearfix:after {
   content: '';
   display: table;
   clear: both; }
-
-.hide {
-  display: none; }
 
 .disabled, input[disabled="disabled"],
 button[disabled="disabled"],
@@ -1965,30 +2185,6 @@ textarea[disabled="disabled"] {
 .bg-cover {
   background-size: cover;
   background-position: center; }
-
-@media (max-width: 639px) {
-  .mobile-hide {
-    display: none !important; }
-  .mobile-center {
-    text-align: center; } }
-
-@media (min-width: 640px) {
-  .mobile-show {
-    display: none !important; } }
-
-@media (max-width: 960px) {
-  .tablet-hide {
-    display: none !important; }
-  .desktop-show {
-    display: none !important; } }
-
-@media (min-width: 961px) {
-  .desktop-hide {
-    display: none !important; }
-  .tablet-show {
-    display: none !important; }
-  .desktop-center {
-    text-align: center; } }
 
 .overlay-dark:before {
   content: ' ';
@@ -2094,11 +2290,33 @@ select {
   height: 0;
   overflow: hidden; }
 
-/**
- * Spacing
- *
- * Add margin/padding to a component or element with shorthand classes.
- */
+/*
+Padding & Margins
+
+Add margin/padding to a component or element.The list of classes below is not
+exhaustive, but shows examples of all of the different variations of these
+helper classes. Each class is broken into 3 different fragments.
+
+* **Property** - { margin | padding } - The property to adjust
+* **Side(s)** - { top | right | bottom | left | horz | vert } - The side(s) to apply the padding or margin to. When a direction is left out the spacing applies to all sides.
+* **Multiplier** - { none | one | two | three | four } - The number of "em" units to apply
+
+The classes follow the format of `property-side-multiplier`
+
+Weight: 15
+
+.margin-none - Remove all margins
+.margin-top-none - Remove top margin
+.margin-one - Add 1em of margin to all sides
+.margin-left-two - Add 2em of margin to the left
+.margin-horz-three - Add 3em of margin to both the right and left
+.padding-none - Remove all padding
+.padding-bottom-one - Add 1em of padding to the bottom
+.padding-right-one - Add 1em of padding to the right
+.padding-vert-two - Add 2em of padding to both the top and bottom
+
+Style guide: helpers.spacing
+*/
 .margin-none {
   margin: 0em !important; }
 
@@ -2355,6 +2573,12 @@ select {
   padding-bottom: 3em !important;
 }
 */
+.margin-zero {
+  margin: 0 !important; }
+
+.padding-zero {
+  padding: 0 !important; }
+
 /*
 em($target)
 
@@ -2531,16 +2755,25 @@ Components used for page layout
 
 Weight: 100
 
-Style guide layout
+Style guide: layout
+*/
+/*
+Search
+
+Components used for search inputs, search results, etc.
+
+Weight: 110
+
+Style guide: search
 */
 /*
 Documentation
 
-More in-depth docementation for using complex components.
+More in-depth documentation for using complex components.
 
-Weight: 110
+Weight: 120
 
-Style guide documentation
+Style guide: documentation
 */
 /*
 Test Components
@@ -2557,6 +2790,17 @@ figure out how old they are.
 Weight: 120
 
 Style guide: test-components
+*/
+/*
+CSS Helpers
+
+General helper classes that can be used to overcome various common issues.
+Classes here are meant to be either added to existing elements or to `<div>` or
+`<span>` wrappers around an element via a `class="helper-class"` attribute.
+
+Weight: 130
+
+Style guide: helpers
 */
 /*
 Anchor Link
@@ -2624,6 +2868,29 @@ Style guide: buttons-links.back-to-link
 .hero .back-to-link {
   margin-top: -2em;
   margin-bottom: 2em; }
+
+/*
+Breadcrumb Links
+
+Hierarchy of one or more links with an automatic separator.
+
+Markup: breadcrumb-links.hbs
+
+Weight: 50
+
+Style guide: buttons-links.breadcrumb-links
+*/
+.breadcrumb-links .breadcrumb-links__link:after {
+  font-size: 0.875em;
+  line-height: 1.86;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  color: #787878;
+  content: '>'; }
+
+.breadcrumb-links .breadcrumb-links__link:last-of-type:after {
+  display: none; }
 
 /*
 Primary CTA
@@ -2805,6 +3072,13 @@ a {
     text-decoration: underline; }
 
 /*
+Coveo specific Formatted Text Links
+*/
+.coveo-error-report-options > span {
+  margin-right: 1em;
+  cursor: pointer; }
+
+/*
 Formatted Text Links
 
 Text-based links, unlike CTA buttons, don't have a colored box around them,
@@ -2821,6 +3095,7 @@ Weight: 20
 .link--collapse - Link with a collapse icon
 .link--share - Link with a share icon
 .link--download - Link with a download icon
+.link--close-before - Link with a close "X" icon before
 .link--close - Link with a close "X" icon
 .link--social-twitter - Link with social twitter icon
 .link--people - Link with people icon
@@ -2838,13 +3113,13 @@ Weight: 20
 
 Style guide: buttons-links.link-formatted
 */
-.link, .video-chapters__toggle-wrapper .video-chapters__toggle {
+.link, .coveo-error-report-options > span, .video-chapters__toggle-wrapper .video-chapters__toggle, .search-breadcrumb .search-breadcrumb__clear-all, .search-breadcrumb .coveo-breadcrumb-clear-all {
   font-family: "Benton Sans Book", Helvetica, sans-serif;
   font-size: 0.6875em;
   letter-spacing: 1px;
   color: #e8762c;
   text-transform: uppercase; }
-  .link:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before, .link:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after {
+  .link:before, .coveo-error-report-options > span:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before, .search-breadcrumb .search-breadcrumb__clear-all:before, .search-breadcrumb .coveo-breadcrumb-clear-all:before, .link:after, .coveo-error-report-options > span:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after, .search-breadcrumb .search-breadcrumb__clear-all:after, .search-breadcrumb .coveo-breadcrumb-clear-all:after {
     font-family: "tableau-icons";
     display: inline-block;
     vertical-align: middle;
@@ -2862,50 +3137,52 @@ Style guide: buttons-links.link-formatted
     font-size: 1.5em;
     padding-bottom: 1px;
     padding-right: 0.5em; }
-  .link:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before, .link:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after, .link:hover:before, .video-chapters__toggle-wrapper .video-chapters__toggle:hover:before, .link:hover:after, .video-chapters__toggle-wrapper .video-chapters__toggle:hover:after {
+  .link:before, .coveo-error-report-options > span:before, .video-chapters__toggle-wrapper .video-chapters__toggle:before, .search-breadcrumb .search-breadcrumb__clear-all:before, .search-breadcrumb .coveo-breadcrumb-clear-all:before, .link:after, .coveo-error-report-options > span:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after, .search-breadcrumb .search-breadcrumb__clear-all:after, .search-breadcrumb .coveo-breadcrumb-clear-all:after, .link:hover:before, .coveo-error-report-options > span:hover:before, .video-chapters__toggle-wrapper .video-chapters__toggle:hover:before, .search-breadcrumb .search-breadcrumb__clear-all:hover:before, .search-breadcrumb .coveo-breadcrumb-clear-all:hover:before, .link:hover:after, .coveo-error-report-options > span:hover:after, .video-chapters__toggle-wrapper .video-chapters__toggle:hover:after, .search-breadcrumb .search-breadcrumb__clear-all:hover:after, .search-breadcrumb .coveo-breadcrumb-clear-all:hover:after {
     text-decoration: none; }
-  .link:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after {
+  .link:after, .coveo-error-report-options > span:after, .video-chapters__toggle-wrapper .video-chapters__toggle:after, .search-breadcrumb .search-breadcrumb__clear-all:after, .search-breadcrumb .coveo-breadcrumb-clear-all:after {
     padding-right: 0;
     padding-left: 0.5em; }
-  .link.link--arrow:after, .video-chapters__toggle-wrapper .link--arrow.video-chapters__toggle:after {
+  .link.link--arrow:after, .coveo-error-report-options > span.link--arrow:after, .video-chapters__toggle-wrapper .link--arrow.video-chapters__toggle:after, .search-breadcrumb .link--arrow.search-breadcrumb__clear-all:after, .search-breadcrumb .link--arrow.coveo-breadcrumb-clear-all:after {
     content: "\f112"; }
-  .link.link--arrow-before:before, .video-chapters__toggle-wrapper .link--arrow-before.video-chapters__toggle:before {
+  .link.link--arrow-before:before, .coveo-error-report-options > span.link--arrow-before:before, .video-chapters__toggle-wrapper .link--arrow-before.video-chapters__toggle:before, .search-breadcrumb .link--arrow-before.search-breadcrumb__clear-all:before, .search-breadcrumb .link--arrow-before.coveo-breadcrumb-clear-all:before {
     content: "\f10e"; }
-  .link.link--expand:before, .video-chapters__toggle-wrapper .link--expand.video-chapters__toggle:before {
+  .link.link--expand:before, .coveo-error-report-options > span.link--expand:before, .video-chapters__toggle-wrapper .link--expand.video-chapters__toggle:before, .search-breadcrumb .link--expand.search-breadcrumb__clear-all:before, .search-breadcrumb .link--expand.coveo-breadcrumb-clear-all:before {
     content: "\f183"; }
-  .link.link--collapse:before, .video-chapters__toggle-wrapper .link--collapse.video-chapters__toggle:before {
+  .link.link--collapse:before, .coveo-error-report-options > span.link--collapse:before, .video-chapters__toggle-wrapper .link--collapse.video-chapters__toggle:before, .search-breadcrumb .link--collapse.search-breadcrumb__clear-all:before, .search-breadcrumb .link--collapse.coveo-breadcrumb-clear-all:before {
     content: "\f182"; }
-  .link.link--share:before, .video-chapters__toggle-wrapper .link--share.video-chapters__toggle:before {
+  .link.link--share:before, .coveo-error-report-options > span.link--share:before, .video-chapters__toggle-wrapper .link--share.video-chapters__toggle:before, .search-breadcrumb .link--share.search-breadcrumb__clear-all:before, .search-breadcrumb .link--share.coveo-breadcrumb-clear-all:before {
     content: "\f167"; }
-  .link.link--close:after, .video-chapters__toggle-wrapper .link--close.video-chapters__toggle:after {
+  .link.link--close-before:before, .coveo-error-report-options > span.link--close-before:before, .video-chapters__toggle-wrapper .link--close-before.video-chapters__toggle:before, .search-breadcrumb .search-breadcrumb__clear-all:before, .search-breadcrumb .coveo-breadcrumb-clear-all:before {
     content: "\f12a"; }
-  .link.link--download:before, .video-chapters__toggle-wrapper .link--download.video-chapters__toggle:before {
+  .link.link--close:after, .coveo-error-report-options > span.link--close:after, .video-chapters__toggle-wrapper .link--close.video-chapters__toggle:after, .search-breadcrumb .link--close.search-breadcrumb__clear-all:after, .search-breadcrumb .link--close.coveo-breadcrumb-clear-all:after {
+    content: "\f12a"; }
+  .link.link--download:before, .coveo-error-report-options > span.link--download:before, .video-chapters__toggle-wrapper .link--download.video-chapters__toggle:before, .search-breadcrumb .link--download.search-breadcrumb__clear-all:before, .search-breadcrumb .link--download.coveo-breadcrumb-clear-all:before {
     content: "\f135"; }
-  .link.link--social-twitter:before, .video-chapters__toggle-wrapper .link--social-twitter.video-chapters__toggle:before {
+  .link.link--social-twitter:before, .coveo-error-report-options > span.link--social-twitter:before, .video-chapters__toggle-wrapper .link--social-twitter.video-chapters__toggle:before, .search-breadcrumb .link--social-twitter.search-breadcrumb__clear-all:before, .search-breadcrumb .link--social-twitter.coveo-breadcrumb-clear-all:before {
     content: "\f16d"; }
-  .link.link--people:before, .video-chapters__toggle-wrapper .link--people.video-chapters__toggle:before {
+  .link.link--people:before, .coveo-error-report-options > span.link--people:before, .video-chapters__toggle-wrapper .link--people.video-chapters__toggle:before, .search-breadcrumb .link--people.search-breadcrumb__clear-all:before, .search-breadcrumb .link--people.coveo-breadcrumb-clear-all:before {
     content: "\f14f"; }
-  .link.link--calendar:before, .video-chapters__toggle-wrapper .link--calendar.video-chapters__toggle:before {
+  .link.link--calendar:before, .coveo-error-report-options > span.link--calendar:before, .video-chapters__toggle-wrapper .link--calendar.video-chapters__toggle:before, .search-breadcrumb .link--calendar.search-breadcrumb__clear-all:before, .search-breadcrumb .link--calendar.coveo-breadcrumb-clear-all:before {
     content: "\f11d"; }
-  .link.link--adobe-pdf:before, .video-chapters__toggle-wrapper .link--adobe-pdf.video-chapters__toggle:before {
+  .link.link--adobe-pdf:before, .coveo-error-report-options > span.link--adobe-pdf:before, .video-chapters__toggle-wrapper .link--adobe-pdf.video-chapters__toggle:before, .search-breadcrumb .link--adobe-pdf.search-breadcrumb__clear-all:before, .search-breadcrumb .link--adobe-pdf.coveo-breadcrumb-clear-all:before {
     content: "\f102"; }
-  .link.link--community:before, .video-chapters__toggle-wrapper .link--community.video-chapters__toggle:before {
+  .link.link--community:before, .coveo-error-report-options > span.link--community:before, .video-chapters__toggle-wrapper .link--community.video-chapters__toggle:before, .search-breadcrumb .link--community.search-breadcrumb__clear-all:before, .search-breadcrumb .link--community.coveo-breadcrumb-clear-all:before {
     content: "\f12d"; }
-  .link.link--email:before, .video-chapters__toggle-wrapper .link--email.video-chapters__toggle:before {
+  .link.link--email:before, .coveo-error-report-options > span.link--email:before, .video-chapters__toggle-wrapper .link--email.video-chapters__toggle:before, .search-breadcrumb .link--email.search-breadcrumb__clear-all:before, .search-breadcrumb .link--email.coveo-breadcrumb-clear-all:before {
     content: "\f137"; }
-  .link.link--export:before, .video-chapters__toggle-wrapper .link--export.video-chapters__toggle:before {
+  .link.link--export:before, .coveo-error-report-options > span.link--export:before, .video-chapters__toggle-wrapper .link--export.video-chapters__toggle:before, .search-breadcrumb .link--export.search-breadcrumb__clear-all:before, .search-breadcrumb .link--export.coveo-breadcrumb-clear-all:before {
     content: "\f139"; }
-  .link.link--globe:before, .video-chapters__toggle-wrapper .link--globe.video-chapters__toggle:before {
+  .link.link--globe:before, .coveo-error-report-options > span.link--globe:before, .video-chapters__toggle-wrapper .link--globe.video-chapters__toggle:before, .search-breadcrumb .link--globe.search-breadcrumb__clear-all:before, .search-breadcrumb .link--globe.coveo-breadcrumb-clear-all:before {
     content: "\f13e"; }
-  .link.link--invite-people:before, .video-chapters__toggle-wrapper .link--invite-people.video-chapters__toggle:before {
+  .link.link--invite-people:before, .coveo-error-report-options > span.link--invite-people:before, .video-chapters__toggle-wrapper .link--invite-people.video-chapters__toggle:before, .search-breadcrumb .link--invite-people.search-breadcrumb__clear-all:before, .search-breadcrumb .link--invite-people.coveo-breadcrumb-clear-all:before {
     content: "\f140"; }
-  .link.link--link:after, .video-chapters__toggle-wrapper .link--link.video-chapters__toggle:after {
+  .link.link--link:after, .coveo-error-report-options > span.link--link:after, .video-chapters__toggle-wrapper .link--link.video-chapters__toggle:after, .search-breadcrumb .link--link.search-breadcrumb__clear-all:after, .search-breadcrumb .link--link.coveo-breadcrumb-clear-all:after {
     content: "\f143"; }
-  .link.link--newsletter:before, .video-chapters__toggle-wrapper .link--newsletter.video-chapters__toggle:before {
+  .link.link--newsletter:before, .coveo-error-report-options > span.link--newsletter:before, .video-chapters__toggle-wrapper .link--newsletter.video-chapters__toggle:before, .search-breadcrumb .link--newsletter.search-breadcrumb__clear-all:before, .search-breadcrumb .link--newsletter.coveo-breadcrumb-clear-all:before {
     content: "\f14a"; }
-  .link.link--settings:before, .video-chapters__toggle-wrapper .link--settings.video-chapters__toggle:before {
+  .link.link--settings:before, .coveo-error-report-options > span.link--settings:before, .video-chapters__toggle-wrapper .link--settings.video-chapters__toggle:before, .search-breadcrumb .link--settings.search-breadcrumb__clear-all:before, .search-breadcrumb .link--settings.coveo-breadcrumb-clear-all:before {
     content: "\f164"; }
-  .link.link--upload:before, .video-chapters__toggle-wrapper .link--upload.video-chapters__toggle:before {
+  .link.link--upload:before, .coveo-error-report-options > span.link--upload:before, .video-chapters__toggle-wrapper .link--upload.video-chapters__toggle:before, .search-breadcrumb .link--upload.search-breadcrumb__clear-all:before, .search-breadcrumb .link--upload.coveo-breadcrumb-clear-all:before {
     content: "\f180"; }
 
 .topic-link > a {
@@ -3197,7 +3474,7 @@ Style guide: compound.feature-highlight
     position: relative; }
 
 /*
-Basic Hero
+Hero
 
 A simple hero to be displayed at the top of the page containing the page title
 and any other information about the page content such as an eyebrow or a
@@ -3207,14 +3484,13 @@ Markup: hero.hbs
 
 Weight: 20
 
+.hero--background - Adjust spacing when using background images.
+.hero--background.hero--light - Adjust colors for light backgrounds.
+
 Style guide: compound.hero
 */
 .hero {
-  background-size: cover;
-  background-position: center;
-  padding: 3em 0;
-  background-color: #fafafa;
-  text-align: center; }
+  background-color: #fafafa; }
   .hero .hero__eyebrow {
     font-family: "Benton Sans Book", Helvetica, sans-serif;
     font-size: 0.6875em;
@@ -3229,9 +3505,206 @@ Style guide: compound.hero
     margin: 0; }
   .hero .hero__subtitle {
     margin-bottom: 0; }
+  .hero .hero__content {
+    position: relative;
+    top: inherit;
+    height: auto;
+    width: auto;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center; }
   .hero .hero__extra-content {
-    margin-top: 2em;
-    text-align: left; }
+    margin-top: 2em; }
+  .hero.hero--background {
+    background-color: #1b1b1b;
+    color: #fff; }
+    .hero.hero--background h1,
+    .hero.hero--background h2,
+    .hero.hero--background h3,
+    .hero.hero--background h4,
+    .hero.hero--background h5 {
+      color: #fff; }
+    .hero.hero--background .hero__content {
+      padding-top: 5em;
+      padding-bottom: 5em; }
+    .hero.hero--background .hero__extra-content {
+      margin-top: inherit; }
+  .hero.hero--light {
+    background: #fff;
+    color: #000; }
+    .hero.hero--light h1,
+    .hero.hero--light h2,
+    .hero.hero--light h3,
+    .hero.hero--light h4,
+    .hero.hero--light h5 {
+      color: #000; }
+
+.hero-fixed-height .hero-fixed-height__video .video-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.hero-fixed-height .hero-fixed-height__video .video-js .vjs-control-bar,
+.hero-fixed-height .hero-fixed-height__video .video-js .vjs-big-play-button,
+.hero-fixed-height .hero-fixed-height__video .video-js .vjs-poster,
+.hero-fixed-height .hero-fixed-height__video .video-js .vjs-loading-spinner {
+  display: none !important; }
+
+/* Hide the player when it has errored out */
+.hero-fixed-height .hero-fixed-height__video .video-js.vjs-error {
+  height: 0; }
+
+.lt-ie11 .hero-fixed-height .hero-fixed-height__content,
+.no-flexbox .hero-fixed-height .hero-fixed-height__content {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: table; }
+
+.lt-ie11 .hero-fixed-height .hero-fixed-height__content-inner,
+.no-flexbox .hero-fixed-height .hero-fixed-height__content-inner {
+  display: table-cell;
+  vertical-align: middle; }
+
+.lt-ie9 .hero-fixed-height__background-inner,
+.no-backgroundsize .hero-fixed-height__background-inner {
+  background-image: none !important; }
+
+.lt-ie9 .hero-fixed-height__background-fallback,
+.no-backgroundsize .hero-fixed-height__background-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%; }
+
+/*
+Fixed Height Hero
+
+A hero that maintains a height proportionate to it's width in order to keep the
+entire background image always in view. By default, a fixed height hero
+maintains a 3:1 aspect ratio.
+
+Markup: hero-fixed-height.hbs
+
+Weight: 30
+
+.hero-fixed-height--light - Adjust colors for light backgrounds.
+.hero-fixed-height--tall - A taller hero at a 2:1 aspect ratio
+
+Style guide: compound.hero-fixed-height
+*/
+.hero-fixed-height {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+  .hero-fixed-height .hero-fixed-height__background,
+  .hero-fixed-height .hero-fixed-height__video {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+    line-height: 0; }
+  .hero-fixed-height .hero-fixed-height__background-inner {
+    height: 0;
+    padding-bottom: 33%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .hero-fixed-height .hero-fixed-height__video-inner {
+    height: 0;
+    padding-bottom: 33.30%; }
+  .hero-fixed-height .hero-fixed-height__video video {
+    width: 100%; }
+  .hero-fixed-height .hero-fixed-height__eyebrow {
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 2em 0; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      .hero-fixed-height .hero-fixed-height__eyebrow {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+  .hero-fixed-height .hero-fixed-height__content {
+    text-align: center; }
+  @media (min-width: 640px) {
+    .hero-fixed-height {
+      background-color: #1b1b1b;
+      color: #fff; }
+      .hero-fixed-height h1,
+      .hero-fixed-height h2,
+      .hero-fixed-height h3,
+      .hero-fixed-height h4,
+      .hero-fixed-height h5 {
+        color: #fff; }
+      .hero-fixed-height .hero-fixed-height__content {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .hero-fixed-height .hero-fixed-height__content .hero-fixed-height__content-inner {
+          width: 100%; }
+        .hero-fixed-height .hero-fixed-height__content h1 {
+          margin: 0; } }
+  @media (min-width: 961px) {
+    .hero-fixed-height .hero-fixed-height__video + .hero-fixed-height__background {
+      height: 0; } }
+  @media (max-width: 960px) {
+    .hero-fixed-height .hero-fixed-height__video {
+      display: none; }
+    .hero-fixed-height .hero-fixed-height__video + .hero-fixed-height__background {
+      display: block; }
+    .hero-fixed-height .hero-fixed-height__background-inner {
+      padding-bottom: 50%; } }
+  @media (max-width: 639px) {
+    .hero-fixed-height {
+      background-color: #fff;
+      color: #333; }
+      .hero-fixed-height h1 {
+        color: #333; }
+      .hero-fixed-height .hero-fixed-height__content {
+        padding: 0 0 2em 0;
+        text-align: center; }
+        .hero-fixed-height .hero-fixed-height__content h1.heading--huge {
+          margin-top: .2em; }
+          .hero-fixed-height .hero-fixed-height__content h1.heading--huge br {
+            display: none; }
+        .hero-fixed-height .hero-fixed-height__content .text--contrast-light {
+          text-shadow: none; }
+        .hero-fixed-height .hero-fixed-height__content .cta.cta--light {
+          background-color: #333;
+          color: #fff; }
+          .hero-fixed-height .hero-fixed-height__content .cta.cta--light.cta--secondary {
+            background-color: transparent;
+            border-color: #333;
+            color: #333; } }
+  .hero-fixed-height.hero-fixed-height--light {
+    background: #fff; }
+    .hero-fixed-height.hero-fixed-height--light .hero-fixed-height__content-inner {
+      color: #000; }
+      .hero-fixed-height.hero-fixed-height--light .hero-fixed-height__content-inner h1,
+      .hero-fixed-height.hero-fixed-height--light .hero-fixed-height__content-inner h2,
+      .hero-fixed-height.hero-fixed-height--light .hero-fixed-height__content-inner h3,
+      .hero-fixed-height.hero-fixed-height--light .hero-fixed-height__content-inner h4,
+      .hero-fixed-height.hero-fixed-height--light .hero-fixed-height__content-inner h5 {
+        color: #000; }
+  .hero-fixed-height.hero-fixed-height--tall .hero-fixed-height__background-inner {
+    padding-bottom: 50%; }
+  .hero-fixed-height.hero-fixed-height--tall .hero-fixed-height__video-inner {
+    padding-bottom: 50%; }
+  .hero-fixed-height .reveal__content, .hero-fixed-height .video-chapters, .hero-fixed-height .topic-nav .topic-nav__drawers, .topic-nav .hero-fixed-height .topic-nav__drawers {
+    background-color: #1b1b1b; }
 
 /*
 Location
@@ -3408,184 +3881,6 @@ Style Guide: compound.quote
   .quote .quote__byline:before {
     width: 20px; } }
 
-.lt-ie11 .special-hero .special-hero__content,
-.no-flexbox .special-hero .special-hero__content {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  display: table; }
-
-.lt-ie11 .special-hero .special-hero__content-inner,
-.no-flexbox .special-hero .special-hero__content-inner {
-  display: table-cell;
-  vertical-align: middle; }
-
-.lt-ie9 .special-hero__background-inner,
-.no-backgroundsize .special-hero__background-inner {
-  background-image: none !important; }
-
-.lt-ie9 .special-hero__background-fallback,
-.no-backgroundsize .special-hero__background-fallback {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%; }
-
-/*
-Special Hero
-
-Heroes need to accomplish two main tasks. First, they need to convey a specific
-story as simply and beautifully as they can in order to drive traffic. Secondly,
-they need to set the tone for the page they are setting up.
-
-Very simple type and imagery treatments can create different feels for pages
-that need to stand on their own.
-
-Markup: special-hero.hbs
-
-Weight: 30
-
-.special-hero--light - Adjust colors for light backgrounds.
-.special-hero--tall - A taller background image.
-
-Style guide: compound.special-hero
-*/
-.special-hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden; }
-  .special-hero .special-hero__background,
-  .special-hero .special-hero__video {
-    position: relative;
-    max-width: 1920px;
-    margin: 0 auto;
-    line-height: 0; }
-  .special-hero .special-hero__background-inner {
-    height: 0;
-    padding-bottom: 33%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; }
-  .special-hero .special-hero__video-inner {
-    height: 0;
-    padding-bottom: 33.30%; }
-  .special-hero .special-hero__video video {
-    width: 100%; }
-  .special-hero .special-hero__content {
-    text-align: center; }
-  @media (min-width: 640px) {
-    .special-hero {
-      background-color: #1b1b1b;
-      color: #fff; }
-      .special-hero h1,
-      .special-hero h2,
-      .special-hero h3,
-      .special-hero h4,
-      .special-hero h5 {
-        color: #fff; }
-      .special-hero .special-hero__content {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center; }
-        .special-hero .special-hero__content .special-hero__content-inner {
-          width: 100%; }
-        .special-hero .special-hero__content h1 {
-          margin: 0; } }
-  @media (min-width: 961px) {
-    .special-hero .special-hero__video + .special-hero__background {
-      height: 0; } }
-  @media (max-width: 960px) {
-    .special-hero .special-hero__video {
-      display: none; }
-    .special-hero .special-hero__video + .special-hero__background {
-      display: block; }
-    .special-hero .special-hero__background-inner {
-      padding-bottom: 50%; } }
-  @media (max-width: 639px) {
-    .special-hero {
-      background-color: #fff;
-      color: #333; }
-      .special-hero h1 {
-        color: #333; }
-      .special-hero .special-hero__content {
-        padding: 0 0 2em 0;
-        text-align: center; }
-        .special-hero .special-hero__content h1.heading--huge {
-          margin-top: .2em; }
-          .special-hero .special-hero__content h1.heading--huge br {
-            display: none; }
-        .special-hero .special-hero__content .text--contrast-light {
-          text-shadow: none; }
-        .special-hero .special-hero__content .cta.cta--light {
-          background-color: #333;
-          color: #fff; }
-          .special-hero .special-hero__content .cta.cta--light.cta--secondary {
-            background-color: transparent;
-            border-color: #333;
-            color: #333; } }
-  .special-hero.special-hero--light {
-    background: #fff; }
-    .special-hero.special-hero--light .special-hero__content-inner {
-      color: #000; }
-      .special-hero.special-hero--light .special-hero__content-inner h1,
-      .special-hero.special-hero--light .special-hero__content-inner h2,
-      .special-hero.special-hero--light .special-hero__content-inner h3,
-      .special-hero.special-hero--light .special-hero__content-inner h4,
-      .special-hero.special-hero--light .special-hero__content-inner h5 {
-        color: #000; }
-  .special-hero.special-hero--tall .special-hero__background-inner {
-    padding-bottom: 50%; }
-  .special-hero.special-hero--tall .special-hero__video-inner {
-    padding-bottom: 50%; }
-  .special-hero .reveal__content, .special-hero .video-chapters, .special-hero .topic-nav .topic-nav__drawers, .topic-nav .special-hero .topic-nav__drawers {
-    background-color: #1b1b1b; }
-
-/*
-Special Hero w/ Fluid Height
-
-A Special hero with a fluid height. This Special hero version does not support
-video backgrounds.
-
-Markup: special-hero--fluid-height.hbs
-
-Weight: 31
-
-Style guide: compound.special-hero--fluid-height
-*/
-.special-hero.special-hero--fluid-height .special-hero__content {
-  position: relative;
-  top: inherit;
-  height: auto;
-  width: auto;
-  padding-top: 5em;
-  padding-bottom: 5em;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center; }
-
-@media (max-width: 639px) {
-  .special-hero.special-hero--fluid-height {
-    color: #fff; }
-    .special-hero.special-hero--fluid-height h1,
-    .special-hero.special-hero--fluid-height .special-hero__subtitle {
-      color: #fff; }
-    .special-hero.special-hero--fluid-height .special-hero__content .cta.cta--light {
-      background-color: #fff;
-      color: #333; }
-      .special-hero.special-hero--fluid-height .special-hero__content .cta.cta--light.cta--secondary {
-        background-color: transparent;
-        border-color: #fff;
-        color: #fff; } }
-
 /*
 Global Nav Ajax Consumption
 
@@ -3605,82 +3900,67 @@ browser restrictions when sending JSON responses from different domains from the
 The general goal of this approach is to alleviate the work in manually updating parts of the
 DOM as well as general consistency of the header/footer across multiple websites.
 
-#### Javascript
+#### JavaScript
 This example shows you how to easily consume the data with a simple AJAX call.
 
 **NOTE! This script is not included in the build! It is an example of how you
-can get the data with a few lines of javascript. When building this out on
-production, be sure to replace the domain with cdns.tblsft.com (i.e. after
-the new website goes live.) **
+can get the data with a few lines of JavaScript.**
 ```
-$(document).ready(function() {
-    // Declare some variables.
-    var domain = 'cdns.tblsft.com',
-        lang = $('html').attr('lang') || 'en',
-        lang_map = {
-          'en' : '',
-          'fr' : 'fr-fr/',
-          'de' : 'de-de/',
-          'pt-br' : 'pt-br/',
-          'es' : 'es-es/',
-          'zh-hans' : 'zh-cn/',
-          'ja' : 'ja-jp/',
-          'ko' : 'ko-kr/'
-        },
-        protocol = location.protocol';
+$(document).ready(function () {
+  // Declare some variables.
+  var domain = 'www.tableau.com',
+    lang = $('html').attr('lang') || 'en',
+    lang_map = {
+      'en': '',
+      'fr': 'fr-fr/',
+      'de': 'de-de/',
+      'pt-br': 'pt-br/',
+      'es': 'es-es/',
+      'zh-hans': 'zh-cn/',
+      'ja': 'ja-jp/',
+      'ko': 'ko-kr/'
+    },
+    protocol = location.protocol;
 
-    // An example of loading the menus via AJAX (json).
-    // Prepend the language if appropriate.
-    $.ajax({
-      url: protocol + '://' + domain + '/' + lang_map[lang] + 'ajax/megamenu',
-      type: 'GET',
-      dataType: 'json',
-      success: tabAjaxMegaMenu,
-      error: function (xhr, ajaxOptions, error) {
-        console.log(xhr.status);
-        console.log(error);
-      }
-    });
-
-    // An example of loading the menus via AJAX (jsonp).
-    // Prepend the language if appropriate.
-    $.ajax({
-      url: protocol + '://' + domain + '/' + lang_map[lang] + 'ajax/megamenu' +
-      '/jsonp/' + 'tabAjaxMegaMenu',
-      dataType: 'jsonp',
-      // Set a static callback and explicitly set caching to true to ensure
-      // we don't cache bust ourselves into oblivion. Without these set,
-      // a random callback name is generated and a timestamp is appended to
-      // every request.
-      jsonpCallback: 'jsonpMegamenuCallback',
-      cache: true
+  // An example of loading the menus via AJAX (jsonp).
+  // Prepend the language if appropriate.
+  $.ajax({
+    url: protocol + '//' + domain + '/' + lang_map[lang] + 'ajax/megamenu' +
+    '/jsonp/' + 'tabAjaxMegaMenu',
+    dataType: 'jsonp',
+    // Set a static callback and explicitly set caching to true to ensure
+    // we don't cache bust ourselves into oblivion. Without these set,
+    // a random callback name is generated and a timestamp is appended to
+    // every request.
+    jsonpCallback: 'jsonpMegamenuCallback',
+    cache: true
   });
-}
+});
 ```
 
-This javascript file (part of the styleguide) includes the callback function
+This JavaScript file (part of the styleguide) includes the callback function
 **tabAjaxMegaMenu** used in the example above. The code below will be
 responsible for replacing the DOM placeholders.
 
 
 ```
-(function($) {
+(function ($) {
   // Callback function to insert the menu into the DOM.
-  window.tabAjaxMegaMenu = function(data) {
+  window.tabAjaxMegaMenu = function (data) {
     var commands = {
-    insert: function (response) {
-      $(response.selector)[response.method](response.data);
-    }
-  };
+      insert: function (response) {
+        $(response.selector)[response.method](response.data);
+      }
+    };
 
-  // Execute our commands.
+    // Execute our commands.
     for (var i in data) {
-    if (data[i]['command'] && commands[data[i]['command']]) {
-      commands[data[i]['command']](data[i]);
+      if (data[i]['command'] && commands[data[i]['command']]) {
+        commands[data[i]['command']](data[i]);
+      }
     }
-  }
 
-  // Trigger event when our menu has been loaded.
+    // Trigger event when our menu has been loaded.
     $(document).trigger('tabAjaxMegaMenu:ready');
   };
 })(jQuery);
@@ -3692,312 +3972,6 @@ Markup: ajax_consumption.hbs
 
 Style guide: documentation.global-nav-ajax
 */
-/*
-Breakpoints
-
-We use several different breakpoints in order to responsively alter components and layouts for different screen sizes.
-
-* Desktop - any viewport wider than `960px`
-* Tablet - any viewport with a maximum width of `960px` AND minimum width of `640px`
-* Mobile - any viewport narrower than `640px`
-
-We provide several helper classes and SASS shortcuts for utilizing breakpoints in either markup or in component styles. Use the demo example below to identify the applicable SASS variables or helper classes. To use the demo, expand it into full-screen mode and then resize your browser to trigger the different breakpoints.
-
-
-#### Using helper classes:
-```
-<div class="{helper-class}">
-  <p> Content only shown/hidden in specified viewport(s)</p>
-</div>
-```
-
-#### Using SASS variables
-```
-@include breakpoint({$sass-variable}) {
-  // Styles only applied in specified viewport(s)
-}
-```
-
-Markup: breakpoints.hbs
-
-Nocode: true
-
-Style guide: documentation.breakpoints
-*/
-.docs-breakpoints-only {
-  padding: 8em 1em;
-  text-align: center; }
-  @media (min-width: 961px) {
-    .docs-breakpoints-only {
-      background: red; } }
-  @media (min-width: 640px) and (max-width: 960px) {
-    .docs-breakpoints-only {
-      background: green;
-      color: #fff; } }
-  @media (max-width: 639px) {
-    .docs-breakpoints-only {
-      background: blue;
-      color: #fff; } }
-
-/*
-Content Search
-
-Search component for use within content (i.e. not header or footer)
-
-Markup: content-search.hbs
-
-Weight: 10
-
-.content-search--white - White input background variant for use on color backgrounds.
-
-Style guide: forms.content-search
-*/
-.content-search {
-  position: relative;
-  margin: 2em auto;
-  width: 60%;
-  max-width: 650px;
-  background: #fafafa;
-  border-radius: 2em;
-  box-shadow: 2px 2px 3px #dedede inset;
-  /* when component is open */ }
-  .content-search.has-suggestion {
-    border-radius: 2em 2em 0 0; }
-  @media (max-width: 639px) {
-    .content-search {
-      width: auto;
-      margin: 2em 1em; } }
-  .content-search .content-search__input {
-    margin: 0;
-    padding: 0.9em 3.2em 0.9em 1.6em;
-    width: 100%;
-    height: 3.2em;
-    line-height: normal;
-    background: none;
-    outline: 0;
-    border: 0;
-    font-size: 1.25em;
-    color: #787878;
-    font-family: "Merriweather", serif;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none; }
-    .content-search .content-search__input::-webkit-input-placeholder {
-      color: #bbb; }
-    .content-search .content-search__input::-moz-placeholder {
-      color: #bbb; }
-    .content-search .content-search__input:-ms-input-placeholder {
-      color: #bbb; }
-    .content-search .content-search__input::placeholder {
-      color: #bbb; }
-    .content-search .content-search__input::-webkit-search-cancel-button {
-      display: none; }
-    .content-search .content-search__input::-ms-clear {
-      display: none; }
-  .content-search .content-search__button {
-    position: absolute;
-    top: 0;
-    right: 0.20833em;
-    border: 0;
-    padding: 0;
-    width: 2.66667em;
-    height: 2.66667em;
-    line-height: 1;
-    font-size: 1.5em;
-    outline: 0;
-    background: transparent;
-    cursor: pointer; }
-  .content-search .content-search__reset {
-    display: none; }
-  .content-search.is-populated .content-search__reset, .content-search.has-suggestion .content-search__reset {
-    display: block; }
-  .content-search.is-populated .content-search__submit, .content-search.has-suggestion .content-search__submit {
-    display: none; }
-  .content-search.content-search--white {
-    background: #fff; }
-
-/** @todo Add modifier to searches within heros **/
-.bg--light-gray-1 .content-search {
-  background: #fff; }
-
-.content-search {
-  position: relative; }
-  .content-search label,
-  .content-search .views-widget-sort-by,
-  .content-search .views-widget-sort-order,
-  .content-search .form-item-field-geofield-distance-distance,
-  .content-search .form-item-field-geofield-distance-unit,
-  .content-search .geofield-proximity-origin-from {
-    display: none; }
-  .content-search h2.element-invisible {
-    width: 0; }
-  .content-search input[type='search'] {
-    background-image: none !important; }
-  .content-search #autocomplete {
-    position: absolute;
-    top: 4em !important;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: #fafafa;
-    border-radius: 0 0 2em 2em;
-    box-shadow: 2px 2px 3px #dedede inset;
-    text-align: left; }
-    .content-search #autocomplete li {
-      transition: background 0.25s ease-in-out;
-      clear: both;
-      display: block;
-      margin: 0;
-      padding: 1.125em 2em;
-      border-bottom: 1px solid #dedede;
-      color: inherit;
-      background: rgba(235, 235, 235, 0.5);
-      text-decoration: none; }
-      .content-search #autocomplete li:after {
-        content: '';
-        display: table;
-        clear: both; }
-      .content-search #autocomplete li:last-child {
-        border-bottom: 0; }
-      .content-search #autocomplete li.selected, .content-search #autocomplete li:hover {
-        background: #ebebeb; }
-  .content-search .views-widget-filter-field_geofield_distance,
-  .content-search .form-type-searchfield {
-    margin: 0; }
-
-.content-search .views-exposed-form .views-exposed-widget {
-  padding: 0; }
-
-/*
-Contextual Search
-
-Contextual search form for section-specific searches.
-
-Upon submitting (e.g., pressing ENTER or clicking the search submit icon) an
-intermediate search results list is shown in the context of the page (provided
-via AJAX).
-
-More results text, at the bottom of the intermediate search results list, allows
-you to continue to the full results page.
-
-Down/up arrow keys allow you to select a results row, and clicking outside the
-search component will close the search results.
-
-Markup: contextual-search.hbs
-
-Weight: 15
-
-.contextual-search--white - White input background variant for use on color backgrounds.
-
-Style guide: forms.contextual-search
-*/
-.contextual-search {
-  min-height: 4em;
-  /* when component is open */ }
-  .contextual-search .contextual-search__ui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: #fafafa;
-    border-radius: 2em;
-    box-shadow: 2px 2px 3px #dedede inset; }
-  .contextual-search .contextual-search__form {
-    position: relative; }
-  .contextual-search .content-search__reset {
-    display: none; }
-  .contextual-search.is-open .contextual-search__ui {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); }
-  .contextual-search.is-open .content-search__reset {
-    display: block; }
-  .contextual-search.is-open .content-search__submit {
-    display: none; }
-  .contextual-search .contextual-search__results {
-    display: none;
-    margin: 0;
-    padding: 0;
-    text-align: left; }
-  .contextual-search.is-open .contextual-search__results {
-    display: block; }
-  .contextual-search .contextual-search__results-row {
-    transition: background 0.25s ease-in-out;
-    clear: both;
-    display: block;
-    padding: 1.125em 2em;
-    border-bottom: 1px solid #dedede;
-    color: inherit;
-    background: rgba(235, 235, 235, 0.5);
-    text-decoration: none; }
-    .contextual-search .contextual-search__results-row:after {
-      content: '';
-      display: table;
-      clear: both; }
-    .contextual-search .contextual-search__results-row:last-child {
-      border-bottom: 0; }
-    .contextual-search .contextual-search__results-row.is-selected, .contextual-search .contextual-search__results-row:hover {
-      background: #fff; }
-  .contextual-search .contextual-search__title {
-    width: 74.46809%;
-    float: left;
-    margin-right: 2.12766%;
-    font-size: 16px;
-    line-height: 1.88; }
-  .contextual-search .contextual-search__meta {
-    width: 23.40426%;
-    float: right;
-    margin-right: 0;
-    margin-left: -100%;
-    font-family: "Benton Sans Book", Helvetica, sans-serif;
-    font-size: 0.6875em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-      .contextual-search .contextual-search__meta {
-        -webkit-font-smoothing: subpixel-antialiased; } }
-  .contextual-search .contextual-search__category {
-    width: 74.46809%;
-    float: left;
-    margin-right: 2.12766%;
-    font-family: "Benton Sans Book", Helvetica, sans-serif;
-    font-size: 0.6875em;
-    letter-spacing: 1px;
-    text-transform: uppercase; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-      .contextual-search .contextual-search__category {
-        -webkit-font-smoothing: subpixel-antialiased; } }
-  .contextual-search .contextual-search__more {
-    font-family: "Benton Sans Book", Helvetica, sans-serif;
-    font-size: 0.6875em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-    padding: 1.63636em 2.90909em;
-    border-radius: 0 0 2.90909em 2.90909em;
-    color: #e8762c;
-    text-align: center; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-      .contextual-search .contextual-search__more {
-        -webkit-font-smoothing: subpixel-antialiased; } }
-    .contextual-search .contextual-search__more:hover {
-      text-decoration: none; }
-  .contextual-search .contextual-search__loader {
-    display: none; }
-  .contextual-search.is-ajaxing .contextual-search__loader {
-    display: block; }
-  .contextual-search.is-ajaxing .content-search__submit,
-  .contextual-search.is-ajaxing .content-search__reset {
-    display: none; }
-  .contextual-search.contextual-search--white .contextual-search__ui {
-    background: #fff; }
-
-/** @todo Add modifier to searches within heros **/
-.bg--light-gray-1 .contextual-search__ui {
-  background: #fff; }
-
 /*
 Datepicker
 
@@ -4718,6 +4692,7 @@ Style guide: forms.fields-dark
 .form--negative {
   color: #ebebeb; }
   .form--negative .form-field__control,
+  .form--negative .form-compact,
   .form--negative input[type="text"],
   .form--negative input[type="search"],
   .form--negative input[type="tel"],
@@ -5600,46 +5575,6 @@ Style guide: interactive.scroll-reveal
 .js .scroll-reveal {
   visibility: hidden; }
 
-/*
-Search Highlight
-
-Searches through a list of items and highlights items that match the term.
-
-Markup: search-highlight.hbs
-
-Weight: 60
-
-Bgcolor: #F7F9FB
-
-Style Guide: interactive.search-highlight
-*/
-.search-highlight {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 30px;
-  background-color: #fff; }
-  .search-highlight input[type=search] {
-    width: 100%;
-    padding: 1em 3em 1em 1em;
-    border: 0;
-    background: none;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none; }
-    .search-highlight input[type=search]:focus {
-      outline: 0; }
-  .search-highlight button {
-    position: absolute;
-    right: 1em;
-    top: 0.8em;
-    border: 0;
-    background: none;
-    font-size: 1em; }
-    .search-highlight button:focus {
-      outline: 0; }
-
 .slick-slider {
   position: relative;
   padding-left: 40px;
@@ -6200,7 +6135,7 @@ Style guide: labels.tag
   text-transform: uppercase;
   display: inline-block;
   padding: 0.25em 0.375em 0.1875em 0.5em;
-  margin-left: 0.375em;
+  margin-right: 0.375em;
   line-height: 1;
   vertical-align: middle; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -6212,8 +6147,8 @@ Style guide: labels.tag
 
 [dir="rtl"] .label-tag,
 .direction--rtl .label-tag {
-  margin-left: initial;
-  margin-right: 0.375em; }
+  margin-left: 0.375em;
+  margin-right: initial; }
 
 /*
 Basic Page Layout
@@ -6482,6 +6417,13 @@ Style guide: layout.colored
   color: #fff;
   text-decoration: underline; }
 
+.background-video .video-js {
+  position: initial; }
+
+@media (max-width: 960px) {
+  .background-video .video-js {
+    display: none; } }
+
 /*
 Background video
 
@@ -6498,7 +6440,7 @@ Style guide: layout.bg-video
     position: relative;
     overflow: hidden; }
     .background-video video,
-    .background-video .background-video__video {
+    .background-video .background-video__video, .background-video .video-js .vjs-tech {
       object-fit: cover;
       width: 100%;
       height: 100%;
@@ -6514,7 +6456,7 @@ Style guide: layout.bg-video
 
 @media (max-width: 960px) {
   .background-video video,
-  .background-video .background-video__video {
+  .background-video .background-video__video, .background-video .video-js .vjs-tech {
     display: none; } }
 
 /*
@@ -7641,6 +7583,48 @@ Style guide: lists.agenda
       left: 0.5em; }
 
 /*
+Basic HTML Table
+
+Base styles for an HTML table
+
+Markup: basic-table.hbs
+
+.table--no-stripes - Prevent row background color striping
+
+Style Guide: lists.basic-table
+*/
+table {
+  width: 100%;
+  border-collapse: collapse; }
+  table thead {
+    border-bottom: 1px solid #dedede; }
+  table th {
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.29em 0.73em;
+    text-align: left;
+    font-weight: normal; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      table th {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+  table tr:nth-child(even) {
+    background: rgba(27, 27, 27, 0.1); }
+  table.table--no-stripes tr:nth-child(even) {
+    background: inherit; }
+  table td {
+    padding: 0.2em 0.5em; }
+    table td p:first-child,
+    table td ul:first-child,
+    table td ol:first-child {
+      margin-top: 0; }
+    table td p:last-child,
+    table td ul:last-child,
+    table td ol:last-child {
+      margin-bottom: 0; }
+
+/*
 Card Wall
 
 Uses masonry plugin to control the layout of a list of card components.
@@ -7680,13 +7664,18 @@ Style guide: lists.comparison-list
   .comparison-list thead {
     font-weight: normal; }
     .comparison-list thead th {
-      font-family: "Benton Sans Light", Helvetica, sans-serif;
+      font-family: "Benton Sans Book", Helvetica, sans-serif;
       padding: 1em;
       color: #787878;
       vertical-align: top;
-      border-right: 1px solid #dedede; }
+      border-right: 1px solid #dedede;
+      text-align: center;
+      font-size: 1em;
+      text-transform: inherit; }
       .comparison-list thead th:first-child, .comparison-list thead th:last-child {
         border-right: 0; }
+  .comparison-list tr:nth-child(even) {
+    background: inherit; }
   .comparison-list td {
     padding: 0.5em;
     border-top: 1px solid #dedede;
@@ -8048,6 +8037,8 @@ Style guide: lists.table-list
           -webkit-font-smoothing: subpixel-antialiased; } }
     .table-list thead th.is-active {
       text-decoration: underline; }
+  .table-list tr:nth-child(even) {
+    background: inherit; }
   .table-list td {
     padding: 24px;
     border-top: 1px solid #dedede;
@@ -8443,6 +8434,65 @@ Weight: 91
     font-size: 1.25em;
     color: #e8762c; }
 
+/**
+ * Coveo Icons
+ */
+.coveo-icon {
+  font-family: "tableau-icons";
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: auto;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.CoveoSearchButton .coveo-icon {
+  color: transparent;
+  text-align: center;
+  width: 25px; }
+  .CoveoSearchButton .coveo-icon:before {
+    display: inline-block;
+    content: "\f160";
+    font-size: 25px;
+    line-height: 48px;
+    color: #333; }
+
+.CoveoSearchbox .magic-box .magic-box-clear .magic-box-icon {
+  font-family: "tableau-icons";
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: auto;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: baseline; }
+
+.CoveoSearchbox .magic-box .magic-box-clear .magic-box-icon:before {
+  display: inline-block;
+  content: "\f12a";
+  font-size: 22px;
+  line-height: 48px;
+  color: #333; }
+
+.coveo-facet-value-exclude .coveo-icon:before {
+  display: inline-block;
+  content: "\f12a";
+  font-size: 12px;
+  line-height: 24px;
+  color: #333; }
+
 /*
 Formatted Icons
 
@@ -8656,6 +8706,19 @@ Style Guide: navigation.footer
       .global-footer .global-footer__social li a {
         padding: .5em; } }
 
+/*
+Coveo specific Global Navigation
+*/
+.block--coveo-all {
+  z-index: 10001; }
+  .block--coveo-all .CoveoSearchbox .magic-box {
+    border: none; }
+  .block--coveo-all .magic-box .magic-box-input > input {
+    height: 45px;
+    font-family: "Benton Sans Light", Helvetica, sans-serif;
+    font-size: 1.5em;
+    color: #333; }
+
 .global-nav__top .global-nav__search h2.element-invisible {
   width: 0; }
 
@@ -8663,8 +8726,8 @@ Style Guide: navigation.footer
   background-image: none; }
 
 .global-nav__top .global-nav__search #autocomplete {
-  font-size: 1.25em;
-  line-height: 1.75;
+  font-size: 1.875em;
+  line-height: 1.53;
   display: block;
   position: absolute;
   z-index: 10000;
@@ -8699,7 +8762,6 @@ Markup: global-nav.hbs
 Style guide: navigation.global
 */
 .global-nav {
-  z-index: 1;
   position: relative; }
 
 .global-nav__top {
@@ -8816,8 +8878,8 @@ Style guide: navigation.global
         content: "\f12a"; }
 
 .global-nav .ui-autocomplete {
-  font-size: 1.25em;
-  line-height: 1.75;
+  font-size: 1.875em;
+  line-height: 1.53;
   display: block;
   position: absolute;
   z-index: 10002;
@@ -8894,11 +8956,11 @@ Style guide: navigation.global
     float: right;
     padding-right: 45px;
     text-align: right; }
-    .global-nav__top .global-nav__secondary-menu li a.link, .global-nav__top .global-nav__secondary-menu li .video-chapters__toggle-wrapper a.video-chapters__toggle, .video-chapters__toggle-wrapper .global-nav__top .global-nav__secondary-menu li a.video-chapters__toggle {
+    .global-nav__top .global-nav__secondary-menu li a.link, .global-nav__top .global-nav__secondary-menu li .video-chapters__toggle-wrapper a.video-chapters__toggle, .video-chapters__toggle-wrapper .global-nav__top .global-nav__secondary-menu li a.video-chapters__toggle, .global-nav__top .global-nav__secondary-menu li .search-breadcrumb a.search-breadcrumb__clear-all, .search-breadcrumb .global-nav__top .global-nav__secondary-menu li a.search-breadcrumb__clear-all, .global-nav__top .global-nav__secondary-menu li .search-breadcrumb a.coveo-breadcrumb-clear-all, .search-breadcrumb .global-nav__top .global-nav__secondary-menu li a.coveo-breadcrumb-clear-all {
       padding: 10px;
       color: #000; } }
     @media (min-width: 961px) and (max-width: 1300px) {
-      .global-nav__top .global-nav__secondary-menu li a.link, .global-nav__top .global-nav__secondary-menu li .video-chapters__toggle-wrapper a.video-chapters__toggle, .video-chapters__toggle-wrapper .global-nav__top .global-nav__secondary-menu li a.video-chapters__toggle {
+      .global-nav__top .global-nav__secondary-menu li a.link, .global-nav__top .global-nav__secondary-menu li .video-chapters__toggle-wrapper a.video-chapters__toggle, .video-chapters__toggle-wrapper .global-nav__top .global-nav__secondary-menu li a.video-chapters__toggle, .global-nav__top .global-nav__secondary-menu li .search-breadcrumb a.search-breadcrumb__clear-all, .search-breadcrumb .global-nav__top .global-nav__secondary-menu li a.search-breadcrumb__clear-all, .global-nav__top .global-nav__secondary-menu li .search-breadcrumb a.coveo-breadcrumb-clear-all, .search-breadcrumb .global-nav__top .global-nav__secondary-menu li a.coveo-breadcrumb-clear-all {
         padding: 10px 8px; } }
 
 @media (min-width: 961px) {
@@ -8923,8 +8985,8 @@ Style guide: navigation.global
       line-height: 45px; }
     .global-nav__top .global-nav__search input[type='text'],
     .global-nav__top .global-nav__search input[type='search'] {
-      font-size: 1.25em;
-      line-height: 1.75;
+      font-size: 1.875em;
+      line-height: 1.53;
       position: absolute;
       right: 0;
       height: 45px;
@@ -9147,7 +9209,7 @@ Style guide: navigation.global
       padding: 24px; }
       .global-nav__top .global-nav__secondary-menu li:last-child {
         display: block; }
-      .global-nav__top .global-nav__secondary-menu a.link, .global-nav__top .global-nav__secondary-menu .video-chapters__toggle-wrapper a.video-chapters__toggle, .video-chapters__toggle-wrapper .global-nav__top .global-nav__secondary-menu a.video-chapters__toggle,
+      .global-nav__top .global-nav__secondary-menu a.link, .global-nav__top .global-nav__secondary-menu .video-chapters__toggle-wrapper a.video-chapters__toggle, .video-chapters__toggle-wrapper .global-nav__top .global-nav__secondary-menu a.video-chapters__toggle, .global-nav__top .global-nav__secondary-menu .search-breadcrumb a.search-breadcrumb__clear-all, .search-breadcrumb .global-nav__top .global-nav__secondary-menu a.search-breadcrumb__clear-all, .global-nav__top .global-nav__secondary-menu .search-breadcrumb a.coveo-breadcrumb-clear-all, .search-breadcrumb .global-nav__top .global-nav__secondary-menu a.coveo-breadcrumb-clear-all,
       .global-nav__top .global-nav__secondary-menu a.search {
         padding: 12px;
         color: #000; }
@@ -9370,6 +9432,18 @@ Style guide navigation.hamburger
         -ms-transform: rotate(-45deg);
             transform: rotate(-45deg); }
 
+/**
+ * Coveo specific mapping for pager.
+ */
+.coveo-pager-list-item {
+  cursor: pointer; }
+
+.coveo-pager-previous a:after {
+  content: attr(title); }
+
+.coveo-pager-next a:before {
+  content: attr(title); }
+
 /*
 Pager
 
@@ -9379,36 +9453,44 @@ Markup: pager.hbs
 
 Style guide: navigation.pager
 */
-.pager {
+.pager, .coveo-pager-list {
   margin: 0;
   padding: 0;
   list-style: none;
   margin: 1em 0;
   line-height: 1.5em;
   text-align: center; }
-  .pager > li {
+  .pager > li, .coveo-pager-list > li {
     margin: 0;
     line-height: inherit;
     list-style: none; }
-  .pager > li {
+  .pager > li, .coveo-pager-list > li {
     display: inline-block; }
-  .pager .pager__endcap {
+  .pager .pager__endcap, .coveo-pager-list .pager__endcap, .pager .coveo-pager-previous, .coveo-pager-list .coveo-pager-previous, .pager .coveo-pager-next, .coveo-pager-list .coveo-pager-next {
     font-family: "Benton Sans Book", Helvetica, sans-serif;
     font-size: 0.6875em;
     letter-spacing: 1px;
     text-transform: uppercase; }
     @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-      .pager .pager__endcap {
+      .pager .pager__endcap, .coveo-pager-list .pager__endcap, .pager .coveo-pager-previous, .coveo-pager-list .coveo-pager-previous, .pager .coveo-pager-next, .coveo-pager-list .coveo-pager-next {
         -webkit-font-smoothing: subpixel-antialiased; } }
-    .pager .pager__endcap a {
+    .pager .pager__endcap a, .coveo-pager-list .pager__endcap a, .pager .coveo-pager-previous a, .coveo-pager-list .coveo-pager-previous a, .pager .coveo-pager-next a, .coveo-pager-list .coveo-pager-next a {
       color: #787878;
       padding: 0.5em 1em; }
-    .pager .pager__endcap.pager__endcap--current a {
+    .pager .pager__endcap.pager__endcap--current a, .coveo-pager-list .pager__endcap.pager__endcap--current a, .pager .pager__endcap--current.coveo-pager-previous a, .coveo-pager-list .pager__endcap--current.coveo-pager-previous a, .pager .pager__endcap--current.coveo-pager-next a, .coveo-pager-list .pager__endcap--current.coveo-pager-next a {
       display: none; }
-    .pager .pager__endcap.pager__endcap--first a:before,
-    .pager .pager__endcap.pager__endcap--previous a:before,
-    .pager .pager__endcap.pager__endcap--next a:after,
-    .pager .pager__endcap.pager__endcap--last a:after {
+    .pager .pager__endcap.pager__endcap--first a:before, .coveo-pager-list .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap--first.coveo-pager-previous a:before, .coveo-pager-list .pager__endcap--first.coveo-pager-previous a:before, .pager .pager__endcap--first.coveo-pager-next a:before, .coveo-pager-list .pager__endcap--first.coveo-pager-next a:before,
+    .pager .pager__endcap.pager__endcap--previous a:before, .coveo-pager-list .pager__endcap.pager__endcap--previous a:before,
+    .pager .coveo-pager-previous a:before, .coveo-pager-list .coveo-pager-previous a:before,
+    .pager .pager__endcap--previous.coveo-pager-next a:before, .coveo-pager-list .pager__endcap--previous.coveo-pager-next a:before,
+    .pager .coveo-pager-next.coveo-pager-previous a:before, .coveo-pager-list .coveo-pager-next.coveo-pager-previous a:before,
+    .pager .pager__endcap.pager__endcap--next a:after, .coveo-pager-list .pager__endcap.pager__endcap--next a:after,
+    .pager .pager__endcap--next.coveo-pager-previous a:after, .coveo-pager-list .pager__endcap--next.coveo-pager-previous a:after,
+    .pager .coveo-pager-previous.coveo-pager-next a:after, .coveo-pager-list .coveo-pager-previous.coveo-pager-next a:after,
+    .pager .coveo-pager-next a:after, .coveo-pager-list .coveo-pager-next a:after,
+    .pager .pager__endcap.pager__endcap--last a:after, .coveo-pager-list .pager__endcap.pager__endcap--last a:after,
+    .pager .pager__endcap--last.coveo-pager-previous a:after, .coveo-pager-list .pager__endcap--last.coveo-pager-previous a:after,
+    .pager .pager__endcap--last.coveo-pager-next a:after, .coveo-pager-list .pager__endcap--last.coveo-pager-next a:after {
       font-family: "tableau-icons";
       display: inline-block;
       vertical-align: middle;
@@ -9424,21 +9506,21 @@ Style guide: navigation.pager
       -moz-osx-font-smoothing: grayscale;
       height: 1.3em;
       text-decoration: none; }
-    .pager .pager__endcap.pager__endcap--first a:before {
+    .pager .pager__endcap.pager__endcap--first a:before, .coveo-pager-list .pager__endcap.pager__endcap--first a:before, .pager .pager__endcap--first.coveo-pager-previous a:before, .coveo-pager-list .pager__endcap--first.coveo-pager-previous a:before, .pager .pager__endcap--first.coveo-pager-next a:before, .coveo-pager-list .pager__endcap--first.coveo-pager-next a:before {
       content: "\f10e";
       padding-right: 0.5em; }
-    .pager .pager__endcap.pager__endcap--previous a:before {
+    .pager .pager__endcap.pager__endcap--previous a:before, .coveo-pager-list .pager__endcap.pager__endcap--previous a:before, .pager .coveo-pager-previous a:before, .coveo-pager-list .coveo-pager-previous a:before, .pager .pager__endcap--previous.coveo-pager-next a:before, .coveo-pager-list .pager__endcap--previous.coveo-pager-next a:before, .pager .coveo-pager-next.coveo-pager-previous a:before, .coveo-pager-list .coveo-pager-next.coveo-pager-previous a:before {
       content: "\f10e";
       padding-right: 0.5em; }
-    .pager .pager__endcap.pager__endcap--next a:after {
+    .pager .pager__endcap.pager__endcap--next a:after, .coveo-pager-list .pager__endcap.pager__endcap--next a:after, .pager .pager__endcap--next.coveo-pager-previous a:after, .coveo-pager-list .pager__endcap--next.coveo-pager-previous a:after, .pager .coveo-pager-previous.coveo-pager-next a:after, .coveo-pager-list .coveo-pager-previous.coveo-pager-next a:after, .pager .coveo-pager-next a:after, .coveo-pager-list .coveo-pager-next a:after {
       content: "\f112";
       padding-left: 0.5em; }
-    .pager .pager__endcap.pager__endcap--last a:after {
+    .pager .pager__endcap.pager__endcap--last a:after, .coveo-pager-list .pager__endcap.pager__endcap--last a:after, .pager .pager__endcap--last.coveo-pager-previous a:after, .coveo-pager-list .pager__endcap--last.coveo-pager-previous a:after, .pager .pager__endcap--last.coveo-pager-next a:after, .coveo-pager-list .pager__endcap--last.coveo-pager-next a:after {
       content: "\f112";
       padding-left: 0.5em; }
-  .pager .pager__page {
+  .pager .pager__page, .coveo-pager-list .pager__page, .pager .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next), .coveo-pager-list .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) {
     margin: 0 .1em; }
-    .pager .pager__page a {
+    .pager .pager__page a, .coveo-pager-list .pager__page a, .pager .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a, .coveo-pager-list .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a {
       display: inline-block;
       width: 2em;
       height: 2em;
@@ -9449,18 +9531,18 @@ Style guide: navigation.pager
       color: #787878;
       font-size: 0.75em;
       transition: color .25s; }
-    .pager .pager__page a:hover {
+    .pager .pager__page a:hover, .coveo-pager-list .pager__page a:hover, .pager .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a:hover, .coveo-pager-list .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a:hover {
       color: #000;
       text-decoration: none; }
-    .pager .pager__page.pager__page--current a {
+    .pager .pager__page.pager__page--current a, .coveo-pager-list .pager__page.pager__page--current a, .pager .pager__page--current.coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a, .coveo-pager-list .pager__page--current.coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a, .pager .coveo-pager-list-item.coveo-active:not(.coveo-pager-previous):not(.coveo-pager-next) a, .coveo-pager-list .coveo-pager-list-item.coveo-active:not(.coveo-pager-previous):not(.coveo-pager-next) a {
       color: #333;
       border: 1px solid #333; }
   @media (max-width: 960px) {
-    .pager {
+    .pager, .coveo-pager-list {
       line-height: 2.25em; }
-      .pager .pager__endcap a {
+      .pager .pager__endcap a, .coveo-pager-list .pager__endcap a, .pager .coveo-pager-previous a, .coveo-pager-list .coveo-pager-previous a, .pager .coveo-pager-next a, .coveo-pager-list .coveo-pager-next a {
         padding: 1em 1em; }
-      .pager .pager__page a {
+      .pager .pager__page a, .coveo-pager-list .pager__page a, .pager .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a, .coveo-pager-list .coveo-pager-list-item:not(.coveo-pager-previous):not(.coveo-pager-next) a {
         width: 2.25em;
         height: 2.25em;
         font-size: 1em; } }
@@ -9495,6 +9577,7 @@ Style guide: navigation.pager-simple
 .pager-simple.pager-simple--light .pager-simple__next {
   color: #bbb; }
 
+/* Coveo specific for section-nav */
 /*
 Drupal-specific styles to avoid aggressive markup rewriting. Extends component
 styles to drupal classes/selectors.
@@ -9536,8 +9619,12 @@ Style guide: navigation.section-nav
   .section-nav .section-nav__secondary-link, .section-nav .menu-block-wrapper > ul.menu > li ul.menu a {
     color: #787878;
     display: block; }
-    .section-nav .section-nav__primary-link.active, .section-nav .menu-block-wrapper > ul.menu > li .active-trail, .section-nav .menu-block-wrapper > ul.menu > li a.active,
-    .section-nav .section-nav__secondary-link.active, .section-nav .menu-block-wrapper > ul.menu > li ul.menu a.active {
+    .section-nav .section-nav__primary-link.active, .section-nav .section-nav__primary-link.coveo-selected, .section-nav .menu-block-wrapper > ul.menu > li a.coveo-selected, .section-nav
+    .section-nav__secondary-link.coveo-selected, .section-nav .menu-block-wrapper > ul.menu > li ul.menu a.coveo-selected, .section-nav .menu-block-wrapper > ul.menu > li .active-trail, .section-nav .menu-block-wrapper > ul.menu > li a.active,
+    .section-nav .section-nav__secondary-link.active,
+    .section-nav .section-nav__primary-link.coveo-selected, .section-nav .menu-block-wrapper > ul.menu > li a.coveo-selected,
+    .section-nav
+    .section-nav__secondary-link.coveo-selected, .section-nav .menu-block-wrapper > ul.menu > li ul.menu a.coveo-selected, .section-nav .menu-block-wrapper > ul.menu > li ul.menu a.active {
       text-decoration: underline;
       color: #333; }
   .section-nav .section-nav__primary-link, .section-nav .menu-block-wrapper > ul.menu > li a {
@@ -9876,6 +9963,677 @@ Style Guide: navigation.topic-nav
           -ms-transform: rotate(180deg);
               transform: rotate(180deg); }
 
+/*
+Content Search
+
+Search component for use within content (i.e. not header or footer)
+
+Markup: content-search.hbs
+
+Weight: 10
+
+.content-search--white - White input background variant for use on color backgrounds.
+
+Style guide: search.content-search
+*/
+.content-search {
+  position: relative;
+  margin: 2em auto;
+  width: 60%;
+  max-width: 650px;
+  background: #fafafa;
+  border-radius: 2em;
+  box-shadow: 2px 2px 3px #dedede inset;
+  /* when component is open */ }
+  .content-search.has-suggestion {
+    border-radius: 2em 2em 0 0; }
+  @media (max-width: 639px) {
+    .content-search {
+      width: auto;
+      margin: 2em 1em; } }
+  .content-search .content-search__input {
+    margin: 0;
+    padding: 0.9em 3.2em 0.9em 1.6em;
+    width: 100%;
+    height: 3.2em;
+    line-height: normal;
+    background: none;
+    outline: 0;
+    border: 0;
+    font-size: 1.25em;
+    color: #787878;
+    font-family: "Merriweather", serif;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none; }
+    .content-search .content-search__input::-webkit-input-placeholder {
+      color: #bbb; }
+    .content-search .content-search__input::-moz-placeholder {
+      color: #bbb; }
+    .content-search .content-search__input:-ms-input-placeholder {
+      color: #bbb; }
+    .content-search .content-search__input::placeholder {
+      color: #bbb; }
+    .content-search .content-search__input::-webkit-search-cancel-button {
+      display: none; }
+    .content-search .content-search__input::-ms-clear {
+      display: none; }
+  .content-search .content-search__button {
+    position: absolute;
+    top: 0;
+    right: 0.20833em;
+    border: 0;
+    padding: 0;
+    width: 2.66667em;
+    height: 2.66667em;
+    line-height: 1;
+    font-size: 1.5em;
+    outline: 0;
+    background: transparent;
+    cursor: pointer; }
+  .content-search .content-search__reset {
+    display: none; }
+  .content-search.is-populated .content-search__reset, .content-search.has-suggestion .content-search__reset {
+    display: block; }
+  .content-search.is-populated .content-search__submit, .content-search.has-suggestion .content-search__submit {
+    display: none; }
+  .content-search.content-search--white {
+    background: #fff; }
+
+/** @todo Add modifier to searches within heros **/
+.bg--light-gray-1 .content-search {
+  background: #fff; }
+
+.content-search {
+  position: relative; }
+  .content-search label,
+  .content-search .views-widget-sort-by,
+  .content-search .views-widget-sort-order,
+  .content-search .form-item-field-geofield-distance-distance,
+  .content-search .form-item-field-geofield-distance-unit,
+  .content-search .geofield-proximity-origin-from {
+    display: none; }
+  .content-search h2.element-invisible {
+    width: 0; }
+  .content-search input[type='search'] {
+    background-image: none !important; }
+  .content-search #autocomplete {
+    position: absolute;
+    top: 4em !important;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fafafa;
+    border-radius: 0 0 2em 2em;
+    box-shadow: 2px 2px 3px #dedede inset;
+    text-align: left; }
+    .content-search #autocomplete li {
+      transition: background 0.25s ease-in-out;
+      clear: both;
+      display: block;
+      margin: 0;
+      padding: 1.125em 2em;
+      border-bottom: 1px solid #dedede;
+      color: inherit;
+      background: rgba(235, 235, 235, 0.5);
+      text-decoration: none; }
+      .content-search #autocomplete li:after {
+        content: '';
+        display: table;
+        clear: both; }
+      .content-search #autocomplete li:last-child {
+        border-bottom: 0; }
+      .content-search #autocomplete li.selected, .content-search #autocomplete li:hover {
+        background: #ebebeb; }
+  .content-search .views-widget-filter-field_geofield_distance,
+  .content-search .form-type-searchfield {
+    margin: 0; }
+
+.content-search .views-exposed-form .views-exposed-widget {
+  padding: 0; }
+
+/*
+Contextual Search
+
+Contextual search form for section-specific searches.
+
+Upon submitting (e.g., pressing ENTER or clicking the search submit icon) an
+intermediate search results list is shown in the context of the page (provided
+via AJAX).
+
+More results text, at the bottom of the intermediate search results list, allows
+you to continue to the full results page.
+
+Down/up arrow keys allow you to select a results row, and clicking outside the
+search component will close the search results.
+
+Markup: contextual-search.hbs
+
+Weight: 15
+
+.contextual-search--white - White input background variant for use on color backgrounds.
+
+Style guide: search.contextual-search
+*/
+.contextual-search {
+  min-height: 4em;
+  /* when component is open */ }
+  .contextual-search .contextual-search__ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fafafa;
+    border-radius: 2em;
+    box-shadow: 2px 2px 3px #dedede inset; }
+  .contextual-search .contextual-search__form {
+    position: relative; }
+  .contextual-search .content-search__reset {
+    display: none; }
+  .contextual-search.is-open .contextual-search__ui {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); }
+  .contextual-search.is-open .content-search__reset {
+    display: block; }
+  .contextual-search.is-open .content-search__submit {
+    display: none; }
+  .contextual-search .contextual-search__results {
+    display: none;
+    margin: 0;
+    padding: 0;
+    text-align: left; }
+  .contextual-search.is-open .contextual-search__results {
+    display: block; }
+  .contextual-search .contextual-search__results-row {
+    transition: background 0.25s ease-in-out;
+    clear: both;
+    display: block;
+    padding: 1.125em 2em;
+    border-bottom: 1px solid #dedede;
+    color: inherit;
+    background: rgba(235, 235, 235, 0.5);
+    text-decoration: none; }
+    .contextual-search .contextual-search__results-row:after {
+      content: '';
+      display: table;
+      clear: both; }
+    .contextual-search .contextual-search__results-row:last-child {
+      border-bottom: 0; }
+    .contextual-search .contextual-search__results-row.is-selected, .contextual-search .contextual-search__results-row:hover {
+      background: #fff; }
+  .contextual-search .contextual-search__title {
+    width: 74.46809%;
+    float: left;
+    margin-right: 2.12766%;
+    font-size: 16px;
+    line-height: 1.88; }
+  .contextual-search .contextual-search__meta {
+    width: 23.40426%;
+    float: right;
+    margin-right: 0;
+    margin-left: -100%;
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      .contextual-search .contextual-search__meta {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+  .contextual-search .contextual-search__category {
+    width: 74.46809%;
+    float: left;
+    margin-right: 2.12766%;
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      .contextual-search .contextual-search__category {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+  .contextual-search .contextual-search__more {
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.63636em 2.90909em;
+    border-radius: 0 0 2.90909em 2.90909em;
+    color: #e8762c;
+    text-align: center; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      .contextual-search .contextual-search__more {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+    .contextual-search .contextual-search__more:hover {
+      text-decoration: none; }
+  .contextual-search .contextual-search__loader {
+    display: none; }
+  .contextual-search.is-ajaxing .contextual-search__loader {
+    display: block; }
+  .contextual-search.is-ajaxing .content-search__submit,
+  .contextual-search.is-ajaxing .content-search__reset {
+    display: none; }
+  .contextual-search.contextual-search--white .contextual-search__ui {
+    background: #fff; }
+
+/** @todo Add modifier to searches within heros **/
+.bg--light-gray-1 .contextual-search__ui {
+  background: #fff; }
+
+/*
+Recommended Search Result
+
+This search result is more pronounced, includes an image, and custom link text with arrow.
+
+Weight: 50
+
+Markup: recommended-search-result.hbs
+
+.recommended-search-result--text-only - Text-only (no image)
+
+Style guide: search.recommended-search-result
+*/
+.recommended-search-result {
+  position: relative;
+  margin-top: 1em;
+  padding: 1em;
+  color: #787878;
+  background-color: #fafafa; }
+  .recommended-search-result:after {
+    content: '';
+    display: table;
+    clear: both; }
+  .recommended-search-result:first-child {
+    margin-top: 0; }
+  .recommended-search-result .recommended-search-result__image {
+    width: 31.91489%;
+    float: left;
+    margin-right: 2.12766%;
+    padding-top: 0.5em; }
+    @media (min-width: 640px) {
+      .recommended-search-result .recommended-search-result__image {
+        width: 23.40426%;
+        float: left;
+        margin-right: 2.12766%; } }
+  .recommended-search-result .recommended-search-result__body {
+    width: 65.95745%;
+    float: left;
+    margin-right: 2.12766%;
+    float: right;
+    margin-right: 0; }
+    @media (min-width: 640px) {
+      .recommended-search-result .recommended-search-result__body {
+        width: 74.46809%;
+        float: left;
+        margin-right: 2.12766%;
+        float: right;
+        margin-right: 0; } }
+    .recommended-search-result--text-only .recommended-search-result .recommended-search-result__body {
+      clear: both;
+      width: 100%;
+      float: left;
+      margin-left: 0;
+      margin-right: 0; }
+  .recommended-search-result .recommended-search-result__label {
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      .recommended-search-result .recommended-search-result__label {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+  .recommended-search-result .recommended-search-result__title {
+    font-size: 1.25em;
+    line-height: 1.75;
+    margin: 0;
+    color: #333; }
+    @media (max-width: 639px) {
+      .recommended-search-result .recommended-search-result__title {
+        font-size: 1.125em; } }
+
+.recommended-search-result--text-only .recommended-search-result__image {
+  display: none; }
+
+.recommended-search-result--text-only .recommended-search-result__body {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+  @media (min-width: 640px) {
+    .recommended-search-result--text-only .recommended-search-result__body {
+      clear: both;
+      width: 100%;
+      float: left;
+      margin-left: 0;
+      margin-right: 0; } }
+
+/*
+Search Breadcrumb
+
+Displays a summary of the filters currently active in the Coveo query.
+
+Weight: 80
+
+Markup: search-breadcrumb.hbs
+
+Style guide: search.search-breadcrumb
+*/
+.search-breadcrumb {
+  font-size: 0.875em;
+  line-height: 1.86;
+  font-family: "Benton Sans Book", Helvetica, sans-serif;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .search-breadcrumb .search-breadcrumb__items, .search-breadcrumb .coveo-breadcrumb-items {
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
+  .search-breadcrumb .search-breadcrumb__item, .search-breadcrumb .coveo-facet-breadcrumb {
+    display: inline-block;
+    margin: 0 1em 1em 0; }
+  .search-breadcrumb .search-breadcrumb__item-title, .search-breadcrumb .coveo-facet-breadcrumb-title,
+  .search-breadcrumb .coveo-facet-breadcrumb-values,
+  .search-breadcrumb .search-breadcrumb__item-values, .search-breadcrumb .coveo-facet-breadcrumb-title,
+  .search-breadcrumb .coveo-facet-breadcrumb-values {
+    display: inline-block; }
+  .search-breadcrumb .search-breadcrumb__item-value, .search-breadcrumb .coveo-facet-breadcrumb-value {
+    display: inline-block; }
+    .search-breadcrumb .search-breadcrumb__item-value.js-excluded .search-breadcrumb__item-caption, .search-breadcrumb .js-excluded.coveo-facet-breadcrumb-value .search-breadcrumb__item-caption, .search-breadcrumb .search-breadcrumb__item-value.js-excluded .coveo-facet-breadcrumb-caption, .search-breadcrumb .js-excluded.coveo-facet-breadcrumb-value .coveo-facet-breadcrumb-caption {
+      text-decoration: line-through; }
+  .search-breadcrumb .search-breadcrumb__item-caption, .search-breadcrumb .coveo-facet-breadcrumb-value.coveo-excluded .coveo-facet-breadcrumb-caption, .search-breadcrumb .coveo-facet-breadcrumb-caption {
+    display: inline-block;
+    margin: 0 0.2em;
+    text-decoration: none;
+    color: #e8762c; }
+    .search-breadcrumb .search-breadcrumb__item-caption:hover, .search-breadcrumb .coveo-facet-breadcrumb-value.coveo-excluded .coveo-facet-breadcrumb-caption:hover, .search-breadcrumb .coveo-facet-breadcrumb-caption:hover {
+      text-decoration: underline; }
+  .search-breadcrumb .search-breadcrumb__item-clear, .search-breadcrumb .coveo-facet-breadcrumb-clear {
+    font-family: "tableau-icons";
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: normal;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 0.5em; }
+    .search-breadcrumb .search-breadcrumb__item-clear:before, .search-breadcrumb .coveo-facet-breadcrumb-clear:before {
+      display: inline-block;
+      content: "\f12a";
+      font-size: 9px;
+      line-height: 26px; }
+  .search-breadcrumb .search-breadcrumb__clear-all, .search-breadcrumb .coveo-breadcrumb-clear-all {
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+    margin: 0 0 1em 1em;
+    white-space: nowrap; }
+
+/* Coveo specific search-breadcrumbs */
+.search-breadcrumb .coveo-facet-breadcrumb-value {
+  cursor: pointer; }
+
+.search-breadcrumb .coveo-breadcrumb-clear-all {
+  cursor: pointer; }
+  .search-breadcrumb .coveo-breadcrumb-clear-all > div {
+    display: inline-block; }
+
+/* Coveo specific Search Facet */
+.search-facet input[form="coveo-dummy-form"] {
+  display: none; }
+
+.search-facet .coveo-facet-value:hover .coveo-facet-value-exclude {
+  opacity: 1; }
+
+.search-facet .coveo-facet-value.coveo-focused .coveo-facet-value-checkbox {
+  border-color: #777; }
+
+.search-facet .coveo-facet-value.coveo-focused .coveo-facet-value-checkbox {
+  background-color: #f2f2f2; }
+
+.search-facet .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
+  border-color: #777;
+  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E %3Cpolygon points='37.3,84.2 9.9,56.8 15.6,51.1 37.3,72.8 88.4,21.7 94.1,27.3 '/%3E %3C/svg%3E "); }
+
+.search-facet .coveo-facet-value-label-wrapper {
+  cursor: pointer; }
+
+.search-facet .coveo-facet-value-checkbox {
+  margin-top: 0.2em !important;
+  float: left;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #999;
+  background: #fff;
+  vertical-align: middle;
+  text-align: center; }
+  .search-facet .coveo-facet-value-checkbox:hover {
+    border-color: #333; }
+
+.search-facet .coveo-facet-value-exclude {
+  display: none; }
+
+.search-facet .coveo-facet-value-count {
+  float: right;
+  margin: 0 0 0 0.3em;
+  font-size: 12px;
+  line-height: 24px;
+  vertical-align: middle;
+  color: #999; }
+
+.search-facet .coveo-excluded {
+  text-decoration: line-through; }
+
+.search-facet:hover .coveo-facet-header,
+.search-facet:hover .coveo-facet-values,
+.search-facet:focus .coveo-facet-header,
+.search-facet:focus .coveo-facet-values {
+  border-color: #8f8f8f; }
+
+.coveo-facet-collapsed .search-facet__list, .coveo-facet-collapsed .search-facet .coveo-facet-values, .search-facet .coveo-facet-collapsed .coveo-facet-values,
+.coveo-facet-collapsed .coveo-facet-values {
+  display: none; }
+
+/*
+Search Facet
+
+A search facet selection widget.
+
+Weight: 65
+
+Markup: search-facet.hbs
+
+.search-facet--empty - empty / no options
+
+Style guide: search.search-facet
+*/
+.search-facet {
+  position: relative;
+  font-family: "Benton Sans Book", Helvetica, sans-serif;
+  font-size: 16px;
+  background: #fff;
+  color: #333; }
+  .search-facet .search-facet__header, .search-facet .coveo-facet-header {
+    transition: border-color 250ms;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    padding: 0.2em 1.5em 0.2em 0.5em;
+    border: 1px solid #c2c2c2;
+    border-radius: 0;
+    font-family: "Benton Sans Medium", Helvetica, sans-serif;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 512 512'%3E%3Cpath fill='%23787878' d='M5.2,176.9a12.5,12.5,0,0,1-2.7-17.5,12.5,12.5,0,0,1,17.5-2.7L256,326.8,492.2,156.6A12.5,12.5,0,1,1,506.7,177L256,357.8Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 10px auto;
+    cursor: pointer; }
+  .search-facet .search-facet__header-title, .search-facet .coveo-facet-header-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .search-facet .search-facet__list, .search-facet .coveo-facet-values {
+    position: relative;
+    margin: -1px 0 0 0;
+    padding: 0.2em 0;
+    border: 1px solid #c2c2c2;
+    border-top-width: 0;
+    list-style: none;
+    background: #fff;
+    z-index: 99999; }
+    @media (min-width: 640px) {
+      .search-facet .search-facet__list, .search-facet .coveo-facet-values {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0; } }
+  .search-facet .search-facet__item, .search-facet .coveo-facet-value {
+    transition: background-color 0.25s;
+    position: relative;
+    margin: 0;
+    padding: 0.25em 0.5em; }
+    .search-facet .search-facet__item:hover, .search-facet .coveo-facet-value:hover {
+      background-color: #ebebeb; }
+  .search-facet .search-facet__checkbox, .search-facet .coveo-facet-value-checkbox {
+    float: left;
+    margin: 0.5em 0.5em 0 0; }
+  .search-facet .search-facet__caption, .search-facet .coveo-facet-value-caption {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+
+.search-facet:hover .search-facet__header, .search-facet:hover .coveo-facet-header,
+.search-facet:hover .search-facet__list,
+.search-facet:hover .coveo-facet-values,
+.search-facet:focus .search-facet__header,
+.search-facet:focus .coveo-facet-header,
+.search-facet:focus .search-facet__list,
+.search-facet:focus .coveo-facet-values {
+  border-color: #8f8f8f; }
+
+.search-facet--empty, .coveo-facet-empty {
+  opacity: 0.5;
+  pointer-events: none; }
+
+/*
+Search Facets
+
+Layout for multiple Search Facet components.
+
+Weight: 70
+
+Markup: search-facets.hbs
+
+Style guide: search.search-facets
+*/
+.search-facets__item {
+  display: inline-block;
+  min-width: 200px;
+  margin: 0 1em 1em 0; }
+  @media (max-width: 639px) {
+    .search-facets__item {
+      width: 100%; } }
+  .search-facets__item:last-child {
+    margin-right: 0; }
+
+/*
+Search Highlight
+
+Searches through a list of items and highlights items that match the term.
+
+Markup: search-highlight.hbs
+
+Weight: 90
+
+Bgcolor: #F7F9FB
+
+Style Guide: search.search-highlight
+*/
+.search-highlight {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 30px;
+  background-color: #fff; }
+  .search-highlight input[type=search] {
+    width: 100%;
+    padding: 1em 3em 1em 1em;
+    border: 0;
+    background: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none; }
+    .search-highlight input[type=search]:focus {
+      outline: 0; }
+  .search-highlight button {
+    position: absolute;
+    right: 1em;
+    top: 0.8em;
+    border: 0;
+    background: none;
+    font-size: 1em; }
+    .search-highlight button:focus {
+      outline: 0; }
+
+/*
+Search Result
+
+A search result teaser.
+
+Weight: 40
+
+Markup: search-result.hbs
+
+Style guide: search.search-result
+*/
+.search-result {
+  position: relative;
+  margin-top: 1em;
+  color: #787878; }
+  .search-result:after {
+    content: '';
+    display: table;
+    clear: both; }
+  .search-result:first-child {
+    margin-top: 0; }
+  .search-result .search-result__label {
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      .search-result .search-result__label {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+  .search-result .search-result__title {
+    font-size: 1.25em;
+    line-height: 1.75;
+    margin: 0;
+    color: #333; }
+    @media (max-width: 639px) {
+      .search-result .search-result__title {
+        font-size: 1.125em; } }
+
+/*
+Search Results List
+
+A collection of search results.
+
+Weight: 60
+
+Markup: search-results-list.hbs
+
+Style guide: search.search-results-list
+*/
 /*
 Shameful hacks that should be fixed
 */
@@ -10736,13 +11494,13 @@ Style guide: test-components.product-links
     background: rgba(0, 0, 0, 0.7); }
     .product-links .product-links__link {
       height: 120px; }
-  .special-hero + .product-links {
+  .hero-fixed-height + .product-links {
     margin-top: -120px; }
-  .special-hero--has-product-links .special-hero__content-inner,
-  .special-hero--has-product-links .reveal__content .content-container,
-  .special-hero--has-product-links .video-chapters .content-container,
-  .special-hero--has-product-links .topic-nav .topic-nav__drawers .content-container, .topic-nav
-  .special-hero--has-product-links .topic-nav__drawers .content-container {
+  .hero-fixed-height--has-product-links .hero-fixed-height__content-inner,
+  .hero-fixed-height--has-product-links .reveal__content .content-container,
+  .hero-fixed-height--has-product-links .video-chapters .content-container,
+  .hero-fixed-height--has-product-links .topic-nav .topic-nav__drawers .content-container, .topic-nav
+  .hero-fixed-height--has-product-links .topic-nav__drawers .content-container {
     padding-bottom: 120px; } }
 
 html.no-csstransforms3d .product-links .product-links__link .product-links__text-wrap {
@@ -10790,8 +11548,8 @@ body,
       font-size: 1.125em; } }
 
 .text--body-large {
-  font-size: 1.25em;
-  line-height: 1.75; }
+  font-size: 1.875em;
+  line-height: 1.53; }
   @media (max-width: 639px) {
     .text--body-large {
       font-size: 1.5em; } }

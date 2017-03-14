@@ -266,6 +266,13 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
   cursor: pointer;
 }
 
+/* line 80, ../sass/components/_component.scss */
+.kss-parameters .kss-parameters__item {
+  padding: 0 1em;
+  margin: 0.5em 0;
+  border-left: 1px solid #2da0e9;
+}
+
 /* line 1, ../sass/components/_layout.scss */
 body.kss {
   font-family: Arial, Helvetica, sans-serif;

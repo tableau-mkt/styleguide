@@ -14,27 +14,6 @@
 })(jQuery);
 ;
 /**
- * Section search styleguide integration.
- */
-
-jQuery(function ready($) {
-  $('.contextual-search .content-search__input').keydown(function (event) {
-    var keyCode = $.ui.keyCode;
-
-    switch (event.keyCode) {
-      case keyCode.UP:
-      case keyCode.DOWN:
-      case keyCode.ESCAPE:
-      case keyCode.ENTER:
-        break;
-      default:
-        $(this).parents('.contextual-search').addClass('is-open');
-    }
-
-  });
-});
-;
-/**
  * Quick demo of the jQuery datepicker widget
  */
 (function($) {
@@ -294,6 +273,27 @@ jQuery(function ($) {
     $pageLinks.removeClass('pager__page--current pager__endcap--current');
     $(this).parent().addClass('pager__page--current');
     return false;
+  });
+});
+;
+/**
+ * Section search styleguide integration.
+ */
+
+jQuery(function ready($) {
+  $('.contextual-search .content-search__input').keydown(function (event) {
+    var keyCode = $.ui.keyCode;
+
+    switch (event.keyCode) {
+      case keyCode.UP:
+      case keyCode.DOWN:
+      case keyCode.ESCAPE:
+      case keyCode.ENTER:
+        break;
+      default:
+        $(this).parents('.contextual-search').addClass('is-open');
+    }
+
   });
 });
 ;

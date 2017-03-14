@@ -1342,204 +1342,6 @@ Components.utils.animationDuration = function (distance, speed) {
 })(jQuery);
 ;
 /**
- * Content search behaviors.
- */
-
-// Loose augmentation pattern. Creates top-level Components variable if it
-// doesn't already exist.
-var Components = Components || {};
-
-// Create a base for this module's data and functions.
-Components.contentSearch = {};
-
-// Closure to extend behavior, provide privacy and state.
-(function (component, $) {
-
-  /**
-   * DOM-ready callback.
-   *
-   * @param {Object} $
-   *   jQuery
-   */
-  component.ready = function ($) {
-    // Initialize content search components, excluding contextual search.
-    $('.content-search').not('.contextual-search').each(function () {
-      component.initialize($(this));
-    });
-  };
-
-  /**
-   * Initialize component.
-   * - Binds contentSearch event handlers, and unbinds any existing ones.
-   */
-  component.initialize = function ($search) {
-    // Attach keydown handler with context.
-    $search.find('.content-search__input')
-      .off('keydown.contentSearch')
-      .on('keydown.contentSearch', $.proxy(Components.contentSearch.keydownHandler, $search)
-    );
-
-    // Attach reset click handler to component.
-    $search.find('.content-search__reset')
-      .off('click.contentSearch')
-      .on('click.contentSearch', function () {
-        // Allow overriding.
-        var resetEvent = $.Event('contentSearch:reset');
-        $search.trigger(resetEvent);
-        if (!resetEvent.isDefaultPrevented()) {
-          // Reset/empty the form, via AJAX.
-          component.resetForm($search);
-        }
-      });
-  };
-
-  /**
-   * Carry out the form reset.
-   *
-   * @param {jQuery Object} $search
-   */
-  component.resetForm = function ($search) {
-    $search.find('.content-search__input').val('');
-  };
-
-  /**
-   * Carry out the form submit.
-   *
-   * @param {jQuery Object} $search
-   */
-  component.submitForm = function ($search) {
-    if ($search.find('.content-search__input').val() !== '') {
-      $search.find('.content-search__submit').click();
-    }
-  };
-
-  /**
-   * Keydown handler.
-   *
-   * @param {Object} event
-   */
-  component.keydownHandler = function (event) {
-    var $search = $(this[0]),
-        submitEvent = $.Event('contentSearch:submit');
-
-    switch (event.which) {
-      case 13: // ENTER
-        // Allow overriding.
-        $search.trigger(submitEvent);
-        // Submit the form, via AJAX.
-        if (!submitEvent.isDefaultPrevented()) {
-          // Prevent any further events from occurring on the input.
-          $search.find('.content-search__input').prop('readonly', true)
-            .off('keyup keydown blur');
-          Components.contentSearch.submitForm($search);
-        }
-        event.preventDefault();
-        break;
-    }
-  };
-
-})(Components.contentSearch, jQuery);
-
-// Attach our DOM-ready callback.
-jQuery(Components.contentSearch.ready);
-;
-/**
- * Section search behaviors.
- *
- * - Toggle .is-open state on component, e.g., upon AJAX search result.
- * - Handle down/up arrow keys on pick list
- */
-
-// Loose augmentation pattern. Creates top-level Components variable if it
-// doesn't already exist.
-var Components = Components || {};
-
-// Create a base for this module's data and functions.
-Components.contextualSearch = {};
-
-/**
- * DOM-ready callback.
- *
- * @param {Object} $
- *   jQuery
- */
-Components.contextualSearch.ready = function ($) {
-  // Set up all the section search components on the page.
-  $('.contextual-search').each(function () {
-    var $this = $(this),
-        // Initialze a data object for this instance.
-        search = {
-          selectionIndex: -1,
-          // Save a reference to this element.
-          element: this
-        };
-    // Attach keydown handler with our data context.
-    $this.keydown($.proxy(Components.contextualSearch.keydownHandler, search));
-    // Attach UI click handler. Don't propagate clicks to document.
-    $this.find('.contextual-search__ui').click(function (event) {
-      event.stopPropagation();
-    });
-    // Attach document click handler to close (blur) the results list.
-    $(document).click(function contextualSearchBlur() {
-      $(search.element).removeClass('is-open');
-    });
-    // Attach reset handler.
-    $this.find('.content-search__reset').click(function contextualSearchReset() {
-      $(search.element).removeClass('is-open');
-    });
-  });
-};
-
-/**
- * Keydown handler.
- *
- * @param {Object} event
- */
-Components.contextualSearch.keydownHandler = function (event) {
-  // Only handle keys when the results list is open.
-  if (!$(this.element).hasClass('is-open')) {
-    return;
-  }
-
-  switch (event.which) {
-    case 38: // UP
-      Components.contextualSearch.select.call(this, -1);
-      break;
-    case 40: // DOWN
-      Components.contextualSearch.select.call(this, 1);
-      break;
-    case 27: // ESCAPE
-      $(this.element).removeClass('is-open');
-      break;
-    case 13: // ENTER
-      event.preventDefault();
-      Components.contextualSearch.select(0);
-      if (this.selectionIndex >= 0) {
-        this.$rows.get(this.selectionIndex).click();
-      }
-      break;
-  }
-};
-
-/**
- * Set the row selection up/current/down.
- *
- * @param {Number} direction
- *   -1, 0, or 1
- */
-Components.contextualSearch.select = function (direction) {
-  this.$rows = $(this.element).find('.contextual-search__results-row');
-  this.selectionIndex += direction;
-  this.selectionIndex = Math.max(this.selectionIndex, 0);
-  this.selectionIndex = Math.min(this.selectionIndex, this.$rows.length - 1);
-  this.$rows.removeClass('is-selected')
-    .eq(this.selectionIndex).addClass('is-selected');
-};
-
-// Attach our DOM-ready callback.
-jQuery(Components.contextualSearch.ready);
-;
-/**
  * Flyout Form component interaction
  * See jquery.contentFlyout.js for details
  */
@@ -1906,9 +1708,16 @@ Components.loadingOverlay = {};
    *
    * @param {string} $element
    *   The element on which you want to show the loading animation.
+   * @param {int} delay
+   *   Delay in milliseconds.
    */
-  component.hide = function ($element) {
-    $element.find('.loading-overlay').remove();
+  component.hide = function ($element, delay) {
+    // Set default to 0 ms.
+    delay = delay || 0;
+
+    setTimeout(function () {
+      $element.find('.loading-overlay').remove();
+    }, delay);
   };
 
 }(Components.loadingOverlay, jQuery));
@@ -2111,38 +1920,6 @@ Components.modalMessage = {};
     });
   });
 }( jQuery ));
-;
-/** 
- * Search Highlight utility.
- *
- * Searches through a list of items and highlights items that match the term.
- */
-(function($){
-  $(document).ready(function(){
-    var $searches = $('.search-highlight input[type="search"]');
-    
-    if ($searches.length) {
-      $searches.each(function(index, el) {
-        var $search = $(el),
-            $content = $('#' + $search.data('content')),
-            highlightClass = $search.data('highlight-class') + " search-highlight__match",
-            $contentItems = $content.find('li');
-
-        $search.on('change paste keyup search', function(e) {
-          var term = $(this).val().toLowerCase();
-          $contentItems.each(function(index, item) {
-            var text = $(item).text().toLowerCase();
-            $(item).removeClass(highlightClass);
-            if (term.length > 0 && text.indexOf(term) > -1) {
-              $(item).addClass(highlightClass);
-            }
-          });
-        });
-
-      });
-    }
-  });
-})(jQuery);
 ;
 (function ($) {
   $.fn.sonarPulse = function (options) {
@@ -2598,29 +2375,47 @@ jQuery(Components.cardWall.ready);
 /**
  * Global search bar interaction
  */
-(function($) {
-  $(document).ready(function() {
-    var $searchWrapper = $('.global-nav__search'),
-        $searchToggle = $('.global-nav__search-toggle'),
+(function ($) {
+  $(document).ready(function () {
+    var $globalNav = $('.global-nav'),
+        globalNavData = $globalNav.data(),
+        $searchWrapper = $('.global-nav__search'),
         $closeSearch = $('.global-nav__search-close'),
         animation = {
           duration: 500,
           easing: "easeInOutQuart"
         };
 
-    $searchToggle.on('click', function(e) {
+    // External sites can override the search submit to redirect to www.tableau.com's
+    // search page, using the data-www-search="all" type data attribute.
+    if (globalNavData && globalNavData.wwwSearch) {
+      $searchWrapper.find('input[type="search"]')
+      .on('submit-search.globalSearch', function () {
+        window.location = 'https://www.tableau.com/search/' + globalNavData.wwwSearch + '/' + encodeURIComponent($(this).val());
+      })
+      .on('keydown.globalSearch', function (e) {
+        if (e.keyCode === 13) {
+          $(this).trigger('submit-search');
+        }
+      })
+    }
+
+    // Bind the click event on the global-nav, in case the target element is AJAX-loaded.
+    $globalNav.on('click', '.global-nav__search-toggle', function (e) {
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       e.preventDefault();
       $(this).parents('.global-nav__top').addClass('global-nav--search-shown');
       $searchWrapper.fadeIn(animation);
 
-      // Make sure to focus the search field
-      $searchWrapper.find('input[type="search"]').focus();
+      // Make sure to focus the search field when opened.
+      $searchWrapper.find('input[form="coveo-dummy-form"], input[type="search"]').focus();
     });
 
-    $closeSearch.on('click', function(e) {
+    $closeSearch.on('click', function (e) {
       e.stopPropagation();
       e.preventDefault();
-      $searchToggle.parents('.global-nav__top').removeClass('global-nav--search-shown');
+      $searchWrapper.parents('.global-nav__top').removeClass('global-nav--search-shown');
       $searchWrapper.fadeOut(animation);
     });
   });
@@ -2672,6 +2467,15 @@ jQuery(Components.cardWall.ready);
           $nav.toggleClass('is-open');
           $menu.slideToggle(animation);
           e.preventDefault();
+        }
+      }).end()
+      // There are cases where the links in a section nav do not actually link anywhere, so the
+      // behavior here is to treat the link like an <option> element: clicking the link closes the nav.
+      .find('a').on('click', function(e) {
+        if (!$(this).attr('href') && (Components.utils.breakpoint('tablet') || Components.utils.breakpoint('mobile'))) {
+          e.preventDefault();
+          $nav.removeClass('is-open');
+          $menu.slideUp(animation);
         }
       });
 
@@ -2858,6 +2662,332 @@ Components.topicNav.setActiveTab = function (topic) {
 
 // Bind DOM-ready callback.
 $(document).ready(Components.topicNav.init);
+;
+/**
+ * Content search behaviors.
+ */
+
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a base for this module's data and functions.
+Components.contentSearch = {};
+
+// Closure to extend behavior, provide privacy and state.
+(function (component, $) {
+
+  /**
+   * DOM-ready callback.
+   *
+   * @param {Object} $
+   *   jQuery
+   */
+  component.ready = function ($) {
+    // Initialize content search components, excluding contextual search.
+    $('.content-search').not('.contextual-search').each(function () {
+      component.initialize($(this));
+    });
+  };
+
+  /**
+   * Initialize component.
+   * - Binds contentSearch event handlers, and unbinds any existing ones.
+   */
+  component.initialize = function ($search) {
+    // Attach keydown handler with context.
+    $search.find('.content-search__input')
+      .off('keydown.contentSearch')
+      .on('keydown.contentSearch', $.proxy(Components.contentSearch.keydownHandler, $search)
+    );
+
+    // Attach reset click handler to component.
+    $search.find('.content-search__reset')
+      .off('click.contentSearch')
+      .on('click.contentSearch', function () {
+        // Allow overriding.
+        var resetEvent = $.Event('contentSearch:reset');
+        $search.trigger(resetEvent);
+        if (!resetEvent.isDefaultPrevented()) {
+          // Reset/empty the form, via AJAX.
+          component.resetForm($search);
+        }
+      });
+  };
+
+  /**
+   * Carry out the form reset.
+   *
+   * @param {jQuery Object} $search
+   */
+  component.resetForm = function ($search) {
+    $search.find('.content-search__input').val('');
+  };
+
+  /**
+   * Carry out the form submit.
+   *
+   * @param {jQuery Object} $search
+   */
+  component.submitForm = function ($search) {
+    if ($search.find('.content-search__input').val() !== '') {
+      $search.find('.content-search__submit').click();
+    }
+  };
+
+  /**
+   * Keydown handler.
+   *
+   * @param {Object} event
+   */
+  component.keydownHandler = function (event) {
+    var $search = $(this[0]),
+        submitEvent = $.Event('contentSearch:submit');
+
+    switch (event.which) {
+      case 13: // ENTER
+        // Allow overriding.
+        $search.trigger(submitEvent);
+        // Submit the form, via AJAX.
+        if (!submitEvent.isDefaultPrevented()) {
+          // Prevent any further events from occurring on the input.
+          $search.find('.content-search__input').prop('readonly', true)
+            .off('keyup keydown blur');
+          Components.contentSearch.submitForm($search);
+        }
+        event.preventDefault();
+        break;
+    }
+  };
+
+})(Components.contentSearch, jQuery);
+
+// Attach our DOM-ready callback.
+jQuery(Components.contentSearch.ready);
+;
+/**
+ * Section search behaviors.
+ *
+ * - Toggle .is-open state on component, e.g., upon AJAX search result.
+ * - Handle down/up arrow keys on pick list
+ */
+
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a base for this module's data and functions.
+Components.contextualSearch = {};
+
+/**
+ * DOM-ready callback.
+ *
+ * @param {Object} $
+ *   jQuery
+ */
+Components.contextualSearch.ready = function ($) {
+  // Set up all the section search components on the page.
+  $('.contextual-search').each(function () {
+    var $this = $(this),
+        // Initialze a data object for this instance.
+        search = {
+          selectionIndex: -1,
+          // Save a reference to this element.
+          element: this
+        };
+    // Attach keydown handler with our data context.
+    $this.keydown($.proxy(Components.contextualSearch.keydownHandler, search));
+    // Attach UI click handler. Don't propagate clicks to document.
+    $this.find('.contextual-search__ui').click(function (event) {
+      event.stopPropagation();
+    });
+    // Attach document click handler to close (blur) the results list.
+    $(document).click(function contextualSearchBlur() {
+      $(search.element).removeClass('is-open');
+    });
+    // Attach reset handler.
+    $this.find('.content-search__reset').click(function contextualSearchReset() {
+      $(search.element).removeClass('is-open');
+    });
+  });
+};
+
+/**
+ * Keydown handler.
+ *
+ * @param {Object} event
+ */
+Components.contextualSearch.keydownHandler = function (event) {
+  // Only handle keys when the results list is open.
+  if (!$(this.element).hasClass('is-open')) {
+    return;
+  }
+
+  switch (event.which) {
+    case 38: // UP
+      Components.contextualSearch.select.call(this, -1);
+      break;
+    case 40: // DOWN
+      Components.contextualSearch.select.call(this, 1);
+      break;
+    case 27: // ESCAPE
+      $(this.element).removeClass('is-open');
+      break;
+    case 13: // ENTER
+      event.preventDefault();
+      Components.contextualSearch.select(0);
+      if (this.selectionIndex >= 0) {
+        this.$rows.get(this.selectionIndex).click();
+      }
+      break;
+  }
+};
+
+/**
+ * Set the row selection up/current/down.
+ *
+ * @param {Number} direction
+ *   -1, 0, or 1
+ */
+Components.contextualSearch.select = function (direction) {
+  this.$rows = $(this.element).find('.contextual-search__results-row');
+  this.selectionIndex += direction;
+  this.selectionIndex = Math.max(this.selectionIndex, 0);
+  this.selectionIndex = Math.min(this.selectionIndex, this.$rows.length - 1);
+  this.$rows.removeClass('is-selected')
+    .eq(this.selectionIndex).addClass('is-selected');
+};
+
+// Attach our DOM-ready callback.
+jQuery(Components.contextualSearch.ready);
+;
+/**
+ * Search Facet behaviors.
+ */
+
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a base for this module's data and functions.
+Components.searchFacet = {
+  collapsedClass: 'coveo-facet-collapsed'
+};
+
+// Closure to extend behavior, provide privacy and state.
+(function (component, $) {
+
+  /**
+   * DOM-ready callback.
+   *
+   * @param {Object} $
+   *   jQuery
+   */
+  component.ready = function ($) {
+    // Close open search facets when clicking outside of one, or when ESC key is pressed.
+    $(document).on('click.searchFacet', function (e) {
+      component.closeAll();
+    })
+    // Also, close on Escape key.
+    .on('keydown', function (e) {
+      if (e.keyCode === 27) {
+        component.closeAll();
+      }
+    });
+
+    // Initialize search facet components.
+    $('.search-facet').on('click.searchFacet', '.search-facet__header, .coveo-facet-header', function (e) {
+      var element = e.delegateTarget,
+          isCollapsed = $(element).hasClass(component.collapsedClass);
+
+      // Close any other open facets.
+      component.closeAll({$except: $(element)});
+
+      // Using Coveo JS Framework.
+      // Related: https://coveo.github.io/search-ui/components/facet.html#expand
+      if (element.CoveoFacet) {
+        if (isCollapsed) {
+          element.CoveoFacet.expand();
+        }
+        else {
+          element.CoveoFacet.collapse();
+        }
+      }
+      // Otherwise, just use the class.
+      else {
+        $(element).toggleClass(component.collapsedClass)
+      }
+
+    });
+
+    // Stop propagation of clicks upward to the document to prevent closing.
+    $('.search-facet').on('click.searchFacet', function (e) {
+      e.stopPropagation();
+    });
+  };
+
+  /**
+   * Closes all open CoveoFacet components.
+   *
+   * @param {Object} options
+   *   options.$except  Exclude a given jQuery selection — uses .not()
+   */
+  component.closeAll = function (options) {
+    var $closeFacets = $('.search-facet');
+
+    if (options && options.$except) {
+      $closeFacets = $closeFacets.not(options.$except);
+    }
+
+    $closeFacets.each(function () {
+      // Using Coveo JS Framework.
+      // Related: https://coveo.github.io/search-ui/components/facet.html#collapse
+      if (this.CoveoFacet) {
+        this.CoveoFacet.collapse();
+      }
+      // Otherwise, just use the class.
+      else {
+        $(this).addClass(component.collapsedClass);
+      }
+    });
+  };
+
+})(Components.searchFacet, jQuery);
+
+// Attach our DOM-ready callback.
+jQuery(Components.searchFacet.ready);
+;
+/** 
+ * Search Highlight utility.
+ *
+ * Searches through a list of items and highlights items that match the term.
+ */
+(function($){
+  $(document).ready(function(){
+    var $searches = $('.search-highlight input[type="search"]');
+    
+    if ($searches.length) {
+      $searches.each(function(index, el) {
+        var $search = $(el),
+            $content = $('#' + $search.data('content')),
+            highlightClass = $search.data('highlight-class') + " search-highlight__match",
+            $contentItems = $content.find('li');
+
+        $search.on('change paste keyup search', function(e) {
+          var term = $(this).val().toLowerCase();
+          $contentItems.each(function(index, item) {
+            var text = $(item).text().toLowerCase();
+            $(item).removeClass(highlightClass);
+            if (term.length > 0 && text.indexOf(term) > -1) {
+              $(item).addClass(highlightClass);
+            }
+          });
+        });
+
+      });
+    }
+  });
+})(jQuery);
 ;
 /**
  * News Banner interaction
