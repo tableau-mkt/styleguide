@@ -11,8 +11,13 @@
 
       <div class="global-nav__mobile-wrapper">
         <nav class="global-nav__secondary-menu">
+          {{#if dropdown_nav}}
+            {{#with dropdown_nav}}
+              {{> dropdown-nav}}
+            {{/with}}
+          {{/if}}
           {{#with secondary}}
-          {{> link-list}}
+            {{> link-list}}
           {{/with}}
         </nav>
 

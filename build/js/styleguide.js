@@ -1,7 +1,8 @@
 (function($) {
   $(document).ready(function() {
     $.ajax({
-        url: 'https://cdns.tblsft.com/ajax/megamenu/jsonp/tabAjaxMegaMenu',
+        // Use customer_menu=1 query parameter to include the optional customer menu.
+        url: 'https://www.tableau.com/ajax/megamenu/jsonp/tabAjaxMegaMenu',
         dataType: 'jsonp',
         // Set a static callback and explicitly set caching to true to ensure
         // we don't cache bust ourselves into oblivion. Without these set,
@@ -277,6 +278,35 @@ jQuery(function ($) {
 });
 ;
 /**
+ * News Interstitial interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var id = $('.news-banner').attr('id');
+
+    $.removeCookie('news-banner-' + id);
+  });
+}( jQuery ));
+;
+(function($){
+  $(document).ready(function(){
+    var $newsTicker = $('.news-ticker');
+
+    if($newsTicker.length) {
+      $newsTicker.slick({
+        autoplay: true,
+        speed: 1000,
+        easing: 'easeInOutQuart',
+        fade: true,
+        slide: '.news-ticker__item',
+        autoplaySpeed: 3000
+      });
+    }
+  });
+})(jQuery);
+;
+/**
  * Section search styleguide integration.
  */
 
@@ -296,33 +326,3 @@ jQuery(function ready($) {
 
   });
 });
-;
-/**
- * News Interstitial interaction
- */
-
-(function ($) {
-  $(document).ready(function() {
-    var id = $('.news-banner').attr('id');
-
-    $.removeCookie('news-banner-' + id);
-  });
-}( jQuery ));
-;
-/**
- * News Interstitial interaction
- */
-
-(function ($) {
-  $(document).ready(function() {
-    var $interstitials = $('.news-interstitial'),
-        id = $interstitials.attr('id'),
-        $closeLink = $interstitials.find('.news-interstitial__close a');
-
-    // Temporary logic to force the interstitial in the URL.
-    if (window.location.hash === '#interstitial-dark') {
-      $interstitials.removeClass('is-active');
-      $interstitials.filter('.news-interstitial--dark').addClass('is-active');
-    }
-  });
-}( jQuery ));

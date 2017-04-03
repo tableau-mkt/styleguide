@@ -149,6 +149,43 @@ Components.utils.breakpoint = function (layout) {
 };
 
 /**
+ * Return the matching breakpoint name (mobile, tablet, or desktop).
+ * Similar to Components.utils.breakpoint but returns the active breakpoint name instead.
+ *
+ * @todo refactor all existing usages of Components.utils.breakpoint to use this function.
+ *
+ * @returns {String}
+ */
+Components.utils.getBreakpoint = function () {
+  var isTablet,
+      isDesktop;
+
+  // Fail fast if matchMedia isn't present. Assume desktop.
+  if (typeof window.matchMedia !== 'function') {
+    return 'desktop';
+  }
+
+  isTablet = matchMedia(
+    '(min-width:' + Components.utils.breakpoints.tabletMin + 'px) and (max-width: ' +
+    Components.utils.breakpoints.tabletMax + 'px)'
+  ).matches;
+  
+  isDesktop = matchMedia(
+    '(min-width: ' + Components.utils.breakpoints.desktopMin + 'px)'
+  ).matches;
+
+  if (isDesktop) {
+    return 'desktop';
+  }
+  else if (isTablet) {
+    return 'tablet';
+  }
+  else {
+    return 'mobile';
+  }
+};
+
+/**
  * Helper function to get the element's viewport center.
  * @param $element
  *
@@ -170,7 +207,7 @@ Components.utils.getElementViewPortCenter = function ($element) {
   }
 
   return Math.round(elTopOffset + ((elBottomOffset - elTopOffset) / 2)) + 'px';
-}
+};
 
 /**
  * Helper function to decide the duration of an animation
@@ -185,7 +222,7 @@ Components.utils.animationDuration = function (distance, speed) {
   var speed = speed || 1000;
 
   return (distance/speed) * 1000;
-}
+};
 ;
 /**
  * Content Flyout utility.
@@ -1925,24 +1962,81 @@ Components.modalMessage = {};
   $.fn.sonarPulse = function (options) {
     var $el = $(this),
         defaults = {
+          // sonarSelector {String}
+          // CSS selector identifying the sonar element
           sonarSelector: '.sonar-indicator',
+
+          // sonarElement {jQuery}
+          // jQuery object containing the sonar element
           $sonarElement: $('<div class="sonar-indicator"></div>'),
-          positionX: '10px',
+
+          // timeout {Number}
+          // milliseconds before removing the element matching the sonarSelector option
           timeout: 5000,
-          offset: 5
+
+          // offset {Number} (deprecated)
+          // a negative pixel offset from the element's X position
+          offset: 5,
+
+          // top/right/bottom/left {String}
+          // position properties applied to the sonar element
+          top:    '0',
+          right:  '0',
+          bottom: '0',
+          left:   '0',
+
+          // limitDisplayCount {Number}
+          // uses localStorage to limit the number of displays (disabled when 0)
+          limitDisplayCount: 0,
+
+          // limitDisplayId {String|null}
+          // a unique identifier for tracking the display count
+          limitDisplayId: null
         },
-        sonarPositionX,
-        padding;
+        padding,
+        hasLocalStorage,
+        displayCount;
+
+    // Handle deprecated options.
+    if (options) {
+      // Handle deprecated offset option.
+      if (options.offset) {
+        padding = parseInt($el.css('padding-left').replace('px', ''));
+        // left replaces offset, ignoring padding, and negated.
+        options.left = ((padding / 2) - options.offset) + 'px';
+      }
+    }
 
     // Extend defaults without overwriting them.
     options = $.extend({}, defaults, options);
 
-    // Try and place the sonar indicator without obstructing the element.
-    if ($el.css('padding-left')) {
-      padding = parseInt($el.css('padding-left').replace('px', ''));
-      sonarPositionX = (padding / 2) - options.offset + 'px';
+    // Limit displays by count using localStorage API. Ignore if localStorage is not supported.
+    hasLocalStorage = window.localStorage
+      && typeof localStorage.getItem === 'function'
+      && typeof localStorage.setItem === 'function';
+
+    // Check localStorage support and if we are limiting the display count
+    if (hasLocalStorage && options.limitDisplayId && options.limitDisplayCount > 0) {
+      displayCount = localStorage.getItem('sonarPulseCount_' + options.limitDisplayId) || 0;
+      // Stop here if we display count is greater than or equal to the allowed count.
+      if (displayCount >= options.limitDisplayCount) {
+        return;
+      }
+      // Save the latest value to localStorage.
+      localStorage.setItem('sonarPulseCount_' + options.limitDisplayId, ++displayCount);
+      // Trigger a custom event so other JS can do stuff.
+      $el.trigger('sonar:activate');
     }
-    options.$sonarElement.css('left', sonarPositionX);
+
+    // Apply positioning to the sonar element.
+    options.$sonarElement.css({
+      top: options.top,
+      right: options.right,
+      bottom: options.bottom,
+      left: options.left
+    });
+
+    // Add the sonar element, ensuring only one exists.
     $el.remove(options.sonarSelector).prepend(options.$sonarElement);
 
     // If timeout is non-zero, remove after delay.
@@ -1950,11 +2044,23 @@ Components.modalMessage = {};
       // Remove our sonar pulse after 5 seconds.
       setTimeout(function () {
         $el.find(options.sonarSelector).remove();
+        // Trigger a custom event so other JS can do stuff.
+        $el.trigger('sonar:deactivate');
       }, options.timeout);
     }
   };
-}(jQuery));
 
+  // Auto-initialize on DOM ready with .sonar-pulse class.
+  // Provide options using data-sonar-options attribute and JSON string:
+  // data-sonar-options='{"sonarSelector": ".sonar-indicator", "timeout": 5000, "offsetY": "-10", "limitDisplayCount": 1, "limitDisplayId": "cool-thing"}'
+  $(function () {
+    $('.sonar-pulse').each(function () {
+      var $el = $(this);
+
+      $el.sonarPulse($el.data('sonarOptions') || {});
+    });
+  })
+}(jQuery));
 ;
 (function($) {
   $(document).ready(function() {
@@ -2161,11 +2267,163 @@ jQuery(Components.cardWall.ready);
   });
 })(jQuery, window);
 ;
-(function($) {
+/**
+ * Components.DropdownNav is a jQuery friendly plugin with an exposed JS API.
+ * `component` is an alias for Components.DropdownNav object, which doubles as the
+ * constructor function.
+ *
+ * State classes:
+ *   .is-open - the component when expanded / open.
+ *
+ * On DOM-ready, all elements with the `dropdown-nav` class will automatically be
+ * instantiated.
+ *
+ * Initialize yourself using jQuery `.tabDropdownNav()`:
+ *   $('.my-element').tabDropdownNav();
+ *
+ * API Examples:
+ *   Components.DropdownNav.closeAll()
+ *
+ *   var myDropdownNav = $('.element')[0].DropdownNav;
+ *   myDropdownNav.close();
+ *   myDropdownNav.open();
+ *
+ */
+
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a constructor and base object for this component's data and functions.
+Components.DropdownNav = function (element, options) {
+  // Set up internal properties.
+  this.defaultOptions = {};
+  this.$element = $(element);
+
+  // Use the init options.
+  this.options = $.extend({}, this.defaultOptions, options);
+
+  // Initialize this instance.
+  this.init();
+};
+
+// Closure to encapsulate and provide the component object and jQuery in the local scope.
+(function (DropdownNav, $) {
+
+  /**
+   * Component state and variables.
+   */
+  DropdownNav.jQueryPluginName = 'tabDropdownNav';
+  DropdownNav.instances = [];
+
+  /**
+   * DOM-ready callback.
+   *
+   * @param {Object} $
+   *   jQuery
+   */
+  DropdownNav.ready = function () {
+    // Initialize every instance on the page.
+    $('.dropdown-nav').tabDropdownNav();
+
+    // Close all instances when tapping "outside" or when ESC key is pressed.
+    $(document).on('touchstart.dropdownNav', function (e) {
+      DropdownNav.closeAll();
+    })
+    .on('keydown.dropdownNav', function (e) {
+      if (e.keyCode === 27) {
+        DropdownNav.closeAll();
+      }
+    });
+  };
+
+  /**
+   * Initialize the component (jQuery plugin).
+   */
+  DropdownNav.prototype.init = function () {
+    var $dropdownNav = this.$element;
+
+    // Handle clicks on the body element. Prevent bubbling up to the document.
+    $dropdownNav.find('.dropdown-nav__body').on('touchstart.dropdownNav', function (e) {
+      e.stopPropagation();
+    });
+
+    // Handle clicks on the toggle element.
+    $dropdownNav.find('.dropdown-nav__toggle').on('touchstart.dropdownNav', function (e) {
+      // Prevent bubbling up which results in a closeAll().
+      e.stopPropagation();
+
+      $dropdownNav.toggleClass('is-open');
+    });
+
+    // Handling for hover interaction of dropdown navs.
+    //
+    // Uses the doTimeout jQuery utility to handle throttling and waiting on a small delay
+    // before showing the drawer (essentially hoverintent).
+    $dropdownNav.hover(function () {
+      $dropdownNav.doTimeout('open', 200, function () {
+        $dropdownNav.addClass('is-open');
+      });
+    }, function () {
+      $dropdownNav.doTimeout('open', 200, function () {
+        $dropdownNav.removeClass('is-open');
+      });
+    });
+
+    // Append to our instances array.
+    DropdownNav.instances.push($dropdownNav);
+  };
+
+  /**
+   * Open a specific instance.
+   */
+  DropdownNav.prototype.open = function () {
+    this.$element.addClass('is-open');
+  };
+
+  /**
+   * Close a specific instance.
+   */
+  DropdownNav.prototype.close = function () {
+    this.$element.removeClass('is-open');
+  };
+
+  /**
+   * Close all open instances, e.g., on blur.
+   */
+  DropdownNav.closeAll = function () {
+    $.each(DropdownNav.instances, function (index, $dropdownNav) {
+      $dropdownNav.removeClass('is-open');
+    });
+  };
+
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[DropdownNav.jQueryPluginName] = function (options) {
+    return this.each(function initPlugin() {
+      var plugin = new DropdownNav(this, options);
+      // Allow the plugin to be instantiated more than once. Event handlers
+      // will be re-bound to avoid issues.
+      $.data(this, 'plugin_' + DropdownNav.jQueryPluginName, plugin);
+
+      // Expose the plugin so methods can be called externally
+      //   e.g., element.DropdownNav.close();
+      this.DropdownNav = plugin;
+
+      // Trigger custom initialized event on the element.
+      $(this).trigger('initialized');
+    });
+  };
+
+  // DOM-ready handler.
+  $(DropdownNav.ready);
+
+}(Components.DropdownNav, jQuery));
+;
+(function ($) {
   /**
    * Callback function to insert the menu into the DOM.
    */
-  window.tabAjaxMegaMenu = function(data) {
+  window.tabAjaxMegaMenu = function (data) {
     var commands = {
       insert: function (response) {
         $(response.selector)[response.method](response.data);
@@ -2181,6 +2439,11 @@ jQuery(Components.cardWall.ready);
 
     // Trigger event when our menu has been loaded.
     $(document).trigger('tabAjaxMegaMenu:ready');
+
+    // Attach customer menu behaviors when it's ready.
+    if (typeof $.fn.tabDropdownNav === 'function') {
+      $('.dropdown-nav').tabDropdownNav();
+    }
   };
 })(jQuery);
 ;
@@ -2200,8 +2463,7 @@ jQuery(Components.cardWall.ready);
    */
   $(document).one('tabAjaxMegaMenu:ready', function tabAjaxMenuReady() {
     var $globalNav = $('.global-nav__top'),
-        $menu = $globalNav.find('.global-nav__primary-menu'),
-        $expandableLinks = $menu.find('li a.expandable'),
+        $expandableLinks = $globalNav.find('[data-drawer-id]'),
         $drawersWrapper = $('.global-nav__drawers'),
         $drawers = $('.global-nav__drawer'),
         $hamburger = $globalNav.find('.hamburger'),
@@ -2221,7 +2483,8 @@ jQuery(Components.cardWall.ready);
     // Desktop stuff.
     // Drawer Expanding interaction
     $expandableLinks.each(function (){
-      var $link = $(this),
+      // Exclude dropdown nav toggle element since it does its own thing for desktop.
+      var $link = $(this).not('.dropdown-nav__toggle'),
           $drawer = $drawers.filter('#' + $link.data('drawer-id')),
           $both = $link.add($drawer);
 
@@ -2664,6 +2927,60 @@ Components.topicNav.setActiveTab = function (topic) {
 $(document).ready(Components.topicNav.init);
 ;
 /**
+ * News Banner interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var $banner = $('.news-banner'),
+        $placeholder = $banner.clone(),
+        id = $banner.attr('id'),
+        $closeLink = $banner.find('.news-banner__close a'),
+        isDismissed = $.cookie('news-banner-' + id),
+        animation = {
+          duration: 500,
+          easing: "easeInOutQuart"
+        };
+
+    // Only show if the message hasn't been dismissed before or if it's forced
+    // with a URL fragment.
+    if (!isDismissed || window.location.hash === '#banner') {
+      $banner.addClass('is-active');
+
+      // Use a clone of the banner as a placeholder to manage the height of the
+      // banner. This is necessary because the banner is fixed position and
+      // removed from the document flow. Avoids managing height with a resize
+      // event listener.
+      $placeholder.addClass('news-banner__clone');
+
+      $banner.after($placeholder);
+
+      // Short delay for a more prominent "entrance" and to help the background
+      // image load more before display.
+      $placeholder.delay(500).slideDown(animation);
+    }
+
+    // Close banner when close link is clicked.
+    $closeLink.click(function(e) {
+      // Animate the placeholder height to hide the banner and then make sure
+      // the banner and placeholder are completely hidden.
+      $placeholder.slideUp($.extend(animation, {
+        complete: function () {
+          $banner.add($placeholder).removeClass('is-active');
+        }
+      }));
+
+      // Set a cookie to indicate the user has dismissed the banner.
+      // Expires after 2 weeks to safe-guard against someone adding a new
+      // banner with an old ID.
+      $.cookie('news-banner-' + id, 1, { expires: 14 });
+
+      e.preventDefault();
+    });
+  });
+}( jQuery ));
+;
+/**
  * Content search behaviors.
  */
 
@@ -2988,96 +3305,3 @@ jQuery(Components.searchFacet.ready);
     }
   });
 })(jQuery);
-;
-/**
- * News Banner interaction
- */
-
-(function ($) {
-  $(document).ready(function() {
-    var $banner = $('.news-banner'),
-        $placeholder = $banner.clone(),
-        id = $banner.attr('id'),
-        $closeLink = $banner.find('.news-banner__close a'),
-        isDismissed = $.cookie('news-banner-' + id),
-        animation = {
-          duration: 500,
-          easing: "easeInOutQuart"
-        };
-
-    // Only show if the message hasn't been dismissed before or if it's forced
-    // with a URL fragment.
-    if (!isDismissed || window.location.hash === '#banner') {
-      $banner.add($placeholder).addClass('is-active');
-
-      // Use a clone of the banner as a placeholder to manage the height of the
-      // banner. This is necessary because the banner is fixed position and
-      // removed from the document flow. Avoids managing height with a resize
-      // event listener.
-      $placeholder.addClass('news-banner__clone');
-
-      $banner.after($placeholder);
-
-      // Short delay for a more prominent "entrance" and to help the background
-      // image load more before display.
-      $placeholder.delay(500).slideDown(animation);
-    }
-
-    // Close banner when close link is clicked.
-    $closeLink.click(function(e) {
-      // Animate the placeholder height to hide the banner and then make sure
-      // the banner and placeholder are completely hidden.
-      $placeholder.slideUp($.extend(animation, {
-        complete: function () {
-          $banner.add($placeholder).removeClass('is-active');
-        }
-      }));
-
-      // Set a cookie to indicate the user has dismissed the banner.
-      // Expires after 2 weeks to safe-guard against someone adding a new
-      // banner with an old ID.
-      $.cookie('news-banner-' + id, 1, { expires: 14 });
-
-      e.preventDefault();
-    });
-  });
-}( jQuery ));
-;
-/**
- * News Interstitial interaction
- */
-
-(function ($) {
-  $(document).ready(function() {
-    var $interstitial = $('.news-interstitial'),
-        id = $interstitial.attr('id'),
-        $closeLink = $interstitial.find('.news-interstitial__close a'),
-        isDismissed = $.cookie('news-interstitial-' + id);
-
-    // Only show if the message hasn't been dismissed before or if it's forced
-    // with a URL fragment.
-    if (!isDismissed || window.location.hash === '#interstitial') {
-      $interstitial.first().addClass('is-active');
-    }
-
-    // Close interstitial when close link or background shade are clicked.
-    $interstitial.add($closeLink).click(function(e) {
-      if (e.target === this || e.target.parentElement === this) {
-        $interstitial.addClass('is-animating').removeClass('is-active');
-
-        // Wait till after the CSS animation is done before removing class.
-        // transitionend event isn't quite reliable enough so using setTimeout
-        setTimeout(function () {
-          $interstitial.removeClass('is-animating');
-        }, 500);
-
-        e.preventDefault();
-
-        // Set a cookie to indicate the user has dismissed the interstitial.
-        // Expires after 2 weeks to safe-guard against someone adding a new
-        // interstitial with an old ID.
-        $.cookie('news-interstitial-' + id, 1, { expires: 14 });
-      }
-    });
-  });
-}( jQuery ));
