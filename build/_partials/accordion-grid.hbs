@@ -1,0 +1,16 @@
+<div class="accordion-grid {{ modifier_class }}">
+  {{#each items}}
+    <div class="accordion-grid__item {{#if expanded}}is-expanded{{/if}}" id="{{ id }}">
+      <div class="accordion-grid__teaser">
+        {{#with teaser}}
+          {{> teaser-item}}
+        {{/with}}
+      </div>
+      <div class="accordion-grid__detail">
+        <div class="accordion-grid__detail-inner">
+          {{{ detail }}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

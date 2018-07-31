@@ -1,29 +1,46 @@
+
 <table class="comparison-list {{ modifier_class }}">
-  <thead>
-    <tr>
-      {{#each headings}}
-        <th width="{{ width }}" class="{{ class }}">{{{ content }}}</th>
-      {{/each}}
-    </tr>
-  </thead>
 
-  <tbody>
-    <tr class="mobile-hide comparison-list__subhead">
-      {{#each subhead-row.cells}}
-        <td{{#if class}} class="{{ class }}"{{/if}}>
-          {{{ content }}}
-        </td>
-      {{/each}}
-    </tr>
-
-    {{#each rows}}
-      <tr>
-        {{#each cells}}
-          <td class="{{#if @first}}comparison-list__feature-description{{/if}}{{#if class}} {{ class }}{{/if}}">
-            {{{ content }}}
-          </td>
+  {{#each groups}}
+    {{#if @first}}<thead>{{/if}}
+      <tr{{#unless @first}} class="comparison-list__mobile-head"{{/unless}}>
+        {{#if category}}
+          <th class="comparison-list__category-column"></th>
+          <th class="comparison-list__category-mobile">{{{ category.content }}}</th>
+        {{else}}
+          <th></th>
+        {{/if}}
+        {{#each ../headings}}
+          <th {{#if class}}class="{{ class }}"{{/if}}>{{{ content }}}</th>
         {{/each}}
       </tr>
-    {{/each}}
-  </tbody>
+    {{#if @first}}</thead>{{/if}}
+
+    <tbody class="comparison-list__group">
+      {{#each rows}}
+        <tr>
+          {{#if @first}}
+            {{#with ../../category}}
+              <th class="comparison-list__category" rowspan="{{rowspan}}">
+                {{{ content }}}
+              </th>
+            {{/with}}
+          {{/if}}
+          {{#with description}}
+            <td class="comparison-list__feature-description">
+              {{ content }}
+            </td>
+          {{/with}}
+          {{#each indicators}}
+            <td class="comparison-list__indicator">
+              {{#if checked}}
+                <i class="icon icon--checkmark"></i>
+              {{/if}}
+              {{{ content }}}
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
+  {{/each}}
 </table>

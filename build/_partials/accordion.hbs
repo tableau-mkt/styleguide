@@ -1,6 +1,6 @@
 <div class="accordion {{ modifier_class }}">
   {{#each items}}
-    <div class="accordion__item">
+    <div class="accordion__item" {{#if id}}id="{{ id }}"{{/if}}>
       <div class="accordion__title-wrapper">
         <div class="accordion__title">
           {{{ title }}}

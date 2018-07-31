@@ -4,11 +4,11 @@
     {{#if brightcoveId}}
       <div class="hero-fixed-height__video">
         <div class="hero-fixed-height__video-inner bg-cover" style="background-image: url({{ background }});">
-          <![if gt IE 8]>
-          <video data-video-id="{{ brightcoveId }}" data-account="{{ brightcoveAccount }}" data-player="{{ brightcovePlayer }}" data-embed="{{ brightcoveEmbed }}" class="video-js" poster="{{ background }}" loop autoplay>
+          <!--[if gt IE 9]><!-->
+          <video poster="{{ background }}" muted autoplay loop>
+            <source src="https://cdnv.tblsft.com/hero/{{ brightcoveId }}.mp4" type="video/mp4">
           </video>
-          <script src="//players.brightcove.net/{{ brightcoveAccount }}/{{ brightcovePlayer }}_{{ brightcoveEmbed }}/index.min.js"></script>
-          <![endif]>
+          <!--<![endif]-->
         </div>
       </div>
     {{else}}

@@ -6,6 +6,15 @@
     {{{ summary }}}
   </div>
 
-  {{> breadcrumb-links }}
+  <div class="search-result__meta">
+    {{#each meta-details}}
+      <span class="search-result__meta-detail">
+        {{{ text }}}
+      </span>
+    {{/each}}
 
+    <div class="search-result__breadcrumbs">
+      {{> breadcrumb-links }}
+    </div>
+  </div>
 </div>

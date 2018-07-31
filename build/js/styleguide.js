@@ -1,3 +1,10 @@
+$(document).ready(function() {
+  $('.toggle-links__option').click(function(e) {
+    $(this).addClass('is-active').siblings().removeClass('is-active');
+    e.preventDefault();
+  });
+});
+;
 (function($) {
   $(document).ready(function() {
     $.ajax({

@@ -225,6 +225,279 @@ Components.utils.animationDuration = function (distance, speed) {
 };
 ;
 /**
+ * Accordion Utility
+ *
+ * Used for creating a list of expandable content in which only one item of
+ * content is expanded at a time.
+ *
+ * Settings:
+ *   itemSelector - Required - [string] - CSS selector for item wrappers
+ *   headerSelector - Required - [String] - CSS selector for header elements
+ *     that will be used to open/close accordion items when clicked
+ *   contentSelector - Required - [String] - CSS selector for contents elements
+ *     that will be hidden or shown when headers are clicked.
+ *   animation - Optional - [Object] - animation settings for expanding/collapsing
+ *
+ * Usage:
+ *   $('.accordion').accordion({
+ *     itemSelector: '.accordion__item',
+ *     headerSelector: '.accordion__header',
+ *     contentSelector: '.accordion__contents'
+ *   });
+ *
+ *  Available Methods:
+ *    showItem - Show the specified item and collapse all others.
+ *        Ex. $('.selector')[0].accordion.showItem($item);
+ *    hideItem - Hide any open item within the accordion.
+ *        Ex. $('.selector')[0].accordion.hideItem();
+ */
+
+(function ($) {
+
+  // Set plugin method name and defaults
+  var pluginName = 'accordion',
+      defaults = {
+        animation: {
+          duration: 450,
+          easing: "easeInOutQuart"
+        }
+      };
+
+  // Plugin constructor
+  function Plugin (element, settings) {
+    // Set up internals for tracking, just in case.
+    this._name = pluginName;
+    this._defaults = defaults;
+    this.$element = $(element);
+
+    // Use defaults for any unassigned settings.
+    _.defaults(settings, defaults);
+    this.settings = settings;
+
+    // Set several fixed global settings.
+    // `open` class is used for legacy support.
+    this.settings.openClasses = 'is-open open';
+    this.settings.openSelector = '.is-open, .open';
+
+    // Do initial setup stuff.
+    this.init();
+  }
+
+  /**
+   * Open the specified item in the accordion and manage closing other items.
+   *
+   * @param {jQuery Object} $item - The specific item to be opened.
+   * @param {jQuery Object} $items - All items within the accordion.
+   */
+   Plugin.prototype.openAccordion = function ($item) {
+    var $items = this.$element.find(this.settings.itemSelector),
+        $otherItems = $items.not($item);
+
+    // First make sure other open items are closed.
+    this.hideItems($otherItems);
+
+    // Then open/close the clicked item.
+    if ($item.is(this.settings.openSelector)) {
+      this.hideItem($item);
+    } else {
+      this.showItem($item);
+    }
+
+    // Trigger custom event for external scripts to know when an accordion is
+    // interacted with.
+    this.$element.trigger('accordion:after');
+  };
+
+  /**
+   * Show the contents of the specified item
+   *
+   * @param {jQuery Object} $item - The item to show the contents of.
+   */
+  Plugin.prototype.showItem = function ($item) {
+    $item.addClass(this.settings.openClasses);
+    $item.find(this.settings.contentSelector).slideDown(this.settings.animation);
+  };
+
+  /**
+   * Hide the contents of the specified item.
+   *
+   * @param {jQuery Object} $item - The item to hide the contents of.
+   */
+  Plugin.prototype.hideItem = function ($item) {
+    $item.removeClass(this.settings.openClasses);
+    $item.find(this.settings.contentSelector).slideUp(this.settings.animation);
+  };
+
+  /**
+   * Hide any open items passed in.
+   *
+   * @param {jQuery Object} $items - The set of items to close if open.
+   */
+  Plugin.prototype.hideItems = function ($items) {
+    var _this = this;
+
+    $items.each(function (index, item) {
+      if ($(item).is(_this.settings.openSelector)) {
+        _this.hideItem($(item));
+      }
+    });
+  };
+
+  // Initial setup tasks
+  Plugin.prototype.init = function () {
+    var _this = this,
+        $items = this.$element.find(_this.settings.itemSelector),
+        hash = window.location.hash;
+
+    // Initially hide contents of all items, except those specified as open by
+    // defualt in the markup.
+    $items.not(_this.settings.openSelector).find(_this.settings.contentSelector).hide();
+
+    // Handle showing an accordion item when its heading is clicked.
+    this.$element.find(_this.settings.headerSelector).on('click.accordion', function (e) {
+      _this.openAccordion($(this).closest(_this.settings.itemSelector));
+
+      e.preventDefault();
+    });
+
+    // Expand accordion items when linked to with a hash.
+    if ($(hash).length && _this.$element.find($(hash)).length) {
+      var $item = $(hash).is(_this.settings.itemSelector) ? $(hash) : $(hash).closest(_this.settings.itemSelector);
+
+      _this.openAccordion($item);
+    }
+  };
+
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[pluginName] = function (settings) {
+    return this.each(function initPlugin() {
+      var plugin;
+
+      if (!$.data(this, 'plugin_' + pluginName)) {
+        plugin = new Plugin(this, settings);
+        $.data(this, 'plugin_' + pluginName, plugin);
+
+        // Expose the plugin so methods can be called externally
+        // E.g.: element.accordion.openAccordion();
+        this.accordion = plugin;
+      }
+    });
+  };
+})(jQuery);
+;
+/**
+ * Auto Suggest Field
+ *
+ * Present an auto-populated field in a slimmer manner to reduce visual impact
+ * of a form's initial state. An "Edit" link is provided to override the
+ * auto-populated value.
+ *
+ * Usage:
+ *   // Initialize plugin
+ *   $('.auto-suggest').autoSuggest({
+ *     suggestingClass: 'suggesting'
+ *   });
+ *
+ *   // Set value of a suggestion field
+ *   element.autoSuggest.setSuggestion('newValue');
+ */
+
+(function ($) {
+
+  // Set plugin method name and defaults
+  var pluginName = 'autoSuggest',
+      defaults = {
+        // Selector for the value placeholder when in suggesting mode
+        placeholderSelector: '.auto-suggest__placeholder',
+        // Selector around the edit link
+        editSelector: '.auto-suggest__edit-link',
+        // Selector around the base field
+        fieldSelector: '.auto-suggest__field',
+        // Class indicating that the suggestion widget is shown
+        suggestingClass: 'is-suggesting'
+      };
+
+  // plugin constructor
+  function Plugin (element, options) {
+    // Set up internals for tracking, just in case.
+    this._name = pluginName;
+    this._defaults = defaults;
+    this.element = $(element);
+
+    // Use the init options.
+    this.options = $.extend({}, defaults, options);
+
+    // Collect some elements needed for later
+    this._placeholder = this.element.find(this.options.placeholderSelector);
+    this._editLink = this.element.find(this.options.editSelector);
+    this._field = this.element.find(this.options.fieldSelector);
+
+    // Do setup stuff.
+    this.init();
+  }
+
+  /**
+   * Sets the value of the field with a suggested value.
+   *
+   * @param {string} value - The value to set the suggestion field to.
+   */
+  Plugin.prototype.setSuggestion = function (value) {
+    var valueText = this._field.find('option[value="' + value + '"]').text();
+
+    // We need to handle things specially if we're dealing with a select field
+    if (this._field.is('select')) {
+      if (valueText) {
+        // If valueText is set, we need to use text node of the option rather
+        // than the value of the select directly.
+        this._placeholder.text(valueText);
+      } else {
+        // If the select list doesn't have a corresponding value, we can't set
+        // the suggestion.
+        return false;
+      }
+    } else {
+      this._placeholder.text(value);
+    }
+
+    // Ensure that the base field matches the suggestion.
+    this._field.val(value);
+
+    // Finally, add the suggesting class to make sure the suggestion widget
+    // shows up.
+    this.element.addClass(this.options.suggestingClass);
+  };
+
+  // Hand-full of setup tasks
+  Plugin.prototype.init = function () {
+    var _this = this;
+
+    // If the field already has a value, set the suggestion widget
+    if (_this._field.val() && _this._field.val() !== '_none') {
+      _this.setSuggestion(_this._field.val());
+    }
+
+    // Swap back to original field when the user wants to edit the value.
+    _this._editLink.on('click.autoSuggest', function(e) {
+      _this.element.removeClass(_this.options.suggestingClass);
+      e.preventDefault();
+    });
+  };
+
+  // Lightweight constructor, preventing against multiple instantiations
+  $.fn[pluginName] = function (options) {
+    return this.each(function initPlugin() {
+      var plugin = new Plugin(this, options);
+      // Allow the plugin to be instantiated more than once.
+      $.data(this, 'plugin_' + pluginName, plugin);
+
+      // Expose the plugin so methods can be called externally
+      //   Ex. element.autoSuggest.setSuggestion();
+      this.autoSuggest = plugin;
+    });
+  };
+})(jQuery);
+;
+/**
  * Content Flyout utility.
  *
  * Set up a content region that is hidden by default and "flies out" from the
@@ -903,7 +1176,7 @@ Components.utils.animationDuration = function (distance, speed) {
         .on('change.dynamicfilter', function bindDynamicSelectActions() {
           var $triggerEl = $($(this).val());
 
-          $triggerEl.prop('checked', true);
+          $triggerEl.prop('checked', true).trigger('change');
         })
         .appendTo($selectContainer);
 
@@ -924,7 +1197,6 @@ Components.utils.animationDuration = function (distance, speed) {
     });
   };
 })(jQuery);
-
 ;
 "use strict";
 
@@ -1089,10 +1361,18 @@ Components.utils.animationDuration = function (distance, speed) {
   $.fn.slideHeight = function (direction, options) {
     var $el = $(this);
 
-    options = options || {duration: 400, easing: "swing"};
+    options = options || {duration: 400, easing: 'swing'};
 
-    if (direction === "down") {
-      var $elClone = $el.clone().css({"height":"auto"}).appendTo($el.parent()),
+    if (direction === 'down') {
+      var $elClone = $el.clone()
+          // Find all :checked elements (checkboxes, radio buttons, and options of select elements).
+          .find(':checked')
+          // Remove name attributes from checked elements to prevent the cloned source
+          // elements from getting unchecked.
+          .removeAttr('name')
+          // End the current selection and return to the cloned elements selection, for chaining.
+          .end()
+          .css({'height': 'auto'}).appendTo($el.parent()),
           elHeight = $elClone.outerHeight(true);
 
       // Removing clone needed for calculating height.
@@ -1113,8 +1393,7 @@ Components.utils.animationDuration = function (distance, speed) {
       );
     }
 
-    if (direction === "up") {
-
+    if (direction === 'up') {
       // Enforce height zero.
       $el.css('overflow', 'hidden');
 
@@ -1171,7 +1450,7 @@ Components.utils.animationDuration = function (distance, speed) {
     this.options = $.extend({}, defaults, options);
 
     // Limit tabLinks and contents down to only the the set within this instance.
-    this.options.tabLinks = this.element.find(this.options.tabLinks);
+    this.options.tabLinks = this.element.find(this.options.tabLinks).add(this.element.find(this.options.triggers));
     this.options.contents = this.element.find(this.options.contents);
 
     // Do setup stuff.
@@ -1193,8 +1472,7 @@ Components.utils.animationDuration = function (distance, speed) {
    */
   Plugin.prototype.showTab = function($link, settings) {
     var $content = $('#' + $link.data('tab-content')),
-        $previousLink = $link.closest("ul").find('a.is-active'),
-        $previousContent = $('#' + $previousLink.data('tab-content')),
+        $previousContent = this.options.contents.filter('.is-active'),
         previousContentHeight = $previousContent.outerHeight(true),
         $flyoutContainer = $content.closest('.flyout__content'),
         href = $link.attr('href'),
@@ -1202,7 +1480,10 @@ Components.utils.animationDuration = function (distance, speed) {
         contentHeight = $contentClone.outerHeight(true),
         scrollOffset = $('.sticky-wrapper .stuck').outerHeight(true),
         defaultSettings = {
-          animation: this.options.animation,
+          animation: {
+            duration: !isNaN(this.element.data('tabs-duration')) ? this.element.data('tabs-duration') : this.options.animation.duration,
+            easing: this.options.animation.easing
+          },
           scrollBehavior: this.element.data('tabs-scroll')
         },
         $scrollTarget,
@@ -1268,6 +1549,9 @@ Components.utils.animationDuration = function (distance, speed) {
     if ((href.indexOf('#')) === 0 && (href.length > 1) && (history.replaceState)) {
       history.replaceState(undefined, undefined, href);
     }
+
+    // Trigger an event to listen to from other scripts.
+    this.element.trigger(pluginName + '.showTab');
   };
 
   // Automatically reveal content when the ID of the container is in the URL
@@ -1320,23 +1604,17 @@ Components.utils.animationDuration = function (distance, speed) {
       // Set the link's href if it isn't already set.
       _this.options.tabLinks.each(function(index, el) {
         var tabId = $(el).data('tab-content'),
-            fragment = '#' + tabId,
-            $triggers;
+            fragment = '#' + tabId;
 
         // If we're within a flyout, prefix with the flyout's ID
         if ($flyoutContainer.length) {
           fragment = '#' + $flyoutContainer.attr('id') + '-' + tabId;
         }
 
-        // If we have triggers, update those as well
-        if (_this.options.triggers) {
-          $triggers = _this.options.triggers.filter('[data-tab-content="' + tabId + '"]');
-        }
-
         // Set the href for the tab as well as any triggers that target the
         // same content.
         if ($(el).attr('href').indexOf('#') === 0) {
-          $(el).add($triggers).attr('href', fragment);
+          $(el).attr('href', fragment);
         }
       });
 
@@ -1378,6 +1656,30 @@ Components.utils.animationDuration = function (distance, speed) {
   };
 })(jQuery);
 ;
+(function ($) {
+  $(document).ready(function () {
+    $('.auto-suggest').autoSuggest();
+  });
+})(jQuery);
+;
+/**
+ * Fancy Filters interactions
+ */
+(function ($) {
+  // Bind to document ready and custom components:reattach event so this works on
+  // dynamically loaded AJAX content.
+  $(document).on('ready components:reattach', function (e, context) {
+    $('.fancy-filters')
+    // Clear any previously bound handlers.
+    .off('click.fancy-filters')
+    // Handle "Clear Filters" click by unchecking everything.
+    .on('click.fancy-filters', '.fancy-filters__clear', function (e) {
+      $(e.delegateTarget).find('input:checked').prop('checked', false).change();
+      return false;
+    });
+  });
+})(jQuery);
+;
 /**
  * Flyout Form component interaction
  * See jquery.contentFlyout.js for details
@@ -1389,23 +1691,12 @@ Components.utils.animationDuration = function (distance, speed) {
         $formWrapper = $('.flyout-form'),
         $triggers = $('a[href*="#' + fragment + '"], .flyout-form__trigger'),
         $closeLink = $formWrapper.find('.flyout-form__close'),
-        $pageWrapper = '<div class="flyout-form__page-wrapper"></div>',
-        $inputs;
+        $pageWrapper = $('body');
 
     // Make sure a flyout form exists before proceding.
     if ($formWrapper.length && $triggers.length) {
-      // Add a wrapper around the page body.
-      $('body').wrapInner($pageWrapper);
-      $pageWrapper = $('.flyout-form__page-wrapper');
-
-      // Move the form wrapper to after the page wrapper.
-      $pageWrapper.after($formWrapper);
-
-      // If a jQuery UI datepicker makes its way inside $pageWrapper, move it
-      // outside to avoid issues with clicking the widget closing the form.
-      if ($pageWrapper.find('.ui-datepicker').length) {
-        $formWrapper.after($pageWrapper.find('.ui-datepicker'));
-      }
+      // Append form wrapper to the page wrapper.
+      $pageWrapper.append($formWrapper);
 
       // If a close button doesn't already exist, add it.
       if (!$closeLink.length) {
@@ -1433,6 +1724,11 @@ Components.utils.animationDuration = function (distance, speed) {
           $formWrapper[0].contentFlyout.hideContent();
           e.preventDefault();
         }
+      });
+
+      // Stop propagation of click events on the flyout form itself.
+      $formWrapper.on('click.flyout', function (e) {
+        e.stopPropagation();
       });
 
       // Show form on load if the ULR contains the fragment.
@@ -1464,13 +1760,13 @@ Components.utils.animationDuration = function (distance, speed) {
       $triggers.on('click.flyout', function(e) {
         // Make sure we're actually listening to a click on the trigger link
         // rather than a JS event trigger.
-        if ($(e.toElement).is($triggers)) {
+        if ($(e.currentTarget).is($triggers)) {
           $formWrapper.find('input:visible').first().focus();
         }
       });
     }
   });
-}( jQuery ));
+}(jQuery));
 ;
 // Loose augmentation pattern. Creates top-level Components variable if it
 // doesn't already exist.
@@ -1494,6 +1790,69 @@ $(document).ready(function () {
 $(document).on('initFloatLabels', function (e) {
   Components.form.initFloatLabels($(e.target));
 });
+;
+/**
+ * Compact form.
+ *
+ */
+(function ($) {
+  $(document).ready(function () {
+    var fragment = 'form',
+        $form = $('.form-compact'),
+        $cta = $form.find('button.form__button.cta'),
+        $triggers = $('a[href*="#' + fragment + '"]');
+
+    // Make sure a compact form exists before proceeding.
+    if ($form.length && $cta.length) {
+      // Show form on load if the URL contains the form fragment.
+      if (window.location.hash === '#' + fragment) {
+        if (isReveal()) {
+          revealForm();
+        }
+        $form.find('input:visible').first().focus();
+      }
+
+      $cta.click(function (e) {
+        if (isReveal() && !$form.hasClass('is-open')) {
+          revealForm();
+          return false;
+        }
+
+        // Support hidden form submits.
+        $(this.form).find('input[type="submit"]').click();
+
+        return false;
+      });
+
+      // Auto-focus on the form field when it's revealed.
+      $triggers.on('click', function(e) {
+        revealForm();
+      });
+
+      /**
+       * Returns whether this is a reveal.
+       * @returns Boolean
+       */
+      function isReveal() {
+        return $form.hasClass('form-compact--reveal');
+      }
+
+      /**
+       * Reveal the e-mail only form.
+       */
+      function revealForm() {
+        var ctaText = $cta.val() || $cta.text();
+
+        if (!$form.hasClass('is-open')) {
+          $form.toggleClass('is-open');
+          $cta.text(ctaText);
+        }
+
+        $form.find('input:visible').first().focus();
+      }
+    }
+  });
+})(jQuery);
 ;
 /**
  * Responsive filters interaction
@@ -1548,43 +1907,303 @@ $(document).on('initFloatLabels', function (e) {
 })(jQuery);
 ;
 /**
- * Custom Accordion implementation.
+ * Thumbnail colors.
  */
 
-(function($){
-  $(document).ready(function(){
-    var $accordion = $('.accordion');
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
 
-    if (!$accordion.length) {
-      return;
+// Create a base for this module's data and functions.
+Components.thumbnail = {};
+
+// Closure to extend behavior, provide privacy and state.
+(function (component, $) {
+  var i = -1;
+
+  // Available thumbnail colors.
+  // @See $thumbnail-colors SASS variable.
+  component.colors = ['dark-blue', 'teal', 'light-blue', 'light-orange', 'red', 'yellow'];
+
+  /**
+   * DOM-ready callback.
+   *
+   * @param {Object} $
+   *   jQuery
+   */
+  component.ready = function ($) {
+    // Shuffle our colors.
+    component.colors = _.shuffle(component.colors);
+
+    // Initialize random unique color for each thumbnail.
+    $('.thumbnail--color').not('[class*="thumbnail--color-"]').each(function () {
+      $(this).addClass('thumbnail--color-' + component.pickUniqueColor());
+    });
+  };
+
+  /**
+   * Pick a unique color.
+   */
+  component.pickUniqueColor = function () {
+    i++;
+
+    // If no choices are left, start back from the beginning.
+    if (i < 0 || i === component.colors.length) {
+      i = 0;
     }
 
-    $('.accordion .accordion__content-wrapper').not('.open .accordion__content-wrapper').hide();
-    $('.accordion .accordion__title-wrapper').click( function(e) {
-      var $this = $(this),
-          $parent = $this.parents('.accordion'),
-          $openItems = $this.parent().siblings('.open');
+    // Pick a color.
+    return component.colors[i];
+  };
 
-      // Close other open items.
-      $openItems.find('.accordion__content-wrapper').slideToggle(250, 'linear');
-      $openItems.toggleClass('open');
+})(Components.thumbnail, jQuery);
 
-      // Open new item.
-      $this.siblings('.accordion__content-wrapper').slideToggle(250, 'linear');
-      $this.parents('.accordion__item').toggleClass('open');
+// Attach our DOM-ready callback.
+jQuery(Components.thumbnail.ready);
+;
+/**
+ * Components.AccordionGrid is a jQuery friendly plugin with an exposed JS API.
+ * `component` is an alias for Components.AccordionGrid object, which doubles as
+ * the constructor function.
+ *
+ * State classes:
+ *   .is-expanded - An accordion item when it's expanded.
+ *
+ * On DOM-ready, all elements with the `accordion-grid` class will automatically
+ * be instantiated.
+ *
+ * Initialize yourself using jQuery `.tabAccordionGrid()`:
+ *   $('.my-element').tabAccordionGrid();
+ *
+ * API Examples:
+ *   Components.AccordionGrid.closeItems()
+ *
+ *   var myAccordionGrid = $('.element')[0].AccordionGrid;
+ *   myAccordionGrid.openItem();
+ *   myAccordionGrid.closeItem();
+ *
+ */
 
+// Loose augmentation pattern. Creates top-level Components variable if it
+// doesn't already exist.
+var Components = Components || {};
+
+// Create a constructor and base object for this component's data and functions.
+Components.AccordionGrid = function (element, options) {
+  // Set up internal properties.
+  this.defaultOptions = {
+    itemSelector: '.accordion-grid__item',
+    teaserSelector: '.accordion-grid__teaser',
+    detailSelector: '.accordion-grid__detail',
+    closeClass: 'accordion-grid__close',
+    animation: {
+      duration: 750,
+      easing: 'easeInOutQuart'
+    }
+  };
+  this.$element = $(element);
+
+  // Use the init options.
+  this.options = $.extend({}, this.defaultOptions, options);
+
+  // Initialize this instance.
+  this.init();
+};
+
+// Closure to encapsulate and provide the component object and jQuery in the local scope.
+(function (AccordionGrid, $) {
+
+  /**
+   * Component state and variables.
+   */
+  AccordionGrid.jQueryPluginName = 'tabAccordionGrid';
+  AccordionGrid.instances = [];
+
+  /**
+   * DOM-ready callback.
+   *
+   * @param {Object} $
+   *   jQuery
+   */
+  AccordionGrid.ready = function () {
+    // Initialize every instance on the page.
+    $('.accordion-grid').tabAccordionGrid();
+  };
+
+  /**
+   * Initialize the component (jQuery plugin).
+   */
+  AccordionGrid.prototype.init = function () {
+    var _this = this,
+        $accordionGrid = this.$element,
+        $details = $accordionGrid.find(this.options.detailSelector),
+        $closeLink = $('<a href="#" class="' + this.options.closeClass + '"><i class="icon icon--close-window-style2"></a>'),
+        debouncedTeaserClickHandler;
+
+    // Adding a close link to each detail container.
+    // Exclude detail containers which already contain a close link.
+    $details.not($details.has('.' + this.options.closeClass)).prepend($closeLink);
+
+    // Debounced function to handle expanding/collapsing of an item's details.
+    // Debouncing prevents issues with multiple rapid clicks on itmes.
+    debouncedTeaserClickHandler = _.debounce(function () {
+      var $item = $(this).closest(_this.options.itemSelector);
+
+      // Expand or collapse the clicked item's details.
+      _this.toggleItem($item);
+    }, _this.options.animation.duration, true);
+
+    // Handle clicking on the item's teaser and use above debounced function.
+    $accordionGrid
+    .off('click.accordion-grid-teaser')
+    .on('click.accordion-grid-teaser', this.options.teaserSelector, debouncedTeaserClickHandler);
+
+    // Handle closing an item when the close link is clicked.
+    $accordionGrid
+    .off('click.accordion-grid-close')
+    .on('click.accordion-grid-close', '.' + _this.options.closeClass, function (e) {
+      var $item = $(this).closest(_this.options.itemSelector);
+
+      _this.closeItem($item);
       e.preventDefault();
-
-      $parent.trigger('accordion:after');
     });
 
-    // Auto-scroll and expand accordions when linked to with a hash
-    var hash = window.location.hash;
-    if ($(hash).length && $(hash).closest('.accordion__item').length) {
-      $(hash).parents('.accordion__title-wrapper').trigger('click');
+    // Auto open an item if a corresponding hash is in the URL
+    this.hashOpen();
+
+    // Append to our instances array.
+    AccordionGrid.instances.push($accordionGrid);
+  };
+
+  /**
+   * Toggle a specified item open or closed in a specific instance.
+   * @param {jQuery object} $item The item to be toggled
+   */
+  AccordionGrid.prototype.toggleItem = function ($item) {
+    if ($item.hasClass('is-expanded')) {
+      this.closeItem($item);
     }
-  });
-})(jQuery);
+    else {
+      this.openItem($item);
+    }
+  };
+
+  /**
+   * Open a specified item in a specific instance.
+   * @param {jQuery object} $item - The item to be opened
+   * @param {object} settings - Optional override of settings
+   */
+  AccordionGrid.prototype.openItem = function ($item, settings) {
+    var id = $item.attr('id'),
+        defaultSettings = {
+          animation: this.options.animation
+        };
+
+    // Merge settings with defaults.
+    settings = $.extend({}, defaultSettings, settings);
+
+    // Collapse any expanded items
+    this.closeItems();
+
+    // Expand the specified item's details
+    $item.addClass('is-expanded');
+    $item.find(this.options.detailSelector).slideHeight('down', settings.animation);
+
+    // Push the current state to the URL
+    if ((id.length > 1) && (history.replaceState)) {
+      history.replaceState(undefined, undefined, '#' + id);
+    }
+  };
+
+  /**
+   * Close a specified item in a specific instance.
+   * @param {jQuery object} $item The item to be closed
+   */
+  AccordionGrid.prototype.closeItem = function ($item) {
+    var hash = window.location.hash;
+
+    if ($item.hasClass('is-expanded')) {
+      $item.removeClass('is-expanded');
+      $item.find(this.options.detailSelector).slideHeight('up', this.options.animation);
+    }
+
+    // Clear the hash of a given item if it's set in the URL
+    if (hash.length > 1 && $item.is(hash) && history.replaceState) {
+      history.replaceState(undefined, undefined, window.location.pathname);
+    }
+  };
+
+  /**
+   * Close all items in a specific instance
+   * @return {jQuery object} collection of all items that were closed.
+   */
+  AccordionGrid.prototype.closeItems = function () {
+    var _this = this,
+        $accordionGrid = this.$element,
+        $openItems = $accordionGrid.find(this.options.itemSelector).filter('.is-expanded');
+
+    // Collapse all item details and remove state class
+    $openItems.each(function () {
+      _this.closeItem($(this));
+    });
+
+    // Return items that were closed.
+    return $openItems;
+  };
+
+  /**
+   * Check for a hash in the URL and open any corresponding accordion item.
+   */
+  AccordionGrid.prototype.hashOpen = function () {
+    var hash = window.location.hash;
+
+    // If the hash exists (e.g. #something) and it matches using jQuery selection.
+    if (hash.length > 1 && this.$element.find(hash).length) {
+      this.openItem($(hash), {
+        animation: {duration: 0}
+      });
+    }
+  };
+
+  // Lightweight constructor.
+  $.fn[AccordionGrid.jQueryPluginName] = function (options) {
+    return this.each(function initPlugin() {
+      var plugin = new AccordionGrid(this, options);
+      $.data(this, 'plugin_' + AccordionGrid.jQueryPluginName, plugin);
+
+      // Expose the plugin so methods can be called externally
+      //   e.g., element.AccordionGrid.close();
+      this.AccordionGrid = plugin;
+
+      // Trigger custom initialized event on the element.
+      $(this).trigger('initialized');
+    });
+  };
+
+  // DOM-ready handler.
+  $(AccordionGrid.ready);
+
+  // AJAX handling magic.
+  $(document).on('components:reattach', AccordionGrid.ready);
+
+}(Components.AccordionGrid, jQuery));
+;
+/**
+ * Accordion component interaction
+ * See jquery.accordion.js for details
+ */
+
+ (function($){
+   $(document).ready(function(){
+     $('.accordion').each(function () {
+       $(this).accordion({
+         itemSelector: '.accordion__item',
+         headerSelector: '.accordion__title-wrapper',
+         contentSelector: '.accordion__content-wrapper'
+       });
+     });
+   });
+ })(jQuery);
 ;
 /**
  * Context Switcher component
@@ -2111,15 +2730,21 @@ Components.modalMessage = {};
  * See jquery.tabs.js for details
  */
 
-(function ( $ ) {
-  $(document).ready(function() {
-    $('.tabs__wrapper').tabs({
-      tabLinks: $('.tabs__tab-link'),
-      contents: $('.tabs__tab-content'),
-      triggers: $('.tabs__tab-trigger')
+(function ($) {
+  $(document).ready(function () {
+    $('.tabs__wrapper').each(function () {
+      var $this = $(this),
+          $triggers = $this.find('.tabs__tab-trigger'),
+          $flyoutTriggers = $this.closest('.flyout__content').siblings('.flyout__slideout').find('.tabs__tab-trigger');
+
+      $this.tabs({
+        tabLinks: $this.find('.tabs__tab-link'),
+        contents: $this.find('.tabs__tab-content'),
+        triggers: $triggers.add($flyoutTriggers)
+      });
     });
   });
-}( jQuery ));
+}(jQuery));
 ;
 /**
  * Card wall fixes for off-by-one errors.
@@ -2202,6 +2827,36 @@ Components.cardWall = {
 
 // Attach our DOM-ready callback.
 jQuery(Components.cardWall.ready);
+;
+(function ($) {
+  // Bind to document ready and custom components:reattach event so this works on
+  // dynamically loaded AJAX content.
+  $(document).on('ready components:reattach', function (e, context) {
+
+    /**
+     * Handles making the whole row clickable
+     * Makes the assumption that there exists exactly one .table-list__link in a
+     * --clickable-row
+     */
+    $('.table-list--clickable-row tbody tr')
+    .off('click.tableList')
+    .on('click.tableList', function (e) {
+      var $tlink = $(this).find('.table-list__link a'),
+          loc = $tlink.attr('href'),
+          target = $tlink.attr('target');
+
+      // Prevent clicking link in row from triggering event twice
+      e.preventDefault();
+
+      // If there is no given target, open in the same window using _self
+      if (!target) {
+        target = '_self';
+      }
+
+      window.open(loc, target);
+    });
+  });
+})(jQuery);
 ;
 /**
  * Brightcove video chapter handling.
@@ -2668,8 +3323,8 @@ Components.DropdownNav = function (element, options) {
       e.stopPropagation();
       e.stopImmediatePropagation();
       e.preventDefault();
-      $(this).parents('.global-nav__top').addClass('global-nav--search-shown');
       $searchWrapper.fadeIn(animation);
+      $(this).parents('.global-nav__top').addClass('global-nav--search-shown');
 
       // Make sure to focus the search field when opened.
       $searchWrapper.find('input[form="coveo-dummy-form"], input[type="search"]').focus();

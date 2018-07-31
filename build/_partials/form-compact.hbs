@@ -1,7 +1,8 @@
-<form class="form form-compact">
+<form class="form form-compact {{ modifier_class }}">
   <div class="form-field form-field--inline has-float-label clearfix">
+    <label class="form-field__label" for="text-field-inline-1">{{ placeholder }}</label>
     <input class="form-field__control" type="text" placeholder="{{ placeholder }}" name="text-field-inline-1" id="text-field-inline-1">
   </div>
-  <button type="submit" class="form__button cta">{{ buttonText }}</button>
-  <input class="form__button cta form-submit" type="submit" value="{{ buttonText }}">
+  <button type="submit" class="form__button cta" value="{{ revealText }}">{{ buttonText }}</button>
+  <input class="hide" type="submit">
 </form>

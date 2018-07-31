@@ -1,0 +1,22 @@
+{{#with textField}}
+  <div class="auto-suggest is-suggesting form-field has-float-label">
+    <label class="form-field__label" for="{{ id }}">{{ label }}</label>
+    <input class="auto-suggest__field" type="text" placeholder="{{ label }}" value="{{ value }}" id="{{ id }}">
+    <span class="auto-suggest__placeholder"></span>
+    <a class="auto-suggest__edit-link" href="#" title="Edit">Edit</a>
+  </div>
+{{/with}}
+
+{{#with selectList}}
+  <div class="auto-suggest is-suggesting form-field has-float-label">
+    <label class="form-field__label" for="{{ id }}">{{ label }}</label>
+    <select class="auto-suggest__field" name="{{ id }}">
+      <option class="form-field__option-none" value="_none">- {{ label }} -</option>
+      {{#each options}}
+      <option value="{{ value }}"{{#if selected}} selected{{/if}}>{{ label }}</option>
+      {{/each}}
+    </select>
+    <span class="auto-suggest__placeholder"></span>
+    <a class="auto-suggest__edit-link" href="#" title="Edit">Edit</a>
+  </div>
+{{/with}}

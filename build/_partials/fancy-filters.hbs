@@ -1,9 +1,20 @@
-<div class="fancy-filters form-field">
-  <label class="form-field__label fancy-filters__group-label">{{ label }}</label>
-{{#each inputs}}
-  <div>
-    <input class="form-field fancy-filters__radio" type="radio" id="radio-{{id}}" name="{{../group}}" value="{{value}}" {{#if checked}}checked{{/if}}>
-    <label class="form-field__label" for="radio-{{id}}">{{label}}</label>
+{{#each groups}}
+  <div class="fancy-filters form-field {{ ../modifier_class }}">
+    {{#if label}}
+      <label class="form-field__label fancy-filters__group-label">{{ label }}</label>
+    {{/if}}
+
+    {{#each inputs}}
+      <div class="fancy-filters__field">
+        <input class="form-field fancy-filters__{{ type }}" type="{{ type }}" id="{{ ../../modifier_class }}-{{ type }}-{{ id }}" name="{{ ../group }}" value="{{ value }}" {{#if checked}}checked{{/if}}>
+        <label class="form-field__label" for="{{ ../../modifier_class }}-{{ type }}-{{ id }}">{{label}}</label>
+      </div>
+    {{/each}}
+
+    {{#if clear}}
+      <div class="fancy-filters__clear">
+        <button>Clear Filters</button>
+      </div>
+    {{/if}}
   </div>
 {{/each}}
-</div>

@@ -1,6 +1,11 @@
 <figure class="image {{ modifier_class }}">
   <img src="{{ src }}" alt="{{ alt }}" />
   {{#with caption}}
-    <figcaption class="caption caption--image {{ class }}">{{{ text }}}</figcaption>
+    <figcaption class="caption caption--image {{ class }}">
+      {{{ text }}}
+    </figcaption>
   {{/with}}
 </figure>
+{{#if text}}
+<p>{{ text }}</p>
+{{/if}}

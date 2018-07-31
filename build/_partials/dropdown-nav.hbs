@@ -1,7 +1,7 @@
 <nav class="dropdown-nav {{ modifier_class }}">
 
   <div class="dropdown-nav__toggle"{{#if toggle_data_attributes}} {{{attrs toggle_data_attributes}}}{{/if}}>
-    <i class="dropdown-nav__icon icon {{ icon_class }}"></i>
+    {{#if icon_class}}<i class="dropdown-nav__icon icon {{ icon_class }}"></i>{{/if}}
     <span class="dropdown-nav__title">{{{ title }}}</span>
   </div>
 

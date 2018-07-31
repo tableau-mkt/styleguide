@@ -1,0 +1,12 @@
+<section class="sub-hero-meta {{ modifier_class }}">
+  <div class="sub-hero-meta__content content-container">
+    {{#each item}}
+      <div class="sub-hero-meta__item {{#if width}}{{{ width }}}{{/if}}">
+        <span class="sub-hero-meta__label">{{{ label }}}</span>
+        <div class="sub-hero-meta__item-detail">
+          {{{ content }}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>

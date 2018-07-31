@@ -1,11 +1,25 @@
 <div class="quote {{ modifier_class }}">
-  <p class="quote__text">{{{ quoteText }}}</p>
-  <p class="quote__byline">
-    {{#if bylineName}}
-      <span class="quote__byline-name">{{ bylineName }}{{#if bylineDetail}},{{/if}}</span>
-    {{/if}}
-    {{#if bylineDetail}}
-      <span class="quote__byline-detail">{{ bylineDetail }}</span>
-    {{/if}}
-  </p>
+  {{#with image}}
+    <div class="quote__image">
+      <img src="{{ src }}" alt="{{ alt }}">
+    </div>
+  {{/with}}
+  <div class="quote__wrapper">
+    <p class="quote__text"{{#if textColor}} style="color: {{ textColor }};"{{/if}}>{{{ text }}}</p>
+    {{#with byline}}
+    <p class="quote__byline">
+      {{#if image}}
+        <img class="quote__byline-image" src="{{ image }}" alt="{{ name }}">
+      {{/if}}
+      {{#if name}}
+        <span class="quote__byline-name">
+          {{ name }}{{#if detail}}<span class="quote__byline-comma">,</span>{{/if}}
+        </span>
+      {{/if}}
+      {{#if detail}}
+        <span class="quote__byline-detail">{{ detail }}</span>
+      {{/if}}
+    </p>
+    {{/with}}
+  </div>
 </div>
