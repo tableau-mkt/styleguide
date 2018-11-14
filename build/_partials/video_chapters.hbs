@@ -1,15 +1,5 @@
-{{#with chapters }}
-<ul id="{{id}}" class="video-chapters" data-chapters-for="{{player}}">
-  {{#each list}}
-    <li data-timestamp="{{timestamp}}" class="video-chapters__chapter">
-      {{title}}
-    </li>
+<ul class="video-chapters">
+  {{#each chapters}}
+    <li class="video-chapters__chapter">{{this}}</li>
   {{/each}}
 </ul>
-<div class="video-chapters__toggle-wrapper">
-<a href="#{{id}}" class="video-chapters__toggle"
-  data-reveal-target="{{id}}"
-  data-reveal-media="markup"
-  data-reveal-hide-text="Hide Chapters">Show Chapters</a>
-</div>
-{{/with }}

@@ -1,44 +1,4 @@
 /**
- * General Brightcove video embed binding.
- *
- * This is a generic setup for in-page embedded players. We can bind a VideoJS wrapped object to a data property on the player DOM element, allowing us to control players by selecting the DOM element and accessing the bcPlayer data property. E.g.:
- *
- * $('#my-playerthing').data('bcPlayer').play();
- * $('#my-playerthing').data('bcPlayer').pause();
- *
- * A more complicated example that retrieves the full video metadata via the Brightcove catalog method:
- *
- * var $video = $('#my-player-object');
- *
- * $video.data('bcPlayer').catalog.getVideo($video.data('videoId'),
- * function(error, data) {
- *   // Do things with the return.
- *   console.log(data);
- * });
- *
- * This presumes that the Brightcove API script has been loaded on page.
- */
-$(document).ready(function () {
-  // Use the default Brightcove embed selector.
-  var $players = $('.video-js');
-
-  // Bail early if there aren't even any players.
-  if (!$players.length || typeof window.videojs !== 'function') {
-    return;
-  }
-
-  $players.each(function setupBrightcoveInstances() {
-    var $this = $(this);
-
-    // Pass in the DOM element, not the jQuery wrapped object.
-    window.videojs($this[0]).ready(function prepareBrightcoveInstance() {
-      $this.data('bcPlayer', this);
-      $(document).trigger('brightcove:ready', $this.attr('id'));
-    });
-  });
-});
-;
-/**
  * Components Utility Functions
  */
 
@@ -46,7 +6,17 @@ $(document).ready(function () {
 // doesn't already exist.
 var Components = Components || {};
 
-// Declare this component's namespace.
+/**
+ * Create a jQuery wrapped plain object for custom event handling.
+ * This is helpful for async-loaded third party dependencies (like Brightcove) ...
+ * Listen for a custom event - like $(document).on()
+ * Components.$events.on('brightcoveLoaded');
+ * Trigger a custom event - like $(document).trigger()
+ * Components.$events.trigger('brightcoveLoaded');
+ */
+Components.$events = $({});
+
+// Declare utils namespace.
 Components.utils = {};
 
 // Breakpoint values.
@@ -169,7 +139,7 @@ Components.utils.getBreakpoint = function () {
     '(min-width:' + Components.utils.breakpoints.tabletMin + 'px) and (max-width: ' +
     Components.utils.breakpoints.tabletMax + 'px)'
   ).matches;
-  
+
   isDesktop = matchMedia(
     '(min-width: ' + Components.utils.breakpoints.desktopMin + 'px)'
   ).matches;
@@ -799,6 +769,7 @@ Components.utils.animationDuration = function (distance, speed) {
 
   // Set plugin method name and defaults
   var pluginName = 'contentReveal',
+      requestBrightcove = $.Deferred(),
       defaults = {
         animation: {
           duration: 1000,
@@ -852,7 +823,7 @@ Components.utils.animationDuration = function (distance, speed) {
           expandToggle: data.revealExpandToggle
         },
         $scrollTarget,
-        videoObj,
+        videoElement,
         player;
 
     // Merge settings with defaults.
@@ -869,15 +840,17 @@ Components.utils.animationDuration = function (distance, speed) {
     $target.slideHeight('down', settings.animation);
 
     if (settings.media === 'video') {
-      videoObj = $target.find('.video-js')[0];
-      player = videojs(videoObj);
+      videoElement = $target.find('.video-js')[0];
+      // Ensure Brightcove is loaded.
+      requestBrightcove.then(function () {
+        // Get the player instance.
+        player = Plugin.getBrightcovePlayer(videoElement);
 
-      setTimeout(function() {
         // Ensure player is ready before calling .play()
         player.ready(function () {
           player.play();
         });
-      }, settings.animation.duration / 2);
+      });
     }
 
     // Scroll when reveal is clicked open.
@@ -922,8 +895,6 @@ Components.utils.animationDuration = function (distance, speed) {
         expandToggle = data.revealExpandToggle,
         player;
 
-    $target.add($trigger).data('revealState', 'closed').removeClass('is-open');
-
     if (typeof showText !== 'undefined') {
       $trigger.text(showText);
     }
@@ -931,6 +902,11 @@ Components.utils.animationDuration = function (distance, speed) {
     // Swap content.
     $target.slideHeight('up', this.options.animation);
     $curtain.slideHeight('down', this.options.animation);
+
+    // Remove the is-open modifier to reflect the state.
+    setTimeout(function () {
+      $target.add($trigger).data('revealState', 'closed').removeClass('is-open');
+    }, this.options.animation.duration);
 
     if (media === 'video') {
       player = videojs($target.find('.video-js')[0]);
@@ -950,7 +926,7 @@ Components.utils.animationDuration = function (distance, speed) {
 
   // Automatically reveal content when the ID of the container is in the URL
   // hash.
-  Plugin.prototype.autoReveal = function() {
+  Plugin.prototype.autoReveal = function () {
     var hash = window.location.hash,
         $trigger;
 
@@ -971,7 +947,7 @@ Components.utils.animationDuration = function (distance, speed) {
         $triggers = $();
 
     // Link content back to its corresponding trigger
-    _this.options.triggers.each(function() {
+    _this.options.triggers.each(function () {
       var $trigger = $(this),
           targetId = $trigger.data('revealTarget'),
           $target = $('#' + targetId);
@@ -998,7 +974,7 @@ Components.utils.animationDuration = function (distance, speed) {
         _this.element.prepend($('<a href="#" class="reveal__close" href="#"><i class="icon icon--close-window-style2"></i></a>'));
       }
 
-      $triggers.each(function() {
+      $triggers.each(function () {
         var $trigger = $(this),
             $target = $('#' + $trigger.data('revealTarget')),
             showText = $trigger.text();
@@ -1046,6 +1022,30 @@ Components.utils.animationDuration = function (distance, speed) {
     }
   };
 
+
+  // Gets/creates a Brightcove player instance. Used for delaying player instantiation.
+  // Returns videojs player object.
+  Plugin.getBrightcovePlayer = function (videoElement) {
+    var $video = $(videoElement);
+    var data = $(videoElement).data();
+
+    // Has reveal attributes and not yet initialized?
+    if (data.revealAccount && data.revealPlayer && data.revealVideoId && !data.revealInitialized) {
+      // Copy the attributes over for `bc()` to work.
+      $video.attr({
+        'data-account': data.revealAccount,
+        'data-player': data.revealPlayer,
+        'data-video-id': data.revealVideoId
+      });
+      // Call bc to initialize this as a Brightcove video.
+      bc(videoElement);
+      // Flag this as initialized.
+      data.revealInitialized = true;
+    }
+
+    return videojs(videoElement);
+  };
+
   // Lightweight constructor, preventing against multiple instantiations
   $.fn[pluginName] = function (options) {
     return this.each(function initPlugin() {
@@ -1059,6 +1059,19 @@ Components.utils.animationDuration = function (distance, speed) {
       this.contentReveal = plugin;
     });
   };
+
+  // Check if Brightcove is available and resolve if found.
+  function resolveBrightcove() {
+    if (typeof window.bc === 'function' && window.bc.VERSION) {
+      requestBrightcove.resolve(window.bc);
+    }
+  }
+
+  // Try checking for synchronously loaded Brightcove.
+  resolveBrightcove();
+  // Wait for async Brightcove script and resolve if found.
+  $(document).one('brightcove:loaded', resolveBrightcove);
+
 })(jQuery);
 ;
 'use strict';
@@ -2861,66 +2874,76 @@ jQuery(Components.cardWall.ready);
 /**
  * Brightcove video chapter handling.
  *
- * This handles chaptering interaction given an expected DOM structure. E.g.:
- * <ul class="video__chapters" data-chapters-for="[VIDEO DOM ID]">
- *   <li class="video__chapter" data-timestamp="60">Something</li>
- *   <li class="video__chapter" data-timestamp="120">Something else</li>
- * </ul>
+ * Copies chapters from Hapyak into chapter placeholders.
  *
- * It listens for a brightcove:ready event that is raised per video instance as
- * it successfully creates a Brightcove videojs wrapped player object.
+ * Create a placeholder like this:
+ *   <div class="video-chapters" data-chapters-for="{{videoId}}"></div>
+ * Then trigger the `brightcoveLoaded` event to initialize:
+ *   Components.$events.trigger('brightcoveLoaded');
  */
-(function ($, window) {
-  $(document).ready(function () {
-    var $chapterLists = $('[data-chapters-for]');
+(function ($) {
+  Components.$events.on('brightcoveLoaded', function () {
 
-    // Bail early if there aren't even any lists of chapters.
-    if (!$chapterLists.length || !typeof window.videojs === 'function') {
-      return;
-    }
+    // For each Brightcove video on the page ...
+    $('.video-js').each(function (index, element) {
+      var $video = $(element);
+      var videoId = $video.attr('data-video-id');
+      // Select the matching video chapters placeholder element (see example above).
+      var $videoChaptersPlaceholder = $('[data-chapters-for="' + videoId + '"]');
 
-    // Utilize the revealContent plugin.
-    $chapterLists.each(function initChapterReveal() {
-      $(this).contentReveal({
-        triggers: $(this).next('.video-chapters__toggle-wrapper').find('.video-chapters__toggle'),
-        closeLink: false
-      });
-    });
-
-    // The Brightcove player binding is async. We wait for a raised event first
-    // before binding the video chapter actions.
-    $(document).on('brightcove:ready', function (e, data) {
-      // The 'data' received here is the id attribute of the video player element.
-      var $readyChapters = $chapterLists.filter('[data-chapters-for="' + data + '"]'),
-          $videoElement = $('#' + data),
-          BCPlayer = $videoElement.data('bcPlayer');
-
-      // Bail early.
-      if (!$readyChapters.length) {
+      // Exit unless we found a matching video chapters placeholder element.
+      if (!$videoChaptersPlaceholder.length) {
         return;
       }
 
-      $readyChapters.find('.video-chapters__chapter').on('click.chapter', function triggerVideoChapter (e) {
-        var $this = $(this),
-            timestamp = $this.data('timestamp');
+      // Create a videojs instance wrapping the `.video-js` element and wait for hapyak
+      // annotations to finish loading.
+      videojs(element).on('hyViewerLoaded', function () {
+        // Get the HapyakViewer object.
+        // see http://www.hapyak.com/docs/#HapyakViewer
+        var viewer = this.hapyakViewer;
 
-        e.preventDefault();
-
-        // Set the play time.
-        BCPlayer.currentTime(timestamp);
-
-        // Scroll.
-        Components.utils.smoothScrollTop($videoElement);
-
-        // Play the video if it ain't playing.
-        if (BCPlayer.paused()) {
-          BCPlayer.play();
+        /**
+         * Helper: place the video chapters for a video into the chapters placeholder.
+         */
+        function placeVideoChapters() {
+          // Select all hapyak annotation elements.
+          $video.find('.popcorn-contents-label')
+            // Clone them so we don't affect the existing ones.
+            .clone()
+            // Append each chapter (preserves order) into the video chapters placeholder.
+            .appendTo($videoChaptersPlaceholder)
+            // Modify the wrapping elements in place, primarily to adjust the CSS class.
+            .replaceWith(function () {
+              return $('<div>', {class: 'video-chapters__chapter', text: this.innerText})
+            });
         }
+
+        // If annotations have already loaded...
+        if (viewer.getData('annotationsLoaded')) {
+          // Now we can place the video chapters.
+          placeVideoChapters();
+          return;
+        }
+
+        // Listen for the data event
+        viewer.addEventListener('data', function checkAnnotationsLoaded(data) {
+          // Wait until annotations have loaded.
+          if (!data || !data.annotationsLoaded) {
+            return;
+          }
+
+          // Now we can place the video chapters.
+          placeVideoChapters();
+
+          // Clear the event listener since we're done here.
+          viewer.removeEventListener('data', checkAnnotationsLoaded);
+        });
       });
     });
 
   });
-})(jQuery, window);
+})(jQuery);
 ;
 /**
  * Components.DropdownNav is a jQuery friendly plugin with an exposed JS API.

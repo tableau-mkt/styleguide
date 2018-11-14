@@ -1,7 +1,7 @@
 <div class="teaser-item {{ modifier_class}}{{#if width}} grid--{{ width }}{{/if}}">
   {{#if icon}}
     <div class="teaser-item__icon">
-      {{#if link}}<a href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
+      {{#if link}}<a{{#if link.target}} target="{{link.target}}"{{/if}} href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
         <span class="icon--{{ icon }}"></span>
       {{#if link}}</a>{{/if}}
     </div>
@@ -9,7 +9,7 @@
 
   {{#if thumbnail}}
     <div class="teaser-item__thumbnail">
-      {{#if link}}<a href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
+      {{#if link}}<a{{#if link.target}} target="{{link.target}}"{{/if}} href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
         {{#with thumbnail}}
           {{> thumbnail }}
         {{/with}}
@@ -26,7 +26,7 @@
 
     {{#if title}}
       <h5 class="teaser-item__title">
-        {{#if link}}<a href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
+        {{#if link}}<a{{#if link.target}} target="{{link.target}}"{{/if}} href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
           {{{ title }}}
         {{#if link}}</a>{{/if}}
       </h5>
