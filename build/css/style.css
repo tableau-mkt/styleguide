@@ -5522,7 +5522,10 @@ Style guide: forms.form-compact
     margin: -1px 0;
     z-index: 0;
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0; }
+    border-bottom-left-radius: 0;
+    line-height: normal;
+    vertical-align: middle;
+    height: 3.546em; }
   .form-compact .form-field.form-field--inline {
     margin: 0;
     max-width: 300px;
@@ -5534,7 +5537,8 @@ Style guide: forms.form-compact
     margin-bottom: -1px;
     border-right: 0;
     border-radius: 100px 0 0 100px;
-    background-color: #fff; }
+    background-color: #fff;
+    height: 2.438em; }
   .form-compact .form-field.has-float-label .form-field__label {
     top: 0.2em;
     left: 1.5em; }
@@ -5542,15 +5546,23 @@ Style guide: forms.form-compact
     box-shadow: 0 0 0 1000px #fff inset; }
   @media (max-width: 639px) {
     .form-compact {
-      display: block; }
+      display: block;
+      border-radius: 0;
+      box-shadow: none; }
       .form-compact .form-field.form-field--inline {
         max-width: inherit; }
       .form-compact .form-field.form-field--inline .form-field__control {
         display: block;
-        text-align: center;
-        margin: 1px 0; }
+        margin: 1px 0;
+        border: 1px solid #c2c2c2;
+        border-radius: 0;
+        height: auto; }
       .form-compact .form-field.has-float-label .form-field__label {
-        top: 0.25em; } }
+        top: 0.25em; }
+      .form-compact .cta {
+        margin-top: 1em;
+        border-radius: 100px;
+        height: auto; } }
 
 .form-compact--reveal .form-field.form-field--inline {
   max-width: 0;
@@ -8769,7 +8781,8 @@ table {
     text-transform: uppercase;
     padding: 0.29em 0.73em;
     text-align: left;
-    font-weight: normal; }
+    font-weight: normal;
+    vertical-align: top; }
     @media only screen and (-webkit-min-device-pixel-ratio: 2) {
       table th {
         -webkit-font-smoothing: subpixel-antialiased; } }
@@ -8778,7 +8791,8 @@ table {
   table.table--no-stripes tr:nth-child(even) {
     background: inherit; }
   table td {
-    padding: 0.2em 0.5em; }
+    padding: 0.2em 0.5em;
+    vertical-align: top; }
     table td p:first-child,
     table td ul:first-child,
     table td ol:first-child {
@@ -8830,7 +8844,8 @@ Style guide: lists.comparison-list
   .comparison-list th {
     font-family: "Benton Sans Medium", Helvetica, sans-serif;
     font-size: 1.25em;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    vertical-align: middle; }
   .comparison-list thead {
     font-weight: normal;
     border: 0; }

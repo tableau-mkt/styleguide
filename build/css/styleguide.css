@@ -7416,7 +7416,10 @@ Style guide: documentation.breakpoints
       margin: -1px 0;
       z-index: 0;
       border-top-left-radius: 0;
-      border-bottom-left-radius: 0; }
+      border-bottom-left-radius: 0;
+      line-height: normal;
+      vertical-align: middle;
+      height: 3.546em; }
     body.kss .kss-example-preview .form-compact .form-field.form-field--inline {
       margin: 0;
       max-width: 300px;
@@ -7428,7 +7431,8 @@ Style guide: documentation.breakpoints
       margin-bottom: -1px;
       border-right: 0;
       border-radius: 100px 0 0 100px;
-      background-color: #fff; }
+      background-color: #fff;
+      height: 2.438em; }
     body.kss .kss-example-preview .form-compact .form-field.has-float-label .form-field__label {
       top: 0.2em;
       left: 1.5em; }
@@ -7436,15 +7440,23 @@ Style guide: documentation.breakpoints
       box-shadow: 0 0 0 1000px #fff inset; }
     @media (max-width: 639px) {
       body.kss .kss-example-preview .form-compact {
-        display: block; }
+        display: block;
+        border-radius: 0;
+        box-shadow: none; }
         body.kss .kss-example-preview .form-compact .form-field.form-field--inline {
           max-width: inherit; }
         body.kss .kss-example-preview .form-compact .form-field.form-field--inline .form-field__control {
           display: block;
-          text-align: center;
-          margin: 1px 0; }
+          margin: 1px 0;
+          border: 1px solid #c2c2c2;
+          border-radius: 0;
+          height: auto; }
         body.kss .kss-example-preview .form-compact .form-field.has-float-label .form-field__label {
-          top: 0.25em; } }
+          top: 0.25em; }
+        body.kss .kss-example-preview .form-compact .cta {
+          margin-top: 1em;
+          border-radius: 100px;
+          height: auto; } }
   body.kss .kss-example-preview .form-compact--reveal .form-field.form-field--inline {
     max-width: 0;
     opacity: 0; }
@@ -9713,7 +9725,8 @@ Style guide: documentation.breakpoints
       text-transform: uppercase;
       padding: 0.29em 0.73em;
       text-align: left;
-      font-weight: normal; }
+      font-weight: normal;
+      vertical-align: top; }
       @media only screen and (-webkit-min-device-pixel-ratio: 2) {
         body.kss .kss-example-preview table th {
           -webkit-font-smoothing: subpixel-antialiased; } }
@@ -9722,7 +9735,8 @@ Style guide: documentation.breakpoints
     body.kss .kss-example-preview table.table--no-stripes tr:nth-child(even) {
       background: inherit; }
     body.kss .kss-example-preview table td {
-      padding: 0.2em 0.5em; }
+      padding: 0.2em 0.5em;
+      vertical-align: top; }
       body.kss .kss-example-preview table td p:first-child,
       body.kss .kss-example-preview table td ul:first-child,
       body.kss .kss-example-preview table td ol:first-child {
@@ -9749,7 +9763,8 @@ Style guide: documentation.breakpoints
     body.kss .kss-example-preview .comparison-list th {
       font-family: "Benton Sans Medium", Helvetica, sans-serif;
       font-size: 1.25em;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      vertical-align: middle; }
     body.kss .kss-example-preview .comparison-list thead {
       font-weight: normal;
       border: 0; }
