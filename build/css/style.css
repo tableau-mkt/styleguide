@@ -7318,7 +7318,7 @@ Style guide: layout.colored
 */
 /* Create a class for each background color */
 .bg--white {
-  background-color: #fff;
+  background-color: red;
   color: #333; }
   .bg--white h1, .bg--white .heading--h1,
   .bg--white h2, .bg--white .heading--h2,
@@ -13048,9 +13048,9 @@ Style Guide: teasers.summary-teaser
     pointer-events: none;
     background-image: linear-gradient(to top, #fff 4%, rgba(255, 255, 255, 0) 40%); }
   .summary-teaser--white {
-    background-color: #fff; }
+    background-color: red; }
     .summary-teaser--white:after {
-      background-image: linear-gradient(to top, #fff 4%, rgba(255, 255, 255, 0) 40%); }
+      background-image: linear-gradient(to top, red 4%, rgba(255, 255, 255, 0) 40%); }
   .summary-teaser--light-gray-1 {
     background-color: #fafafa; }
     .summary-teaser--light-gray-1:after {

@@ -8017,7 +8017,7 @@ Style guide: typography.text-stat
     margin-left: 0.375em;
     margin-right: initial; }
   .tableau-styles .bg--white {
-    background-color: #fff;
+    background-color: red;
     color: #333; }
     .tableau-styles .bg--white h1, .tableau-styles .bg--white .heading--h1,
     .tableau-styles .bg--white h2, .tableau-styles .bg--white .heading--h2,
@@ -12426,9 +12426,9 @@ Style guide: typography.text-stat
       pointer-events: none;
       background-image: linear-gradient(to top, #fff 4%, rgba(255, 255, 255, 0) 40%); }
     .tableau-styles .summary-teaser--white {
-      background-color: #fff; }
+      background-color: red; }
       .tableau-styles .summary-teaser--white:after {
-        background-image: linear-gradient(to top, #fff 4%, rgba(255, 255, 255, 0) 40%); }
+        background-image: linear-gradient(to top, red 4%, rgba(255, 255, 255, 0) 40%); }
     .tableau-styles .summary-teaser--light-gray-1 {
       background-color: #fafafa; }
       .tableau-styles .summary-teaser--light-gray-1:after {
