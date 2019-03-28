@@ -8629,7 +8629,7 @@ Style guide: documentation.breakpoints
     margin-left: 0.375em;
     margin-right: initial; }
   body.kss .kss-example-preview .bg--white {
-    background-color: red;
+    background-color: #fff;
     color: #333; }
     body.kss .kss-example-preview .bg--white h1, body.kss .kss-example-preview .bg--white .heading--h1,
     body.kss .kss-example-preview .bg--white h2, body.kss .kss-example-preview .bg--white .heading--h2,
@@ -13038,9 +13038,9 @@ Style guide: documentation.breakpoints
       pointer-events: none;
       background-image: linear-gradient(to top, #fff 4%, rgba(255, 255, 255, 0) 40%); }
     body.kss .kss-example-preview .summary-teaser--white {
-      background-color: red; }
+      background-color: #fff; }
       body.kss .kss-example-preview .summary-teaser--white:after {
-        background-image: linear-gradient(to top, red 4%, rgba(255, 255, 255, 0) 40%); }
+        background-image: linear-gradient(to top, #fff 4%, rgba(255, 255, 255, 0) 40%); }
     body.kss .kss-example-preview .summary-teaser--light-gray-1 {
       background-color: #fafafa; }
       body.kss .kss-example-preview .summary-teaser--light-gray-1:after {
