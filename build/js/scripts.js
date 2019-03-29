@@ -2991,8 +2991,13 @@ Components.DropdownNav = function (element, options) {
   /**
    * Component state and variables.
    */
-  DropdownNav.jQueryPluginName = 'tabDropdownNav';
+
+  // Public
   DropdownNav.instances = [];
+
+  // Private
+  var jQueryPluginName = 'tabDropdownNav';
+  var isDesktop = Components.utils.breakpoint('desktop');
 
   /**
    * DOM-ready callback.
@@ -3004,8 +3009,8 @@ Components.DropdownNav = function (element, options) {
     // Initialize every instance on the page.
     $('.dropdown-nav').tabDropdownNav();
 
-    // Close all instances when tapping "outside" or when ESC key is pressed.
-    $(document).on('touchstart.dropdownNav', function (e) {
+    // Close all instances when clicking "outside" or when ESC key is pressed.
+    $(document).on('click.dropdownNav', function (e) {
       DropdownNav.closeAll();
     })
     .on('keydown.dropdownNav', function (e) {
@@ -3016,37 +3021,96 @@ Components.DropdownNav = function (element, options) {
   };
 
   /**
+   * Event handler for viewport resize / orientation change.
+   */
+  DropdownNav.onViewportResize = function () {
+    // Update internal state about whether this is a desktop+ sized viewport.
+    isDesktop = Components.utils.breakpoint('desktop');
+  };
+
+  /**
+   * Event handler for mouse pointer hovering over an element.
+   */
+  DropdownNav.onFocusOrBlur = function (e) {
+    var $dropdownNav = this.$element;
+
+    // Only for Desktop mode since we handle click events on mobile/tablet separately.
+    if (!isDesktop) {
+      return;
+    }
+
+    if (e.type === 'focus') {
+      DropdownNav.closeAll();
+      $dropdownNav.addClass('is-open');
+    }
+    else if (e.type === 'blur') {
+      // Schedule a blur-triggered closing after a short delay.
+      $dropdownNav.doTimeout('blur', 400, function () {
+        // Only close if there are no focused links/buttons within.
+        $dropdownNav.not($dropdownNav.has(':focus')).removeClass('is-open');
+      });
+    }
+  };
+
+  /**
+   * Event handler for mouse pointer hovering over an element.
+   */
+  DropdownNav.onHoverOver = function () {
+    var $dropdownNav = this.$element;
+    $dropdownNav.doTimeout('open', 200, function () {
+      if (isDesktop) {
+        $dropdownNav.addClass('is-open');
+      }
+    });
+  };
+
+  /**
+   * Event handler for mouse pointer leaving (un-hovering) an element.
+   */
+  DropdownNav.onHoverOut = function () {
+    var $dropdownNav = this.$element;
+    $dropdownNav.doTimeout('open', 200, function () {
+      if (isDesktop) {
+        $dropdownNav.removeClass('is-open');
+      }
+    });
+  };
+
+  /**
    * Initialize the component (jQuery plugin).
    */
   DropdownNav.prototype.init = function () {
     var $dropdownNav = this.$element;
+    var $dropdownNavBody = $dropdownNav.find('.dropdown-nav__body');
+    var $dropdownNavToggle = $dropdownNav.find('.dropdown-nav__toggle');
+    var $dropdownNavLinks = $dropdownNav.find('.dropdown-nav__menu-link');
+
+    // Register resize, orientationchange event handlers with debounce (a performance optimization).
+    $(window).on('resize.dropdownNav orientationchange.dropdownNav', _.debounce(DropdownNav.onViewportResize, 100));
 
     // Handle clicks on the body element. Prevent bubbling up to the document.
-    $dropdownNav.find('.dropdown-nav__body').on('touchstart.dropdownNav', function (e) {
+    $dropdownNavBody.on('touchstart.dropdownNav', function (e) {
       e.stopPropagation();
     });
 
-    // Handle clicks on the toggle element.
-    $dropdownNav.find('.dropdown-nav__toggle').on('touchstart.dropdownNav', function (e) {
+    // Register focus, blur event handlers on toggle element.
+    $dropdownNavToggle.add($dropdownNavLinks).on('focus.global-header blur.global-header', DropdownNav.onFocusOrBlur.bind(this));
+
+    // Register click event handlers on toggle element.
+    $dropdownNavToggle.on('click.dropdownNav', function (e) {
       // Prevent bubbling up which results in a closeAll().
       e.stopPropagation();
 
-      $dropdownNav.toggleClass('is-open');
+      if (!isDesktop) {
+        $dropdownNav.toggleClass('is-open');
+      }
     });
 
     // Handling for hover interaction of dropdown navs.
     //
     // Uses the doTimeout jQuery utility to handle throttling and waiting on a small delay
     // before showing the drawer (essentially hoverintent).
-    $dropdownNav.hover(function () {
-      $dropdownNav.doTimeout('open', 200, function () {
-        $dropdownNav.addClass('is-open');
-      });
-    }, function () {
-      $dropdownNav.doTimeout('open', 200, function () {
-        $dropdownNav.removeClass('is-open');
-      });
-    });
+    $dropdownNav.hover(DropdownNav.onHoverOver.bind(this), DropdownNav.onHoverOut.bind(this));
 
     // Append to our instances array.
     DropdownNav.instances.push($dropdownNav);
@@ -3076,12 +3140,17 @@ Components.DropdownNav = function (element, options) {
   };
 
   // Lightweight constructor, preventing against multiple instantiations
-  $.fn[DropdownNav.jQueryPluginName] = function (options) {
+  $.fn[jQueryPluginName] = function (options) {
     return this.each(function initPlugin() {
+      // Prevent multiple instantiations.
+      if (this.DropdownNav) {
+        return;
+      }
+
       var plugin = new DropdownNav(this, options);
-      // Allow the plugin to be instantiated more than once. Event handlers
-      // will be re-bound to avoid issues.
-      $.data(this, 'plugin_' + DropdownNav.jQueryPluginName, plugin);
+
+      // Store the plugin instance as a data property.
+      $.data(this, 'plugin_' + jQueryPluginName, plugin);
 
       // Expose the plugin so methods can be called externally
       //   e.g., element.DropdownNav.close();
@@ -3096,6 +3165,269 @@ Components.DropdownNav = function (element, options) {
   $(DropdownNav.ready);
 
 }(Components.DropdownNav, jQuery));
+;
+(function ($) {
+  /**
+   * Callback function to insert the menu into the DOM.
+   */
+  window.tabAjaxMenu = function (data) {
+    var commands = {
+      insert: function (response) {
+        $(response.selector)[response.method](response.data);
+      }
+    };
+
+    // Execute our commands.
+    for (var i in data) {
+      if (data[i]['command'] && commands[data[i]['command']]) {
+        commands[data[i]['command']](data[i]);
+      }
+    }
+
+    // Trigger event when our menu has been loaded.
+    $(document).trigger('tabAjaxMenu:ready');
+
+    // Attach customer menu behaviors when it's ready.
+    if (typeof $.fn.tabDropdownNav === 'function') {
+      $('.dropdown-nav').tabDropdownNav();
+    }
+  };
+})(jQuery);
+;
+/**
+ * @file Global Header component JS
+ */
+(function ($) {
+  var $globalHeader;
+  var $primaryItems;
+  var $primaryLinks;
+  var $primarySubLinks;
+  var $hamburger;
+  var isDesktop = Components.utils.breakpoint('desktop');
+  var isMenuHoverIntent = false;
+
+  /**
+   * Event handler for viewport resize / orientation change.
+   */
+  function onViewportResize () {
+    // Update internal state about whether this is a desktop+ sized viewport.
+    isDesktop = Components.utils.breakpoint('desktop');
+  }
+
+  /**
+   * Helper function to open a menu for a given menu item (.global-header__primary-item)
+   *
+   * @param {jQuery object} $item
+   */
+  function openMenuItem ($item) {
+    $primaryItems.not($item).removeClass('is-open');
+    $item.addClass('is-open');
+  }
+
+  /**
+   * Helper function to close a menu for a given menu item (.global-header__primary-item)
+   *
+   * @param {jQuery object} $item
+   */
+  function closeMenuItem ($item) {
+    $item.removeClass('is-open');
+  }
+
+  /**
+   * Event handler for focusing/blurring of primary links.
+   * Toggles the is-open class as needed.
+   */
+  function onFocusOrBlurPrimaryLink (e) {
+    var $relatedItem = $(e.target).parents('.global-header__primary-item');
+
+    // Only for Desktop mode since we handle click events on mobile/tablet separately.
+    if (!isDesktop) {
+      return;
+    }
+
+    if (e.type === 'focus') {
+      openMenuItem($relatedItem);
+    }
+    else if (e.type === 'blur') {
+      // Schedule a blur-triggered closing after a short delay.
+      $globalHeader.doTimeout('blur', 400, function () {
+        // Only close items that don't have any focused links.
+        $primaryItems.not($primaryItems.has('a:focus')).removeClass('is-open');
+      });
+    }
+  }
+
+  /**
+   * Event handler for mouse pointer hovering over an element.
+   */
+  function pointerOverHandler () {
+    var $item = $(this);
+
+    // If a menu is already open, short-circuit the delay.
+    if (isMenuHoverIntent) {
+      // Cancel any pending hover callback.
+      $globalHeader.doTimeout('hover');
+      openMenuItem($item);
+    }
+    else {
+      $globalHeader.doTimeout('hover', 125, function () {
+        if (isDesktop) {
+          isMenuHoverIntent = true;
+          openMenuItem($item);
+        }
+      });
+    }
+  }
+
+  /**
+   * Event handler for mouse pointer leaving (un-hovering) an element.
+   */
+  function pointerOutHandler () {
+    var $item = $(this);
+
+    $globalHeader.doTimeout('hover', 400, function () {
+      if (isDesktop) {
+        isMenuHoverIntent = false;
+        closeMenuItem($item);
+      }
+    });
+  }
+
+  /**
+   * Initialize the global header.
+   *
+   * An async callback function triggered after drop-downs exist in the DOM.
+   */
+  function initializeGlobalHeader () {
+    // Select all global header elements that we will reference in our component JS.
+    $globalHeader = $('.global-header');
+    $primaryItems = $('.global-header__primary-item');
+    $primaryLinks = $('.global-header__primary-link');
+    $primarySubLinks = $('.global-header__primary-sublink');
+    $hamburger = $globalHeader.find('.hamburger');
+
+    // Register resize, orientationchange event handlers with debounce (a performance optimization).
+    $(window).on('resize.global-header orientationchange.global-header', _.debounce(onViewportResize, 100));
+
+    // Register focus, blur event handlers on primary links.
+    $primaryLinks.add($primarySubLinks).on('focus.global-header blur.global-header', onFocusOrBlurPrimaryLink);
+
+    // Register hover event handlers on primary menu items.
+    // Note: this is very similar to using hoverintent, but it's one less library to use.
+    $primaryItems.hover(pointerOverHandler, pointerOutHandler);
+
+    // Register touchstart event handler for touch device interactions.
+    $primaryLinks.on('touchstart.global-header', function (e) {
+      // On Desktop:
+      //   - First click (tap) opens the drawers.
+      //   - Next click navigates to the link.
+      if (isDesktop) {
+        // Select the related primary menu item.
+        var $parentItem = $(this).parents('.global-header__primary-item');
+
+        // If not open, prevent following the link, and stop propagation so that
+        // our sister document touch handler doesn't close the drawers immediately.
+        if (!$parentItem.hasClass('is-open')) {
+          e.preventDefault();
+          e.stopPropagation();
+          openMenuItem($parentItem);
+        }
+      }
+    });
+
+    // Register click, touchstart event handlers on document. This catches the events
+    // bubbling up to the document as a means for closing the menu dropdowns.
+    // This is primarily for touch-based devices as an intuitive closing method.
+    $(document).on('click.global-header touchstart.global-header', function (e) {
+      // If desktop AND the click target was outside of the global header ...
+      //   Note: since the menus are in the document flow on mobile/tablet, we do not
+      //   want to close menus there.
+      if (isDesktop && !$globalHeader.has(e.target).length) {
+        // Close all open menus.
+        $primaryItems.removeClass('is-open');
+      }
+    });
+
+    // Register click event handler (tap) for toggling on mobile/tablet.
+    $primaryLinks.on('click.global-header', function (e) {
+      var $parentItem = $(this).parents('.global-header__primary-item');
+
+      if (!isDesktop) {
+        // Prevent navigation for viewports smaller than desktop.
+        e.preventDefault();
+        // Close all other items, to leave only one open at a time.
+        $primaryItems.not($parentItem).removeClass('is-open');
+        // Toggle is-open state.
+        $parentItem.toggleClass('is-open');
+      }
+      // Focus/blur logic above will handle opening/closing.
+    });
+
+    // Register event handler for clicking on the hamburger component.
+    $hamburger.on('click.global-header', function (e) {
+      $globalHeader.toggleClass('is-open-hamburger');
+    });
+  }
+
+  /**
+   * Wait for custom event 'tabAjaxMenu:ready' (i.e. AJAX menus are loaded) before
+   * initializing. If the menus are not being loaded via AJAX, you can simply trigger
+   * the initialization using the following example code:
+   *
+   * $(document).ready(function() {
+   *    $(document).trigger('tabAjaxMegaMenu:ready');
+   * });
+   *
+   */
+  $(document).one('tabAjaxMenu:ready', initializeGlobalHeader);
+
+})(jQuery);
+;
+/**
+ * Global search bar interaction
+ */
+(function ($) {
+  $(document).ready(function () {
+    var $globalHeader = $('.global-header');
+    var globalHeaderData = $globalHeader.data();
+    var $searchWrapper = $('.global-header__search');
+    var $searchInput = $('.global-header__search-input');
+    var $searchClose = $('.global-header__search-close');
+
+    // External sites can override the search submit to redirect to www.tableau.com's
+    // search page, using the data-www-search="all" type data attribute.
+    if (globalHeaderData && globalHeaderData.wwwSearch) {
+      $searchInput.on('submit-search.global-header-search', function () {
+        window.location = 'https://www.tableau.com/search/' + globalHeaderData.wwwSearch + '/' + encodeURIComponent($(this).val());
+      })
+      .on('keydown.global-header-search', function (e) {
+        if (e.keyCode === 13) {
+          $(this).trigger('submit-search');
+        }
+      })
+    }
+
+    // Bind the click event on the global-header, in case the target element is AJAX-loaded.
+    $globalHeader.on('click.global-header-search', '.global-header__search-toggle', function (e) {
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      $globalHeader.addClass('global-header--search-shown');
+
+      // Nasty setTimeout to ensure search is visible before focusing the input.
+      setTimeout(function () {
+        // Make sure to focus the search field when opened.
+        $searchWrapper.find('input[form="coveo-dummy-form"], input[type="search"]').focus();
+      }, 200);
+    });
+
+    $searchClose.on('click.global-header-search', function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      $globalHeader.removeClass('global-header--search-shown');
+    });
+  });
+})(jQuery);
 ;
 (function ($) {
   /**

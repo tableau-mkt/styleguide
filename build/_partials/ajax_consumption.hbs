@@ -1,49 +1,41 @@
 <div class="wrapper">
   <!-- Use data-www-search attribute to specify the search tab redirected to. -->
-  <header class="global-nav" data-www-search="all">
-    <div class="global-nav__top content-container content-container--wide">
-      <div class="relative clearfix">
-        <div class="global-nav__logo">
-          <div class="tableau-replace--logo">
-          </div>
+  <header class="global-header" data-www-search="all">
+    <nav class="global-header__container content-container content-container--wide">
+      <div class="global-header__nav-wrapper">
+        <div class="global-header__logo-wrapper">
+          <div class="tableau-replace--logo"></div>
         </div>
-        <div class="global-nav__mobile-wrapper">
-          <nav class="global-nav__secondary-menu">
-            <div class="tableau-replace--secondary-menu">
-              <!-- Placeholder for secondary menu. -->
-            </div>
-            <!-- Optional: insert your own menu items. Uncomment the following example
-            HTML block to use. -->
-            <!--
-            <ul class="display-inline-block link-list link-list--inline">
-              <li><a href="https://www.tableau.com/">Custom Link</a></li>
-            </ul>
-             -->
-          </nav>
-
-          <nav class="global-nav__primary-menu">
-            <div class="tableau-replace--main-menu">
-              <!-- Placeholder for main menu. -->
-            </div>
-          </nav>
-
-          <div class="global-nav__search">
-            <input type="search" placeholder="Search" name="q">
-            <a href="#" class="global-nav__search-close"></a>
-          </div>
-        </div>
-
-        <div class="global-nav__hamburger">
-          <a class="hamburger " href="#">
+        <div class="global-header__hamburger">
+          <button class="hamburger">
             <span class="hamburger__patty">Menu</span>
-          </a>
+          </button>
+        </div>
+        <div class="global-header__primary-nav">
+          <div class="tableau-replace--main-menu">
+            <!-- Placeholder for main menu. -->
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="global-nav__drawers">
-      <!-- Placeholder for menu drawers. -->
-    </div>
+      <div class="global-header__secondary-nav">
+        <div class="tableau-replace--secondary-menu">
+          <!-- Placeholder for secondary menu. -->
+        </div>
+        <!-- Optional: insert your own menu items. Uncomment the following example
+HTML block to use. -->
+        <!--
+        <ul class="display-inline-block link-list link-list--inline">
+          <li><a href="https://www.tableau.com/">Custom Link</a></li>
+        </ul>
+         -->
+        <div class="global-header__search-wrapper">
+          <div class="global-header__search">
+            <input class="global-header__search-input" type="search" placeholder="Search" name="q" autocomplete="off">
+            <button class="global-header__search-close"><span class="sr-only">Cancel Search</span></button>
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <section class="section section--padding-bottom-none bg--light-gray-1">

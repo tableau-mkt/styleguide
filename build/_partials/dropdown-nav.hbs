@@ -1,9 +1,9 @@
 <nav class="dropdown-nav {{ modifier_class }}">
 
-  <div class="dropdown-nav__toggle"{{#if toggle_data_attributes}} {{{attrs toggle_data_attributes}}}{{/if}}>
+  <button class="dropdown-nav__toggle"{{#if toggle_data_attributes}} {{{attrs toggle_data_attributes}}}{{/if}}>
     {{#if icon_class}}<i class="dropdown-nav__icon icon {{ icon_class }}"></i>{{/if}}
     <span class="dropdown-nav__title">{{{ title }}}</span>
-  </div>
+  </button>
 
   <div class="dropdown-nav__body">
     {{#each menus}}

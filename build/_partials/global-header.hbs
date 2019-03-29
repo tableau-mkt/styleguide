@@ -1,0 +1,56 @@
+<header class="global-header" data-www-search="all">
+  <nav class="global-header__container content-container content-container--wide">
+    <div class="global-header__nav-wrapper">
+      <div class="global-header__logo-wrapper">
+        <a href="{{ logo.link }}">
+          <img class="global-header__logo" src="{{ logo.src }}" alt="Tableau Software">
+        </a>
+      </div>
+      <div class="global-header__hamburger">
+        {{> hamburger }}
+      </div>
+      <div class="global-header__primary-nav">
+        <ul class="global-header__primary-menu">
+          {{#each primary.items}}
+            <li class="global-header__primary-item">
+              <a class="global-header__primary-link" href="{{ link.href }}">
+                {{ link.text }}
+              </a>
+              <ul class="global-header__primary-submenu">
+                {{#each items}}
+                  <li class="global-header__primary-subitem">
+                    <a class="global-header__primary-sublink{{#if link.modifier_class}} {{ link.modifier_class }}{{/if}}" href="{{ link.href }}">
+                      {{ link.text }}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="global-header__secondary-nav">
+      {{#if dropdown_nav}}
+        {{#with dropdown_nav}}
+          {{> dropdown-nav}}
+        {{/with}}
+      {{/if}}
+      <ul class="global-header__secondary-menu">
+        {{#each secondary.items}}
+          <li class="global-header__secondary-item">
+            <a class="{{ link.class }}" href="{{ link.href }}">
+              {{ link.text }}
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+      <div class="global-header__search-wrapper">
+        <div class="global-header__search">
+          <input class="global-header__search-input" type="search" placeholder="Search" name="q" autocomplete="off">
+          <button class="global-header__search-close"><span class="sr-only">Cancel Search</span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

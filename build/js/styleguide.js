@@ -9,13 +9,16 @@ $(document).ready(function() {
   $(document).ready(function() {
     $.ajax({
         // Use customer_menu=1 query parameter to include the optional customer menu.
-        url: 'https://www.tableau.com/ajax/megamenu/jsonp/tabAjaxMegaMenu',
+        // @todo update this to www.tableau.com once global-header related PR is deployed (target April 2019)
+        // url: 'https://www.tableau.com/ajax/menu/jsonp/tabAjaxMenu',
+        url: 'https://navdrop-tableau.pantheonsite.io/ajax/menu/jsonp/tabAjaxMenu',
+        // url: '//local.tableau.com/ajax/menu/jsonp/tabAjaxMenu',
         dataType: 'jsonp',
         // Set a static callback and explicitly set caching to true to ensure
         // we don't cache bust ourselves into oblivion. Without these set,
         // a random callback name is generated and a timestamp is appended to
         // every request.
-        jsonpCallback: 'jsonpMegamenuCallback',
+        jsonpCallback: 'jsonpMenuCallback',
         cache: true
     });
   });
@@ -266,7 +269,7 @@ jQuery(function domReady($) {
     // Search auto-complete for demo purposes. Requires jQuery UI Autocomplete
     // @todo add support for highlighting the searched characters in the list
     //    http://stackoverflow.com/questions/2435964/jqueryui-how-can-i-custom-format-the-autocomplete-plug-in-results
-    $search.find("input").autocomplete({
+    $search.find('input').autocomplete({
       source: availableTags,
       appendTo: ".global-nav"
     });
