@@ -3367,6 +3367,14 @@ Components.DropdownNav = function (element, options) {
     $hamburger.on('click.global-header', function (e) {
       $globalHeader.toggleClass('is-open-hamburger');
     });
+
+    // Set active trail on other Tableau sites (not www).
+    var hostname = window.location.hostname;
+    if (hostname !== 'www.tableau.com' && hostname.indexOf('tableau.com') !== -1) {
+      var $activeLink = $primarySubLinks.filter('[href*="' + hostname + '"]').first();
+      var $parentActiveLink = $activeLink.closest('.global-header__primary-item').find('.global-header__primary-link');
+      $activeLink.add($parentActiveLink).addClass('active-trail');
+    }
   }
 
   /**

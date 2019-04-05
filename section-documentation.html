@@ -336,13 +336,30 @@ can get the data with a few lines of JavaScript.</strong></p>
         <div class="tableau-replace--secondary-menu">
           <!-- Placeholder for secondary menu. -->
         </div>
-        <!-- Optional: insert your own menu items. Uncomment the following example
-HTML block to use. -->
         <!--
-        <ul class="display-inline-block link-list link-list--inline">
-          <li><a href="https://www.tableau.com/">Custom Link</a></li>
+        Optional: You can replace the secondary menu above with your own menu.
+
+        1. Remove the div above, `<div class="tableau-replace--secondary-menu">...</div>`.
+        2. Uncomment and adjust the following example to suit your needs.
+        Recommended:
+          - 1-2 simple anchor links, e.g. <a href="https://www.tableau.com/" class="global-header__secondary-link">Your Link</a>
+          - (optional) CTA link, e.g. <a href="https://www.tableau.com/" class="cta global-header__secondary-cta">Your CTA</a>
+          - Include search link as the last item
+        -->
+
+        <!--
+        <ul class="global-header__secondary-menu">
+          <li class="global-header__secondary-item">
+            <a href="https://www.tableau.com/" class="global-header__secondary-link">Your Link</a>
+          </li>
+          <li class="global-header__secondary-item">
+            <a href="https://www.tableau.com/" class="cta global-header__secondary-cta">Your CTA</a>
+          </li>
+          <li class="global-header__secondary-item">
+            <a href="https://www.tableau.com/search/all/try%2Btableau" class="global-header__search-toggle">Search</a>
+          </li>
         </ul>
-         -->
+        -->
         <div class="global-header__search-wrapper">
           <div class="global-header__search">
             <input class="global-header__search-input" type="search" placeholder="Search" name="q" autocomplete="off">
@@ -415,13 +432,30 @@ HTML block to use. -->
         &lt;div class=&quot;tableau-replace--secondary-menu&quot;&gt;
           &lt;!-- Placeholder for secondary menu. --&gt;
         &lt;/div&gt;
-        &lt;!-- Optional: insert your own menu items. Uncomment the following example
-HTML block to use. --&gt;
         &lt;!--
-        &lt;ul class=&quot;display-inline-block link-list link-list--inline&quot;&gt;
-          &lt;li&gt;&lt;a href=&quot;https://www.tableau.com/&quot;&gt;Custom Link&lt;/a&gt;&lt;/li&gt;
+        Optional: You can replace the secondary menu above with your own menu.
+
+        1. Remove the div above, &#x60;&lt;div class=&quot;tableau-replace--secondary-menu&quot;&gt;...&lt;/div&gt;&#x60;.
+        2. Uncomment and adjust the following example to suit your needs.
+        Recommended:
+          - 1-2 simple anchor links, e.g. &lt;a href=&quot;https://www.tableau.com/&quot; class=&quot;global-header__secondary-link&quot;&gt;Your Link&lt;/a&gt;
+          - (optional) CTA link, e.g. &lt;a href=&quot;https://www.tableau.com/&quot; class=&quot;cta global-header__secondary-cta&quot;&gt;Your CTA&lt;/a&gt;
+          - Include search link as the last item
+        --&gt;
+
+        &lt;!--
+        &lt;ul class=&quot;global-header__secondary-menu&quot;&gt;
+          &lt;li class=&quot;global-header__secondary-item&quot;&gt;
+            &lt;a href=&quot;https://www.tableau.com/&quot; class=&quot;global-header__secondary-link&quot;&gt;Your Link&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;global-header__secondary-item&quot;&gt;
+            &lt;a href=&quot;https://www.tableau.com/&quot; class=&quot;cta global-header__secondary-cta&quot;&gt;Your CTA&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;global-header__secondary-item&quot;&gt;
+            &lt;a href=&quot;https://www.tableau.com/search/all/try%2Btableau&quot; class=&quot;global-header__search-toggle&quot;&gt;Search&lt;/a&gt;
+          &lt;/li&gt;
         &lt;/ul&gt;
-         --&gt;
+        --&gt;
         &lt;div class=&quot;global-header__search-wrapper&quot;&gt;
           &lt;div class=&quot;global-header__search&quot;&gt;
             &lt;input class=&quot;global-header__search-input&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; name=&quot;q&quot; autocomplete=&quot;off&quot;&gt;

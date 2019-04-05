@@ -10918,12 +10918,15 @@ Style guide: documentation.breakpoints
       padding-bottom: 1.4em; } }
   @media (min-width: 961px) {
     body.kss .kss-example-preview .global-header__container {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
       padding-top: 2em;
       padding-bottom: 1.4em; } }
+  body.kss .kss-example-preview .global-header--cobranded .global-header__container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-align: center;
+        align-items: center; }
   body.kss .kss-example-preview .global-header:after {
     display: block;
     width: 100%;
@@ -10941,34 +10944,56 @@ Style guide: documentation.breakpoints
     opacity: 1; }
     @media (min-width: 961px) {
       body.kss .kss-example-preview .global-header__logo-wrapper {
-        -ms-flex: 0 1 140px;
-            flex: 0 1 140px;
+        float: left;
         margin: .2em 2em 0 0; } }
     @media (min-width: 1550px) {
       body.kss .kss-example-preview .global-header__logo-wrapper {
-        -ms-flex: 0 1 200px;
-            flex: 0 1 200px;
         margin: -.3em 2em 0 0;
         max-width: 200px; } }
+  body.kss .kss-example-preview .global-header__multi-logo-wrapper {
+    display: -ms-flexbox;
+    display: flex; }
+    @media (min-width: 640px) {
+      body.kss .kss-example-preview .global-header__multi-logo-wrapper {
+        -ms-flex-align: center;
+            align-items: center; } }
+  body.kss .kss-example-preview .global-header__multi-logo-wrapper img {
+    width: auto;
+    height: auto; }
+    @media (max-width: 639px) {
+      body.kss .kss-example-preview .global-header__multi-logo-wrapper img {
+        max-width: 126px;
+        max-height: 35px; } }
+    @media (min-width: 640px) and (max-width: 960px) {
+      body.kss .kss-example-preview .global-header__multi-logo-wrapper img {
+        max-width: 144px;
+        max-height: 40px; } }
+    @media (min-width: 961px) {
+      body.kss .kss-example-preview .global-header__multi-logo-wrapper img {
+        max-width: 180px;
+        max-height: 50px; } }
+  @media (max-width: 639px) {
+    body.kss .kss-example-preview .global-header__multi-logo-item {
+      margin-right: 1em; } }
+  @media (min-width: 640px) {
+    body.kss .kss-example-preview .global-header__multi-logo-item {
+      margin-right: 2em; } }
   body.kss .kss-example-preview .global-header__nav-wrapper {
     position: relative; }
     @media (min-width: 961px) {
       body.kss .kss-example-preview .global-header__nav-wrapper {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
+        float: left;
         margin-right: auto; } }
+  body.kss .kss-example-preview .global-header--cobranded .global-header__nav-wrapper {
+    -ms-flex: 1 auto;
+        flex: 1 auto; }
   @media (max-width: 960px) {
     body.kss .kss-example-preview .global-header__primary-nav {
       display: none;
       margin-top: 1em; } }
   @media (min-width: 961px) {
     body.kss .kss-example-preview .global-header__primary-nav {
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+      float: left;
       margin: .3em 0 0 0;
       white-space: nowrap; } }
   body.kss .kss-example-preview .global-header__primary-menu {
@@ -11092,12 +11117,11 @@ Style guide: documentation.breakpoints
       display: none; } }
   @media (min-width: 961px) {
     body.kss .kss-example-preview .global-header__secondary-nav {
+      float: right;
       position: relative;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
       margin: -.2em 0 0 0;
       padding: 0 45px 0 0;
-      white-space: nowrap; } }
+      text-align: right; } }
   body.kss .kss-example-preview .global-header__secondary-menu {
     margin: 0;
     padding: 0;
@@ -11323,13 +11347,16 @@ Style guide: documentation.breakpoints
         display: block;
         position: absolute;
         top: -1em;
-        right: 0; } }
+        right: -1em; } }
   @media (min-width: 961px) {
     body.kss .kss-example-preview .global-header__dropdown-nav {
       display: inline-block;
       transition: visibility 400ms cubic-bezier(0.77, 0, 0.175, 1), opacity 400ms cubic-bezier(0.77, 0, 0.175, 1);
       visibility: visible;
       opacity: 1; } }
+  body.kss .kss-example-preview .global-header__main-cta {
+    -ms-flex: 1 auto;
+        flex: 1 auto; }
   @media (max-width: 960px) {
     body.kss .kss-example-preview .global-header.is-open-hamburger .global-header__primary-nav,
     body.kss .kss-example-preview .global-header.is-open-hamburger .global-header__secondary-nav {
