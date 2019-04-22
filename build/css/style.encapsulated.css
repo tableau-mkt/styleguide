@@ -2262,7 +2262,7 @@ $(document).ready(function () {
   // Prepend the language if appropriate.
   $.ajax({
     // Use customer_menu=1 query parameter to include the optional customer menu.
-    url: 'https://navdrop-tableau.pantheonsite.io/' + langMap[lang] + 'ajax/menu/jsonp/tabAjaxMenu',
+    url: 'https://www.tableau.com/' + langMap[lang] + 'ajax/menu/jsonp/tabAjaxMenu',
     dataType: 'jsonp',
     // Set a static callback and explicitly set caching to true to ensure
     // we don't cache bust ourselves into oblivion. Without these set,
@@ -9995,12 +9995,13 @@ Style guide: typography.text-stat
     @media (min-width: 961px) {
       .tableau-styles .dropdown-nav__toggle {
         display: inline-block;
-        color: #333;
+        width: auto;
         padding: 6px 24px 6px 8px;
         font-size: 1em;
         line-height: 1;
         background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 512 512'%3E%3Cpath fill='%23333333' d='M5.2,176.9a12.5,12.5,0,0,1-2.7-17.5,12.5,12.5,0,0,1,17.5-2.7L256,326.8,492.2,156.6A12.5,12.5,0,1,1,506.7,177L256,357.8Z'/%3E%3C/svg%3E") no-repeat right 8px center;
-        background-size: 10px auto; } }
+        background-size: 10px auto;
+        color: #333; } }
   @media (min-width: 961px) {
     .tableau-styles .dropdown-nav__toggle:hover .dropdown-nav__title {
       text-decoration: underline; } }
@@ -10507,6 +10508,7 @@ Style guide: typography.text-stat
     .tableau-styles .global-header__secondary-nav {
       float: right;
       position: relative;
+      min-width: 250px;
       margin: -.2em 0 0 0;
       padding: 0 45px 0 0;
       text-align: right; } }
@@ -10537,7 +10539,7 @@ Style guide: typography.text-stat
         color: #777; } }
     @media (min-width: 961px) {
       .tableau-styles .global-header__secondary-link {
-        padding: .8em;
+        padding: 1.5em .8em;
         font-family: "Benton Sans Medium", Helvetica, sans-serif;
         font-size: 0.6875em;
         letter-spacing: 1px;
@@ -10547,13 +10549,16 @@ Style guide: typography.text-stat
       text-decoration: none; } }
   @media (max-width: 960px) {
     .tableau-styles .global-header__secondary-cta {
-      margin: 1.5em 0;
+      margin-top: 1.5em;
       font-size: 1em;
       line-height: 1;
       font-family: "Benton Sans Book", Helvetica, sans-serif; } }
   @media (min-width: 961px) {
     .tableau-styles .global-header__secondary-cta {
       margin-left: .8em; } }
+  @media (max-width: 960px) {
+    .tableau-styles .global-header__search-wrapper {
+      margin-top: 1.5em; } }
   .tableau-styles .global-header__search {
     display: none;
     position: relative; }
@@ -10682,7 +10687,7 @@ Style guide: typography.text-stat
       top: 0;
       right: 0;
       width: 45px;
-      height: 37px;
+      height: 45px;
       text-align: center;
       text-indent: -999em;
       overflow: hidden;
