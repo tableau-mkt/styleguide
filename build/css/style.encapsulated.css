@@ -10307,8 +10307,8 @@ Style guide: typography.text-stat
       padding-bottom: 1.4em; } }
   @media (min-width: 961px) {
     .tableau-styles .global-header__container {
-      padding-top: 2em;
-      padding-bottom: 1.4em; } }
+      padding-top: 1.75em;
+      padding-bottom: 1.75em; } }
   .tableau-styles .global-header--cobranded .global-header__container {
     display: -ms-flexbox;
     display: flex;
@@ -10334,7 +10334,7 @@ Style guide: typography.text-stat
     @media (min-width: 961px) {
       .tableau-styles .global-header__logo-wrapper {
         float: left;
-        margin: .2em 2em 0 0; } }
+        margin: .3em 2em 0 0; } }
     @media (min-width: 1550px) {
       .tableau-styles .global-header__logo-wrapper {
         margin: -.3em 2em 0 0;
@@ -10383,7 +10383,7 @@ Style guide: typography.text-stat
   @media (min-width: 961px) {
     .tableau-styles .global-header__primary-nav {
       float: left;
-      margin: .3em 0 0 0;
+      margin: .4em 0 .5em 0;
       white-space: nowrap; } }
   .tableau-styles .global-header__primary-menu {
     margin: 0;
@@ -10509,7 +10509,8 @@ Style guide: typography.text-stat
       float: right;
       position: relative;
       min-width: 250px;
-      margin: -.2em 0 0 0;
+      min-height: 45px;
+      margin: 0;
       padding: 0 45px 0 0;
       text-align: right; } }
   .tableau-styles .global-header__secondary-menu {
@@ -10539,6 +10540,7 @@ Style guide: typography.text-stat
         color: #777; } }
     @media (min-width: 961px) {
       .tableau-styles .global-header__secondary-link {
+        display: inline-block;
         padding: 1.5em .8em;
         font-family: "Benton Sans Medium", Helvetica, sans-serif;
         font-size: 0.6875em;
@@ -10547,15 +10549,17 @@ Style guide: typography.text-stat
   @media (max-width: 960px) {
     .tableau-styles .global-header__secondary-link:hover {
       text-decoration: none; } }
-  @media (max-width: 960px) {
-    .tableau-styles .global-header__secondary-cta {
-      margin-top: 1.5em;
-      font-size: 1em;
-      line-height: 1;
-      font-family: "Benton Sans Book", Helvetica, sans-serif; } }
-  @media (min-width: 961px) {
-    .tableau-styles .global-header__secondary-cta {
-      margin-left: .8em; } }
+  .tableau-styles .global-header__secondary-cta {
+    margin: 4px 0; }
+    @media (max-width: 960px) {
+      .tableau-styles .global-header__secondary-cta {
+        margin-top: 1.5em;
+        font-size: 1em;
+        line-height: 1;
+        font-family: "Benton Sans Book", Helvetica, sans-serif; } }
+    @media (min-width: 961px) {
+      .tableau-styles .global-header__secondary-cta {
+        margin-left: .8em; } }
   @media (max-width: 960px) {
     .tableau-styles .global-header__search-wrapper {
       margin-top: 1.5em; } }
