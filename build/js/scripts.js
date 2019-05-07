@@ -2275,6 +2275,54 @@ Components.AccordionGrid = function (element, options) {
 })(jQuery);
 ;
 /**
+ * Countdown Clock component interaction
+ * This script takes the client's current time and subtracts it from a given countdown deadline.
+ * It modifies the days, hours, and minutes on the countdown timer component.
+ */
+
+(function ( $ ) {
+  var convertEventTime;
+
+  $(document).ready(function () {
+    initCountdown();
+  });
+
+
+  function initCountdown() {
+    var $clock = $('.countdown-clock');
+    var clockDeadline = $clock.attr('data-clock-deadline');
+
+    // Grab the countdown-clock element and convert the date provided into a Moment with Pacific timezone
+    convertEventTime = moment.tz(clockDeadline, 'America/Los_Angeles');
+    updateCountdown();
+  }
+
+  function updateCountdown() {
+    // Calculate the time difference between the deadline time and the current time.
+    var currentTime = moment(),
+        diffDays = convertEventTime.diff(currentTime, 'days'),
+        diffHours = convertEventTime.diff(currentTime, 'hours'),
+        diffMinutes = convertEventTime.diff(currentTime, 'minutes'),
+        diffSeconds = convertEventTime.diff(currentTime, 'seconds');
+
+    // Make sure not to include the days in the hours calculation, or hours in minutes calculations.
+    var day = diffDays,
+        hour = diffHours - (diffDays * 24),
+        minute = diffMinutes - (diffHours * 60),
+        second = diffSeconds - (diffMinutes * 60);
+
+    // Show how many hours, minutes and seconds are left. Grab each of the elements for days/hours/minutes so we can modify them.
+    $('.countdown-clock__days').text(day);
+    $('.countdown-clock__hours').text(hour);
+    $('.countdown-clock__minutes').text(minute);
+    $('.countdown-clock__seconds').text(second);
+    setTimeout(updateCountdown,1000); // The interval is 1000ms
+  }
+
+
+}( jQuery ));
+;
+/**
  * Flyout content component interaction
  * See jquery.contentFlyout.js for details
  */

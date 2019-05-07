@@ -6071,6 +6071,41 @@ Style guide: interactive.context-switcher
         display: none; }
 
 /*
+Countdown Clock
+
+A clock that counts down to a given date/time in the format Months, Days, Hours, Minutes.
+Set data-clock-deadline to be YYYY-MM-DD HH:MM  in 24 hour format.
+
+Markup: countdown-clock.hbs
+
+Style guide: interactive.countdown-clock
+*/
+.countdown-clock {
+  text-align: center;
+  line-height: 1.3; }
+  .countdown-clock .countdown-clock__time {
+    display: inline-block;
+    padding: 0em  1em; }
+  .countdown-clock .countdown_clock__number {
+    font-family: "Benton Sans Medium", Helvetica, sans-serif;
+    font-size: 3.5em;
+    display: inline-block; }
+  .countdown-clock .countdown-clock__label {
+    font-size: 1em;
+    font-family: "Benton Sans Book", Helvetica, sans-serif;
+    font-size: 0.6875em;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      .countdown-clock .countdown-clock__label {
+        -webkit-font-smoothing: subpixel-antialiased; } }
+  @media (max-width: 639px) {
+    .countdown-clock .countdown-clock__time {
+      padding: 0em  0.5em; }
+    .countdown-clock .countdown-clock__label {
+      font-size: .8em; } }
+
+/*
 Fadable
 
 Fade-in effect over invisible defaults, like personalization (no baked-in interactions).
