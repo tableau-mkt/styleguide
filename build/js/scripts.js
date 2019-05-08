@@ -2290,6 +2290,12 @@ Components.AccordionGrid = function (element, options) {
 
   function initCountdown() {
     var $clock = $('.countdown-clock');
+
+    // Exit if no countdowns exist on the page, or moment is not available.
+    if (!$clock.length || !window.moment || !window.moment.tz) {
+      return;
+    }
+
     var clockDeadline = $clock.attr('data-clock-deadline');
 
     // Grab the countdown-clock element and convert the date provided into a Moment with Pacific timezone
