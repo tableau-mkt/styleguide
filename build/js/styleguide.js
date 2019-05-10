@@ -11,7 +11,7 @@ $(document).ready(function() {
         // Use customer_menu=1 query parameter to include the optional customer menu.
         // @todo update this to www.tableau.com once global-header related PR is deployed (target late April 2019)
         // url: 'https://www.tableau.com/ajax/menu/jsonp/tabAjaxMenu',
-        url: 'https://navajax-tableau.pantheonsite.io/ajax/menu/jsonp/tabAjaxMenu',
+        url: 'https://www.tableau.com/ajax/menu/jsonp/tabAjaxMenu',
         // url: '//local.tableau.com/ajax/menu/jsonp/tabAjaxMenu',
         dataType: 'jsonp',
         // Set a static callback and explicitly set caching to true to ensure
