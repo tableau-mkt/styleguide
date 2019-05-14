@@ -10455,7 +10455,8 @@ Style guide: typography.text-stat
     .tableau-styles .global-header__primary-link:hover,
     .tableau-styles .global-header__primary-link:focus {
       text-decoration: underline; } }
-  .tableau-styles .global-header__primary-link.active-trail {
+  .tableau-styles .global-header__primary-link.active-trail,
+  .tableau-styles .global-header__primary-link.active {
     font-family: "Benton Sans Medium", Helvetica, sans-serif; }
   @media (max-width: 960px) {
     .tableau-styles .global-header__primary-item.is-open .global-header__primary-link {
@@ -10533,7 +10534,8 @@ Style guide: typography.text-stat
   @media (min-width: 961px) {
     .tableau-styles .global-header__primary-sublink--repeat {
       display: none; } }
-  .tableau-styles .global-header__primary-sublink.active-trail {
+  .tableau-styles .global-header__primary-sublink.active-trail,
+  .tableau-styles .global-header__primary-sublink.active {
     font-family: "Benton Sans Medium", Helvetica, sans-serif; }
   @media (max-width: 960px) {
     .tableau-styles .global-header__secondary-nav {

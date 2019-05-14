@@ -10531,7 +10531,8 @@ Style guide: navigation.global-header
   .global-header__primary-link:focus {
     text-decoration: underline; } }
 
-.global-header__primary-link.active-trail {
+.global-header__primary-link.active-trail,
+.global-header__primary-link.active {
   font-family: "Benton Sans Medium", Helvetica, sans-serif; }
 
 @media (max-width: 960px) {
@@ -10621,7 +10622,8 @@ Style guide: navigation.global-header
   .global-header__primary-sublink--repeat {
     display: none; } }
 
-.global-header__primary-sublink.active-trail {
+.global-header__primary-sublink.active-trail,
+.global-header__primary-sublink.active {
   font-family: "Benton Sans Medium", Helvetica, sans-serif; }
 
 @media (max-width: 960px) {
