@@ -2,7 +2,8 @@
  {{#each features}}
   <div class="feature-list__feature">
     <div class="feature-list__icon">
-      <span><i class="icon icon--{{ icon }}"></i></span>
+      <span><i title="{{ icon }}" aria-hidden="true" class="icon icon--{{ icon }}"></i></span>
+      <span class="sr-only">Icon {{ icon }}</span>
     </div>
     <div class="feature-list__copy">
       <h3 class="feature-list__title">{{ title }}</h3>

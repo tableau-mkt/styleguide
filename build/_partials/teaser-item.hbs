@@ -2,7 +2,8 @@
   {{#if icon}}
     <div class="teaser-item__icon">
       {{#if link}}<a{{#if link.target}} target="{{link.target}}"{{/if}} href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
-        <span class="icon--{{ icon }}"></span>
+        <span title="{{ icon }}" aria-hidden="true" class="icon--{{ icon }}"></span>
+        <span class="sr-only">{{ icon }}</span></a>
       {{#if link}}</a>{{/if}}
     </div>
   {{/if}}
@@ -25,11 +26,11 @@
     {{/if}}
 
     {{#if title}}
-      <h5 class="teaser-item__title">
+      <h3 class="heading--h5 teaser-item__title">
         {{#if link}}<a{{#if link.target}} target="{{link.target}}"{{/if}} href="{{ link.href }}" class="{{ link.class}}" {{#if link.dataAttrs}} {{{attrs link.dataAttrs}}}{{/if}}>{{/if}}
           {{{ title }}}
         {{#if link}}</a>{{/if}}
-      </h5>
+      </h3>
     {{/if}}
 
     {{#if label}}

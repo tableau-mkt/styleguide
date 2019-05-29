@@ -29,7 +29,9 @@
     {{#if social}}
       <div class="person-teaser__social">
       {{#each social}}
-        <a class="link--social link--social-{{ name }}" href="{{ url }}"><i class="icon icon-social-{{ name }}"></i></a>
+        <a class="link--social link--social-{{ name }}" href="{{ url }}">
+          <i title="{{ name }}" aria-hidden="true" class="icon icon-social-{{ name }}"></i>
+          <span class="sr-only">{{ name }}</span></a>
       {{/each}}
       </div>
     {{/if}}
