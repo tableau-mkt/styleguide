@@ -288,6 +288,18 @@ jQuery(function ($) {
 });
 ;
 /**
+ * Banner Ad interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var id = $('.page-top-banner-ad').attr('id');
+
+    $.removeCookie('page-top-banner-ad-' + id);
+  });
+}( jQuery ));
+;
+/**
  * News Interstitial interaction
  */
 

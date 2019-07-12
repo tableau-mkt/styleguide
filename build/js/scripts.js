@@ -3999,6 +3999,60 @@ Components.topicNav.setActiveTab = function (topic) {
 $(document).ready(Components.topicNav.init);
 ;
 /**
+ * Banner Ad interaction
+ */
+
+(function ($) {
+  $(document).ready(function() {
+    var $banner = $('.page-top-banner-ad'),
+        $placeholder = $banner.clone(),
+        id = $banner.attr('id'),
+        $closeLink = $banner.find('.page-top-banner-ad__close a'),
+        isDismissed = $.cookie('page-top-banner-ad-' + id),
+        animation = {
+          duration: 500,
+          easing: "easeInOutQuart"
+        };
+
+    // Only show if the message hasn't been dismissed before or if it's forced
+    // with a URL fragment.
+    if (!isDismissed || window.location.hash === '#banner') {
+      $banner.addClass('is-active');
+
+      // Use a clone of the banner as a placeholder to manage the height of the
+      // banner. This is necessary because the banner is fixed position and
+      // removed from the document flow. Avoids managing height with a resize
+      // event listener.
+      $placeholder.addClass('page-top-banner-ad__clone');
+
+      $banner.after($placeholder);
+
+      // Short delay for a more prominent "entrance" and to help the background
+      // image load more before display.
+      $placeholder.delay(500).slideDown(animation);
+    }
+
+    // Close banner when close link is clicked.
+    $closeLink.click(function(e) {
+      // Animate the placeholder height to hide the banner and then make sure
+      // the banner and placeholder are completely hidden.
+      $placeholder.slideUp($.extend(animation, {
+        complete: function () {
+          $banner.add($placeholder).removeClass('is-active');
+        }
+      }));
+
+      // Set a cookie to indicate the user has dismissed the banner.
+      // Expires after 2 weeks to safe-guard against someone adding a new
+      // banner with an old ID.
+      $.cookie('page-top-banner-ad-' + id, 1, { expires: 14 });
+
+      e.preventDefault();
+    });
+  });
+}( jQuery ));
+;
+/**
  * News Banner interaction
  */
 
