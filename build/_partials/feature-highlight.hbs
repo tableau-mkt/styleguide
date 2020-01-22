@@ -10,7 +10,9 @@
       </div>
     {{else}}
       {{#with thumbnail}}
-        <img src="{{ src }}"{{#if attributes}} {{{attrs attributes}}}{{/if}} />
+        <div class="thumbnail {{ thumbnail.modifier_class }}">
+          <img src="{{ src }}"{{#if attributes}} {{{attrs attributes}}}{{/if}} />
+        </div>
       {{/with}}
     {{/if}}
   </div>

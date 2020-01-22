@@ -239,8 +239,8 @@ Style Guide: media.icons
 */
 @font-face {
   font-family: "tableau-icons";
-  src: url("../fonts/tableau-icons-f770cb36b57235bd9f1e17c582881bba.eot?f770cb36b57235bd9f1e17c582881bba");
-  src: url("../fonts/tableau-icons-f770cb36b57235bd9f1e17c582881bba.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-f770cb36b57235bd9f1e17c582881bba.woff?f770cb36b57235bd9f1e17c582881bba") format("woff"), url("../fonts/tableau-icons-f770cb36b57235bd9f1e17c582881bba.ttf?f770cb36b57235bd9f1e17c582881bba") format("truetype");
+  src: url("../fonts/tableau-icons-71ed65da4fb55e83fdb3010052a225b5.eot?71ed65da4fb55e83fdb3010052a225b5");
+  src: url("../fonts/tableau-icons-71ed65da4fb55e83fdb3010052a225b5.eot?#iefix") format("embedded-opentype"), url("../fonts/tableau-icons-71ed65da4fb55e83fdb3010052a225b5.woff?71ed65da4fb55e83fdb3010052a225b5") format("woff"), url("../fonts/tableau-icons-71ed65da4fb55e83fdb3010052a225b5.ttf?71ed65da4fb55e83fdb3010052a225b5") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -12288,136 +12288,6 @@ Style Guide: navigation.topic-nav
           transform: rotate(180deg); }
 
 /*
-Announcement Bar
-
-Static bar to display an announcement in a short bar spanning the page.
-
-Markup: announcement_bar.hbs
-
-Weight: 20
-
-.announcement-bar--dark-text - Dark link text.
-
-Style guide: promos.announcement_bar
-*/
-.announcement-bar {
-  margin: 0;
-  background-color: #787878; }
-  .announcement-bar .announcement-bar__link {
-    display: block;
-    padding: 0.3em;
-    color: #fff;
-    text-align: center;
-    font-family: "Benton Sans Medium", Helvetica, sans-serif;
-    line-height: 1.5em; }
-    .announcement-bar .announcement-bar__link:after {
-      font-family: "tableau-icons";
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 1;
-      font-weight: normal;
-      font-style: normal;
-      speak: none;
-      text-decoration: inherit;
-      text-transform: none;
-      text-rendering: auto;
-      text-decoration: none;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      content: "\f113";
-      padding-left: 10px;
-      font-size: 1.25em; }
-  .announcement-bar.announcement-bar--dark-text .announcement-bar__link, .announcement-bar.text--dark-body .announcement-bar__link {
-    color: #333; }
-
-/*
-Banner Ad
-
-A Banner Ad displays content to promote an important announcement to the
-user. A Banner Ad is displayed the first time a user visits the page and
-then stores a cookie as soon as they dismiss the message to not show the same
-message to the user again. Individual messages are identified by their `id`
-attribute so it's important to make sure different messages have a unique
-ID.
-
-Due to the nature of fixed positioned elements, the examples below don't function
-properly. This component is meant to be placed at the very top of a page in
-order to be displayed properly.
-
-The overly descriptive class name is to try and thwart ad blocker browser extensions
-
-Markup: banner_ad.hbs
-
-Weight: 10
-
-.page-top-banner-ad--dark - Dark background with light text to contrast.
-
-Style guide: promos.banner_ad
-*/
-.page-top-banner-ad {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 2em 0;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  color: #333;
-  text-align: center; }
-  .page-top-banner-ad.is-active {
-    display: block; }
-  .page-top-banner-ad .page-top-banner-ad__background {
-    overflow: hidden;
-    line-height: 0;
-    text-align: center; }
-    .page-top-banner-ad .page-top-banner-ad__background img {
-      width: 100%;
-      max-width: 1550px; }
-  .page-top-banner-ad .page-top-banner-ad__close {
-    position: absolute;
-    z-index: 1;
-    top: 1em;
-    right: 1em;
-    line-height: 1; }
-    .page-top-banner-ad .page-top-banner-ad__close a {
-      color: #333;
-      font-size: 1.5em; }
-  @media (max-width: 639px) {
-    .page-top-banner-ad .page-top-banner-ad__background img {
-      width: 200%;
-      margin-left: -50%; }
-    .page-top-banner-ad .page-top-banner-ad__close {
-      top: 0.5em;
-      right: 0.5em; } }
-  .page-top-banner-ad .cta--secondary {
-    border-color: #333;
-    color: #333; }
-    .page-top-banner-ad .cta--secondary:hover {
-      border-color: #444;
-      color: #444; }
-  .page-top-banner-ad.page-top-banner-ad--dark, .page-top-banner-ad.text--negative, .tooltip .page-top-banner-ad.tooltip__text {
-    background-color: #1b1b1b;
-    color: #fff; }
-    .page-top-banner-ad.page-top-banner-ad--dark h1, .page-top-banner-ad.page-top-banner-ad--dark h2, .page-top-banner-ad.page-top-banner-ad--dark h3, .page-top-banner-ad.page-top-banner-ad--dark h4, .page-top-banner-ad.page-top-banner-ad--dark h5, .page-top-banner-ad.page-top-banner-ad--dark h6,
-    .page-top-banner-ad.page-top-banner-ad--dark .page-top-banner-ad__close a, .page-top-banner-ad.text--negative h1, .tooltip .page-top-banner-ad.tooltip__text h1, .page-top-banner-ad.text--negative h2, .tooltip .page-top-banner-ad.tooltip__text h2, .page-top-banner-ad.text--negative h3, .tooltip .page-top-banner-ad.tooltip__text h3, .page-top-banner-ad.text--negative h4, .tooltip .page-top-banner-ad.tooltip__text h4, .page-top-banner-ad.text--negative h5, .tooltip .page-top-banner-ad.tooltip__text h5, .page-top-banner-ad.text--negative h6, .tooltip .page-top-banner-ad.tooltip__text h6,
-    .page-top-banner-ad.text--negative .page-top-banner-ad__close a, .tooltip .page-top-banner-ad.tooltip__text .page-top-banner-ad__close a {
-      color: #fff; }
-    .page-top-banner-ad.page-top-banner-ad--dark .cta--secondary, .page-top-banner-ad.text--negative .cta--secondary, .tooltip .page-top-banner-ad.tooltip__text .cta--secondary {
-      border-color: #fff;
-      color: #fff; }
-      .page-top-banner-ad.page-top-banner-ad--dark .cta--secondary:hover, .page-top-banner-ad.text--negative .cta--secondary:hover, .tooltip .page-top-banner-ad.tooltip__text .cta--secondary:hover {
-        border-color: #fff;
-        color: #fff; }
-
-.page-top-banner-ad__clone {
-  visibility: hidden;
-  display: none;
-  z-index: -1;
-  position: relative; }
-
-/*
 News Banner
 
 A News Banner displays content to promote an important announcement to the
@@ -12434,8 +12304,6 @@ order to be displayed properly.
 Markup: news-banner.hbs
 
 Weight: 10
-
-Hidden:true
 
 .news-banner--dark - Dark background with light text to contrast.
 
@@ -12492,8 +12360,6 @@ News Ticker
 A slim auto-scrolling slider of note-worthy news items with a link.
 
 Markup: news-ticker.hbs
-
-Hidden:true
 
 Weight: 20
 
